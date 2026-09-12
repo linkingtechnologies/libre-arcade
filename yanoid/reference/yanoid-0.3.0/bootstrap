@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# This script can be used to bootstrap yanoid's autotool setup.
+# Due to a minor bug in automake version 1.4, the toplevel Makefile.in 
+# will be patched. This is only relevant if you plan on doing a 
+# make dist - I use that, which is why I like it to work.
+
+echo Setting up m4 macros && \
+aclocal -I config && \
+echo Creating headers && \
+autoheader && \
+echo Autogenerating Makefile.ins && \
+automake --add-missing --copy && \
+echo Patching toplevel Makefile.in && \
+cat Makefile.in | sed 's/cp -pr \$\$\/\$/cp -pr \$\$d\/\$/' > Makefile.in.patch && \
+mv -f Makefile.in.patch Makefile.in && \
+echo Creating configure script && \
+autoconf && \
+echo "You can now run ./configure --help (or ./configure && make)" \
+|| echo Some kind of error happened - you can not run ./configure.

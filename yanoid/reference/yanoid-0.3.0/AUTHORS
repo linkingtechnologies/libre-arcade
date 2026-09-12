@@ -1,0 +1,20 @@
+- Artist
+Bjarke Sørensen	<bs@wasd.dk>
+
+- General engine
+- Graphics effect programming
+- Collision detection
+- Console integration
+- Artist
+Jonas Christian Drewsen <jcd@xspect.dk>
+
+- General engine
+- Ressource management
+- Debug support
+- Menu support
+- Scripting interface 
+Mads Bondo Dydensborg <mads@dydensborg.dk> 
+
+The source code in src/ConsoleSource has been taken from the
+SDL_console project, and modified slightly to fit yanoid better.
+

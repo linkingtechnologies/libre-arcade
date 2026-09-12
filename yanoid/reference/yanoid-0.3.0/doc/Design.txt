@@ -1,0 +1,204 @@
+This document contains design notes.
+
+Have a look at Design.fig or Design2.fig
+
+In this file, there overall of yanoid is displayed. In the following
+each class (object, singleton, whatever, I suck at design and
+formalism) is depicted. In the following I will try to explain each
+objects role.
+
+First a general description.
+
+TGame maintains the games state. On each client a full copy of the
+state will be present, and each client will run a TGame
+instance. TGames synchronize their state via TNetwork objects.
+
+The role of the TInput object is to receive "raw" input events from
+the local keyboard, mouse, whatever, and map it to "game
+actions/commands". E.g. pressing "left" may issue the command 
+"(key-press 'left)" (Maybe commands will also go directly to the game 
+and display - haven't thought this totally through).
+
+On each client, a TDisplay object will read the state from a TGame
+(using shared memory or a function call, or something) and render a
+representation of the state to the local screen. The TDisplay class
+will also know wheter or not to display the menu and console. 
+
+The TMenu class somehow displays all menus, and whenever a user does
+something, a script is executed that may change the menu state, the
+display state or the game state. Similarly to the console (the console
+may wish to consume raw input events, possibly forwarded from the
+display)
+
+Below is a more formal/detailed description of each class/objects
+responsibilities.
+
+Warning: I have not described "TEntity" - it will be an entity
+in the game world, say a ball, a paddle, a brick, a powerup, etc.
+It will be the basic unit that we operate on, subject to physics, 
+etc.
+
+Template for class descriptions
+
+**********************************************************************
+Class       : <ClassName>
+Description : <ClassDescription>
+
+Contracts:  
+<List of contracts - responsibilities>
+- <Summary>
+  <What does this imply>
+
+    ::<List of methods to support this contract>
+
+      Description of method
+
+Responsibilities: Hmm. 
+
+**********************************************************************
+Class       : TGame
+Description : This class maintains the games state, rules
+              etc on a client. It synchronizes with other 
+	      TGames on other clients.
+Contracts:
+
+- Change the game state according to the rules and entity behavouir
+  "Know the game state", "Know the rules", "Know the entities", 
+  "Run Rules", "Run behavoir", etc.
+
+  void Update(TimeNow)
+ 
+    This method will update the game to the current time, through
+    discrete intervals, while enforcing rules and getting updates
+    from the TNetwork.  
+
+- Supply the gamestate
+  Implies most of the stuff from Change the gamestate
+  
+  TGameState * GetState()
+
+- Supply console info
+  "Know console info"
+
+  stringList * GetConsoleInfo
+
+    This method will deliver game information that is intended for
+    printing on the console. (Should it rather go via the interprenter?)
+
+**********************************************************************
+Class       : TInput
+Description : TInput receives raw input events, like keyboard presses,
+              mouse moves, etc, and translates the raw events into
+              game actions/commands, and pass these on to the 
+	      TInterprenter object. Events will be taken from the
+	      SDL Event system, and be queued for translating and 
+	      stuffing into the TInterprenter system at a suitable time.
+
+Contracts:
+
+- Stuff the queue of commands into the TInterprenter object.
+  "Know the event queue", "Know the basic event to command translations"
+  
+  void StuffCommands()
+
+    This method will translate all events, and stuff them to the
+    TInterprenter a command at a time.
+
+**********************************************************************
+Class       : TInterprenter
+Description : TInterprenter is the C++ interface to the interprenter.
+	      It should wrap whatever interprenter we choose in a 
+	      suitable way. We will maintain a single global context
+	      (which may influence the way we have to write scripts).
+
+Contracts:
+
+- Evaluate a single command - a single expression - a single line.
+  "Know the global context"
+
+  ReturnValue EvaluateLine(string)
+
+    This method will evaluate the expression in the string
+
+- Evaluate any number of commands
+
+  ReturnValue EvaluateLines(stringList?)
+
+    This method will evaluate all expressions in the stringlist
+
+- Evaluate a ressourcefile
+
+  ReturnValue EvaluateFile(string)
+
+    This method will load the ressource named in file, if possible,
+    and evaluate it.
+
+**********************************************************************
+Class       : TDisplay
+Description : TDisplays job is to retrieve the game state from the
+	      TGame object, and render it to the screen.
+	      It also keeps track of wheter or not the menu and 
+	      console is shown, and renders them if neccesary.
+
+Contracts:
+
+- Retrieve game state from TGame and render it.
+  
+  void Render(SDL_Surface)
+
+   This method will retrieve the gamestate from TGame, and render it.
+   It will also render menus and the console, if neccesary.
+
+**********************************************************************
+Class       : TConsole
+Description : The console shows a backlog of all console messages, as
+	      well as the commands the player have typed into the
+	      console. The console can be in one of two states; 
+	      passive and active. In passive, the console does not
+	      accept any commands, only shows stuff, in active
+	      it accepts commands. Possibly there will be
+	      substates of active - various rendering ways mostly.
+
+Contracts:
+
+- Retrieve consoleinfo and render the console
+
+  void Render(SDL_Surface)
+
+    This method will retreive the consoleinfo from the TGame, and 
+    render the console. It will render a prompt etc, if in active mode
+
+  void ChangeState(state)
+
+    This method will change the console to either active or passive
+    mode, as indicated in the state variable.
+
+**********************************************************************
+Class       : TMenu
+Description : The TMenu object should display the menu structure. This
+	      implies that it will somehow track where we are in the
+	      structure, etc. I currently have only a vague idea on 
+	      how this can be done and how it will relate to
+	      scripting. However, triggering any menu entry should
+	      trigger a command in the scripting subsystem, that
+	      could possible change the menu state.
+
+Contracts:
+
+- void Render(SDL_Surface)
+  
+    This method will render the menu. Currently I do not know if the
+    menu will track its displaying, or the Display. There are some
+    issues with relation to the current game super state as well - 
+    if we are in the game, changing the settings for the current 
+    game is probably not a good idea.
+    
+**********************************************************************
+Class       : TClient
+Description : TClient is mostly a wrapper for the gameloop.
+
+Contracts:
+
+- void Run()
+
+    This method starts the game, and exits when the game is done

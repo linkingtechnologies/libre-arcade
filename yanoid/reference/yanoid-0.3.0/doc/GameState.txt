@@ -1,0 +1,10 @@
+This document tries to describe the game state objects. 
+
+The purpose of the GameState object is to contain the game state -
+that is, mostly state used for rendering (but possibly for the network 
+as well).
+
+The information needed to display a map, is contained in TMapState
+
+Hmm. I do not know what to put in here currently. I think of this as
+basically a large data container. 

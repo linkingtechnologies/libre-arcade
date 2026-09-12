@@ -1,0 +1,28 @@
+This are some ramblings about the multiplayer aspect of yanoid
+
+Hot seat is not considered
+
+Q: How many players should be able to parcipitate? 2? More?
+Since we have fixed maps, we need a fixed set of players.
+
+I think 4 would be nice.
+
+
+- network play
+
+  - Cooperative 
+    - multiple paddles on the same map, controlled
+      by individual players.
+    - Others?
+
+  - Non-Cooperative
+    - multiple paddles on the same map, controlled
+      by individual players - a player loose a life, if
+      he looses a ball.
+    - multiple copies of the same map, paddles on each
+      controlled by each player. Special bricks or 
+      conditions triggered by one player can influence other
+      players (ie, stealing their ball, adding bricks, etc).
+
+
+   

@@ -1,0 +1,238 @@
+2001-12-01  Mads Bondo Dydensborg  <madsdyd@ripley>
+
+	* RELEASE!
+	Version 0.3.0 will be the version submitted for the SDL
+	contest. It includes a bunch of minor changes, and several new
+	powerups and a new map. We did not have time to include all the
+	stuff we wished. To bad.
+	Tagging version 0.3.0
+
+	* Various
+	Removed some print stuff from various places
+	Adjusted the buffer mix size
+	Added a time bonus on level complete
+	Tagging version 0.2.2
+
+2001-11-30  Mads Bondo Dydensborg  <madsdyd@ripley>
+
+	* Sounds
+	Added a number of sounds
+	Tagging version 0.2.1
+
+	* Fixes
+	A lot of minor fixes
+	Updated makefiles to only install files that are used
+	Tagging version 0.2.0
+
+2001-11-27  Mads Bondo Dydensborg  <madsdyd@ripley>
+
+	* Powerups
+	Added falling down powerups
+	Added two different shots
+	Lots to be done
+	Added map5.py
+	Added a SetMapName function, and a text effect for 
+	writing the map name
+
+2001-11-24  Mads Bondo Dydensborg  <madsdyd@ripley>
+
+	* Cleaning up
+	Moved a lot of the graphics data around
+	Added a "delayed" entity adding on TMap
+	Added "testing" powerup
+
+2001-11-23  Mads Bondo Dydensborg  <madsdyd@ripley>
+
+	* Various
+	Made the game load code more stable, take into 
+	account that some maps may not load correctly
+	Added time display and moved HUD elements around
+	Added cheat code to console
+	
+
+2001-11-21  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Sounds and stuff
+	Added some sounds, now can be played from scripts
+	Bricks can now stay for "some" time
+	Added CREDITS file
+
+2001-11-20  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Cleaning lady
+	Added a lot of stuff to the README file
+	Releasing version 0.1.0 - first public release
+
+2001-11-18  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Sound
+	Added soundmanager
+	Added sound when a brick goes (should probably be scriptable)
+	Fixed menu background missing
+	Reset ball position and movement, when ball is lost
+	Code to make help and about text now in place.
+
+2001-11-17  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Gameplay
+	Made the game change maps, when a map is completed
+	Updated the TODO file
+	Tagged version 0.0.10
+	Started adding sounds to events.
+
+2001-11-16  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Gameplay
+	Added a score and lives display
+	Game now adds balls, and reduces lives
+	Added a gameover menu
+	Fixed crash on exit
+
+2001-11-14  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Gameplay
+	Added a THole, that can swallow a ball. 
+	First steps towards rounds, score and such.
+
+2001-11-13  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Version
+	Tagging version 0.0.8
+	Includes Jonas collision things.
+	Includes various stuff, 
+
+2001-11-11  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Version
+	Stepped the version number to 0.0.8
+
+2001-11-05  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Menu
+	Fiddled a bit with the in game menu
+	Made the minimum version check of python work
+	Made the "end game" and Toggle Full Screen work
+
+2001-11-04  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Menu
+	Implemented the pre game menu
+	Implemented the in game menu
+	Still lacks game "turns" stuff
+
+2001-11-03  Mads Bondo Dydensborg  <madsdyd@mother>
+
+	* Menu
+	Added a fontmanager, made the highscore use it
+	Added menu class, no implementation yet
+
+2001-11-02  Mads Bondo Dydensborg  <madsdyd@ripley>
+        * Graphics
+	Added graphics from Bjarke
+	Changed size of screen to 800x600
+	Changed maps (map1.py and map2.py)
+	Added toggle between fullscreen and window 
+
+2001-10-21  Mads Bondo Dydensborg  <madsdyd@ripley>
+
+	* Python
+	Fixed the bugs that made it impossible to run maps.
+
+2001-10-18  Mads Bondo Dydensborg  <madsdyd@ripley.localdomain>
+
+	* Stuff
+	Added a LogLineExt method to the log system.
+
+2001-10-15  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Structure
+	Moved some stuff around in preparation for having the
+	client control the "session" more. 
+	Loads a default map.
+	Beginning to add support for scripted events on collisions.
+	
+2001-10-13  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* GameTime
+	Changed the code in client, to include finer graded virtuel
+	simulated time. (Fancy words, simple thing).
+
+2001-10-11  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Collision
+	Collision code is ok, but the actions carried out on a collosion
+	is not.
+	Added a ball which gets loaded when map1.py is loaded.
+
+2001-10-07  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Python
+	Fixed problem with crashing python.
+
+2001-10-07  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Map loading
+	Map loading now includes static objects and the paddle.
+
+2001-10-05  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Paddle
+	Moved the paddle to the gamestate, where it belongs
+	Due to some weirdness in the collision detection code, 
+	it was neccesary to fixate one of the moving ovals.
+
+2001-10-04  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Version 0.0.6
+	Jonas have added paths, motion, bounding boxes and simple
+	collision detection. No comments, though :-)
+	I added some more autoconf voodoo to fix embedding python, and a
+	beginning of map loading.
+	Tagging this is version 0.0.6
+
+2001-09-28  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Interprenter
+	Added first shot at Pythin support. The autotools are probably
+	flaky like hell. But, it sort of works, unless you tie uo the
+	interprenter for too long, in which case yanoid crashes horribly.
+
+2001-09-27  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Various
+	Made sure everything compiles, all stuff is included in installs,
+	and distributions. 
+	Made the console stuff from Jones be path independent.
+	Jonas hava also added support for mod and ogg files, 
+	and performs some tricky stuff with libtool! (gaderespekt).
+	Tagging this as 0.0.4
+
+2001-09-26  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Map
+	Added a map class. Changed the entity to load a small 
+	brick. Added some info about the videomode flags.
+
+2001-09-25  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* Design
+	Added a couple of design documents. 
+	Added entity, game, display and client files.
+	Display a smooth moving logo on screen.
+	Tagging version 0.0.3
+
+2001-09-24  Mads Bondo Dydensborg  <madsdyd@dydensborg.dk>
+
+	* RessourceManager
+	First shot at a ressourcemanager. Loads SDL_Surfaces.
+	The stuff about THandle may be a big mistake.
+	Removed it.
+	Tagging version 0.0.2
+
+2001-09-22  Mads Bondo Dydensborg  <mads@dydensborg.dk>
+
+	* (Everything)
+	Made initial project, with autoconf support.
+	Created cvs repository. 
+	Tagging first version (0.0.1)
+

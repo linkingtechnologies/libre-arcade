@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#090b0d">
+  <title>Yanoid</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <header class="topbar">
+      <img src="./assets/yanoid.png" alt="Yanoid" class="logo">
+      <nav class="top-actions" aria-label="Game menu">
+        <button id="startBtn" class="primary">Start game</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="helpBtn">How to play</button>
+        <button id="aboutBtn">About</button>
+      </nav>
+    </header>
+
+    <section class="hud" aria-live="polite">
+      <span id="score">Score: 0</span>
+      <span id="lives">Lives: 5</span>
+      <span id="stage">Stage: 1/11</span>
+      <span id="time">Time: 0:00</span>
+      <span id="powerup" hidden></span>
+      <span id="best">Best: 0</span>
+    </section>
+
+    <section class="game-wrap" aria-label="Yanoid game area">
+      <canvas id="game" width="800" height="600" aria-label="Yanoid game" tabindex="0"></canvas>
+    </section>
+
+    <section class="touch-controls" aria-label="Touch controls">
+      <button data-control="left" class="touch-button" aria-label="Move left">◀</button>
+      <button data-control="fire" class="touch-button fire" aria-label="Fire">●</button>
+      <button data-control="right" class="touch-button" aria-label="Move right">▶</button>
+    </section>
+
+    <footer class="footer-controls">
+      <label class="switch"><input id="soundToggle" type="checkbox" checked><span id="soundLabel">Sound</span></label>
+      <label class="switch"><input id="musicToggle" type="checkbox" checked><span id="musicLabel">Music</span></label>
+      <button id="fullscreenBtn">Fullscreen</button>
+      <button id="langBtn">Italiano</button>
+    </footer>
+  </main>
+
+  <dialog id="helpDialog">
+    <article>
+      <h2 id="helpTitle">How to play</h2>
+      <p id="helpText"></p>
+      <p class="keys"><kbd>←</kbd> <kbd>→</kbd> &nbsp; <kbd>Space</kbd> &nbsp; <kbd>Esc</kbd></p>
+      <button id="helpClose" class="primary">Close</button>
+    </article>
+  </dialog>
+
+  <dialog id="aboutDialog">
+    <article>
+      <h2 id="aboutTitle">Yanoid</h2>
+      <p id="aboutText"></p>
+      <p class="small">Original Yanoid © 2001 its authors and contributors. Web port licensed under GPL-3.0-or-later.</p>
+      <button id="aboutClose" class="primary">Close</button>
+    </article>
+  </dialog>
+
+  <noscript>This game requires JavaScript.</noscript>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

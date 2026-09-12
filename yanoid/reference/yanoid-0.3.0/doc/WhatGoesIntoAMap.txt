@@ -1,0 +1,34 @@
+This is a general rambling about stuff that goes into a map.
+
+A map consists at least of
+
+- a size (measured in pixels)
+  This is the area that the map needs to have complete control over.
+  This is also the area that any ball can be within. If the whole of a
+  ball leaves this area (no pixel intersection), the ball is lost.
+
+- a description of all objects that go into the map, partitioned into
+  - objects that the player must remove to finish the map
+  - objects that the player do not need to remove to finish the map
+  Note; objects of both categories can be added during play, this is 
+  just the initial state.
+  An object can be a brick, a powerup, etc, etc.
+
+- one or more paddle paths
+  A paddle path is the path a paddle can follow. (How to describe
+  this?)
+  For each path it may be neccesary to define a "loss" area - if the
+  ball goes through this area and then falls off the map, the paddle
+  on the path in question "lost" that particular ball (needed for 
+  multiplayer. It is not enough to check for crossing a path, since
+  we could have maps where the ball could fall off the edges, without
+  crossing a path? Does that make sense?). 
+  For each potential concurrently existing paths, the path needs to 
+  be somehow marked as beeing a singleplayer or multiplayer path. That
+  is, if the path exists in games with 1, 2, 3, 4 players.
+
+- description of what happens each time the player restarts on the
+  map. 
+  This could be some special obejcts, doing weird effects, etc.
+
+- description of what happens when the map is completed.

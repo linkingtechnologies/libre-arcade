@@ -1,0 +1,65 @@
+:root {
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  background: #07090b;
+  color: #f4f5f6;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #07090b; }
+body { min-height: 100dvh; overflow: hidden; }
+button, input { font: inherit; }
+button {
+  border: 1px solid #343a40; background: #15191d; color: #f4f5f6;
+  border-radius: 10px; padding: .55rem .8rem; cursor: pointer; touch-action: manipulation;
+}
+button:hover { background: #20262b; }
+button:focus-visible { outline: 3px solid #f6d365; outline-offset: 2px; }
+button.primary { background: #f0c94b; color: #111; border-color: #f0c94b; font-weight: 800; }
+.app-shell {
+  width: min(1120px, 100%); height: 100dvh; margin: 0 auto; padding: max(.55rem, env(safe-area-inset-top)) .75rem max(.55rem, env(safe-area-inset-bottom));
+  display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto auto; gap: .45rem;
+}
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 46px; }
+.logo { display: block; width: min(210px, 28vw); height: auto; max-height: 54px; object-fit: contain; object-position: left center; }
+.top-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .35rem; }
+.hud { display: flex; justify-content: center; flex-wrap: wrap; gap: .55rem 1.2rem; font-weight: 650; font-variant-numeric: tabular-nums; font-size: .92rem; }
+.game-wrap { min-height: 0; display: grid; place-items: center; overflow: hidden; }
+#game {
+  display: block; background: #090b0d; border: 1px solid #2a3035; border-radius: 10px;
+  width: min(100%, calc((100dvh - 176px) * 4 / 3));
+  max-height: 100%; aspect-ratio: 4 / 3; height: auto; image-rendering: pixelated;
+  box-shadow: 0 14px 36px rgba(0,0,0,.35);
+}
+#game:focus-visible { outline: 2px solid #f6d365; outline-offset: 2px; }
+.touch-controls { display: none; justify-content: center; gap: .75rem; }
+.touch-button { min-width: 72px; min-height: 46px; font-size: 1.35rem; user-select: none; -webkit-user-select: none; }
+.touch-button.fire { border-radius: 999px; min-width: 56px; }
+.footer-controls { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .4rem .5rem; min-height: 38px; }
+.switch { display: inline-flex; align-items: center; gap: .4rem; padding: 0 .25rem; }
+dialog { width: min(560px, calc(100% - 2rem)); border: 1px solid #3a4147; border-radius: 14px; background: #111519; color: #f4f5f6; padding: 0; }
+dialog::backdrop { background: rgba(0,0,0,.72); backdrop-filter: blur(3px); }
+dialog article { padding: 1.25rem; }
+dialog h2 { margin-top: 0; }
+dialog p { line-height: 1.55; }
+.small { font-size: .82rem; opacity: .72; }
+.keys { text-align: center; }
+kbd { background: #22282d; border: 1px solid #4a5259; border-bottom-width: 2px; border-radius: 5px; padding: .15rem .4rem; }
+@media (pointer: coarse), (max-width: 760px) {
+  .app-shell { grid-template-rows: auto auto minmax(0, 1fr) auto auto; padding-inline: .45rem; }
+  .topbar { align-items: flex-start; }
+  .logo { width: min(165px, 38vw); }
+  .top-actions { gap: .25rem; }
+  .top-actions button { padding: .45rem .55rem; font-size: .82rem; }
+  .touch-controls { display: flex; }
+  #game { width: min(100%, calc((100dvh - 205px) * 4 / 3)); }
+  .footer-controls { font-size: .85rem; }
+}
+@media (max-height: 620px) and (orientation: landscape) {
+  .app-shell { grid-template-columns: 1fr auto; grid-template-rows: auto minmax(0, 1fr) auto; }
+  .topbar { grid-column: 1 / -1; }
+  .hud { position: absolute; top: .4rem; left: 50%; transform: translateX(-50%); pointer-events: none; font-size: .8rem; }
+  .game-wrap { grid-column: 1; grid-row: 2 / 4; }
+  #game { height: calc(100dvh - 72px); width: auto; max-width: 100%; }
+  .touch-controls { grid-column: 2; grid-row: 2; flex-direction: column; align-self: center; }
+  .footer-controls { grid-column: 2; grid-row: 3; flex-direction: column; }
+}

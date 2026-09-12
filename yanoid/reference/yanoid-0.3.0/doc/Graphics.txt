@@ -1,0 +1,43 @@
+We need to make some graphics for the game. This document specifies what we need and the status of it.
+
+Font:
+       Game font (0%)
+       Score numbers (0%)
+
+Splash screen:
+       logo (beta)
+
+Highscore:
+	???
+
+Bricks:
+  1 hit:
+		Glass (%0)
+  3 hit:	
+		Rock (%0)
+  indestructable:
+		Steel (%0)
+
+Powerups:
+  guns + bullets:
+		single shot (%0)
+		machine gun (%0)
+		laser	    (%0)
+  Extra life (%0)
+  ball mod:
+		sticky (%0)
+		3 ball (%0)
+		speed (%0)
+		slow (%0)
+		spin (%0)
+		
+Paddle:
+	small (%0)
+	big (%0)
+
+---------------------------------------------------------------------------
+
+Some SpFX:
+
+Fire (%0)
+

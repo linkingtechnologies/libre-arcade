@@ -1,0 +1,91 @@
+The following is a list of stuff that needs to be implemented in
+yanoid before the game can be considered ready for the contest. 
+
+
+
+********************************************************************** 
+** CHECK LIST BEFORE SUBMITTING
+
+- Check 1 MB requirement
+- Check that dist builds
+- Check that dist actually install all required files
+- Check that dist actually runs
+- ??
+
+
+**********************************************************************
+** SHOWSTOPPERS - MUST BE FIXED
+
+- More maps (BS,MBD...)
+- Make pixmap and other ressourcehandling, use a default "thingy", 
+  when loads and such fails (MBD)
+
+Stuff that seems to be fixed:
+- Sometimes the game crashes when it wants to display the in game 
+  menu. Related to the text effects? (MBD, JCD?) <-- fixed?
+  Fixed, but no background now... Weirdness and ? posted to SDL list.
+
+**********************************************************************
+** IMPORTANT (or possible easy - stuff that we probably should do)
+
+* no sounds from paddle when colliding with bricks (MBD)
+- Should shots and powerups die, when the player dies?(MBD)
+- There are no background in menus (see above)... (MBD)
+
+* Sounds (BS)
+- brick effect sounds (explosion, disappear, whatever)
+
+* Pixel perfect collision detection?
+
+* Autotool (MBD)
+- Make sure that we fail when something essentiel is missing
+- need to add libvorbisfile (-lvorbis -lvorbisfile) to configure.in
+- need to add asound (-lasound) to configure.in (alsa-lib-devel)
+- need to add smpeg  (-lsmpeg) to configrm ure.in
+- need to add libesound-devel
+
+The above three is probably what is needed to use SDL_mixer - so, in
+all fairness, we should check the output of sdl-config and check that
+each application is present or maybe we should try and build a small
+SDL application that uses SDL_mixer.
+
+
+**********************************************************************
+** NICE TO HAVE (stuff that we may have time for)
+
+* Graphics
+- Better Font for menu/startup/display of score
+- Better Paddle graphic(? Must be rectangular. After 1/12/2001 we'll see)
+- Graphic for different bricks
+- Ball graphic 
+- Powerup graphics
+- Various animation stuff 
+	Level complete
+	Game over 
+
+* Pause game on minimize (sleep to reduce CPU usage as well)
+
+**********************************************************************
+** IN YOUR DREAMS (stuff that we will NOT have time for)
+
+* Network system 
+  - (Get/deliver events/state from/to the network)
+
+* Input system
+  - mouse (probably not)
+  - joystick? (very much unlikely)
+
+**********************************************************************
+** PUZZLING BUGS
+
+* The menu background code simply does not work on my system
+  and I have no idea why. It is very simple, yet crashes frequently.
+  I have ifdeffed it to hell. (mads)
+
+* The powerups passes behind bricks. This has to do with the y sorting
+  of entities. Fix?
+
+* Occasionally balls will pass through objects they are supposed to 
+  collide with. This appears to happen mostly when the framerate drops
+  below a certain threshhold. Fix? May be OK to decrease the virtual time
+  step, but it is alread quite low...
