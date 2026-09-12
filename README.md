@@ -106,6 +106,9 @@ in-game Credits screen and `public/LICENSE.txt`, not above.
 - Provenance and third-party licenses are recorded per file either way.
 - `npm test` / `npm run lint` / `npm run check` work the same way in every
   game folder.
+- Every game's own page carries the same lightweight, cookie-free GoatCounter
+  analytics snippet, inlined per-game rather than loaded from one shared
+  file, so each game keeps working when copied out and served on its own.
 
 ## License
 

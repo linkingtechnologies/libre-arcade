@@ -23,11 +23,12 @@ test('production HTML exposes all primary controls and both dialogs',()=>{
   }
 });
 
-test('page has local favicon and production metadata without remote dependencies',()=>{
+test('page has local favicon and production metadata with only the site-wide GoatCounter beacon as a remote reference',()=>{
   const html=read('public/index.html');
   assert.match(html,/rel="icon" href="\.\/favicon\.svg"/);
   assert.match(html,/name="description"/);
-  assert.doesNotMatch(html,/https?:\/\//i);
+  const withoutAnalytics = html.replace(/https:\/\/grugnetto\.goatcounter\.com(\/count)?/g, '').replace(/https:\/\/gc\.zgo\.at/g, '');
+  assert.doesNotMatch(withoutAnalytics,/https?:\/\//i);
   assert.ok(fs.existsSync(new URL('public/favicon.svg',root)));
 });
 

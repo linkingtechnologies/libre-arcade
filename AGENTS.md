@@ -144,3 +144,32 @@ path segment its card in the root `index.html` links to, prefixed with the
 Pages base URL. Add this line for every new game before considering it done.
 - `package.json` + `scripts/serve.mjs` here are a **local preview
   convenience only** — not a build, not a shared dependency for any game.
+
+## Analytics (GoatCounter)
+
+Every game's own `public/index.html` (or bare `index.html` for the games
+without a `public/` layer) carries the same GoatCounter snippet just before
+`</body>`, and so does the root `index.html`:
+
+```html
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+```
+
+This is inlined per-game on purpose, not loaded from one shared file — see
+"Every game is a fully independent folder" above. A shared
+`<script src="/analytics.js">` would 404 the moment a single game is copied
+out and served on its own, which this collection explicitly supports.
+
+If a game declares a `Content-Security-Policy` meta tag, it must allow the
+beacon explicitly or the browser silently drops it with no visible error:
+- `script-src` needs `https://gc.zgo.at`
+- `connect-src` needs `https://grugnetto.goatcounter.com`
+
+A game whose own tests assert "no remote dependencies" or scan for `https://`
+in its HTML needs that assertion narrowed to exempt these two domains
+specifically (see `donkey-bolonkey/test/production.test.js` for the pattern),
+not deleted outright — the point of that test is to catch *other* accidental
+remote calls creeping in, not to forbid analytics.
+
+Add the snippet for every new game before considering it done, the same way
+"Play here" links are required above.
