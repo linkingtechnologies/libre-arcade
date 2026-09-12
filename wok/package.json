@@ -1,0 +1,20 @@
+{
+  "name": "wok",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Browser preservation port of Kenta Cho's Wok 1.0",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node test/parity.test.js",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "license": "GPL-3.0-or-later",
+  "displayName": "Wok"
+}

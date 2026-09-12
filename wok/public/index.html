@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Wok</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="stage" aria-label="Wok game">
+    <div id="loading" class="loading" role="status">Loading Wok…</div>
+    <canvas id="game" width="640" height="480" tabindex="0" hidden aria-label="Wok"></canvas>
+  </main>
+
+  <div id="quit-overlay" class="overlay" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="quit-title">
+      <h1 id="quit-title">Wok</h1>
+      <p>Close this tab to quit.<br><span lang="it">Chiudi questa scheda per uscire.</span></p>
+      <button id="back-button" type="button">Back / Indietro</button>
+    </div>
+  </div>
+
+  <script src="src/core.js"></script>
+  <script src="src/assets.js"></script>
+  <script src="src/renderer.js"></script>
+  <script src="src/input.js"></script>
+  <script src="src/audio.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>

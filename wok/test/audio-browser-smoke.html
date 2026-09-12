@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Wok audio browser smoke test</title>
+<pre id="result">RUNNING</pre>
+<script>
+(async () => {
+  const out = document.getElementById('result');
+  const names = ['wok1.wav', 'wok2.wav', 'gen.wav', 'score.wav', 'miss.wav'];
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) throw new Error('Web Audio unavailable');
+    const ctx = new AC();
+    const decoded = [];
+    for (const name of names) {
+      const response = await fetch('../public/assets/runtime/sounds/' + name);
+      if (!response.ok) throw new Error(name + ': HTTP ' + response.status);
+      const buffer = await ctx.decodeAudioData(await response.arrayBuffer());
+      decoded.push(name + ':' + buffer.numberOfChannels + 'ch@' + buffer.sampleRate + 'Hz/' + buffer.duration.toFixed(3) + 's');
+    }
+    out.textContent = 'PASS\n' + decoded.join('\n');
+    await ctx.close();
+  } catch (error) {
+    out.textContent = 'FAIL\n' + (error && error.stack ? error.stack : error);
+  }
+})();
+</script>

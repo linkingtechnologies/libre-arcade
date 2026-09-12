@@ -39,6 +39,7 @@ safe embedding, but otherwise left exactly as its authors built it.
 | [`54321/`](54321/) | 54321 | *Ported.* [54321](http://www.nklein.com/products/54321) (Patrick Stein / nklein software, 2001 1 MB SDL Game Programming Contest) — five n-dimensional puzzle games (Flip-Flop, Bomb Squad, Maze Runner, Peg Jumper, Tile Slider) sharing one 2D/3D/4D topology engine, in HTML5 Canvas 2D. Original material carries nklein's own historical `LicenseRef-NKlein-Universal-NonExclusive` grant, not GPL; see `54321/PROVENANCE.md`. |
 | [`donkey-bolonkey/`](donkey-bolonkey/) | Donkey Bolonkey | *Ported.* [Donkey Bolonkey](http://www.davidcapello.com.ar/) (David A. Capello, SpeedHack 2001, GPL-2.0-or-later) — a color-matching puzzle with six historical levels, ported from C/Allegro. Original audio/graphics datafile has unclear media provenance and is intentionally excluded; the browser runtime uses procedural graphics and synthesized Web Audio instead. |
 | [`psypong3d/`](psypong3d/) | PSY PONG 3D | *Ported.* [PSY PONG 3D](psypong3d/reference/original-source/psypong3d-0.9/) 0.9 (Quetzy Garcia, 2009, GPL-3.0-or-later) — a WebGL 3D Pong with always-diagonal ball motion, paddle warp/side-swap and a level-scaled CPU. Original BMP textures have unclear media provenance and are excluded; the browser runtime uses newly created replacement artwork instead. |
+| [`wok/`](wok/) | Wok | *Ported.* [Wok](wok/reference/wok-1.0/) 1.0 (Kenta Cho, 2001 SDL Game Development Contest, BSD-2-Clause-style) — catch falling balls with a tilting wok and throw them for combo score. Cleanly permissive license covers code and assets alike, so the original PNG/audio ship unchanged; the two historical beta-Vorbis music tracks are decoded once to WAV for current browsers. |
 | [`grugnetto-go/`](grugnetto-go/) | Grugnetto Go! | *Built here.* An original platformer for this collection (melonJS + lit-html), not a restoration. |
 
 Each project's own `README.md` covers how to run it, test it, and where its
@@ -79,6 +80,7 @@ the full authorship and third-party library/font breakdown.
 | [54321](http://www.nklein.com/products/54321) (2001) | Patrick Stein / nklein software | `LicenseRef-NKlein-Universal-NonExclusive` | `54321/` — original material only; the JS port itself is GPL-3.0-or-later |
 | Donkey Bolonkey (SpeedHack 2001) | David A. Capello | GPL-2.0-or-later | `donkey-bolonkey/` — the JS port exercises the "or later" grant and is GPL-3.0-or-later; original media datafile not redistributed |
 | PSY PONG 3D 0.9 (2009) | Quetzy Garcia | GPL-3.0-or-later | `psypong3d/` — code license confirmed directly from the archive; original BMP textures not redistributed |
+| Wok 1.0 (2001) | Kenta Cho | BSD-2-Clause-style | `wok/` — original PNG/audio assets redistributed as-is under the same permissive notice; the JS port itself is GPL-3.0-or-later |
 
 `grugnetto-go/` is built for this collection, not a restoration; the
 third-party libraries and CC0/CC-licensed art it uses are itemized in its own
@@ -119,7 +121,9 @@ material, the custom `LicenseRef-NKlein-Universal-NonExclusive` grant
 (Patrick Stein / nklein software) — not GPL-compatible-by-assumption, but
 independently verified via dated Wayback Machine captures of its own
 copyright page bracketing the game's release, see
-`54321/docs/LICENSE-RESEARCH.md`. This is a legal requirement of those
+`54321/docs/LICENSE-RESEARCH.md`; and BSD-2-Clause-style for all of Wok's
+original PNG/WAV/OGG assets (Kenta Cho), stated in full in the archive's own
+README — see `wok/specs/LICENSE_AUDIT.md`. This is a legal requirement of those
 licenses, not a choice — permissively-licensed work can be included in and
 distributed alongside a GPL project, but including it doesn't relicense it.
 Every such file is declared per-folder (`THIRD_PARTY_NOTICES.md`,

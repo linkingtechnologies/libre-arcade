@@ -1,0 +1,40 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
+body { min-height: 100dvh; font-family: system-ui, sans-serif; }
+.stage {
+  width: 100%; height: 100%; display: grid; place-items: center;
+  padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+}
+#game {
+  display: block;
+  width: min(calc(100vw - 16px), calc((100dvh - 16px) * 4 / 3));
+  height: auto;
+  max-height: calc(100dvh - 16px);
+  aspect-ratio: 4 / 3;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: #000;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.loading { color: #eee; font-size: 1rem; letter-spacing: .02em; }
+.overlay {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  background: rgba(0,0,0,.78); padding: 24px;
+}
+.overlay[hidden] { display: none; }
+.dialog {
+  width: min(360px, 100%); padding: 24px; text-align: center;
+  background: #111; border: 1px solid #555; border-radius: 12px;
+  color: #fff;
+}
+.dialog h1 { margin: 0 0 12px; font-size: 1.5rem; }
+.dialog p { margin: 0 0 20px; line-height: 1.5; }
+.dialog button {
+  appearance: none; border: 1px solid #aaa; border-radius: 8px;
+  background: #222; color: #fff; padding: 10px 16px; font: inherit; cursor: pointer;
+}

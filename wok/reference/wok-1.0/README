@@ -1,0 +1,103 @@
+WOK  README
+for Linux
+ver. 1.0
+(C) Kenta Cho
+
+
+Name:
+Kenta Cho
+
+
+City:
+Suginami-ku, Tokyo, Japan
+
+
+Game title:
+WOK
+
+
+Brief description(how to play):
+
+Unpack wok_bin1_0.tar.gz (for i386) and type './wok' at 'wok' directory.
+
+Select 'START' by mouse at the title screen to start the game.
+To quit the game, select 'QUIT'. Typing an escape key also quits the game.
+
+The game objective is very simple.
+Catch the falling balls by the wok(a flying pan)
+and throw them to the right.
+You can control the wok by mouse.
+
+To earn more score, you should throw many balls continuously.
+Collect many balls on the wok, and throw them at the same time.
+
+If a ball falls to the lower end of the screen, the game is over.
+
+These options are available:
+ -nosound           Stop the sound.
+                    If you have a trouble with the audio device, 
+                    use this option.
+ -mousespeed speed  Change the mouse speed. Default = 10.
+                    If the wok's speed is too fast/slow, use this option.
+ -window            Launch the game in the window, not use the full-screen.
+
+
+Build instructions:
+
+Unpack wok_src1_0.tar.gz and type 'make' at 'wok' directory.
+If the make does not complete correctly,
+check 'SDL_LIB' and 'SDL_INCLUDE' path in Makefile.
+You should install the libraries(and development libraries) listed below.
+
+
+Email address:
+cs8k-cyu@asahi-net.or.jp
+
+
+Web site URL:
+http://www.asahi-net.or.jp/~cs8k-cyu/index_e.html
+
+
+List of tools and libraries used:
+
+SDL-1.2.2
+SDL_image-1.2.0(with PNG support)
+SDL_mixer-1.2.0(with Ogg Vorbis support)
+libao-0.8.0-2
+libogg-1.0rc2-2
+libvorbis-1.0rc2-2
+
+
+Compiler:
+
+gcc version egcs-2.91.66
+
+
+License:
+
+License
+-------
+
+Copyright 2001 Kenta Cho. All rights reserved. 
+
+Redistribution and use in source and binary forms, 
+with or without modification, are permitted provided that 
+the following conditions are met: 
+
+ 1. Redistributions of source code must retain the above copyright notice, 
+    this list of conditions and the following disclaimer. 
+
+ 2. Redistributions in binary form must reproduce the above copyright notice, 
+    this list of conditions and the following disclaimer in the documentation 
+    and/or other materials provided with the distribution. 
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND 
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL 
+THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR 
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
