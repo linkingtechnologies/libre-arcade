@@ -35,6 +35,7 @@ safe embedding, but otherwise left exactly as its authors built it.
 | [`netrok/`](netrok/) | Netrok 0.95 | *Ported.* [Netrok](http://www.itpsoft.de) (Ioan-Tudor Parvulescu, 2004, GPL-2.0-or-later) — all 20 original levels, level editor, and its bundled SFont library. Source recovered from an OpenPandora `.pnd` package; see `netrok/reference/`. |
 | [`njam/`](njam/) | Njam 1.21 | *Ported.* [Njam](http://njam.sourceforge.net) (Milan Babuskov, 2003, GPL-2.0-or-later), primary reference the AmigaOS4 1.21 port (Kjell Breding/Sharakmir, 2005) — full local/offline parity including editor, duel mode, and all bundled level sets. Network host/join deliberately not enabled. |
 | [`naval-battle/`](naval-battle/) | 🐽's Naval Battle (BattleLab) | *Ported.* Historical Battleship AIs — Warboats 0.51 (2009, GPL-2.0-or-later) and a binary/debug reconstruction of Bataille Navale OS4 (2009, GPLv3) — behind a simplified five-difficulty player UI. Gnome Batalla Naval was evaluated and rejected as GPLv3-incompatible (GPL-2.0-only evidence); see `specs/candidates.md`. |
+| [`for-science/`](for-science/) | For Science! | *Ported.* [For Science!](https://www.usebox.net/jjm/for-science/) (Juan J. Martínez, PyWeek 16, 2013, GPL-3.0-or-later) — a turn-based match-3 duel, ported from Python/Cocos2d/Pyglet with a Python 2.7 deterministic oracle and a 1000-seed AI stress run verifying the original AI's move/attack heuristics. |
 | [`grugnetto-go/`](grugnetto-go/) | Grugnetto Go! | *Built here.* An original platformer for this collection (melonJS + lit-html), not a restoration. |
 
 Each project's own `README.md` covers how to run it, test it, and where its
@@ -71,6 +72,7 @@ the full authorship and third-party library/font breakdown.
 | Njam AmigaOS4 1.21 port | Kjell Breding "Sharakmir" | GPL-2.0-or-later | `njam/` — primary behavioral reference |
 | Warboats 0.51 (2009) | Trevor Chart | GPL-2.0-or-later | `naval-battle/` |
 | Bataille Navale OS4 (2009) | billux13 (concept/code), Hugues Nouvel "HunoPPC" (AmigaOS4 port) | GPLv3 | `naval-battle/` — binary/debug reconstruction, no original C source recovered |
+| [For Science!](https://www.usebox.net/jjm/for-science/) (PyWeek 16, 2013) | Juan J. Martínez | GPL-3.0-or-later | `for-science/` |
 
 `grugnetto-go/` is built for this collection, not a restoration; the
 third-party libraries and CC0/CC-licensed art it uses are itemized in its own
@@ -103,7 +105,10 @@ that folder's own `LICENSE`/`package.json`).
 Vendored third-party files keep their original license: MIT for Hextris,
 HTML5 Breakout, HTML5 Snake, HTML5 Space Invaders, and react-simple-snake;
 CC0-1.0 for the Klondike card decks; a mix of GPL-2.0/MIT/CC BY 4.0 for
-Briscola's nine historical AI sources. This is a legal requirement of those
+Briscola's nine historical AI sources; and, for four assets bundled with
+For Science! (a background image, two fonts, one sound effect), a mix of
+CC BY 2.0, CC BY 3.0, SIL OFL 1.1, and Apache-2.0 — see
+`for-science/THIRD_PARTY_NOTICES.md`. This is a legal requirement of those
 licenses, not a choice — MIT- and CC0-licensed work can be included in and
 distributed alongside a GPL project, but including it doesn't relicense it.
 Every such file is declared per-folder (`THIRD_PARTY_NOTICES.md`,

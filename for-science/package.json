@@ -1,0 +1,22 @@
+{
+  "name": "for-science",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test",
+    "test:stress": "node tools/stress-ai.mjs 1000",
+    "test:syntax": "node tools/check-syntax.mjs",
+    "lint": "eslint .",
+    "check": "npm run lint && npm run test:syntax && npm test && npm run test:stress"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "license": "GPL-3.0-or-later",
+  "displayName": "For Science!"
+}

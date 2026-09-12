@@ -1,0 +1,11 @@
+{
+ "volume": 0.8, 
+ "fullscreen": 0, 
+ "audio_driver": [
+  "openal", 
+  "pulse", 
+  "directsound", 
+  "silent"
+ ], 
+ "music": true
+}

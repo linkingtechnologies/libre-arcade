@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#05070b">
+  <meta name="description" content="For Science! — the preserved browser edition of Juan J. Martínez's PyWeek 16 strategy puzzle game.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>For Science!</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="stage" aria-label="For Science!">
+    <div class="frame" aria-busy="true">
+      <canvas id="game" width="640" height="480" aria-label="For Science! game canvas" data-i18n-aria-label="aria.canvas"></canvas>
+
+      <section id="main-menu" class="menu" aria-label="Main menu" data-i18n-aria-label="aria.mainMenu" hidden>
+        <button id="start" type="button" data-i18n="menu.start">Start Game</button>
+        <button id="demo" type="button" data-i18n="menu.demo">Demo</button>
+        <button id="help" type="button" data-i18n="menu.help">How to Play</button>
+        <button id="options" type="button" data-i18n="menu.options">Options</button>
+        <button id="quit" type="button" data-i18n="menu.quit">Quit</button>
+      </section>
+
+      <section id="options-menu" class="menu options" aria-label="Options" data-i18n-aria-label="aria.options" hidden>
+        <label><span data-i18n="options.music">Music</span><input id="music" type="checkbox" checked></label>
+        <label><span data-i18n="options.fullscreen">Fullscreen</span><input id="fullscreen" type="checkbox"></label>
+        <label><span data-i18n="options.language">Language</span>
+          <select id="language" aria-label="Language">
+            <option value="en">English</option>
+            <option value="it">Italiano</option>
+          </select>
+        </label>
+        <button id="back" type="button" data-i18n="common.back">Back</button>
+      </section>
+
+      <section id="help-menu" class="menu help" aria-label="How to play" data-i18n-aria-label="aria.help" hidden>
+        <div class="help-card">
+          <h1 data-i18n="help.title">How to Play</h1>
+          <p data-i18n="help.match">Match 3 or more cells to collect money, attacks and shield repairs.</p>
+          <p data-i18n="help.turn">Each turn, either swap two adjacent cells or use one available item. Destroy Dr Z's base before he destroys yours.</p>
+          <p data-i18n-html="help.controls"><strong>Mouse / touch:</strong> select cells or items. <strong>ESC:</strong> return to the menu. <strong>Ctrl/Cmd + F:</strong> fullscreen.</p>
+          <p class="credit" data-i18n="help.credit">Original game by Juan J. Martínez for PyWeek 16, 2013.</p>
+        </div>
+        <button id="help-back" type="button" data-i18n="common.back">Back</button>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite" data-i18n="status.loading">Loading…</div>
+      <div id="scene-fade" class="scene-fade" aria-hidden="true"></div>
+      <noscript><div class="noscript">JavaScript is required to play For Science! / JavaScript è necessario per giocare a For Science!</div></noscript>
+    </div>
+  </main>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

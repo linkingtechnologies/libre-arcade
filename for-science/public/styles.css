@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "Russo One";
+  src: url("assets/original/RussoOne-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Droid Sans Mono";
+  src: url("assets/original/DroidSansMono.ttf") format("truetype");
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #05070b; }
+body { font-family: "Russo One", system-ui, sans-serif; }
+button, input { -webkit-tap-highlight-color: transparent; }
+.stage {
+  width: 100vw;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: max(4px, env(safe-area-inset-top)) max(4px, env(safe-area-inset-right)) max(4px, env(safe-area-inset-bottom)) max(4px, env(safe-area-inset-left));
+}
+.frame {
+  position: relative;
+  width: min(calc(100vw - 8px), calc((100dvh - 8px) * 4 / 3));
+  aspect-ratio: 4 / 3;
+  max-height: calc(100dvh - 8px);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12);
+}
+canvas { display: block; width: 100%; height: 100%; image-rendering: auto; touch-action: none; }
+.menu {
+  position: absolute;
+  inset: 54% 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: clamp(3px, 1.1vh, 10px);
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+.menu[hidden] { display: none; }
+.menu button, .menu label {
+  font: inherit;
+  font-size: clamp(14px, 3.1vmin, 24px);
+  color: #ffcc00;
+  background: transparent;
+  border: 0;
+  padding: .14em .55em;
+  text-shadow: 0 2px 3px #000;
+}
+.menu button { cursor: pointer; }
+.menu button:hover, .menu button:focus-visible { color: #ffe68c; transform: scale(1.14); outline: none; }
+.menu button:focus-visible { text-decoration: underline; text-underline-offset: .18em; }
+.options { inset: 56% 0 auto; }
+.options label { min-width: 13em; display: flex; align-items: center; justify-content: space-between; gap: 1em; }
+.options input { width: 1.1em; height: 1.1em; accent-color: #ffcc00; }
+.help {
+  inset: 51% 0 auto;
+  gap: clamp(2px, .7vh, 6px);
+}
+.help-card {
+  width: min(86%, 520px);
+  padding: clamp(8px, 2.2vmin, 16px);
+  color: #f3f3f3;
+  background: rgba(0, 0, 0, .82);
+  border: 1px solid rgba(255, 204, 0, .6);
+  box-shadow: 0 3px 16px rgba(0, 0, 0, .65);
+  text-align: left;
+  text-shadow: 0 1px 2px #000;
+}
+.help-card h1 {
+  margin: 0 0 .45em;
+  color: #ffcc00;
+  font-size: clamp(14px, 3vmin, 22px);
+  text-align: center;
+}
+.help-card p {
+  margin: .4em 0;
+  font-family: "Droid Sans Mono", ui-monospace, monospace;
+  font-size: clamp(9px, 1.75vmin, 13px);
+  line-height: 1.35;
+}
+.help-card .credit { color: #c7c7c7; font-size: clamp(8px, 1.55vmin, 11px); }
+.help > button { font-size: clamp(12px, 2.7vmin, 20px); }
+.status {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 2%;
+  text-align: center;
+  color: #ffcc00;
+  font-size: clamp(10px, 2vmin, 14px);
+  text-shadow: 0 1px 3px #000;
+  pointer-events: none;
+}
+.status.error { color: #ffe68c; }
+.noscript {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  color: #ffcc00;
+  background: #05070b;
+  text-align: center;
+}
+@media (max-aspect-ratio: 4/3) {
+  .frame { width: calc(100vw - 8px); height: auto; }
+}
+
+.scene-fade {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+.frame.transitioning .menu { pointer-events: none; }
+
+.options select {
+  min-width: 8.5rem;
+  font: inherit;
+  color: inherit;
+  background: rgba(5, 7, 11, 0.9);
+  border: 1px solid rgba(255, 204, 0, 0.55);
+  border-radius: 0.35rem;
+  padding: 0.25rem 0.45rem;
+}
+
+.options select:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

@@ -65,6 +65,7 @@ original with an executable oracle or a benchmark:
 - `naval-battle/` — see [`naval-battle/README.md`](naval-battle/README.md)'s
   "Software archaeology" section and [`naval-battle/specs/provenance.md`](naval-battle/specs/provenance.md)
 - [`netris/SOFTWARE_ARCHAEOLOGY.md`](netris/SOFTWARE_ARCHAEOLOGY.md)
+- [`for-science/SOFTWARE_ARCHAEOLOGY.md`](for-science/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already
