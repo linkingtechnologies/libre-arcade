@@ -72,6 +72,7 @@ original with an executable oracle or a benchmark:
 - [`wok/SOFTWARE_ARCHAEOLOGY.md`](wok/SOFTWARE_ARCHAEOLOGY.md)
 - [`yanoid/SOFTWARE_ARCHAEOLOGY.md`](yanoid/SOFTWARE_ARCHAEOLOGY.md)
 - [`terramancers/SOFTWARE_ARCHAEOLOGY.md`](terramancers/SOFTWARE_ARCHAEOLOGY.md)
+- [`don-ceferino/SOFTWARE_ARCHAEOLOGY.md`](don-ceferino/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already

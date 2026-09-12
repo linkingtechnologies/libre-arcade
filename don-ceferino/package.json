@@ -1,0 +1,21 @@
+{
+  "name": "don-ceferino",
+  "version": "1.0.3",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/serve.mjs public 8080",
+    "build": "node tools/build.mjs",
+    "start": "npm run build && node tools/serve.mjs game 8080",
+    "test": "node --test test/*.test.mjs",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "license": "GPL-3.0-only",
+  "displayName": "Don Ceferino Hazaña",
+  "description": "Browser-native parity restoration of Don Ceferino Hazaña 0.97.8"
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Don Ceferino Hazaña — browser restoration of the 0.97.8 release">
+  <title>Don Ceferino Hazaña</title>
+  <link rel="icon" href="assets/graphics/icono.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="stage" aria-label="Don Ceferino Hazaña">
+      <canvas id="game" width="640" height="480" tabindex="0"></canvas>
+
+      <section id="loading" class="overlay status-card" aria-live="polite">
+        <p id="loading-text">Loading…</p>
+      </section>
+
+      <section id="fatal" class="overlay dialog-card" role="alert" hidden>
+        <h2 id="fatal-title">Unable to start the game</h2>
+        <p id="fatal-body">Some required files could not be loaded.</p>
+        <button id="fatal-retry" type="button" class="primary">Retry</button>
+      </section>
+
+      <section id="menu" class="overlay menu-card" hidden>
+        <h1 class="visually-hidden">Don Ceferino Hazaña</h1>
+        <div class="language" aria-label="Language">
+          <button type="button" data-lang="it">IT</button><button type="button" data-lang="en">EN</button>
+        </div>
+        <nav class="menu-buttons" aria-label="Main menu">
+          <button id="new-game" class="primary">New game</button>
+          <button id="instructions">How to play</button>
+          <button id="options">Options</button>
+          <button id="credits">Credits</button>
+          <button id="scores">High scores</button>
+        </nav>
+      </section>
+
+      <section id="panel" class="overlay panel-card" hidden>
+        <h2 id="panel-title"></h2>
+        <div id="panel-body"></div>
+        <div class="panel-actions">
+          <button id="panel-back" class="primary">Back</button>
+          <button id="panel-next" hidden>Next</button>
+        </div>
+      </section>
+
+      <section id="outcome" class="overlay dialog-card" hidden>
+        <h2 id="outcome-title"></h2>
+        <p id="outcome-body"></p>
+        <div class="panel-actions">
+          <button id="outcome-continue" class="primary">Continue</button>
+          <button id="outcome-menu">Menu</button>
+        </div>
+      </section>
+
+      <section id="score-entry" class="overlay dialog-card" hidden>
+        <h2 id="score-title"></h2>
+        <p id="score-prompt"></p>
+        <form id="score-form">
+          <input id="score-name" maxlength="17" autocomplete="off" spellcheck="false" aria-label="Name">
+          <div class="panel-actions">
+            <button id="score-save" type="submit" class="primary">Save</button>
+            <button id="score-skip" type="button">Skip</button>
+          </div>
+        </form>
+      </section>
+    </section>
+
+    <section id="touch-controls" class="touch-controls" aria-label="Touch controls" hidden>
+      <div class="dpad">
+        <button data-action="left" aria-label="Left">◀</button>
+        <div class="vertical"><button data-action="up" aria-label="Up">▲</button><button data-action="down" aria-label="Down">▼</button></div>
+        <button data-action="right" aria-label="Right">▶</button>
+      </div>
+      <button id="pause-touch" class="pause-touch" aria-label="Pause">Ⅱ</button>
+      <div class="actions"><button data-action="sweep" aria-label="Sweep">↻</button><button data-action="shot" aria-label="Fire">●</button></div>
+    </section>
+  </main>
+  <script type="module" src="src/ui/app.js"></script>
+</body>
+</html>
