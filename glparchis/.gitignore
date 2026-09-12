@@ -1,0 +1,42 @@
+# Dependencies
+/node_modules/
+
+# Generated build output
+/game/
+
+# Tool caches
+/.cache/
+.eslintcache
+
+# Local environment and secret files
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editors
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+# Python caches inside the preserved reference tree should not be generated/committed anew
+__pycache__/
+*.py[cod]
+
+# Local saves used only for manual testing
+*.local
