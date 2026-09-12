@@ -1,0 +1,178 @@
+:root {
+  color-scheme: dark;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+}
+
+* { box-sizing: border-box; }
+html, body, #app { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { background: #000; overscroll-behavior: none; }
+button { font-family: inherit; }
+
+#app {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100%;
+  touch-action: none;
+  background: #000;
+}
+
+#game {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+  pointer-events: none;
+}
+#overlay[hidden] { display: none; }
+
+.menu-panel {
+  width: min(50vw, 620px);
+  min-width: min(310px, calc(100vw - 36px));
+  max-height: calc(100dvh - 36px);
+  display: grid;
+  gap: 10px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  pointer-events: auto;
+}
+
+.menu-panel::-webkit-scrollbar { display: none; }
+
+.menu-panel h1,
+.menu-panel p {
+  margin: 0;
+  padding: 13px 18px;
+  background: rgba(16, 16, 16, .90);
+  border: 2px solid rgba(255, 255, 255, .76);
+  text-align: center;
+  line-height: 1.35;
+  text-shadow: 0 1px 1px #000;
+}
+
+.menu-panel h1 { font-size: clamp(24px, 4vw, 36px); }
+.menu-panel p { font-size: clamp(15px, 2vw, 18px); }
+
+.menu-panel button {
+  min-height: 48px;
+  padding: 9px 14px;
+  border: 2px solid rgba(255, 255, 255, .74);
+  background: rgba(18, 18, 18, .90);
+  color: #fff;
+  font: inherit;
+  font-size: clamp(16px, 2.2vw, 20px);
+  cursor: pointer;
+  text-shadow: 0 1px 1px #000;
+}
+
+.menu-panel button:hover,
+.menu-panel button:focus-visible,
+.game-menu-button:hover,
+.game-menu-button:focus-visible {
+  background: rgba(78, 78, 78, .94);
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}
+
+.menu-panel .secondary {
+  min-height: 42px;
+  font-size: 15px;
+  opacity: .92;
+}
+
+#status {
+  position: absolute;
+  left: 50%;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  max-width: calc(100vw - 32px);
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, .88);
+  border: 1px solid #fff;
+  text-align: center;
+  pointer-events: none;
+}
+
+.game-menu-button {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  z-index: 4;
+  min-width: 72px;
+  min-height: 40px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 8px;
+  background: rgba(0,0,0,.68);
+  color: #fff;
+  cursor: pointer;
+}
+.game-menu-button[hidden] { display: none; }
+
+#touch-controls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+#touch-controls[hidden], .dpad[hidden] { display: none !important; }
+
+.dpad {
+  position: absolute;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  width: 154px;
+  height: 154px;
+  pointer-events: auto;
+  opacity: .72;
+}
+.dpad-p1 { right: max(16px, env(safe-area-inset-right)); }
+.dpad-p2 { left: max(16px, env(safe-area-inset-left)); }
+
+.dpad button {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 12px;
+  background: rgba(0,0,0,.58);
+  color: #fff;
+  font-size: 22px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.dpad button[data-dir="up"] { left: 51px; top: 0; }
+.dpad button[data-dir="left"] { left: 0; top: 51px; }
+.dpad button[data-dir="down"] { left: 51px; top: 102px; }
+.dpad button[data-dir="right"] { left: 102px; top: 51px; }
+
+@media (hover: hover) and (pointer: fine) {
+  #touch-controls { display: none !important; }
+}
+
+@media (max-width: 620px) {
+  .menu-panel { width: min(90vw, 460px); min-width: 0; }
+  .dpad { transform: scale(.78); transform-origin: bottom right; }
+  .dpad-p2 { transform-origin: bottom left; }
+  .game-menu-button { min-width: 64px; min-height: 38px; }
+}
+
+@media (max-height: 460px) {
+  .menu-panel { gap: 7px; max-height: calc(100dvh - 20px); }
+  .menu-panel h1, .menu-panel p { padding: 9px 12px; }
+  .menu-panel button { min-height: 40px; padding: 6px 10px; }
+  .dpad { transform: scale(.66); }
+}

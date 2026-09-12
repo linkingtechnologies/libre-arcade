@@ -1,0 +1,55 @@
+Code authors
+============
+
+This program was written by Shai Shapira.
+
+
+Asset attribution
+=================
+
+Assets were authored by the following people:
+
+Lanea Zimmerman
+ - princess.png
+ - brackish.png
+ - cement.png
+ - dirt.png
+ - grass.png
+ - hole.png
+ - house.png
+ - lava.png
+ - lavarock.png
+ - trunk.png
+ - treetop.png
+ - water.png
+
+Stephen Challener
+ - MaleBaseWalkSheet.png
+ - MaleBaseSpellSheet.png
+ - MaleBaseSlashSheet.png
+ - FemaleBaseWalkSheet.png
+ - FemaleBaseSpellSheet.png
+ - FemaleBaseSlashSheet.png
+ - Mage.png
+
+Skyler Robert Colladay
+ - FBI.png
+ - professor.png
+ - dirtnight.png
+
+Emilio J. Sanchez-Sierra
+ - Astraea.png
+
+Daniel Eddeland
+ - soil.png
+ - tallgrass.png
+ - wheat.png
+ - youngwheat.png
+
+Thane Brimhall
+ - ArrowsDown.png
+ - ArrowsLeft.png
+ - ArrowsRight.png
+ - ArrowsUp.png
+ - Buttons.png
+ - ButtonsX.png

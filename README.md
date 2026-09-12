@@ -41,6 +41,7 @@ safe embedding, but otherwise left exactly as its authors built it.
 | [`psypong3d/`](psypong3d/) | PSY PONG 3D | *Ported.* [PSY PONG 3D](psypong3d/reference/original-source/psypong3d-0.9/) 0.9 (Quetzy Garcia, 2009, GPL-3.0-or-later) — a WebGL 3D Pong with always-diagonal ball motion, paddle warp/side-swap and a level-scaled CPU. Original BMP textures have unclear media provenance and are excluded; the browser runtime uses newly created replacement artwork instead. |
 | [`wok/`](wok/) | Wok | *Ported.* [Wok](wok/reference/wok-1.0/) 1.0 (Kenta Cho, 2001 SDL Game Development Contest, BSD-2-Clause-style) — catch falling balls with a tilting wok and throw them for combo score. Cleanly permissive license covers code and assets alike, so the original PNG/audio ship unchanged; the two historical beta-Vorbis music tracks are decoded once to WAV for current browsers. |
 | [`yanoid/`](yanoid/) | Yanoid | *Ported.* [Yanoid](yanoid/reference/yanoid-0.3.0/) 0.3.0 (Drewsen/Sørensen/Dydensborg, 2001 SDL Game Development Contest, GPL-2.0-or-later) — an Arkanoid-style breakout with all nine original maps and eleven-stage contest sequence, including a provably-unreachable power-up and a paddle that launches on its own at map start. Two code areas and ten binary files with unresolved third-party provenance are documented and excluded/unused, not the whole source. |
+| [`terramancers/`](terramancers/) | Terramancers | *Ported.* [Terramancers](terramancers/reference/extracted/) (Shai Shapira, Liberated Pixel Cup 2012, GPL-3.0-or-later code / CC-BY-SA-3.0+GPL-3.0-or-later dual-licensed artwork) — real-time Reversi-style tile capture with LPC character/terrain art. Ships alongside unused arena-combat code from an earlier, differently-scoped project sharing the same source tree; the completed game never calls it. |
 | [`grugnetto-go/`](grugnetto-go/) | Grugnetto Go! | *Built here.* An original platformer for this collection (melonJS + lit-html), not a restoration. |
 
 Each project's own `README.md` covers how to run it, test it, and where its
@@ -83,6 +84,7 @@ the full authorship and third-party library/font breakdown.
 | PSY PONG 3D 0.9 (2009) | Quetzy Garcia | GPL-3.0-or-later | `psypong3d/` — code license confirmed directly from the archive; original BMP textures not redistributed |
 | Wok 1.0 (2001) | Kenta Cho | BSD-2-Clause-style | `wok/` — original PNG/audio assets redistributed as-is under the same permissive notice; the JS port itself is GPL-3.0-or-later |
 | [Yanoid](https://sourceforge.net/projects/yanoid/) 0.3.0 (2001) | Jonas Christian Drewsen, Bjarke Sørensen, Mads Bondo Dydensborg | GPL-2.0-or-later | `yanoid/` — original source preserved except ten files with unresolved/third-party provenance; the JS port itself is GPL-3.0-or-later |
+| Terramancers (LPC 2012) | Shai Shapira | GPL-3.0-or-later (code); CC-BY-SA-3.0 + GPL-3.0-or-later (art, dual-licensed) | `terramancers/` — see `terramancers/reference/audit/` for the individual LPC artist credits |
 
 `grugnetto-go/` is built for this collection, not a restoration; the
 third-party libraries and CC0/CC-licensed art it uses are itemized in its own

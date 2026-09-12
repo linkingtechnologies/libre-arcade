@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/p/vakhoarena/code/!svn/ver/5/trunk/dev/src/shai/lpc/combat/actions
+END
+StrikeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/combat/actions/StrikeAction.java
+END
+WaitAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/combat/actions/WaitAction.java
+END
+PlacementAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/combat/actions/PlacementAction.java
+END
+SpellCastingAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/combat/actions/SpellCastingAction.java
+END
+MovementAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/combat/actions/MovementAction.java
+END
+ShootingAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/combat/actions/ShootingAction.java
+END
+AvatarAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/combat/actions/AvatarAction.java
+END

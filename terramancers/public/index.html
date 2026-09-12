@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Terramancers — a real-time action strategy game by Shai Shapira (2012).">
+  <meta name="color-scheme" content="dark">
+  <title>Terramancers</title>
+  <link rel="icon" href="assets/Characters/Mage.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" aria-label="Terramancers game">
+    <canvas id="game" aria-label="Terramancers game canvas"></canvas>
+
+    <section id="overlay" aria-live="polite">
+      <div id="panel" class="menu-panel"><p>Loading…</p></div>
+    </section>
+
+    <div id="status" role="status" hidden></div>
+
+    <button id="game-menu-button" class="game-menu-button" type="button" hidden>Menu</button>
+
+    <section id="touch-controls" hidden aria-label="Touch controls">
+      <div id="pad-p2" class="dpad dpad-p2" aria-label="Player 2 controls" hidden>
+        <button data-dir="up" aria-label="Player 2 up">▲</button>
+        <button data-dir="left" aria-label="Player 2 left">◀</button>
+        <button data-dir="down" aria-label="Player 2 down">▼</button>
+        <button data-dir="right" aria-label="Player 2 right">▶</button>
+      </div>
+      <div id="pad-p1" class="dpad dpad-p1" aria-label="Player 1 controls">
+        <button data-dir="up" aria-label="Player 1 up">▲</button>
+        <button data-dir="left" aria-label="Player 1 left">◀</button>
+        <button data-dir="down" aria-label="Player 1 down">▼</button>
+        <button data-dir="right" aria-label="Player 1 right">▶</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="src/tiledefs.js"></script>
+  <script src="src/core.js"></script>
+  <script src="src/browser-utils.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

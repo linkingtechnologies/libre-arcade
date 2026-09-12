@@ -1,0 +1,55 @@
+package shai.lpc.model;
+
+/**
+ * Terramancers - an action game for the Liberated Pixel Cup.
+ * Copyright (C) 2012 Shai Shapira
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+public class League {
+	
+	public static final int NUMBER_OF_TEAMS = 12;
+	
+	private static League currentLeague;
+	
+	private Team[] teams;
+	
+	private League() {
+		teams = new Team[NUMBER_OF_TEAMS];
+	}
+	
+	public static void initializeLeague() {
+		currentLeague = new League();
+		for (int i = 0; i < currentLeague.teams.length; i++) {
+			currentLeague.teams[i] = new Team("Team " + i);
+			currentLeague.teams[i].addGladiator(new Gladiator("Gladiator " + i + "A"));
+			currentLeague.teams[i].addGladiator(new Gladiator("Gladiator " + i + "B"));
+			currentLeague.teams[i].addGladiator(new Gladiator("Gladiator " + i + "C"));
+			currentLeague.teams[i].addGladiator(new Gladiator("Gladiator " + i + "D"));
+			currentLeague.teams[i].addGladiator(new Gladiator("Gladiator " + i + "E"));
+		}
+	}
+	
+	public static void initializeLeague(int saveSlot) {
+		
+	}
+	
+	public static League getCurrentLeague() {
+		return currentLeague;
+	}
+	
+	public Team[] getLeagueTable() {
+		return teams;
+	}
+
+}

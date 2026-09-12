@@ -1,0 +1,23 @@
+{
+  "bases": [
+    10,
+    15,
+    16,
+    17
+  ],
+  "additions": [
+    255,
+    36,
+    38,
+    39,
+    40,
+    41,
+    43,
+    45,
+    46,
+    47,
+    49
+  ],
+  "tileSize": 32,
+  "source": "Generated deterministically from original Terramancers tile CFG + PNG data using the original binary alpha threshold (overlay alpha >= 128)."
+}

@@ -71,6 +71,7 @@ original with an executable oracle or a benchmark:
 - [`psypong3d/SOFTWARE_ARCHAEOLOGY.md`](psypong3d/SOFTWARE_ARCHAEOLOGY.md)
 - [`wok/SOFTWARE_ARCHAEOLOGY.md`](wok/SOFTWARE_ARCHAEOLOGY.md)
 - [`yanoid/SOFTWARE_ARCHAEOLOGY.md`](yanoid/SOFTWARE_ARCHAEOLOGY.md)
+- [`terramancers/SOFTWARE_ARCHAEOLOGY.md`](terramancers/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already

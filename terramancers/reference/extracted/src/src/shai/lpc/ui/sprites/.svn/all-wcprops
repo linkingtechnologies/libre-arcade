@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/p/vakhoarena/code/!svn/ver/8/trunk/dev/src/shai/lpc/ui/sprites
+END
+PantsSpriteGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/ui/sprites/PantsSpriteGenerator.java
+END
+AvatarSprite.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/ui/sprites/AvatarSprite.java
+END
+Sprite.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/ui/sprites/Sprite.java
+END
+TreeSprite.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/ui/sprites/TreeSprite.java
+END
+ShirtSpriteGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/ui/sprites/ShirtSpriteGenerator.java
+END
+BaseSpriteGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/ui/sprites/BaseSpriteGenerator.java
+END
+SpriteGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/p/vakhoarena/code/!svn/ver/14/trunk/dev/src/shai/lpc/ui/sprites/SpriteGenerator.java
+END
