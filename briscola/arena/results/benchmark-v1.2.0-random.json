@@ -1,0 +1,77 @@
+{
+  "format": "briscolab-arena-player-benchmark-v1",
+  "player": "random",
+  "playerName": "Random",
+  "seedStart": 1,
+  "seedPairs": 1000,
+  "games": 14000,
+  "wins": 1953,
+  "draws": 156,
+  "winRate": 0.1395,
+  "averagePoints": 41.49928571428571,
+  "matches": [
+    {
+      "opponent": "qbriscola",
+      "opponentName": "QBriscola",
+      "games": 2000,
+      "wins": 197,
+      "losses": 1784,
+      "draws": 19,
+      "points": 80300
+    },
+    {
+      "opponent": "cuperativa",
+      "opponentName": "Cuperativa",
+      "games": 2000,
+      "wins": 199,
+      "losses": 1774,
+      "draws": 27,
+      "points": 80728
+    },
+    {
+      "opponent": "smbriscola-empirico1",
+      "opponentName": "smBrisCola Empirico1",
+      "games": 2000,
+      "wins": 235,
+      "losses": 1751,
+      "draws": 14,
+      "points": 78921
+    },
+    {
+      "opponent": "smbriscola-empirico2",
+      "opponentName": "smBrisCola Empirico2",
+      "games": 2000,
+      "wins": 228,
+      "losses": 1747,
+      "draws": 25,
+      "points": 80666
+    },
+    {
+      "opponent": "jbriscola",
+      "opponentName": "JBriscola",
+      "games": 2000,
+      "wins": 700,
+      "losses": 1270,
+      "draws": 30,
+      "points": 104608
+    },
+    {
+      "opponent": "pryscola",
+      "opponentName": "Pryscola",
+      "games": 2000,
+      "wins": 259,
+      "losses": 1717,
+      "draws": 24,
+      "points": 81479
+    },
+    {
+      "opponent": "briscolabot-v3",
+      "opponentName": "BriscolaBot v3",
+      "games": 2000,
+      "wins": 135,
+      "losses": 1848,
+      "draws": 17,
+      "points": 74288
+    }
+  ]
+}

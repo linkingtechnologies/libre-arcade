@@ -1,0 +1,62 @@
+Warboats is a GPL'ed clone of the board game Battleship 
+(en.wikipedia.org/wiki/Battleship_(game)).
+Like any project in its infancy, it has some unpolished pieces.
+The UI is workable, but dense upon first look. I apologize for this, and 
+am more than willing to implement good suggestions (or accept patches:).
+The AI is fairly rudimentary: level 1 fires randomly until you put it out of its misery,
+while level 2 semi-intelligently tracks ships that it has hit and pursues them until it
+has sunken them and level 3 tracks ships as a human would. Finally, level 4
+implements rudimentary shot conservation by the use of a pre-ordained pattern grid.
+When I have time, I will add higher levels of AI that will be increasingly methodical
+in their prosecution of your fleet, and eventually a more-refined UI (Curses? GTK?),
+including an upcoming OpenGL version.
+
+The "Manual"
+
+To Extract and Compile (on Linux):
+$ tar -xvzf warboats-0.5.tar.gz
+$ cd warboats-0.51/warboats
+$ make
+
+To Play:
+$ ./warboats-ascii
+OR
+$ make run
+The game begins by asking you to place your ships one at a time. The syntax for this
+is the  row and column of one end of the ship (i.e. A7) followed by one of the four
+compass directions (North, South, East, West).
+This  will place yor ship at the given point and to the direction you indicated
+(e.g. placing a Destroyer at E5W will result in the ship occupying E3, E4, and E5).
+Firing uses the same syntax, just without a direction (e.g. G7). All letters are 
+case-insensitive.
+
+Play consists of alternating turns with you and the computer player guessing
+grid points, one at a time. The first one to sink all of their opponent's
+ships is the winner.
+
+The board consists of two side-by-side 10x10 grids, as below:
+
+       Your Grid                  Your Board
+  1 2 3 4 5 6 7 8 9 10       1 2 3 4 5 6 7 8 9 10       
+A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      A ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      B ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      C ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      D ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      E ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      F ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      G ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      H ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      I ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~      J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+C/c = Carrier    B/b = Battleship  D/d = Destroyer
+S/s = Submarine  P/p = PT Boat     X = Miss
+Lowercase indicates a "hit" portion of the ship
+
+Your ships go on the right board, and your opponent's ships are hidden on the
+left board. When the game ends, any remaining opposing ships will be revealed.
+If you win, of course, there are no remaining ships to reveal.
+
+Questions? Comments? Suggestions? Bugs?
+post them to the project page at http://sourceforge.net/projects/warboats/ 
+or send me an email at trevorchart@users.sourceforge.net.

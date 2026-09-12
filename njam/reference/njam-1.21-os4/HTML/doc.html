@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Njam documentation</title>
+
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+
+  <meta name="author" content="Milan Babuskov">
+</head>
+<body>
+<table cellpadding="0" cellspacing="2" border="0" width="100%">
+  <tbody>
+    <tr>
+      <td valign="middle" colspan="1" width="30%" nowrap="nowrap"
+ align="left"><b><big><big><font face="Helvetica, Arial, sans-serif">Njam
+documentation</font></big></big></b><br>
+      </td>
+      <td valign="middle" width="150" colspan="3" align="left"><img
+ src="sample.gif" alt=""
+ width="94" height="23" align="middle"><br>
+      </td>
+                            </tr>
+
+  </tbody>
+</table>
+<table cellpadding="1" cellspacing="0" border="0" width="100%"
+ bgcolor="#cc0000">
+  <tbody>
+    <tr>
+      <td valign="top"><b><font face="Helvetica, Arial, sans-serif"
+ color="#ffffff">&nbsp;Njam is a full-featured cross-platform pacman-like game
+written in C++ using SDL library</font></b></td>
+      <td valign="top" align="right"><small><a href="index.html"><b><small><font
+ face="Helvetica, Arial, sans-serif" color="white">HOME &gt;&gt;</font></small></b></a></small><br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<br>
+<font face="Helvetica, Arial, sans-serif"><b><big><br>
+</big></b></font><font face="Helvetica, Arial, sans-serif"><b><big>Contents<br>
+</big></b></font>
+<ul>
+  <li><a href="#rules"><font face="Helvetica, Arial, sans-serif">Game rules</font></a></li>
+  <li><font face="Helvetica, Arial, sans-serif"><a href="#ghosts">Ghosts</a>
+(explanation of each ghost type)</font></li>
+  <li><font face="Helvetica, Arial, sans-serif"><a href="#levelres">Level
+resources and structures</a> (peek at what you may run into)</font></li>
+  <li><font face="Helvetica, Arial, sans-serif"><a href="#controls">Game
+controls</a>(which key does what) and command line options<br>
+    </font></li>
+</ul>
+<br>
+<font face="Helvetica, Arial, sans-serif"><b><big><a name="rules"></a><br>
+Game rules</big></b></font><br>
+<ul>
+</ul>
+<font face="Helvetica, Arial, sans-serif">There are two types of game: Duel
+and Cooperative. <br>
+<a name="duel"></a><br>
+In <font color="#000099"><b>Duel games</b></font> the goal is to win four
+games before other players do. To win a game, you have to be the player with
+most points. The points are gained by eating the <a href="#cookies">cookies</a>
+and <a href="#ghosts">ghosts</a>. Each cookie is worth one point, each ghost
+is worth 5 points. If two players have the same points, the game is a draw.
+Eating ghosts is a tough task, you can do it only when you have <a
+ href="#juice">superpower</a> and even then the ghosts will try to run away.
+If the ghost kills a player, it's no big deal, he will revive, and show up
+on the screen few seconds later at <a href="#door">the door</a>. But be careful,
+if ghosts eat you too often,&nbsp; your opponent might eat just about everything
+while you wait.<br>
+<br>
+The points are shown at the right part of <a href="ingame.png"
+ title="Shows game screen (70kB)">screen</a>. They are represented by vertical
+bars which have the same colors as players. Under each bar, there is a thin
+grey line which shows how much points would player have if he eats all cookies
+that are on screen. When that thin line turns white, some of the players
+has enough points to win, and game can go to next level. Also, a triple-ding sound
+is heard at that moment. In fact, you can press ESC key anytime to finish current
+level, and the player with most points
+at that moment will be declared winner. Note not to press ESC when there
+are still some superpowers left, since some of the players can take it and
+<a href="doc2.html#gps">kill many ghosts</a> and gain a lot of points. However,
+if there isn't any superpower on the screen and the line turns white, just hit
+ESC, don't bother to finish the level.<br>
+<a name="nonduel"></a><br>
+In <font color="#000099"><b>Cooperative games</b></font> players don't compete,
+but cooperate. The goal of each level is to eat <b>all</b> cookies, and then
+advance to next level, until they complete the whole game. The players share
+a number of lives, and if ghost kills any of the players, one life is lost.
+When all lives are lost, the game is over. When playing in two, it's good
+idea to help each other by driving ghosts away. During each level players
+have a chance to win a life if
+they complete the level before the bonus-time runs out. The remaining time is
+shown at right part of the screen (vertical red bar).</font><br>
+<font face="Helvetica, Arial, sans-serif"><b><big><br>
+<br>
+</big></b></font>
+<div align="center"><font face="Helvetica, Arial, sans-serif"><b><big><img
+ src="thinline.gif" alt="" width="583" height="9" align="top"></big></b></font><br>
+</div>
+<font face="Helvetica, Arial, sans-serif"><b><big><br>
+<a name="ghosts"></a><br>
+The Ghosts</big></b></font><br>
+<br>
+<font face="Helvetica, Arial, sans-serif">Ghosts are enemies of the players.
+They run around the screen and try to capture the player and kill him. If player
+has a <a href="#juice">superpower</a>, then they run away from him,
+since superpower kills them. Ghosts spawn at the <a href="#ghosthouse">pentagram</a>
+and run around. When a ghost dies, he returns to pentagram to recuperate,
+and after a while he's out again. There are three types of ghosts, which
+are recognized by their color and behavior:</font><br>
+<br>
+<font color="#000099" face="Helvetica, Arial, sans-serif"><b>Shaddy </b></font>&nbsp;
+&nbsp; <img src="shaddy.gif" alt="" width="23" height="23"
+ align="middle"><br>
+<br>
+<font face="Helvetica, Arial, sans-serif">Shaddy is a blind ghost. He just
+moves randomly, and often makes turns at crossroads. He never
+turns back the same way he came, except sometimes when he hits the wall and
+forgets himself. However, he can feel the presence of superpower so he will
+run like hell from it, just like the other ghosts do. It is said that the
+worst thing that can happen to you is to be hunted by 2 or 3 shaddys since
+they are so unpredictable. Only the most skilled players who have a lot of
+luck can survive that kind of situations..</font><br>
+<br>
+<font color="#ff0000" face="Helvetica, Arial, sans-serif"><b>Hunter</b></font>
+&nbsp;&nbsp; &nbsp; &nbsp;<img src="hunter.gif" alt="" width="23"
+ height="23" align="middle"><br>
+<br>
+<font face="Helvetica, Arial, sans-serif">Hunter is the pursuit ghost. Something
+like a guard. He patrols around, and always goes straight, that is, he never
+turns sideways on cross-roads. If hunter spots you, he will turn your way at once,
+and hunt you down. If you are far enough, you still have a chance to hide
+behind some corner and avoid him. By exposing yourself to the hunter, he
+becomes your follower so you can use him as effective weapon. Hunters are
+most attracted by nearest player at their sight, so one can hide around the
+corner for a moment, just enough for hunter to start chasing someone else.</font><br>
+<br>
+<font face="Helvetica, Arial, sans-serif"><b><font color="#ff6600">Assassin</font></b></font>
+&nbsp; &nbsp;<img src="assassin.gif" alt="" width="24" height="23"
+ align="middle"><br>
+<br>
+<font face="Helvetica, Arial, sans-serif">Assassin is the most dangerous
+creature. It just moves around like a </font><font color="#000099"
+ face="Helvetica, Arial, sans-serif"><b>shaddy</b></font><font
+ face="Helvetica, Arial, sans-serif">, but if he sees you, he turns to </font><font
+ color="#ff0000" face="Helvetica, Arial, sans-serif"><b>hunter</b></font><font
+ face="Helvetica, Arial, sans-serif"> at once. If he loses you, he continues
+to run straight (just like hunter does) until he hits the wall and then goes
+back to shaddy mode. You can make assassin your follower too, but take care.</font><br>
+<font face="Helvetica, Arial, sans-serif"></font><br>
+<br>
+<div align="center"><font face="Helvetica, Arial, sans-serif"><b><big><img
+ src="thinline.gif" alt="" width="583" height="9" align="top"></big></b></font><br>
+</div>
+<br>
+<a name="levelres"></a><br>
+<b><big><font face="Helvetica, Arial, sans-serif">Level resources &amp; stuff</font></big></b><br>
+<br>
+<font face="Helvetica, Arial, sans-serif" size=-1><b>Note</b>: game elements look different with different skins,
+as you can see <a href=doc2.html#skins>on this page</a>.</font>
+<br><br>
+<a name="cookies"></a><br>
+<font face="Helvetica, Arial, sans-serif"><b>Cookie &nbsp; &nbsp;<img
+ src="cookie.gif" alt="" width="30" height="30" align="middle"></b><br>
+<br>
+Cookies are the goal of the game. Each cookie gives you one point, and the
+player with most points is the winner. You can also gain points by eating
+ghosts, where each eaten ghost gives you 5 points. If players have even points
+in a <a href="doc.html#duel">duel game</a>, the game is a draw, and there
+is no winner.<br>
+<br>
+<a name="juice"></a><br>
+<b>Super-power (juice) &nbsp; &nbsp; &nbsp;<img src="juice.gif" alt=""
+ width="30" height="30" align="middle"></b><br>
+<br>
+When the player drinks this cool juice, he gains superpower which enables
+him to eat anything that moves: ghosts and even other players. Superpower
+lasts for a short period of time, and you can see small numbers 3,2,1...
+around player as superpower is about to run out. One cannot eat another player
+if the other has the superpower, nor can collect another juice if he has
+superpower already. In duel games, if player would try to take the superpower when he
+already has it, it will disappear and show up in the opposite corner of the screen.
+When ghosts see the player with superpower they run away,
+unless he is also <a href="doc.html#invisible">invisible</a> at the same time,
+which is a great combination if you want to kill a lot of ghosts. Player
+that has superpower is glowing red.<br>
+<br>
+<a name="invisible"></a><br>
+<b>Invisibility &nbsp; &nbsp; <img src="invisible.gif" alt="" width="30"
+ height="30" align="middle"></b><br>
+<br>
+As the name suggests, you are invisible to ghosts. Since shaddy is already
+blind, this does not affect him. When invisible, you can eat ghosts (if you
+have superpower) easily, since they will not run away. Invisibility lasts
+three times longer than superpower. Player which is invisible to ghosts is
+glowing yellow.<br>
+<br>
+<a name="teleport"></a><br>
+<b>Teleport &nbsp; &nbsp; <img src="teleport.gif" alt="" width="30"
+ height="30" align="middle"></b><br>
+<br>
+When a player walks into teleport, he is moved to one of the other teleports
+on screen. Teleport destination is chosen randomly. The player keeps his
+moving direction, and keeps moving, unless there is an obstacle in front of him.
+Ghosts just fly over teleports, so teleports can nicely be used to avoid ghosts
+when in deep trouble. <br>
+<br>
+<a name="freezer"></a><br>
+<b>Freezer &nbsp; &nbsp; <img src="freezer.gif" alt="" width="30"
+ height="30" align="middle"></b><br>
+<br>
+This cute gizmo freezes the ghosts for a short period of time. It lasts twice
+as long as superpower. Even though that ghosts cannot move during that time,
+they can still eat you, so beware.<br>
+<br>
+<a name="trap"></a><br>
+<b>Trap &nbsp; &nbsp; &nbsp;<img src="trap.gif" alt="" width="30"
+ height="30" align="middle"></b><br>
+<br>
+Trap is a spot on the ground where the player can pass only once. After that,
+the trap closes, and wall shows up at that place. You may try to close the
+trap and go back in same direction where you came from, but it may kill you.
+Ghosts are immune to traps, they do not activate neither can die of it. When
+a trap kills you, you are dead just like the ghosts got you. Only difference
+is that you have to wait twice longer to show up. Also, if the trap kills you,
+you will not lose a life.<br>
+<br>
+<a name="door"></a><br>
+<b>The Door &nbsp; &nbsp; &nbsp;<img src="door.gif" alt="" width="30"
+ height="30" align="middle"></b><br>
+<br>
+When the player is killed he leaves the game for a short period of time. After
+that time passes he comes back, and enters the game through the door. There
+is always one door on the screen. If the player is slammed by a trap the
+delay of showing up doubles, so be patient.<br>
+<br>
+<a name="ghosthouse"></a><br>
+<b>Pentagram (ghost-house) &nbsp; &nbsp; &nbsp;<img src="ghinactive.gif"
+ alt="" width="30" height="30" align="middle"> &nbsp;<img
+ src="ghactive.gif" alt="" width="30" height="30" align="middle"></b><br>
+<br>
+This is where ghosts come out from. Inactive pentagram is colored black.
+When ghost is about to came out of it, it turns yellow, so beware. Wandering
+around yellow pentagram is generally not a good idea, unless you have <a
+ href="doc.html#juice">superpower</a> on you.</font>
+<ul>
+
+</ul>
+<br>
+<br>
+<div align="center"><font face="Helvetica, Arial, sans-serif"><b><big><img
+ src="thinline.gif" alt=""
+ width="583" height="9" align="top"></big></b></font><br>
+</div>
+<br>
+<a name="controls"></a><br>
+<b><big><font face="Helvetica, Arial, sans-serif">Game controls and command
+line options</font></big></b><br>
+<br>
+<font face="Helvetica, Arial, sans-serif">Player one (yellow player) uses
+cursor keys (up, down, left and right arrow) to move. Player two (green)
+uses keys R, F, D and G respectively. Players actually don't move, they just
+set the direction for their character, and as soon there is free space in
+that direction, he starts moving. Once you start moving, you cannot stop
+unless you hit the wall. When you host the network game, the controls are
+the same, but when you join it, then you're controlling players three and
+four (red and dark-green) with these same controls.<br>
+<br>
+Other keys are P for pausing the game, and ESC to exit the game. If you press
+ESC in <a href="#nonduel">cooperative game</a>, players will lose one life.
+In <a href="#duel">duel games</a>, current game ends, and the player with
+most points at that moment is a winner. This is especially useful when there
+are some cookies left on screen, but they are impossible to reach. <br>
+<br>
+The following command line options are available: <br>
+<b>-w</b> &nbsp; starts the game in <b>window</b> (as opposed to fullscreen)<br>
+<b>-h</b> &nbsp; uses <b>hardware</b> surfaces if possible (game runs faster, but
+there were problems with some graphic cards, so software surfaces are default)<br>
+<b>-d</b> &nbsp; use <b>DGA</b> driver on Linux (much faster, but must run as root).<br>
+<b>-?</b> &nbsp; Show summary of all command-line options.<br>
+</font><br>
+<br>
+<div align="right"><font face="Helvetica, Arial, sans-serif"><a
+ href="doc2.html">next</a><br>
+&nbsp;Adding custom level skins</font></div>
+<hr width="100%" size="2"><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"><br>
+Copyright &copy;</font></small><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"> Milan Babuskov</font></small><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"> 2003.<br>
+</font></small><small><font face="Helvetica, Arial, sans-serif"
+ color="#666666">Contact me at: mbabuskov@yahoo.com</font></small><br>
+<br>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "id": "world3",
+  "name": "Dune Dorate",
+  "levelCount": 8,
+  "story": "Le tracce del ladro di ghiande portano al deserto, tra dune e rovine sepolte dalla sabbia. Tra i macchinari abbandonati, Grugnetto trova una chiave misteriosa incastonata in una rovina antica.",
+  "musicSuggestion": "kenney-extras/music-jingles/Steel jingles/ (atmosfera esotica/oasi)",
+  "assetsBase": "kenney-extras/new-platformer-pack/",
+  "terrain": {
+    "prefix": "terrain_sand",
+    "files": [
+      "tiles/terrain_sand_block.png",
+      "tiles/terrain_sand_block_top.png",
+      "tiles/terrain_sand_block_top_left.png",
+      "tiles/terrain_sand_block_top_right.png",
+      "tiles/terrain_sand_block_bottom.png",
+      "tiles/terrain_sand_block_bottom_left.png",
+      "tiles/terrain_sand_block_bottom_right.png",
+      "tiles/terrain_sand_block_left.png",
+      "tiles/terrain_sand_block_right.png",
+      "tiles/terrain_sand_block_center.png",
+      "tiles/terrain_sand_horizontal_left.png",
+      "tiles/terrain_sand_horizontal_middle.png",
+      "tiles/terrain_sand_horizontal_right.png",
+      "tiles/terrain_sand_ramp_short_a.png",
+      "tiles/terrain_sand_ramp_short_b.png",
+      "tiles/terrain_sand_ramp_long_a.png",
+      "tiles/terrain_sand_ramp_long_b.png",
+      "tiles/terrain_sand_ramp_long_c.png",
+      "tiles/terrain_sand_vertical_top.png",
+      "tiles/terrain_sand_vertical_middle.png",
+      "tiles/terrain_sand_vertical_bottom.png"
+    ]
+  },
+  "background": {
+    "files": [
+      "backgrounds/background_color_desert.png",
+      "backgrounds/background_fade_desert.png",
+      "backgrounds/background_solid_sand.png",
+      "backgrounds/background_solid_sky.png"
+    ]
+  },
+  "props": {
+    "files": [
+      "tiles/cactus.png",
+      "tiles/sign.png",
+      "tiles/sign_exit.png"
+    ]
+  },
+  "enemies": [
+    {
+      "name": "mouse",
+      "behavior": "patrol veloce, corre avanti e indietro",
+      "files": ["enemies/mouse_rest.png", "enemies/mouse_walk_a.png", "enemies/mouse_walk_b.png"]
+    },
+    {
+      "name": "saw",
+      "behavior": "macchinario abbandonato, oscilla o gira sul posto (attenzione: più 'meccanico' degli altri, valutare se renderlo evitabile facilmente)",
+      "files": ["enemies/saw_rest.png", "enemies/saw_a.png", "enemies/saw_b.png"]
+    }
+  ],
+  "collectibles": [
+    { "name": "key", "file": "../collectable_key.png", "points": 200, "note": "unica per livello, pensata per sbloccare qualcosa nel mondo 4" },
+    { "name": "coin", "file": "../collectable_coin.png", "points": 100 }
+  ]
+}

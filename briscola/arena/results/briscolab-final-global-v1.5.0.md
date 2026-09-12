@@ -1,0 +1,718 @@
+# BriscoLab v1.5.0 — Final Global Round Robin
+
+- Players: 37
+- Matchups: 666
+- Seed pairs per matchup: 100
+- Games per matchup: 200
+- Total games: 133200
+- Draws: 2697
+- Both seating positions tested for every seed.
+
+| Rank | Player | Wins | Games | Win rate | Avg points |
+|---:|---|---:|---:|---:|---:|
+| 1 | BriscolaBot v3 | 5090 | 7200 | 70.69% | 68.92 |
+| 2 | QBriscola | 4486 | 7200 | 62.31% | 65.54 |
+| 3 | Cuperativa | 4363 | 7200 | 60.60% | 64.70 |
+| 4 | PoIAna 🐦 blooming-bird · 68.2% | 4285 | 7200 | 59.51% | 64.40 |
+| 5 | PoIAna 🕳️ graceful-darkness · 68.1% | 4248 | 7200 | 59.00% | 64.30 |
+| 6 | PoIAna 🍂 autumn-night · 68.1% | 4225 | 7200 | 58.68% | 64.17 |
+| 7 | smBrisCola Empirico1 | 4191 | 7200 | 58.21% | 64.72 |
+| 8 | smBrisCola Empirico2 | 4180 | 7200 | 58.06% | 64.65 |
+| 9 | PoIAna 🌨️ snowy-shape · 65.0% | 4133 | 7200 | 57.40% | 63.88 |
+| 10 | PoIAna 🎣 laced-pond · 67.6% | 4130 | 7200 | 57.36% | 62.96 |
+| 11 | CardFramework Cpu2 | 3920 | 7200 | 54.44% | 63.56 |
+| 12 | PoIAna 🌟 true-star · 68.0% | 3918 | 7200 | 54.42% | 63.09 |
+| 13 | PoIAna 🌲 toasty-pine · 68.1% | 3887 | 7200 | 53.99% | 61.66 |
+| 14 | PoIAna 📄 devout-paper · 65.7% | 3839 | 7200 | 53.32% | 61.79 |
+| 15 | PoIAna 🦦 mild-aardvark · 65.3% | 3765 | 7200 | 52.29% | 61.06 |
+| 16 | PoIAna 💫 lively-cosmos · 63.4% | 3700 | 7200 | 51.39% | 60.92 |
+| 17 | PoIAna 🍃 bumbling-leaf · 61.5% | 3662 | 7200 | 50.86% | 60.66 |
+| 18 | PoIAna ❄️ spring-snowflake · 57.6% | 3602 | 7200 | 50.03% | 60.35 |
+| 19 | PoIAna 🪨 easy-shape · 61.3% | 3568 | 7200 | 49.56% | 59.87 |
+| 20 | CardFramework Cpu1 | 3549 | 7200 | 49.29% | 61.11 |
+| 21 | PoIAna 🌃 earnest-night · 58.8% | 3493 | 7200 | 48.51% | 60.00 |
+| 22 | PoIAna 🏔️ rich-mountain · 58.8% | 3493 | 7200 | 48.51% | 60.00 |
+| 23 | PoIAna 🛶 warm-river · 57.7% | 3464 | 7200 | 48.11% | 59.49 |
+| 24 | πG Greedy | 3443 | 7200 | 47.82% | 60.55 |
+| 25 | PoIAna 🤳🏻 selfplay-best · 56.9% | 3412 | 7200 | 47.39% | 60.05 |
+| 26 | PoIAna 😌 skilled-serenity · 53.9% | 3371 | 7200 | 46.82% | 59.68 |
+| 27 | PoIAna 🥗 dark-salad · 57.2% | 3311 | 7200 | 45.99% | 58.60 |
+| 28 | πC Counter | 3236 | 7200 | 44.94% | 58.92 |
+| 29 | PoIAna 🌊 amber-lake · 57.8% | 3227 | 7200 | 44.82% | 58.36 |
+| 30 | PoIAna 🐲 smart-dragon · 53.2% | 3189 | 7200 | 44.29% | 57.97 |
+| 31 | πH Hoarder | 3178 | 7200 | 44.14% | 58.71 |
+| 32 | Pryscola | 3100 | 7200 | 43.06% | 58.66 |
+| 33 | PoIAna ☄️ hardy-galaxy · 48.2% | 2675 | 7200 | 37.15% | 55.26 |
+| 34 | PoIAna 🧨 cosmic-firebrand · 45.1% | 2559 | 7200 | 35.54% | 53.91 |
+| 35 | JBriscola | 1856 | 7200 | 25.78% | 49.19 |
+| 36 | CardFramework Cpu0 | 1516 | 7200 | 21.06% | 44.82 |
+| 37 | Random | 1239 | 7200 | 17.21% | 43.52 |
+
+## Head-to-head
+
+- **QBriscola vs Cuperativa:** 92-105, 3 draws, 200 games.
+- **QBriscola vs smBrisCola Empirico1:** 111-83, 6 draws, 200 games.
+- **QBriscola vs smBrisCola Empirico2:** 102-95, 3 draws, 200 games.
+- **QBriscola vs JBriscola:** 165-34, 1 draws, 200 games.
+- **QBriscola vs Pryscola:** 155-41, 4 draws, 200 games.
+- **QBriscola vs Random:** 174-22, 4 draws, 200 games.
+- **QBriscola vs πG Greedy:** 143-51, 6 draws, 200 games.
+- **QBriscola vs πH Hoarder:** 150-47, 3 draws, 200 games.
+- **QBriscola vs πC Counter:** 149-47, 4 draws, 200 games.
+- **QBriscola vs CardFramework Cpu0:** 175-24, 1 draws, 200 games.
+- **QBriscola vs CardFramework Cpu1:** 115-76, 9 draws, 200 games.
+- **QBriscola vs CardFramework Cpu2:** 110-80, 10 draws, 200 games.
+- **QBriscola vs BriscolaBot v3:** 81-116, 3 draws, 200 games.
+- **QBriscola vs PoIAna 🐦 blooming-bird · 68.2%:** 103-93, 4 draws, 200 games.
+- **QBriscola vs PoIAna 🕳️ graceful-darkness · 68.1%:** 99-95, 6 draws, 200 games.
+- **QBriscola vs PoIAna 🌲 toasty-pine · 68.1%:** 98-95, 7 draws, 200 games.
+- **QBriscola vs PoIAna 🍂 autumn-night · 68.1%:** 101-96, 3 draws, 200 games.
+- **QBriscola vs PoIAna 🌟 true-star · 68.0%:** 115-84, 1 draws, 200 games.
+- **QBriscola vs PoIAna 🎣 laced-pond · 67.6%:** 106-91, 3 draws, 200 games.
+- **QBriscola vs PoIAna 📄 devout-paper · 65.7%:** 102-86, 12 draws, 200 games.
+- **QBriscola vs PoIAna 🦦 mild-aardvark · 65.3%:** 111-84, 5 draws, 200 games.
+- **QBriscola vs PoIAna 🌨️ snowy-shape · 65.0%:** 103-95, 2 draws, 200 games.
+- **QBriscola vs PoIAna 💫 lively-cosmos · 63.4%:** 99-98, 3 draws, 200 games.
+- **QBriscola vs PoIAna 🍃 bumbling-leaf · 61.5%:** 119-75, 6 draws, 200 games.
+- **QBriscola vs PoIAna 🪨 easy-shape · 61.3%:** 119-76, 5 draws, 200 games.
+- **QBriscola vs PoIAna 🌃 earnest-night · 58.8%:** 144-51, 5 draws, 200 games.
+- **QBriscola vs PoIAna 🏔️ rich-mountain · 58.8%:** 144-51, 5 draws, 200 games.
+- **QBriscola vs PoIAna 🌊 amber-lake · 57.8%:** 122-73, 5 draws, 200 games.
+- **QBriscola vs PoIAna 🛶 warm-river · 57.7%:** 130-66, 4 draws, 200 games.
+- **QBriscola vs PoIAna ❄️ spring-snowflake · 57.6%:** 128-70, 2 draws, 200 games.
+- **QBriscola vs PoIAna 🥗 dark-salad · 57.2%:** 126-69, 5 draws, 200 games.
+- **QBriscola vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 122-74, 4 draws, 200 games.
+- **QBriscola vs PoIAna 😌 skilled-serenity · 53.9%:** 141-56, 3 draws, 200 games.
+- **QBriscola vs PoIAna 🐲 smart-dragon · 53.2%:** 129-64, 7 draws, 200 games.
+- **QBriscola vs PoIAna ☄️ hardy-galaxy · 48.2%:** 152-42, 6 draws, 200 games.
+- **QBriscola vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 151-45, 4 draws, 200 games.
+- **Cuperativa vs smBrisCola Empirico1:** 93-101, 6 draws, 200 games.
+- **Cuperativa vs smBrisCola Empirico2:** 102-93, 5 draws, 200 games.
+- **Cuperativa vs JBriscola:** 159-38, 3 draws, 200 games.
+- **Cuperativa vs Pryscola:** 144-52, 4 draws, 200 games.
+- **Cuperativa vs Random:** 172-26, 2 draws, 200 games.
+- **Cuperativa vs πG Greedy:** 126-71, 3 draws, 200 games.
+- **Cuperativa vs πH Hoarder:** 141-58, 1 draws, 200 games.
+- **Cuperativa vs πC Counter:** 142-56, 2 draws, 200 games.
+- **Cuperativa vs CardFramework Cpu0:** 161-36, 3 draws, 200 games.
+- **Cuperativa vs CardFramework Cpu1:** 113-84, 3 draws, 200 games.
+- **Cuperativa vs CardFramework Cpu2:** 102-90, 8 draws, 200 games.
+- **Cuperativa vs BriscolaBot v3:** 69-123, 8 draws, 200 games.
+- **Cuperativa vs PoIAna 🐦 blooming-bird · 68.2%:** 99-99, 2 draws, 200 games.
+- **Cuperativa vs PoIAna 🕳️ graceful-darkness · 68.1%:** 94-101, 5 draws, 200 games.
+- **Cuperativa vs PoIAna 🌲 toasty-pine · 68.1%:** 110-86, 4 draws, 200 games.
+- **Cuperativa vs PoIAna 🍂 autumn-night · 68.1%:** 98-99, 3 draws, 200 games.
+- **Cuperativa vs PoIAna 🌟 true-star · 68.0%:** 102-95, 3 draws, 200 games.
+- **Cuperativa vs PoIAna 🎣 laced-pond · 67.6%:** 104-90, 6 draws, 200 games.
+- **Cuperativa vs PoIAna 📄 devout-paper · 65.7%:** 106-92, 2 draws, 200 games.
+- **Cuperativa vs PoIAna 🦦 mild-aardvark · 65.3%:** 105-89, 6 draws, 200 games.
+- **Cuperativa vs PoIAna 🌨️ snowy-shape · 65.0%:** 89-105, 6 draws, 200 games.
+- **Cuperativa vs PoIAna 💫 lively-cosmos · 63.4%:** 108-90, 2 draws, 200 games.
+- **Cuperativa vs PoIAna 🍃 bumbling-leaf · 61.5%:** 112-83, 5 draws, 200 games.
+- **Cuperativa vs PoIAna 🪨 easy-shape · 61.3%:** 117-77, 6 draws, 200 games.
+- **Cuperativa vs PoIAna 🌃 earnest-night · 58.8%:** 134-63, 3 draws, 200 games.
+- **Cuperativa vs PoIAna 🏔️ rich-mountain · 58.8%:** 134-63, 3 draws, 200 games.
+- **Cuperativa vs PoIAna 🌊 amber-lake · 57.8%:** 133-65, 2 draws, 200 games.
+- **Cuperativa vs PoIAna 🛶 warm-river · 57.7%:** 135-62, 3 draws, 200 games.
+- **Cuperativa vs PoIAna ❄️ spring-snowflake · 57.6%:** 134-63, 3 draws, 200 games.
+- **Cuperativa vs PoIAna 🥗 dark-salad · 57.2%:** 127-68, 5 draws, 200 games.
+- **Cuperativa vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 129-66, 5 draws, 200 games.
+- **Cuperativa vs PoIAna 😌 skilled-serenity · 53.9%:** 124-75, 1 draws, 200 games.
+- **Cuperativa vs PoIAna 🐲 smart-dragon · 53.2%:** 135-61, 4 draws, 200 games.
+- **Cuperativa vs PoIAna ☄️ hardy-galaxy · 48.2%:** 148-49, 3 draws, 200 games.
+- **Cuperativa vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 157-38, 5 draws, 200 games.
+- **smBrisCola Empirico1 vs smBrisCola Empirico2:** 92-103, 5 draws, 200 games.
+- **smBrisCola Empirico1 vs JBriscola:** 168-30, 2 draws, 200 games.
+- **smBrisCola Empirico1 vs Pryscola:** 141-53, 6 draws, 200 games.
+- **smBrisCola Empirico1 vs Random:** 182-17, 1 draws, 200 games.
+- **smBrisCola Empirico1 vs πG Greedy:** 121-73, 6 draws, 200 games.
+- **smBrisCola Empirico1 vs πH Hoarder:** 139-57, 4 draws, 200 games.
+- **smBrisCola Empirico1 vs πC Counter:** 137-59, 4 draws, 200 games.
+- **smBrisCola Empirico1 vs CardFramework Cpu0:** 172-25, 3 draws, 200 games.
+- **smBrisCola Empirico1 vs CardFramework Cpu1:** 115-77, 8 draws, 200 games.
+- **smBrisCola Empirico1 vs CardFramework Cpu2:** 104-90, 6 draws, 200 games.
+- **smBrisCola Empirico1 vs BriscolaBot v3:** 72-120, 8 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🐦 blooming-bird · 68.2%:** 98-97, 5 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🕳️ graceful-darkness · 68.1%:** 108-85, 7 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🌲 toasty-pine · 68.1%:** 102-94, 4 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🍂 autumn-night · 68.1%:** 96-100, 4 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🌟 true-star · 68.0%:** 99-97, 4 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🎣 laced-pond · 67.6%:** 95-101, 4 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 📄 devout-paper · 65.7%:** 94-103, 3 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🦦 mild-aardvark · 65.3%:** 96-102, 2 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🌨️ snowy-shape · 65.0%:** 101-94, 5 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 💫 lively-cosmos · 63.4%:** 121-74, 5 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🍃 bumbling-leaf · 61.5%:** 103-88, 9 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🪨 easy-shape · 61.3%:** 110-83, 7 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🌃 earnest-night · 58.8%:** 110-85, 5 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🏔️ rich-mountain · 58.8%:** 110-85, 5 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🌊 amber-lake · 57.8%:** 125-69, 6 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🛶 warm-river · 57.7%:** 114-79, 7 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna ❄️ spring-snowflake · 57.6%:** 111-81, 8 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🥗 dark-salad · 57.2%:** 122-75, 3 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 116-79, 5 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 😌 skilled-serenity · 53.9%:** 124-72, 4 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🐲 smart-dragon · 53.2%:** 112-82, 6 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna ☄️ hardy-galaxy · 48.2%:** 147-51, 2 draws, 200 games.
+- **smBrisCola Empirico1 vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 150-50, 0 draws, 200 games.
+- **smBrisCola Empirico2 vs JBriscola:** 166-31, 3 draws, 200 games.
+- **smBrisCola Empirico2 vs Pryscola:** 146-50, 4 draws, 200 games.
+- **smBrisCola Empirico2 vs Random:** 169-27, 4 draws, 200 games.
+- **smBrisCola Empirico2 vs πG Greedy:** 133-61, 6 draws, 200 games.
+- **smBrisCola Empirico2 vs πH Hoarder:** 142-57, 1 draws, 200 games.
+- **smBrisCola Empirico2 vs πC Counter:** 135-63, 2 draws, 200 games.
+- **smBrisCola Empirico2 vs CardFramework Cpu0:** 162-36, 2 draws, 200 games.
+- **smBrisCola Empirico2 vs CardFramework Cpu1:** 101-89, 10 draws, 200 games.
+- **smBrisCola Empirico2 vs CardFramework Cpu2:** 95-96, 9 draws, 200 games.
+- **smBrisCola Empirico2 vs BriscolaBot v3:** 61-135, 4 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🐦 blooming-bird · 68.2%:** 101-94, 5 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🕳️ graceful-darkness · 68.1%:** 93-104, 3 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🌲 toasty-pine · 68.1%:** 87-107, 6 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🍂 autumn-night · 68.1%:** 95-103, 2 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🌟 true-star · 68.0%:** 119-79, 2 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🎣 laced-pond · 67.6%:** 89-107, 4 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 📄 devout-paper · 65.7%:** 102-95, 3 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🦦 mild-aardvark · 65.3%:** 113-84, 3 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🌨️ snowy-shape · 65.0%:** 109-90, 1 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 💫 lively-cosmos · 63.4%:** 115-80, 5 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🍃 bumbling-leaf · 61.5%:** 118-70, 12 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🪨 easy-shape · 61.3%:** 109-86, 5 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🌃 earnest-night · 58.8%:** 118-77, 5 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🏔️ rich-mountain · 58.8%:** 118-77, 5 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🌊 amber-lake · 57.8%:** 117-78, 5 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🛶 warm-river · 57.7%:** 102-90, 8 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna ❄️ spring-snowflake · 57.6%:** 112-83, 5 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🥗 dark-salad · 57.2%:** 118-79, 3 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 117-76, 7 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 😌 skilled-serenity · 53.9%:** 113-80, 7 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🐲 smart-dragon · 53.2%:** 131-65, 4 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna ☄️ hardy-galaxy · 48.2%:** 141-57, 2 draws, 200 games.
+- **smBrisCola Empirico2 vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 142-56, 2 draws, 200 games.
+- **JBriscola vs Pryscola:** 49-149, 2 draws, 200 games.
+- **JBriscola vs Random:** 122-73, 5 draws, 200 games.
+- **JBriscola vs πG Greedy:** 45-151, 4 draws, 200 games.
+- **JBriscola vs πH Hoarder:** 71-125, 4 draws, 200 games.
+- **JBriscola vs πC Counter:** 77-120, 3 draws, 200 games.
+- **JBriscola vs CardFramework Cpu0:** 134-61, 5 draws, 200 games.
+- **JBriscola vs CardFramework Cpu1:** 49-150, 1 draws, 200 games.
+- **JBriscola vs CardFramework Cpu2:** 31-167, 2 draws, 200 games.
+- **JBriscola vs BriscolaBot v3:** 22-177, 1 draws, 200 games.
+- **JBriscola vs PoIAna 🐦 blooming-bird · 68.2%:** 25-171, 4 draws, 200 games.
+- **JBriscola vs PoIAna 🕳️ graceful-darkness · 68.1%:** 27-168, 5 draws, 200 games.
+- **JBriscola vs PoIAna 🌲 toasty-pine · 68.1%:** 40-157, 3 draws, 200 games.
+- **JBriscola vs PoIAna 🍂 autumn-night · 68.1%:** 33-162, 5 draws, 200 games.
+- **JBriscola vs PoIAna 🌟 true-star · 68.0%:** 38-158, 4 draws, 200 games.
+- **JBriscola vs PoIAna 🎣 laced-pond · 67.6%:** 37-154, 9 draws, 200 games.
+- **JBriscola vs PoIAna 📄 devout-paper · 65.7%:** 37-162, 1 draws, 200 games.
+- **JBriscola vs PoIAna 🦦 mild-aardvark · 65.3%:** 37-160, 3 draws, 200 games.
+- **JBriscola vs PoIAna 🌨️ snowy-shape · 65.0%:** 35-159, 6 draws, 200 games.
+- **JBriscola vs PoIAna 💫 lively-cosmos · 63.4%:** 51-147, 2 draws, 200 games.
+- **JBriscola vs PoIAna 🍃 bumbling-leaf · 61.5%:** 44-150, 6 draws, 200 games.
+- **JBriscola vs PoIAna 🪨 easy-shape · 61.3%:** 47-149, 4 draws, 200 games.
+- **JBriscola vs PoIAna 🌃 earnest-night · 58.8%:** 60-139, 1 draws, 200 games.
+- **JBriscola vs PoIAna 🏔️ rich-mountain · 58.8%:** 60-139, 1 draws, 200 games.
+- **JBriscola vs PoIAna 🌊 amber-lake · 57.8%:** 43-152, 5 draws, 200 games.
+- **JBriscola vs PoIAna 🛶 warm-river · 57.7%:** 52-144, 4 draws, 200 games.
+- **JBriscola vs PoIAna ❄️ spring-snowflake · 57.6%:** 64-135, 1 draws, 200 games.
+- **JBriscola vs PoIAna 🥗 dark-salad · 57.2%:** 59-135, 6 draws, 200 games.
+- **JBriscola vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 48-151, 1 draws, 200 games.
+- **JBriscola vs PoIAna 😌 skilled-serenity · 53.9%:** 67-131, 2 draws, 200 games.
+- **JBriscola vs PoIAna 🐲 smart-dragon · 53.2%:** 65-131, 4 draws, 200 games.
+- **JBriscola vs PoIAna ☄️ hardy-galaxy · 48.2%:** 68-132, 0 draws, 200 games.
+- **JBriscola vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 86-111, 3 draws, 200 games.
+- **Pryscola vs Random:** 164-31, 5 draws, 200 games.
+- **Pryscola vs πG Greedy:** 91-108, 1 draws, 200 games.
+- **Pryscola vs πH Hoarder:** 95-100, 5 draws, 200 games.
+- **Pryscola vs πC Counter:** 98-93, 9 draws, 200 games.
+- **Pryscola vs CardFramework Cpu0:** 146-51, 3 draws, 200 games.
+- **Pryscola vs CardFramework Cpu1:** 89-108, 3 draws, 200 games.
+- **Pryscola vs CardFramework Cpu2:** 73-124, 3 draws, 200 games.
+- **Pryscola vs BriscolaBot v3:** 51-148, 1 draws, 200 games.
+- **Pryscola vs PoIAna 🐦 blooming-bird · 68.2%:** 63-132, 5 draws, 200 games.
+- **Pryscola vs PoIAna 🕳️ graceful-darkness · 68.1%:** 62-134, 4 draws, 200 games.
+- **Pryscola vs PoIAna 🌲 toasty-pine · 68.1%:** 68-129, 3 draws, 200 games.
+- **Pryscola vs PoIAna 🍂 autumn-night · 68.1%:** 60-138, 2 draws, 200 games.
+- **Pryscola vs PoIAna 🌟 true-star · 68.0%:** 71-127, 2 draws, 200 games.
+- **Pryscola vs PoIAna 🎣 laced-pond · 67.6%:** 70-127, 3 draws, 200 games.
+- **Pryscola vs PoIAna 📄 devout-paper · 65.7%:** 72-128, 0 draws, 200 games.
+- **Pryscola vs PoIAna 🦦 mild-aardvark · 65.3%:** 88-109, 3 draws, 200 games.
+- **Pryscola vs PoIAna 🌨️ snowy-shape · 65.0%:** 66-129, 5 draws, 200 games.
+- **Pryscola vs PoIAna 💫 lively-cosmos · 63.4%:** 84-114, 2 draws, 200 games.
+- **Pryscola vs PoIAna 🍃 bumbling-leaf · 61.5%:** 87-109, 4 draws, 200 games.
+- **Pryscola vs PoIAna 🪨 easy-shape · 61.3%:** 93-104, 3 draws, 200 games.
+- **Pryscola vs PoIAna 🌃 earnest-night · 58.8%:** 92-104, 4 draws, 200 games.
+- **Pryscola vs PoIAna 🏔️ rich-mountain · 58.8%:** 92-104, 4 draws, 200 games.
+- **Pryscola vs PoIAna 🌊 amber-lake · 57.8%:** 88-104, 8 draws, 200 games.
+- **Pryscola vs PoIAna 🛶 warm-river · 57.7%:** 96-103, 1 draws, 200 games.
+- **Pryscola vs PoIAna ❄️ spring-snowflake · 57.6%:** 94-103, 3 draws, 200 games.
+- **Pryscola vs PoIAna 🥗 dark-salad · 57.2%:** 97-98, 5 draws, 200 games.
+- **Pryscola vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 85-114, 1 draws, 200 games.
+- **Pryscola vs PoIAna 😌 skilled-serenity · 53.9%:** 100-96, 4 draws, 200 games.
+- **Pryscola vs PoIAna 🐲 smart-dragon · 53.2%:** 98-99, 3 draws, 200 games.
+- **Pryscola vs PoIAna ☄️ hardy-galaxy · 48.2%:** 101-96, 3 draws, 200 games.
+- **Pryscola vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 121-72, 7 draws, 200 games.
+- **Random vs πG Greedy:** 20-179, 1 draws, 200 games.
+- **Random vs πH Hoarder:** 27-173, 0 draws, 200 games.
+- **Random vs πC Counter:** 32-167, 1 draws, 200 games.
+- **Random vs CardFramework Cpu0:** 94-98, 8 draws, 200 games.
+- **Random vs CardFramework Cpu1:** 25-172, 3 draws, 200 games.
+- **Random vs CardFramework Cpu2:** 18-180, 2 draws, 200 games.
+- **Random vs BriscolaBot v3:** 17-181, 2 draws, 200 games.
+- **Random vs PoIAna 🐦 blooming-bird · 68.2%:** 26-171, 3 draws, 200 games.
+- **Random vs PoIAna 🕳️ graceful-darkness · 68.1%:** 31-166, 3 draws, 200 games.
+- **Random vs PoIAna 🌲 toasty-pine · 68.1%:** 35-162, 3 draws, 200 games.
+- **Random vs PoIAna 🍂 autumn-night · 68.1%:** 25-170, 5 draws, 200 games.
+- **Random vs PoIAna 🌟 true-star · 68.0%:** 29-164, 7 draws, 200 games.
+- **Random vs PoIAna 🎣 laced-pond · 67.6%:** 25-172, 3 draws, 200 games.
+- **Random vs PoIAna 📄 devout-paper · 65.7%:** 46-153, 1 draws, 200 games.
+- **Random vs PoIAna 🦦 mild-aardvark · 65.3%:** 31-168, 1 draws, 200 games.
+- **Random vs PoIAna 🌨️ snowy-shape · 65.0%:** 21-178, 1 draws, 200 games.
+- **Random vs PoIAna 💫 lively-cosmos · 63.4%:** 41-158, 1 draws, 200 games.
+- **Random vs PoIAna 🍃 bumbling-leaf · 61.5%:** 34-162, 4 draws, 200 games.
+- **Random vs PoIAna 🪨 easy-shape · 61.3%:** 28-171, 1 draws, 200 games.
+- **Random vs PoIAna 🌃 earnest-night · 58.8%:** 41-157, 2 draws, 200 games.
+- **Random vs PoIAna 🏔️ rich-mountain · 58.8%:** 41-157, 2 draws, 200 games.
+- **Random vs PoIAna 🌊 amber-lake · 57.8%:** 35-164, 1 draws, 200 games.
+- **Random vs PoIAna 🛶 warm-river · 57.7%:** 39-157, 4 draws, 200 games.
+- **Random vs PoIAna ❄️ spring-snowflake · 57.6%:** 37-162, 1 draws, 200 games.
+- **Random vs PoIAna 🥗 dark-salad · 57.2%:** 47-152, 1 draws, 200 games.
+- **Random vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 30-167, 3 draws, 200 games.
+- **Random vs PoIAna 😌 skilled-serenity · 53.9%:** 36-162, 2 draws, 200 games.
+- **Random vs PoIAna 🐲 smart-dragon · 53.2%:** 43-154, 3 draws, 200 games.
+- **Random vs PoIAna ☄️ hardy-galaxy · 48.2%:** 44-155, 1 draws, 200 games.
+- **Random vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 45-150, 5 draws, 200 games.
+- **πG Greedy vs πH Hoarder:** 94-102, 4 draws, 200 games.
+- **πG Greedy vs πC Counter:** 99-98, 3 draws, 200 games.
+- **πG Greedy vs CardFramework Cpu0:** 163-35, 2 draws, 200 games.
+- **πG Greedy vs CardFramework Cpu1:** 99-96, 5 draws, 200 games.
+- **πG Greedy vs CardFramework Cpu2:** 83-114, 3 draws, 200 games.
+- **πG Greedy vs BriscolaBot v3:** 53-146, 1 draws, 200 games.
+- **πG Greedy vs PoIAna 🐦 blooming-bird · 68.2%:** 71-125, 4 draws, 200 games.
+- **πG Greedy vs PoIAna 🕳️ graceful-darkness · 68.1%:** 75-120, 5 draws, 200 games.
+- **πG Greedy vs PoIAna 🌲 toasty-pine · 68.1%:** 76-120, 4 draws, 200 games.
+- **πG Greedy vs PoIAna 🍂 autumn-night · 68.1%:** 61-134, 5 draws, 200 games.
+- **πG Greedy vs PoIAna 🌟 true-star · 68.0%:** 82-117, 1 draws, 200 games.
+- **πG Greedy vs PoIAna 🎣 laced-pond · 67.6%:** 74-118, 8 draws, 200 games.
+- **πG Greedy vs PoIAna 📄 devout-paper · 65.7%:** 88-105, 7 draws, 200 games.
+- **πG Greedy vs PoIAna 🦦 mild-aardvark · 65.3%:** 95-102, 3 draws, 200 games.
+- **πG Greedy vs PoIAna 🌨️ snowy-shape · 65.0%:** 66-129, 5 draws, 200 games.
+- **πG Greedy vs PoIAna 💫 lively-cosmos · 63.4%:** 87-108, 5 draws, 200 games.
+- **πG Greedy vs PoIAna 🍃 bumbling-leaf · 61.5%:** 84-113, 3 draws, 200 games.
+- **πG Greedy vs PoIAna 🪨 easy-shape · 61.3%:** 101-95, 4 draws, 200 games.
+- **πG Greedy vs PoIAna 🌃 earnest-night · 58.8%:** 106-89, 5 draws, 200 games.
+- **πG Greedy vs PoIAna 🏔️ rich-mountain · 58.8%:** 106-89, 5 draws, 200 games.
+- **πG Greedy vs PoIAna 🌊 amber-lake · 57.8%:** 102-93, 5 draws, 200 games.
+- **πG Greedy vs PoIAna 🛶 warm-river · 57.7%:** 106-94, 0 draws, 200 games.
+- **πG Greedy vs PoIAna ❄️ spring-snowflake · 57.6%:** 100-96, 4 draws, 200 games.
+- **πG Greedy vs PoIAna 🥗 dark-salad · 57.2%:** 106-88, 6 draws, 200 games.
+- **πG Greedy vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 100-93, 7 draws, 200 games.
+- **πG Greedy vs PoIAna 😌 skilled-serenity · 53.9%:** 117-77, 6 draws, 200 games.
+- **πG Greedy vs PoIAna 🐲 smart-dragon · 53.2%:** 96-99, 5 draws, 200 games.
+- **πG Greedy vs PoIAna ☄️ hardy-galaxy · 48.2%:** 119-76, 5 draws, 200 games.
+- **πG Greedy vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 140-56, 4 draws, 200 games.
+- **πH Hoarder vs πC Counter:** 109-89, 2 draws, 200 games.
+- **πH Hoarder vs CardFramework Cpu0:** 163-35, 2 draws, 200 games.
+- **πH Hoarder vs CardFramework Cpu1:** 67-127, 6 draws, 200 games.
+- **πH Hoarder vs CardFramework Cpu2:** 58-138, 4 draws, 200 games.
+- **πH Hoarder vs BriscolaBot v3:** 48-150, 2 draws, 200 games.
+- **πH Hoarder vs PoIAna 🐦 blooming-bird · 68.2%:** 67-128, 5 draws, 200 games.
+- **πH Hoarder vs PoIAna 🕳️ graceful-darkness · 68.1%:** 60-138, 2 draws, 200 games.
+- **πH Hoarder vs PoIAna 🌲 toasty-pine · 68.1%:** 79-117, 4 draws, 200 games.
+- **πH Hoarder vs PoIAna 🍂 autumn-night · 68.1%:** 56-142, 2 draws, 200 games.
+- **πH Hoarder vs PoIAna 🌟 true-star · 68.0%:** 71-124, 5 draws, 200 games.
+- **πH Hoarder vs PoIAna 🎣 laced-pond · 67.6%:** 59-138, 3 draws, 200 games.
+- **πH Hoarder vs PoIAna 📄 devout-paper · 65.7%:** 66-132, 2 draws, 200 games.
+- **πH Hoarder vs PoIAna 🦦 mild-aardvark · 65.3%:** 71-124, 5 draws, 200 games.
+- **πH Hoarder vs PoIAna 🌨️ snowy-shape · 65.0%:** 60-138, 2 draws, 200 games.
+- **πH Hoarder vs PoIAna 💫 lively-cosmos · 63.4%:** 74-122, 4 draws, 200 games.
+- **πH Hoarder vs PoIAna 🍃 bumbling-leaf · 61.5%:** 70-128, 2 draws, 200 games.
+- **πH Hoarder vs PoIAna 🪨 easy-shape · 61.3%:** 89-106, 5 draws, 200 games.
+- **πH Hoarder vs PoIAna 🌃 earnest-night · 58.8%:** 117-80, 3 draws, 200 games.
+- **πH Hoarder vs PoIAna 🏔️ rich-mountain · 58.8%:** 117-80, 3 draws, 200 games.
+- **πH Hoarder vs PoIAna 🌊 amber-lake · 57.8%:** 88-102, 10 draws, 200 games.
+- **πH Hoarder vs PoIAna 🛶 warm-river · 57.7%:** 113-84, 3 draws, 200 games.
+- **πH Hoarder vs PoIAna ❄️ spring-snowflake · 57.6%:** 104-91, 5 draws, 200 games.
+- **πH Hoarder vs PoIAna 🥗 dark-salad · 57.2%:** 107-90, 3 draws, 200 games.
+- **πH Hoarder vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 73-126, 1 draws, 200 games.
+- **πH Hoarder vs PoIAna 😌 skilled-serenity · 53.9%:** 126-68, 6 draws, 200 games.
+- **πH Hoarder vs PoIAna 🐲 smart-dragon · 53.2%:** 84-109, 7 draws, 200 games.
+- **πH Hoarder vs PoIAna ☄️ hardy-galaxy · 48.2%:** 123-68, 9 draws, 200 games.
+- **πH Hoarder vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 140-56, 4 draws, 200 games.
+- **πC Counter vs CardFramework Cpu0:** 158-40, 2 draws, 200 games.
+- **πC Counter vs CardFramework Cpu1:** 71-122, 7 draws, 200 games.
+- **πC Counter vs CardFramework Cpu2:** 58-139, 3 draws, 200 games.
+- **πC Counter vs BriscolaBot v3:** 49-148, 3 draws, 200 games.
+- **πC Counter vs PoIAna 🐦 blooming-bird · 68.2%:** 64-128, 8 draws, 200 games.
+- **πC Counter vs PoIAna 🕳️ graceful-darkness · 68.1%:** 59-137, 4 draws, 200 games.
+- **πC Counter vs PoIAna 🌲 toasty-pine · 68.1%:** 86-109, 5 draws, 200 games.
+- **πC Counter vs PoIAna 🍂 autumn-night · 68.1%:** 59-140, 1 draws, 200 games.
+- **πC Counter vs PoIAna 🌟 true-star · 68.0%:** 76-120, 4 draws, 200 games.
+- **πC Counter vs PoIAna 🎣 laced-pond · 67.6%:** 65-131, 4 draws, 200 games.
+- **πC Counter vs PoIAna 📄 devout-paper · 65.7%:** 71-127, 2 draws, 200 games.
+- **πC Counter vs PoIAna 🦦 mild-aardvark · 65.3%:** 69-127, 4 draws, 200 games.
+- **πC Counter vs PoIAna 🌨️ snowy-shape · 65.0%:** 62-137, 1 draws, 200 games.
+- **πC Counter vs PoIAna 💫 lively-cosmos · 63.4%:** 77-121, 2 draws, 200 games.
+- **πC Counter vs PoIAna 🍃 bumbling-leaf · 61.5%:** 71-125, 4 draws, 200 games.
+- **πC Counter vs PoIAna 🪨 easy-shape · 61.3%:** 91-104, 5 draws, 200 games.
+- **πC Counter vs PoIAna 🌃 earnest-night · 58.8%:** 127-70, 3 draws, 200 games.
+- **πC Counter vs PoIAna 🏔️ rich-mountain · 58.8%:** 127-70, 3 draws, 200 games.
+- **πC Counter vs PoIAna 🌊 amber-lake · 57.8%:** 95-98, 7 draws, 200 games.
+- **πC Counter vs PoIAna 🛶 warm-river · 57.7%:** 119-78, 3 draws, 200 games.
+- **πC Counter vs PoIAna ❄️ spring-snowflake · 57.6%:** 108-87, 5 draws, 200 games.
+- **πC Counter vs PoIAna 🥗 dark-salad · 57.2%:** 117-79, 4 draws, 200 games.
+- **πC Counter vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 79-120, 1 draws, 200 games.
+- **πC Counter vs PoIAna 😌 skilled-serenity · 53.9%:** 122-74, 4 draws, 200 games.
+- **πC Counter vs PoIAna 🐲 smart-dragon · 53.2%:** 88-105, 7 draws, 200 games.
+- **πC Counter vs PoIAna ☄️ hardy-galaxy · 48.2%:** 129-65, 6 draws, 200 games.
+- **πC Counter vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 147-51, 2 draws, 200 games.
+- **CardFramework Cpu0 vs CardFramework Cpu1:** 49-148, 3 draws, 200 games.
+- **CardFramework Cpu0 vs CardFramework Cpu2:** 41-152, 7 draws, 200 games.
+- **CardFramework Cpu0 vs BriscolaBot v3:** 18-182, 0 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🐦 blooming-bird · 68.2%:** 16-183, 1 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🕳️ graceful-darkness · 68.1%:** 20-174, 6 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🌲 toasty-pine · 68.1%:** 34-162, 4 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🍂 autumn-night · 68.1%:** 33-165, 2 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🌟 true-star · 68.0%:** 31-168, 1 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🎣 laced-pond · 67.6%:** 24-171, 5 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 📄 devout-paper · 65.7%:** 48-148, 4 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🦦 mild-aardvark · 65.3%:** 32-165, 3 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🌨️ snowy-shape · 65.0%:** 39-160, 1 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 💫 lively-cosmos · 63.4%:** 38-159, 3 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🍃 bumbling-leaf · 61.5%:** 42-156, 2 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🪨 easy-shape · 61.3%:** 40-159, 1 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🌃 earnest-night · 58.8%:** 48-149, 3 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🏔️ rich-mountain · 58.8%:** 48-149, 3 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🌊 amber-lake · 57.8%:** 45-151, 4 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🛶 warm-river · 57.7%:** 44-156, 0 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna ❄️ spring-snowflake · 57.6%:** 46-153, 1 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🥗 dark-salad · 57.2%:** 51-147, 2 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 46-150, 4 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 😌 skilled-serenity · 53.9%:** 49-148, 3 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🐲 smart-dragon · 53.2%:** 60-136, 4 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna ☄️ hardy-galaxy · 48.2%:** 76-122, 2 draws, 200 games.
+- **CardFramework Cpu0 vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 57-141, 2 draws, 200 games.
+- **CardFramework Cpu1 vs CardFramework Cpu2:** 96-99, 5 draws, 200 games.
+- **CardFramework Cpu1 vs BriscolaBot v3:** 56-141, 3 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🐦 blooming-bird · 68.2%:** 86-107, 7 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🕳️ graceful-darkness · 68.1%:** 80-111, 9 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🌲 toasty-pine · 68.1%:** 88-108, 4 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🍂 autumn-night · 68.1%:** 79-116, 5 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🌟 true-star · 68.0%:** 82-113, 5 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🎣 laced-pond · 67.6%:** 73-121, 6 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 📄 devout-paper · 65.7%:** 79-113, 8 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🦦 mild-aardvark · 65.3%:** 104-92, 4 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🌨️ snowy-shape · 65.0%:** 93-107, 0 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 💫 lively-cosmos · 63.4%:** 92-104, 4 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🍃 bumbling-leaf · 61.5%:** 94-100, 6 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🪨 easy-shape · 61.3%:** 104-92, 4 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🌃 earnest-night · 58.8%:** 92-106, 2 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🏔️ rich-mountain · 58.8%:** 92-106, 2 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🌊 amber-lake · 57.8%:** 99-98, 3 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🛶 warm-river · 57.7%:** 91-100, 9 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna ❄️ spring-snowflake · 57.6%:** 88-111, 1 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🥗 dark-salad · 57.2%:** 85-112, 3 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 105-91, 4 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 😌 skilled-serenity · 53.9%:** 97-96, 7 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🐲 smart-dragon · 53.2%:** 113-84, 3 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna ☄️ hardy-galaxy · 48.2%:** 115-78, 7 draws, 200 games.
+- **CardFramework Cpu1 vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 117-80, 3 draws, 200 games.
+- **CardFramework Cpu2 vs BriscolaBot v3:** 63-130, 7 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🐦 blooming-bird · 68.2%:** 86-107, 7 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🕳️ graceful-darkness · 68.1%:** 86-110, 4 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🌲 toasty-pine · 68.1%:** 81-113, 6 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🍂 autumn-night · 68.1%:** 95-98, 7 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🌟 true-star · 68.0%:** 83-109, 8 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🎣 laced-pond · 67.6%:** 83-111, 6 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 📄 devout-paper · 65.7%:** 82-114, 4 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🦦 mild-aardvark · 65.3%:** 107-89, 4 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🌨️ snowy-shape · 65.0%:** 92-105, 3 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 💫 lively-cosmos · 63.4%:** 115-81, 4 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🍃 bumbling-leaf · 61.5%:** 106-90, 4 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🪨 easy-shape · 61.3%:** 117-82, 1 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🌃 earnest-night · 58.8%:** 102-94, 4 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🏔️ rich-mountain · 58.8%:** 102-94, 4 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🌊 amber-lake · 57.8%:** 114-83, 3 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🛶 warm-river · 57.7%:** 106-87, 7 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna ❄️ spring-snowflake · 57.6%:** 106-89, 5 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🥗 dark-salad · 57.2%:** 107-89, 4 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 113-80, 7 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 😌 skilled-serenity · 53.9%:** 110-84, 6 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🐲 smart-dragon · 53.2%:** 127-67, 6 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna ☄️ hardy-galaxy · 48.2%:** 135-62, 3 draws, 200 games.
+- **CardFramework Cpu2 vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 133-65, 2 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🐦 blooming-bird · 68.2%:** 126-69, 5 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🕳️ graceful-darkness · 68.1%:** 134-64, 2 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🌲 toasty-pine · 68.1%:** 137-57, 6 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🍂 autumn-night · 68.1%:** 136-61, 3 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🌟 true-star · 68.0%:** 133-59, 8 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🎣 laced-pond · 67.6%:** 125-67, 8 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 📄 devout-paper · 65.7%:** 125-69, 6 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🦦 mild-aardvark · 65.3%:** 127-67, 6 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🌨️ snowy-shape · 65.0%:** 133-62, 5 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 💫 lively-cosmos · 63.4%:** 134-61, 5 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🍃 bumbling-leaf · 61.5%:** 143-51, 6 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🪨 easy-shape · 61.3%:** 136-60, 4 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🌃 earnest-night · 58.8%:** 137-59, 4 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🏔️ rich-mountain · 58.8%:** 137-59, 4 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🌊 amber-lake · 57.8%:** 144-51, 5 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🛶 warm-river · 57.7%:** 132-67, 1 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna ❄️ spring-snowflake · 57.6%:** 138-58, 4 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🥗 dark-salad · 57.2%:** 152-38, 10 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 144-52, 4 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 😌 skilled-serenity · 53.9%:** 156-39, 5 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🐲 smart-dragon · 53.2%:** 144-52, 4 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna ☄️ hardy-galaxy · 48.2%:** 164-31, 5 draws, 200 games.
+- **BriscolaBot v3 vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 156-37, 7 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🕳️ graceful-darkness · 68.1%:** 103-86, 11 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🌲 toasty-pine · 68.1%:** 99-95, 6 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🍂 autumn-night · 68.1%:** 112-85, 3 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🌟 true-star · 68.0%:** 106-91, 3 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🎣 laced-pond · 67.6%:** 97-95, 8 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 📄 devout-paper · 65.7%:** 107-87, 6 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🦦 mild-aardvark · 65.3%:** 109-86, 5 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🌨️ snowy-shape · 65.0%:** 107-90, 3 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 💫 lively-cosmos · 63.4%:** 104-87, 9 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 120-77, 3 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🪨 easy-shape · 61.3%:** 113-84, 3 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🌃 earnest-night · 58.8%:** 129-66, 5 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🏔️ rich-mountain · 58.8%:** 129-66, 5 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🌊 amber-lake · 57.8%:** 124-67, 9 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🛶 warm-river · 57.7%:** 120-75, 5 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna ❄️ spring-snowflake · 57.6%:** 112-83, 5 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🥗 dark-salad · 57.2%:** 135-63, 2 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 128-69, 3 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 😌 skilled-serenity · 53.9%:** 118-76, 6 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🐲 smart-dragon · 53.2%:** 124-76, 0 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 141-55, 4 draws, 200 games.
+- **PoIAna 🐦 blooming-bird · 68.2% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 144-53, 3 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🌲 toasty-pine · 68.1%:** 106-87, 7 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🍂 autumn-night · 68.1%:** 100-93, 7 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🌟 true-star · 68.0%:** 112-84, 4 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🎣 laced-pond · 67.6%:** 101-94, 5 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 📄 devout-paper · 65.7%:** 105-91, 4 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🦦 mild-aardvark · 65.3%:** 107-89, 4 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🌨️ snowy-shape · 65.0%:** 108-88, 4 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 💫 lively-cosmos · 63.4%:** 113-78, 9 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 112-84, 4 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🪨 easy-shape · 61.3%:** 106-91, 3 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🌃 earnest-night · 58.8%:** 117-79, 4 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🏔️ rich-mountain · 58.8%:** 117-79, 4 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🌊 amber-lake · 57.8%:** 115-82, 3 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🛶 warm-river · 57.7%:** 132-66, 2 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna ❄️ spring-snowflake · 57.6%:** 119-79, 2 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🥗 dark-salad · 57.2%:** 123-75, 2 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 122-73, 5 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 😌 skilled-serenity · 53.9%:** 120-76, 4 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🐲 smart-dragon · 53.2%:** 131-66, 3 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 144-54, 2 draws, 200 games.
+- **PoIAna 🕳️ graceful-darkness · 68.1% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 145-50, 5 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🍂 autumn-night · 68.1%:** 98-98, 4 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🌟 true-star · 68.0%:** 101-93, 6 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🎣 laced-pond · 67.6%:** 102-92, 6 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 📄 devout-paper · 65.7%:** 96-97, 7 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🦦 mild-aardvark · 65.3%:** 104-92, 4 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🌨️ snowy-shape · 65.0%:** 97-98, 5 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 💫 lively-cosmos · 63.4%:** 99-96, 5 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 108-83, 9 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🪨 easy-shape · 61.3%:** 104-92, 4 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🌃 earnest-night · 58.8%:** 83-114, 3 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🏔️ rich-mountain · 58.8%:** 83-114, 3 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🌊 amber-lake · 57.8%:** 116-75, 9 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🛶 warm-river · 57.7%:** 110-88, 2 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna ❄️ spring-snowflake · 57.6%:** 89-107, 4 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🥗 dark-salad · 57.2%:** 107-87, 6 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 113-83, 4 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 😌 skilled-serenity · 53.9%:** 109-87, 4 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🐲 smart-dragon · 53.2%:** 119-77, 4 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 126-72, 2 draws, 200 games.
+- **PoIAna 🌲 toasty-pine · 68.1% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 125-73, 2 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🌟 true-star · 68.0%:** 119-77, 4 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🎣 laced-pond · 67.6%:** 98-97, 5 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 📄 devout-paper · 65.7%:** 95-98, 7 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🦦 mild-aardvark · 65.3%:** 116-78, 6 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🌨️ snowy-shape · 65.0%:** 101-96, 3 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 💫 lively-cosmos · 63.4%:** 107-90, 3 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 107-90, 3 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🪨 easy-shape · 61.3%:** 111-86, 3 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🌃 earnest-night · 58.8%:** 110-86, 4 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🏔️ rich-mountain · 58.8%:** 110-86, 4 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🌊 amber-lake · 57.8%:** 126-72, 2 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🛶 warm-river · 57.7%:** 125-72, 3 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna ❄️ spring-snowflake · 57.6%:** 119-79, 2 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🥗 dark-salad · 57.2%:** 123-74, 3 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 118-78, 4 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 😌 skilled-serenity · 53.9%:** 120-77, 3 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🐲 smart-dragon · 53.2%:** 131-65, 4 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 140-56, 4 draws, 200 games.
+- **PoIAna 🍂 autumn-night · 68.1% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 149-47, 4 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🎣 laced-pond · 67.6%:** 90-105, 5 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 📄 devout-paper · 65.7%:** 95-103, 2 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🦦 mild-aardvark · 65.3%:** 102-96, 2 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🌨️ snowy-shape · 65.0%:** 83-104, 13 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 💫 lively-cosmos · 63.4%:** 116-80, 4 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 112-83, 5 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🪨 easy-shape · 61.3%:** 105-93, 2 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🌃 earnest-night · 58.8%:** 101-96, 3 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🏔️ rich-mountain · 58.8%:** 101-96, 3 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🌊 amber-lake · 57.8%:** 118-78, 4 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🛶 warm-river · 57.7%:** 114-84, 2 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna ❄️ spring-snowflake · 57.6%:** 100-95, 5 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🥗 dark-salad · 57.2%:** 113-80, 7 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 119-74, 7 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 😌 skilled-serenity · 53.9%:** 100-97, 3 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🐲 smart-dragon · 53.2%:** 121-75, 4 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 135-61, 4 draws, 200 games.
+- **PoIAna 🌟 true-star · 68.0% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 134-64, 2 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 📄 devout-paper · 65.7%:** 94-97, 9 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🦦 mild-aardvark · 65.3%:** 108-86, 6 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🌨️ snowy-shape · 65.0%:** 106-87, 7 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 💫 lively-cosmos · 63.4%:** 98-92, 10 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 104-92, 4 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🪨 easy-shape · 61.3%:** 128-70, 2 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🌃 earnest-night · 58.8%:** 121-72, 7 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🏔️ rich-mountain · 58.8%:** 121-72, 7 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🌊 amber-lake · 57.8%:** 118-79, 3 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🛶 warm-river · 57.7%:** 116-80, 4 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna ❄️ spring-snowflake · 57.6%:** 106-88, 6 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🥗 dark-salad · 57.2%:** 119-76, 5 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 114-79, 7 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 😌 skilled-serenity · 53.9%:** 120-78, 2 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🐲 smart-dragon · 53.2%:** 120-76, 4 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 129-65, 6 draws, 200 games.
+- **PoIAna 🎣 laced-pond · 67.6% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 126-68, 6 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🦦 mild-aardvark · 65.3%:** 96-98, 6 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🌨️ snowy-shape · 65.0%:** 94-101, 5 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 💫 lively-cosmos · 63.4%:** 105-95, 0 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 103-93, 4 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🪨 easy-shape · 61.3%:** 104-94, 2 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🌃 earnest-night · 58.8%:** 91-106, 3 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🏔️ rich-mountain · 58.8%:** 91-106, 3 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🌊 amber-lake · 57.8%:** 107-89, 4 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🛶 warm-river · 57.7%:** 102-95, 3 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna ❄️ spring-snowflake · 57.6%:** 94-106, 0 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🥗 dark-salad · 57.2%:** 101-98, 1 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 115-80, 5 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 😌 skilled-serenity · 53.9%:** 85-111, 4 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🐲 smart-dragon · 53.2%:** 120-73, 7 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 123-70, 7 draws, 200 games.
+- **PoIAna 📄 devout-paper · 65.7% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 108-87, 5 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🌨️ snowy-shape · 65.0%:** 89-108, 3 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 💫 lively-cosmos · 63.4%:** 93-104, 3 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 100-95, 5 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🪨 easy-shape · 61.3%:** 99-95, 6 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🌃 earnest-night · 58.8%:** 94-100, 6 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🏔️ rich-mountain · 58.8%:** 94-100, 6 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🌊 amber-lake · 57.8%:** 112-87, 1 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🛶 warm-river · 57.7%:** 103-94, 3 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna ❄️ spring-snowflake · 57.6%:** 104-94, 2 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🥗 dark-salad · 57.2%:** 113-84, 3 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 108-83, 9 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 😌 skilled-serenity · 53.9%:** 105-89, 6 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🐲 smart-dragon · 53.2%:** 112-80, 8 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 123-74, 3 draws, 200 games.
+- **PoIAna 🦦 mild-aardvark · 65.3% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 129-68, 3 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 💫 lively-cosmos · 63.4%:** 96-94, 10 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 113-82, 5 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🪨 easy-shape · 61.3%:** 102-93, 5 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🌃 earnest-night · 58.8%:** 108-87, 5 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🏔️ rich-mountain · 58.8%:** 108-87, 5 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🌊 amber-lake · 57.8%:** 135-58, 7 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🛶 warm-river · 57.7%:** 125-69, 6 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna ❄️ spring-snowflake · 57.6%:** 129-68, 3 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🥗 dark-salad · 57.2%:** 120-75, 5 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 122-73, 5 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 😌 skilled-serenity · 53.9%:** 122-75, 3 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🐲 smart-dragon · 53.2%:** 113-82, 5 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 137-58, 5 draws, 200 games.
+- **PoIAna 🌨️ snowy-shape · 65.0% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 143-55, 2 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🍃 bumbling-leaf · 61.5%:** 104-93, 3 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🪨 easy-shape · 61.3%:** 111-85, 4 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🌃 earnest-night · 58.8%:** 90-104, 6 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🏔️ rich-mountain · 58.8%:** 90-104, 6 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🌊 amber-lake · 57.8%:** 106-90, 4 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🛶 warm-river · 57.7%:** 98-99, 3 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna ❄️ spring-snowflake · 57.6%:** 97-99, 4 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🥗 dark-salad · 57.2%:** 103-92, 5 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 98-93, 9 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 😌 skilled-serenity · 53.9%:** 99-96, 5 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🐲 smart-dragon · 53.2%:** 120-77, 3 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 120-78, 2 draws, 200 games.
+- **PoIAna 💫 lively-cosmos · 63.4% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 131-67, 2 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🪨 easy-shape · 61.3%:** 98-98, 4 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🌃 earnest-night · 58.8%:** 97-102, 1 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🏔️ rich-mountain · 58.8%:** 97-102, 1 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🌊 amber-lake · 57.8%:** 113-84, 3 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🛶 warm-river · 57.7%:** 93-103, 4 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna ❄️ spring-snowflake · 57.6%:** 100-97, 3 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🥗 dark-salad · 57.2%:** 110-87, 3 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 121-75, 4 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 😌 skilled-serenity · 53.9%:** 98-99, 3 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🐲 smart-dragon · 53.2%:** 111-85, 4 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 124-74, 2 draws, 200 games.
+- **PoIAna 🍃 bumbling-leaf · 61.5% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 128-69, 3 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 🌃 earnest-night · 58.8%:** 99-96, 5 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 🏔️ rich-mountain · 58.8%:** 99-96, 5 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 🌊 amber-lake · 57.8%:** 105-93, 2 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 🛶 warm-river · 57.7%:** 98-94, 8 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna ❄️ spring-snowflake · 57.6%:** 95-103, 2 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 🥗 dark-salad · 57.2%:** 101-93, 6 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 111-87, 2 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 😌 skilled-serenity · 53.9%:** 98-98, 4 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 🐲 smart-dragon · 53.2%:** 99-96, 5 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 117-80, 3 draws, 200 games.
+- **PoIAna 🪨 easy-shape · 61.3% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 121-75, 4 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna 🏔️ rich-mountain · 58.8%:** 98-98, 4 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna 🌊 amber-lake · 57.8%:** 112-87, 1 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna 🛶 warm-river · 57.7%:** 95-103, 2 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna ❄️ spring-snowflake · 57.6%:** 91-106, 3 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna 🥗 dark-salad · 57.2%:** 110-87, 3 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 94-104, 2 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna 😌 skilled-serenity · 53.9%:** 111-87, 2 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna 🐲 smart-dragon · 53.2%:** 101-94, 5 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 125-74, 1 draws, 200 games.
+- **PoIAna 🌃 earnest-night · 58.8% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 125-71, 4 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna 🌊 amber-lake · 57.8%:** 112-87, 1 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna 🛶 warm-river · 57.7%:** 95-103, 2 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna ❄️ spring-snowflake · 57.6%:** 91-106, 3 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna 🥗 dark-salad · 57.2%:** 110-87, 3 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 94-104, 2 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna 😌 skilled-serenity · 53.9%:** 111-87, 2 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna 🐲 smart-dragon · 53.2%:** 101-94, 5 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 125-74, 1 draws, 200 games.
+- **PoIAna 🏔️ rich-mountain · 58.8% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 125-71, 4 draws, 200 games.
+- **PoIAna 🌊 amber-lake · 57.8% vs PoIAna 🛶 warm-river · 57.7%:** 78-119, 3 draws, 200 games.
+- **PoIAna 🌊 amber-lake · 57.8% vs PoIAna ❄️ spring-snowflake · 57.6%:** 80-114, 6 draws, 200 games.
+- **PoIAna 🌊 amber-lake · 57.8% vs PoIAna 🥗 dark-salad · 57.2%:** 99-99, 2 draws, 200 games.
+- **PoIAna 🌊 amber-lake · 57.8% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 92-105, 3 draws, 200 games.
+- **PoIAna 🌊 amber-lake · 57.8% vs PoIAna 😌 skilled-serenity · 53.9%:** 84-110, 6 draws, 200 games.
+- **PoIAna 🌊 amber-lake · 57.8% vs PoIAna 🐲 smart-dragon · 53.2%:** 105-89, 6 draws, 200 games.
+- **PoIAna 🌊 amber-lake · 57.8% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 87-108, 5 draws, 200 games.
+- **PoIAna 🌊 amber-lake · 57.8% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 93-103, 4 draws, 200 games.
+- **PoIAna 🛶 warm-river · 57.7% vs PoIAna ❄️ spring-snowflake · 57.6%:** 90-109, 1 draws, 200 games.
+- **PoIAna 🛶 warm-river · 57.7% vs PoIAna 🥗 dark-salad · 57.2%:** 102-93, 5 draws, 200 games.
+- **PoIAna 🛶 warm-river · 57.7% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 101-94, 5 draws, 200 games.
+- **PoIAna 🛶 warm-river · 57.7% vs PoIAna 😌 skilled-serenity · 53.9%:** 96-101, 3 draws, 200 games.
+- **PoIAna 🛶 warm-river · 57.7% vs PoIAna 🐲 smart-dragon · 53.2%:** 105-90, 5 draws, 200 games.
+- **PoIAna 🛶 warm-river · 57.7% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 127-71, 2 draws, 200 games.
+- **PoIAna 🛶 warm-river · 57.7% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 132-64, 4 draws, 200 games.
+- **PoIAna ❄️ spring-snowflake · 57.6% vs PoIAna 🥗 dark-salad · 57.2%:** 108-92, 0 draws, 200 games.
+- **PoIAna ❄️ spring-snowflake · 57.6% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 107-91, 2 draws, 200 games.
+- **PoIAna ❄️ spring-snowflake · 57.6% vs PoIAna 😌 skilled-serenity · 53.9%:** 98-100, 2 draws, 200 games.
+- **PoIAna ❄️ spring-snowflake · 57.6% vs PoIAna 🐲 smart-dragon · 53.2%:** 117-82, 1 draws, 200 games.
+- **PoIAna ❄️ spring-snowflake · 57.6% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 128-71, 1 draws, 200 games.
+- **PoIAna ❄️ spring-snowflake · 57.6% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 129-70, 1 draws, 200 games.
+- **PoIAna 🥗 dark-salad · 57.2% vs PoIAna 🤳🏻 selfplay-best · 56.9%:** 99-99, 2 draws, 200 games.
+- **PoIAna 🥗 dark-salad · 57.2% vs PoIAna 😌 skilled-serenity · 53.9%:** 88-111, 1 draws, 200 games.
+- **PoIAna 🥗 dark-salad · 57.2% vs PoIAna 🐲 smart-dragon · 53.2%:** 112-85, 3 draws, 200 games.
+- **PoIAna 🥗 dark-salad · 57.2% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 129-70, 1 draws, 200 games.
+- **PoIAna 🥗 dark-salad · 57.2% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 122-75, 3 draws, 200 games.
+- **PoIAna 🤳🏻 selfplay-best · 56.9% vs PoIAna 😌 skilled-serenity · 53.9%:** 85-112, 3 draws, 200 games.
+- **PoIAna 🤳🏻 selfplay-best · 56.9% vs PoIAna 🐲 smart-dragon · 53.2%:** 103-91, 6 draws, 200 games.
+- **PoIAna 🤳🏻 selfplay-best · 56.9% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 112-79, 9 draws, 200 games.
+- **PoIAna 🤳🏻 selfplay-best · 56.9% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 129-69, 2 draws, 200 games.
+- **PoIAna 😌 skilled-serenity · 53.9% vs PoIAna 🐲 smart-dragon · 53.2%:** 101-96, 3 draws, 200 games.
+- **PoIAna 😌 skilled-serenity · 53.9% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 120-74, 6 draws, 200 games.
+- **PoIAna 😌 skilled-serenity · 53.9% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 125-70, 5 draws, 200 games.
+- **PoIAna 🐲 smart-dragon · 53.2% vs PoIAna ☄️ hardy-galaxy · 48.2%:** 118-75, 7 draws, 200 games.
+- **PoIAna 🐲 smart-dragon · 53.2% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 114-80, 6 draws, 200 games.
+- **PoIAna ☄️ hardy-galaxy · 48.2% vs PoIAna 🧨 cosmic-firebrand · 45.1%:** 98-102, 0 draws, 200 games.

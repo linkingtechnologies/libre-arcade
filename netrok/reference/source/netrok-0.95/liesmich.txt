@@ -1,0 +1,156 @@
+
+
+
+
+
+
+				-=// netrok //=-
+		
+...free jump&run GPL SDL opensource game for windows and linux...
+
+
+
+				DEUTSCHE README
+
+
+
+
+
+
+
+
+
+
+
+-=// über Netrok //=-
+
+Netrok ist ein Jump&Run Spiel für mehrere Plattformen. Momentan ist 
+Windows/Linux unterstützt. 
+Netrok schliesst vorallem im Linuxspielebereich eine Lücke, da es 
+hier an qualitativ hochwertigen Jump&Runs mangelt. 
+Auch hat es erfrischend neue Ideen und ein bisher im Jump&Run 
+Bereich noch nie dagewesenes Spieledesign! 
+Das Spiel ist recht offen gehalten und kann leicht von anderen 
+angepasst werden, sei es am Code, der Änderung der 
+Spielegrafiken oder dem Erstellen neues Levels, welches besonders 
+leicht mit dem beigefügten Editor von der Hand geht. 
+Anstatt der Fragezeichen gibt es Buttons im Boden auf die Netrok 
+draufspringen muss. Dann erscheint ein Kran der den 
+alten Netrok aus dem Spiel nimmt und einen upgegradeten wieder 
+ins Spiel setzt. Netrok geht z.b. bei jeder Berührung mit einem Feind kaputt, 
+ausser er ist zuvor upgegraded worden, dann kann er z.b. Spezialschuhe 
+kriegen, damit kann er dann auf Gegner draufspringen und sich so ihrer 
+entledigen. Außer auf Gegner die auf ihrem Rücken Stacheln haben, da 
+hilft auch kein Spezialschuh mehr. Mit einem Spezialshirt kann er Gegner 
+einfach umlaufen, außer solche die vorne Stacheln haben und er kann 
+sie dann allerdings nichtmehr durch draufspringen kaputtmachen. Man 
+muss also immer schnell reagieren und überlegen was man hat und wie 
+man damit gegen den Gegner am effektivsten vorgehen kann. Außerdem 
+besitzt Netrok ein Schutzschild welches man unterschiedlich modulieren 
+kann. Man kann das Schild je nach Wunsch und Gefahrenquellen z.b. 
+hinten abschwächen um damit die Schilde vorne zu verstärken. Ferner 
+steht dem Spieler ein Fähnchen zur Verfügung welches er abwerfen kann. 
+Sollte er dann kaputt gehen, darf er von der Position wieder anfangen, an 
+der er das Fähnchen abgeworfen hat. Der Spieler muss hier abwägen ob er 
+das Fähnchen länger mit sich rumträgt und riskiert nichtmehr in der Lage zu 
+sein es abzuwerfen weil er schon vorher kaputt geht oder zu früh abwirft 
+und dann unter Umständen mehr nachspielen muss! Alle Fans von Jump'n 
+Run Spielen und vor allem Fans der Mario Spiele sollten dieses Game nicht 
+aus dem Auge lassen. 
+
+
+
+
+-=// Installation/Starten des Spiels //=-
+
+Netrok muss nicht installiert werden. Einfach das Spiel entpacken und die
+Binary Netrok starten. Unter Windows Netrok.exe.
+
+Unter Linux werden die SDL Libraries benötigt und die SDL-Mixer Libraries.
+Sollte es unter Linux Probleme geben, folgendes beachten:
+
+Falls das Spiel auf der Mitte des Monitors zentriert dargestellt wird und mit
+einem schwarzen Rand aussenrum, dann muss die Auflösung 320x200 in der 
+XF86Config festgelegt werden:
+
+Subsection "Display"
+        Depth       8
+        Modes       "320x200"
+        ViewPort    0 0
+EndSubsection
+
+WICHTIG: 
+
+Erscheint bei Start des Spieles "Segmentation fault" liegt das daran das der 
+Xserver in  einer falschen Farbtiefe und/oder Auflösung gefahren wird.
+Siehe XFree86 Documentation.
+
+
+
+
+
+-=// Story //=-
+
+Wayne interessierts?! Für den Rest verweis ich auf das Intro des Spiels ;-)
+
+
+
+
+
+
+-=// Steuerung/Spielprinzip //=-
+
+siehe auch Instructions.txt und im Spielmenü unter Menüpunkt "Instructions".
+
+Netrok wird mit dem Cursortasten der Tastatur gesteuert. Mit ALT wird gesprungen
+und mit STRG kann man schnelllaufen.
+Mit ENTF kann man eine Jump`in Flagge abwerfen, das heißt wenn man kaputtgeht
+kann man von hier wieder anfangen und muss nicht das ganze Level von vorne nochmal
+spielen. Aber Achtung, man kann sie nur einmal pro Level abwerfen und sie kostet Score.
+
+Ferner gibt es zwei verschiedene Buttons die man Auslösen kann, wenn man daraufspringt.
+Die Blauen geben Netrok eine Schutzweste, damit er die Gegner mit den kleinen roten
+Stacheln umlaufen kann. Mit den Spezialschuhen des roten Buttons kann Netrok auch 
+auf Stachel draufspringen. Die dicken Stacheln können nicht bekämpft und sollten
+gemieden werden. Wo keine Stacheln sind, kann Netrok auch ohne Spezielgegenstände
+angreifen. 
+
+Mit den Pfeiltasten des numerischen Blocks kann man die Schutzschilde ummodulieren.
+D.h. wenn man an einer Stelle zuwenig oder garkeine Schilde mehr hat, kann man sie 
+woanderst abschwächen und dafür dort verstärken. Zuerst die Taste drücken aus welcher
+Richtung ein Schild abgezogen werden soll und dann nochmal drücken für die Stelle, an
+der es verstärkt werden soll. Die roten Coins einsammeln, den sie bringen wenn man 
+20 davon eingesammelt hat ein neues Schild.
+
+Das Scoresystem funktioniert folgendermassen: Alles was das Spiel leichter macht, kostet
+Score, so das Abwerfen der Jump`in Flagge, das Ummodulieren der Schilde...usw. 
+Alles was jedoch geleistet wurde, z.b. schnelles Absolvieren eines Levels, Zerstören der Gegner
+bringt Score, und das ist nicht unwichtig, denn für 5000 gesammelte Score, gibts immer
+ein neues Leben.
+
+
+
+
+-=// was sonst noch so zu vermelden ist //=-
+
+Netroks Quellcode (SDL C++, GPL Lizenz, ca. 5500 Zeilen) und einen Leveleditor gibts auf 
+der Projektseite, sowie ab und zu Updates, vielleicht Levels und sowas: 
+http://www.itpsoft.de/main.html.php?seite=netrok
+
+Spielidee, Design, Programmierung, Grafiken:   Ioan-Tudor Parvulescu <ioan@itpsoft.de>
+Musik/Sound: public domain aus dem Internet
+
+Mein erstes Computerspiel war Super Mario Bros und seitdem wollt ich sowas auch mal 
+programmieren. Nach diversen anderen Spielen hab ich mich im Sommer 2002 
+nach dem Abi daran getraut und bis heute (Juni 2004) daran gearbeitet. 
+Das würde auch viel schneller gehen wenn ich mehr Zeit dafür hätte, bin 
+aber eher froh es überhaupt noch fertiggestellt zu haben. 
+In Zukunft werd ich wohl noch kleinere Bugfixes 
+dafür programmieren, hier und da neues Levels eventuell und was mir ganz wichtig 
+ist, eine bessere Steuerung. 
+So eine butterweiche wie bei Super Mario, das wärs, aber momentan 
+weiß ich nicht wie ich sowas realisieren könnte, wenn
+jemand das weiß, bitte melden! Wenn ich wieder mehr Zeit hab, gibts 
+auch eine ausführliche Anleitung für den Editor. 
+
+So und jetzt viel Spass mit Netrok! Ich freue mich auf jedes Feedback!

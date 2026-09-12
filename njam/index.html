@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Njam 1.21">
+  <title>Njam 1.21</title>
+  <link rel="icon" href="assets/njamicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+  <header>
+    <div><strong>Njam 1.21</strong></div>
+    <div class="headerActions"><button id="helpBtn">Istruzioni</button><button id="fullscreenBtn">Schermo intero</button></div>
+  </header>
+
+  <section id="menu" class="screen menuScreen" aria-label="Menu originale Njam 1.21">
+    <canvas id="menuCanvas" width="800" height="600"></canvas>
+  </section>
+
+  <section id="play" class="screen hidden">
+    <canvas id="game" width="800" height="600" aria-label="Njam game"></canvas>
+  </section>
+
+  <nav id="hud" class="toolbar hidden" aria-label="Controlli di gioco">
+    <button id="pause">Pausa</button><button id="restart">Ricomincia</button><button id="menuBtn">Menu</button>
+  </nav>
+  <div id="touchWrap" class="touchWrap hidden">
+    <div id="touch" class="dpad" data-player="0"><b>P1</b><button data-dir="3">▲</button><div><button data-dir="2">◀</button><button data-dir="1">▼</button><button data-dir="0">▶</button></div></div>
+    <div id="touch2" class="dpad hidden" data-player="1"><b>P2</b><button data-dir="3">▲</button><div><button data-dir="2">◀</button><button data-dir="1">▼</button><button data-dir="0">▶</button></div></div>
+  </div>
+</main>
+
+<dialog id="help">
+  <h2 id="helpTitle">Njam 1.21 — controlli</h2>
+  <div id="helpBody"></div>
+  <button id="closeHelp">Chiudi</button>
+</dialog>
+
+<dialog id="editorDialog" class="editorDialog">
+  <div class="editorHead"><h2>Editor livelli</h2><button id="editorClose">Chiudi</button></div>
+  <div class="editorCanvasWrap"><canvas id="editorCanvas" width="800" height="600"></canvas></div>
+  <div class="editorBrowserTools">
+    <span id="editorLevel"></span><span id="editorMessage"></span>
+    <button id="editorLoad">Carica</button><button id="editorSave">Salva</button><button id="editorSaveAs">Salva come</button>
+    <input id="editorFile" class="hidden" type="file" accept=".COOP,.DUEL,application/octet-stream">
+  </div>
+</dialog>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

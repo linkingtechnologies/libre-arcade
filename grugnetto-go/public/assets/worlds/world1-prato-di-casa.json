@@ -1,0 +1,75 @@
+{
+  "id": "world1",
+  "name": "Prato di Casa",
+  "levelCount": 8,
+  "story": "Grugnetto vive qui, in un prato tranquillo vicino a casa. Una mattina trova una scia di ghiande che si perde verso il bosco: qualcuno l'ha lasciata apposta?",
+  "musicSuggestion": "kenney-extras/music-jingles/8-Bit jingles/ (allegro, tono da tutorial)",
+  "assetsBase": "kenney-extras/new-platformer-pack/",
+  "terrain": {
+    "prefix": "terrain_grass",
+    "files": [
+      "tiles/terrain_grass_block.png",
+      "tiles/terrain_grass_block_top.png",
+      "tiles/terrain_grass_block_top_left.png",
+      "tiles/terrain_grass_block_top_right.png",
+      "tiles/terrain_grass_block_bottom.png",
+      "tiles/terrain_grass_block_bottom_left.png",
+      "tiles/terrain_grass_block_bottom_right.png",
+      "tiles/terrain_grass_block_left.png",
+      "tiles/terrain_grass_block_right.png",
+      "tiles/terrain_grass_block_center.png",
+      "tiles/terrain_grass_horizontal_left.png",
+      "tiles/terrain_grass_horizontal_middle.png",
+      "tiles/terrain_grass_horizontal_right.png",
+      "tiles/terrain_grass_horizontal_overhang_left.png",
+      "tiles/terrain_grass_horizontal_overhang_right.png",
+      "tiles/terrain_grass_ramp_short_a.png",
+      "tiles/terrain_grass_ramp_short_b.png",
+      "tiles/terrain_grass_ramp_long_a.png",
+      "tiles/terrain_grass_ramp_long_b.png",
+      "tiles/terrain_grass_ramp_long_c.png",
+      "tiles/terrain_grass_vertical_top.png",
+      "tiles/terrain_grass_vertical_middle.png",
+      "tiles/terrain_grass_vertical_bottom.png"
+    ]
+  },
+  "background": {
+    "files": [
+      "backgrounds/background_color_hills.png",
+      "backgrounds/background_color_trees.png",
+      "backgrounds/background_fade_hills.png",
+      "backgrounds/background_fade_trees.png",
+      "backgrounds/background_clouds.png",
+      "backgrounds/background_solid_grass.png",
+      "backgrounds/background_solid_sky.png"
+    ]
+  },
+  "props": {
+    "files": [
+      "tiles/fence.png",
+      "tiles/fence_broken.png",
+      "tiles/bush.png",
+      "tiles/sign.png",
+      "tiles/sign_left.png",
+      "tiles/sign_right.png",
+      "tiles/spring.png",
+      "tiles/spring_out.png"
+    ]
+  },
+  "enemies": [
+    {
+      "name": "snail",
+      "behavior": "patrol, molto lento, quasi immobile",
+      "files": ["enemies/snail_rest.png", "enemies/snail_walk_a.png", "enemies/snail_walk_b.png", "enemies/snail_shell.png"]
+    },
+    {
+      "name": "ladybug",
+      "behavior": "patrol o volo basso, innocuo",
+      "files": ["enemies/ladybug_rest.png", "enemies/ladybug_walk_a.png", "enemies/ladybug_walk_b.png", "enemies/ladybug_fly.png"]
+    }
+  ],
+  "collectibles": [
+    { "name": "coin", "file": "../collectable_coin.png", "points": 100 },
+    { "name": "apple", "file": "../collectable_apple.png", "points": 150 }
+  ]
+}

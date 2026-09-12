@@ -1,0 +1,11 @@
+{
+  "name": "libre-arcade",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local preview only — this is not a shared build for the games below. Each game in its own folder is independently deployable; use its own package.json for that.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs . 8080"
+  },
+  "license": "GPL-3.0-or-later"
+}

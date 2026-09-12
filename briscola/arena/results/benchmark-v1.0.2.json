@@ -1,0 +1,282 @@
+{
+  "seedStart": 1,
+  "seedPairs": 1000,
+  "totalDraws": 937,
+  "ranking": [
+    {
+      "id": "briscolabot-v3",
+      "name": "BriscolaBot v3",
+      "wins": 7907,
+      "points": 801302,
+      "games": 12000,
+      "winRate": 0.6589166666666667,
+      "averagePoints": 66.77516666666666
+    },
+    {
+      "id": "qbriscola",
+      "name": "QBriscola",
+      "wins": 7003,
+      "points": 764731,
+      "games": 12000,
+      "winRate": 0.5835833333333333,
+      "averagePoints": 63.727583333333335
+    },
+    {
+      "id": "cuperativa",
+      "name": "Cuperativa",
+      "wins": 6744,
+      "points": 749822,
+      "games": 12000,
+      "winRate": 0.562,
+      "averagePoints": 62.485166666666665
+    },
+    {
+      "id": "smbriscola-empirico1",
+      "name": "smBrisCola Empirico1",
+      "wins": 6557,
+      "points": 754747,
+      "games": 12000,
+      "winRate": 0.5464166666666667,
+      "averagePoints": 62.895583333333335
+    },
+    {
+      "id": "smbriscola-empirico2",
+      "name": "smBrisCola Empirico2",
+      "wins": 6508,
+      "points": 756919,
+      "games": 12000,
+      "winRate": 0.5423333333333333,
+      "averagePoints": 63.07658333333333
+    },
+    {
+      "id": "pryscola",
+      "name": "Pryscola",
+      "wins": 4219,
+      "points": 666371,
+      "games": 12000,
+      "winRate": 0.35158333333333336,
+      "averagePoints": 55.53091666666667
+    },
+    {
+      "id": "jbriscola",
+      "name": "JBriscola",
+      "wins": 2125,
+      "points": 546108,
+      "games": 12000,
+      "winRate": 0.17708333333333334,
+      "averagePoints": 45.509
+    }
+  ],
+  "headToHead": [
+    {
+      "a": "qbriscola",
+      "b": "cuperativa",
+      "games": 2000,
+      "winsA": 1034,
+      "winsB": 934,
+      "draws": 32,
+      "pointsA": 122562,
+      "pointsB": 117438
+    },
+    {
+      "a": "qbriscola",
+      "b": "smbriscola-empirico1",
+      "games": 2000,
+      "winsA": 1023,
+      "winsB": 922,
+      "draws": 55,
+      "pointsA": 121241,
+      "pointsB": 118759
+    },
+    {
+      "a": "qbriscola",
+      "b": "smbriscola-empirico2",
+      "games": 2000,
+      "winsA": 1044,
+      "winsB": 906,
+      "draws": 50,
+      "pointsA": 121278,
+      "pointsB": 118722
+    },
+    {
+      "a": "qbriscola",
+      "b": "jbriscola",
+      "games": 2000,
+      "winsA": 1648,
+      "winsB": 323,
+      "draws": 29,
+      "pointsA": 149472,
+      "pointsB": 90528
+    },
+    {
+      "a": "qbriscola",
+      "b": "pryscola",
+      "games": 2000,
+      "winsA": 1433,
+      "winsB": 526,
+      "draws": 41,
+      "pointsA": 136134,
+      "pointsB": 103866
+    },
+    {
+      "a": "qbriscola",
+      "b": "briscolabot-v3",
+      "games": 2000,
+      "winsA": 821,
+      "winsB": 1125,
+      "draws": 54,
+      "pointsA": 114044,
+      "pointsB": 125956
+    },
+    {
+      "a": "cuperativa",
+      "b": "smbriscola-empirico1",
+      "games": 2000,
+      "winsA": 976,
+      "winsB": 975,
+      "draws": 49,
+      "pointsA": 118415,
+      "pointsB": 121585
+    },
+    {
+      "a": "cuperativa",
+      "b": "smbriscola-empirico2",
+      "games": 2000,
+      "winsA": 1031,
+      "winsB": 920,
+      "draws": 49,
+      "pointsA": 119187,
+      "pointsB": 120813
+    },
+    {
+      "a": "cuperativa",
+      "b": "jbriscola",
+      "games": 2000,
+      "winsA": 1639,
+      "winsB": 331,
+      "draws": 30,
+      "pointsA": 147592,
+      "pointsB": 92408
+    },
+    {
+      "a": "cuperativa",
+      "b": "pryscola",
+      "games": 2000,
+      "winsA": 1397,
+      "winsB": 566,
+      "draws": 37,
+      "pointsA": 134143,
+      "pointsB": 105857
+    },
+    {
+      "a": "cuperativa",
+      "b": "briscolabot-v3",
+      "games": 2000,
+      "winsA": 767,
+      "winsB": 1179,
+      "draws": 54,
+      "pointsA": 113047,
+      "pointsB": 126953
+    },
+    {
+      "a": "smbriscola-empirico1",
+      "b": "smbriscola-empirico2",
+      "games": 2000,
+      "winsA": 948,
+      "winsB": 993,
+      "draws": 59,
+      "pointsA": 118877,
+      "pointsB": 121123
+    },
+    {
+      "a": "smbriscola-empirico1",
+      "b": "jbriscola",
+      "games": 2000,
+      "winsA": 1625,
+      "winsB": 342,
+      "draws": 33,
+      "pointsA": 149951,
+      "pointsB": 90049
+    },
+    {
+      "a": "smbriscola-empirico1",
+      "b": "pryscola",
+      "games": 2000,
+      "winsA": 1340,
+      "winsB": 614,
+      "draws": 46,
+      "pointsA": 133752,
+      "pointsB": 106248
+    },
+    {
+      "a": "smbriscola-empirico1",
+      "b": "briscolabot-v3",
+      "games": 2000,
+      "winsA": 747,
+      "winsB": 1192,
+      "draws": 61,
+      "pointsA": 111823,
+      "pointsB": 128177
+    },
+    {
+      "a": "smbriscola-empirico2",
+      "b": "jbriscola",
+      "games": 2000,
+      "winsA": 1681,
+      "winsB": 285,
+      "draws": 34,
+      "pointsA": 152559,
+      "pointsB": 87441
+    },
+    {
+      "a": "smbriscola-empirico2",
+      "b": "pryscola",
+      "games": 2000,
+      "winsA": 1342,
+      "winsB": 608,
+      "draws": 50,
+      "pointsA": 134152,
+      "pointsB": 105848
+    },
+    {
+      "a": "smbriscola-empirico2",
+      "b": "briscolabot-v3",
+      "games": 2000,
+      "winsA": 666,
+      "winsB": 1285,
+      "draws": 49,
+      "pointsA": 109550,
+      "pointsB": 130450
+    },
+    {
+      "a": "jbriscola",
+      "b": "pryscola",
+      "games": 2000,
+      "winsA": 568,
+      "winsB": 1397,
+      "draws": 35,
+      "pointsA": 99446,
+      "pointsB": 140554
+    },
+    {
+      "a": "jbriscola",
+      "b": "briscolabot-v3",
+      "games": 2000,
+      "winsA": 276,
+      "winsB": 1691,
+      "draws": 33,
+      "pointsA": 86236,
+      "pointsB": 153764
+    },
+    {
+      "a": "pryscola",
+      "b": "briscolabot-v3",
+      "games": 2000,
+      "winsA": 508,
+      "winsB": 1435,
+      "draws": 57,
+      "pointsA": 103998,
+      "pointsB": 136002
+    }
+  ]
+}

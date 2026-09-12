@@ -1,0 +1,15 @@
+{
+  "format": "briscolab-arena-head-to-head-v1",
+  "a": "briscolajs-s0",
+  "b": "briscolajs-s1",
+  "nameA": "Briscola.js S0",
+  "nameB": "Briscola.js S1",
+  "seedStart": 1,
+  "seedPairs": 1000,
+  "games": 2000,
+  "winsA": 808,
+  "winsB": 1136,
+  "draws": 56,
+  "pointsA": 115335,
+  "pointsB": 124665
+}

@@ -1,0 +1,12 @@
+{
+  "format": "briscolab-deck-index",
+  "version": 1,
+  "decks": [
+    {
+      "manifest": "./viterbesi-murari-1900/briscolab_manifest.json"
+    },
+    {
+      "manifest": "./napoletane-pignalosa-1882/briscolab_manifest.json"
+    }
+  ]
+}

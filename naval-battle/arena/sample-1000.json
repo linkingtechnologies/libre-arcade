@@ -1,0 +1,14 @@
+{
+  "fleet": [
+    5,
+    4,
+    3,
+    3,
+    2
+  ],
+  "games": 1000,
+  "os4Wins": 867,
+  "randomWins": 133,
+  "os4WinRate": 0.867,
+  "averageTurns": 156.429
+}

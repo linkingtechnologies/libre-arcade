@@ -1,0 +1,351 @@
+{
+  "world": "world3",
+  "level": 7,
+  "name": "Dune Dorate — Livello 7 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 126,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 70,
+      "row": 9
+    },
+    {
+      "col": 111,
+      "row": 8
+    }
+  ],
+  "platforms": [
+    {
+      "col": 7,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 30,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 39,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 61,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 62,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 63,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 74,
+      "span": 1,
+      "row": 7
+    },
+    {
+      "col": 75,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 102,
+      "span": 4,
+      "row": 7
+    }
+  ],
+  "coins": [
+    {
+      "col": 8,
+      "row": 5
+    },
+    {
+      "col": 9,
+      "row": 5
+    },
+    {
+      "col": 15,
+      "row": 6
+    },
+    {
+      "col": 17,
+      "row": 6
+    },
+    {
+      "col": 19,
+      "row": 6
+    },
+    {
+      "col": 21,
+      "row": 6
+    },
+    {
+      "col": 23,
+      "row": 6
+    },
+    {
+      "col": 25,
+      "row": 6
+    },
+    {
+      "col": 31,
+      "row": 5
+    },
+    {
+      "col": 32,
+      "row": 5
+    },
+    {
+      "col": 40,
+      "row": 5
+    },
+    {
+      "col": 41,
+      "row": 5
+    },
+    {
+      "col": 45,
+      "row": 6
+    },
+    {
+      "col": 49,
+      "row": 6
+    },
+    {
+      "col": 51,
+      "row": 6
+    },
+    {
+      "col": 53,
+      "row": 6
+    },
+    {
+      "col": 55,
+      "row": 6
+    },
+    {
+      "col": 61,
+      "row": 5
+    },
+    {
+      "col": 62,
+      "row": 4
+    },
+    {
+      "col": 63,
+      "row": 3
+    },
+    {
+      "col": 68,
+      "row": 6
+    },
+    {
+      "col": 74,
+      "row": 6
+    },
+    {
+      "col": 75,
+      "row": 5
+    },
+    {
+      "col": 83,
+      "row": 7
+    },
+    {
+      "col": 85,
+      "row": 7
+    },
+    {
+      "col": 94,
+      "row": 7
+    },
+    {
+      "col": 103,
+      "row": 6
+    },
+    {
+      "col": 104,
+      "row": 6
+    },
+    {
+      "col": 108,
+      "row": 7
+    },
+    {
+      "col": 110,
+      "row": 7
+    }
+  ],
+  "bonus": [],
+  "enemies": [
+    {
+      "col": 18,
+      "kind": "mouse",
+      "patrolTiles": 3
+    },
+    {
+      "col": 22,
+      "kind": "saw",
+      "patrolTiles": 3
+    },
+    {
+      "col": 49,
+      "kind": "mouse",
+      "patrolTiles": 3
+    },
+    {
+      "col": 53,
+      "kind": "saw",
+      "patrolTiles": 3
+    }
+  ],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 8,
+      "row": 5,
+      "kind": "cactus"
+    },
+    {
+      "col": 21,
+      "row": 7,
+      "kind": "cactus"
+    },
+    {
+      "col": 40,
+      "row": 5,
+      "kind": "cactus"
+    },
+    {
+      "col": 45,
+      "row": 7,
+      "kind": "cactus"
+    },
+    {
+      "col": 48,
+      "row": 7,
+      "kind": "cactus"
+    },
+    {
+      "col": 51,
+      "row": 7,
+      "kind": "cactus"
+    },
+    {
+      "col": 68,
+      "row": 7,
+      "kind": "cactus"
+    },
+    {
+      "col": 71,
+      "row": 8,
+      "kind": "cactus"
+    },
+    {
+      "col": 81,
+      "row": 8,
+      "kind": "cactus"
+    },
+    {
+      "col": 94,
+      "row": 8,
+      "kind": "cactus"
+    },
+    {
+      "col": 97,
+      "row": 8,
+      "kind": "cactus"
+    },
+    {
+      "col": 103,
+      "row": 6,
+      "kind": "cactus"
+    },
+    {
+      "col": 108,
+      "row": 8,
+      "kind": "cactus"
+    }
+  ],
+  "goalCol": 122,
+  "pits": [
+    {
+      "col": 7,
+      "span": 4
+    },
+    {
+      "col": 30,
+      "span": 4
+    },
+    {
+      "col": 39,
+      "span": 4
+    },
+    {
+      "col": 61,
+      "span": 1
+    },
+    {
+      "col": 74,
+      "span": 1
+    },
+    {
+      "col": 90,
+      "span": 1
+    },
+    {
+      "col": 102,
+      "span": 4
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 112,
+      "row": 6
+    },
+    {
+      "col": 98,
+      "row": 7
+    },
+    {
+      "col": 96,
+      "row": 7
+    },
+    {
+      "col": 90,
+      "row": 7
+    },
+    {
+      "col": 81,
+      "row": 7
+    },
+    {
+      "col": 71,
+      "row": 7
+    },
+    {
+      "col": 47,
+      "row": 6
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world3-level7', groups=13, difficulty=0.75). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: perch, gauntlet, perch, perch, gauntlet, staircase, step_down, staircase, rest, pit, rest, perch, step_up."
+}

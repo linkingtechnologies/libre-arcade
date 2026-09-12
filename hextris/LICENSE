@@ -1,0 +1,32 @@
+The game in public/ — nearly all of this folder's content — is GPL-3.0-only,
+by Logan Engstrom & Garrett Finucane and the Hextris contributors. See
+public/LICENSE.md for the full text and public/CREDITS.md for authorship.
+
+Only this folder's own dev tooling (scripts/, test/, eslint.config.mjs,
+package.json) — small, dependency-free serve/build scripts and smoke tests,
+none of it linked into or distributed with the game — is separately licensed
+under the MIT License below.
+
+---
+
+MIT License
+
+Copyright (c) 2026 Umberto Bresciani
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.

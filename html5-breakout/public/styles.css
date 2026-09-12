@@ -1,0 +1,5 @@
+/* Both selectors were bare (`body`, `canvas`) in upstream — scoped under `:where(#app)` (zero
+   specificity), same technique/reasoning as specs/html5-space-invaders/design.md and
+   specs/html5-snake/design.md document for the identical problem in those games. */
+:where(#app) { background-color: dimgray; text-align: center; }
+:where(#app) canvas { background-color: black; border: 1px solid black; }

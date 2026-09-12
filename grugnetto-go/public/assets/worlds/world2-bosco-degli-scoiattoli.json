@@ -1,0 +1,66 @@
+{
+  "id": "world2",
+  "name": "Bosco degli Scoiattoli",
+  "levelCount": 8,
+  "story": "Seguendo la scia di ghiande, Grugnetto entra nel bosco e scopre che qualcuno sta svuotando la dispensa degli scoiattoli. Decide di aiutarli a recuperare le scorte, saltando tra i rami.",
+  "musicSuggestion": "kenney-extras/music-jingles/Pizzicato jingles/ (leggero, quasi favolistico)",
+  "assetsBase": "kenney-extras/new-platformer-pack/",
+  "terrain": {
+    "prefix": "terrain_grass (variante 'a nuvola', piattaforme tra i rami)",
+    "files": [
+      "tiles/terrain_grass_cloud.png",
+      "tiles/terrain_grass_cloud_left.png",
+      "tiles/terrain_grass_cloud_middle.png",
+      "tiles/terrain_grass_cloud_right.png",
+      "tiles/terrain_grass_cloud_background.png",
+      "tiles/terrain_grass_block_top.png",
+      "tiles/terrain_grass_block_center.png",
+      "tiles/bridge.png",
+      "tiles/bridge_logs.png"
+    ]
+  },
+  "background": {
+    "files": [
+      "backgrounds/background_fade_trees.png",
+      "backgrounds/background_color_mushrooms.png",
+      "backgrounds/background_fade_mushrooms.png",
+      "backgrounds/background_clouds.png"
+    ]
+  },
+  "props": {
+    "files": [
+      "tiles/mushroom_brown.png",
+      "tiles/mushroom_red.png",
+      "tiles/ladder_top.png",
+      "tiles/ladder_middle.png",
+      "tiles/ladder_bottom.png"
+    ]
+  },
+  "enemies": [
+    {
+      "name": "worm",
+      "behavior": "patrol corto, striscia sul terreno",
+      "files": ["enemies/worm_normal_rest.png", "enemies/worm_normal_move_a.png", "enemies/worm_normal_move_b.png",
+                 "enemies/worm_ring_rest.png", "enemies/worm_ring_move_a.png", "enemies/worm_ring_move_b.png"]
+    },
+    {
+      "name": "frog",
+      "behavior": "salta a intervalli regolari",
+      "files": ["enemies/frog_idle.png", "enemies/frog_jump.png", "enemies/frog_rest.png"]
+    },
+    {
+      "name": "bee",
+      "behavior": "vola in pattern semplice (su/giù o avanti/indietro)",
+      "files": ["enemies/bee_rest.png", "enemies/bee_a.png", "enemies/bee_b.png"]
+    },
+    {
+      "name": "fly",
+      "behavior": "vola erratico, molto innocuo",
+      "files": ["enemies/fly_rest.png", "enemies/fly_a.png", "enemies/fly_b.png"]
+    }
+  ],
+  "collectibles": [
+    { "name": "acorn", "file": "../collectable_acorn.png", "points": 100 },
+    { "name": "coin", "file": "../collectable_coin.png", "points": 100 }
+  ]
+}

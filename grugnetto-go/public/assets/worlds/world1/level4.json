@@ -1,0 +1,285 @@
+{
+  "world": "world1",
+  "level": 4,
+  "name": "Prato di Casa — Livello 4 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 101,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 39,
+      "row": 7
+    },
+    {
+      "col": 44,
+      "row": 9
+    }
+  ],
+  "platforms": [
+    {
+      "col": 7,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 8,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 23,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 24,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 25,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 30,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 31,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 32,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 47,
+      "span": 4,
+      "row": 7
+    },
+    {
+      "col": 83,
+      "span": 4,
+      "row": 7
+    }
+  ],
+  "coins": [
+    {
+      "col": 7,
+      "row": 5
+    },
+    {
+      "col": 8,
+      "row": 4
+    },
+    {
+      "col": 15,
+      "row": 6
+    },
+    {
+      "col": 17,
+      "row": 6
+    },
+    {
+      "col": 23,
+      "row": 5
+    },
+    {
+      "col": 24,
+      "row": 4
+    },
+    {
+      "col": 25,
+      "row": 3
+    },
+    {
+      "col": 30,
+      "row": 5
+    },
+    {
+      "col": 31,
+      "row": 4
+    },
+    {
+      "col": 32,
+      "row": 3
+    },
+    {
+      "col": 37,
+      "row": 6
+    },
+    {
+      "col": 40,
+      "row": 5
+    },
+    {
+      "col": 42,
+      "row": 5
+    },
+    {
+      "col": 48,
+      "row": 6
+    },
+    {
+      "col": 49,
+      "row": 6
+    },
+    {
+      "col": 54,
+      "row": 7
+    },
+    {
+      "col": 58,
+      "row": 7
+    },
+    {
+      "col": 60,
+      "row": 7
+    },
+    {
+      "col": 67,
+      "row": 7
+    },
+    {
+      "col": 69,
+      "row": 7
+    },
+    {
+      "col": 71,
+      "row": 7
+    },
+    {
+      "col": 73,
+      "row": 7
+    },
+    {
+      "col": 75,
+      "row": 7
+    },
+    {
+      "col": 77,
+      "row": 7
+    },
+    {
+      "col": 84,
+      "row": 6
+    },
+    {
+      "col": 85,
+      "row": 6
+    }
+  ],
+  "bonus": [],
+  "enemies": [
+    {
+      "col": 58,
+      "kind": "ladybug",
+      "patrolTiles": 3
+    },
+    {
+      "col": 69,
+      "kind": "snail",
+      "patrolTiles": 3
+    },
+    {
+      "col": 74,
+      "kind": "ladybug",
+      "patrolTiles": 3
+    }
+  ],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 13,
+      "row": 7,
+      "kind": "fence"
+    },
+    {
+      "col": 40,
+      "row": 6,
+      "kind": "fence"
+    },
+    {
+      "col": 42,
+      "row": 6,
+      "kind": "bush"
+    },
+    {
+      "col": 54,
+      "row": 8,
+      "kind": "bush"
+    },
+    {
+      "col": 71,
+      "row": 8,
+      "kind": "fence_broken"
+    },
+    {
+      "col": 74,
+      "row": 8,
+      "kind": "bush"
+    },
+    {
+      "col": 77,
+      "row": 8,
+      "kind": "fence_broken"
+    }
+  ],
+  "goalCol": 97,
+  "pits": [
+    {
+      "col": 7,
+      "span": 1
+    },
+    {
+      "col": 23,
+      "span": 1
+    },
+    {
+      "col": 30,
+      "span": 1
+    },
+    {
+      "col": 47,
+      "span": 4
+    },
+    {
+      "col": 83,
+      "span": 4
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 65,
+      "row": 7
+    },
+    {
+      "col": 56,
+      "row": 7
+    },
+    {
+      "col": 45,
+      "row": 7
+    },
+    {
+      "col": 13,
+      "row": 6
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world1-level4', groups=10, difficulty=0.45). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: staircase, rest, staircase, staircase, step_up, step_down, perch, gauntlet, gauntlet, perch."
+}

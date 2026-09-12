@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-08-30T21:08:30.398Z",
+  "generator": "xorshift32 seeds 1..N",
+  "maxStates": 50000,
+  "claim": "Only solved deals replayed successfully in both engines are certified; unknown is never treated as impossible.",
+  "results": [
+    {
+      "drawCount": 1,
+      "attempted": 100,
+      "solved": 62,
+      "crossCertified": 62,
+      "unknown": 38,
+      "states": 2284737,
+      "timeMs": 33534,
+      "failures": []
+    },
+    {
+      "drawCount": 3,
+      "attempted": 100,
+      "solved": 63,
+      "crossCertified": 63,
+      "unknown": 37,
+      "states": 2109684,
+      "timeMs": 36886,
+      "failures": []
+    }
+  ]
+}

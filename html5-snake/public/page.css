@@ -1,0 +1,22 @@
+/* Local modification (this whole file — see specs/html5-snake/design.md): every originally-bare
+   selector ("body"/"h1"/"p"/"canvas") is now scoped under "#app", this game's own exclusive
+   mount root in both the standalone page (games/html5-snake/index.html) and the Camila-hosted
+   dashboard tab (../../dashboard-html5-snake.inc.php) — unscoped, "body { background-color }"
+   alone would have recolored the whole surrounding Camila page, not just this game's own area.
+   ":where(#app)" not "#app" on the bare-selector rules specifically, matching the fix
+   specs/hextris/design.md documents for the exact same problem there: a plain "#app canvas"
+   carries an ID selector's specificity that upstream's own bare "canvas" never had, which could
+   silently outrank some other rule meant to win against it. There's nothing else in this small a
+   stylesheet that actually depends on losing to a more specific rule, but using ":where()" here
+   too costs nothing and avoids having to re-derive that reasoning from scratch if this file ever
+   grows. The original upstream page also styled <h1>/<p> (a title and some instructional text) —
+   not carried over here, since this integration doesn't render that chrome at all (see
+   index.html's own comment) — only "body"/"canvas" remain to scope. */
+:where(#app) {
+  background-color: #CCC;
+}
+:where(#app) canvas {
+  display: block;
+  margin: 0 auto;
+  background-color: #666;
+}

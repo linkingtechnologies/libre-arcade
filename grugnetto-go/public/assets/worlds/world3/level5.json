@@ -1,0 +1,240 @@
+{
+  "world": "world3",
+  "level": 5,
+  "name": "Dune Dorate — Livello 5 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 102,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 39,
+      "row": 7
+    },
+    {
+      "col": 71,
+      "row": 9
+    }
+  ],
+  "platforms": [
+    {
+      "col": 7,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 15,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 23,
+      "span": 10,
+      "row": 6,
+      "material": "bridge"
+    },
+    {
+      "col": 74,
+      "span": 1,
+      "row": 7
+    },
+    {
+      "col": 75,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 76,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 77,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 78,
+      "span": 1,
+      "row": 3
+    },
+    {
+      "col": 84,
+      "span": 4,
+      "row": 7
+    }
+  ],
+  "coins": [
+    {
+      "col": 8,
+      "row": 5
+    },
+    {
+      "col": 9,
+      "row": 5
+    },
+    {
+      "col": 16,
+      "row": 5
+    },
+    {
+      "col": 17,
+      "row": 5
+    },
+    {
+      "col": 26,
+      "row": 5
+    },
+    {
+      "col": 29,
+      "row": 5
+    },
+    {
+      "col": 37,
+      "row": 6
+    },
+    {
+      "col": 40,
+      "row": 5
+    },
+    {
+      "col": 56,
+      "row": 5
+    },
+    {
+      "col": 69,
+      "row": 5
+    },
+    {
+      "col": 72,
+      "row": 7
+    },
+    {
+      "col": 74,
+      "row": 6
+    },
+    {
+      "col": 75,
+      "row": 5
+    },
+    {
+      "col": 76,
+      "row": 4
+    },
+    {
+      "col": 77,
+      "row": 3
+    },
+    {
+      "col": 78,
+      "row": 2
+    },
+    {
+      "col": 85,
+      "row": 6
+    },
+    {
+      "col": 86,
+      "row": 6
+    }
+  ],
+  "bonus": [],
+  "enemies": [],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 8,
+      "row": 5,
+      "kind": "cactus"
+    },
+    {
+      "col": 41,
+      "row": 6,
+      "kind": "cactus"
+    },
+    {
+      "col": 44,
+      "row": 6,
+      "kind": "cactus"
+    },
+    {
+      "col": 48,
+      "row": 6,
+      "kind": "cactus"
+    },
+    {
+      "col": 51,
+      "row": 6,
+      "kind": "cactus"
+    },
+    {
+      "col": 72,
+      "row": 8,
+      "kind": "cactus"
+    }
+  ],
+  "goalCol": 98,
+  "pits": [
+    {
+      "col": 7,
+      "span": 4
+    },
+    {
+      "col": 15,
+      "span": 4
+    },
+    {
+      "col": 23,
+      "span": 10
+    },
+    {
+      "col": 56,
+      "span": 1
+    },
+    {
+      "col": 64,
+      "span": 1
+    },
+    {
+      "col": 74,
+      "span": 1
+    },
+    {
+      "col": 84,
+      "span": 4
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 64,
+      "row": 5
+    },
+    {
+      "col": 50,
+      "row": 5
+    },
+    {
+      "col": 48,
+      "row": 5
+    },
+    {
+      "col": 43,
+      "row": 5
+    },
+    {
+      "col": 41,
+      "row": 5
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world3-level5', groups=11, difficulty=0.55). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: perch, perch, bridge, step_up, rest, rest, pit, pit, step_down, staircase, perch."
+}

@@ -1,0 +1,34 @@
+Move Netrok with CURSOR-KEYS, 
+jump with (B), run with (X).
+
+Place your level jump'in flag with (A). 
+From this position you can replay the level 
+if Netrok dies. You cannot redeploy
+this flag within the same level, so think where 
+to place it.
+
+Change shield with WASZ. 
+Select first the shield you want to 
+move, and then the position where to move 
+it to. W is upper shield, Z lower, etc.
+Collect 20 red shield power coins to 
+get a new shield.
+
+Kill enemies by jumping on them or simply 
+running in them. But look for the position of 
+theire prickles. You can kill an enemy from
+the side where he has his prickles only with the
+blue west from the blue button by running in 
+him or with the special red shoes, which allows 
+to jump on the prickles.
+Netrok cannot beaten the big prickles, so try
+to avoid them.
+
+Everything what makes playing the game 
+easier, costs you score! E.g. changing
+shields, dropping jump`in flag etc. 
+On the other hand, you get score if you
+beat the level in shorter time or kill enemies..
+For every 5000 points score you get 1 UP.
+
+Good luck and have fun!

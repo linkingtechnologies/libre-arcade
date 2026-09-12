@@ -1,0 +1,217 @@
+{
+  "world": "world2",
+  "level": 3,
+  "name": "Bosco degli Scoiattoli — Livello 3 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 83,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 8,
+      "row": 9
+    },
+    {
+      "col": 41,
+      "row": 8
+    },
+    {
+      "col": 56,
+      "row": 7
+    }
+  ],
+  "platforms": [
+    {
+      "col": 45,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 46,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 47,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 48,
+      "span": 1,
+      "row": 3
+    }
+  ],
+  "coins": [
+    {
+      "col": 6,
+      "row": 6
+    },
+    {
+      "col": 9,
+      "row": 7
+    },
+    {
+      "col": 12,
+      "row": 7
+    },
+    {
+      "col": 14,
+      "row": 7
+    },
+    {
+      "col": 19,
+      "row": 7
+    },
+    {
+      "col": 25,
+      "row": 7
+    },
+    {
+      "col": 27,
+      "row": 7
+    },
+    {
+      "col": 29,
+      "row": 7
+    },
+    {
+      "col": 33,
+      "row": 7
+    },
+    {
+      "col": 35,
+      "row": 7
+    },
+    {
+      "col": 39,
+      "row": 7
+    },
+    {
+      "col": 42,
+      "row": 6
+    },
+    {
+      "col": 45,
+      "row": 5
+    },
+    {
+      "col": 46,
+      "row": 4
+    },
+    {
+      "col": 47,
+      "row": 3
+    },
+    {
+      "col": 48,
+      "row": 2
+    },
+    {
+      "col": 55,
+      "row": 6
+    },
+    {
+      "col": 57,
+      "row": 5
+    },
+    {
+      "col": 61,
+      "row": 5
+    },
+    {
+      "col": 67,
+      "row": 5
+    }
+  ],
+  "bonus": [],
+  "enemies": [
+    {
+      "col": 28,
+      "kind": "worm",
+      "patrolTiles": 3
+    },
+    {
+      "col": 32,
+      "kind": "worm",
+      "patrolTiles": 3
+    }
+  ],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 6,
+      "row": 7,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 9,
+      "row": 8,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 13,
+      "row": 8,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 34,
+      "row": 8,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 53,
+      "row": 7,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 57,
+      "row": 6,
+      "kind": "mushroom_brown"
+    }
+  ],
+  "goalCol": 79,
+  "pits": [
+    {
+      "col": 19,
+      "span": 1
+    },
+    {
+      "col": 45,
+      "span": 1
+    },
+    {
+      "col": 61,
+      "span": 1
+    },
+    {
+      "col": 67,
+      "span": 1
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 53,
+      "row": 6
+    },
+    {
+      "col": 31,
+      "row": 7
+    },
+    {
+      "col": 10,
+      "row": 7
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world2-level3', groups=9, difficulty=0.35). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: step_down, rest, pit, gauntlet, step_up, staircase, step_up, pit, pit."
+}

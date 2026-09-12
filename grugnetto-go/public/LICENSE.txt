@@ -1,0 +1,53 @@
+Grugnetto Go! — License
+
+This folder (games/grugnetto-go/) contains three kinds of content, each under different terms.
+See the in-game Credits screen (or this file's own app.js, the CREDITS constant) for the complete,
+up-to-date breakdown of every third-party asset and library.
+
+--------------------------------------------------------------------------------
+1. GAME CODE
+--------------------------------------------------------------------------------
+All JavaScript/HTML/CSS in this folder, and the level-authoring tools under assets/worlds/,
+excluding the vendor/ and assets/ subfolders (see 2 and 3 below), is:
+
+    Copyright (c) 2026 Umberto Bresciani
+
+This program is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program, in the
+file COPYING (next to this LICENSE.txt, in this same folder). If not, see
+<https://www.gnu.org/licenses/>.
+
+In practice, GPL-3.0 means: anyone can play, share, and study this code freely, and anyone who
+redistributes it — modified or not — must keep it under GPL-3.0 too, source included. Nobody can
+fold it into a closed-source product. This does NOT extend to sections 2 or 3 below — Grugnetto's
+own art stays separately all-rights-reserved regardless of the code's license, and every
+third-party asset/library keeps whatever license its own author already chose.
+
+--------------------------------------------------------------------------------
+2. GRUGNETTO'S ORIGINAL ART
+--------------------------------------------------------------------------------
+The character, coin, and collectible illustrations ("Grugnetto") are:
+
+    Copyright (c) 2026 Umberto Bresciani. All rights reserved.
+
+Not licensed for reuse, redistribution, modification, or extraction outside of this game, in
+whole or in part, without prior written permission. This restriction applies to the artwork
+itself only — it does not restrict playing, sharing, or distributing the game as a whole.
+
+--------------------------------------------------------------------------------
+3. THIRD-PARTY ASSETS AND LIBRARIES
+--------------------------------------------------------------------------------
+Everything else this game ships — Kenney's terrain/platform/enemy/prop/background art and sound
+effects (CC0 1.0), the per-world background music tracks (CC0 / CC BY 3.0 / CC BY-SA 4.0 — the
+latter two require attribution, already given on the in-game Credits screen), and the vendored
+libraries under vendor/ (melonJS: MIT, lit-html: BSD-3-Clause, Bulma: MIT, Remix Icon: Remix Icon
+License 1.0) — remains under its own original license. This game does not relicense any of it;
+it is used here under the terms each author already granted. See the in-game Credits screen for
+the full, itemized list with sources.

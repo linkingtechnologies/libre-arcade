@@ -1,0 +1,393 @@
+{
+  "world": "world2",
+  "level": 7,
+  "name": "Bosco degli Scoiattoli — Livello 7 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 144,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 50,
+      "row": 7
+    },
+    {
+      "col": 82,
+      "row": 6
+    }
+  ],
+  "platforms": [
+    {
+      "col": 7,
+      "span": 4,
+      "row": 6,
+      "material": "bridge"
+    },
+    {
+      "col": 12,
+      "span": 4,
+      "row": 6,
+      "material": "bridge"
+    },
+    {
+      "col": 39,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 86,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 87,
+      "span": 1,
+      "row": 3
+    },
+    {
+      "col": 88,
+      "span": 1,
+      "row": 2
+    },
+    {
+      "col": 89,
+      "span": 1,
+      "row": 1
+    },
+    {
+      "col": 90,
+      "span": 1,
+      "row": 0
+    },
+    {
+      "col": 110,
+      "span": 4,
+      "row": 4
+    },
+    {
+      "col": 117,
+      "span": 4,
+      "row": 4
+    },
+    {
+      "col": 124,
+      "span": 6,
+      "row": 4,
+      "material": "bridge"
+    }
+  ],
+  "coins": [
+    {
+      "col": 10,
+      "row": 5
+    },
+    {
+      "col": 13,
+      "row": 5
+    },
+    {
+      "col": 18,
+      "row": 6
+    },
+    {
+      "col": 22,
+      "row": 6
+    },
+    {
+      "col": 24,
+      "row": 6
+    },
+    {
+      "col": 26,
+      "row": 6
+    },
+    {
+      "col": 33,
+      "row": 6
+    },
+    {
+      "col": 40,
+      "row": 5
+    },
+    {
+      "col": 41,
+      "row": 5
+    },
+    {
+      "col": 47,
+      "row": 6
+    },
+    {
+      "col": 49,
+      "row": 6
+    },
+    {
+      "col": 53,
+      "row": 5
+    },
+    {
+      "col": 55,
+      "row": 5
+    },
+    {
+      "col": 57,
+      "row": 5
+    },
+    {
+      "col": 59,
+      "row": 5
+    },
+    {
+      "col": 61,
+      "row": 5
+    },
+    {
+      "col": 63,
+      "row": 5
+    },
+    {
+      "col": 70,
+      "row": 5
+    },
+    {
+      "col": 74,
+      "row": 5
+    },
+    {
+      "col": 76,
+      "row": 5
+    },
+    {
+      "col": 83,
+      "row": 4
+    },
+    {
+      "col": 86,
+      "row": 3
+    },
+    {
+      "col": 87,
+      "row": 2
+    },
+    {
+      "col": 88,
+      "row": 1
+    },
+    {
+      "col": 89,
+      "row": 0
+    },
+    {
+      "col": 90,
+      "row": -1
+    },
+    {
+      "col": 98,
+      "row": 4
+    },
+    {
+      "col": 100,
+      "row": 4
+    },
+    {
+      "col": 102,
+      "row": 4
+    },
+    {
+      "col": 104,
+      "row": 4
+    },
+    {
+      "col": 111,
+      "row": 3
+    },
+    {
+      "col": 112,
+      "row": 3
+    },
+    {
+      "col": 118,
+      "row": 3
+    },
+    {
+      "col": 119,
+      "row": 3
+    },
+    {
+      "col": 126,
+      "row": 3
+    },
+    {
+      "col": 128,
+      "row": 3
+    }
+  ],
+  "bonus": [],
+  "enemies": [
+    {
+      "col": 21,
+      "kind": "worm",
+      "patrolTiles": 3
+    },
+    {
+      "col": 24,
+      "kind": "fly",
+      "patrolTiles": 3
+    },
+    {
+      "col": 57,
+      "kind": "frog",
+      "patrolTiles": 3
+    },
+    {
+      "col": 62,
+      "kind": "fly",
+      "patrolTiles": 3
+    },
+    {
+      "col": 74,
+      "kind": "worm",
+      "patrolTiles": 3
+    },
+    {
+      "col": 99,
+      "kind": "worm",
+      "patrolTiles": 3
+    },
+    {
+      "col": 103,
+      "kind": "bee",
+      "patrolTiles": 3
+    }
+  ],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 24,
+      "row": 7,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 27,
+      "row": 7,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 47,
+      "row": 7,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 56,
+      "row": 6,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 59,
+      "row": 6,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 62,
+      "row": 6,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 70,
+      "row": 6,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 76,
+      "row": 6,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 80,
+      "row": 6,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 96,
+      "row": 5,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 105,
+      "row": 5,
+      "kind": "mushroom_red"
+    }
+  ],
+  "goalCol": 140,
+  "pits": [
+    {
+      "col": 7,
+      "span": 9
+    },
+    {
+      "col": 33,
+      "span": 1
+    },
+    {
+      "col": 39,
+      "span": 4
+    },
+    {
+      "col": 86,
+      "span": 1
+    },
+    {
+      "col": 110,
+      "span": 4
+    },
+    {
+      "col": 117,
+      "span": 4
+    },
+    {
+      "col": 124,
+      "span": 6
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 106,
+      "row": 4
+    },
+    {
+      "col": 96,
+      "row": 4
+    },
+    {
+      "col": 80,
+      "row": 5
+    },
+    {
+      "col": 72,
+      "row": 5
+    },
+    {
+      "col": 65,
+      "row": 5
+    },
+    {
+      "col": 51,
+      "row": 5
+    },
+    {
+      "col": 20,
+      "row": 6
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world2-level7', groups=13, difficulty=0.75). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: bridge, gauntlet, pit, perch, step_up, gauntlet, gauntlet, step_up, staircase, gauntlet, perch, perch, bridge."
+}

@@ -1,0 +1,14 @@
+22. Sep 2003.
+
+- fix some of the graphics and make some nice effects (sparks and stuff...)
+- rewrite routines that handle stuff in main menu
+  - script routine: do not load data from file all the time
+  - both routines:  only update the regions of screen that are changed
+- themable ghosts
+
+
+Well, none of it really. This is probably the last version of Njam I'm going
+to make, so if someone wishes to continue the development, they can pick
+any goals they want.
+
+Milan Babuskov (24. March 2004.)

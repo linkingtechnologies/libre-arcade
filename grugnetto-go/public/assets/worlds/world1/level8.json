@@ -1,0 +1,411 @@
+{
+  "world": "world1",
+  "level": 8,
+  "name": "Prato di Casa — Livello 8 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 155,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 22,
+      "row": 7
+    },
+    {
+      "col": 36,
+      "row": 6
+    }
+  ],
+  "platforms": [
+    {
+      "col": 7,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 8,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 9,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 26,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 27,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 47,
+      "span": 4,
+      "row": 4
+    },
+    {
+      "col": 56,
+      "span": 4,
+      "row": 4
+    },
+    {
+      "col": 78,
+      "span": 4,
+      "row": 4
+    },
+    {
+      "col": 102,
+      "span": 2,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 105,
+      "span": 5,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 111,
+      "span": 1,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 115,
+      "span": 4,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 120,
+      "span": 1,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 122,
+      "span": 1,
+      "row": 4,
+      "material": "bridge"
+    }
+  ],
+  "coins": [
+    {
+      "col": 7,
+      "row": 5
+    },
+    {
+      "col": 8,
+      "row": 4
+    },
+    {
+      "col": 9,
+      "row": 3
+    },
+    {
+      "col": 19,
+      "row": 6
+    },
+    {
+      "col": 21,
+      "row": 6
+    },
+    {
+      "col": 26,
+      "row": 4
+    },
+    {
+      "col": 27,
+      "row": 3
+    },
+    {
+      "col": 35,
+      "row": 5
+    },
+    {
+      "col": 41,
+      "row": 4
+    },
+    {
+      "col": 48,
+      "row": 3
+    },
+    {
+      "col": 49,
+      "row": 3
+    },
+    {
+      "col": 57,
+      "row": 3
+    },
+    {
+      "col": 58,
+      "row": 3
+    },
+    {
+      "col": 66,
+      "row": 4
+    },
+    {
+      "col": 68,
+      "row": 4
+    },
+    {
+      "col": 70,
+      "row": 4
+    },
+    {
+      "col": 72,
+      "row": 4
+    },
+    {
+      "col": 79,
+      "row": 3
+    },
+    {
+      "col": 80,
+      "row": 3
+    },
+    {
+      "col": 88,
+      "row": 4
+    },
+    {
+      "col": 90,
+      "row": 4
+    },
+    {
+      "col": 92,
+      "row": 4
+    },
+    {
+      "col": 94,
+      "row": 4
+    },
+    {
+      "col": 96,
+      "row": 4
+    },
+    {
+      "col": 105,
+      "row": 3
+    },
+    {
+      "col": 108,
+      "row": 3
+    },
+    {
+      "col": 117,
+      "row": 3
+    },
+    {
+      "col": 120,
+      "row": 3
+    },
+    {
+      "col": 127,
+      "row": 4
+    },
+    {
+      "col": 131,
+      "row": 4
+    },
+    {
+      "col": 133,
+      "row": 4
+    },
+    {
+      "col": 135,
+      "row": 4
+    },
+    {
+      "col": 137,
+      "row": 4
+    },
+    {
+      "col": 139,
+      "row": 4
+    }
+  ],
+  "bonus": [],
+  "enemies": [
+    {
+      "col": 67,
+      "kind": "ladybug",
+      "patrolTiles": 3
+    },
+    {
+      "col": 70,
+      "kind": "snail",
+      "patrolTiles": 3
+    },
+    {
+      "col": 90,
+      "kind": "snail",
+      "patrolTiles": 3
+    },
+    {
+      "col": 94,
+      "kind": "snail",
+      "patrolTiles": 3
+    },
+    {
+      "col": 131,
+      "kind": "ladybug",
+      "patrolTiles": 3
+    },
+    {
+      "col": 135,
+      "kind": "ladybug",
+      "patrolTiles": 3
+    }
+  ],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 13,
+      "row": 7,
+      "kind": "fence"
+    },
+    {
+      "col": 23,
+      "row": 6,
+      "kind": "fence"
+    },
+    {
+      "col": 33,
+      "row": 6,
+      "kind": "fence"
+    },
+    {
+      "col": 48,
+      "row": 3,
+      "kind": "fence_broken"
+    },
+    {
+      "col": 70,
+      "row": 5,
+      "kind": "bush"
+    },
+    {
+      "col": 79,
+      "row": 3,
+      "kind": "bush"
+    },
+    {
+      "col": 86,
+      "row": 5,
+      "kind": "fence"
+    },
+    {
+      "col": 89,
+      "row": 5,
+      "kind": "fence_broken"
+    },
+    {
+      "col": 130,
+      "row": 5,
+      "kind": "bush"
+    },
+    {
+      "col": 133,
+      "row": 5,
+      "kind": "bush"
+    },
+    {
+      "col": 136,
+      "row": 5,
+      "kind": "fence"
+    },
+    {
+      "col": 139,
+      "row": 5,
+      "kind": "fence_broken"
+    }
+  ],
+  "goalCol": 151,
+  "pits": [
+    {
+      "col": 7,
+      "span": 1
+    },
+    {
+      "col": 26,
+      "span": 1
+    },
+    {
+      "col": 41,
+      "span": 1
+    },
+    {
+      "col": 47,
+      "span": 4
+    },
+    {
+      "col": 56,
+      "span": 4
+    },
+    {
+      "col": 78,
+      "span": 4
+    },
+    {
+      "col": 102,
+      "span": 10
+    },
+    {
+      "col": 115,
+      "span": 8
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 129,
+      "row": 4
+    },
+    {
+      "col": 86,
+      "row": 4
+    },
+    {
+      "col": 64,
+      "row": 4
+    },
+    {
+      "col": 37,
+      "row": 4
+    },
+    {
+      "col": 33,
+      "row": 5
+    },
+    {
+      "col": 23,
+      "row": 5
+    },
+    {
+      "col": 15,
+      "row": 6
+    },
+    {
+      "col": 13,
+      "row": 6
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world1-level8', groups=14, difficulty=0.85). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: staircase, rest, step_up, staircase, step_up, pit, perch, perch, gauntlet, perch, gauntlet, bridge, bridge, gauntlet."
+}

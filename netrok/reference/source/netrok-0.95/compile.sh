@@ -1,0 +1,1 @@
+g++ `/mnt/utmp/cdevtools1000/usr/bin/sdl-config --cflags` `/mnt/utmp/cdevtools1000/usr/bin/sdl-config --libs` -lSDL_mixer main.cc kortenhandling.cc menu.cc putsprites.cc collisiondetect.cc scrolling.cc gameinitialize.cc loadfiles.cc specialblockhandling.cc graphicengine.cc SFont.c -o netrok

@@ -1,0 +1,321 @@
+{
+  "format": "briscolab-deck-manifest",
+  "version": 1,
+  "title": "Napoletane Pignalosa 1882",
+  "slug": "napoletane-pignalosa-1882",
+  "deckFolder": "napoletane-pignalosa-1882",
+  "deckType": "italian-40",
+  "cardCount": 40,
+  "cardSize": {
+    "width": 231,
+    "height": 373,
+    "aspectRatio": 0.619303
+  },
+  "imageFormat": "png",
+  "suits": [
+    "cups",
+    "swords",
+    "coins",
+    "batons"
+  ],
+  "ranks": [
+    "ace",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "jack",
+    "knight",
+    "king"
+  ],
+  "cards": [
+    {
+      "id": "cups_ace",
+      "file": "cups_ace.png",
+      "suit": "cups",
+      "rank": "ace",
+      "format": "png"
+    },
+    {
+      "id": "cups_2",
+      "file": "cups_2.png",
+      "suit": "cups",
+      "rank": "2",
+      "format": "png"
+    },
+    {
+      "id": "cups_3",
+      "file": "cups_3.png",
+      "suit": "cups",
+      "rank": "3",
+      "format": "png"
+    },
+    {
+      "id": "cups_4",
+      "file": "cups_4.png",
+      "suit": "cups",
+      "rank": "4",
+      "format": "png"
+    },
+    {
+      "id": "cups_5",
+      "file": "cups_5.png",
+      "suit": "cups",
+      "rank": "5",
+      "format": "png"
+    },
+    {
+      "id": "cups_6",
+      "file": "cups_6.png",
+      "suit": "cups",
+      "rank": "6",
+      "format": "png"
+    },
+    {
+      "id": "cups_7",
+      "file": "cups_7.png",
+      "suit": "cups",
+      "rank": "7",
+      "format": "png"
+    },
+    {
+      "id": "cups_jack",
+      "file": "cups_jack.png",
+      "suit": "cups",
+      "rank": "jack",
+      "format": "png"
+    },
+    {
+      "id": "cups_knight",
+      "file": "cups_knight.png",
+      "suit": "cups",
+      "rank": "knight",
+      "format": "png"
+    },
+    {
+      "id": "cups_king",
+      "file": "cups_king.png",
+      "suit": "cups",
+      "rank": "king",
+      "format": "png"
+    },
+    {
+      "id": "swords_ace",
+      "file": "swords_ace.png",
+      "suit": "swords",
+      "rank": "ace",
+      "format": "png"
+    },
+    {
+      "id": "swords_2",
+      "file": "swords_2.png",
+      "suit": "swords",
+      "rank": "2",
+      "format": "png"
+    },
+    {
+      "id": "swords_3",
+      "file": "swords_3.png",
+      "suit": "swords",
+      "rank": "3",
+      "format": "png"
+    },
+    {
+      "id": "swords_4",
+      "file": "swords_4.png",
+      "suit": "swords",
+      "rank": "4",
+      "format": "png"
+    },
+    {
+      "id": "swords_5",
+      "file": "swords_5.png",
+      "suit": "swords",
+      "rank": "5",
+      "format": "png"
+    },
+    {
+      "id": "swords_6",
+      "file": "swords_6.png",
+      "suit": "swords",
+      "rank": "6",
+      "format": "png"
+    },
+    {
+      "id": "swords_7",
+      "file": "swords_7.png",
+      "suit": "swords",
+      "rank": "7",
+      "format": "png"
+    },
+    {
+      "id": "swords_jack",
+      "file": "swords_jack.png",
+      "suit": "swords",
+      "rank": "jack",
+      "format": "png"
+    },
+    {
+      "id": "swords_knight",
+      "file": "swords_knight.png",
+      "suit": "swords",
+      "rank": "knight",
+      "format": "png"
+    },
+    {
+      "id": "swords_king",
+      "file": "swords_king.png",
+      "suit": "swords",
+      "rank": "king",
+      "format": "png"
+    },
+    {
+      "id": "coins_ace",
+      "file": "coins_ace.png",
+      "suit": "coins",
+      "rank": "ace",
+      "format": "png"
+    },
+    {
+      "id": "coins_2",
+      "file": "coins_2.png",
+      "suit": "coins",
+      "rank": "2",
+      "format": "png"
+    },
+    {
+      "id": "coins_3",
+      "file": "coins_3.png",
+      "suit": "coins",
+      "rank": "3",
+      "format": "png"
+    },
+    {
+      "id": "coins_4",
+      "file": "coins_4.png",
+      "suit": "coins",
+      "rank": "4",
+      "format": "png"
+    },
+    {
+      "id": "coins_5",
+      "file": "coins_5.png",
+      "suit": "coins",
+      "rank": "5",
+      "format": "png"
+    },
+    {
+      "id": "coins_6",
+      "file": "coins_6.png",
+      "suit": "coins",
+      "rank": "6",
+      "format": "png"
+    },
+    {
+      "id": "coins_7",
+      "file": "coins_7.png",
+      "suit": "coins",
+      "rank": "7",
+      "format": "png"
+    },
+    {
+      "id": "coins_jack",
+      "file": "coins_jack.png",
+      "suit": "coins",
+      "rank": "jack",
+      "format": "png"
+    },
+    {
+      "id": "coins_knight",
+      "file": "coins_knight.png",
+      "suit": "coins",
+      "rank": "knight",
+      "format": "png"
+    },
+    {
+      "id": "coins_king",
+      "file": "coins_king.png",
+      "suit": "coins",
+      "rank": "king",
+      "format": "png"
+    },
+    {
+      "id": "batons_ace",
+      "file": "batons_ace.png",
+      "suit": "batons",
+      "rank": "ace",
+      "format": "png"
+    },
+    {
+      "id": "batons_2",
+      "file": "batons_2.png",
+      "suit": "batons",
+      "rank": "2",
+      "format": "png"
+    },
+    {
+      "id": "batons_3",
+      "file": "batons_3.png",
+      "suit": "batons",
+      "rank": "3",
+      "format": "png"
+    },
+    {
+      "id": "batons_4",
+      "file": "batons_4.png",
+      "suit": "batons",
+      "rank": "4",
+      "format": "png"
+    },
+    {
+      "id": "batons_5",
+      "file": "batons_5.png",
+      "suit": "batons",
+      "rank": "5",
+      "format": "png"
+    },
+    {
+      "id": "batons_6",
+      "file": "batons_6.png",
+      "suit": "batons",
+      "rank": "6",
+      "format": "png"
+    },
+    {
+      "id": "batons_7",
+      "file": "batons_7.png",
+      "suit": "batons",
+      "rank": "7",
+      "format": "png"
+    },
+    {
+      "id": "batons_jack",
+      "file": "batons_jack.png",
+      "suit": "batons",
+      "rank": "jack",
+      "format": "png"
+    },
+    {
+      "id": "batons_knight",
+      "file": "batons_knight.png",
+      "suit": "batons",
+      "rank": "knight",
+      "format": "png"
+    },
+    {
+      "id": "batons_king",
+      "file": "batons_king.png",
+      "suit": "batons",
+      "rank": "king",
+      "format": "png"
+    }
+  ],
+  "back": {
+    "file": "back.png",
+    "width": 231,
+    "height": 373,
+    "format": "png"
+  }
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PXML xmlns="http://openpandora.org/namespaces/PXML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PXML_schema.xsd">
+  <package id="netrok">
+   <author name="Ultra Jon" website=""/>
+   <version major="0" minor="95" release="1" build="01" type="release"/>
+   <titles>
+    <title lang="en_US">Netrok</title>
+   </titles>
+   <descriptions>
+    <description lang="en_US">Netrok
+Netrok is a GPL open source SDL game for linux and Windows. 
+It`s a platform game like Super Mario, but it is not a clone. It has 
+a new, fast and unique gameplay with some puzzle passages, where 
+you have to think, how to proceed. In Netrok you jump on small buttons 
+on the ground and upgrade your player and depending of this upgrade 
+you have to destroy the enemies different, and you have to react fast. 
+Also Netrok has a very complex score system and you get score for 
+everything well done and you loose score for actions, which makes 
+gameplay easier. E.g. you can throw a level jump`in flag and if you 
+die, you can replay level from the position of this flag, but it costs
+1000 score to place the flag, and you have only once the possibility 
+to throw it and you have to deliberate about where to place it, if you 
+place it to early, you have to replay much more than if you place it 
+later in the level, which is also risky, because you could die before. 
+
+</description>
+   </descriptions>
+   <icon src="icon.png"/>
+  </package>
+
+  <application id="netrok" appdata="netrok">
+    <title lang="en_US">Netrok</title>
+    <exec background="true" standalone="true" x11="req" command="runscript.sh"/>
+    <description lang="en_US">Netrok ("Korten" backwards)
+Netrok is a GPL open source SDL game for linux and Windows. 
+It`s a platform game like Super Mario, but it is not a clone. It has 
+a new, fast and unique gameplay with some puzzle passages, where 
+you have to think, how to proceed. In Netrok you jump on small buttons 
+on the ground and upgrade your player and depending of this upgrade 
+you have to destroy the enemies different, and you have to react fast. 
+Also Netrok has a very complex score system and you get score for 
+everything well done and you loose score for actions, which makes 
+gameplay easier. E.g. you can throw a level jump`in flag and if you 
+die, you can replay level from the position of this flag, but it costs
+1000 score to place the flag, and you have only once the possibility 
+to throw it and you have to deliberate about where to place it, if you 
+place it to early, you have to replay much more than if you place it 
+later in the level, which is also risky, because you could die before. 
+
+</description>
+    <version major="0" minor="95" release="1" build="01" type="release"/>
+   <previewpics>
+        <pic src="preview1.png"/>
+        <pic src="preview2.png"/>
+        <pic src="preview3.png"/>
+   </previewpics>
+    <icon src="icon.png"/>
+
+    <author name="Ioan-Tudor Parvulescu" website=""/>
+    <categories>
+      <category name="Game">
+	  <subcategory name="ActionGame"/>
+      </category>
+    </categories>
+  </application>
+
+  <application id="netrok_mapedit" appdata="netrok">
+    <title lang="en_US">Netrok Map Editor</title>
+    <exec background="true" standalone="true" x11="req" command="runeditor.sh"/>
+    <description lang="en_US">Netrok ("Korten" backwards)
+The map editor for Netrok.  The maps are in files numbered 1-20, and the editor overwrites the maps in place (i.e. there's no "save as" function).  If you want to return all maps to default, move or remove the "1" file.
+
+</description>
+    <version major="0" minor="95" release="1" build="01" type="release"/>
+    <icon src="icon.png"/>
+
+    <author name="Ioan Tudor Parvelscu" website=""/>
+    <categories>
+      <category name="Game"><!--category like "Games", "Graphics", "Internet" etc-->
+	  <subcategory name="ActionGame"/>
+      </category>
+    </categories>
+  </application>
+</PXML>
+

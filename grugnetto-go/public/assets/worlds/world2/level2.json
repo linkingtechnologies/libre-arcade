@@ -1,0 +1,186 @@
+{
+  "world": "world2",
+  "level": 2,
+  "name": "Bosco degli Scoiattoli — Livello 2 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 81,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 47,
+      "row": 7
+    },
+    {
+      "col": 66,
+      "row": 6
+    }
+  ],
+  "platforms": [
+    {
+      "col": 39,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 40,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 51,
+      "span": 8,
+      "row": 5,
+      "material": "bridge"
+    }
+  ],
+  "coins": [
+    {
+      "col": 6,
+      "row": 6
+    },
+    {
+      "col": 8,
+      "row": 6
+    },
+    {
+      "col": 10,
+      "row": 6
+    },
+    {
+      "col": 13,
+      "row": 6
+    },
+    {
+      "col": 15,
+      "row": 6
+    },
+    {
+      "col": 17,
+      "row": 6
+    },
+    {
+      "col": 20,
+      "row": 6
+    },
+    {
+      "col": 22,
+      "row": 6
+    },
+    {
+      "col": 24,
+      "row": 6
+    },
+    {
+      "col": 26,
+      "row": 6
+    },
+    {
+      "col": 30,
+      "row": 6
+    },
+    {
+      "col": 34,
+      "row": 6
+    },
+    {
+      "col": 39,
+      "row": 5
+    },
+    {
+      "col": 40,
+      "row": 4
+    },
+    {
+      "col": 45,
+      "row": 6
+    },
+    {
+      "col": 48,
+      "row": 5
+    },
+    {
+      "col": 53,
+      "row": 4
+    },
+    {
+      "col": 56,
+      "row": 4
+    },
+    {
+      "col": 63,
+      "row": 5
+    },
+    {
+      "col": 65,
+      "row": 5
+    }
+  ],
+  "bonus": [],
+  "enemies": [],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 13,
+      "row": 7,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 23,
+      "row": 7,
+      "kind": "mushroom_red"
+    },
+    {
+      "col": 33,
+      "row": 7,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 45,
+      "row": 7,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 48,
+      "row": 6,
+      "kind": "mushroom_brown"
+    },
+    {
+      "col": 67,
+      "row": 5,
+      "kind": "mushroom_brown"
+    }
+  ],
+  "goalCol": 77,
+  "pits": [
+    {
+      "col": 39,
+      "span": 1
+    },
+    {
+      "col": 51,
+      "span": 8
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 67,
+      "row": 4
+    },
+    {
+      "col": 32,
+      "row": 6
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world2-level2', groups=8, difficulty=0.25). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: rest, rest, rest, rest, staircase, step_up, bridge, step_up."
+}

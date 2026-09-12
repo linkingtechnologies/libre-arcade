@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>HTML5 Space Invaders</title>
+<!-- Local modification: canvas is scaled to the viewport at load time (see scale.js) instead of
+     upstream's own fixed 672x768-at-native-size layout — see
+     ../../specs/html5-space-invaders/design.md and scale.js's own header comment for the full
+     reasoning. game.js itself is byte-identical to upstream; the drawing-buffer resolution
+     (canvas width/height attributes below) is untouched at 672x768 since game.js's own position
+     math is hardcoded to that coordinate space. -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app">
+  <canvas id="game-canvas" width="672" height="768">
+    Your browser does not support HTML5 canvas.
+  </canvas>
+</div>
+
+<script type="text/javascript" defer src="scale.js"></script>
+<script type="text/javascript" defer src="game.js"></script>
+<script type="text/javascript" defer src="bootstrap.js"></script>
+</body>
+</html>

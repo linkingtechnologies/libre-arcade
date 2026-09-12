@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>Hextris</title>
+		<meta charset="utf-8">
+		<meta name="description" content="An addictive puzzle game inspired by Tetris.">
+		<meta name="apple-mobile-web-app-title" content="Hextris">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="apple-touch-icon" sizes="120x120" href="images/icons/apple-touch-120.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="images/icons/apple-touch-152.png">
+		<link rel="apple-touch-icon" sizes="167x167" href="images/icons/apple-touch-167.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-180.png">
+		<link rel="apple-touch-icon" sizes="512x512" href="images/icons/apple-touch-512.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<!-- Local modifications, all documented in specs/hextris/design.md — summary:
+		     - No "apple-itunes-app" meta (triggered iOS's native "install this app" smart banner
+		       for the original mobile Hextris app — not appropriate for an embedded internal copy).
+		     - No manifest.webmanifest link (PWA installability for the standalone hextris.github.io
+		       site; not vendored, not relevant here).
+		     - No Google Fonts <link> — redundant anyway: style/style.css already self-hosts the
+		       same "Exo" family via local @font-face (style/fonts/Exo2-*.otf).
+		     - No Google AdSense <script> (ads) and no inline Google Analytics snippet (tracking) —
+		       removed outright, no CDN/telemetry calls at runtime. A second Analytics loader inside
+		       js/initialization.js and a raw-IP score POST + a remote script load inside js/main.js
+		       were removed the same way — see that spec for exact locations.
+		     - No og:*/twitter:* social-card meta or itunes/play-store applink meta — all pointed at
+		       hextris.github.io/the original mobile apps, meaningless for this internal, non-public
+		       embedded copy.
+		     - Three unused font files deleted (Lovelo.otf, QuattrocentoSans-Regular.ttf,
+		       roboto.woff) — grep confirmed none were ever referenced in this game's own
+		       HTML/JS/CSS. Font Awesome (style/fa/) was ALSO deleted in that same pass on the
+		       same "no fa fa-*/class=\"fa\" reference anywhere" reasoning — wrong, and restored:
+		       js/view.js and js/render.js draw the play-triangle/arrow-key icons directly onto
+		       the <canvas> via ctx.font = "...FontAwesome" + fillText(String.fromCharCode(0xf04b)),
+		       a usage pattern that grepping for HTML class names never catches. Reported live as
+		       the Play button's icon going invisible (the click target — #startBtn — was still
+		       there and still worked, just its drawn glyph vanished, since 0xf04b is a Private Use
+		       Area codepoint with no visual glyph in any font but FontAwesome itself). See
+		       CREDITS.md and specs/hextris/design.md. -->
+		<link rel="stylesheet" href="style/fa/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+	</head>
+	<body>
+		<!-- APP-CONTENT-START — dashboard-hextris.inc.php extracts everything between this comment
+		     and APP-CONTENT-END verbatim and prints it inside Camila's own page, still wrapped in
+		     this exact <div id="app">; that div is this game's entire root, both standalone (this
+		     page) and Camila-hosted (see style/style.css's own header comment on why every
+		     originally-bare "*"/"body"/"a"/"button" rule now targets #app instead) — one HTML
+		     fragment, one script list, no second copy to drift out of sync. Do not rename this
+		     div's id or the two markers without updating dashboard-hextris.inc.php's extraction to
+		     match. -->
+		<div id="app">
+		<canvas id="canvas"></canvas>
+		<div id="overlay" class="faded overlay"></div>
+		<div id='startBtn' ></div>
+		<div id="helpScreen" class='unselectable'>
+			<div id='inst_main_body'></div>
+		</div>
+		<img id="openSideBar" class='helpText' src="./images/btn_help.svg"/>
+		<div class="faded overlay"></div>
+		<img id="pauseBtn" src="./images/btn_pause.svg"/>
+		<img id='restartBtn' src="./images/btn_restart.svg"/>
+		<div id='HIGHSCORE'>HIGH SCORE</div>
+		<div id='highScoreInGameText'>
+			<div id='highScoreInGameTextHeader'>HIGH SCORE</div><div id='currentHighScore'>10292</div>
+		</div>
+		<div id="gameoverscreen">
+			<div id='container'>
+				<div id='gameOverBox' class='GOTitle'>GAME OVER</div>
+				<div id='cScore'>1843</div>
+				<div id='highScoresTitle' class='GOTitle'>HIGH SCORES</div>
+				<div class='score'><span class='scoreNum'>1.</span> <div id="1place" style="display:inline;">0</div></div>
+				<div class='score'><span class='scoreNum'>2.</span> <div id="2place" style="display:inline;">0</div></div>
+				<div class='score'><span class='scoreNum'>3.</span> <div id="3place" style="display:inline;">0</div></div>
+			</div>
+			<div id='bottomContainer'>
+				<img id='restart' src='./images/btn_restart.svg' height='57px'>
+				<!-- Local modification: this game-over screen used to also have a "SHARE MY
+				     SCORE!" Twitter popup, Facebook/Twitter (rrssb) share buttons, a Russian-locale
+				     VK variant, and Google Play/App Store badges — all removed live (requested:
+				     "togliamo i riferimenti ai social che tanto non sono più validi"). They pointed
+				     at the public hextris.github.io project/its mobile apps, none of it relevant to
+				     an internal embedded copy. See specs/hextris/design.md. -->
+				<!-- #buttonCont stays, deliberately empty — NOT purely cosmetic scaffolding:
+				     main.js's setBottomContainer()/set_score_pos() (both called from
+				     scaleCanvas(), i.e. on every window resize) read $("#buttonCont").offset().top
+				     to vertically position #bottomContainer/#container. jQuery's .offset() returns
+				     undefined for a selector matching nothing, and undefined.top throws — removing
+				     this div entirely (found live) crashes on the very next resize. Keeping it
+				     empty preserves its layout geometry (still positioned via style.css's own
+				     #buttonCont rule) with none of the removed content inside. -->
+				<div id='buttonCont'></div>
+			</div>
+		</div>
+		<script type='text/javascript' src="vendor/js.cookie.js"></script>
+		<!-- Local addition, not upstream: HEXTRIS_BASE. main.js/view.js set a few button icons
+		     (#pauseBtn/#openSideBar) at RUNTIME via $(...).attr('src', './images/btn_*.svg'), not
+		     just in this file's own static markup — found live: those string literals resolve
+		     relative to the CURRENT PAGE's URL, not to games/hextris/, so when this fragment is
+		     printed into a different page (../../dashboard-hextris.inc.php's Camila-hosted tab),
+		     they 404 (reported live as "GET .../app/librearcade/images/btn_pause.svg 404"). That
+		     PHP file's own path-rewrite only touches src="..." attributes actually present in this
+		     HTML fragment — it can't reach string literals inside separate .js files. Fixing it
+		     there per-string would mean chasing every current AND future such literal; computing
+		     the real base ONCE here instead, from the one script tag directly above (whose src the
+		     browser has already resolved to a full URL by the time this runs, correctly, in EITHER
+		     context — no PHP rewrite involved), is robust to both today's 10 call sites and any
+		     added later. Anchored on vendor/js.cookie.js specifically because it's the first
+		     script tag in this list — vendor/hammer.min.js used to be first and was the original
+		     anchor, until it (and vendor/sweet-alert.min.js, elsewhere in this list) was deleted
+		     for being completely unused by this game's own code (grep confirmed: zero references
+		     to either) — if this list's first entry ever changes again, update the regex below to
+		     match. See specs/hextris/design.md. -->
+		<script>window.HEXTRIS_BASE = document.currentScript.previousElementSibling.src.replace(/vendor\/js\.cookie\.js$/, '');</script>
+		<script type='text/javascript' src="vendor/jsonfn.min.js"></script>
+		<script type='text/javascript' src="vendor/keypress.min.js"></script>
+		<script type='text/javascript' src="vendor/jquery.js"></script>
+		<script type='text/javascript' src="js/save-state.js"></script>
+		<script type='text/javascript' src="js/view.js"></script>
+		<script type='text/javascript' src="js/wavegen.js"></script>
+		<script type='text/javascript' src="js/math.js"></script>
+		<script type='text/javascript' src="js/Block.js"></script>
+		<script type='text/javascript' src="js/Hex.js"></script>
+		<script type='text/javascript' src="js/Text.js"></script>
+		<script type='text/javascript' src="js/comboTimer.js"></script>
+		<script type='text/javascript' src="js/checking.js"></script>
+		<script type='text/javascript' src='js/update.js'></script>
+		<script type='text/javascript' src='js/render.js'></script>
+		<script type='text/javascript' src="js/input.js"></script>
+		<script type='text/javascript' src="js/main.js"></script>
+		<script type='text/javascript' src="js/initialization.js"></script>
+		<!-- Local modification: vendor/sweet-alert.min.js removed — like vendor/hammer.min.js
+		     above, grep confirmed zero references to it (no "swal("/"sweetAlert(" call) anywhere
+		     in this game's own code. Dead weight, and an old/deprecated build of the original
+		     SweetAlert (superseded by SweetAlert2) besides. -->
+		<!-- Local modification: the rrssb share-button script + its jQuery-dependent
+		     Russian-locale (VK) variant were removed here along with the share-button markup
+		     above — see this file's own comment there and specs/hextris/design.md. -->
+		</div>
+		<!-- APP-CONTENT-END -->
+	</body>
+</html>

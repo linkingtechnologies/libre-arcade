@@ -1,0 +1,15 @@
+:root{color-scheme:dark;font-family:system-ui,Segoe UI,sans-serif;background:#080809;color:#eee}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{height:100dvh;background:radial-gradient(circle at top,#222229,#080809 58%)}
+.shell{width:min(1040px,100%);height:100dvh;margin:auto;padding:10px;display:flex;flex-direction:column;min-height:0}
+header{display:flex;flex:0 0 auto;justify-content:space-between;align-items:center;gap:8px;padding:5px 0 9px}header strong{font-size:1.35rem;color:#ffe762}header span{color:#aaa}.headerActions{display:flex;gap:6px}
+button,input{font:inherit;background:#242429;color:#fff;border:1px solid #555;border-radius:7px;padding:.48rem .72rem}button{cursor:pointer}.hidden{display:none!important}
+.screen{position:relative;flex:0 1 auto;width:min(100%,calc((100dvh - 108px)*4/3));aspect-ratio:4/3;align-self:center;background:#000;border:1px solid #333;border-radius:9px;overflow:hidden;min-height:0}
+canvas{display:block;width:100%;height:100%;image-rendering:pixelated;touch-action:none}.menuScreen canvas{cursor:default}
+.toolbar{display:flex;flex:0 0 auto;gap:8px;justify-content:center;margin:7px 0 0}.toolbar button{min-width:110px}
+.touchWrap{flex:0 0 auto;display:flex;justify-content:center;gap:18px}.dpad{text-align:center;margin:3px 0 0;user-select:none}.dpad b{display:block;font-size:.7rem;color:#aaa}.dpad button{min-width:53px;min-height:38px;margin:2px;font-size:1.1rem;padding:.2rem .5rem}
+dialog{max-width:min(680px,calc(100vw - 20px));max-height:calc(100dvh - 20px);overflow:auto;background:#17171b;color:#eee;border:1px solid #666;border-radius:10px}dialog::backdrop{background:#000b}
+.editorDialog{width:min(1030px,calc(100vw - 12px));max-width:none;padding:8px}.editorHead{display:flex;justify-content:space-between;align-items:center;gap:10px}.editorHead h2{margin:2px 0 7px;font-size:1.05rem}.editorCanvasWrap{width:min(800px,100%);aspect-ratio:4/3;margin:auto;background:#000}.editorBrowserTools{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;padding-top:7px}.editorBrowserTools span{font-size:.82rem;color:#bbb}.editorBrowserTools #editorMessage{color:#ffe762;min-width:120px}
+@media (hover:hover) and (pointer:fine){.touchWrap{display:none!important}}
+@media (max-width:759px){.screen{width:min(100%,calc((100dvh - 190px)*4/3))}.toolbar button{min-width:0;flex:1}}
+@media (max-width:620px){.shell{padding:5px}header{padding:2px 0 5px}header span{display:none}.headerActions button{padding:.35rem .48rem;font-size:.82rem}.toolbar{margin-top:4px}.touchWrap{gap:3px}.dpad button{min-width:42px;min-height:32px}.editorBrowserTools button{font-size:.78rem;padding:.35rem .5rem}}
+@media (max-height:620px){header strong{font-size:1.05rem}.screen{width:min(100%,calc((100dvh - 145px)*4/3))}.toolbar{margin-top:3px}.toolbar button{padding:.3rem .5rem}.dpad b{font-size:.6rem;line-height:.7rem}.dpad button{min-height:22px;min-width:34px;margin:1px;padding:.05rem .35rem}}

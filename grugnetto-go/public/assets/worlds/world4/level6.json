@@ -1,0 +1,327 @@
+{
+  "world": "world4",
+  "level": 6,
+  "name": "Miniera di Pietra — Livello 6 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 121,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 16,
+      "row": 9
+    },
+    {
+      "col": 21,
+      "row": 8
+    },
+    {
+      "col": 47,
+      "row": 7
+    },
+    {
+      "col": 53,
+      "row": 6
+    }
+  ],
+  "platforms": [
+    {
+      "col": 7,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 35,
+      "span": 6,
+      "row": 6,
+      "material": "bridge"
+    },
+    {
+      "col": 57,
+      "span": 4,
+      "row": 4
+    },
+    {
+      "col": 66,
+      "span": 1,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 68,
+      "span": 5,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 74,
+      "span": 2,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 79,
+      "span": 1,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 81,
+      "span": 2,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 84,
+      "span": 5,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 93,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 94,
+      "span": 1,
+      "row": 3
+    },
+    {
+      "col": 95,
+      "span": 1,
+      "row": 2
+    },
+    {
+      "col": 96,
+      "span": 1,
+      "row": 1
+    },
+    {
+      "col": 97,
+      "span": 1,
+      "row": 0
+    }
+  ],
+  "coins": [
+    {
+      "col": 8,
+      "row": 5
+    },
+    {
+      "col": 9,
+      "row": 5
+    },
+    {
+      "col": 18,
+      "row": 7
+    },
+    {
+      "col": 22,
+      "row": 6
+    },
+    {
+      "col": 24,
+      "row": 6
+    },
+    {
+      "col": 28,
+      "row": 6
+    },
+    {
+      "col": 30,
+      "row": 6
+    },
+    {
+      "col": 37,
+      "row": 5
+    },
+    {
+      "col": 39,
+      "row": 5
+    },
+    {
+      "col": 44,
+      "row": 6
+    },
+    {
+      "col": 48,
+      "row": 5
+    },
+    {
+      "col": 50,
+      "row": 5
+    },
+    {
+      "col": 52,
+      "row": 5
+    },
+    {
+      "col": 58,
+      "row": 3
+    },
+    {
+      "col": 59,
+      "row": 3
+    },
+    {
+      "col": 69,
+      "row": 3
+    },
+    {
+      "col": 72,
+      "row": 3
+    },
+    {
+      "col": 82,
+      "row": 3
+    },
+    {
+      "col": 85,
+      "row": 3
+    },
+    {
+      "col": 93,
+      "row": 3
+    },
+    {
+      "col": 94,
+      "row": 2
+    },
+    {
+      "col": 95,
+      "row": 1
+    },
+    {
+      "col": 96,
+      "row": 0
+    },
+    {
+      "col": 97,
+      "row": -1
+    },
+    {
+      "col": 105,
+      "row": 4
+    }
+  ],
+  "bonus": [],
+  "enemies": [
+    {
+      "col": 28,
+      "kind": "fish",
+      "patrolTiles": 3
+    }
+  ],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 14,
+      "row": 7,
+      "kind": "chain"
+    },
+    {
+      "col": 22,
+      "row": 7,
+      "kind": "chain"
+    },
+    {
+      "col": 30,
+      "row": 7,
+      "kind": "torch_off"
+    },
+    {
+      "col": 44,
+      "row": 7,
+      "kind": "torch_off"
+    },
+    {
+      "col": 48,
+      "row": 6,
+      "kind": "torch_off"
+    },
+    {
+      "col": 50,
+      "row": 6,
+      "kind": "torch_off"
+    },
+    {
+      "col": 54,
+      "row": 5,
+      "kind": "torch_off"
+    },
+    {
+      "col": 58,
+      "row": 3,
+      "kind": "chain"
+    }
+  ],
+  "goalCol": 117,
+  "pits": [
+    {
+      "col": 7,
+      "span": 4
+    },
+    {
+      "col": 35,
+      "span": 6
+    },
+    {
+      "col": 57,
+      "span": 4
+    },
+    {
+      "col": 66,
+      "span": 10
+    },
+    {
+      "col": 79,
+      "span": 10
+    },
+    {
+      "col": 93,
+      "span": 1
+    },
+    {
+      "col": 105,
+      "span": 1
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 54,
+      "row": 4
+    },
+    {
+      "col": 46,
+      "row": 6
+    },
+    {
+      "col": 26,
+      "row": 6
+    },
+    {
+      "col": 20,
+      "row": 7
+    },
+    {
+      "col": 17,
+      "row": 7
+    },
+    {
+      "col": 14,
+      "row": 6
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world4-level6', groups=12, difficulty=0.65). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: perch, step_down, step_up, gauntlet, bridge, step_up, step_up, perch, bridge, bridge, staircase, pit."
+}

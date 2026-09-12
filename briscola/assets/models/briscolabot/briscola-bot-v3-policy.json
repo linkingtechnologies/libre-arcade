@@ -1,0 +1,63 @@
+{
+  "sourceModelSha256": "ab6fed4667cb9ddbacdd394d717108233ab2dbdced7ee4440d0bdfbce1cb53d2",
+  "totalFloats": 117800,
+  "tensors": [
+    {
+      "name": "actor.0.weight",
+      "dims": [
+        256,
+        162
+      ],
+      "offsetBytes": 0,
+      "lengthBytes": 165888,
+      "floatCount": 41472
+    },
+    {
+      "name": "actor.0.bias",
+      "dims": [
+        256
+      ],
+      "offsetBytes": 165888,
+      "lengthBytes": 1024,
+      "floatCount": 256
+    },
+    {
+      "name": "actor.2.weight",
+      "dims": [
+        256,
+        256
+      ],
+      "offsetBytes": 166912,
+      "lengthBytes": 262144,
+      "floatCount": 65536
+    },
+    {
+      "name": "actor.2.bias",
+      "dims": [
+        256
+      ],
+      "offsetBytes": 429056,
+      "lengthBytes": 1024,
+      "floatCount": 256
+    },
+    {
+      "name": "actor.4.weight",
+      "dims": [
+        40,
+        256
+      ],
+      "offsetBytes": 430080,
+      "lengthBytes": 40960,
+      "floatCount": 10240
+    },
+    {
+      "name": "actor.4.bias",
+      "dims": [
+        40
+      ],
+      "offsetBytes": 471040,
+      "lengthBytes": 160,
+      "floatCount": 40
+    }
+  ]
+}

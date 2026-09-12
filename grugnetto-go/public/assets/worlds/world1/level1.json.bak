@@ -1,0 +1,57 @@
+{
+  "world": "world1",
+  "level": 1,
+  "name": "Il Prato di Grugnetto",
+  "tileSize": 64,
+  "widthTiles": 122,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+
+  "platforms": [
+    { "col": 10, "span": 4, "row": 5 },
+    { "col": 24, "span": 4, "row": 6 },
+    { "col": 40, "span": 4, "row": 5 },
+    { "col": 56, "span": 4, "row": 4 },
+    { "col": 72, "span": 4, "row": 6 },
+    { "col": 88, "span": 4, "row": 4 },
+    { "col": 104, "span": 4, "row": 5 }
+  ],
+
+  "coins": [
+    { "col": 11, "row": 4 }, { "col": 12, "row": 4 },
+    { "col": 25, "row": 5 }, { "col": 26, "row": 5 },
+    { "col": 41, "row": 4 }, { "col": 42, "row": 4 },
+    { "col": 57, "row": 3 }, { "col": 58, "row": 3 },
+    { "col": 73, "row": 5 }, { "col": 74, "row": 5 },
+    { "col": 89, "row": 3 }, { "col": 90, "row": 3 },
+    { "col": 105, "row": 4 }, { "col": 106, "row": 4 },
+
+    { "col": 4, "row": 6 }, { "col": 6, "row": 6 }, { "col": 8, "row": 6 },
+    { "col": 15, "row": 6 }, { "col": 18, "row": 6 }, { "col": 21, "row": 6 },
+    { "col": 29, "row": 6 }, { "col": 32, "row": 6 }, { "col": 35, "row": 6 }, { "col": 38, "row": 6 },
+    { "col": 45, "row": 6 }, { "col": 48, "row": 6 }, { "col": 51, "row": 6 }, { "col": 54, "row": 6 },
+    { "col": 61, "row": 6 }, { "col": 64, "row": 6 }, { "col": 67, "row": 6 }, { "col": 70, "row": 6 },
+    { "col": 77, "row": 6 }, { "col": 80, "row": 6 }, { "col": 83, "row": 6 }, { "col": 86, "row": 6 },
+    { "col": 93, "row": 6 }, { "col": 96, "row": 6 }, { "col": 99, "row": 6 }, { "col": 102, "row": 6 },
+    { "col": 109, "row": 6 }, { "col": 112, "row": 6 }, { "col": 115, "row": 6 }
+  ],
+
+  "bonus": [
+    { "col": 6, "row": 5, "kind": "apple" },
+    { "col": 32, "row": 5, "kind": "apple" },
+    { "col": 64, "row": 5, "kind": "apple" },
+    { "col": 96, "row": 5, "kind": "apple" }
+  ],
+
+  "enemies": [
+    { "col": 18, "kind": "snail", "patrolTiles": 3 },
+    { "col": 50, "kind": "ladybug", "patrolTiles": 3 },
+    { "col": 80, "kind": "snail", "patrolTiles": 3 },
+    { "col": 98, "kind": "ladybug", "patrolTiles": 3 }
+  ],
+
+  "goalCol": 116,
+
+  "notes": "Riusa il layout già testato dell'attuale level1.json (piattaforme/monete/nemici/goal identici), con l'aggiunta di 4 mele bonus nei tratti a terra. 'snail'/'ladybug' sono i nemici del manifest world1 — al momento il codice (entities/enemy.js) mostra sempre lo sprite slime per qualunque 'kind': servirà un aggiornamento futuro per gli sprite dedicati, il valore 'kind' è già pronto per quando succederà."
+}

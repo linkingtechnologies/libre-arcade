@@ -1,0 +1,232 @@
+{
+  "world": "world1",
+  "level": 3,
+  "name": "Prato di Casa — Livello 3 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 89,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 17,
+      "row": 7
+    },
+    {
+      "col": 21,
+      "row": 6
+    },
+    {
+      "col": 66,
+      "row": 8
+    }
+  ],
+  "platforms": [
+    {
+      "col": 25,
+      "span": 10,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 39,
+      "span": 4,
+      "row": 4
+    },
+    {
+      "col": 48,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 49,
+      "span": 1,
+      "row": 3
+    },
+    {
+      "col": 56,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 57,
+      "span": 1,
+      "row": 3
+    },
+    {
+      "col": 58,
+      "span": 1,
+      "row": 2
+    }
+  ],
+  "coins": [
+    {
+      "col": 6,
+      "row": 6
+    },
+    {
+      "col": 8,
+      "row": 6
+    },
+    {
+      "col": 10,
+      "row": 6
+    },
+    {
+      "col": 12,
+      "row": 6
+    },
+    {
+      "col": 18,
+      "row": 5
+    },
+    {
+      "col": 28,
+      "row": 3
+    },
+    {
+      "col": 31,
+      "row": 3
+    },
+    {
+      "col": 40,
+      "row": 3
+    },
+    {
+      "col": 41,
+      "row": 3
+    },
+    {
+      "col": 48,
+      "row": 3
+    },
+    {
+      "col": 49,
+      "row": 2
+    },
+    {
+      "col": 56,
+      "row": 3
+    },
+    {
+      "col": 57,
+      "row": 2
+    },
+    {
+      "col": 58,
+      "row": 1
+    },
+    {
+      "col": 64,
+      "row": 4
+    },
+    {
+      "col": 67,
+      "row": 6
+    },
+    {
+      "col": 68,
+      "row": 6
+    },
+    {
+      "col": 70,
+      "row": 6
+    },
+    {
+      "col": 72,
+      "row": 6
+    },
+    {
+      "col": 74,
+      "row": 6
+    }
+  ],
+  "bonus": [],
+  "enemies": [],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 6,
+      "row": 7,
+      "kind": "fence_broken"
+    },
+    {
+      "col": 9,
+      "row": 7,
+      "kind": "bush"
+    },
+    {
+      "col": 12,
+      "row": 7,
+      "kind": "fence"
+    },
+    {
+      "col": 19,
+      "row": 6,
+      "kind": "fence"
+    },
+    {
+      "col": 67,
+      "row": 7,
+      "kind": "bush"
+    },
+    {
+      "col": 68,
+      "row": 7,
+      "kind": "bush"
+    },
+    {
+      "col": 71,
+      "row": 7,
+      "kind": "bush"
+    },
+    {
+      "col": 74,
+      "row": 7,
+      "kind": "fence_broken"
+    }
+  ],
+  "goalCol": 85,
+  "pits": [
+    {
+      "col": 25,
+      "span": 10
+    },
+    {
+      "col": 39,
+      "span": 4
+    },
+    {
+      "col": 48,
+      "span": 1
+    },
+    {
+      "col": 56,
+      "span": 1
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 22,
+      "row": 4
+    },
+    {
+      "col": 19,
+      "row": 5
+    },
+    {
+      "col": 15,
+      "row": 6
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world1-level3', groups=9, difficulty=0.35). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: rest, step_up, step_up, bridge, perch, staircase, staircase, step_down, rest."
+}

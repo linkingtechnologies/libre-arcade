@@ -1,0 +1,104 @@
+{
+  "seedPairs": 1000,
+  "totalDraws": 294,
+  "ranking": [
+    {
+      "id": "qbriscola",
+      "name": "QBriscola",
+      "wins": 3101,
+      "points": 365081,
+      "games": 6000,
+      "winRate": 0.5168333333333334,
+      "averagePoints": 60.846833333333336
+    },
+    {
+      "id": "cuperativa",
+      "name": "Cuperativa",
+      "wins": 2941,
+      "points": 355040,
+      "games": 6000,
+      "winRate": 0.49016666666666664,
+      "averagePoints": 59.17333333333333
+    },
+    {
+      "id": "smbriscola-empirico1",
+      "name": "smBrisCola Empirico1",
+      "wins": 2845,
+      "points": 359221,
+      "games": 6000,
+      "winRate": 0.4741666666666667,
+      "averagePoints": 59.87016666666667
+    },
+    {
+      "id": "smbriscola-empirico2",
+      "name": "smBrisCola Empirico2",
+      "wins": 2819,
+      "points": 360658,
+      "games": 6000,
+      "winRate": 0.4698333333333333,
+      "averagePoints": 60.10966666666667
+    }
+  ],
+  "headToHead": [
+    {
+      "a": "qbriscola",
+      "b": "cuperativa",
+      "games": 2000,
+      "winsA": 1034,
+      "winsB": 934,
+      "draws": 32,
+      "pointsA": 122562,
+      "pointsB": 117438
+    },
+    {
+      "a": "qbriscola",
+      "b": "smbriscola-empirico1",
+      "games": 2000,
+      "winsA": 1023,
+      "winsB": 922,
+      "draws": 55,
+      "pointsA": 121241,
+      "pointsB": 118759
+    },
+    {
+      "a": "qbriscola",
+      "b": "smbriscola-empirico2",
+      "games": 2000,
+      "winsA": 1044,
+      "winsB": 906,
+      "draws": 50,
+      "pointsA": 121278,
+      "pointsB": 118722
+    },
+    {
+      "a": "cuperativa",
+      "b": "smbriscola-empirico1",
+      "games": 2000,
+      "winsA": 976,
+      "winsB": 975,
+      "draws": 49,
+      "pointsA": 118415,
+      "pointsB": 121585
+    },
+    {
+      "a": "cuperativa",
+      "b": "smbriscola-empirico2",
+      "games": 2000,
+      "winsA": 1031,
+      "winsB": 920,
+      "draws": 49,
+      "pointsA": 119187,
+      "pointsB": 120813
+    },
+    {
+      "a": "smbriscola-empirico1",
+      "b": "smbriscola-empirico2",
+      "games": 2000,
+      "winsA": 948,
+      "winsB": 993,
+      "draws": 59,
+      "pointsA": 118877,
+      "pointsB": 121123
+    }
+  ]
+}

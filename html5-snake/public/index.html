@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>HTML5 Snake</title>
+<!-- Local modification: upstream's own index.html had an IE-conditional-comment <script> loading
+     html5shiv from html5shiv.googlecode.com here (a legacy HTML5-element polyfill for old IE) —
+     removed: that domain no longer resolves (Google Code shut down in 2016), and this plugin
+     already requires a modern browser (Chrome/Edge) everywhere else, so nothing here is trying
+     to support the browser this was ever for. No CDN reference of any kind remains — see
+     CREDITS.md and specs/html5-snake/design.md.
+     Canvas size is computed from the viewport at load time (see size.js, loaded below) instead
+     of upstream's own hardcoded 320x240 — see ../../dashboard-html5-snake.inc.php's own header
+     comment and size.js's own header comment for the full reasoning, including why this has to
+     be an externally-loaded, deferred script rather than an inline one (found live: reading
+     window.innerWidth/innerHeight from a plain inline script produced a far-too-small canvas —
+     that value isn't reliably final that early in page load in every context this runs in).
+     Kept in sync with dashboard-html5-snake.inc.php's own copy of size.js. -->
+<link rel="stylesheet" href="page.css" type="text/css">
+</head>
+<body>
+
+<div id="app">
+  <canvas id="the-game" width="640" height="480"></canvas>
+</div>
+
+<script type="text/javascript" defer src="size.js"></script>
+<script type="text/javascript" defer src="game.js"></script>
+</body>
+</html>

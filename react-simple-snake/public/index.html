@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snake</title>
+<!--
+  Standalone launcher, same purpose/pattern as games/grugnetto-go/index.html and
+  games/hextris/index.html: this whole games/react-simple-snake/ folder is meant to be
+  self-contained and droppable on any static web server on its own, no PHP/dashboard/tab-bar
+  chrome needed. Every dependency (React, ReactDOM, react-simple-snake itself) is vendored under
+  ./vendor/ — see that folder's own files and ../../specs/react-simple-snake/design.md for why
+  react-simple-snake specifically is a hand-wrapped CJS shim rather than a straight ESM vendor
+  copy like react.esm.js/react-dom.esm.js are.
+-->
+<style>
+  body { margin: 0; padding: 16px; background: #fafafa; font-family: sans-serif; }
+  /* Fixed, not max-width — an exact multiple of 30, matching app.js's percentageWidth={100}.
+     See ../../dashboard-react-simple-snake.inc.php's own comment on why: the vendored
+     component's own block-position math accumulates a fixed blockWidth every tick without ever
+     recomputing it, so a non-multiple-of-30 container width leads to floating-point drift that
+     eventually pushes the snake outside the board. */
+  #app { width: 360px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

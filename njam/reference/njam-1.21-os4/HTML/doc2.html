@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Njam documentation</title>
+
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+
+  <meta name="author" content="Milan Babuskov">
+</head>
+<body>
+<table cellpadding="0" cellspacing="2" border="0" width="100%">
+  <tbody>
+    <tr>
+      <td valign="middle" colspan="1" width="30%" nowrap="nowrap"
+ align="left"><b><big><big><font face="Helvetica, Arial, sans-serif">Njam
+documentation</font></big></big></b><br>
+      </td>
+      <td valign="middle" width="150" colspan="3" align="left"><img
+ src="sample.gif" alt=""
+ width="94" height="23" align="middle"><br>
+      </td>
+                            </tr>
+
+  </tbody>
+</table>
+<table cellpadding="1" cellspacing="0" border="0" width="100%"
+ bgcolor="#cc0000">
+  <tbody>
+    <tr>
+      <td valign="top"><b><font face="Helvetica, Arial, sans-serif"
+ color="#ffffff">&nbsp;Njam is a full-featured cross-platform pacman-like game
+written in C++ using SDL library</font></b></td>
+      <td valign="top" align="right"><small><a href="index.html"><b><small><font
+ face="Helvetica, Arial, sans-serif" color="white">HOME&nbsp; &gt;&gt;</font></small></b></a></small><br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<br>
+<font face="Helvetica, Arial, sans-serif"><b><big><br>
+</big></b></font><font face="Helvetica, Arial, sans-serif"><b><big>Contents<br>
+</big></b></font>
+<ul>
+  <li><a href="#rules"><font face="Helvetica, Arial, sans-serif"></font></a><a
+ href="#skins"><font face="Helvetica, Arial, sans-serif">Adding custom level
+skins</font></a></li>
+  <li><a href="#history"><font face="Helvetica, Arial, sans-serif">Njam history</font></a></li>
+  <li><font face="Helvetica, Arial, sans-serif"><a href="#trivia">Njam trivial
+facts and tips</a><br>
+    </font></li>
+</ul>
+<br>
+<font face="Helvetica, Arial, sans-serif"><b><big><a name="skins"></a><br>
+Adding custom level skins</big></b></font><br>
+<ul>
+</ul>
+<font face="Helvetica, Arial, sans-serif">Njam supports adding more graphical
+themes to levels. There themes are called skins and they define what game
+elements will look like. Skin consists of one row of images, each image is
+25 x 25 pixels, all saved into single .bmp file. Here are some examples of
+skins that come with the game:<br>
+<br>
+<img src="skin000.gif" alt="" width="300" height="25" align="middle"> &nbsp;
+&nbsp; &nbsp;Classic (default) skin<br>
+<br>
+<img src="skin001.gif" alt="" width="300" height="25" align="middle"> &nbsp;
+&nbsp; &nbsp;One of the add-on skins<br>
+<br>
+<img src="skin003.gif" alt="" width="300" height="25" align="middle"> &nbsp;
+&nbsp; &nbsp;Another skin </font><br>
+<font face="Helvetica, Arial, sans-serif"><br>
+The order of the elements is the following:<br>
+</font>
+<ol>
+  <li><small><font face="Helvetica, Arial, sans-serif">Wall</font></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Empty field</font></small></li>
+  <li><small><a href="doc.html#ghosthouse"><font
+ face="Helvetica, Arial, sans-serif">Inactive ghost-house</font></a></small></li>
+  <li><small><a href="doc.html#door"><font
+ face="Helvetica, Arial, sans-serif">Door</font></a></small></li>
+  <li><small><a href="doc.html#juice"><font
+ face="Helvetica, Arial, sans-serif">Superpower</font></a></small></li>
+  <li><small><a href="doc.html#cookies"><font
+ face="Helvetica, Arial, sans-serif">Cookie</font></a></small></li>
+  <li><small><a href="doc.html#freezer"><font
+ face="Helvetica, Arial, sans-serif">Freezer</font></a></small></li>
+  <li><small><a href="doc.html#trap"><font
+ face="Helvetica, Arial, sans-serif">Trap</font></a></small></li>
+  <li><small><a href="doc.html#teleport"><font
+ face="Helvetica, Arial, sans-serif">Teleport</font></a></small></li>
+  <li><small><a href="doc.html#invisible"><font
+ face="Helvetica, Arial, sans-serif">Invisibility</font></a></small></li>
+  <li><small><font face="Helvetica, Arial, sans-serif">Bad luck - this is
+currently not implemented in game (it will probably be used to flip controls
+or something)</font></small></li>
+  <li><font face="Helvetica, Arial, sans-serif"><small><a
+ href="doc.html#ghosthouse">Active ghost-house</a></small><br>
+    </font></li>
+</ol>
+<font face="Helvetica, Arial, sans-serif">To install the skin, just add your
+.bmp file into skins folder of your instalation. The files there are named
+Back000.bmp, Back001.bmp, Back002.bmp, etc... just take the first free number
+and use it. The game automatically loads all skins that it founds there. If
+you wish to play only using your skin, name it Back000.bmp and set Skins option
+(Main Njam menu-&gt;Options) to Classic. When in Classic mode, only Back000.bmp
+is used.<br>
+<br>
+Note: it is important not to skip the numbers when creating new files.<br>
+Note2: Linux users, watch out: <b>B</b> is capital letter B in <u>B</u>ack???.bmp<br>
+</font><font face="Helvetica, Arial, sans-serif">
+<br>
+<font face="Helvetica, Arial, sans-serif">If you make some nice skins be sure to
+send it to me at: <a href=mailto:mbabuskov@yahoo.com>mbabuskov@yahoo.com</a> and
+if it's really good, I'll include it in the game.<br></font><br>
+<br><big>
+</big>
+<div align="center"><font face="Helvetica, Arial, sans-serif"><b><big><img
+ src="thinline.gif" alt="" width="583" height="9" align="top"></big></b></font><br>
+</div>
+<font face="Helvetica, Arial, sans-serif"><b><big><br>
+<a name="history"></a><br>
+History</big></b></font><br>
+<br>
+<font face="Helvetica, Arial, sans-serif">I wrote first version of Njam back
+in 1999. It was a MS-DOS game that run on my old 486 which I don't even have
+anymore. It run in 640x480 screen with big 16-color sprites and used internal
+speaker to beep-out some sound. I used asembler to draw some things directly
+into video memory, so it doesn't even work on today's machines. The game had
+20 cooperative levels, and I was always struggling to pass the 19-th, and actually
+never passed the whole game. Even then, I was also a two player game. That's
+how the idea was born. You can see some screenshots of the old game <a
+href=old.html>here</a>.<br>
+<br>
+In 2001. I tried to do the same thing with DirectX, and made some of it. I added
+many powerups (the old version only had superpower working). The networking was
+also an idea, but I never managed to do it with DirectPlay, so I finally gave
+up. I wanted it to be great multiplayer game, so only duel type of game was
+available, but playing one on one became boring after few months. <br>
+<br>
+In 2002., I switched to Linux, and my mind opened towards OpenSource way of
+thinking. I finally realized what is it all about. Not long ago, I played
+two great Linux games: Maelstrom and LBreakout2. Both are using SDL library,
+so I digged and... found the treasure. SDL is just great. So I said to myself:
+Let's do it. I dig out some of the old Njam sources and started coding. And
+I also tried recompiling my games on Windows with Cygwin. I got cross-platform
+version in no-time (just the time needed to copy the sources and compile)...
+so great that I still don't believe it. SDL also offers networking, and I have
+finally introduced it in version 0.95. The game is playable on LAN, two, three
+or four players can compete in free-for-all kind of game. The next step in
+development was making level editor which is incorporated in the game so
+that level can be tested at once. This is introduced in version 1.00, so now I
+completed everything I planned for this game so far. (Some improvements on
+graphics are needed though). If you have some great suggestions for future
+development please drop me an e-mail.<br>
+</font><br>
+<br>
+<div align="center"><font face="Helvetica, Arial, sans-serif"><b><big><img
+ src="thinline.gif" alt="" width="583" height="9" align="top"></big></b></font><br>
+</div>
+<br>
+<a name="trivia"></a><br>
+<b><big><font face="Helvetica, Arial, sans-serif">Trivial facts and tips</font></big></b><br>
+<br>
+<br>
+<font face="Helvetica, Arial, sans-serif"><b>What does the word Njam mean?</b></font><br>
+<br>
+<font face="Helvetica, Arial, sans-serif">Njam is a word from my mother language
+(Serbian), and it means Yummy. The whole point of the game is eating so <i>bon
+appetite</i>.<br>
+</font><br>
+<a name="gps"></a><br>
+<font face="Helvetica, Arial, sans-serif"><b>GPS factor</b></font><br>
+<br>
+<font face="Helvetica, Arial, sans-serif">GPS factor shows how good are you
+at killing ghosts. GPS is a short for <b>G</b>hosts <b>P</b>er <b>S</b>uperpower
+and shows how many ghosts a player killed per superpower he had. It should
+be measured by the whole game. The best I managed so far was in some duel
+match I won 4:3. I had 41 ghosts with 5 superpowers, which equals to GPS of
+8.02. During the first level of that match, I ate 14 ghosts with one superpower
+(my personal best). If someone outmatches this in a regular game, please send
+a screenshot and it will be included here.<br>
+<br>
+There are three very good ways to kill ghosts:<br>
+</font>
+<ol>
+  <li><font face="Helvetica, Arial, sans-serif">Get a <a
+ href="doc.html#juice">superpower</a> and <a href="doc.html#invisible">invisibility</a>
+at the same time. The ghosts will not run away from you, and it so much easier
+then. The invisibility is much better than freezer (option 2) because it lasts
+three times longer than&nbsp;superpower so you have time to pick it up, then
+pick the superpower, and then eat the ghosts.</font></li>
+  <li><font face="Helvetica, Arial, sans-serif">Get a superpower and <a
+ href="doc.html#freezer">freezer</a> at the same time. Ghosts stand still
+so it's easy to kill them.</font></li>
+  <li><font face="Helvetica, Arial, sans-serif">After you do 1 or 2 get another
+superpower if available on screen and stand on <a
+ href="doc.html#ghosthouse">ghost spawning point</a> and wait. When they come
+out, you just eat them.</font></li>
+</ol>
+<br>
+<font face="Helvetica, Arial, sans-serif"><b>Tips for newbies</b></font><br>
+<ul>
+  <li><font face="Helvetica, Arial, sans-serif">you can always make red and
+orange ghost chase you, and sometimes it's really useful</font></li>
+  <li><font face="Helvetica, Arial, sans-serif">if you see two or three blue
+ghosts somewhere, don't go there</font></li>
+  <li><font face="Helvetica, Arial, sans-serif">it's a good idea to follow
+a blue ghost sometimes, because he doesn't see you</font></li>
+  <li><font face="Helvetica, Arial, sans-serif">don't wander around active
+pentagram if you don't have a superpower on you<br>
+  <li><font face="Helvetica, Arial, sans-serif">in duel games the freezer
+can be very powerful if the opponent has the superpower. If he kills many
+ghosts and goes to pentagram to kill them all once more, you can pick up the
+freezer and the ghosts will be additionally delayed, long enough for his superpower
+to run out, while in the meantime you would eat cookies and gain advantage<br>
+    </font></li>
+</ul>
+<div align="right"><font face="Helvetica, Arial, sans-serif"><a
+ href="doc-editor.html">next</a><br>
+&nbsp;Using level editor</font></div>
+<hr width="100%" size="2"><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"><br>
+Copyright &copy;</font></small><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"> Milan Babuskov</font></small><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"> 2003.<br>
+</font></small><small><font face="Helvetica, Arial, sans-serif"
+ color="#666666">Contact me at: mbabuskov@yahoo.com<br>
+<br>
+</font></small><br>
+<br>
+</body>
+</html>

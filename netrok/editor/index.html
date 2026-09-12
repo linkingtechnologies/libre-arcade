@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#101010" name="theme-color"/>
+<meta content="default-src 'self' blob:; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; connect-src 'none'" http-equiv="Content-Security-Policy"/>
+<title>Netrok Level Editor</title>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="editor.css" rel="stylesheet"/>
+</head>
+<body>
+<main class="editorApp" id="editorApp">
+<header class="editorHeader">
+<div><strong data-i18n="editor.title">Netrok Level Editor</strong><span data-i18n="editor.subtitle">Create your own level</span></div>
+<label class="languageChoice"><span data-i18n="options.language">Language</span><select data-language-select="" id="languageSelect"><option data-i18n="options.english" value="en">English</option><option data-i18n="options.italian" value="it">Italiano</option></select></label><a class="buttonLink" data-i18n="editor.back" href="../index.html">Back to game</a>
+</header>
+<section aria-label="Level tools" class="toolbar" data-i18n-aria="editor.tools_label">
+<label><span data-i18n="editor.start_from">Start from</span><select id="sourceLevel"></select>
+</label>
+<button data-i18n="editor.load" id="loadOriginal" type="button">Load</button>
+<button data-i18n="editor.new" id="newLevel" type="button">New level</button>
+<span class="separator"></span>
+<button data-i18n="editor.undo" disabled="" id="undo" type="button">Undo</button>
+<button data-i18n="editor.redo" disabled="" id="redo" type="button">Redo</button>
+<span class="separator"></span>
+<label><span data-i18n="editor.zoom">Zoom</span><select id="zoom"><option value="1">1×</option><option selected="" value="2">2×</option><option value="3">3×</option></select>
+</label>
+<label class="check"><input checked="" id="grid" type="checkbox"/><span data-i18n="editor.grid">Grid</span></label>
+<label><span data-i18n="editor.screen">Screen</span><select id="screenJump"></select>
+</label>
+</section>
+<section class="editorLayout">
+<aside class="sidePanel">
+<h2 data-i18n="editor.tools">Tools</h2>
+<div aria-label="Drawing tools" class="toolGrid" data-i18n-aria="editor.drawing_tools" role="group">
+<button class="active" data-i18n="editor.paint" data-tool="paint" type="button">Paint</button>
+<button data-i18n="editor.erase" data-tool="erase" type="button">Erase</button>
+<button data-i18n="editor.fill" data-tool="fill" type="button">Fill</button>
+<button data-i18n="editor.pick" data-tool="pick" type="button">Pick</button>
+</div>
+<h3 data-i18n="editor.clouds">Clouds</h3>
+<div class="cloudGrid">
+<button data-cloud="1" data-i18n="editor.cloud" data-i18n-vars="n:1" type="button">Cloud 1</button><button data-cloud="2" data-i18n="editor.cloud" data-i18n-vars="n:2" type="button">Cloud 2</button>
+<button data-cloud="3" data-i18n="editor.cloud" data-i18n-vars="n:3" type="button">Cloud 3</button><button data-cloud="4" data-i18n="editor.cloud" data-i18n-vars="n:4" type="button">Cloud 4</button>
+</div>
+<h3 data-i18n="editor.background">Background</h3>
+<div class="colorRow">
+<input aria-label="Background color" data-i18n-aria="editor.bg_color" id="bgColor" type="color" value="#000000"/>
+<input aria-label="Red" data-i18n-aria="editor.red" id="bgR" max="255" min="0" type="number" value="0"/>
+<input aria-label="Green" data-i18n-aria="editor.green" id="bgG" max="255" min="0" type="number" value="0"/>
+<input aria-label="Blue" data-i18n-aria="editor.blue" id="bgB" max="255" min="0" type="number" value="0"/>
+</div>
+<h3 data-i18n="editor.file">File</h3>
+<div class="stackActions">
+<button data-i18n="editor.import" id="importLevel" type="button">Import level</button>
+<input accept=".txt,.level,.netrok,text/plain" hidden="" id="importFile" type="file"/>
+<button data-i18n="editor.export" id="exportLevel" type="button">Export level</button>
+<button data-i18n="editor.save_draft" id="saveDraft" type="button">Save draft</button>
+<button data-i18n="editor.load_draft" id="loadDraft" type="button">Load draft</button>
+<button class="primary" data-i18n="editor.playtest" id="playtest" type="button">Playtest</button>
+</div>
+<p class="note" data-i18n="editor.note">Built-in levels are never changed.</p>
+</aside>
+<section class="workspace">
+<div class="workspaceHead">
+<div><strong id="levelName">Level 1 copy</strong><span id="dirtyMark"></span></div>
+<output data-i18n="editor.cursor" data-i18n-vars="x:0,y:0,block:0" id="cursorInfo">x 0 · y 0 · block 0</output>
+</div>
+<div aria-label="Scrollable Netrok level map" class="mapViewport" data-i18n-aria="editor.map_aria" id="mapViewport" tabindex="0">
+<canvas height="208" id="mapCanvas" width="6400"></canvas>
+</div>
+<p aria-live="polite" class="status" data-i18n="common.loading" id="status">Loading…</p>
+</section>
+</section>
+<section class="paletteSection">
+<div class="paletteHead"><h2 data-i18n="editor.blocks">Blocks</h2><span><span data-i18n="editor.selected">Selected:</span> <strong id="selectedTile">1</strong></span></div>
+<div aria-label="Blocks" class="palette" data-i18n-aria="editor.blocks_aria" id="palette"></div>
+</section>
+<details class="help">
+<summary data-i18n="editor.help">Editor help</summary>
+<p data-i18n="editor.help1">Choose a block, then click or drag on the level to draw. Use Erase to remove blocks and Fill to fill an area.</p>
+<p data-i18n-html="editor.help2">Use <kbd>Ctrl</kbd>+<kbd>Z</kbd>/<kbd>Ctrl</kbd>+<kbd>Y</kbd> for undo/redo. Use <kbd>[</kbd>/<kbd>]</kbd> to move between sections.</p>
+</details>
+</main>
+<script src="../src/levels.js"></script>
+<script src="../src/i18n.js"></script><script src="editor.js"></script>
+</body>
+</html>

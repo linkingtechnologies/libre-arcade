@@ -1,0 +1,83 @@
+<!-- SPDX-FileCopyrightText: 2026 Umberto Bresciani
+     SPDX-License-Identifier: GPL-3.0-or-later -->
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#008080" />
+    <title>Grugnetto’s Klondike</title>
+    <link rel="icon" href="./favicon.svg?v=44" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css?v=63" />
+  </head>
+  <body>
+    <main class="desktop">
+      <section class="game-shell" aria-label="Grugnetto’s Klondike">
+        <header class="lab-topbar">
+          <div class="lab-brand"><span class="brand-badge" aria-hidden="true"><span class="brand-badge-content">🐽’s</span></span><strong>Klondike</strong></div>
+          <div class="game-stats" aria-label="Stato della partita"><span id="draw-indicator" class="draw-indicator">Pesca 3</span><span id="moves">Mosse 0</span><span id="timer">Tempo 00:00</span></div>
+          <div class="game-menu">
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-haspopup="true" aria-controls="menu-panel" aria-expanded="false" aria-label="Apri menu">☰</button>
+            <div id="menu-panel" class="menu-panel" role="menu" hidden>
+              <button id="solvable-game" type="button" role="menuitem"><span aria-hidden="true">↻</span><b data-i18n="newGame">Nuova partita</b></button>
+              <button id="undo" type="button" role="menuitem" disabled><span aria-hidden="true">↶</span><b data-i18n="undo">Annulla</b></button>
+              <button id="hint" type="button" role="menuitem"><span aria-hidden="true">💡</span><b data-i18n="hint">Suggerimento</b></button>
+              <button id="auto-finish" type="button" role="menuitem" disabled><span aria-hidden="true">✓</span><b data-i18n="autoFinish">Completa automaticamente</b></button>
+              <button id="sound-toggle" type="button" role="menuitem" aria-pressed="false"><span aria-hidden="true">🔇</span><b data-i18n="soundOff">Suoni disattivati</b></button>
+              <hr>
+              <label><span data-i18n="draw">Pesca</span><select id="draw-mode" aria-label="Numero di carte da pescare"><option value="1" data-i18n="oneCard">1 carta</option><option value="3" selected data-i18n="threeCards">3 carte</option></select></label>
+              <label><span data-i18n="deck">Mazzo</span><select id="card-deck" aria-label="Aspetto delle carte"><option value="historical" data-i18n="historicalDeck">Originale</option><option value="readable" data-i18n="readableDeck">Alta leggibilità</option><option value="letele" data-i18n="leteleDeck" selected>Classico HD</option><option value="woodcut" data-i18n="woodcutDeck">Incisione storica</option></select></label>
+              <button type="button" class="info-page" data-page="rules"><span aria-hidden="true">?</span><b data-i18n="rules">Regole</b></button>
+              <button type="button" class="info-page" data-page="stats"><span aria-hidden="true">▥</span><b data-i18n="stats">Statistiche</b></button>
+              <button type="button" class="info-page" data-page="provenance"><span aria-hidden="true">ⓘ</span><b data-i18n="provenance">Informazioni</b></button>
+              <button type="button" class="info-page" data-page="licenses"><span aria-hidden="true">§</span><b data-i18n="licenses">Licenze</b></button>
+              <label><span data-i18n="language">Lingua</span><select id="language" aria-label="Lingua"><option value="it">Italiano</option><option value="en">English</option></select></label>
+              <hr>
+              <button id="reset-local-data" class="danger-action" type="button" role="menuitem"><span aria-hidden="true">⌫</span><b data-i18n="resetLocalData">Azzera dati locali</b></button>
+            </div>
+          </div>
+        </header>
+        <section id="felt" class="felt" aria-label="Tavolo da gioco">
+          <div class="top-row">
+            <div class="stock-area">
+              <div id="stock" class="slot" data-drop-area="stock" aria-label="Tallone"></div>
+              <div id="waste" class="slot" data-drop-area="waste" aria-label="Scarti"></div>
+            </div>
+            <div id="foundations" class="foundations" aria-label="Fondazioni"></div>
+          </div>
+          <div id="tableau" class="tableau" aria-label="Tableau"></div>
+          <p id="status" class="status" role="status" data-i18n="welcome">Scegli pesca 1 o 3 e inizia una nuova partita risolvibile.</p>
+          <div id="generation-overlay" class="generation-overlay" hidden>
+            <div class="generation-panel" role="status" aria-live="polite">
+              <span class="generation-spinner" aria-hidden="true"></span>
+              <strong id="generation-message">Cerco una nuova partita risolvibile…</strong>
+              <button id="generation-action" class="generation-action" type="button">Annulla</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <dialog id="info-dialog" class="info-dialog"><article><header><h2 id="info-title"></h2><button id="info-close" type="button" aria-label="Chiudi">×</button></header><div id="info-content"></div></article></dialog>
+    <dialog id="reset-dialog" class="info-dialog confirm-dialog">
+      <article>
+        <header><h2 data-i18n="resetTitle">Azzerare i dati locali?</h2></header>
+        <p data-i18n="resetDescription">Verranno eliminate la partita salvata, le statistiche, le preferenze e le distribuzioni generate su questo dispositivo.</p>
+        <footer>
+          <button id="reset-cancel" type="button" data-i18n="resetCancel">Annulla</button>
+          <button id="reset-confirm" class="danger-action" type="button" data-i18n="resetConfirm">Azzera</button>
+        </footer>
+      </article>
+    </dialog>
+    <dialog id="abandon-dialog" class="info-dialog confirm-dialog">
+      <article>
+        <header><h2 data-i18n="newGameTitle">Nuova partita?</h2></header>
+        <p data-i18n="abandon">Abbandonare la partita in corso?</p>
+        <footer>
+          <button id="abandon-cancel" type="button" data-i18n="resetCancel">Annulla</button>
+          <button id="abandon-confirm" class="primary-action" type="button" data-i18n="newGameConfirm">Nuova partita</button>
+        </footer>
+      </article>
+    </dialog>
+    <script type="module" src="./src/ui.js?v=63"></script>
+  </body>
+</html>

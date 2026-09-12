@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grugnetto Go!</title>
+<!--
+  Standalone launcher — the whole point of this file is that this games/grugnetto-go/ folder is
+  self-contained: drop it anywhere a web server can serve static files and it just runs, no
+  internet access and no PHP/dashboard/tab-bar chrome needed (every library this page or app.js
+  needs — melonJS, lit-html, Bulma, Remix Icon — is vendored under ./vendor/, not fetched from a
+  CDN; see app.js's own header comment for why melonJS/lit-html specifically are handled there
+  instead of here). dashboard-grugnetto-go.inc.php (the Camila-hosted version) loads the exact
+  same app.js as a module; this page only supplies what that PHP flow normally injects for it —
+  Bulma/Remix Icon (the UI kit every screen's markup assumes; the Camila-hosted tab gets those
+  for free from the surrounding dashboard shell instead), and window.I18N (see i18n.js; PHP
+  isn't available here to read lang/*.lang.php). window.APP_CONFIG is deliberately NOT set: grep
+  confirms app.js/games/grugnetto-go/*.js never read it — it's WorkTableClient config, and this
+  game makes no WorkTableClient calls at all (see this folder's own specs/design.md's "Tables
+  involved: None"). This page ALSO exposes window.setGrugnettoLanguage()/
+  window.grugnettoAvailableLanguages/window.grugnettoCurrentLanguage — since THIS page is the one
+  bootstrapping window.I18N in the first place (the Camila-hosted tab gets it from PHP instead,
+  tied to the surrounding dashboard session's own language), only here does a player-facing
+  language switcher (app.js's SettingsScreen()) make sense; their mere presence is what that
+  screen checks to decide whether to show the language field at all.
+-->
+<link rel="stylesheet" href="vendor/bulma-1.0.4.min.css">
+<link rel="stylesheet" href="vendor/remixicon-4.9.1.css">
+<link rel="stylesheet" href="app.css">
+<style>
+  /* Full-viewport, no page scrollbars/margins — this page has no tab bar/nav chrome above the
+     game the way the Camila-hosted dashboard does. Deliberately NOT flexbox/aspect-ratio-on-an-
+     auto-sized-flex-item (two earlier versions of this block tried that: one stretched the
+     wrapper to fill both axes and let melonJS's own canvas letterboxing handle the shape, which
+     left the HUD — position:absolute against #grugnetto-go-wrapper — anchored to the full-bleed
+     box instead of the narrower visible game rect; the other tried sizing the wrapper itself via
+     aspect-ratio while auto/align-self:center inside a flex column, which collapsed it to a tiny
+     box instead of the largest one that fits — flex's own main-axis sizing for an auto/non-grown
+     item is content-based, not "fill available space", and fighting that turned out fragile).
+
+     Simplest fix: this is exactly app.css's own base #grugnetto-go-wrapper rule (height +
+     aspect-ratio:16/9 + width:auto + max-width:100% + margin:0 auto — a plain, non-flex block,
+     proven working in the Camila-hosted case, see app.css's own comment on it), just with the
+     "reserve 100px for chrome above" subtraction removed (this page has none) and the
+     max-height:576px cap removed (that cap made sense next to a tab bar; here the whole point is
+     using the full monitor). No flex, no aspect-ratio recomputation fighting anything — same
+     one CSS rule that already worked, adjusted for having the whole viewport to itself. */
+  html, body { margin: 0; height: 100%; background: #000; }
+  #app .container { max-width: 100%; background: #000; }
+  #app .spa-title-box {
+    border: none; box-shadow: none; border-radius: 0;
+    /* Bulma's .box default is a white background AND 1.25rem padding on all four sides —
+       harmless in the Camila-hosted case (a small, centered card on a page using the app's own
+       theme), but here this box IS the whole page. Background: white would show through
+       anywhere the game doesn't cover; kept black instead. Padding: zeroing ALL of it once
+       already caused a real regression (reported live) — Bulma's .columns grid (used by world-
+       select/level-select's tile layout) relies on a negative margin that's meant to be absorbed
+       by the parent's own padding, so removing the LEFT/RIGHT padding too made those tiles bleed
+       past the viewport edge. Zeroing only top/bottom (the axis actually pushing height past
+       100vh) leaves that compensation intact. */
+    background: #000;
+    padding: 0 1.25rem;
+    min-height: 100vh;
+  }
+  #app #grugnetto-go-wrapper {
+    height: 100vh;
+    max-height: 100vh;
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script nomodule>
+  document.body.innerHTML = '<section class="section"><div class="container">' +
+    '<article class="message is-danger"><div class="message-header"><p>Browser not supported</p></div>' +
+    '<div class="message-body">This application requires a modern browser (Chrome or Edge).</div></article>' +
+    '</div></section>';
+</script>
+<script type="module">
+  import { STRINGS, pickLanguage } from "./i18n.js";
+  import * as settings from "./settings.js";
+  // A saved explicit choice (settings.js's own getLang()) wins over the browser-language guess —
+  // otherwise reloading the page would silently forget a language the player already picked.
+  const initialLang = settings.getLang() && STRINGS[settings.getLang()] ? settings.getLang() : pickLanguage();
+  window.I18N = STRINGS[initialLang];
+  // Exposed ONLY here, in the standalone bootstrap — see app.js's SettingsScreen()/onLanguageChange()
+  // for why: their presence is exactly what tells that screen "this page owns window.I18N, a
+  // language switcher makes sense here" versus the Camila-hosted tab, where window.I18N comes
+  // from the PHP dashboard mount instead and none of this ever runs.
+  window.grugnettoAvailableLanguages = Object.keys(STRINGS);
+  window.grugnettoCurrentLanguage = initialLang;
+  window.setGrugnettoLanguage = (lang) => {
+    if (!STRINGS[lang]) return;
+    settings.setLang(lang);
+    window.I18N = STRINGS[lang];
+    window.grugnettoCurrentLanguage = lang;
+  };
+  await import("./app.js");
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>HTML5 Breakout</title>
+<!-- Local modification: the canvas is CSS-fit to the viewport after game.js's own init() has
+     already sized it (see scale.js and ../../specs/html5-breakout/design.md) — game.js itself is
+     byte-identical to upstream, still sizing canvas.width/canvas.height itself exactly as it
+     always did (window.screen.availHeight - 100, times 0.8 for width); scale.js only adjusts how
+     that result is displayed, not the drawing-buffer resolution or any game logic. -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app">
+  <canvas id="game-canvas" width="800" height="950">
+    Your browser does not support HTML5 canvas.
+  </canvas>
+</div>
+
+<script type="text/javascript" defer src="game.js"></script>
+<script type="text/javascript" defer src="scale.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+Netrok (C) 2004 by 
+Ioan-Tudor Parvulescu
+
+Version: Beta 0.95
+
+SDL GPL open source platform 
+game for Windows/Linux
+
+design, graphics & program-
+ming by Ioan-Tudor Parvulescu 
+
+music & soundeffects: public 
+domain
+
+visit http://www.itpsoft.de 
+for news & updates
+
+game uses SDL library 
+www.libsdl.org and the 
+SFont Library by Karl Bartel 
+http://www.linux-games.com/
+sfont/

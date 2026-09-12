@@ -1,0 +1,59 @@
+Njam
+
+Njam is fast-paced cross-platform pacman-like game written in C++ using SDL library
+
+Features
+- Single and multiplayer mode (local or network)
+- Duel games (players compete each other to get more points)
+- Cooperative games (players cooperate to finish as many levels as they can)
+- Great music and sound effects
+- Runs on Linux, Windows, NetBSD, FreeBSD, BeOS, and probably more platforms
+- Customizable level skins
+- Many different levels
+- Integrated level editor
+- Open Source (GPL Licence)
+
+For installation instructions, read file INSTALL
+
+For detailed documentation, see files in html/ directory or visit
+http://njam.sourceforge.net   to get up-to-date information.
+
+To see which issues are currently most important, read file TODO.
+
+If you have any questions, read the docs.
+If you haven't found an answer, or you wish to help the development, contact me at:
+mbabuskov@yahoo.com
+
+Have fun ;)
+
+Njam is free, but if you really like it and want to support further development,
+you can send $5 (or any other amount). Contact me by e-mail to get my address.
+
+
+Licencing information:
+
+Source code of Njam is covered by GNU GPL licence. See file COPYING for details.
+
+Njam uses SDL, SDL_mixer, SDL_image and SDL_net libraries.
+
+The Simple DirectMedia Layer (SDL for short) is a cross-platfrom library
+designed to make it easy to write multi-media software, such as games and
+emulators.
+
+The Simple DirectMedia Layer library source code is available from:
+http://www.libsdl.org/
+
+The source of SDL_mixer, SDL_net and SDL_image is available from the libraries page at the SDL website:
+http://www.libsdl.org/
+
+All these libraries are distributed under the terms of the GNU LGPL license:
+http://www.gnu.org/copyleft/lesser.html
+
+SDL_image library includes the following libraries:
+
+JPEG library: http://www.ijg.org/
+PNG  library: http://www.libpng.org/pub/png/libpng.html
+Zlib library: http://www.gzip.org/zlib/
+
+Licencing information can be obtained at these websites.
+

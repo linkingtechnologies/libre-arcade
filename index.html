@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Libre Arcade</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0f1613;
+    --panel: #16201c;
+    --panel-border: #26362f;
+    --text: #eef3ef;
+    --muted: #9db3a8;
+    --accent: #d8ff80;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  header {
+    padding: 3rem 1.5rem 1.5rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.4rem;
+  }
+  header p {
+    margin: 0 auto;
+    max-width: 34rem;
+    color: var(--muted);
+  }
+  main {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section.category {
+    margin-top: 2.5rem;
+  }
+  section.category h2 {
+    font-size: 1.1rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 0.6rem;
+    margin: 0 0 1rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 1rem;
+  }
+  a.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  a.card:hover, a.card:focus-visible {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  a.card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  a.card .year {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  a.card p {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Libre Arcade</h1>
+    <p>Old games, brought back to life and made playable again.</p>
+  </header>
+  <main>
+
+    <section class="category">
+      <h2>Card Games</h2>
+      <div class="grid">
+        <a class="card" href="klondike/public/index.html">
+          <span class="year">2021</span>
+          <h3>Grugnetto's Klondike</h3>
+          <p>Classic solitaire. Every deal is guaranteed winnable.</p>
+        </a>
+        <a class="card" href="briscola/index.html">
+          <span class="year">2005–2026</span>
+          <h3>Grugnetto's Briscola</h3>
+          <p>Play against AI opponents spanning two decades.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Puzzle</h2>
+      <div class="grid">
+        <a class="card" href="netris/public/index.html">
+          <span class="year">1994</span>
+          <h3>Netris</h3>
+          <p>An early Tetris-style falling-block game.</p>
+        </a>
+        <a class="card" href="hextris/public/index.html">
+          <span class="year">2014</span>
+          <h3>Hextris</h3>
+          <p>Fast-paced hexagonal block puzzle.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Arcade Classics</h2>
+      <div class="grid">
+        <a class="card" href="njam/index.html">
+          <span class="year">2003</span>
+          <h3>Njam</h3>
+          <p>A maze chase game with power-ups and duels.</p>
+        </a>
+        <a class="card" href="html5-breakout/public/index.html">
+          <span class="year">2017</span>
+          <h3>Breakout</h3>
+          <p>Smash every brick, one or two players.</p>
+        </a>
+        <a class="card" href="html5-space-invaders/public/index.html">
+          <span class="year">2017</span>
+          <h3>Space Invaders</h3>
+          <p>Defend against the alien invasion.</p>
+        </a>
+        <a class="card" href="html5-snake/public/index.html">
+          <span class="year">2013</span>
+          <h3>Snake</h3>
+          <p>The unforgiving version — one wrong move ends it.</p>
+        </a>
+        <a class="card" href="react-simple-snake/public/index.html">
+          <span class="year">2021</span>
+          <h3>Snake (No Walls)</h3>
+          <p>A gentler Snake that wraps around the edges.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Platformers</h2>
+      <div class="grid">
+        <a class="card" href="netrok/index.html">
+          <span class="year">2004</span>
+          <h3>Netrok</h3>
+          <p>Run, jump and explore 20 original levels.</p>
+        </a>
+        <a class="card" href="grugnetto-go/public/index.html">
+          <span class="year">2026</span>
+          <h3>Grugnetto Go!</h3>
+          <p>A brand-new platformer starring Grugnetto.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Strategy</h2>
+      <div class="grid">
+        <a class="card" href="naval-battle/index.html">
+          <span class="year">2009</span>
+          <h3>🐽's Naval Battle</h3>
+          <p>Sink the enemy fleet before it sinks yours.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    Every game here is free and open-source — see
+    <a href="README.md">README.md</a> for details and credits.
+  </footer>
+</body>
+</html>

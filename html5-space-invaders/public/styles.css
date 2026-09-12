@@ -1,0 +1,6 @@
+/* Both selectors were bare (`body`, `canvas`) in upstream — scoped under `:where(#app)` (zero
+   specificity) so they only apply inside this game's own mount point, not the whole Camila page
+   the same technique/reasoning as specs/hextris/design.md and specs/html5-snake/design.md
+   document for the identical problem in those two games. */
+:where(#app) { background-color: dimgray; text-align: center; }
+:where(#app) canvas { background-color: black; border: 1px solid black; }

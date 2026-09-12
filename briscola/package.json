@@ -1,0 +1,26 @@
+{
+  "name": "briscolab",
+  "version": "1.7.29",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs . 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test",
+    "serve": "python3 -m http.server 8080",
+    "arena:round-robin": "node arena/scripts/round-robin.mjs",
+    "arena:head-to-head": "node arena/scripts/head-to-head.mjs",
+    "arena:player": "node arena/scripts/benchmark-player.mjs",
+    "benchmark": "node arena/scripts/round-robin.mjs",
+    "arena:poiana": "node arena/scripts/poiana-round-robin.mjs",
+    "arena:global": "node arena/scripts/global-round-robin.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "license": "GPL-3.0-only"
+}

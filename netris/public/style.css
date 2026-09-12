@@ -1,0 +1,87 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
+:root {
+  color-scheme: dark;
+  --bg: #0a100d;
+  --panel: #16201c;
+  --border: #26362f;
+  --text: #eef3ef;
+  --muted: #9db3a8;
+  --accent: #d8ff80;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.game-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem 2rem;
+}
+
+.topbar {
+  width: min(100%, 20rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.stats {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.stats strong {
+  color: var(--accent);
+}
+
+canvas#board {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  image-rendering: pixelated;
+}
+
+.status {
+  min-height: 1.2rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.help {
+  max-width: 26rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.help kbd {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+  font-family: inherit;
+}
+
+.provenance a {
+  color: var(--muted);
+}
+
+.provenance {
+  margin-top: 0.75rem;
+}

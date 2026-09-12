@@ -1,0 +1,190 @@
+{
+  "world": "world1",
+  "level": 1,
+  "name": "Prato di Casa — Livello 1 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 67,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 9,
+      "row": 9
+    }
+  ],
+  "platforms": [
+    {
+      "col": 19,
+      "span": 4,
+      "row": 7
+    },
+    {
+      "col": 32,
+      "span": 1,
+      "row": 7
+    },
+    {
+      "col": 33,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 34,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 41,
+      "span": 1,
+      "row": 7
+    },
+    {
+      "col": 42,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 43,
+      "span": 1,
+      "row": 5
+    }
+  ],
+  "coins": [
+    {
+      "col": 6,
+      "row": 6
+    },
+    {
+      "col": 8,
+      "row": 6
+    },
+    {
+      "col": 10,
+      "row": 7
+    },
+    {
+      "col": 12,
+      "row": 7
+    },
+    {
+      "col": 20,
+      "row": 6
+    },
+    {
+      "col": 21,
+      "row": 6
+    },
+    {
+      "col": 25,
+      "row": 7
+    },
+    {
+      "col": 27,
+      "row": 7
+    },
+    {
+      "col": 32,
+      "row": 6
+    },
+    {
+      "col": 33,
+      "row": 5
+    },
+    {
+      "col": 34,
+      "row": 4
+    },
+    {
+      "col": 41,
+      "row": 6
+    },
+    {
+      "col": 42,
+      "row": 5
+    },
+    {
+      "col": 43,
+      "row": 4
+    },
+    {
+      "col": 50,
+      "row": 7
+    }
+  ],
+  "bonus": [],
+  "enemies": [],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 6,
+      "row": 7,
+      "kind": "fence_broken"
+    },
+    {
+      "col": 10,
+      "row": 8,
+      "kind": "bush"
+    },
+    {
+      "col": 12,
+      "row": 8,
+      "kind": "fence_broken"
+    },
+    {
+      "col": 15,
+      "row": 8,
+      "kind": "bush"
+    },
+    {
+      "col": 20,
+      "row": 6,
+      "kind": "fence"
+    },
+    {
+      "col": 25,
+      "row": 8,
+      "kind": "fence_broken"
+    },
+    {
+      "col": 28,
+      "row": 8,
+      "kind": "fence"
+    }
+  ],
+  "goalCol": 63,
+  "pits": [
+    {
+      "col": 19,
+      "span": 4
+    },
+    {
+      "col": 32,
+      "span": 1
+    },
+    {
+      "col": 41,
+      "span": 1
+    },
+    {
+      "col": 50,
+      "span": 1
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 14,
+      "row": 7
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world1-level1', groups=7, difficulty=0.15). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: step_down, rest, perch, rest, staircase, staircase, pit."
+}

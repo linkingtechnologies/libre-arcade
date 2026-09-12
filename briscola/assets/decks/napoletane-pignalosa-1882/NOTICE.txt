@@ -1,0 +1,5 @@
+Napoletane Pignalosa 1882
+
+Imported from the user-supplied archive `napoletane-pignalosa-1882.zip`.
+The bundle contains 40 card faces, `back.png`, and `briscolab_manifest.json`.
+Asset provenance/licensing must be reviewed independently before public redistribution.

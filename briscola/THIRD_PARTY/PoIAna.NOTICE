@@ -1,0 +1,21 @@
+PoIAna / briscola-rl
+Upstream author: Ivan Ravasi; model training credits in the PoIAna UI also name Davide Zambelli.
+
+Game source: https://github.com/ivanrava/poiana
+Training source: https://github.com/ivanrava/briscola-rl
+Publisher page: https://ivanrava.itch.io/poiana
+Release date shown by publisher: 2024-05-12
+
+The publisher page declares:
+- Code license: GNU General Public License v3.0 (GPL)
+- Asset license: Creative Commons Attribution v4.0 International
+
+The repository ZIP snapshots used for this BriscoLab integration did not contain
+a standalone root LICENSE file. Original ONNX binaries are therefore retained
+with this provenance notice and the publisher's project-level license
+statements. BriscoLab project code does not replace the upstream terms.
+
+BriscoLab v1.3.0 bundles 23 original ONNX model files unmodified and includes
+separate derived *-policy.bin tensor bundles for deterministic Arena execution.
+Those derived bundles contain only float tensors extracted from the respective
+ONNX graphs and remain attributed to the upstream PoIAna models.

@@ -1,0 +1,95 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #0d0e10;
+  color: #f2f2f2;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; width: 100%; height: 100%; background: #0d0e10; overflow-x: hidden; }
+body { min-height: 100%; }
+button, select, input { font: inherit; }
+button, select { color: inherit; }
+button { cursor: pointer; }
+.app { width: min(1100px, 100%); margin: 0 auto; padding: clamp(10px, 2.5vw, 24px); }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+.brand { display: flex; align-items: baseline; gap: 8px; letter-spacing: .02em; }
+.brand strong { font-size: clamp(1.25rem, 4vw, 1.75rem); }
+.brand span { color: #9b9b9b; font-size: .85rem; }
+.menuButton, .iconButton, .menuActions button, .menuNav button {
+  border: 1px solid #575b62; background: #1a1c20; border-radius: 8px; min-height: 44px; padding: 9px 14px;
+}
+.menuButton:hover, .iconButton:hover, .menuActions button:hover, .menuNav button:hover { background: #25282e; }
+button:focus-visible, select:focus-visible, input:focus-visible, canvas:focus-visible { outline: 3px solid #d5d5d5; outline-offset: 2px; }
+.gameFrame { position: relative; width: 100%; aspect-ratio: 8 / 5; margin-inline: auto; overflow: hidden; background: #000; border: 1px solid #36393f; border-radius: 10px; flex: 0 0 auto; }
+canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; touch-action: manipulation; }
+.app.smooth canvas { image-rendering: auto; }
+.app.cleanhd canvas { image-rendering: auto; }
+.loading { position: absolute; inset: auto 10px 10px; padding: 6px 8px; background: rgba(0,0,0,.78); border-radius: 6px; font-size: .82rem; color: #ddd; display: flex; align-items: center; gap: 8px; }
+.loading button { min-height: 32px; border: 1px solid #777; border-radius: 6px; background: #23262b; color: #fff; padding: 4px 9px; cursor: pointer; }
+.loading.hidden { display: none; }
+.gameStatus { margin: 8px 2px 0; color: #9ea2a9; font-size: .82rem; min-height: 1.2em; }
+.touch { display: none; grid-template-columns: auto 1fr; align-items: end; gap: 12px; margin-top: 12px; user-select: none; }
+.touch.show { display: grid; }
+.touch button { border: 1px solid #575b62; background: #1a1c20; color: #fff; border-radius: 9px; min-width: 46px; min-height: 46px; font-weight: 700; touch-action: none; }
+.touch button:active { background: #30343a; transform: translateY(1px); }
+.touchGroup { display: grid; gap: 6px; }
+.dpad > button { justify-self: center; }
+.dpad > div { display: flex; gap: 6px; }
+.actions { grid-template-columns: repeat(3, minmax(56px, 1fr)); }
+.shieldTouch { grid-column: 1 / -1; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; color: #a9adb4; font-size: .78rem; }
+.shieldTouch button { min-width: 42px; min-height: 42px; }
+.internalControls { display: none !important; }
+.menuDialog { width: min(760px, calc(100% - 20px)); max-height: calc(100% - 20px); padding: 0; border: 1px solid #4c5057; border-radius: 12px; background: #121418; color: #f1f1f1; }
+.menuDialog::backdrop { background: rgba(0,0,0,.72); }
+.menuDialog { overflow: hidden; }
+.menuCard { padding: clamp(14px, 3vw, 24px); max-height: calc(100dvh - 20px); overflow-y: auto; overscroll-behavior: contain; }
+.menuHead { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.menuHead h1 { margin: 0; font-size: 1.5rem; }
+.iconButton { width: 44px; padding: 0; font-size: 1.5rem; }
+.menuNav { display: flex; overflow-x: auto; gap: 6px; margin: 16px 0; padding-bottom: 2px; }
+.menuNav button { flex: 0 0 auto; min-height: 40px; padding: 7px 11px; color: #b9bdc4; }
+.menuNav button.active { background: #e8e8e8; color: #111; border-color: #e8e8e8; }
+.menuPanel { display: none; }
+.menuPanel.active { display: block; }
+.menuPanel h2 { margin: 0 0 12px; font-size: 1.2rem; }
+.menuPanel h3 { margin: 0 0 5px; font-size: .92rem; }
+.menuPanel p { line-height: 1.5; }
+.menuActions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.menuActions button { text-align: left; }
+.menuActions .primary { background: #e8e8e8; color: #111; border-color: #e8e8e8; font-weight: 700; }
+.menuHint { color: #a6aab1; font-size: .88rem; }
+.optionRows { border-top: 1px solid #31343a; }
+.optionRow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; min-height: 54px; border-bottom: 1px solid #31343a; }
+.optionRow input[type="checkbox"] { width: 22px; height: 22px; }
+.optionRow select { min-height: 38px; background: #1d2025; border: 1px solid #555a62; border-radius: 7px; padding: 5px 9px; max-width: 190px; }
+.instructionGrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.instructionGrid > div { border: 1px solid #31343a; border-radius: 8px; padding: 10px 12px; background: #181a1f; }
+.instructionGrid p { margin: 0; color: #c4c7cc; font-size: .9rem; }
+kbd { display: inline-block; min-width: 1.6em; text-align: center; background: #292c32; border: 1px solid #62666e; border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; font-size: .8em; }
+details { margin-top: 12px; color: #b8bbc1; }
+code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+@media (pointer: coarse) { .touch.auto { display: grid; } }
+@media (max-width: 700px) { .touch.auto { display: grid; } }
+@media (max-width: 560px) {
+  .app { padding: 8px; }
+  .topbar { margin-bottom: 8px; }
+  .gameFrame { border-radius: 7px; }
+  .menuDialog { width: calc(100% - 12px); max-height: calc(100% - 12px); }
+  .menuCard { padding: 13px; }
+  .menuActions, .instructionGrid { grid-template-columns: 1fr; }
+  .optionRow { grid-template-columns: 1fr; gap: 5px; padding: 9px 0; }
+  .optionRow select { width: 100%; max-width: none; }
+  .touch { grid-template-columns: auto 1fr; gap: 8px; }
+  .touch button { min-width: 42px; min-height: 44px; padding: 6px; font-size: .75rem; }
+  .actions { grid-template-columns: repeat(3, minmax(48px, 1fr)); }
+}
+
+.cheatWarning { margin: 0 0 12px; padding: 10px 12px; border: 1px solid #6b5d3b; border-radius: 8px; background: #211d14; color: #e1d6b5; line-height: 1.45; font-size: .9rem; }
+.inlineAction { display: flex; align-items: center; gap: 7px; }
+.inlineAction select { min-width: 76px; }
+.inlineAction button, .cheatActions button { border: 1px solid #575b62; background: #1a1c20; color: #f2f2f2; border-radius: 8px; min-height: 38px; padding: 6px 12px; }
+.cheatActions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.cheatDependent:disabled, .cheatDependent input:disabled, .cheatDependent select:disabled, .cheatDependent button:disabled { opacity: .5; cursor: not-allowed; }
+.optionRow:has(input:disabled), .optionRow:has(select:disabled) { opacity: .6; }
+@media (max-width: 560px) { .inlineAction { width: 100%; } .inlineAction select { flex: 1; max-width: none; } .cheatActions { display: grid; grid-template-columns: 1fr; } }
+#customLevelStatus.hasCustom { color: #d8e8d0; }

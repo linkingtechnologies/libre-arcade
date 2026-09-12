@@ -1,0 +1,36 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: njam
+Source: https://sourceforge.net/projects/njam/
+Upstream-Contact: Milan Babuskov <mbabuskov@yahoo.com>
+
+Files: *
+Copyright: 2003-2008 Milan Babuskov <mbabuskov@yahoo.com>
+License: GPL-2.0+
+
+Files: src/SDL_main.c
+Copyright: 1998 Sam Lantinga
+License: public-domain
+ SDL_main.c, placed in the public domain by Sam Lantinga
+
+Files: debian/*
+Copyright: 2005-2012 Anibal Avelar (Fixxxer) <aavelar@cofradia.org>
+           2012-2015 Daniel Echeverry <epsilon77@gmail.com>
+           2012-2023 Markus Koschany <apo@debian.org>
+License: GPL-2.0+
+
+License: GPL-2.0+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".

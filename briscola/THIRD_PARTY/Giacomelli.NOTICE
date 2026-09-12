@@ -1,0 +1,7 @@
+Giacomelli Briscola policy family (πG / πH / πC)
+
+Author: Piero Giacomelli
+Upstream: https://github.com/pgiacome/BriscolaPaperSourceCode
+Declared license: MIT
+
+The upstream repository README and the paper's reproducibility section state that the code and data are released under the MIT license. BriscoLab v1.4.0 preserves that declaration in provenance notes; it does not invent a missing verbatim LICENSE file or source snapshot.

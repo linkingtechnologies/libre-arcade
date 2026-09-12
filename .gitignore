@@ -1,0 +1,17 @@
+# Dependencies (none required at this level, but just in case)
+/node_modules/
+
+# Local Claude Code session/runtime metadata — never meant to be published
+.claude/
+
+# Editors
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini

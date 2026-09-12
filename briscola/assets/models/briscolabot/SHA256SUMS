@@ -1,0 +1,3 @@
+ab6fed4667cb9ddbacdd394d717108233ab2dbdced7ee4440d0bdfbce1cb53d2  briscola-bot-v3.onnx
+4ef7a6f11aad0cdcb774bce5f2ffa2cdcd8d846de67fe692a6b9098151ce7206  briscola-bot-v3-logits.onnx
+d54496ac4cf09364d5a4c8f562fc1f6ab54e7d9465a2800dd791535bb613881b  briscola-bot-v3-policy.bin

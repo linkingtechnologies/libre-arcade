@@ -1,0 +1,59 @@
+This is a quick port for OS4 of the SDL action game 'Njam' v1.21 
+by author Milan Babuskov.
+
+OS4 port by Sharakmir (Kjell Breding).
+
+Njam URL: http://njam.sourceforge.net/ (where you can find a lot of info!)
+
+Njam is fast-paced cross-platform pacman-like game written in C++ using SDL 
+library. It has network duel support and a lot of nice features. More info 
+about this game is found in the enclosed documentation (in the html drawer).
+
+
+RUNNING THE GAME - OS4
+
+Just open a shell and type 'Njam_OS4' to get started. You can also start 
+by clicking the game icon which starts the game in a full screen mode. 
+If you want to play in window mode, start the game with 'njam_OS4 -w'.
+
+A small issue: when entering the 'join network duel' in the main menu, 
+it's not possible to type '.' when entering an ip address. To enter a 
+ip address, edit njam.conf and type in the correct server ip address. 
+E.g.:
+
+I=192.198.0.100 (I've set this address as default in njam.conf, feel 
+free to change it to whatever works for you).
+
+This address is then used everytime you play the game. In case your 
+opponents server ip changes, just edit njam.conf again.
+
+
+LEGAL STUFF
+
+All original source is in the Source folder together with the original makefile,
+named Makefile.orig. 
+
+Njam is released under GNU GENERAL PUBLIC LICENSE, please read the
+file 'COPYING' for more info. 
+
+To compile the game for OS4, make sure you have your SDL environment setup 
+properly and use the Makefile to compile (type 'make' in the src folder). 
+
+
+HISTORY
+
+v1.21
+November 8th 2005: 
+
+Compiled for OS4 by Sharakmir, Kjell Breding. 
+Gameplay tested ok without any known issues so far. There is a small
+message when starting the game 'SDL_SetError: No display', but it's 
+just something I couldn't get rid of for now. 
+
+
+--
+A M I G A  R U L E Z !
+
+
+
+ 

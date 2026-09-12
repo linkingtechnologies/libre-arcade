@@ -1,0 +1,62 @@
+version = 1
+SPDX-PackageName = "Grugnetto's Klondike"
+SPDX-PackageSupplier = "Umberto Bresciani"
+
+# Project-authored code, tests, documentation and configuration.
+[[annotations]]
+path = "**"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Umberto Bresciani"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# Frozen upstream software snapshots are preserved under their MIT terms.
+[[annotations]]
+path = "reference/rjanjic-js-solitaire/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2021 Radovan Janjic"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "reference/minimal-klondike/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2021 DevilSquirrel"
+SPDX-License-Identifier = "MIT"
+
+# Faithful extractions and ports stay available under the upstream MIT license.
+[[annotations]]
+path = [
+  "lib/reference-engine.js",
+  "public/klondike/src/engine.js",
+  "public/klondike/src/sprite.js"
+]
+precedence = "override"
+SPDX-FileCopyrightText = ["2021 Radovan Janjic", "2026 Umberto Bresciani"]
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = [
+  "src/solver/minimal-klondike-js.js",
+  "public/klondike/src/solver-core.js"
+]
+precedence = "override"
+SPDX-FileCopyrightText = ["2021 DevilSquirrel", "2026 Umberto Bresciani"]
+SPDX-License-Identifier = "MIT"
+
+# The two optional SVG decks and their preserved metadata are CC0-1.0.
+[[annotations]]
+path = [
+  "reference/card-decks/letele/**",
+  "public/klondike/assets/decks/letele/**"
+]
+precedence = "override"
+SPDX-FileCopyrightText = "letele/playing-cards contributors"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = [
+  "reference/card-decks/woodcut/**",
+  "public/klondike/assets/decks/woodcut/**"
+]
+precedence = "override"
+SPDX-FileCopyrightText = "SONDLecT/woodcut-cards contributors"
+SPDX-License-Identifier = "CC0-1.0"

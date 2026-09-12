@@ -1,0 +1,71 @@
+#
+# Copyright 2003 Milan Babuskov
+#
+# This file is part of Njam (http://njam.sourceforge.net).
+#
+# Njam is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# Njam is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Njam in file COPYING; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+
+# directory where the games are installed (/usr, /usr/local, ... or something)
+ifndef PREFIX
+PREFIX=/usr
+endif
+
+PROGRAM = njam
+OBJECTS = njam.o njamedit.o njamnet.o njamgame.o njammap.o njamfont.o njamutils.o
+CC = g++
+
+# If you hate warnings under Cygwin use these flags instead
+# MY_CFLAGS = -I/usr/local/include/SDL -Dmain=SDL_main -DWIN32 -Uunix -mno-cygwin
+MY_CFLAGS = `sdl-config --cflags`
+
+%.o:	%.cpp
+	$(CC) -O3 -c $(MY_CFLAGS) $< -o $@
+
+all:	$(PROGRAM)
+
+$(PROGRAM):	$(OBJECTS)
+	$(CC) `sdl-config --libs` -o$(PROGRAM) $(OBJECTS) -lSDL -lSDL_mixer -lSDL_net -lSDL_image
+
+clean:
+	$(RM) *.o
+	$(RM) $(PROGRAM)
+	$(RM) $(PROGRAM).exe
+
+install:	$(PROGRAM)
+	mkdir -m 755 -p $(PREFIX)/games/njam
+	mkdir -m 755 -p $(PREFIX)/games/njam/data
+	mkdir -m 755 -p $(PREFIX)/games/njam/skins
+	mkdir -m 755 -p $(PREFIX)/games/njam/html
+	mkdir -m 755 -p $(PREFIX)/games/njam/levels
+	install -o root -g games -m 755 njam 		$(PREFIX)/games/njam
+	install -o root -g games -m 644 data/*  	$(PREFIX)/games/njam/data
+	install -o root -g games -m 644 skins/* 	$(PREFIX)/games/njam/skins
+	install -o root -g games -m 644 html/* 		$(PREFIX)/games/njam/html
+	install -o root -g games -m 6777 levels/* 	$(PREFIX)/games/njam/levels
+	echo '#!/bin/sh' > /usr/bin/njam
+	echo '$(PREFIX)/games/njam/njam $$1' >> /usr/bin/njam
+	chmod 755 /usr/bin/njam
+	@echo
+	@echo ------------------ Install completed ------------------------------
+	@echo Type \"njam\" to play the game.
+	@echo You can link \"$(PREFIX)/games/njam/njam\" into menus/toolbars.
+	@echo -------------------------------------------------------------------
+	@echo
+
+uninstall:
+	rm -rf $(PREFIX)/games/njam
+	rm -f /usr/bin/njam
+

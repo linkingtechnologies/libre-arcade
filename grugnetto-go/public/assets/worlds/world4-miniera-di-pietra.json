@@ -1,0 +1,71 @@
+{
+  "id": "world4",
+  "name": "Miniera di Pietra",
+  "levelCount": 8,
+  "story": "La chiave apre l'accesso a una miniera abbandonata. Nel profondo, tra torce accese e laghetti sotterranei, Grugnetto ritrova le scorte rubate e scopre un cuore d'oro leggendario: il gran finale del suo viaggio.",
+  "musicSuggestion": "kenney-extras/music-jingles/Hit jingles/ (più tensione, gran finale)",
+  "assetsBase": "kenney-extras/new-platformer-pack/",
+  "terrain": {
+    "prefix": "terrain_stone",
+    "files": [
+      "tiles/terrain_stone_block.png",
+      "tiles/terrain_stone_block_top.png",
+      "tiles/terrain_stone_block_top_left.png",
+      "tiles/terrain_stone_block_top_right.png",
+      "tiles/terrain_stone_block_bottom.png",
+      "tiles/terrain_stone_block_bottom_left.png",
+      "tiles/terrain_stone_block_bottom_right.png",
+      "tiles/terrain_stone_block_left.png",
+      "tiles/terrain_stone_block_right.png",
+      "tiles/terrain_stone_block_center.png",
+      "tiles/terrain_stone_horizontal_left.png",
+      "tiles/terrain_stone_horizontal_middle.png",
+      "tiles/terrain_stone_horizontal_right.png",
+      "tiles/terrain_stone_ramp_short_a.png",
+      "tiles/terrain_stone_ramp_short_b.png",
+      "tiles/terrain_stone_ramp_long_a.png",
+      "tiles/terrain_stone_ramp_long_b.png",
+      "tiles/terrain_stone_ramp_long_c.png",
+      "tiles/terrain_stone_vertical_top.png",
+      "tiles/terrain_stone_vertical_middle.png",
+      "tiles/terrain_stone_vertical_bottom.png"
+    ]
+  },
+  "background": {
+    "note": "Unico asset 'da grotta' disponibile in locale è lo sfondo nuvola-pietra; background_solid_dirt come alternativa/sfondo profondo. Da valutare tinta scura via CSS/tint se serve più atmosfera.",
+    "files": [
+      "tiles/terrain_stone_cloud_background.png",
+      "backgrounds/background_solid_grass.png"
+    ]
+  },
+  "props": {
+    "files": [
+      "tiles/torch_off.png",
+      "tiles/torch_on_a.png",
+      "tiles/torch_on_b.png",
+      "tiles/chain.png",
+      "tiles/door_closed.png",
+      "tiles/door_open.png",
+      "tiles/block_strong_danger.png",
+      "tiles/block_strong_danger_active.png"
+    ]
+  },
+  "enemies": [
+    {
+      "name": "barnacle",
+      "behavior": "fisso, attacca quando ci si avvicina",
+      "files": ["enemies/barnacle_attack_rest.png", "enemies/barnacle_attack_a.png", "enemies/barnacle_attack_b.png"]
+    },
+    {
+      "name": "fish",
+      "behavior": "nuota in un laghetto sotterraneo (blu/viola/giallo, stessa logica)",
+      "files": ["enemies/fish_blue_rest.png", "enemies/fish_blue_swim_a.png", "enemies/fish_blue_swim_b.png",
+                 "enemies/fish_purple_rest.png", "enemies/fish_purple_up.png", "enemies/fish_purple_down.png",
+                 "enemies/fish_yellow_rest.png", "enemies/fish_yellow_swim_a.png", "enemies/fish_yellow_swim_b.png"]
+    }
+  ],
+  "collectibles": [
+    { "name": "heart", "file": "../collectable_heart.png", "points": 300, "note": "tesoro finale del mondo/della storia" },
+    { "name": "coin", "file": "../collectable_coin.png", "points": 100 }
+  ]
+}

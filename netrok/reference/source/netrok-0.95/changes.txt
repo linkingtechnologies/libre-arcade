@@ -1,0 +1,412 @@
+Netrok Projekt ITPSoft CHANGES.TXT
+
+---------------------------------------------------------------------
+Version: Beta 0.95 released 16.06.2004
+-erste Beta Version-
+
+alles was noch gefehlt hat, damit das Spiel fertig wird. 
+Zuviel um hier noch aufzulisten ;-)
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.031 released 15.04.2004
+
+Netroks Kollisionserkennung überarbeitet, so dass er nichtmehr pixelgenau
+positioniert werden muss, wenn er zwischen 2 Steinen springen möchte.
+
+Bug behoben - Netrok kann Kanone manchmal nichtmehr verwenden.
+
+Bug behoben - Kran wird nichtmehr dargestellt wenn Netrok sich 
+mit Kanone abschiessen lässt.
+
+Bug behoben - in der linken oberen Ecke des Levels werden falsche
+Tiles geladen.
+
+Bug behoben - Kollisionserkennung funktioniert nichtmehr richtig, wenn
+Netrok sich außerhalb des sichtbaren Schirms bewegt.
+
+Division im Scrollingalgorithmus eingespart.
+
+Buttons können wenn sie runtergedrückt sind, durch die Steine durch-
+gesehen werden.
+
+komplettes Update der Spielgrafiken.
+
+Kollisionserkennung der Zacken und der fallenden Steine verbessert.
+
+Kanonen- und Wassertiles werden nichtmehr von scrolling.cc gesetzt, sondern
+mit Speziallfunktion damit sie vor dem Flip des Bildschirmes als letzte
+dargestellt werden.
+
+neue Tiles.
+
+neue rote Kanonen die in einem festgelegten Intervall Kugeln abschiessen.
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.030 released: 31.10.2003
+
+Netrokupgrade funktioniert jetzt auch während sich Netrok bewegt,
+er klebt jetzt nichtmehr regungslos auf der Stelle bis er upgegraded
+worden ist.
+
+Joystickinitialisierung aus main.cc in gameinitialize.cc ausgelagert
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.029 released: 15.10.2003
+
+kleinen Cheat eingebaut. Netrok kann mit der Taste F1 direkt ins nächste
+Level springen. Nur eine Vereinfachung für die Entwicklungszeit, Cheat
+wird danach herausgenommen!
+
+kleines Programm geschrieben, daß die Quellcodezeilen des kompletten
+Projekts zählt.
+
+Code refaktorisiert
+
+Bug behoben (Statusleiste wird nicht dargestellt, solange Netrok sich mit der
+Kanone abschiessen lässt)
+
+Levelhintergrundfarbe wird jetzt in Leveldatei abgespeichert und vom 
+Spiel von dort geladen. Jede Farbe möglich!
+
+Alle keystate Abfragen entfernt. Funktioniert jetzt alles einheitlich mit
+Keyevents. Keystate scheint sowieso bei SDL langsam obsolete zu werden.
+
+SFont Library hinzugefügt für das Darstellen von Text.
+Font1.bmp erstellt. 
+
+Mapeditorcode stark überarbeitet. Neue features hinzugefügt.
+Unter anderem: 
+-überarbeitete Oberfläche
+-Hilfefenster
+-Sicherheitsabfragen
+-Grids die einschalt- und abschaltbar sind
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.028
+
+Code refaktorisiert
+-mehr kleinere Funktionen anstatt wenige Grosse, die alles erledigen.
+
+Komplexität des Scrollalgorithmus deutlich verbessert. Läuft jetzt auch
+auf langsameren Rechnern deutlich schneller!
+
+ein Bodentile überarbeitet
+
+Shieldenergy coins hinzugefügt und eine Anzeige in der Statusleiste dafür.
+Hat Netrok 20 Shieldenergy coins eingesammelt erhält er ein neues
+Shield dafür.
+
+Levels überarbeitet und Shieldenergy coins verteilt!
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.027		
+
+Fahne die abgeworfen werden kann um von dort wieder anfangen zu 
+dürfen im Level.
+
+Kleine Spielanleitung zum Projekt hinzugefügt. Man kann sich dort schnell
+über die Tastenbelegung des Spiels informieren, als auch über die 
+Grundlagen des Spiels.
+
+Code refaktorisiert
+-main.cc anstatt Netrok.cc
+-neue Datei Netrokhandling.cc in der Code aus der alten Netrok.cc 
+ausgelagert wurde
+-viele neue Funktionen
+
+Joystick kann nur auch zur Steuerung von Netrok verwendet werden.	
+(funktioniert noch nicht einwandfrei)
+Kleine Änderung an der Keyboardabfrage damit sie vom Aufbau her mit der 
+Joystickabfrage identisch ist.		
+
+Schutzschilde funktionieren nun richtig!	
+
+changes.txt neugestaltet.
+		
+Projekt hat jetzt ca 2300 Zeilen Code
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.026		
+
+Kanonen wurden manchmal nicht erkannt bzw. gelöscht, jetzt gefixt
+
+Tiles hinzugefügt, die die Richtung der Kanonenkugeln ändern können
+
+Netrok besitzt nun Schutzschilde die man auch ummodulieren 8-) kann	
+funktionieren aber noch nicht wie gewünscht
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.025		
+
+Kanone integriert
+
+kleine Kanonen die schiessen integriert
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.024		
+
+neue Plattformtiles 
+
+Netrokdarstellenfunktion aufgeteilt auf mehrere Funktionen
+
+Netrok nun 26*16 Pixel gross
+
+bessere Netrokanimation
+
+Netrokanimation auch schneller wenn Netrok läuft
+
+Modifikationen der Levels
+
+Projekt hat jetzt ca 1700 Zeilen Code
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.023	
+
+fixed Timing des Spiels nun in 2 Funktionen abgefasst, die von überall
+aufgerufen werden können.
+
+Netrok kann nun mit 2 Buttons im Boden upgegraded werden.	
+
+Netrokdarstellenfunktion nun mit call by reference  
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.022 	
+
+man kann nun mit einem Spezialtile im Editor
+die Startposition der Plattformen festlegen.
+
+Netrok wird jetzt nichtmehr durch Steine hindurch befördert während
+er auf einer Plattformen ist.
+           
+Plattformen bewegen sich nun bis zum Ende ihrer Bahn            
+---------------------------------------------------------------------	
+
+---------------------------------------------------------------------
+Version: 0.021		
+
+Spiel ist nun getimet
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.020		
+
+Leveleditorcode überarbeitet
+
+neues Tile "Leiter"
+
+neues Feature "Leiter"
+
+Zackenalgorithmus (klappte nicht falls Netrok bereits auf ihnen drauf)
+
+Netrokarme jetzt rot anstatt hellblau wegen besserem Kontrast zum
+Hintergrund
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.019	
+
+Bug mit fallenden Steinen behoben
+
+Netrok kann auf den Plattformen nicht mehr so weit rausstehen
+(fällt früher davon runter)
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.018		
+
+fallende Steine hinzugefügt
+
+Level wird neu eingelesen nach Netroktot
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.017		
+
+neues Levelauswahlmenu im Leveleditor anstatt Eingabezeile
+
+Netrok kann je nach Geschwindigkeit höher springen
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.016		
+
+Netrok kann nun auf den Plattformen stehen
+
+Plattformen_lösch Funktion
+
+Plattformstruktur wurde nicht gelöscht nach Levelwechsel und
+nicht neu geladen.
+---------------------------------------------------------------------		
+
+---------------------------------------------------------------------
+Version: 0.015		
+
+Bewegende Plattformen integriert (noch nicht benutzbar)
+
+Projektinformationen werden eingeblendet
+---------------------------------------------------------------------	
+
+---------------------------------------------------------------------
+Version: 0.014		
+
+Zacken können Netrok ein Leben abziehen
+
+Netrok Animation wenn er ein Leben verliert
+---------------------------------------------------------------------	
+
+---------------------------------------------------------------------
+Version: 0.013		
+
+Quellcode komplett überarbeitet
+
+Projekt hat jetzt ca 590 Zeilen Code
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.012   	
+
+Headerdateien umbenannt
+
+Netrok bewegt sich feinfühliger
+
+Specialstein "Zacken" hinzugefügt
+---------------------------------------------------------------------	
+
+---------------------------------------------------------------------
+Version: 0.011
+
+Wassertiles hinzugefügt
+
+unnütze Headers werden nicht mehr geladen
+
+itoa Funktionen durch sprintf ersetzt
+
+erste Alphaversion für Linux
+---------------------------------------------------------------------		
+		
+---------------------------------------------------------------------
+Version: 0.010		
+
+Sprunghöhe niedriger
+
+Netrok springt nichtmehr bei ständig gedrückter Taste
+
+Projekt hat ca. 700 Zeilen Code		
+---------------------------------------------------------------------		
+
+---------------------------------------------------------------------
+Version: 0.009		
+
+added scrolling.h
+
+added figurendarstellen.h
+
+added Netrokgeschwindigkeitsvariable
+
+fixed Scrolling
+
+fixed Kollisionserkennung
+
+Netrok erhält physikalische Eigenschaften
+
+Netrok kann jetzt unterschiedlich weit hochspringen
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.008		
+
+Alpha Level 4 hinzugefügt
+
+fixed Alpha Level 2
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.007		
+
+fixed Levelhintergrundfarbe
+
+Wolkentiles hinzugefügt
+
+Spiel startet nach Abschliessen eines Levels das nächste	
+
+Bug in Netroktotfunktion behoben		
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.006		
+
+Level fängt nun neu an wenn Netrok ein Leben verliert
+
+Netroksprungbug behoben
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.005		
+
+Kollisionserkennung programmiert
+
+Fig 0-3 werden geladen
+
+Netrok wird dargestellt
+
+Netrok hat primitive Gravitation
+
+Netrok kann bewegt werden
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.004		
+
+Pixelsetzfunktion hinzugefügt
+
+Tiletransparenz einprogrammiert
+
+
+added Fig 0-3
+
+Projektname geändert
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.003		
+
+added ladefunktionen.h
+
+added spielinitialisierung.h
+
+added grafikenginefunktionen.h
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Version: 0.002		
+
+Leveleditor geschrieben
+
+added ein paar Tiles
+
+added Mapladefunktion
+
+added Tilesladefunktion
+
+added Mapscrolling
+
+fixed Mapladefunktion (automatisiert)
+---------------------------------------------------------------------		
+
+---------------------------------------------------------------------
+Version: 0.001	
+
+added SDL-Initialisierung
+
+added Aufteilung des Codes nach game_states
+---------------------------------------------------------------------

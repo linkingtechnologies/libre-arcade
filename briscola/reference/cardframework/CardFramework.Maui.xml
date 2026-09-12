@@ -1,0 +1,804 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CardFramework.Maui</name>
+    </assembly>
+    <members>
+        <member name="T:org.altervista.numerone.framework.Carta">
+            <summary>
+            Indica la struttura carta che identifica una carta del mazzo
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.Carta.prefisso">
+            <summary>
+            Prefisso delle immagini delle carte in xaml
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Carta.Seme">
+            <summary>
+            Seme della carta
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Carta.Valore">
+            <summary>
+            Valore, non punteggio, della carta
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Carta.Punteggio">
+            <summary>
+            Puntegguio della carta
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Carta.SemeStr">
+            <summary>
+            Seme della carta in formato stringa
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Carta.Id">
+            <summary>
+            Id che identifica la figura della carta: deve esistere nell'xaml
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Carta.Briscola">
+            <summary>
+            Struttura della carta che designa il seme di briscola
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Carta.Helper">
+            <summary>
+            Helper per personalizzare il comportamento della classe carta
+            </summary>
+            <summary>
+            Helper per personalizzare il comportamento della classe carta
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.Carta.carte">
+            <summary>
+            Vettore dlle carte
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Carta.#ctor(org.altervista.numerone.framework.Mazzo,System.UInt16,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Costruttore privato perch� le carte devono essere immutabili.
+            </summary>
+            <param name="m">mazzo col nome</param>
+            <param name="n">numero intero indicante il numero intero della carta</param>
+            <param name="s0">prima delle 4 stringhe indicante il seme italiano</param>
+            <param name="s1">seconda delle 4 stringhe indicante il seme italiano</param>
+            <param name="s2">terza delle 4 stringhe indicante il seme italiano</param>
+            <param name="s3">quarta delle 4 stringhe indicante il seme italiano</param>
+            <param name="s4">prima delle 4 stringhe indicante il seme framcese</param>
+            <param name="s5">seconda delle 4 stringhe indicante il seme francese</param>
+            <param name="s6">terza delle 4 stringhe indicante il seme francese</param>
+            <param name="s7">quarta delle 4 stringhe indicante il seme francese</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Carta.Inizializza(org.altervista.numerone.framework.Mazzo,System.UInt16,org.altervista.numerone.framework.CartaHelper,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Vero costruttore, identifica un numero di carte pari ad n ed inizializza il vettore delle carte
+            </summary>
+            <param name="m">mazzo col nome</param>
+            <param name="n">numero delle carte</param>
+            <param name="h">per evitare una ereditariet� selvaggia, si � scelto di usare una classe a parte per il comportamento specifico della classe</param>
+            <param name="s0">prima delle 4 stringhe indicante il seme italiano</param>
+            <param name="s1">seconda delle 4 stringhe indicante il seme italiano</param>
+            <param name="s2">terza delle 4 stringhe indicante il seme italiano</param>
+            <param name="s3">quarta delle 4 stringhe indicante il seme italiano</param>
+            <param name="s4">prima delle 4 stringhe indicante il seme framcese</param>
+            <param name="s5">seconda delle 4 stringhe indicante il seme francese</param>
+            <param name="s6">terza delle 4 stringhe indicante il seme francese</param>
+            <param name="s7">quarta delle 4 stringhe indicante il seme francese</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Carta.GetCarta(System.UInt16)">
+            <summary>
+            Restituisce la struttura indicante la carta numero quale
+            </summary>
+            <param name="quale">numero della carta da prendere</param>
+            <returns>la struttura indicante la carta presa</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Carta.StessoSeme(org.altervista.numerone.framework.Carta)">
+            <summary>
+            Dice se due carte hanno lo stesso seme
+            </summary>
+            <param name="c1">carta con cui confrontare il seme, pu� essere null</param>
+            <returns>true se la carta chiamante ha lo stesso seme di c1</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Carta.CompareTo(org.altervista.numerone.framework.Carta)">
+            <summary>
+            Compara due carte
+            </summary>
+            <param name="c1">carta con cui confrontare il seme, pu� essere null</param>
+            <returns>-1 se maggiore la prima, zero se uguale, 1 se maggiore la seconda</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Carta.SetHelper(org.altervista.numerone.framework.CartaHelper,org.altervista.numerone.framework.Mazzo)">
+            <summary>
+            Imposta l'helper della classe carta, se ad inizio partita
+            </summary>
+            <param name="h">L'helper da importare</param>
+            <param name="m">Mazzo per certificare che si � all'inizio della partita</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Carta.SetSemiStr(org.altervista.numerone.framework.Mazzo,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Imposta i semi delle carte in formato stringa
+            </summary>
+            <param name="m">mazzo col nome</param>
+            <param name="s0">prima delle 4 stringhe indicante il seme italiano</param>
+            <param name="s1">seconda delle 4 stringhe indicante il seme italiano</param>
+            <param name="s2">terza delle 4 stringhe indicante il seme italiano</param>
+            <param name="s3">quarta delle 4 stringhe indicante il seme italiano</param>
+            <param name="s4">prima delle 4 stringhe indicante il seme framcese</param>
+            <param name="s5">seconda delle 4 stringhe indicante il seme francese</param>
+            <param name="s6">terza delle 4 stringhe indicante il seme francese</param>
+            <param name="s7">quarta delle 4 stringhe indicante il seme francese</param>
+        </member>
+        <member name="T:org.altervista.numerone.framework.CartaHelper">
+            <summary>
+            Interfaccia per modificare il comportamento della classe carta
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.CartaHelper.GetSeme(System.UInt16)">
+            <summary>
+            Interfaccia per modificare il comportamento della classe carta
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.CartaHelper.GetValore(System.UInt16)">
+            <summary>
+            rettuisce il valore della carta indicata
+            </summary>
+            <param name="Carta">carta di cui prendere il valore</param>
+            <returns>un numero intero, verosimilmente da 0 a 9</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.CartaHelper.GetPunteggio(System.UInt16)">
+            <summary>
+            resituisce il punteggio della carta indicata
+            </summary>
+            <param name="Carta">carta di cui prendere il punteggio</param>
+            <returns>restituisce il punteggio sulla base del gioco che si sta facendo</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.CartaHelper.GetSemeStr(org.altervista.numerone.framework.Mazzo,System.UInt16,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            retituisce il seme in formato stringa della carta presa in esame (uno tra s0 e s7)
+            </summary>
+            <param name="m">mazzo col nome</param>
+            <param name="Carta">carta da prendere in esame</param>
+            <param name="s0">primo seme italiano</param>
+            <param name="s1">secondo seme italiano</param>
+            <param name="s2">terzo seme italiano</param>
+            <param name="s3">quarto seme italiano</param>
+            <param name="s4">prima delle 4 stringhe indicante il seme framcese</param>
+            <param name="s5">seconda delle 4 stringhe indicante il seme francese</param>
+            <param name="s6">terza delle 4 stringhe indicante il seme francese</param>
+            <param name="s7">quarta delle 4 stringhe indicante il seme francese</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.CartaHelper.GetNumero(System.UInt16,System.UInt16)">
+            <summary>
+            Accoppia seme e valore per tornare l'intero indicante la carta
+            </summary>
+            <param name="seme">seme della carta</param>
+            <param name="valore">valore della carta</param>
+            <returns>intero indicante la carta</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.CartaHelper.CompareTo(System.UInt16,System.UInt16)">
+            <summary>
+            Compara le due carte per stabilire ch sia la maggiore
+            </summary>
+            <param name="carta">prima carta presa in esame</param>
+            <param name="carta1">seconda carta presa in esame</param>
+            <returns>-1 se maggiore la prima, zero se uguale, 1 se maggiore la seconda</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.briscola.CartaHelper">
+            <summary>
+            Interfaccia per modificare il comportamento della classe carta in base al gioco della briscola
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.briscola.CartaHelper.CartaBriscola">
+            <summary>
+            numer intero indicante la carta di briscola, viene salvato per il compareto
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.briscola.CartaHelper.#ctor(System.UInt16)">
+            <summary>
+            costruttore che inizializza l'intero indicante la carta di briscola
+            </summary>
+            <param name="briscola">intero di briscola</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.briscola.CartaHelper.GetSeme(System.UInt16)">
+            <summary>
+            retituisce il seme della carta indicata
+            </summary>
+            <param name="Carta">carta di cui prendere il seme</param>
+            <returns>un numero intero, verosimilmemnte da 0 a 4</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.briscola.CartaHelper.GetValore(System.UInt16)">
+            <summary>
+            rettuisce il valore della carta indicata
+            </summary>
+            <param name="Carta">carta di cui prendere il valore</param>
+            <returns>un numero intero, verosimilmente da 0 a 9</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.briscola.CartaHelper.GetPunteggio(System.UInt16)">
+            <summary>
+            resituisce il punteggio della carta indicata
+            </summary>
+            <param name="Carta">carta di cui prendere il punteggio</param>
+            <returns>restituisce il punteggio sulla base del gioco che si sta facendo</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.briscola.CartaHelper.GetSemeStr(org.altervista.numerone.framework.Mazzo,System.UInt16,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            retituisce il seme in formato stringa della carta presa in esame (uno tra s0 e s7)
+            </summary>
+            <param name="m">mazzo col nome</param>
+            <param name="Carta">carta da prendere in esame</param>
+            <param name="s0">primo seme italiano</param>
+            <param name="s1">secondo seme italiano</param>
+            <param name="s2">terzo seme italiano</param>
+            <param name="s3">quarto seme italiano</param>
+            <param name="s4">prima delle 4 stringhe indicante il seme framcese</param>
+            <param name="s5">seconda delle 4 stringhe indicante il seme francese</param>
+            <param name="s6">terza delle 4 stringhe indicante il seme francese</param>
+            <param name="s7">quarta delle 4 stringhe indicante il seme francese</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.briscola.CartaHelper.GetNumero(System.UInt16,System.UInt16)">
+            <summary>
+            Accoppia seme e valore per tornare l'intero indicante la carta
+            </summary>
+            <param name="seme">seme della carta</param>
+            <param name="valore">valore della carta</param>
+            <returns>intero indicante la carta</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.briscola.CartaHelper.GetCartaBriscola">
+            <summary>
+            Retituisce la struttura indicante la carta di briscola
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.briscola.CartaHelper.CompareTo(System.UInt16,System.UInt16)">
+            <summary>
+            Compara le due carte per stabilire ch sia la maggiore
+            </summary>
+            <param name="Carta">prima carta presa in esame</param>
+            <param name="Carta1">seconda carta presa in esame</param>
+            <returns>-1 se maggiore la prima, zero se uguale, 1 se maggiore la seconda</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.solitario.CartaHelper">
+            <summary>
+            Interfaccia per modificare il comportamento della classe carta in base al gioco del solitario la ottre di babele
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.solitario.CartaHelper.CompareTo(System.UInt16,System.UInt16)">
+            <summary>
+            Compara le due carte per stabilire chi sia la maggiore
+            </summary>
+            <param name="carta">prima carta presa in esame</param>
+            <param name="carta1">seconda carta presa in esame</param>
+            <returns>-1 se maggiore la prima, zero se uguale, 1 se maggiore la seconda</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.solitario.CartaHelper.GetNumero(System.UInt16,System.UInt16)">
+            <summary>
+            Accoppia seme e valore per tornare l'intero indicante la carta
+            </summary>
+            <param name="seme">seme della carta</param>
+            <param name="valore">valore della carta</param>
+            <returns>intero indicante la carta</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.solitario.CartaHelper.GetPunteggio(System.UInt16)">
+            <summary>
+            resituisce il punteggio della carta indicata
+            </summary>
+            <param name="Carta">carta di cui prendere il punteggio</param>
+            <returns>restituisce il punteggio sulla base del gioco che si sta facendo</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.solitario.CartaHelper.GetSeme(System.UInt16)">
+            <summary>
+            retituisce il seme della carta indicata
+            </summary>
+            <param name="Carta">carta di cui prendere il seme</param>
+            <returns>un numero intero, verosimilmemnte da 0 a 4</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.solitario.CartaHelper.GetSemeStr(org.altervista.numerone.framework.Mazzo,System.UInt16,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            retituisce il seme della carta indicata
+            </summary>
+            <param name="m">mazzo col nome</param>
+            <param name="carta">carta di cui prendere il seme</param>
+            <param name="s0">Stringa indicante bastoni</param>
+            <param name="s1">Stringa indicante coppe</param>
+            <param name="s2">Stringa indicante denari</param>
+            <param name="s3">Stringa indicate spade</param>
+            <param name="s4">prima delle 4 stringhe indicante il seme framcese</param>
+            <param name="s5">seconda delle 4 stringhe indicante il seme francese</param>
+            <param name="s6">terza delle 4 stringhe indicante il seme francese</param>
+            <param name="s7">quarta delle 4 stringhe indicante il seme francese</param>
+            <returns>il sene in formato stringa della carta</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.solitario.CartaHelper.GetValore(System.UInt16)">
+            <summary>
+            rettuisce il valore della carta indicata
+            </summary>
+            <param name="Carta">carta di cui prendere il valore</param>
+            <returns>un numero intero, verosimilmente da 0 a 9</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.ElaboratoreCarte">
+            <summary>
+            Interfaccia per modificare il comportamento della classe mazzo
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.ElaboratoreCarte.GetCarta">
+            <summary>
+            restituisce la prossima carta del mazzo
+            </summary>
+            <returns>prende la prima carta non ancora uscita</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.ElaboratoreCarte.GetNumeroCarte">
+            <summary>
+            Dice quante carte sono rimaste nel mazzo
+            </summary>
+            <returns>Retituisce il numero di carte nel mazzo</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.ElaboratoreCarteBriscola">
+            <summary>
+            Interfaccia per modificare il comportamento della classe mazzo in base al gioco della briscola
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.ElaboratoreCarteBriscola.numeroCarte">
+            <summary>
+            numero dellec carte, valore minimo e massimo dei numeri random da elaborare
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.ElaboratoreCarteBriscola.min">
+            <summary>
+            numero dellec carte, valore minimo e massimo dei numeri random da elaborare
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.ElaboratoreCarteBriscola.max">
+            <summary>
+            numero dellec carte, valore minimo e massimo dei numeri random da elaborare
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.ElaboratoreCarteBriscola.doppione">
+            <summary>
+            se una carta è già uscita
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.ElaboratoreCarteBriscola.CartaBriscola">
+            <summary>
+            la carta di briscola, la prima ad uscire
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.ElaboratoreCarteBriscola.inizio">
+            <summary>
+            indica se la carta di briscola deve essere salvata e se può essere di peso
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.ElaboratoreCarteBriscola.briscolaDaPunti">
+            <summary>
+            indica se la carta di briscola deve essere salvata e se può essere di peso
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.ElaboratoreCarteBriscola.#ctor(System.Boolean,System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            costruttore che inizializza la struttura, compresi i numeri da elaborare
+            </summary>
+            <param name="punti">se la carta di briscola può avere peso</param>
+            <param name="a">numero totale di carte da elaborare</param>
+            <param name="m">valore della prima carta</param>
+            <param name="n">valore della seconda carta</param>
+            <exception cref="T:System.ArgumentException">se il numero totale di carte da chiamare non corrisponde a min+max-1</exception>
+        </member>
+        <member name="M:org.altervista.numerone.framework.ElaboratoreCarteBriscola.GetCarta">
+            <summary>
+            elabora la prossima carta da mettere nel mazzo
+            </summary>
+            <returns>la prossima carta da mettere nel mazzo</returns>
+            <exception cref="T:System.ArgumentException">se si raggiunge il numero massimo di carte</exception>
+        </member>
+        <member name="T:org.altervista.numerone.framework.Giocatore">
+            <summary>
+            Identifica il giocatore
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Giocatore.Nome">
+            <summary>
+            nome del giocatore
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.Giocatore.mano">
+            <summary>
+            la mano del giocatire
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Giocatore.OrdinaMano">
+            <summary>
+            se la mano deve essere ordinata
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.Giocatore.iCarta">
+            <summary>
+            indice della carta presa in esame
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.Giocatore.totaleCarte">
+            <summary>
+            numero totale di carte presenti nella mano
+            </summary>
+        </member>
+        <member name="T:org.altervista.numerone.framework.Giocatore.CARTA_GIOCATA">
+            <summary>
+            helper che condiziona il comportamento della struttura
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.#ctor(org.altervista.numerone.framework.GiocatoreHelper,System.String,System.UInt16,System.Boolean)">
+            <summary>
+            inzializza la struttura
+            </summary>
+            <param name="h">modifica il comportamento della struttura</param>
+            <param name="n">nome del giocatore</param>
+            <param name="carte">numero di carte in mano al giocatore</param>
+            <param name="ordina">se la mano deve essere ordinata</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.AddCarta(org.altervista.numerone.framework.Mazzo)">
+            <summary>
+            Aggiunge una carta nella mano del giocatore, eventualmente ordinando e sostituendo la carta gi� giocata in precedenza se esiste. Se il mazzo non ha carte compatta la mano e diminuisce numeroCarte, ma non totaleCarte
+            </summary>
+            <param name="m">mazzo da cui prendere la carta</param>
+            <exception cref="T:System.ArgumentException">Se si supera il massimo delle carte contenibili</exception>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.Ordina(org.altervista.numerone.framework.Mazzo)">
+            <summary>
+            Ordina la mano con l'insertion sort
+            </summary>
+            <param name="m">mazzo da cui prendere la carta</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.SostituisciCartaGiocata(org.altervista.numerone.framework.Mazzo)">
+            <summary>
+            Sostituisce la carta giocata con una fresca presa dal mazzo, se non ci sono pi� carrte nel mazzo diminuisce numeroCarte ed iCarta
+            </summary>
+            <param name="m">mazzo da cui prendere la carta giocata</param>
+            <returns>la carta da aggiungere</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.Gioca(System.UInt16,System.Boolean)">
+            <summary>
+            Se � l'utente imposta la carta giocata come i, se � il computer elabora una carta da giocare essendo il primo di mano
+            </summary>
+            <param name="i">vale solo come utente, indice della carta da giocare</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.Gioca(System.UInt16,org.altervista.numerone.framework.Giocatore,System.Boolean)">
+            <summary>
+            Se � l'utente imposta la carta giocata come i, se � il computer elabora una carta da giocare essendo il secondo di mano
+            </summary>
+            <param name="i">vale solo come utente, indice della carta da giocae</param>
+            <param name="g1">primo di mano</param>
+            <param name="stessoSeme">stabilisce se buosgna rispondere al seme</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.AggiornaPunteggio(org.altervista.numerone.framework.Giocatore)">
+            <summary>
+            Aggiorna il puntegio sulla base delle carte giocate
+            </summary>
+            <param name="g">l'altro giocatore</param>
+            <returns>il punteggio attuale</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.Gioca(System.UInt16,System.Collections.Generic.List{org.altervista.numerone.framework.Carta})">
+            <summary>
+            Se � l'utente deve impostare iCartaGiocata ad i, se � il computer deve costruirsi i grafi di presa sulla base delle carte in mano e del piatto per stabilirsi cosa giocare
+            </summary>
+            <param name="i">vale solo se � l'utente, numero della carta da giocare</param>
+            <param name="piatto">il piatto</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Giocatore.GetID(System.UInt16)">
+            <summary>
+            Restituisce l'id in xaml della carta presa in esame per associarla all'immagine
+            </summary>
+            <param name="quale">indice della carta</param>
+            <returns>una stringa indicante la carta che sia esistente in xaml</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.GiocatoreHelper">
+            <summary>
+            Interfaccia per modificare il comportamento della classe giocatore
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelper.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,System.Boolean)">
+            <summary>
+            Gioca se � il primo di mano, se � l'utente deve restituire i, se � la cpu deve restituire l'indice in mano a v indicante il numero della carta da giocare
+            </summary>
+            <param name="i">carta da giocare se � l'utente</param>
+            <param name="v">vettore delle carte da giocare se � il computer</param>
+            <param name="numeroCarte">dimensione di v</param>
+            <returns>indice di v indicante la carta giocata</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelper.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,org.altervista.numerone.framework.Carta,System.Boolean)">
+            <summary>
+            Gioca se � il secondo di mano, se � l'utente deve restituire i, se � la cpu deve restituire l'indice in mano a v indicante il numero della carta da giocare in base a c e stessoSeme
+            </summary>
+            <param name="i">carta da giocare se � l'utente</param>
+            <param name="v">vettore delle carte da giocare se � il computer</param>
+            <param name="numeroCarte">dimensione di v</param>
+            <param name="c">carta giocata dal primo di mano</param>
+            <param name="stessoSeme">indica se bisogna rispondere al seme</param>
+            <returns>indice di v indicante la carta scelta</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelper.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,System.Collections.Generic.List{org.altervista.numerone.framework.Carta})">
+            <summary>
+            Gioca se � il secondo di mano, se � l'utente deve restituire i, se � la cpu deve restituire l'indice in mano a v indicante il numero della carta da giocare in base a c e stessoSeme
+            </summary>
+            <param name="i">carta da giocare se � l'utente</param>
+            <param name="v">vettore delle carte da giocare se � il computer</param>
+            <param name="numeroCarte">dimensione di v</param>
+            <param name="piatto">carte per terra</param>
+            <returns>indice di v indicante la carta scelta</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelper.AggiornaPunteggio(System.UInt16,org.altervista.numerone.framework.Carta,org.altervista.numerone.framework.Carta)">
+            <summary>
+            Deve aggiornare il punteggio del giocatore
+            </summary>
+            <param name="punteggio">il punteggio da aggiornare</param>
+            <param name="c">la prima carta giocata</param>
+            <param name="c1">la seconda carta g</param>
+            <returns>il punteggio aggiornato</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.GiocatoreHelperCpu">
+            <summary>
+            Interfaccia per modificare il comportamento della classe cpu
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.GiocatoreHelperCpu.briscola">
+            <summary>
+            struttura indicante la carta di briscola
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.GetBriscola(org.altervista.numerone.framework.Carta[],System.UInt16)">
+            <summary>
+            Retituisce la prima carta di briscola (la pi� piccola in mano al giocatore)
+            </summary>
+            <param name="mano">mano del giocatore</param>
+            <param name="numeroCarte">numero di carte</param>
+            <returns>indice della carta giocata indicante la briscoola pi� piccola</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.#ctor(System.UInt16)">
+            <summary>
+            Inizializza la struttura portandosi il seme di briscola
+            </summary>
+            <param name="b">intero indicante la carta di briscola</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.getSoprataglio(org.altervista.numerone.framework.Carta[],System.UInt16,org.altervista.numerone.framework.Carta,System.Boolean)">
+            <summary>
+            Retituisce una carta di valore maggiore di quella giocata se c'� dipendentemente se deve essere la pi� alta o la subito superiore
+            </summary>
+            <param name="mano">mano da prendere in esame</param>
+            <param name="numeroCarte">numero di carte in mano</param>
+            <param name="c">carta giocata</param>
+            <param name="maggiore">stabilisce se devee essere quella subito superiore o la pi� grande in assoluto</param>
+            <returns>indice della carta se trovata, numeroCarte altrimenti</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.GetPrimaCartaConSeme(org.altervista.numerone.framework.Carta[],System.UInt16,org.altervista.numerone.framework.Carta)">
+            <summary>
+            Retituisce la prima carta dello stesso seme in mano al giocatore indipendentemente se sia pi� grande o no
+            </summary>
+            <param name="mano">vettore delle carte da prendere in esame</param>
+            <param name="numeroCarte">dimensione del vettore</param>
+            <param name="c">carta giocata dall'altro giocatore</param>
+            <returns>indice della carta se trovata, numeroCarte altrimenti</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,System.Boolean)">
+            <summary>
+            se � il primo di mano cerca la carta pi� difficile da prendere
+            </summary>
+            <param name="x">indice della carta da giocare, qui non considerato</param>
+            <param name="mano">vettore delle carte da prendere in esame</param>
+            <param name="numeroCarte">dimensione del vettore delle carte</param>
+            <returns>l'indice dela carta da giocare</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,org.altervista.numerone.framework.Carta,System.Boolean)">
+            <summary>
+            Se � il secondo di mano sceglie quale carta giocare sulla base della carta giocata e se bisogna rispondere al seme
+            </summary>
+            <param name="x">indice della carta da giocare, qui non considerato</param>
+            <param name="mano">vettore delle carte da giocare</param>
+            <param name="numeroCarte">dimensione del vettore dellke carte</param>
+            <param name="c">carta giocata dall'altro giocatore</param>
+            <param name="stessoSeme">indica se bisogna rispondere al seme</param>
+            <returns>indice di mano indicante la carta da giocare</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.AggiornaPunteggio(System.UInt16,org.altervista.numerone.framework.Carta,org.altervista.numerone.framework.Carta)">
+            <summary>
+            Deve aggiornare il punteggio del giocatore
+            </summary>
+            <param name="punteggioAttuale">il punteggio da aggiornare</param>
+            <param name="c">la prima carta giocata</param>
+            <param name="c1">la seconda carta giocata</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.GetLivello">
+            <summary>
+            retituisce il livello di gioco
+            </summary>
+            <returns>il livello di gioco</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,System.Collections.Generic.List{org.altervista.numerone.framework.Carta})">
+            <summary>
+            metodo da richiamare in presenza del piatto, deve costruirsi i grafi di gioco
+            </summary>
+            <param name="i">indice dellc arta da giocare, da non considerare se � la cpu</param>
+            <param name="v">vettore delle carte da guicare</param>
+            <param name="numeroCarte">dimensione di v</param>
+            <param name="piatto">lista delle carte per terra</param>
+            <returns>indice di v indicante la carta scelta</returns>
+            <exception cref="T:System.NotImplementedException">nella briscola questo metodo non � inizializzato</exception>
+        </member>
+        <member name="T:org.altervista.numerone.framework.GiocatoreHelperCpu0">
+            <summary>
+            Classe che implementa il comportamento di un giocatore CPU di livello 1
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu0.#ctor(System.UInt16)">
+            <summary>
+            Inizializza la struttura portandosi il seme di briscola
+            </summary>
+            <param name="b">intero indicante la carta di briscola</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu0.GetLivello">
+            <summary>
+            retituisce il livello di gioco
+            </summary>
+            <returns>il livello di gioco</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu0.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,org.altervista.numerone.framework.Carta,System.Boolean)">
+            <summary>
+            Se è il secondo di mano e ha briscola gioca quella, altrimenti se deve rispondere al seme cerca lka carta più piccola dello stesso seme, se no gioca la carta più piccola in assoluto
+            </summary>
+            <param name="x">indice della carta da giocare, qui non considerato</param>
+            <param name="mano">vettore delle carte da giocare</param>
+            <param name="numeroCarte">dimensione del vettore dellke carte</param>
+            <param name="c">carta giocata dall'altro giocatore</param>
+            <param name="stessoSeme">indica se bisogna rispondere al seme</param>
+            <returns>indice di mano indicante la carta da giocare</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.GiocatoreHelperCpu1">
+            <summary>
+            Classe che implementa il comportamento della cpu di livello 2
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu1.#ctor(System.UInt16)">
+            <summary>
+            Inizializza la struttura portandosi il seme di briscola
+            </summary>
+            <param name="b">intero indicante la carta di briscola</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu1.GetLivello">
+            <summary>
+            retituisce il livello di gioco
+            </summary>
+            <returns>il livello di gioco</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu1.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,org.altervista.numerone.framework.Carta,System.Boolean)">
+            <summary>
+            Se è il secondo di mano si cerca la carta di maggior valore con lo stesso seme, se non la si trova e si ha briscola e la carta ha peso si gioca briscola, se non può prendere se deve rispondere al seme cerca la carta più piccola dello stesso seme, se no gioca la carta più piccola in assoluto
+            </summary>
+            <param name="x">indice della carta da giocare, qui non considerato</param>
+            <param name="mano">vettore delle carte da giocare</param>
+            <param name="numeroCarte">dimensione del vettore dellke carte</param>
+            <param name="c">carta giocata dall'altro giocatore</param>
+            <param name="stessoSeme">indica se bisogna rispondere al seme</param>
+            <returns>indice di mano indicante la carta da giocare</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.GiocatoreHelperCpu2">
+            <summary>
+            Classe che implementa il comportamento della CPU di livello 3
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu2.#ctor(System.UInt16)">
+            <summary>
+            Inizializza la struttura ortandosi il seme di briscola
+            </summary>
+            <param name="b">intero indicante la carta di briscola</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu2.GetLivello">
+            <summary>
+            retituisce il livello di gioco
+            </summary>
+            <returns>il livello di gioco</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperCpu2.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,org.altervista.numerone.framework.Carta,System.Boolean)">
+            <summary>
+            Se è il secondo di mano si cerca la carta di maggior valore con lo stesso seme, se non la si trova e si ha briscola e la carta ha peso sceglie se giocare la briscola oppure non può prendere per non far scoprire le carte, se non può prendere se deve rispondere al seme cerca la carta più piccola dello stesso seme, se no gioca la carta più piccola in assoluto
+            </summary>
+            <param name="x">indice della carta da giocare, qui non considerato</param>
+            <param name="mano">vettore delle carte da giocare</param>
+            <param name="numeroCarte">dimensione del vettore dellke carte</param>
+            <param name="c">carta giocata dall'altro giocatore</param>
+            <param name="stessoSeme">indica se bisogna rispondere al seme</param>
+            <returns>indice di mano indicante la carta da giocare</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.GiocatoreHelperUtente">
+            <summary>
+            Classe per modificare il comportamento della classe giocatore in base all'esperienza di gioco dell'utente
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperUtente.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,System.Boolean)">
+            <summary>
+            restituisce la carta scelta dall'utente, cio� i, sempre se papabile
+            </summary>
+            <param name="i">carta scelta dall'utente</param>
+            <param name="v">vettore delle carte</param>
+            <param name="numeroCarte">dimensione del vettore delle carte</param>
+            <returns>semplicemente i</returns>
+            <exception cref="T:System.ArgumentException">se i non � nel range</exception>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperUtente.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,org.altervista.numerone.framework.Carta,System.Boolean)">
+            <summary>
+            Restituisce i se � una carta papabile, facendo eventualmente il controllo se � dello stesso seme della carta gi� giocata
+            </summary>
+            <param name="i">indice della carta da giocare</param>
+            <param name="v">vettore delle carte</param>
+            <param name="numeroCarte">dimensione del vettore delle carte</param>
+            <param name="c">carta gi� giocata</param>
+            <param name="stessoSeme">dice se bisogna rispondere al seme oppure no</param>
+            <returns>i se � pababile</returns>
+            <exception cref="T:System.Exception">la carta indicata non � pababile</exception>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperUtente.AggiornaPunteggio(System.UInt16,org.altervista.numerone.framework.Carta,org.altervista.numerone.framework.Carta)">
+            <summary>
+            Aggiorna il punteggio della struttura sulla base delle due carte giocate
+            </summary>
+            <param name="punteggioAttuale">il punteggio attuale</param>
+            <param name="c">la prima carta giocata</param>
+            <param name="c1">la seconda carta giocata</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.GiocatoreHelperUtente.Gioca(System.UInt16,org.altervista.numerone.framework.Carta[],System.UInt16,System.Collections.Generic.List{org.altervista.numerone.framework.Carta})">
+            <summary>
+            metodo da richiamare in presenza del piatto, deve costruirsi i grafi di gioco
+            </summary>
+            <param name="i">indice dellc arta da giocare, da non considerare se � la cpu</param>
+            <param name="v">vettore delle carte da guicare</param>
+            <param name="numeroCarte">dimensione di v</param>
+            <param name="piatto">lista delle carte per terra</param>
+            <returns>indice di v indicante la carta scelta</returns>
+        </member>
+        <member name="T:org.altervista.numerone.framework.Mazzo">
+            <summary>
+            Classe che identifica il mazzo di gioco
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.Mazzo.carte">
+            <summary>
+            vettore delle carte
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.Mazzo.numeroCarte">
+            <summary>
+            dimensione del vettore delle carte
+            </summary>
+        </member>
+        <member name="F:org.altervista.numerone.framework.Mazzo.elaboratore">
+            <summary>
+            personalizza il comportamento dell'elaborazione della carta
+            </summary>
+        </member>
+        <member name="P:org.altervista.numerone.framework.Mazzo.Nome">
+            <summary>
+            nome del mazzo, serve per stabilire se le stringhe di gioco devono essere italiane o francesi
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Mazzo.Mischia">
+            <summary>
+            Elabora il numero di carte indicate dall'elaboratore sulla base del minimo e del massimo messi nell'elaboratore
+            </summary>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Mazzo.#ctor(org.altervista.numerone.framework.ElaboratoreCarte,System.String)">
+            <summary>
+            crea il mazzo
+            </summary>
+            <param name="e">elaboratore per personalizzare il mazzo</param>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Mazzo.GetNumeroCarte">
+            <summary>
+            getter del numero di carte totali del mazzo
+            </summary>
+            <returns>numero di carte totali del mazzo</returns>
+        </member>
+        <member name="M:org.altervista.numerone.framework.Mazzo.GetCarta">
+            <summary>
+            restituisce la prima carta in cima al mazzo
+            </summary>
+            <returns>intero indicante la carta in cima al mazzo</returns>
+            <exception cref="T:System.IndexOutOfRangeException">se non ci sono più carte</exception>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+{
+  "name": "njam",
+  "version": "1.21.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs . 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node test/core.mjs && node test/i18n.mjs && node test/production.mjs",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "license": "GPL-3.0-or-later"
+}

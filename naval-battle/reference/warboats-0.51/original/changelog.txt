@@ -1,0 +1,51 @@
+Warboats Changelog/Version History:
+
+0.1		05 August 2009
+Initial release
+AI through level 2
+textual UI
+
+0.11	07 August 2009
+Fixes:
+Makefile now correctly builds program
+Source file fully commented
+Todo:
+Fix SegFault when player incorrectly enters firing coordinates
+
+0.3	15 August 2009
+Additions:
+AI level 3 now supported
+Fixes:
+Fixed segfault when improper coordinates entered by player
+
+0.4 01 September 2009
+Additions:
+AI level 4 now supported
+Functional Changes:
+	AI level 3:
+		Removed direction-finding for hit ships
+		Added a grid pattern to improve ship finding
+
+0.41 02 September 2009
+Functional Changes:
+	Reversed AI 3 changes from 0.4
+
+0.5  21 November 2009
+Functional changes:
+	None! (hopefully)
+Misc. changes:
+	code refactored and cleaned substantially
+	comments changed to ANSI-style for portability
+Todo:
+	more thorough comments in source files
+	
+0.51 30 November 2009
+Fixes:
+	Ships no longer register as sunk after a single hit
+	AI no longer stores coordinates after player hit
+	AI now correctly uses found direction of player ships
+	AI now correctly places all ships on board
+Misc. changes:
+	code renamed to  reflect braching development. What was warboats is now warboats-ascii
+Todo:
+	comments

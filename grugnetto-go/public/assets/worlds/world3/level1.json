@@ -1,0 +1,185 @@
+{
+  "world": "world3",
+  "level": 1,
+  "name": "Dune Dorate — Livello 1 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 75,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 16,
+      "row": 7
+    },
+    {
+      "col": 21,
+      "row": 6
+    }
+  ],
+  "platforms": [
+    {
+      "col": 7,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 24,
+      "span": 7,
+      "row": 4,
+      "material": "bridge"
+    },
+    {
+      "col": 36,
+      "span": 4,
+      "row": 4
+    }
+  ],
+  "coins": [
+    {
+      "col": 8,
+      "row": 5
+    },
+    {
+      "col": 9,
+      "row": 5
+    },
+    {
+      "col": 15,
+      "row": 6
+    },
+    {
+      "col": 17,
+      "row": 5
+    },
+    {
+      "col": 19,
+      "row": 5
+    },
+    {
+      "col": 22,
+      "row": 4
+    },
+    {
+      "col": 26,
+      "row": 3
+    },
+    {
+      "col": 28,
+      "row": 3
+    },
+    {
+      "col": 37,
+      "row": 3
+    },
+    {
+      "col": 38,
+      "row": 3
+    },
+    {
+      "col": 44,
+      "row": 4
+    },
+    {
+      "col": 46,
+      "row": 4
+    },
+    {
+      "col": 48,
+      "row": 4
+    },
+    {
+      "col": 50,
+      "row": 4
+    },
+    {
+      "col": 54,
+      "row": 4
+    },
+    {
+      "col": 56,
+      "row": 4
+    },
+    {
+      "col": 58,
+      "row": 4
+    },
+    {
+      "col": 60,
+      "row": 4
+    }
+  ],
+  "bonus": [
+    {
+      "col": 41,
+      "row": 5,
+      "kind": "key"
+    }
+  ],
+  "enemies": [
+    {
+      "col": 47,
+      "kind": "mouse",
+      "patrolTiles": 3
+    },
+    {
+      "col": 57,
+      "kind": "mouse",
+      "patrolTiles": 3
+    }
+  ],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 8,
+      "row": 5,
+      "kind": "cactus"
+    },
+    {
+      "col": 13,
+      "row": 7,
+      "kind": "cactus"
+    },
+    {
+      "col": 37,
+      "row": 3,
+      "kind": "cactus"
+    },
+    {
+      "col": 47,
+      "row": 5,
+      "kind": "cactus"
+    }
+  ],
+  "goalCol": 71,
+  "pits": [
+    {
+      "col": 7,
+      "span": 4
+    },
+    {
+      "col": 24,
+      "span": 7
+    },
+    {
+      "col": 36,
+      "span": 4
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 13,
+      "row": 6
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world3-level1', groups=7, difficulty=0.15). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: perch, step_up, step_up, bridge, perch, gauntlet, gauntlet."
+}

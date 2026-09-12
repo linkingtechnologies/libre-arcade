@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Netris</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main id="app" class="game-shell">
+    <header class="topbar">
+      <h1>Netris</h1>
+      <div class="stats">
+        <span>Lines <strong id="lines">0</strong></span>
+      </div>
+    </header>
+    <canvas id="board" role="img" aria-label="Netris playing field"></canvas>
+    <p id="status" class="status" aria-live="polite"></p>
+    <footer class="help">
+      <p>
+        <kbd>←</kbd>/<kbd>j</kbd> <kbd>→</kbd>/<kbd>l</kbd> move ·
+        <kbd>↑</kbd>/<kbd>k</kbd> rotate · <kbd>↓</kbd>/<kbd>space</kbd> soft drop ·
+        <kbd>p</kbd> hard drop · <kbd>f</kbd> faster (one-way) ·
+        <kbd>s</kbd> pause · <kbd>r</kbd> restart · <kbd>a</kbd> autopilot
+      </p>
+      <p class="provenance">
+        A faithful port of the single-player core of
+        <a href="https://web.archive.org/web/20110831162119/http://netris.org/" rel="noopener">Netris 0.52</a>
+        (1994–1999) by Mark H. Weaver. No score and no automatic speed-up,
+        exactly as the original — see
+        <a href="../SOFTWARE_ARCHAEOLOGY.md">SOFTWARE_ARCHAEOLOGY.md</a>.
+      </p>
+    </footer>
+  </main>
+  <script type="module" src="./src/ui.js"></script>
+</body>
+</html>

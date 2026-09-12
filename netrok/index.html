@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#101010" name="theme-color"/>
+<meta content="Play Netrok in your browser." name="description"/>
+<meta content="default-src 'self' blob:; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'; connect-src 'none'" http-equiv="Content-Security-Policy"/>
+<title>Netrok</title>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="src/style.css" rel="stylesheet"/>
+</head>
+<body>
+<main class="app" id="app">
+<header class="topbar">
+<div aria-label="Netrok 0.95" class="brand">
+<strong>Netrok</strong><span data-i18n="brand.edition">Web Edition</span>
+</div>
+<button aria-controls="appMenu" aria-haspopup="dialog" class="menuButton" data-i18n="common.menu" id="openMenu" type="button">Menu</button>
+</header>
+<section aria-label="Netrok game" class="gameFrame" data-i18n-aria="common.game_area">
+<canvas aria-label="Netrok game canvas" data-i18n-aria="common.game_canvas" height="200" id="game" tabindex="0" width="320"></canvas>
+<div aria-live="polite" class="loading" id="loadingLabel"><span data-i18n="common.loading_netrok" id="loadingText">Loading Netrok…</span><button data-i18n="common.retry" hidden="" id="retryLoad" type="button">Retry</button></div>
+</section>
+<section aria-label="Touch game controls" class="touch" data-i18n-aria="common.touch_controls" id="touchControls">
+<div class="touchGroup dpad">
+<button aria-label="Up" data-hold="ArrowUp" data-i18n-aria="common.up">▲</button>
+<div>
+<button aria-label="Left" data-hold="ArrowLeft" data-i18n-aria="common.left">◀</button>
+<button aria-label="Down" data-hold="ArrowDown" data-i18n-aria="common.down">▼</button>
+<button aria-label="Right" data-hold="ArrowRight" data-i18n-aria="common.right">▶</button>
+</div>
+</div>
+<div class="touchGroup actions">
+<button aria-label="Run" data-hold="ShiftLeft" data-i18n="common.run" data-i18n-aria="common.run_aria">RUN</button>
+<button aria-label="Jump" data-hold="Space" data-i18n="common.jump" data-i18n-aria="common.jump_aria">JUMP</button>
+<button aria-label="Place checkpoint flag" data-action="flag" data-i18n="common.flag" data-i18n-aria="common.flag_aria">FLAG</button>
+</div>
+<div aria-label="Shield transfer" class="shieldTouch">
+<span data-i18n="common.shield">Shield</span>
+<button aria-label="Move shield up" data-action="shield-up">↑</button>
+<button aria-label="Move shield left" data-action="shield-left">←</button>
+<button aria-label="Move shield down" data-action="shield-down">↓</button>
+<button aria-label="Move shield right" data-action="shield-right">→</button>
+</div>
+</section>
+<p aria-live="polite" class="gameStatus" id="publicStatus">Loading…</p>
+<dialog aria-labelledby="menuTitle" class="menuDialog" id="appMenu">
+<div class="menuCard">
+<div class="menuHead">
+<h1 id="menuTitle">Netrok</h1>
+<button aria-label="Close menu" class="iconButton" data-i18n-aria="common.close_menu" id="closeMenu" type="button">×</button>
+</div>
+<nav aria-label="Netrok menu" class="menuNav">
+<button class="active" data-i18n="common.game" data-panel="gamePanel" type="button">Game</button>
+<button data-i18n="common.options" data-panel="optionsPanel" type="button">Options</button>
+<button data-i18n="common.cheats" data-panel="cheatsPanel" type="button">Cheats</button>
+<button data-i18n="common.extras" data-panel="extrasPanel" type="button">Extras</button>
+<button data-i18n="common.instructions" data-panel="instructionsPanel" type="button">Instructions</button>
+<button data-i18n="common.about" data-panel="aboutPanel" type="button">About</button>
+</nav>
+<section class="menuPanel active" id="gamePanel">
+<h2 data-i18n="common.game">Game</h2>
+<div class="menuActions">
+<button class="primary" data-i18n="game.resume" id="resumeGame" type="button">Resume</button>
+<button data-i18n="game.new" id="newGame" type="button">New game</button>
+<button data-i18n="game.restart" id="restartLevel" type="button">Restart level</button>
+<button data-i18n="game.classic_menu" id="originalMenu" type="button">Classic menu</button>
+</div>
+<p class="menuHint" data-i18n="game.save_hint">Progress is auto-saved during standard runs. Continue restores the current level state after a reload; cheat/custom runs are excluded.</p>
+</section>
+<section class="menuPanel" id="optionsPanel">
+<h2 data-i18n="options.title">Options</h2>
+<div class="optionRows">
+<label class="optionRow"><span data-i18n="options.music">Music</span><input checked="" id="musicToggle" type="checkbox"/></label>
+<label class="optionRow"><span data-i18n="options.effects">Sound effects</span><input checked="" id="effectsToggle" type="checkbox"/></label>
+<label class="optionRow"><span data-i18n="options.touch">Touch controls</span>
+<select id="touchMode">
+<option data-i18n="options.touch_auto" value="auto">Automatic</option>
+<option data-i18n="options.touch_on" value="on">Always show</option>
+<option data-i18n="options.touch_off" value="off">Hide</option>
+</select>
+</label>
+<label class="optionRow"><span data-i18n="options.display">Display</span>
+<select id="renderMode">
+<option data-i18n="options.display_original" value="crisp">Original</option>
+<option data-i18n="options.display_soft" value="smooth">Soft</option>
+<option data-i18n="options.display_enhanced" value="cleanhd4x">Enhanced</option>
+</select>
+</label>
+<label class="optionRow"><span data-i18n="options.language">Language</span><select data-language-select="" id="languageSelect"><option data-i18n="options.english" value="en">English</option><option data-i18n="options.italian" value="it">Italiano</option></select></label></div>
+<p class="menuHint" data-i18n="options.display_hint">Choose the look you prefer. This does not change the gameplay.</p>
+</section>
+<section class="menuPanel" id="cheatsPanel">
+<h2 data-i18n="cheat.title">Cheat mode</h2>
+<div class="cheatWarning" data-i18n="cheat.warning">Cheats are just for fun. High scores are disabled while they are on.</div>
+<div class="optionRows">
+<label class="optionRow"><span data-i18n="cheat.enable">Enable cheat mode</span><input id="cheatEnable" type="checkbox"/></label>
+<label class="optionRow cheatDependent"><span data-i18n="cheat.lives">Infinite lives</span><input id="cheatLives" type="checkbox"/></label>
+<label class="optionRow cheatDependent"><span data-i18n="cheat.invulnerable">Invulnerable to enemies &amp; spikes</span><input id="cheatInvulnerable" type="checkbox"/></label>
+<label class="optionRow cheatDependent"><span data-i18n="cheat.freeze">Freeze level timer</span><input id="cheatFreezeTime" type="checkbox"/></label>
+<label class="optionRow cheatDependent"><span data-i18n="cheat.shields">Infinite shields</span><input id="cheatShields" type="checkbox"/></label>
+<label class="optionRow cheatDependent"><span data-i18n="cheat.powerup">Power-up</span>
+<select id="cheatUpgrade">
+<option data-i18n="cheat.normal" value="0">Normal</option>
+<option data-i18n="cheat.red_shoes" value="1">Red shoes</option>
+<option data-i18n="cheat.blue_shirt" value="2">Blue shirt</option>
+</select>
+</label>
+<label class="optionRow cheatDependent"><span data-i18n="cheat.jump_level">Jump to level</span>
+<span class="inlineAction"><select id="cheatLevel">
+<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+<option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+<option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option>
+<option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option>
+</select><button data-i18n="cheat.go" id="cheatGoLevel" type="button">Go</button></span>
+</label>
+</div>
+<div class="cheatActions">
+<button class="cheatDependent" data-i18n="cheat.fill_shields" id="cheatFillShields" type="button">Fill shields</button>
+<button class="cheatDependent" data-i18n="cheat.add_score" id="cheatAddScore" type="button">+5000 score</button>
+</div>
+<p class="menuHint" data-i18n="cheat.hint">Invulnerability does not rescue Netrok from falling out of the level. Cheat settings are session-only and reset when the page is reloaded.</p>
+</section>
+<section class="menuPanel" id="extrasPanel">
+<h2 data-i18n="extras.title">Extras</h2>
+<div class="menuActions">
+<button data-i18n="extras.editor" id="openEditor" type="button">Level Editor</button>
+<button data-i18n="extras.play_custom" id="playCustomLevel" type="button">Play custom level</button>
+<button data-i18n="extras.import" id="importCustomLevel" type="button">Import level file</button>
+<button data-i18n="extras.clear" id="clearCustomLevel" type="button">Clear custom level</button>
+</div>
+<input accept=".txt,.level,.netrok,text/plain" hidden="" id="customLevelFile" type="file"/>
+<p class="menuHint" data-i18n="extras.none" id="customLevelStatus">No custom level saved in this browser.</p>
+<p class="menuHint" data-i18n="extras.hint">Create and play your own levels. Custom levels do not affect your normal high score.</p>
+</section>
+<section class="menuPanel instructions" id="instructionsPanel">
+<h2 data-i18n="instructions.title">Instructions</h2>
+<div class="instructionGrid">
+<div><h3 data-i18n="instructions.move">Move</h3><p data-i18n-html="instructions.move_text"><kbd>←</kbd> <kbd>→</kbd> move · <kbd>↑</kbd> <kbd>↓</kbd> climb ladders.</p></div>
+<div><h3 data-i18n="instructions.jump_run">Jump &amp; run</h3><p data-i18n-html="instructions.jump_run_text"><kbd>Space</kbd> / <kbd>Alt</kbd> jumps. <kbd>Shift</kbd> / <kbd>Ctrl</kbd> runs.</p></div>
+<div><h3 data-i18n="instructions.checkpoint">Checkpoint flag</h3><p data-i18n-html="instructions.checkpoint_text"><kbd>Home</kbd> / <kbd>Delete</kbd> places your one jump-in flag for the level. It costs score and cannot be redeployed in the same level.</p></div>
+<div><h3 data-i18n="instructions.shields">Shields</h3><p data-i18n-html="instructions.shields_text">Use numpad <kbd>8</kbd>/<kbd>4</kbd>/<kbd>2</kbd>/<kbd>6</kbd> to select the shield to move, then its destination. A transfer costs score. Collect 20 red shield coins for a new shield.</p></div>
+<div><h3 data-i18n="instructions.enemies">Enemies</h3><p data-i18n="instructions.enemies_text">Attack from a safe side. Spikes matter: upgrades can let Netrok survive attacks that are otherwise lethal. Avoid the large spikes.</p></div>
+<div><h3 data-i18n="instructions.score">Score &amp; lives</h3><p data-i18n="instructions.score_text">Helpful actions can cost points; fast level completion and defeated enemies add points. Every 5,000 points earned grants an extra life.</p></div>
+</div>
+</section>
+<section class="menuPanel" id="aboutPanel">
+<h2 data-i18n="about.title">About</h2>
+<p data-i18n="about.p1"><strong>Netrok</strong> is a platform game created in 2004 by Ioan-Tudor Parvulescu.</p>
+<p data-i18n="about.p2">This edition adds modern controls, saving, display options, cheats and a level editor.</p>
+<p class="menuHint" data-i18n="about.p3">Credits and license details are included with the game files.</p>
+</section>
+</div>
+</dialog>
+<!-- Internal controls, hidden from the player UI. -->
+<div aria-hidden="true" class="internalControls">
+<select id="levelSelect"></select>
+<button id="modeButton" type="button"></button>
+<button id="restartButton" type="button"></button>
+<button id="newRunButton" type="button"></button>
+<button id="pauseButton" type="button">Pause</button>
+<button id="musicButton" type="button">Music: On</button>
+<input id="showGrid" type="checkbox"/>
+<input id="showIds" type="checkbox"/>
+<input id="camera" max="6080" min="0" type="range" value="0"/>
+<output id="cameraOut"></output>
+<span id="status"></span>
+<span id="fidelity"></span>
+</div>
+</main>
+<script src="src/levels.js"></script>
+<script src="src/netrok-core.js"></script>
+<script src="src/sfont-data.js"></script>
+<script src="src/sfont.js"></script>
+<script src="src/i18n.js"></script><script src="src/game.js"></script>
+<script src="src/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+/* Requested live ("usiamo anche font-family: monospace per i font") — scoped to #app (this
+   game's own root mount, the same scoping root every other rule in this file already uses) so it
+   overrides Bulma's default sans-serif stack for every screen/button/tag here, without touching
+   the rest of the Camila dashboard chrome around it. */
+#app {
+  font-family: monospace;
+}
+
+/* === Title box visually attached to the tab bar above it === */
+#app .spa-title-box {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 3px solid #3273dc;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.06);
+}
+
+/* === Pipe Jumper: keep the whole game area within the visible viewport, no page scrollbars ===
+   #grugnetto-go-wrapper carries all the sizing (moved here from #grugnetto-go-screen so the
+   coins/score/fullscreen overlay — a sibling of #grugnetto-go-screen, see app.js —
+   can be positioned against the exact same box the game canvas fills, not a wider ancestor).
+   100px is an estimate for everything above this element (nav bar, tab bar, box padding/border —
+   the title row and controls hint text that used to sit here were removed to free up vertical
+   space, see app.js) — reported live that a fixed canvas height (from the old
+   "flex-width" scaleMethod) pushed the page taller than the viewport. me.video.init's "fit"
+   scaleMethod letterboxes the 1024x576 design resolution to stay inside whatever size this
+   element actually has (via scaleTarget — see app.js).
+   aspect-ratio 16/9 matches 1024x576 exactly (chosen specifically to match most screens' own
+   ratio and minimize fullscreen letterboxing), with width DERIVED from height (not a fixed
+   100%) — found live that leaving width at 100% made this element much wider than the ratio the
+   canvas actually needs, so "fit" letterboxed with big black bars on the sides instead of
+   filling it. margin: 0 auto centers the (now narrower) box horizontally. max-width:100% is the
+   fallback for narrow/mobile viewports where height-derived width would overflow — fit still
+   letterboxes (top/bottom bars) in that specific case, which is the correct trade-off. */
+#app #grugnetto-go-wrapper {
+  position: relative;
+  height: calc(100vh - 100px);
+  min-height: 320px;
+  max-height: 576px;
+  aspect-ratio: 16 / 9;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* #grugnetto-go-screen (melonJS's canvas parent) always fills its wrapper exactly (inset:0) —
+   in the common case the wrapper is already the right 16:9 shape, so this is a no-op; in the
+   narrow-viewport max-width:100% fallback above, or once the wrapper is fullscreen (see below)
+   and the *screen's* own ratio no longer matches the display's, this is what lets melonJS's
+   letterboxed canvas (still just a plain-sized child element — resize.ts's scale() only ever
+   sets canvas.style.width/height, never position) sit centered on a black backdrop instead of
+   pinned to the top-left corner, which is what was reported live before this rule existed. */
+#app #grugnetto-go-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+}
+
+/* The in-game HUD overlay (coins/score/fullscreen button) — a sibling of #grugnetto-go-screen,
+   not a child of it (see app.js's comment on why), positioned against the same
+   #grugnetto-go-wrapper box so it lines up with the actual game area in both normal and
+   fullscreen view. pointer-events:none on the row (auto on its actual children) lets clicks
+   fall through the empty parts of the overlay strip to the canvas underneath.
+   justify-content: space-between (not flex-end) — requested live ("i contatori li sposterei in
+   alto a sx nell'area di gioco - tutto a sx tranne full screen e back"): the two child groups
+   below (counters / actions) now anchor to opposite top corners of the play area instead of
+   both being crammed into one right-aligned row. align-items: flex-start (not center) so the
+   actions group stays pinned to the top edge even if the counters group wraps to a second line
+   on a narrow viewport (see .grugnetto-go-hud-counters below). */
+#app .grugnetto-go-hud-overlay {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+}
+#app .grugnetto-go-hud-overlay > * {
+  pointer-events: auto;
+}
+/* Counters group (world/level, lives, super jump, invincibility, coins, score, combo) — its own
+   flex row so it can wrap independently of the actions group on narrow viewports without the two
+   ever interleaving. */
+#app .grugnetto-go-hud-counters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 4px;
+}
+/* Back + fullscreen — kept from ever wrapping onto a second line of their own (there are only
+   ever 1-2 of them) so they stay a stable anchor in the top-right corner. */
+#app .grugnetto-go-hud-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Super jump gauge (see app.js's own comment on the HUD markup) — the outer .tag.is-dark.is-medium
+   shell is plain Bulma; only the inner track/fill bar is custom. Fixed 60px track width keeps the
+   whole tag a stable size in the HUD row (it wouldn't reflow other tags open/closed the way a
+   width based on content would); fill width itself is set inline per-render in app.js (a live
+   ratio, not something a static class can express). */
+#app .grugnetto-go-superjump-bar-track {
+  display: inline-block;
+  width: 60px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  vertical-align: middle;
+}
+#app .grugnetto-go-superjump-bar-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #f0b429, #ffce54);
+  transition: width 0.2s ease-out;
+}
+/* Explicit "unusable right now" cue, requested live — a 0%-filled bar alone was easy to miss;
+   this dims the whole tag (icon included) so it visually reads as disabled, not just quiet. */
+#app .grugnetto-go-superjump-bar.is-empty {
+  opacity: 0.45;
+}
+
+/* === Pipe Jumper: fullscreen mode ===
+   app.js's toggleFullscreen() puts #grugnetto-go-wrapper (not just
+   #grugnetto-go-screen) into the browser's fullscreen element, specifically so the HUD overlay
+   — a sibling of #grugnetto-go-screen inside this same wrapper — comes along too; fullscreening
+   #grugnetto-go-screen alone would leave the overlay behind on the normal (now-hidden) page.
+   The height/max-height/aspect-ratio/margin rules above still apply here and would otherwise
+   leave the wrapper as a small margin:auto-centered box floating in the middle of a big black
+   OS-level fullscreen background, rather than actually filling it. These :fullscreen overrides
+   fill the whole viewport instead (deliberately overriding aspect-ratio, not combining with it —
+   width/height are both set explicitly here, and aspect-ratio only has an effect when one
+   dimension is auto). position:fixed + inset:0 + margin:0 are spelled out explicitly rather than
+   relying on the browser's own UA fullscreen layout, since that isn't guaranteed identical
+   across engines and any leftover from the base rule's `margin: 0 auto` (unrelated to
+   fullscreen, for centering the small non-fullscreen box) must not carry over here.
+   No display/align-items/justify-content needed here anymore — #grugnetto-go-screen's own
+   (always-on) flex-centering rule above already handles letterboxing the canvas within
+   whatever size this wrapper now has, fullscreen or not. Vendor prefixes needed for
+   Safari/older Edge. */
+#app #grugnetto-go-wrapper:fullscreen,
+#app #grugnetto-go-wrapper:-webkit-full-screen,
+#app #grugnetto-go-wrapper:-moz-full-screen {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+}
+
+/* === Pipe Jumper: loading / level-complete overlays ===
+   Same "absolutely-positioned sibling of #grugnetto-go-screen, inside #grugnetto-go-wrapper"
+   pattern as .grugnetto-go-hud-overlay above — safe to freely add/remove via lit-html ternaries
+   (see app.js) since neither touches #grugnetto-go-screen itself. Full-cover with a
+   semi-opaque backdrop (unlike the HUD strip, which only covers its own top edge), and a
+   z-index above the HUD overlay's 2 so the panel isn't hidden behind the coin/score tags. */
+#app .grugnetto-go-loading-overlay,
+#app .grugnetto-go-complete-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* === Grugnetto Go!: Arcade run-complete confetti ===
+   See app.js's own Confetti()/CONFETTI_* comment for why this exists (Arcade's "finished the
+   whole run" moment only, not every ordinary level-complete) and why rotation is driven by the
+   --rot custom property rather than a static inline transform. .grugnetto-go-confetti fills the
+   same #grugnetto-go-complete-overlay box (already position:absolute, so this absolute child
+   positions against it directly, no extra positioning context needed) — pointer-events:none so
+   it never blocks the button underneath, overflow:hidden so pieces don't visibly spill outside
+   the game area while falling. */
+#app .grugnetto-go-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+#app .grugnetto-go-confetti-piece {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 14px;
+  opacity: 0;
+  animation-name: grugnetto-go-confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes grugnetto-go-confetti-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(var(--rot, 360deg)); opacity: 0.85; }
+}
+
+/* === Grugnetto Go!: on-screen touch controls ===
+   See app.js's own HAS_TOUCH/TouchControls()/touchKey() comment for the JS side (melonJS's
+   triggerKeyEvent()). Bottom-left move pad + bottom-right jump button, absolutely positioned
+   against the same #grugnetto-go-wrapper box the HUD overlay already uses, just pinned to the
+   bottom instead of the top. pointer-events:none on the outer wrapper (auto on the actual
+   buttons) lets taps on the empty space between them fall through to the canvas, same pattern as
+   .grugnetto-go-hud-overlay. touch-action:none stops the browser's own scroll/pinch-zoom gestures
+   from competing with a press — the belt-and-suspenders CSS side of app.js's own
+   e.preventDefault() in every pointer handler. user-select:none stops a long-press from triggering
+   a text-selection callout on some mobile browsers. */
+#app .grugnetto-go-touch-controls {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+}
+#app .grugnetto-go-touch-move {
+  display: flex;
+  gap: 12px;
+}
+#app .grugnetto-go-touch-btn {
+  pointer-events: auto;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#app .grugnetto-go-touch-btn:active {
+  background: rgba(255, 255, 255, 0.45);
+}
+#app .grugnetto-go-touch-jump {
+  width: 64px;
+  height: 64px;
+}
+
+/* === Grugnetto Go!: settings screen volume slider ===
+   Plain <input type=range>, just stretched to fill its field (see app.js's SettingsScreen(), a
+   max-width:360px centered column) instead of the browser's own small default track width. */
+#app .grugnetto-go-volume-slider {
+  width: 100%;
+}
+
+/* === Pipe Jumper: gamepad/keyboard menu focus ===
+   app.js's D-pad/stick + arrow-key menu navigation moves real DOM focus onto
+   whichever <button> is "selected" (see its own comment on why: menus are plain lit-html, shown
+   before melonJS's own gamepad support even exists). Bulma's default focus style is a subtle
+   box-shadow, easy to miss from a couch/TV distance where a gamepad is actually being used — this
+   makes the currently-focused menu button unmistakable. :focus-visible (not plain :focus) keeps a
+   mouse click from drawing this same heavy ring, matching how :focus-visible already behaves for
+   keyboard-only focus in every modern browser. */
+#app .spa-title-box button:focus-visible {
+  outline: 3px solid #f0b429;
+  outline-offset: 2px;
+}
+
+/* === Pipe Jumper: buttons, dark/arcade themed instead of Bulma's stock light-UI palette ===
+   Reported live: Bulma's default colors (turquoise is-primary, plain white/light .button) read
+   as generic and clashed against the game's black background and the title screen's warm gold
+   glow. Recolored around that same warm gold instead — coin-colored, ties into the title glow —
+   so "the main action" reads consistently everywhere it shows up (title's Play, world/level
+   tiles' Scegli/Gioca, level-complete's Prossimo livello, game-over's Riprova). Dark text on the
+   gold fill (not Bulma's default white) for contrast — white-on-gold fails typical contrast
+   checks, dark brown reads clearly and still feels "coin-like". */
+#app .button.is-primary {
+  background-color: #f0b429;
+  border-color: #f0b429;
+  color: #2b1d00;
+}
+#app .button.is-primary:hover {
+  background-color: #ffce54;
+  border-color: #ffce54;
+  color: #2b1d00;
+}
+/* Plain (uncoloured) buttons — back/fullscreen icons, and secondary options like "Selezione
+   mondo" next to a colored primary action — a dark panel instead of Bulma's stark white
+   default, so they read as part of this dark UI rather than a foreign light widget dropped
+   on top of it. */
+#app .button:not(.is-primary) {
+  background-color: #1a1a1a;
+  border-color: #4a4a4a;
+  color: #eee;
+}
+#app .button:not(.is-primary):hover {
+  background-color: #2b2b2b;
+  border-color: #6a6a6a;
+  color: #fff;
+}
+
+/* === Pipe Jumper: playful world/level tiles ===
+   World/level select used to be a plain Bulma .box with a title and a button — functional but
+   flat. .pj-tile adds a per-world accent color (--pj-accent, set inline per tile from worlds.js's
+   own "accent" — the same color already used for that world's in-level goal flag, see
+   tools/compile-level.py's WORLD_FLAG, so the menu and the level itself share one color
+   language instead of two unrelated ones) and a hover/selection lift.
+   :has(button:focus-visible) — not just :hover — is what makes the gamepad/keyboard-focused tile
+   light up the same way a mouse-hovered one does: the actual DOM focus target is the small
+   <button> inside the card (see app.js's getMenuFocusables()), but the whole card
+   should read as "this one's selected", not just its button. Requires :has() (Chrome/Edge only —
+   already this app's only supported browsers, see the <script nomodule> fallback message), so no
+   fallback branch is needed. A disabled (locked) tile's button can never actually receive focus,
+   so this rule simply never matches .pj-tile-locked — no separate override needed there. */
+#app .spa-title-box .pj-tile {
+  position: relative;
+  border-radius: 16px;
+  border: 3px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+#app .spa-title-box .pj-tile:hover,
+#app .spa-title-box .pj-tile:has(button:focus-visible) {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(10, 10, 10, 0.18), 0 0 0 1px rgba(10, 10, 10, 0.06);
+  border-color: var(--pj-accent, #f0b429);
+}
+#app .spa-title-box .pj-tile-locked {
+  opacity: 0.6;
+  filter: grayscale(0.5);
+}
+/* A completed level gets a soft tint of its world's own accent instead of staying plain white —
+   a quick "already done, come back if you want" read at a glance across a full grid of tiles. */
+#app .spa-title-box .pj-tile-done {
+  background: color-mix(in srgb, var(--pj-accent, #48c774) 12%, white);
+}
+#app .spa-title-box .pj-tile-emoji {
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+/* Level number badge, Mario-style — top-left corner of the card, filled with the world's own
+   accent so it visually ties back to the same color as the world tile it was picked from. */
+#app .spa-title-box .pj-tile-badge {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--pj-accent, #f0b429);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(10, 10, 10, 0.25);
+}
+
+/* === Pipe Jumper: title screen "arcade" feel ===
+   Requested live: make the title screen feel more "arcade" without pixel-art/CRT trappings —
+   Grugnetto's painterly illustrated art (see player.js's own comments on how those frames were
+   made) would clash with a hard 8-bit look. Motion/glow instead: a bobbing mascot, a pulsing
+   title glow, and a pulsing "PRESS START"-style ring on the play button — arcade-cabinet energy
+   carried by animation, not by changing the art style itself. */
+@keyframes gg-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+#app .gg-mascot {
+  width: 140px;
+  animation: gg-bob 2.4s ease-in-out infinite;
+}
+
+/* Pink title text, requested live ("Grugnetto Go in rosa") — was inheriting Bulma's default
+   title color with only a gold glow; now an explicit pink fill plus a matching pink glow so the
+   two don't clash the way a pink word with a gold halo would have. */
+@keyframes gg-title-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(255, 79, 163, 0.55), 0 0 22px rgba(255, 79, 163, 0.3); }
+  50%      { text-shadow: 0 0 18px rgba(255, 79, 163, 0.9),  0 0 34px rgba(255, 79, 163, 0.55); }
+}
+#app .gg-title-glow {
+  color: #ff4fa3;
+  animation: gg-title-glow 2.2s ease-in-out infinite;
+}
+
+/* Mission paragraph text color, requested live ("come text color del testo su sfondo nero
+   (missione) usiamo questo colore #d9e8c9") — Bulma's own .subtitle color is a dark gray, meant
+   for a light page background, so it read as low-contrast/hard to read against this screen's own
+   black background without an explicit override. */
+#app .gg-mission {
+  color: #d9e8c9;
+}
+
+/* Section headings (mode select, world/level select, credits, settings) — same low-contrast bug
+   as .gg-mission above, reported live one screen later ("anche 'Scegli una modalità' non si
+   legge... stesso colore di sfondo"): Bulma's own .title color is dark, meant for a light page,
+   and reads as barely-there against this screen's black background. Scoped to h2 specifically
+   (every one of these section headings, and only those) so the title screen's own H1
+   ("Grugnetto Go!", .gg-title-glow) keeps its own explicit pink color/glow untouched. Reuses the
+   same #d9e8c9 as .gg-mission rather than picking a second color for what's visually the same
+   "needs to be readable on this dark screen" need. */
+#app .spa-title-box h2.title {
+  color: #d9e8c9;
+}
+
+/* Credits screen body text (asset names/notes, and the Graphics/Audio/Libraries .title.is-6
+   section headers) — same low-contrast bug, reported live ("anche i crediti sono illeggibili,
+   stesso colore indicato prima"): Bulma's own .content color and .title color are both dark,
+   meant for a light page. The explicit ".gg-credits-content .title"/"... strong" selectors are
+   needed alongside the bare class — Bulma sets its own color directly on both (".content strong"
+   gets its own darker shade specifically to read as "heavier", the same instinct that made it
+   wrong here too — reported live again: "anche lo <strong> dentro ai crediti deve avere quel
+   colore"), which wins over a merely-inherited color from the ancestor, so relying on inheritance
+   alone wouldn't have reached either one.
+   Scoped to app.js's own .gg-credits-content marker, NOT the bare Bulma .content class — a bare
+   ".content" selector here also matched BonusBreakdown()'s own .content div on the level-complete/
+   game-over overlay, which sits on THAT overlay's separate white Bulma .box (never touched,
+   unlike this screen's own black background), so the exact same pale color that fixes credits
+   landed as washed-out light text on a white card there instead — reported live ("i box di fine
+   livello... hanno a volte dei colori dei caratteri troppo chiari"). */
+#app .spa-title-box .gg-credits-content,
+#app .spa-title-box .gg-credits-content .title,
+#app .spa-title-box .gg-credits-content strong {
+  color: #d9e8c9;
+}
+/* .tag.is-light (the license badges) needs its OWN explicit override, not just left alone —
+   turns out the color above inherits straight into it too (.tag has no color of its own to win
+   the way .title/strong do), landing this same pale text on the tag's light-gray background
+   instead of the black page background it was actually meant for — reported live ("nei badge
+   però mettiamo il testo nero altrimenti non si legge"). Explicit black text restores that
+   badge's own self-contained contrast regardless of what surrounds it. */
+#app .spa-title-box .gg-credits-content .tag.is-light {
+  color: #000;
+}
+
+/* Settings screen field labels ("Volume: %s" / "Lingua") — same pattern as .title/.content strong
+   above: Bulma's own .label class sets its own explicit dark color, so it needs this same
+   explicit override rather than relying on inherited color — reported live ("anche le label
+   nelle impostazioni devono avere quel colore che ti ho dato"). */
+#app .spa-title-box .label {
+  color: #d9e8c9;
+}
+
+@keyframes gg-cta-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(50, 115, 220, 0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(50, 115, 220, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(50, 115, 220, 0); }
+}
+#app .gg-cta {
+  animation: gg-cta-pulse 1.6s ease-out infinite;
+}

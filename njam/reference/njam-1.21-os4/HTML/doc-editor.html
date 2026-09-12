@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Njam - level editor documentation</title>
+
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+
+  <meta name="author" content="Milan Babuskov">
+</head>
+<body>
+<table cellpadding="0" cellspacing="2" border="0" width="100%">
+  <tbody>
+    <tr>
+      <td valign="middle" colspan="1" width="30%" nowrap="nowrap"
+ align="left"><b><big><big><font face="Helvetica, Arial, sans-serif">Njam
+documentation</font></big></big></b><br>
+      </td>
+      <td valign="middle" width="150" colspan="3" align="left"><img
+ src="sample.gif" alt=""
+ width="94" height="23" align="middle"><br>
+      </td>
+	</tr>
+  </tbody>
+</table>
+<table cellpadding="1" cellspacing="0" border="0" width="100%"
+ bgcolor="#cc0000">
+  <tbody>
+    <tr>
+      <td valign="top"><b><font face="Helvetica, Arial, sans-serif"
+ color="#ffffff">&nbsp;Njam is a full-featured cross-platform pacman-like game
+written in C++ using SDL library</font></b></td>
+      <td valign="top" align="right"><small><a href="index.html"><b><small><font
+ face="Helvetica, Arial, sans-serif" color="white">HOME&nbsp; &gt;&gt;</font></small></b></a></small><br>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<br><br>
+<font face="Helvetica, Arial, sans-serif"><b><big>Level editor</big></b></font><br><BR>
+<font face="Helvetica, Arial, sans-serif" size=2 color="gray"><b>NEW</b> in version 1.05: You can change the order of
+levels by swapping them, read below for detailed explanation</font><BR><br>
+<font face="Helvetica, Arial, sans-serif">Level editor enables anyone to modify the existing levels, and add new
+ones. Levels are grouped in levelsets, each having 20 levels. It is possible to have less than 20 levels in
+levelset, but not more. <BR><BR>
+
+There are two types of levelsets, which are used depending of the
+<a href=doc.html#rules>type of game</a>. All levelsets are files placed in <i>levels</i> subdirectory of Njam
+instalation.
+If you wish to remove a levelset from the game, just delete its file. The files'
+extensions indicate levelset type:<BR>
+<b>.coop</b> is used in cooperative games (both single and two-player games)<BR>
+<b>.duel</b> is used in duel games (both local and networked).<BR>
+Actually all filenames are uppercase (so be careful if your using case-sensitive OS like Linux).<BR><BR>
+During the network play only the hosting player needs to have levels installed (the
+player that joins the game gets all level data).<BR>
+<br>
+When level editor is started it creates one empty levelset. You can toggle the type (cooperative or duel) by pressing
+key K (stands for <i><u>K</u>ind of level</i>). If you wish to modify some of already existing levelsets, select
+the load option (key L). If you have loaded some levelset and want to start a new one, just exit the level editor
+(ESC) and enter it again from the main menu.
+<BR>
+<font face="Helvetica, Arial, sans-serif"><b><big><a name="commands"></a><br>
+Commands</big></b></font><br><BR>
+<ul>
+<li><b><font color=red>L</font>oad</b> - gives you the menu to select levelset to load. The current levelset
+(in memory) is discarded without any warnings, so be careful.
+<li><B><font color=red>S</font>ave</b> - save the current levelset. If you have previously loaded a levelset than it
+just saves it. Otherwise it asks for a filename. Also if you change the kind of levelset (duel/coop) then you will be
+prompted for a filename, since it cannot have the same file extension.
+<li><b>Save <font color=red>A</font>s</b> - save the current levelset, but first prompts for a filename.
+<li><B><font color=red>K</font>ind</b> - toggles the kind of levelset (type of game). Current kind is indicated by
+small blue text in the middle.
+</ul>
+<ul>
+<li><B><font color=red>P</font>layable</b> - toggles whether the level (on screen) is playable or not. When the game
+is loading levels it stops at first unplayable level, so all levels after first unplayable level are also considered
+unfinished.
+<li><B><font color=red>U</font>ndo</b> - un-does all changes to current level (on screen). Not available after
+load/save and after testing the level.
+<li><B><font color=red>C</font>lear</b> - clears the current level.
+<li><B><font color=red>T</font>est</b> - tests the current level. If level is duel the powerups are added.
+Stop the testing by pressing ESC.
+<li><B>s<font color=red>W</font>ap</b> - to change order of levels you can swap any two levels. Press W to select
+current level for swapping, and then navigate to the other level
+(with X and Z) and press W again. <B>Example:</B> You wish to swap levels 3 and 7. Go to level 3, and press W, (SWAP:03 will show on screen), then
+go to level 7 and press W again. Thus the level 3 becomes level 7 and vice versa.
+<li><B>previou<font color=red>Z</font></b> - shows the previous level in levelset.
+<li><B>ne<font color=red>X</font>t</b> - shows the next level in levelset.
+</ul>
+<ul>
+<li><B>Cursor arrows</B> - move marker around the current level
+<li><B>0 - 9</B> - sets the tile under the marker (according to images in right-bottom part of screen)
+<li><B>ESC</B> - exit the level editor
+</ul>
+<br>
+<font face="Helvetica, Arial, sans-serif">When you're done editing, don't forget to
+mark all the levels you want to play <b>playable</b>. Then, just save the levelset
+and go back to main menu and start the game. The game detects when there is more
+than one levelset of that kind, and gives you the option to select the one
+you want to play.<BR>
+<br>All levelsets are plain files, you can copy/delete/rename freely. It's always a good idea to work on
+copies of files when modifying. Just enter the editor, load the leavelset and choose Save As option. In case you mess
+with original levels that come with the game and make something terribly
+wrong, you have backup copies in <i>data</i> subdirectory of your Njam instalation.
+The files are named original.coop and original.duel (both uppercase). Just copy these
+to <i>levels</i> subdirectory.<br>
+<br>If you wish to copy/paste/etc levels from different levelsets (files), you can use scripts genCOOP and genDEF
+from <i>contrib</i> subdirectory of your Njam instalation. These are Perl scripts, contributed by Jalal A. Elhusseini.
+With these scripts you can convert Njam levelset files (.COOP and .DUEL files) into human readable form, which has
+.DEF extension. You can then edit .DEF files with any text editor (Notepad, vi, ...), copy/paste levels from different
+files, etc. When you're done editing, save the .DEF file, and convert it back to .COOP or .DUEL. The scripts only work
+with .COOP files, so if you wish to edit .DUEL files, you have to rename them to .COOP before doing conversion. After
+you're done with .DEF file, save it as .COOP and rename back to .DUEL.
+<br>
+<BR>When you make some nice levels be sure to
+send those to me at: <a href=mailto:mbabuskov@yahoo.com>mbabuskov@yahoo.com</a> so I can
+include them in the game.<br></font><br>
+<br><big>
+</big>
+<hr width="100%" size="2"><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"><br>
+Copyright &copy;</font></small><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"> Milan Babuskov</font></small><small><font
+ face="Helvetica, Arial, sans-serif" color="#666666"> 2003.<br>
+</font></small><small><font face="Helvetica, Arial, sans-serif"
+ color="#666666">Contact me at: mbabuskov@yahoo.com<br>
+<br>
+</font></small><br>
+<br>
+</body>
+</html>

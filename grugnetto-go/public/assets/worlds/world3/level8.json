@@ -1,0 +1,302 @@
+{
+  "world": "world3",
+  "level": 8,
+  "name": "Dune Dorate — Livello 8 (bozza generata)",
+  "tileSize": 64,
+  "widthTiles": 127,
+  "heightTiles": 12,
+  "groundTopRow": 8,
+  "playerSpawnCol": 2,
+  "ground": [
+    {
+      "col": 0,
+      "row": 8
+    },
+    {
+      "col": 9,
+      "row": 9
+    },
+    {
+      "col": 49,
+      "row": 8
+    },
+    {
+      "col": 79,
+      "row": 9
+    }
+  ],
+  "platforms": [
+    {
+      "col": 13,
+      "span": 1,
+      "row": 7
+    },
+    {
+      "col": 14,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 19,
+      "span": 1,
+      "row": 7
+    },
+    {
+      "col": 20,
+      "span": 1,
+      "row": 6
+    },
+    {
+      "col": 21,
+      "span": 1,
+      "row": 5
+    },
+    {
+      "col": 22,
+      "span": 1,
+      "row": 4
+    },
+    {
+      "col": 53,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 62,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 71,
+      "span": 4,
+      "row": 6
+    },
+    {
+      "col": 83,
+      "span": 4,
+      "row": 7
+    }
+  ],
+  "coins": [
+    {
+      "col": 6,
+      "row": 6
+    },
+    {
+      "col": 8,
+      "row": 6
+    },
+    {
+      "col": 13,
+      "row": 6
+    },
+    {
+      "col": 14,
+      "row": 5
+    },
+    {
+      "col": 19,
+      "row": 6
+    },
+    {
+      "col": 20,
+      "row": 5
+    },
+    {
+      "col": 21,
+      "row": 4
+    },
+    {
+      "col": 22,
+      "row": 3
+    },
+    {
+      "col": 47,
+      "row": 7
+    },
+    {
+      "col": 54,
+      "row": 5
+    },
+    {
+      "col": 55,
+      "row": 5
+    },
+    {
+      "col": 63,
+      "row": 5
+    },
+    {
+      "col": 64,
+      "row": 5
+    },
+    {
+      "col": 72,
+      "row": 5
+    },
+    {
+      "col": 73,
+      "row": 5
+    },
+    {
+      "col": 80,
+      "row": 7
+    },
+    {
+      "col": 84,
+      "row": 6
+    },
+    {
+      "col": 85,
+      "row": 6
+    },
+    {
+      "col": 93,
+      "row": 7
+    },
+    {
+      "col": 99,
+      "row": 7
+    },
+    {
+      "col": 103,
+      "row": 7
+    },
+    {
+      "col": 105,
+      "row": 7
+    },
+    {
+      "col": 107,
+      "row": 7
+    },
+    {
+      "col": 109,
+      "row": 7
+    }
+  ],
+  "bonus": [],
+  "enemies": [
+    {
+      "col": 103,
+      "kind": "saw",
+      "patrolTiles": 3
+    },
+    {
+      "col": 108,
+      "kind": "saw",
+      "patrolTiles": 3
+    }
+  ],
+  "props": [
+    {
+      "col": 3,
+      "row": 7,
+      "kind": "sign_right"
+    },
+    {
+      "col": 10,
+      "row": 8,
+      "kind": "cactus"
+    },
+    {
+      "col": 47,
+      "row": 8,
+      "kind": "cactus"
+    },
+    {
+      "col": 50,
+      "row": 7,
+      "kind": "cactus"
+    },
+    {
+      "col": 99,
+      "row": 8,
+      "kind": "cactus"
+    },
+    {
+      "col": 102,
+      "row": 8,
+      "kind": "cactus"
+    }
+  ],
+  "goalCol": 123,
+  "pits": [
+    {
+      "col": 13,
+      "span": 1
+    },
+    {
+      "col": 19,
+      "span": 1
+    },
+    {
+      "col": 28,
+      "span": 1
+    },
+    {
+      "col": 35,
+      "span": 1
+    },
+    {
+      "col": 41,
+      "span": 1
+    },
+    {
+      "col": 53,
+      "span": 4
+    },
+    {
+      "col": 62,
+      "span": 4
+    },
+    {
+      "col": 71,
+      "span": 4
+    },
+    {
+      "col": 83,
+      "span": 4
+    },
+    {
+      "col": 93,
+      "span": 1
+    }
+  ],
+  "trapCoins": [
+    {
+      "col": 111,
+      "row": 7
+    },
+    {
+      "col": 101,
+      "row": 7
+    },
+    {
+      "col": 77,
+      "row": 6
+    },
+    {
+      "col": 50,
+      "row": 6
+    },
+    {
+      "col": 41,
+      "row": 7
+    },
+    {
+      "col": 35,
+      "row": 7
+    },
+    {
+      "col": 28,
+      "row": 7
+    },
+    {
+      "col": 10,
+      "row": 7
+    }
+  ],
+  "coinGoal": true,
+  "notes": "Generato proceduralmente da tools/generate_level.py (seed='world3-level8', groups=14, difficulty=0.85). Reachability di ogni salto verificata per simulazione (vedi generate_level.py per le costanti fisiche usate). Bozza: rivedere a mano prima di considerarla definitiva — sequenza gruppi: step_down, staircase, staircase, pit, pit, pit, step_up, perch, perch, perch, step_down, perch, pit, gauntlet."
+}

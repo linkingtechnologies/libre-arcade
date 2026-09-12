@@ -1,0 +1,120 @@
+Njam Changes:
+
+version 1.21    (changes from preview version 1.05 included)
+
+New features:
+
+- 92 new levels in 7 new levelsets
+- 50 bonus points that can be collected on screen
+- new skin by Thorsten Kohnhorst (http://kiki.sourceforge.net)
+- Bonus-life timer is now variable depending on number of cookies
+- a new levelset named: EASY, with 10 levels for beginners
+- Added "Are you sure?" when exiting/saving in level editor.
+- nice picture when player(s) complete all levels.
+- option to swap levels in level editor (to change the order)
+- Game options: any skin can be selected as default
+- Enhanced some of the graphics (freeze, victory, pause, etc.)
+- Freezer now works cumulative i.e. when collecting new freezer
+  while ghosts are already frozen, the freezing-time is added
+- Perl scripts to manipulate levels as human readable text files
+  contributed by Jalal A. Elhusseini
+- version number is show in the main screen
+
+Bugfixes:
+- Number of levels in cooperative games wasn't calculated right,
+  so the last level was played twice. Fixed.
+
+
+version 1.00
+
+New features:
+
+- Integrated level editor
+- High-Score list
+- New game element: Teleports
+- 10 new duel levels, making it 20 in basic set now.
+- Some of the existing levels are redesigned.
+- Rules:  There were (non-fair) situations in duel games, when the player
+          closest to the juice gets it, and then just goes to another juice
+		  trying to "protect" it (i.e. just stands on it, not allowing others
+		  to take it). That's why the new game rule is added. If a player runs
+		  over juice while he has active superpower, the juice vanishes and
+		  shows up in the opposite corner of the screen. This only applies to
+		  duel games.
+- Added command-line option (-d) to run via DGA driver on Linux, which makes
+  the game a lot faster.
+- On Linux Njam changes working directory to the one where the executable is,
+  so it can easily be run by, for example: /usr/local/games/njam/njam without
+  need to alter the sources. This should simplify making of packages for
+  various Linux distributions.
+- Inno Setup script added to the sources, so anyone can build setup.exe for
+  MS Windows port.
+
+Bugfixes:
+
+- It isn't anymore possible to start network games without any players selected.
+- Display doesn't anymore show previous frames when using hardware surfaces.
+- The driple-ding sound can now be heard multiple times if needed. It happens
+  sometimes that a player eats enough ghosts to regain the chance to win a
+  level (which is now marked with coughing sound) and the triple-ding will be
+  heard as many times as it needs to be.
+- The driple-ding sound was heard no matter if sound fx were turned off in game
+  options. Fixed.
+- When more than 2 players are playing a duel game, the triple-ding sound was
+  not played at right moment (it was played after the first bar turns white...
+  instead of: when all bars turn white). Fixed.
+- The number of levels for multiplayer wasn't calculated right, so some levels
+  were never played. Fixed.
+- Fixed one small memory leak (memory for one resource wasn't freed on exit).
+
+version 0.96
+
+- change: Added bonus for cooperative games. If player(s) finish the level
+          before the bonus-time runs out, they are awarded one life.
+- change: Added nice "game over" pictures, contributed by Djordje Matic.
+- change: Added two new original skins. The skins are now turned on by default.
+- change: In duel games after the player gets killed by a ghost, when he shows
+          up on screen, he gets invisibility for a short period of time, which
+          prevents ghosts from slamming him right away.
+- change: Added level 20 (final level) in single/cooperative mode
+- change: Added few nice sound effects
+- change: Added command-line option to use hardware or software rendering
+- bugfix: Removed possibility to do: ESC, ESC, SPACE and restart the level.
+
+version 0.95
+
+- change: Networking works. 2-4 players can play on two machines. Free for all.
+          I have tested in on LAN, haven't tried the Internet.
+- change: There are now 5 ghosts in single player and cooperative mode and 8
+          ghosts in duel mode. The game was just too hard to play.
+- change: Added SDL_image library and converted big images to .jpg format so
+          the whole game takes less space (especially important for downloads)
+          Also, reduced .exe and .dll sizes, so the download is only about
+		  1.2MB now.
+- change: Added possibility to do: make install
+          Contributed by Martin Willemoes Hansen.
+- change: Added makefile for Borland's Free C++ Compiler.
+- change: Changed level 9 in cooperative mode (had some not-so-nice dead-end).
+- bugfix: Settings selected in options menu are now saved to configuration file
+          and loaded when the game is started, so the game remembers user's
+          settings.
+- bugfix: Fixed problems when compiling with gcc 2.95
+
+
+version 0.91
+
+- bugfix: in version 0.90 once two player game is started, the single player
+          game doesn't work anymore, i.e. it always starts the two player game.
+          This is now fixed.
+- bugfix: in version 0.90 it was possible to go to next level by giving away
+          one life (press: ESC, ESC, SPACE). Now it is not possible.
+- bugfix: in version 0.90 it was possible to go to next level by giving away
+          one life (let the ghost eat you, press ESC, SPACE). Fixed.
+- change: I have reduced target speed from 33.3 to 30fps since game run too
+          fast and was really hard to play in non-duel mode.
+- change: Added current level indicator
+- change: Added frames_per_second indicator
+- change: Changed some flags in SetVideo mode so Linux version works faster now
+- change: added nice picture of a killed ghost (the "desperate eyes" ;)
+- bugfix: ghosts didn't go after players if they are too far from each other
+          (on the opposite side of the screen). Fixed.
