@@ -1,0 +1,29 @@
+image help 0 0
+
+text_center 280  72 "Be aware that diagonal neighbors do not count."
+
+image uncovered 226  88
+image uncovered 262  88
+image uncovered 298  88
+image uncovered 226 124
+image covered   262 124
+image uncovered 298 124
+image uncovered 226 160
+image uncovered 262 160
+image uncovered 298 160
+
+image bomb    262 124
+image flagged 262 124
+
+text_center 280 112 "1"
+text_center 244 148 "1"
+text_center 316 148 "1"
+text_center 280 184 "1"
+
+text_center 280 224 "If diagonal neighbors counted, then some"
+text_center 280 248 "cells could neighbor 80 bombs!"
+
+image continue 230 490
+button top 230 490 100 64
+
+update 0 0 560 560

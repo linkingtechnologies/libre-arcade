@@ -1,0 +1,398 @@
+\part{The Flip Flop Game}
+\section{Flip Flop}
+
+The namespace inside the flip-flop class is a concatenation of the
+general namespace and the name of the flip-flop class.
+<<FlipFlopNameSpace>>=
+<<NameSpace>>::FlipFlop
+@
+
+The [[FlipFlop]] class keeps a pointer to the cube used for the
+game.
+<<FlipFlop Cube>>=
+    Cube* cube;
+@
+
+The [[FlipFlop]] class also tracks the number of dimensions that are being
+used.  It needs this information so that it can properly determine the
+neighbors of a given point.
+<<FlipFlop Dimensions>>=
+    unsigned int dims;
+@
+
+And, the [[FlipFlop]] class tracks the current skill level.
+<<FlipFlop Skill Level>>=
+    unsigned int skillLevel;
+@
+
+The [[FlipFlop]] class also keeps track of whether or not it is
+wrapping around.  This is necessary so that it can properly determine
+neighbors of things near the edge.
+<<FlipFlop Wrap>>=
+    bool wrap;
+@
+
+The [[FlipFlop]] class also keeps track of the number of cells
+which are currently on.  This is used to track the winning
+condition.
+<<FlipFlop On Count>>=
+    int onCount;
+@
+
+Also, to track the winning condition, there is a flag that
+tells whether the game has already been won or not.  After
+a person wins, she can play around on the board as much as
+she likes before hitting the ``New'' button.
+<<FlipFlop Has Won>>=
+    bool hasWon;
+@
+
+In addition, the game also tracks how many moves were expected and
+how many moves were taken.  These can be used to give feedback to
+the player.  At the moment, these are not used at all.
+<<FlipFlop Move Counters>>=
+    unsigned int actualMoves;
+    unsigned int expectedMoves;
+@
+
+The [[FlipFlop]] class also keeps track of the view pointer.
+<<FlipFlop View>>=
+    FlipFlopView* view;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the [[FlipFlop]] class takes five arguments.
+The first is a pointer to the game cube, the second specifies the
+number of dimensions to employ, the third specifies the skill level
+to use, the fourth specifies whether the edges wrap around, and
+the fifth is an optional pointer to the view to update when cells
+change.
+<<FlipFlop Constructor Declaration>>=
+    FlipFlop(
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true,
+	    FlipFlopView* _view = 0
+	);
+@
+
+The constructor for the [[FlipFlop]] class copies the arguments
+into its local variables.  Then, it calls its own reset method to
+start a new game.  But, first, it verifies that all of the input
+arguments match its range expectations.
+<<FlipFlop Constructor Implementation>>=
+    <<FlipFlopNameSpace>>::FlipFlop(
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap,
+	    FlipFlopView* _view
+	) : cube( _cube ),
+	    dims( _dims ),
+	    skillLevel( _skillLevel ),
+	    wrap( _wrap ),
+	    view( _view )
+    {
+	assert( cube != 0 );
+	assert( dims >= 1 );
+	assert( dims <= <<CubeNameSpace>>::DIMENSIONS );
+	assert( skillLevel < 3 );
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+This method is used to start a new game.  It requires no parameters.
+It assumes that both the number of dimensions and the wrap mode
+have already been set.
+<<FlipFlop Reset Declaration>>=
+    void reset( void );
+@
+
+The cube is cleared.  Then, the skill level is used to determine
+the number of cells to toggle.  Then, the toggles are performed,
+the statistics are reset, and the view is refreshed.
+<<FlipFlop Reset Implementation>>=
+    void
+    <<FlipFlopNameSpace>>::reset( void )
+    {
+	*this->cube = 0;
+	this->onCount = 0;
+
+	<<FlipFlop ToggleTable>>
+	unsigned int toggles = table[ this->dims ][ this->skillLevel ];
+	unsigned int len
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	<<FlipFlop Perform Flips>>
+	<<FlipFlop Reset Current Statistics>>
+
+	if ( this->view != 0 ) {
+	    this->view->reset();
+	    this->view->redraw();
+	}
+    }
+@
+
+The following table is used to determine the number of cells to toggle
+based upon the number of dimensions and the skill level.
+<<FlipFlop ToggleTable>>=
+    unsigned int table[ Cube::DIMENSIONS+1 ][ 3 ] = {
+	{  0,  0,  0 },
+	{  1,  2,  3 },
+	{  3,  5,  8 },
+	{  5,  8, 12 },
+	{  8, 16, 32 },
+    };
+@
+
+We want to be careful not to flip the same cell twice.  So,
+we make a lookup table of cells we've already flipped.  Then,
+we go through and perform each flip.
+<<FlipFlop Perform Flips>>=
+    unsigned int* lut = new unsigned int[ toggles ];
+    unsigned int lutLen = 0;
+
+    for ( unsigned int ii=0; ii < toggles; ++ii ) {
+	<<FlipFlop Perform Single Flip>>
+    }
+
+    delete[] lut;
+@
+
+Each time we want to flip, we pick an index from the available
+range.  Then, we loop through the lookup table incrementing index
+each time we find a number that is less than or equal to index.
+This makes index be the [[index]]-th number which has not yet been
+chosen.  Then, we perform the flip and add index into the lookup
+table.
+<<FlipFlop Perform Single Flip>>=
+    unsigned int index = random() % len--;
+    for ( unsigned int jj=0; jj < lutLen; ++jj ) {
+	if ( index >= lut[ jj ] ) {
+	    ++index;
+	}
+    }
+
+    this->flip( index, false );
+
+    <<FlipFlop Add Index Into Flip LUT>>
+@
+
+Here, we put it at the end of the lookup table.  Then, we keep
+trying to swap it with the element before it in the list until we
+come to an element before it that is less than it.  We need to keep
+the lookup table sorted for the previous incrementing loop to work
+right.  This is just a simple bit of a bubble sort where we know
+that the only element potentially out of place is the last one.
+<<FlipFlop Add Index Into Flip LUT>>=
+    unsigned int spot = lutLen;
+    while ( spot > 0 && lut[ spot-1 ] > index ) {
+	lut[ spot ] = lut[ spot-1 ];
+	--spot;
+    }
+    lut[ spot ] = index;
+    ++lutLen;
+@
+
+Resetting the statistics for the current game is easy.  It is
+expected that the number of moves that it will take to solve the
+puzzle is the same as the number of toggles.  However, it could
+quite possibly take fewer moves, so we shouldn't rely upon this
+metric.
+<<FlipFlop Reset Current Statistics>>=
+    this->hasWon = false;
+    this->actualMoves = 0;
+    this->expectedMoves = toggles;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Flip Method}
+
+The flip method will be used in the [[reset()]] method above and
+by the flip-flop controller to register moves.  It will simply
+toggle the cube entry at [[index]] and at each of [[index]]'s
+neighbors.
+<<FlipFlop Flip Declaration>>=
+    void flip( unsigned int index, bool update = true );
+@
+
+The flip method itself simply calls the [[getNeighbors()]] method
+of the cube to determine the neighbors.  Then, it flips the cell
+at [[index]] and at each of the neighbors of that cell.
+<<FlipFlop Flip Implementation>>=
+    void
+    <<FlipFlopNameSpace>>::flip(
+	    unsigned int index, bool update
+	)
+    {
+	unsigned int nn[ 2 * <<CubeNameSpace>>::DIMENSIONS ];
+	unsigned int nc = this->cube->getNeighbors(
+		nn, index, this->dims, this->wrap
+	    );
+
+	<<FlipFlop Increment Move Count>>
+	<<FlipFlop Flip Single Cell>>
+
+	for ( unsigned int ii=0; ii < nc; ++ii ) {
+	    index = nn[ ii ];
+	    <<FlipFlop Flip Single Cell>>
+	}
+
+	<<FlipFlop Check Winning Condition>>
+    }
+@
+
+When flipping a single cell, we must track whether this increased
+or decreased the number of ``on'' cells on the board.
+<<FlipFlop Flip Single Cell>>=
+    if ( ( (*this->cube)[ index ] ^= 1 ) == 0 ) {
+	--this->onCount;
+    } else {
+	++this->onCount;
+    }
+@
+
+Additionally, if we have been asked to update the cell's image
+on the screen and we've been supplied a view to update, then we
+will tell the view to redraw the element at this index.
+<<FlipFlop Flip Single Cell>>=
+    if ( update && this->view != 0 ) {
+	this->view->redraw( index );
+    }
+@
+
+We increment the actual number of moves the user has taken
+so long as the user has not already won.  Either way, if we
+are updating, and we have a view, we'll play the move noise.
+<<FlipFlop Increment Move Count>>=
+    if ( ! this->hasWon ) {
+	++this->actualMoves;
+    }
+    if ( update && this->view != 0 ) {
+	this->view->moveNoise();
+    }
+@
+
+Once all the things have been flipped for this, we have to check
+the winning condition.  However, we only check this during [[update]]
+mode.  If it's not during [[update]], then we stand of chance of
+congratulating the player while we're still setting up the board.
+But, if we're in update mode, the user hasn't won, and the number
+of on pieces on the board is currently zero, that's a victory.
+<<FlipFlop Check Winning Condition>>=
+    if ( update && ! this->hasWon && this->onCount == 0 ) {
+	this->hasWon = true;
+	if ( this->view != 0 ) {
+	    this->view->showWinning(
+		    this->actualMoves, this->expectedMoves
+		);
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[FlipFlop]] class}
+
+In this section, we assemble the [[FlipFlop]] class from the pieces
+in the sections above.
+
+The first thing incorporated into the class definition is the
+declaration of the constructor
+<<FlipFlop Class Definition>>=
+    public:
+	<<FlipFlop Constructor Declaration>>
+@
+
+After that, the reset method is declared.
+<<FlipFlop Class Definition>>=
+    public:
+	<<FlipFlop Reset Declaration>>
+@
+
+After that, the flip method is declared.
+<<FlipFlop Class Definition>>=
+    public:
+	<<FlipFlop Flip Declaration>>
+@
+
+The data members of the [[FlipFlop]] class all have private scope.
+The data members specify the cube, the number of dimensions, the
+skill level, the wrapping mode, the number of on elements currently,
+the variables for tracking the winning state, and the pointer to
+the view class if one was given.
+<<FlipFlop Class Definition>>=
+    private:
+	<<FlipFlop Cube>>
+	<<FlipFlop Dimensions>>
+	<<FlipFlop Skill Level>>
+	<<FlipFlop Wrap>>
+	<<FlipFlop On Count>>
+	<<FlipFlop Has Won>>
+	<<FlipFlop Move Counters>>
+	<<FlipFlop View>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<FlipFlop Class Declaration>>=
+    class FlipFlop {
+	<<FlipFlop Class Definition>>
+    };
+@ %def FlipFlop
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[flipflop.h]] file}
+
+In this section, we assemble the header file for the [[FlipFlop]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<flipflop.h>>=
+    namespace <<NameSpace>> {
+	<<FlipFlop Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[flipflop.cpp]] file}
+
+For the actual C++ source code, we include the header file that
+defines [[assert()]], the header file for [[random()]], the header
+file for the [[SDL]] stuff needed by the [[view.h]] file, the header
+file for the cube, the header file for the generic view class, the
+header file for the view class for this particular game, and the
+header file generated in the previous section.
+<<flipflop.cpp>>=
+    #include <assert.h>
+    #include <stdlib.h>
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "flipflopView.h"
+    #include "flipflop.h"
+@
+
+Then, the source file incorporates the implementation of the
+constructor.
+<<flipflop.cpp>>=
+    <<FlipFlop Constructor Implementation>>
+@
+
+After that, the source file incorporates the implementation of the
+reset method.
+<<flipflop.cpp>>=
+    <<FlipFlop Reset Implementation>>
+@
+
+The source file also contains the implementation of the flip method.
+<<flipflop.cpp>>=
+    <<FlipFlop Flip Implementation>>
+@

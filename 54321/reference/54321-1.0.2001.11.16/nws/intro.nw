@@ -1,0 +1,54 @@
+\vskip 60pt
+\begin{center}
+    {\LARGE The 54321 Development Document} \\
+    \vskip 2.25em
+    {\large Patrick Stein} \\
+    \vskip 1.5em
+    {\large 2001-11-16}
+    \vskip 3.5em
+\end{center}
+
+\section*{Table of Contents}
+
+\tableofcontents
+
+\section{Introduction}
+
+This document is geared toward the programmer.  It is geared toward
+the programmer who wishes to understand the way this game is coded.
+It is not really geared toward the end-user.  All of the end-user
+explanation of ``Why Four Dimensions?'' and ``What's The Object Of
+This Game?'' is dealt with in the ``Help'' portions of the game.
+
+In general, I tried to follow a ``Model-View-Controller'' paradigm.
+I munged this slightly by including some fielding of mouse events
+in the view instead of in the controller.  But, when I have done
+that, I have had the view invoke methods on the controller to let
+the controller update the model.
+
+I have tried to adhere to this paradigm so that at a later date,
+I can replace the controllers with different ones to read in moves
+from a CGI script in order to verify high-score claims by clients.
+It is becoming less and less clear to me, how useful this will
+prove.
+
+The only other bit of munging is that I have made sound a part of
+the ``View''.  I would argue that this isn't really munging.  The
+``View'' is meant to be the user-presentable version of the model.
+It just so happens that some of the rendering is aural instead of
+visual.
+
+This program was written for the [[1MB SDL Game Programming]]
+contest sponsored by \textit{Linux Journal}\footnote{
+[[http://www.linuxjournal.com/]]
+}, \textit{Loki Software}\footnote{
+[[http://www.lokigames.com/]]
+}, and \textit{No Starch Press}\footnote{
+[[http://www.nostarch.com/]]
+}.
+
+To keep the global namespace squeaky clean, almost all of the code
+herein is wrapped in its own namespace.
+<<NameSpace>>=
+NKlein_54321
+@

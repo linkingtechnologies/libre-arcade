@@ -1,0 +1,20 @@
+image help 0 0
+
+image _sdl 120 48
+image _png 312 48
+
+text_center 280 120 "This game requires the Simple DirectMedial Layer library from"
+text_center 280 144 "http://www.libsdl.org/"
+
+text_center 280 176 "This game requires libSDL_image from"
+text_center 280 200 "http://www.libsdl.org/projects/SDL_image/index.html"
+
+text_center 280 232 "This game requires libpng from"
+text_center 280 256 "http://www.libpng.org/pub/png/libpng.html"
+text_center 280 280 "which requires zlib from"
+text_center 280 304 "http://www.gzip.org/zlib"
+
+image continue 230 490
+button cr3 230 490 100 64
+
+update 0 0 560 560

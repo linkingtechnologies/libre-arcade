@@ -1,0 +1,313 @@
+\section{The Font Class}
+
+The namespace inside the font class is a concatenation
+of the general namespace and the name of the Font
+class.
+<<FontNameSpace>>=
+<<NameSpace>>::Font
+@
+
+The font class stores a pointer to the image used for the font.
+<<Font Image>>=
+    SDL_Surface* image;
+@
+
+The font class also keeps track of the width of each
+character in the font.
+<<Font Widths>>=
+    enum {
+	START_CHAR = 32,
+	END_CHAR = 127
+    };
+    unsigned int widths[ END_CHAR+1 ];
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the font class takes no arguments.
+<<Font Constructor Declaration>>=
+    Font( void );
+@
+
+The constructor for the font class simply loads the font image and
+fills in the character widths.  Each character in the font begins
+one pixels from the left edge and sixteen pixels from the top edge.
+The widths of each character are different.
+<<Font Constructor Implementation>>=
+    <<FontNameSpace>>::Font( void )
+    {
+	this->image = ::IMG_Load( "../../data/font.png" );
+	for ( unsigned int ii=0; ii < START_CHAR; ++ii ) {
+	    this->widths[ ii ] = 0;
+	}
+	for ( unsigned int ii=START_CHAR; ii < END_CHAR; ++ii ) {
+	    this->widths[ ii ] = 8;
+	}
+
+	<<Font prepare character widths>>
+    }
+@
+
+There are plenty of better ways to assign each of the characters
+a width.  But, this one seemed the simplest to me at the time.
+Since the default width of all characters is [[8]], those characters
+that are to stay that width are not included.  Those characters
+which are included are included in the order they appear in the
+font bitmap (top-to-bottom, left-to-right).
+<<Font prepare character widths>>=
+    this->widths[ ' ' ] = 4;
+    this->widths[ ',' ] = 4;
+    this->widths[ 't' ] = 6;
+
+    this->widths[ '!' ] = 5;
+    this->widths[ '-' ] = 7;
+    this->widths[ 'E' ] = 7;
+    this->widths[ ']' ] = 6;
+    this->widths[ 'i' ] = 4;
+
+    this->widths[ '"' ] = 7;
+    this->widths[ '.' ] = 4;
+    this->widths[ ':' ] = 4;
+    this->widths[ 'F' ] = 7;
+    this->widths[ 'j' ] = 6;
+
+    this->widths[ '#' ] = 12;
+    this->widths[ ';' ] = 4;
+    this->widths[ 'G' ] = 7;
+    this->widths[ '_' ] = 12;
+    this->widths[ 'w' ] = 13;
+
+    this->widths[ '$' ] = 7;
+    this->widths[ '<' ] = 10;
+    this->widths[ 'T' ] = 7;
+    this->widths[ '`' ] = 5;
+    this->widths[ 'l' ] = 4;
+    this->widths[ 'x' ] = 9;
+
+    this->widths[ '%' ] = 11;
+    this->widths[ '1' ] = 5;
+    this->widths[ 'I' ] = 5;
+    this->widths[ 'a' ] = 7;
+    this->widths[ 'm' ] = 11;
+
+    this->widths[ '>' ] = 10;
+    this->widths[ 'V' ] = 9;
+    this->widths[ 'n' ] = 7;
+
+    this->widths[ '\'' ] = 3;
+    this->widths[ 'W' ] = 14;
+    this->widths[ 'c' ] = 7;
+    this->widths[ '{' ] = 6;
+
+    this->widths[ '(' ] = 5;
+    this->widths[ '@' ] = 16;
+    this->widths[ 'L' ] = 7;
+    this->widths[ 'X' ] = 9;
+    this->widths[ '|' ] = 4;
+
+    this->widths[ ')' ] = 5;
+    this->widths[ '5' ] = 7;
+    this->widths[ 'A' ] = 7;
+    this->widths[ 'M' ] = 12;
+    this->widths[ 'q' ] = 7;
+    this->widths[ '}' ] = 6;
+
+    this->widths[ '*' ] = 7;
+    this->widths[ '6' ] = 7;
+    this->widths[ 'B' ] = 7;
+    this->widths[ 'Z' ] = 6;
+    this->widths[ 'f' ] = 5;
+    this->widths[ 'r' ] = 7;
+
+    this->widths[ '7' ] = 7;
+    this->widths[ 'C' ] = 7;
+    this->widths[ 'O' ] = 7;
+    this->widths[ '[' ] = 4;
+    this->widths[ 'g' ] = 7;
+    this->widths[ 's' ] = 7;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Destructor}
+
+The destructor for the font class releases the image loaded
+in the constructor.
+<<Font Destructor Declaration>>=
+    ~Font( void );
+@
+
+The destructor for the font class simply releases the font image.
+<<Font Destructor Implementation>>=
+    <<FontNameSpace>>::~Font( void )
+    {
+	if ( this->image != 0 ) {
+	    ::SDL_FreeSurface( this->image );
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Display Methods}
+
+The font class has a method which allows one to write
+text centered at a specific point on a surface.
+<<Font Display Declarations>>=
+    virtual void centerMessage(
+	    SDL_Surface* screen,
+	    bool refresh,
+	    int xx, int yy,
+	    const char* fmt,
+	    ...
+	);
+@
+
+The display function here uses [[vsnprintf()]] function to format the 
+message.  Then, it calculates the width of the message.  Then, it
+calculates the point it should start displaying the message and
+displays it.
+<<Font Display Implementations>>=
+    void
+    <<FontNameSpace>>::centerMessage(
+	    SDL_Surface* screen,
+	    bool refresh,
+	    int xx, int yy,
+	    const char* fmt,
+	    ...
+	)
+    {
+	<<Font centerMessage prepare string>>
+	<<Font centerMessage calculate width>>
+	<<Font centerMessage calculate starting point>>
+	<<Font centerMessage display text>>
+    }
+@
+
+If you've ever used [[vsnprintf()]] or its kin before, you should
+recognize this.  Here, we assume the a buffer of size 256 will be
+big enough for any message that would actually fit on the screen.
+<<Font centerMessage prepare string>>=
+    char buf[ 256 ];
+    va_list ap;
+    va_start( ap, fmt );
+    vsnprintf( buf, sizeof(buf), fmt, ap );
+    va_end( ap );
+@
+
+To calculate the width, we simply start summing the widths of each
+character in the string.
+<<Font centerMessage calculate width>>=
+    unsigned int width = 0;
+    for ( const char* ptr = buf; *ptr != 0; ++ptr ) {
+	assert( (unsigned int)*ptr <= END_CHAR );
+	width += this->widths[ *ptr ];
+    }
+@
+
+The starting point should be half the width to the left of the base
+point and it should be sixteen pixels above the baseline.  The
+extra [[1]] subtracted from the [[xx]] coordinate is to compensate
+for the fact that the first column of each character is not to be
+considered in the placing of the character.
+<<Font centerMessage calculate starting point>>=
+    xx -= (int)width / 2 + 1;
+    yy -= 16;
+@
+
+The message is displayed by blitting each character to the screen.
+Once the whole message has been blitted, the whole area will be
+updated.  The extra [[32]] added to the width to refresh allows
+for the fact that we started one pixel to the left of the origin
+and the last letter may extend further to the right than its width
+would specify.
+<<Font centerMessage display text>>=
+    SDL_Rect dst;
+    dst.x = xx;
+    dst.y = yy;
+
+    for ( const char* ptr = buf; *ptr != 0; ++ptr ) {
+	if ( *ptr >= START_CHAR ) {
+	    unsigned int cc = *ptr - START_CHAR;
+	    unsigned int row = cc / 12;
+	    unsigned int col = cc - row * 12;
+	    SDL_Rect src;
+	    src.x = col * 21;
+	    src.y = row * 32;
+	    src.w = this->widths[ *ptr ];
+	    src.h = 32;
+	    ::SDL_BlitSurface( this->image, &src, screen, &dst );
+	    dst.x += src.w;
+	}
+    }
+
+    if ( refresh ) {
+	::SDL_UpdateRect( screen, xx, yy, width+32, 32 );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[Font]] class}
+
+In this section, we assemble the [[Font]] class from
+the pieces in the sections above.
+
+We include, in the [[Font]] class, the constructor
+and the display methods.
+<<Font Class Definition>>=
+    public:
+	<<Font Constructor Declaration>>
+	<<Font Destructor Declaration>>
+	<<Font Display Declarations>>
+@
+
+We include the variables that are used in the font class.
+<<Font Class Definition>>=
+    private:
+	<<Font Image>>
+	<<Font Widths>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<Font Class Declaration>>=
+    class Font {
+	<<Font Class Definition>>
+    };
+@ %def Font
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[font.h]] file}
+
+In this section, we assemble the header file for the [[Font]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<font.h>>=
+    namespace <<NameSpace>> {
+	<<Font Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[font.cpp]] file}
+
+In this section, we assemble the Font source file.  It
+requires the [[SDL]] headers for dealing with surfaces, the screen,
+blitting, and loading images.
+<<font.cpp>>=
+    #include <SDL.h>
+    #include <SDL_image.h>
+    #include <assert.h>
+    #include <stdarg.h>
+    #include "font.h"
+@
+
+After the header files, we include the implementations of the
+constructor and the display methods.
+<<font.cpp>>=
+    <<Font Constructor Implementation>>
+    <<Font Destructor Implementation>>
+    <<Font Display Implementations>>
+@

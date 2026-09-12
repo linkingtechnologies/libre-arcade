@@ -1,0 +1,21 @@
+{
+  "name": "54321",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test test/*.test.mjs",
+    "test:syntax": "node --check public/src/ui/app.js && node --check public/src/ui/layout.js && node --check public/src/core/cube.js && node --check public/src/core/prng.js && node --check public/src/games/flipflop.js && node --check public/src/games/bombsquad.js && node --check public/src/games/mazerunner.js && node --check public/src/games/pegjumper.js && node --check public/src/games/pegboards.js && node --check public/src/games/tileslider.js",
+    "lint": "eslint .",
+    "check": "npm run lint && npm run test:syntax && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "license": "GPL-3.0-or-later",
+  "displayName": "54321"
+}

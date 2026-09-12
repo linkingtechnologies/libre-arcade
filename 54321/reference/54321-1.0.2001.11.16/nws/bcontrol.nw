@@ -1,0 +1,340 @@
+\section{The BombSquad Game Controller}
+
+The namespace inside the BombSquad controller class is a concatenation
+of the general namespace and the name of the BombSquad controller
+class.
+<<BombSquadCNameSpace>>=
+<<NameSpace>>::BombSquadController
+@
+
+The BombSquad game controller inherits from the generic game controller
+of \S\ref{sec:controller}.  It actually controls the initialization
+and game action of the BombSquad game.  It fields the mouse clicks
+and converts them from screen coordinates into cell coordinates.
+And, it fields events from the view sidebar that set the difficulty
+level and set the wrap mode and set the dimensions and reset the
+game.
+
+The BombSquad game controller contains an instance of the
+BombSquad game view.
+<<BombSquadC View>>=
+    BombSquadView view;
+@
+
+The BombSquad game controller also contains a pointer to the
+current instance of the game model.
+<<BombSquadC Model>>=
+    BombSquad* model;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The constructor for the BombSquad controller class takes six
+arguments.  The first is a pointer to the screen, the second is a
+pointer to the sound device, the third is a pointer to the game
+cube, the fourth specifies the number of dimensions to employ, the
+fifth specifies the skill level to use, and the last specifies
+whether the edges wrap around.
+<<BombSquadC Constructor Declaration>>=
+    BombSquadController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the BombSquad controller class simply passes
+most of its arguments to the [[Controller]] constructor.  Then, it
+calls its own [[reset()]] method to allocate a new instance of the
+[[BombSquad]] class.
+<<BombSquadC Constructor Implementation>>=
+    <<BombSquadCNameSpace>>::BombSquadController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : Controller( _cube, _dims, _skillLevel, _wrap ),
+	    view( _screen, _sound, _cube, _dims, _skillLevel, _wrap ),
+	    model( 0 )
+    {
+	this->view.backgroundMusic();
+	this->reset();
+    }
+@
+
+The destructor for the BombSquad controller class deletes
+the stored model for the BombSquad game.
+<<BombSquadC Destructor Declaration>>=
+    virtual ~BombSquadController( void );
+@
+<<BombSquadC Destructor Implementation>>=
+    <<BombSquadCNameSpace>>::~BombSquadController( void )
+    {
+	this->view.backgroundMusic( true );
+	delete this->model;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+The [[BombSquadController]] class has a method called [[reset()]].
+It uses this method to create a new instance of the BombSquad game
+model.
+<<BombSquadC Reset Declaration>>=
+    void reset( void );
+@
+
+The method first deletes the old model and then creates a new
+model.
+<<BombSquadC Reset Implementation>>=
+    void
+    <<BombSquadCNameSpace>>::reset( void )
+    {
+	delete this->model;
+	this->model = new BombSquad(
+		this->cube,
+		this->dims,
+		this->skillLevel,
+		this->wrap,
+		&this->view
+	    );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Mouse Event Interface}
+
+The routine which handles mouse events needs to know whether the
+event is a mouse press or mouse release.  It also needs to know
+where the event happened.  And, it needs to know which mouse button
+was pressed.
+<<BombSquadC Mouse Click Declaration>>=
+    virtual void handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	);
+@
+
+If the hit wasn't in one of the buttons in the view, this method
+checks to see if the click was a mouse-up event on a cell.  If it
+was a mouse-up event on a cell, then it either uncovers that cell
+or toggles the flag for that cell depending on which mouse
+button was used.
+<<BombSquadC Mouse Click Implementation>>=
+    void
+    <<BombSquadCNameSpace>>::handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	)
+    {
+	unsigned int index;
+	bool hit;
+
+	hit = this->view.handleMouseClick(
+		    this, isMouseUp, xx, yy, buttonNumber
+		);
+
+	if ( !hit ) {
+	    hit = <<ViewNameSpace>>::screenToCell(
+		    xx, yy, this->dims, &index
+		);
+
+	    if ( hit && ! isMouseUp ) {
+		if ( buttonNumber == 1 ) {
+		    this->model->uncover( index );
+		} else {
+		    this->model->toggleFlag( index );
+		}
+	    }
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Game Setting Interface}
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``dimensions'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<BombSquadC Game Setting Interface>>=
+    virtual void setDimension( unsigned int _dims );
+@
+<<BombSquadC Game Setting Implementation>>=
+    void
+    <<BombSquadCNameSpace>>::setDimension(
+	    unsigned int _dims
+	)
+    {
+	if ( _dims != this->dims ) {
+	    this->dims = _dims;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``skill level'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<BombSquadC Game Setting Interface>>=
+    virtual void setSkillLevel( unsigned int _skillLevel );
+@
+<<BombSquadC Game Setting Implementation>>=
+    void
+    <<BombSquadCNameSpace>>::setSkillLevel(
+	    unsigned int _skillLevel
+	)
+    {
+	if ( _skillLevel != this->skillLevel ) {
+	    this->skillLevel = _skillLevel;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``wrap'' button on the sidebar.  If the button wasn't
+already selected, then this triggers a [[reset()]].
+<<BombSquadC Game Setting Interface>>=
+    virtual void setWrap( bool _wrap );
+@
+<<BombSquadC Game Setting Implementation>>=
+    void
+    <<BombSquadCNameSpace>>::setWrap(
+	    bool _wrap
+	)
+    {
+	if ( _wrap != this->wrap ) {
+	    this->wrap = _wrap;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``new'' button on the sidebar.  This always triggers
+a [[reset()]].
+<<BombSquadC Game Setting Interface>>=
+    virtual void newGame( void );
+@
+<<BombSquadC Game Setting Implementation>>=
+    void
+    <<BombSquadCNameSpace>>::newGame( void )
+    {
+	this->view.reset();
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[BombSquadController]] class}
+
+In this section, we assemble the [[BombSquadController]] class from
+the pieces in the sections above.
+
+We include, in the [[BombSquadController]] class, the constructor
+and the destructor.
+<<BombSquadC Class Definition>>=
+    public:
+	<<BombSquadC Constructor Declaration>>
+	<<BombSquadC Destructor Declaration>>
+@
+
+The [[BombSquadController]] class also declares its reset method
+and the methods used by the [[View]] class to change the game
+state.
+<<BombSquadC Class Definition>>=
+    private:
+	<<BombSquadC Reset Declaration>>
+    public:
+	<<BombSquadC Game Setting Interface>>
+@
+
+We include, in the [[BombSquadController]] class, the method used
+for mouse clicks.
+<<BombSquadC Class Definition>>=
+    public:
+	<<BombSquadC Mouse Click Declaration>>
+@
+
+The [[BombSquadController]] class also contains the member variables
+which were defined at the beginning of this section of the document.
+<<BombSquadC Class Definition>>=
+    private:
+	<<BombSquadC View>>
+	<<BombSquadC Model>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[BombSquadController]]
+inherits directly from the [[Controller]] class of \S\ref{sec:controller}.
+<<BombSquadC Class Declaration>>=
+    class BombSquadController : public Controller {
+	<<BombSquadC Class Definition>>
+    };
+@ %def BombSquadController
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[bombController.h]] file}
+
+In this section, we assemble the header file for the [[BombSquadController]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<bombController.h>>=
+    namespace <<NameSpace>> {
+	<<BombSquadC Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[bombController.cpp]] file}
+
+In this section, we assemble the BombSquad controller source file.
+It requires the header files for the [[Cube]] class, the [[Font]]
+class, the [[SoundDev]] class, the [[Controller]] class, the [[View]]
+class, the [[BombView]] class, the [[BombSquad]] game model, and
+the [[BombSquadController]] classes.
+<<bombController.cpp>>=
+    #include <SDL.h>
+    #include "cube.h"
+    #include "font.h"
+    #include "soundDev.h"
+    #include "controller.h"
+    #include "view.h"
+    #include "bombView.h"
+    #include "bomb.h"
+    #include "bombController.h"
+@
+
+After the header files, we include the implementations of the
+constructor and destructor.
+<<bombController.cpp>>=
+    <<BombSquadC Constructor Implementation>>
+    <<BombSquadC Destructor Implementation>>
+@
+
+After the constructor and destructor, the implementation of
+the [[reset()]] method and the game state methods
+are also included.
+<<bombController.cpp>>=
+    <<BombSquadC Reset Implementation>>
+    <<BombSquadC Game Setting Implementation>>
+@
+
+Then, we include the implementation of the method used to field
+mouse clicks.
+<<bombController.cpp>>=
+    <<BombSquadC Mouse Click Implementation>>
+@

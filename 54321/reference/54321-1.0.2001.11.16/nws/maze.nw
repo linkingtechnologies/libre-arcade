@@ -1,0 +1,741 @@
+\part{The Maze Runner Game}
+\section{Maze Runner}
+
+The namespace inside the maze runner class is a concatenation of the
+general namespace and the name of the maze runner class.
+<<MazeNameSpace>>=
+<<NameSpace>>::Maze
+@
+
+The [[Maze]] class keeps a pointer to the cube used for the
+game.
+<<Maze Cube>>=
+    Cube* cube;
+@
+
+The [[Maze]] class uses many constants to keep flags in the cube.
+First, the [[Maze]] class has two flags which it only uses during
+preparation of the maze.  The preparation of the maze is described
+full in \S\ref{sec:maze-prep}.  For now, it suffices to say that
+it uses the bottom eight bits to tell which set a particular cell
+belongs to and the ninth bit to tell whether the bottom eight bits
+name the set or point toward the set.
+<<Maze Cube Flags>>=
+    enum {
+	SET_MASK      = 0x000000FF,
+	SET_REFERENCE = 0x00000100
+    };
+@
+
+The [[Maze]] class also has flags to tell whether a cell has been
+visited by the player before, where the player currently is, and
+where the goal position is.
+<<Maze Cube Flags>>=
+    enum {
+	BEEN_HERE     = 0x00000200,
+	AM_HERE       = 0x00000400,
+	FINISH_HERE   = 0x00000800
+    };
+@
+
+Additionally, the [[Maze]] class uses some internal flags
+to tell which walls are present on a cell.  These flags
+are specificly set up in pairs so that if you have the
+wall in the negative direction on a particular axis you can
+shift it up by a bit to get the wall for the positive direction
+on that same axis.  The pairs are ordered from least-significant
+axis to most-significant axis.
+<<Maze Cube Flags>>=
+    enum {
+	LEFT          = 0x00010000,
+	RIGHT         = 0x00020000,
+	UP            = 0x00040000,
+	DOWN          = 0x00080000,
+	FORE          = 0x00100000,
+	AFT           = 0x00200000,
+	ANA           = 0x00400000,
+	KATA          = 0x00800000,
+	ALL_WALLS     = 0x00FF0000
+    };
+@
+
+The [[Maze]] class also tracks the number of dimensions that are
+being used.  It needs this information so that it can properly
+determine the neighbors of a given point.
+<<Maze Dimensions>>=
+    unsigned int dims;
+@
+
+And, the [[Maze]] class tracks the current skill level.
+<<Maze Skill Level>>=
+    unsigned int skillLevel;
+@
+
+The [[Maze]] class also keeps track of whether or not it is
+wrapping around.  This is necessary so that it can properly determine
+neighbors of things near the edge.
+<<Maze Wrap>>=
+    bool wrap;
+@
+
+The [[Maze]] class also keeps track of the index of the current
+location and the index of the target location.
+<<Maze Spots>>=
+    unsigned int curIndex;
+    unsigned int finishIndex;
+@
+
+The [[Maze]] class also keeps track of the number of steps
+taken and the number of those which were on a spot that was
+already stepped upon.
+<<Maze Move Counters>>=
+    int stepsTaken;
+    int repeatsTaken;
+@
+
+Also, to track the winning condition, there is a flag that
+tells whether the game has already been won or not.  After
+a person wins, she can play around on the board as much as
+she likes before hitting the ``New'' button.
+<<Maze Has Won>>=
+    bool hasWon;
+@
+
+The [[Maze]] class also keeps track of the view pointer.
+<<Maze View>>=
+    MazeView* view;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the [[Maze]] class takes five arguments.
+The first is a pointer to the game cube, the second specifies the
+number of dimensions to employ, the third specifies the skill level
+to use, the fourth specifies whether the edges wrap around, and
+the fifth is an option pointer to the view to update when cells
+change.
+<<Maze Constructor Declaration>>=
+    Maze(
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true,
+	    MazeView* _view = 0
+	);
+@
+
+The constructor for the [[Maze]] class copies the arguments
+into its local variables.  Then, it calls its own reset method to
+start a new game.  But, first, it verifies that all of the input
+arguments match its range expectations.
+<<Maze Constructor Implementation>>=
+    <<MazeNameSpace>>::Maze(
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap,
+	    MazeView* _view
+	) : cube( _cube ),
+	    dims( _dims ),
+	    skillLevel( _skillLevel ),
+	    wrap( _wrap ),
+	    view( _view )
+    {
+	assert( cube != 0 );
+	assert( dims >= 1 );
+	assert( dims <= 4 );
+	assert( skillLevel < 3 );
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+\label{sec:maze-prep}
+
+This method is used to start a new game.  It requires no parameters.
+It assumes that the number of dimensions, the skill level,
+and the wrap mode have already been set.
+<<Maze Reset Declaration>>=
+    void reset( void );
+@
+
+The cube is set up to contain all walls.  The starting set of each
+member of the cube is itself.  This is because the set of a
+cell is that cell's index if the [[SET_REFERENCE]] bit is not set.
+If the [[SET_REFERENCE]] bit is set, then the set of the cell is the
+set of the cell whose index is this cell masked with
+[[SET_MASK]].  This is described completely in \S\ref{sec:maze-sets}.
+Then, this method prepares a list of walls to nuke.  Then, we keep
+trying to nuke walls until there are no more.  After that, we reset
+the game statistics and redraw.
+<<Maze Reset Implementation>>=
+    void
+    <<MazeNameSpace>>::reset( void )
+    {
+	*this->cube = ALL_WALLS;
+
+	<<Maze Extra Wall Table>>
+	unsigned int extraWallPercent
+	    = table[ this->dims ][ this->skillLevel ];
+	unsigned int len
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	unsigned int distinctSets = len;
+	<<Maze Prepare List of Walls>>
+
+	while ( wallCount > 0 ) {
+	    unsigned int nn = random() % wallCount;
+	    <<Maze Try To Nuke A Wall>>
+	    walls[ nn ] = walls[ wallCount-1 ];
+	    --wallCount;
+	}
+
+	<<Maze Reset Current Statistics>>
+
+	if ( this->view != 0 ) {
+	    this->view->reset();
+	    this->view->redraw();
+	}
+    }
+@
+
+The following table is used to determine the percentage of extra walls
+to break down based upon the number of dimensions and the skill
+level.
+<<Maze Extra Wall Table>>=
+    unsigned int table[ Cube::DIMENSIONS+1 ][ 3 ] = {
+	{  0,  0,  0 },
+	{ 20, 10,  0 },
+	{ 20, 10,  0 },
+	{ 20, 10,  0 },
+	{ 20, 10,  0 },
+    };
+@
+
+To establish the list of walls, we will make an array big enough
+to hold every possible wall.
+<<Maze Prepare List of Walls>>=
+    struct WallInfo {
+	unsigned int from;
+	unsigned int to;
+    };
+    struct WallInfo* walls = new struct WallInfo[
+	    len * this->dims
+	];
+@
+
+Then, we'll go through each cell and add in the walls that
+we haven't already added.
+<<Maze Prepare List of Walls>>=
+    unsigned int wallCount = 0;
+
+    for ( unsigned int ii=0; ii < len; ++ii ) {
+	unsigned int nn[ 2 * <<CubeNameSpace>>::DIMENSIONS ];
+	unsigned int nc = this->cube->getNeighbors(
+		nn, ii, this->dims, this->wrap
+	    );
+	for ( unsigned int jj=0; jj < nc; ++jj ) {
+	    <<Maze Add Wall To List>>
+	}
+    }
+@
+
+When adding a potential wall to a list, we only add it if the
+neighbor has a smaller index than the current cell.  In this way,
+we ensure that we never add the same wall twice.
+<<Maze Add Wall To List>>=
+    if ( nn[ jj ] < ii ) {
+	assert( wallCount < len * this->dims );
+	walls[ wallCount ].from = ii;
+	walls[ wallCount ].to = nn[ jj ];
+	++wallCount;
+    }
+@
+
+To determine whether we want to nuke a wall, we first see if the
+cells on opposite sides of the wall are already in the same set.
+If they are, then we should not nuke the wall unless we're just
+into randomly nuking it.  To nuke the wall, we mark the walls
+as gone in the cube and then join the sets of the two walls.
+<<Maze Try To Nuke A Wall>>=
+    unsigned int setFrom = this->set( walls[ nn ].from );
+    unsigned int setTo = this->set( walls[ nn ].to );
+
+    if ( setFrom != setTo || ( random() % 100 ) < extraWallPercent ) {
+	<<Maze Destroy Wall>>
+	this->join( setFrom, setTo );
+    }
+@
+
+To actually destroy the wall, we first retrieve the coordinates of
+the original and final cell.  Then, we determine which axis the
+wall is along.  Then, we actually erase the walls from the cube.
+<<Maze Destroy Wall>>=
+    <<Maze Get To And From Coordinates>>
+    <<Maze Determine Which Axis>>
+    <<Maze Clear Walls>>
+@
+
+We get the coordinates by invoking the [[indexToVector()]] method
+of the [[Cube]] class.
+<<Maze Get To And From Coordinates>>=
+    unsigned int vf[ <<CubeNameSpace>>::DIMENSIONS ];
+    <<CubeNameSpace>>::indexToVector( walls[ nn ].from, vf );
+
+    unsigned int vt[ <<CubeNameSpace>>::DIMENSIONS ];
+    <<CubeNameSpace>>::indexToVector( walls[ nn ].to, vt );
+@
+
+Then, we use the helper method defined in \S\ref{sec:determineAxis}
+to tell which axis and which direction along that axis this wall
+happens to be.
+<<Maze Determine Which Axis>>=
+    bool positive;
+    unsigned int axis;
+
+    <<CubeNameSpace>>::determineAxis(
+	vf, vt, this->wrap, &axis, &positive
+    );
+@
+
+To actually clear the walls, we take the lowest possible wall.  We
+shift it over by twice the axis number.  Then, for positive
+differences, we shift the [[from]] wall one more time.  For negative
+differences, we shift the [[to]] wall one more time.  These walls
+are erased from the cube.
+<<Maze Clear Walls>>=
+    unsigned int fw = LEFT << ( 2 * axis );
+    unsigned int tw = LEFT << ( 2 * axis );
+
+    if ( positive ) {
+	fw <<= 1;
+    } else {
+	tw <<= 1;
+    }
+
+    (*this->cube)[ walls[ nn ].from ] &= ~fw;
+    (*this->cube)[ walls[ nn ].to ]   &= ~tw;
+@
+For example, if the axis were [[1]] and the difference were positive,
+then [[fw]] and [[tw]] would both be set to [[UP]] and then [[fw]]
+would be shifted to [[DOWN]].  This means that the lower wall of
+the [[from]] location and the upper wall of the [[to]] location
+would be erased.  This is what one would expect because the cube
+is presented on-screen with right and down being the positive
+directions.
+
+To reset the statistics for the game, we first clear out the
+number of steps taken, the number of steps taken on cells that
+have already been stepped upon, the winning status, and the current
+position.
+<<Maze Reset Current Statistics>>=
+    this->stepsTaken = 0;
+    this->repeatsTaken = 0;
+    this->hasWon = false;
+    this->curIndex = 0;
+    (*this->cube)[ this->curIndex ] |= AM_HERE;
+@
+
+Then, based upon the wrap mode and the current number of dimensions,
+we decide where the end-point of the maze should be.
+<<Maze Reset Current Statistics>>=
+    unsigned int vec[ <<CubeNameSpace>>::DIMENSIONS ];
+    for ( unsigned int ii=0; ii < <<CubeNameSpace>>::DIMENSIONS; ++ii ) {
+	vec[ ii ] = 0;
+    }
+
+    if ( this->wrap ) {
+	for ( unsigned int ii=0; ii < this->dims; ++ii ) {
+	    vec[ ii ] = <<CubeNameSpace>>::SIDE_LENGTH / 2;
+	}
+    } else {
+	for ( unsigned int ii=0; ii < this->dims; ++ii ) {
+	    vec[ ii ] = <<CubeNameSpace>>::SIDE_LENGTH - 1;
+	}
+    }
+
+    <<CubeNameSpace>>::vectorToIndex( vec, &this->finishIndex );
+    (*this->cube)[ this->finishIndex ] |= FINISH_HERE;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Move Method}
+
+This method determines whether the person can go in a direct
+line from the current position to the position given by the
+[[toIndex]] parameter.
+<<Maze Move Declaration>>=
+    void move( unsigned int toIndex );
+@
+
+This method saves the current position.  Then, it retrieves the
+coordinates of the current position and the proposed destination.
+It uses those coordinates to determine which axis is the proposed
+axis of motion.  Then, if there are no obstructions, it makes
+the actual move.
+<<Maze Move Implementation>>=
+    void
+    <<MazeNameSpace>>::move( unsigned int toIndex )
+    {
+	unsigned int fromIndex = this->curIndex;
+	<<Maze Move Get Coordinates>>
+	<<Maze Move Determine Axis>>
+	<<Maze Check For Walls Along Path>>
+	<<Maze Update Counters And Mark Path>>
+    }
+@
+
+To get the coordinates of the starting and ending locations,
+we call the [[indexToVector]] method on the [[Cube]] class.
+<<Maze Move Get Coordinates>>=
+    unsigned int vf[ <<CubeNameSpace>>::DIMENSIONS ];
+    <<CubeNameSpace>>::indexToVector( fromIndex, vf );
+
+    unsigned int vt[ <<CubeNameSpace>>::DIMENSIONS ];
+    <<CubeNameSpace>>::indexToVector( toIndex, vt );
+@
+
+To check the axis of motion, we determine the difference
+between the current position and the destination position.
+If the move is not parallel to an axis, we bail.
+<<Maze Move Determine Axis>>=
+    bool positive;
+    unsigned int axis;
+
+    if ( <<CubeNameSpace>>::determineAxis(
+	vf, vt, this->wrap, &axis, &positive
+    ) == false ) {
+	return;
+    }
+@
+
+To check for walls along the path, first we're going to copy the
+starting coordinates into the current coordinates.
+<<Maze Check For Walls Along Path>>=
+    unsigned int vc[ <<CubeNameSpace>>::DIMENSIONS ];
+
+    for ( unsigned int ii=0; ii < <<CubeNameSpace>>::DIMENSIONS; ++ii ) {
+	vc[ ii ] = vf[ ii ];
+    }
+@
+
+Then, we're going to step along the axis in the positive direction
+looking for walls that are in the way.
+<<Maze Check For Walls Along Path>>=
+    bool hit = false;
+
+    unsigned int wall = RIGHT << ( 2 * axis );
+    unsigned int positiveDist = 0;
+
+    while ( !hit && vc[ axis ] != vt[ axis ] ) {
+	hit = ( (*this->cube)[ vc ] & wall ) != 0;
+	<<Maze Do Positive Step>>
+	++positiveDist;
+    }
+
+    if ( hit ) {
+	positiveDist = 0;
+    }
+
+    vc[ axis ] = vf[ axis ];
+@
+
+We're also going to look in the negative direction.  If we didn't
+hit a wall in either, then we'll move the closer direction.
+<<Maze Check For Walls Along Path>>=
+    unsigned int negativeDist = 0;
+
+    wall = LEFT << ( 2 * axis );
+
+    hit = false;
+
+    while ( !hit && vc[ axis ] != vt[ axis ] ) {
+	hit = ( (*this->cube)[ vc ] & wall ) != 0;
+	<<Maze Do Negative Step>>
+	++negativeDist;
+    }
+
+    if ( hit ) {
+	negativeDist = 0;
+    }
+
+    vc[ axis ] = vf[ axis ];
+@
+
+\label{sec:mazeStep}
+To move in the positive direction, we simply add one to
+the current spot on the axis and take the result modulo
+the size of the cube.
+<<Maze Do Positive Step>>=
+    vc[ axis ] = ( vc[ axis ] + 1 ) % <<CubeNameSpace>>::SIDE_LENGTH;
+@
+
+To move in the negative direction, we simply subtract one from
+the current spot on the axis and take the result modulo
+the size of the cube.  We have to be careful though not to end
+up dealing in negative numbers before the modulo though.
+<<Maze Do Negative Step>>=
+    vc[ axis ] = (
+	    vc[ axis ] + <<CubeNameSpace>>::SIDE_LENGTH - 1
+	) % <<CubeNameSpace>>::SIDE_LENGTH;
+@
+
+If we hit walls in both directions, then this is not a legal move.
+If it's not a legal move, we'll bail.  Otherwise, we'll move whichever
+way is closer.
+<<Maze Check For Walls Along Path>>=
+    if ( positiveDist == 0 && negativeDist == 0 ) {
+	return;
+    }
+
+    if ( positiveDist == 0 ) {
+	positive = false;
+    } else if ( negativeDist == 0 ) {
+	positive = true;
+    } else {
+	positive = ( positiveDist <= negativeDist );
+    }
+@
+
+If we make it this far, then the move was legal.  So, we're going
+to step through the path, updating our counters and the cells.
+<<Maze Update Counters And Mark Path>>=
+    (*this->cube)[ this->curIndex ] &= ~AM_HERE;
+    this->curIndex = toIndex;
+    (*this->cube)[ this->curIndex ] |= AM_HERE;
+
+    while ( vc[ axis ] != vt[ axis ] ) {
+	unsigned int index;
+	<<CubeNameSpace>>::vectorToIndex( vc, &index );
+
+	<<Maze Update Increment Counters>>
+	(*this->cube)[ index ] |= BEEN_HERE;
+
+	if ( this->view != 0 ) {
+	    this->view->redraw( index );
+	}
+
+	if ( positive ) {
+	    <<Maze Do Positive Step>>
+	} else {
+	    <<Maze Do Negative Step>>
+	}
+    }
+
+    if ( this->view != 0 ) {
+	this->view->redraw( this->curIndex );
+	this->view->moveNoise();
+    }
+
+    <<Maze Check Winning>>
+@
+
+To update the counters, we have to note that we've taken a step.
+And, if this is a cell we've been to before, we have to note that
+the step was a repeat.
+<<Maze Update Increment Counters>>=
+    ++this->stepsTaken;
+    if ( ( (*this->cube)[ index ] & BEEN_HERE ) != 0 ) {
+	++this->repeatsTaken;
+    }
+@
+
+To check the winning condition, we have to see if we've
+made it to the finish-point.  If we have, then we display
+the winning message.
+<<Maze Check Winning>>=
+    if ( !hasWon ) {
+	hasWon = ( this->curIndex == this->finishIndex );
+
+	if ( hasWon && this->view != 0 ) {
+	    this->view->showWinning(
+		    this->repeatsTaken,
+		    this->stepsTaken - this->repeatsTaken
+		);
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Disjoint Set ADT Methods}
+\label{sec:maze-sets}
+
+The maze creation step uses the abstract data type (ADT) for disjoint
+sets.  The basic idea of that ADT is that we have an array which
+contains integers.  If the [[SET_REFERENCE]] bit \textit{is not}
+set for a particular item, then the index of that item is the name
+of its set.  If the [[SET_REFERENCE]] bit \textit{is} set, then
+the set of this particular item is the same as the set of the item
+number obtained by masking this item with [[SET_MASK]].  The code
+will make it more clear.
+
+There are two set operations defined.  The [[set()]] operation
+returns the set name for a given index.  The [[join()]] operation
+joins two sets.
+<<Maze Set ADT Declarations>>=
+    unsigned int set( unsigned int index );
+    void join( unsigned int aa, unsigned int bb );
+@
+
+This method determines the name of the set for a given index in
+the cube.  If the [[SET_REFERENCE]] bit is not set, then the name
+of the set is the same as the index of the cell.  If the
+[[SET_REFERENCE]] bit is set, then the set is the same as that of
+the referenced cell.  In an effort to keep the depth of the tree
+small, we always update this cell's set every time we check it.
+<<Maze Set ADT Implementations>>=
+    unsigned int
+    <<MazeNameSpace>>::set( unsigned int index )
+    {
+	unsigned int value = (*this->cube)[ index ];
+
+	if ( ( value & SET_REFERENCE ) != 0 ) {
+	    unsigned int ss = this->set( value & SET_MASK );
+	    <<Maze Set Assign Set Number>>
+	    return ss;
+	} else {
+	    return index;
+	}
+    }
+@
+
+To assign a set number to a cell, we have to clear out all
+of the bits covered by the [[SET_MASK]] and then put the
+set name back in those lower bits.
+<<Maze Set Assign Set Number>>=
+    assert( ss <= SET_MASK );
+    value &= ~SET_MASK;
+    value |= ss;
+    (*this->cube)[ index ] = value;
+@
+
+To join two sets, we simply find the top node in the set of the
+second guy and make it reference the top node in the set of the
+first guy.
+<<Maze Set ADT Implementations>>=
+    void
+    <<MazeNameSpace>>::join( unsigned int aa, unsigned int bb )
+    {
+	unsigned int ss = this->set( aa );
+	unsigned int index = this->set( bb );
+
+	if ( ss != index ) {
+	    unsigned int value = (*this->cube)[ index ];
+	    value |= SET_REFERENCE;
+	    <<Maze Set Assign Set Number>>
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[Maze]] class}
+
+In this section, we assemble the [[Maze]] class from the pieces
+in the sections above.
+
+The first thing in the maze class definition is the set of
+flags used to track the state of cells in the cube.
+<<Maze Class Definition>>=
+    public:
+	<<Maze Cube Flags>>
+@
+
+After that is the declaration of the constructor.
+<<Maze Class Definition>>=
+    public:
+	<<Maze Constructor Declaration>>
+@
+
+After that, the reset method and the move method are declared.
+<<Maze Class Definition>>=
+    public:
+	<<Maze Reset Declaration>>
+	<<Maze Move Declaration>>
+@
+
+After that, the set abstract data type interfaces are declared.
+<<Maze Class Definition>>=
+    private:
+	<<Maze Set ADT Declarations>>
+@
+
+The data members of the [[Maze]] class all have private scope.
+The data members specify the cube, the number of dimensions, the
+skill level, the wrapping mode, the indexes of the special spots,
+the move counters, the variables for tracking the winning state,
+and the pointer to the view class if one was given.
+<<Maze Class Definition>>=
+    private:
+	<<Maze Cube>>
+	<<Maze Dimensions>>
+	<<Maze Skill Level>>
+	<<Maze Wrap>>
+	<<Maze Spots>>
+	<<Maze Move Counters>>
+	<<Maze Has Won>>
+	<<Maze View>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<Maze Class Declaration>>=
+    class Maze {
+	<<Maze Class Definition>>
+    };
+@ %def Maze
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[maze.h]] file}
+
+In this section, we assemble the header file for the [[Maze]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<maze.h>>=
+    namespace <<NameSpace>> {
+	<<Maze Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[maze.cpp]] file}
+
+For the actual C++ source code, we include the header file that
+defines [[assert()]], the header file for [[random()]], the header
+file for the [[SDL]] stuff needed by the [[view.h]] file, the header
+file for the cube, the header file for the sound device, the header
+file for the generic view class, the header file for the view class
+for this particular game, and the header file generated in the
+previous section.
+<<maze.cpp>>=
+    #include <assert.h>
+    #include <stdlib.h>
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "mazeView.h"
+    #include "maze.h"
+@
+
+Then, the source file incorporates the implementation of the
+constructor.
+<<maze.cpp>>=
+    <<Maze Constructor Implementation>>
+@
+
+After that, the source file incorporates the implementations of the
+reset method and the move method.
+<<maze.cpp>>=
+    <<Maze Reset Implementation>>
+    <<Maze Move Implementation>>
+@
+
+The source file also contains the implementation of the disjoint set
+abstract data type.
+<<maze.cpp>>=
+    <<Maze Set ADT Implementations>>
+@

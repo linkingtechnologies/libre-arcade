@@ -1,0 +1,516 @@
+\part{The Bomb Squad Game}
+\section{Bomb Squad}
+
+The namespace inside the bomb squad class is a concatenation of the
+general namespace and the name of the bomb squad class.
+<<BombSquadNameSpace>>=
+<<NameSpace>>::BombSquad
+@
+
+The [[BombSquad]] class uses several flags to track what has
+happened in a cell.  These flags tell if the cell has been
+uncovered, if it contains a bomb, and if it contains a flag.
+<<BombSquad Flags>>=
+    enum {
+	UNCOVERED = 0x1000,
+	BOMB = 0x2000,
+	FLAG = 0x4000
+    };
+@
+
+The [[BombSquad]] class keeps a pointer to the cube used for the
+game.
+<<BombSquad Cube>>=
+    Cube* cube;
+@
+
+The [[BombSquad]] class also tracks the number of dimensions that are being
+used.  It needs this information so that it can properly determine the
+neighbors of a given point.
+<<BombSquad Dimensions>>=
+    unsigned int dims;
+@
+
+And, the [[BombSquad]] class tracks the current skill level.
+<<BombSquad Skill Level>>=
+    unsigned int skillLevel;
+@
+
+The [[BombSquad]] class also keeps track of whether or not it is
+wrapping around.  This is necessary so that it can properly determine
+neighbors of things near the edge.
+<<BombSquad Wrap>>=
+    bool wrap;
+@
+
+In addition, the game also tracks how many bombs are out there,
+how many flags have been placed, and how many cells are currently
+still coverred.
+<<BombSquad Move Counters>>=
+    unsigned int bombCount;
+    unsigned int flagCount;
+    unsigned int coveredCount;
+@
+
+The class also tracks whether the game has ended:  either because
+the player won or by a very loud explosion.
+<<BombSquad Game Over>>=
+    bool gameOver;
+@
+
+The [[BombSquad]] class also keeps track of the view pointer.
+<<BombSquad View>>=
+    BombSquadView* view;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the [[BombSquad]] class takes five arguments.
+The first is a pointer to the game cube, the second specifies the
+number of dimensions to employ, the third specifies the skill level
+to use, the fourth specifies whether the edges wrap around, and
+the fifth is an option pointer to the view to update when cells
+change.
+<<BombSquad Constructor Declaration>>=
+    BombSquad(
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true,
+	    BombSquadView* _view = 0
+	);
+@
+
+The constructor for the [[BombSquad]] class copies the arguments
+into its local variables.  Then, it calls its own reset method to
+start a new game.  But, first, it verifies that all of the input
+arguments match its range expectations.
+<<BombSquad Constructor Implementation>>=
+    <<BombSquadNameSpace>>::BombSquad(
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap,
+	    BombSquadView* _view
+	) : cube( _cube ),
+	    dims( _dims ),
+	    skillLevel( _skillLevel ),
+	    wrap( _wrap ),
+	    view( _view )
+    {
+	assert( cube != 0 );
+	assert( dims > 1 );
+	assert( dims <= <<CubeNameSpace>>::DIMENSIONS );
+	assert( <<CubeNameSpace>>::DIMENSIONS <= 4 );
+	assert( skillLevel < 3 );
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+This method is used to start a new game.  It requires no parameters.
+It assumes that both the number of dimensions and the wrap mode
+have already been set.
+<<BombSquad Reset Declaration>>=
+    void reset( void );
+@
+
+The cube is cleared.  Then, the skill level is used to determine
+the number of cells to bomb.
+<<BombSquad Reset Implementation>>=
+    void
+    <<BombSquadNameSpace>>::reset( void )
+    {
+	*this->cube = 0;
+
+	<<BombSquad SkillTable>>
+	unsigned int bombs = table[ this->dims ][ this->skillLevel ];
+	unsigned int len
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	<<BombSquad Add Bombs>>
+	<<BombSquad Reset Current Statistics>>
+
+	if ( this->view != 0 ) {
+	    this->view->reset();
+	    this->view->redraw();
+	}
+    }
+@
+
+The following table is used to determine the number of bombs to place
+based upon the number of dimensions and the skill level.
+<<BombSquad SkillTable>>=
+    unsigned int table[ Cube::DIMENSIONS+1 ][ 3 ] = {
+	{   0,   0,   0 },
+	{   1,   2,   3 },
+	{   2,   4,   8 },
+	{   4,   8,  16 },
+	{  16,  32,  64 },
+    };
+@
+
+We want to be careful not to place a bomb in the same cell twice.  So,
+we make a lookup table of cells we've already bombed.  Then,
+we go through and plant each bomb.
+<<BombSquad Add Bombs>>=
+    unsigned int* lut = new unsigned int[ bombs ];
+    unsigned int lutLen = 0;
+
+    for ( unsigned int ii=0; ii < bombs; ++ii ) {
+	<<BombSquad Add Single Bomb>>
+    }
+
+    delete[] lut;
+@
+
+Each time we want to bomb, we pick an index from the available
+range.  Then, we loop through the lookup table incrementing index
+each time we find a number that is less than or equal to index.
+This makes index be the [[index]]-th number which has not yet been
+chosen.  Then, we add the bomb and add index into the lookup
+table.
+<<BombSquad Add Single Bomb>>=
+    unsigned int index = random() % len--;
+    for ( unsigned int jj=0; jj < lutLen; ++jj ) {
+	if ( index >= lut[ jj ] ) {
+	    ++index;
+	}
+    }
+
+    (*this->cube)[ index ] |= BOMB;
+    <<BombSquad Increment Counts>>
+
+    <<BombSquad Add Index Into LUT>>
+@
+
+Here, we put it at the end of the lookup table.  Then, we keep
+trying to swap it with the element before it in the list until we
+come to an element before it that is less than it.  We need to keep
+the lookup table sorted for the previous incrementing loop to work
+right.  This is just a simple bit of a bubble sort where we know
+that the only element potentially out of place is the last one.
+<<BombSquad Add Index Into LUT>>=
+    unsigned int spot = lutLen;
+    while ( spot > 0 && lut[ spot-1 ] > index ) {
+	lut[ spot ] = lut[ spot-1 ];
+	--spot;
+    }
+    lut[ spot ] = index;
+    ++lutLen;
+@
+
+Once a bomb has been placed, we increment the counts on each
+of its neighbors.
+<<BombSquad Increment Counts>>=
+    unsigned int nn[ 2 * <<CubeNameSpace>>::DIMENSIONS ];
+    unsigned int nc;
+
+    nc = <<CubeNameSpace>>::getNeighbors(
+	    nn, index, this->dims, this->wrap
+	);
+    for ( unsigned int jj=0; jj < nc; ++jj ) {
+	++(*this->cube)[ nn[ jj ] ];
+    }
+@
+
+Resetting the statistics for the current game is easy.
+The number of bombs placed is the number that are there.
+The number of flags placed is zero.  And, the number of
+cells which are covered is the number of cells in
+this cube.
+<<BombSquad Reset Current Statistics>>=
+    this->bombCount = bombs;
+    this->flagCount = 0;
+    this->coveredCount
+	= <<CubeNameSpace>>::arrayLengths[ this->dims ];
+    this->gameOver = false;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Uncover Method}
+
+This method is used by the controller to reveal a cell.
+If the cell was entirely empty, then all of its neighbors
+are also uncovered.
+<<BombSquad Uncover Declaration>>=
+    void uncover( unsigned int index, bool click = true );
+@
+
+If the current cell has not yet been uncovered, it is marked
+as uncovered.  If the cell has no neighboring bombs, then all
+of its neighbors are uncovered.
+<<BombSquad Uncover Implementation>>=
+    void
+    <<BombSquadNameSpace>>::uncover(
+	    unsigned int index, bool click
+	)
+    {
+	unsigned int cell = (*this->cube)[ index ];
+	if ( ( cell & ( UNCOVERED | FLAG ) ) == 0 ) {
+	    <<BombSquad Register Move>>
+	    <<BombSquad Uncover Single Cell>>
+
+	    if ( ( cell & BOMB ) != 0 ) {
+		<<BombSquad Uncover Bomb>>
+	    } else if ( ( cell & 0x0FFF ) == 0 ) {
+		<<BombSquad Uncover Neighbors>>
+	    }
+
+	    if ( click ) {
+		this->checkWinningCondition();
+	    }
+	}
+    }
+@
+
+We update the count of cells which are covered.
+And, if we have a view and this is for the user's click,
+then we make a move noise.
+<<BombSquad Register Move>>=
+    --this->coveredCount;
+    if ( click && this->view != 0 ) {
+	this->view->moveNoise();
+    }
+@
+
+First, we'll mark this particular cell as uncovered.
+<<BombSquad Uncover Single Cell>>=
+    (*this->cube)[ index ] |= UNCOVERED;
+@
+
+Additionally, if we have been supplied a view to update, then we
+will tell the view to redraw the element at this index.
+<<BombSquad Uncover Single Cell>>=
+    if ( this->view != 0 ) {
+	this->view->redraw( index );
+    }
+@
+
+If the person uncovered a bomb, then they have lost.
+If the game isn't already over, then we display the
+losing message.
+<<BombSquad Uncover Bomb>>=
+    if ( ! this->gameOver ) {
+	this->gameOver = true;
+	if ( this->view != 0 ) {
+	    this->view->showLosing();
+	}
+    }
+@
+
+To uncover the neighbors of a cell, we simply retrieve the list of
+neighbors and uncover each one.
+<<BombSquad Uncover Neighbors>>=
+    unsigned int nn[ 2 * <<CubeNameSpace>>::DIMENSIONS ];
+    unsigned int nc = this->cube->getNeighbors(
+	    nn, index, this->dims, this->wrap
+	);
+
+    for ( unsigned int ii=0; ii < nc; ++ii ) {
+	this->uncover( nn[ ii ], false );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Toggle Flag Method}
+
+This method is used by the controller to toggle the flag setting
+on a cell.
+<<BombSquad Toggle Flag Declaration>>=
+    void toggleFlag( unsigned int index );
+@
+
+This method first checks to make sure that the cell isn't already
+uncovered.  If it isn't, then this method toggles the [[FLAG]] flag
+on this cell of the cube.  Then, it updates the counter appropriately.
+Then, it redraws the current cell and checks for a winning condition.
+<<BombSquad Toggle Flag Implementation>>=
+    void
+    <<BombSquadNameSpace>>::toggleFlag(
+	    unsigned int index
+	)
+    {
+	if ( ( (*this->cube)[ index ] & UNCOVERED ) == 0 ) {
+	    (*this->cube)[ index ] ^= FLAG;
+
+	    <<BombSquad ToggleFlag Update Flag Count>>
+
+	    if ( this->view != 0 ) {
+		this->view->moveNoise();
+		this->view->redraw( index );
+	    }
+
+	    this->checkWinningCondition();
+	}
+    }
+@
+
+To update the current count, we have to see if the
+flag was left in the set or unset position.  If
+the flag was unset, we decrement.  If it was set,
+we increment.
+<<BombSquad ToggleFlag Update Flag Count>>=
+    if ( ( (*this->cube)[ index ] & FLAG ) == 0 ) {
+	--this->flagCount;
+    } else {
+	++this->flagCount;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Checking for a Win}
+
+After things have been uncovered or a flag has been planted, we
+have to check the winning condition.  If the game isn't already
+over, then we have to check to make sure that flag count is the
+same as the bomb count and the number of cells still covered is
+the same as the bomb count.
+<<BombSquad Check Winning Condition Declaration>>=
+    void checkWinningCondition( void );
+@
+<<BombSquad Check Winning Condition Implementation>>=
+    void
+    <<BombSquadNameSpace>>::checkWinningCondition( void ) {
+	if ( ! this->gameOver
+	&& this->flagCount == this->bombCount
+	&& this->coveredCount == this->bombCount ) {
+	    this->gameOver = true;
+	    if ( this->view != 0 ) {
+		this->view->showWinning(
+			this->flagCount, this->bombCount
+		    );
+	    }
+	}
+    };
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[BombSquad]] class}
+
+In this section, we assemble the [[BombSquad]] class from the pieces
+in the sections above.
+
+The first thing incorporated into the class definition is the
+declaration of its internal flags.
+<<BombSquad Class Definition>>=
+    public:
+	<<BombSquad Flags>>
+@
+
+The next thing incorporated into the class definition is the
+declaration of the constructor
+<<BombSquad Class Definition>>=
+    public:
+	<<BombSquad Constructor Declaration>>
+@
+
+After that, the reset method is declared.
+<<BombSquad Class Definition>>=
+    public:
+	<<BombSquad Reset Declaration>>
+@
+
+After that, the methods are declared to uncover cells and
+to toggle the flag.
+<<BombSquad Class Definition>>=
+    public:
+	<<BombSquad Uncover Declaration>>
+	<<BombSquad Toggle Flag Declaration>>
+@
+
+Next, the class includes the inline method used to check
+for a victory.
+<<BombSquad Class Definition>>=
+    private:
+	<<BombSquad Check Winning Condition Declaration>>
+@
+
+The data members of the [[BombSquad]] class all have private scope.
+The data members specify the cube, the number of dimensions, the
+skill level, the wrapping mode, the move counters, the variables
+for tracking the winning state, and the pointer to the view class
+if one was given.
+<<BombSquad Class Definition>>=
+    private:
+	<<BombSquad Cube>>
+	<<BombSquad Dimensions>>
+	<<BombSquad Skill Level>>
+	<<BombSquad Wrap>>
+	<<BombSquad Move Counters>>
+	<<BombSquad Game Over>>
+	<<BombSquad View>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<BombSquad Class Declaration>>=
+    class BombSquad {
+	<<BombSquad Class Definition>>
+    };
+@ %def BombSquad
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[bomb.h]] file}
+
+In this section, we assemble the header file for the [[BombSquad]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<bomb.h>>=
+    namespace <<NameSpace>> {
+	<<BombSquad Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[bomb.cpp]] file}
+
+For the actual C++ source code, we include the header file that
+defines [[assert()]], the header file for [[random()]], the header
+file for the [[SDL]] stuff needed by the [[view.h]] file, the header
+file for the cube, the header file for the font, the header file
+for the generic view class, the header file for the view class for
+this particular game, and the header file generated in the previous
+section.
+<<bomb.cpp>>=
+    #include <assert.h>
+    #include <stdlib.h>
+    #include <SDL.h>
+    #include "cube.h"
+    #include "font.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "bombView.h"
+    #include "bomb.h"
+@
+
+Then, the source file incorporates the implementation of the
+constructor.
+<<bomb.cpp>>=
+    <<BombSquad Constructor Implementation>>
+@
+
+After that, the source file incorporates the implementation of the
+reset method.
+<<bomb.cpp>>=
+    <<BombSquad Reset Implementation>>
+@
+
+The source file also contains the implementation of the
+uncover-a-cell method and the toggle-the-flag-state method
+<<bomb.cpp>>=
+    <<BombSquad Uncover Implementation>>
+    <<BombSquad Toggle Flag Implementation>>
+@
+
+The source file also contains the implementation for the
+method which checks for a win.
+<<bomb.cpp>>=
+    <<BombSquad Check Winning Condition Implementation>>
+@

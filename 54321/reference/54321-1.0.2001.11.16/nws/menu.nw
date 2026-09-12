@@ -1,0 +1,271 @@
+\part{The Main Menu}
+\section{The Main Menu Controller}
+
+The namespace inside the Main Menu controller class is a concatenation
+of the general namespace and the name of the Main Menu controller
+class.
+<<MainMenuCNameSpace>>=
+<<NameSpace>>::MainMenuController
+@
+
+The MainMenu controller inherits from the generic controller
+of \S\ref{sec:controller}.  It simply fields mouse events for
+the main menu screen.  And, it fields clicks on the sidebar
+``Quit'' button.
+
+The MainMenu game controller contains an instance of the
+MainMenu game view.
+<<MainMenuC View>>=
+    MainMenuView view;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The constructor for the MainMenu controller class takes
+two arguments.  It takes a pointer to the screen as its first argument
+and a pointer to the game cube as the second argument.  It won't
+actually make any use of the game cube, but it passes it into the
+[[Controller]] base class so that the base class can feel happy
+about life.
+<<MainMenuC Constructor Declaration>>=
+    MainMenuController(
+	    SDL_Surface* _screen, Cube* cube
+	);
+@
+
+The constructor for the MainMenu controller class simply passes
+its arguments to the [[Controller]] constructor and the [[MainMenuView]]
+member.  Then, it tells the view to redraw itself.
+<<MainMenuC Constructor Implementation>>=
+    <<MainMenuCNameSpace>>::MainMenuController(
+	    SDL_Surface* _screen,
+	    Cube* _cube
+	) : Controller( _cube ),
+	    view( _screen )
+    {
+	this->view.redraw();
+    }
+@
+
+The destructor for the MainMenu controller does nothing
+at the moment.
+<<MainMenuC Destructor Declaration>>=
+    virtual ~MainMenuController( void );
+@
+<<MainMenuC Destructor Implementation>>=
+    <<MainMenuCNameSpace>>::~MainMenuController( void )
+    {
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Mouse Event Interface}
+
+The routine which handles mouse events needs to know whether the
+event is a mouse press or mouse release.  It also needs to know
+where the event happened.  And, it needs to know which mouse button
+was pressed.
+<<MainMenuC Mouse Click Declaration>>=
+    virtual void handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	);
+@
+
+In this case, it simply checks which area on the screen has been
+clicked.  Then, it sends off the appropriate user-event to tell
+the main loop to reset the current controller.
+<<MainMenuC Mouse Click Implementation>>=
+    void
+    <<MainMenuCNameSpace>>::handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	)
+    {
+	unsigned int index;
+	bool hit;
+
+	hit = this->view.handleMouseClick(
+		    this, isMouseUp, xx, yy, buttonNumber
+		);
+
+	if ( !hit ) {
+	    <<MainMenuC Find Which Item Clicked>>
+	    if ( hit ) {
+		<<MainMenuC Fire Off Change Event>>
+	    }
+	}
+    }
+@
+
+This loop runs through each game selectable from the main
+menu.  Then, it checks the mouse click against the bounding
+box of the corresponding game.
+<<MainMenuC Find Which Item Clicked>>=
+    unsigned int maxGame = <<MainMenuVNameSpace>>::MAX_GAME;
+    unsigned int chosen;
+    for ( unsigned int ii=0; !hit && ii < maxGame; ++ii ) {
+	if ( this->view.pointInBox( xx, yy, ii ) ) {
+	    chosen = ii;
+	    hit = true;
+	}
+    }
+@
+
+For our purposes, the event that gets sent is a very simple event
+whose code completely identifies the game mode to switch into.  We
+use [[SDL_USEREVENT]] to signal the game change.  The code [[-1]]
+is used to switch to the main menu.  After that, the games are
+coded in order:  FlipFlop, BombSquad, MazeRunner, PegJumper, and
+TileSlider.
+<<MainMenuC Fire Off Change Event>>=
+    SDL_Event change;
+    change.type = SDL_USEREVENT;
+    change.user.code = chosen;
+    ::SDL_PushEvent( &change );
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Game Setting Interface}
+
+The main menu isn't really a game.  Therefore, it has
+really wimpy implementations of all of the game setting
+methods.  They don't do anything.
+<<MainMenuC Game Setting Interface>>=
+    virtual void setDimension( unsigned int _dims );
+    virtual void setSkillLevel( unsigned int _skillLevel );
+    virtual void setWrap( bool _wrap );
+    virtual void newGame( void );
+@
+<<MainMenuC Game Setting Implementation>>=
+    void
+    <<MainMenuCNameSpace>>::setDimension(
+	    unsigned int _dims
+	)
+    {
+    }
+@
+<<MainMenuC Game Setting Implementation>>=
+    void
+    <<MainMenuCNameSpace>>::setSkillLevel(
+	    unsigned int _skillLevel
+	)
+    {
+    }
+@
+<<MainMenuC Game Setting Implementation>>=
+    void
+    <<MainMenuCNameSpace>>::setWrap(
+	    bool _wrap
+	)
+    {
+    }
+@
+<<MainMenuC Game Setting Implementation>>=
+    void
+    <<MainMenuCNameSpace>>::newGame( void )
+    {
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[MainMenuController]] class}
+
+In this section, we assemble the [[MainMenuController]] class from
+the pieces in the sections above.
+
+We include, in the [[MainMenuController]] class, the constructor
+and the destructor.
+<<MainMenuC Class Definition>>=
+    public:
+	<<MainMenuC Constructor Declaration>>
+	<<MainMenuC Destructor Declaration>>
+@
+
+The [[MainMenuController]] class also declares
+the methods that would be used by a more involved
+[[View]] class to change the game state.
+<<MainMenuC Class Definition>>=
+    public:
+	<<MainMenuC Game Setting Interface>>
+@
+
+We include, in the [[MainMenuController]] class, the method used
+for mouse clicks.
+<<MainMenuC Class Definition>>=
+    public:
+	<<MainMenuC Mouse Click Declaration>>
+@
+
+The [[MainMenuController]] class also contains the member variables
+which were defined at the beginning of this section of the document.
+<<MainMenuC Class Definition>>=
+    private:
+	<<MainMenuC View>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[MainMenuController]]
+inherits directly from the [[Controller]] class of \S\ref{sec:controller}
+so that the main loop of the program doesn't have to do anything
+special for it.
+<<MainMenuC Class Declaration>>=
+    class MainMenuController : public Controller {
+	<<MainMenuC Class Definition>>
+    };
+@ %def MainMenuController
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[mainmenuController.h]] file}
+
+In this section, we assemble the header file for the [[MainMenuController]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<mainmenuController.h>>=
+    namespace <<NameSpace>> {
+	<<MainMenuC Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[mainmenuController.cpp]] file}
+
+In this section, we assemble the MainMenu controller source file.
+It requires the header files for the [[Cube]] class, the [[SoundDev]]
+class, the [[View]] class, the [[Controller]] class, and the
+[[MainMenuView]] classes in addition to its own header file.
+<<mainmenuController.cpp>>=
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "controller.h"
+    #include "mainmenuView.h"
+    #include "mainmenuController.h"
+@
+
+After the header files, we include the implementations of the
+constructor and destructor.
+<<mainmenuController.cpp>>=
+    <<MainMenuC Constructor Implementation>>
+    <<MainMenuC Destructor Implementation>>
+@
+
+After the constructor and destructor, the implementations of
+the bogus game state methods are also included.
+<<mainmenuController.cpp>>=
+    <<MainMenuC Game Setting Implementation>>
+@
+
+Then, we include the implementation of the method used to field
+mouse clicks.
+<<mainmenuController.cpp>>=
+    <<MainMenuC Mouse Click Implementation>>
+@

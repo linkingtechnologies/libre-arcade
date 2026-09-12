@@ -1,0 +1,49 @@
+image help 0 0
+
+text_center 280  72 "Mark the bombs by right-clicking or shift-clicking."
+
+image covered   226  88
+image covered   262  88
+image covered   298  88
+image covered   226 124
+image uncovered 262 124
+image covered   298 124
+image covered   226 160
+image covered   262 160
+image covered   298 160
+
+image flagged 262  88
+image flagged 226 124
+image flagged 298 124
+image flagged 262 160
+
+text_center 280 148 "4"
+
+text_center 280 224 "Uncover all of the empty cells"
+text_center 280 248 "to finish the job."
+
+image uncovered 226 266
+image covered   262 266
+image uncovered 298 266
+image covered   226 302
+image uncovered 262 302
+image covered   298 302
+image uncovered 226 338
+image covered   262 338
+image uncovered 298 338
+
+image flagged 262 266
+image flagged 226 302
+image flagged 298 302
+image flagged 262 338
+
+text_center 244 290 "2"
+text_center 316 290 "2"
+text_center 280 326 "4"
+text_center 244 362 "2"
+text_center 316 362 "2"
+
+image continue 230 490
+button bs3 230 490 100 64
+
+update 0 0 560 560

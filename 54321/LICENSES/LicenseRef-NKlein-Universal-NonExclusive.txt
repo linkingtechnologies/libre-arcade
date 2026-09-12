@@ -1,0 +1,50 @@
+SPDX-License-Identifier: LicenseRef-NKlein-Universal-NonExclusive
+SPDX-FileCopyrightText: 2000-2002 Patrick Stein / nklein software
+
+This is a non-standard, custom license, transcribed verbatim from the
+copyright/license page nklein software published at its own site-wide
+`etc/copyright.php`, which the 54321 product page (preserved unmodified in
+this repository under reference/54321-1.0.2001.11.16/data/webpage/hdr.php
+and tail.php) included as its own shared header/footer.
+
+Verified against archived captures of the live page:
+
+  - https://web.archive.org/web/20010613000000/http://www.nklein.com/etc/copyright.php
+    (13 Jun 2001 — five months before 54321's 16 Nov 2001 release; page footer: "(copyright 2000)")
+  - https://web.archive.org/web/20051226000000/http://www.nklein.com/etc/copyright.php
+    (26 Dec 2005; page footer: "(copyright 2002)"; text identical except for one added parenthetical exempting xhtml/css/paypal icons)
+
+Both captures carry materially the same operative text, reproduced below
+from the 13 Jun 2001 capture (the one that predates the 54321 release):
+
+----------------------------------------------------------------------
+
+Copyright:
+
+We made all images, text, software, and other stuff on this web site.
+We authorize you to do anything you like with these so long as you do
+not restrict the rights of others to do what they like with them.
+We're not saying you have to give away your products. We're just
+saying that all of the items on this site have a Universal,
+Non-Exclusive License.
+
+For example, if you wanted to take some of these images or some of
+this software and plaster your name on them and sell them, fine. But,
+you cannot keep Sally Q. Public from taking those same items and
+plastering her name on them and selling them. You just can't. It's
+all as hers as it is yours.
+
+All of that said, it'd please us plenty if you slung appreciation,
+accolades, credit, and/or cash our way as you see fit.
+
+----------------------------------------------------------------------
+
+Independent corroboration: LibreGameWiki (https://libregamewiki.org/54321,
+retrieved 2026-09-12) classifies 54321's code and media as "a very simple
+copyleft license", cites this exact URL as its reference, and states "the
+source code and media files are available to be studied, modified, and
+distributed."
+
+See ../PROVENANCE.md, ../docs/LICENSE-RESEARCH.md and
+../docs/archaeology/LEGAL_STATUS.md for the full evidentiary chain and how
+this license interacts with this repository's own GPL-3.0-or-later code.

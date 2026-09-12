@@ -1,0 +1,20 @@
+image help 0 0
+
+text_center 280 128 "Similarly, corner pieces wrap around on multiple edges."
+
+image off   226 152
+image on    262 152
+image on    298 152
+image on    226 188
+image off   262 188
+image off   298 188
+image on    226 224
+image off   262 224
+image off   298 224
+
+image pointer 226 152
+
+image continue 230 490
+button nd4 230 490 100 64
+
+update 0 0 560 560

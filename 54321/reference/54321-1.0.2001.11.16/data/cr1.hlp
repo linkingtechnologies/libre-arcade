@@ -1,0 +1,12 @@
+image help 0 0
+
+image _nklein 216 48
+
+text_center 280 120 "This game was written by Patrick Stein."
+text_center 280 144 "It is freely available at:"
+text_center 280 168 "http://www.nklein.com/products/54321"
+
+image continue 230 490
+button cr2 230 490 100 64
+
+update 0 0 560 560

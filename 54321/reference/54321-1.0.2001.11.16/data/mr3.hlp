@@ -1,0 +1,37 @@
+image help 0 0
+
+text_center 280  48 "If you have "wrap" mode turned on, then be sure to"
+text_center 280  72 "look for passages that wrap within the tier."
+
+image unmarked 226 88
+image           wall1 226 88
+image           wall2 226 88
+image           wall3 226 88
+image           wall4 226 88
+image           wall5 226 88
+image           wall6 226 88
+image           wall7 226 88
+
+image unmarked 262 88
+image           wall0 262 88
+image           wall2 262 88
+image           wall3 262 88
+image           wall4 262 88
+image           wall5 262 88
+image           wall6 262 88
+image           wall7 262 88
+
+image unmarked 298 88
+image           wall2 298 88
+image           wall3 298 88
+image           wall4 298 88
+image           wall5 298 88
+image           wall6 298 88
+image           wall7 298 88
+
+text_center 280 148 "They can easily be overlooked."
+
+image continue 230 490
+button top 230 490 100 64
+
+update 0 0 560 560

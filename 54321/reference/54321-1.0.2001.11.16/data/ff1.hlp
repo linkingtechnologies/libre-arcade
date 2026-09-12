@@ -1,0 +1,22 @@
+image help 0 0
+
+text_center 280  48 "The goal of flip-flop is to empty all of the cell."
+
+image off   226  64
+image on    262  64
+image off   298  64
+image on    226 100
+image on    262 100
+image on    298 100
+image off   226 136
+image on    262 136
+image off   298 136
+
+text_center 280 200 "When you click on a cell, that cell and all of"
+text_center 280 224 "its neighbors flip-flop.  Empty neighbors become full"
+text_center 280 248 "and full neighbors become empty."
+
+image continue 230 490
+button ff2 230 490 100 64
+
+update 0 0 560 560

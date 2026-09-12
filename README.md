@@ -36,6 +36,7 @@ safe embedding, but otherwise left exactly as its authors built it.
 | [`njam/`](njam/) | Njam 1.21 | *Ported.* [Njam](http://njam.sourceforge.net) (Milan Babuskov, 2003, GPL-2.0-or-later), primary reference the AmigaOS4 1.21 port (Kjell Breding/Sharakmir, 2005) — full local/offline parity including editor, duel mode, and all bundled level sets. Network host/join deliberately not enabled. |
 | [`naval-battle/`](naval-battle/) | 🐽's Naval Battle (BattleLab) | *Ported.* Historical Battleship AIs — Warboats 0.51 (2009, GPL-2.0-or-later) and a binary/debug reconstruction of Bataille Navale OS4 (2009, GPLv3) — behind a simplified five-difficulty player UI. Gnome Batalla Naval was evaluated and rejected as GPLv3-incompatible (GPL-2.0-only evidence); see `specs/candidates.md`. |
 | [`for-science/`](for-science/) | For Science! | *Ported.* [For Science!](https://www.usebox.net/jjm/for-science/) (Juan J. Martínez, PyWeek 16, 2013, GPL-3.0-or-later) — a turn-based match-3 duel, ported from Python/Cocos2d/Pyglet with a Python 2.7 deterministic oracle and a 1000-seed AI stress run verifying the original AI's move/attack heuristics. |
+| [`54321/`](54321/) | 54321 | *Ported.* [54321](http://www.nklein.com/products/54321) (Patrick Stein / nklein software, 2001 1 MB SDL Game Programming Contest) — five n-dimensional puzzle games (Flip-Flop, Bomb Squad, Maze Runner, Peg Jumper, Tile Slider) sharing one 2D/3D/4D topology engine, in HTML5 Canvas 2D. Original material carries nklein's own historical `LicenseRef-NKlein-Universal-NonExclusive` grant, not GPL; see `54321/PROVENANCE.md`. |
 | [`grugnetto-go/`](grugnetto-go/) | Grugnetto Go! | *Built here.* An original platformer for this collection (melonJS + lit-html), not a restoration. |
 
 Each project's own `README.md` covers how to run it, test it, and where its
@@ -73,6 +74,7 @@ the full authorship and third-party library/font breakdown.
 | Warboats 0.51 (2009) | Trevor Chart | GPL-2.0-or-later | `naval-battle/` |
 | Bataille Navale OS4 (2009) | billux13 (concept/code), Hugues Nouvel "HunoPPC" (AmigaOS4 port) | GPLv3 | `naval-battle/` — binary/debug reconstruction, no original C source recovered |
 | [For Science!](https://www.usebox.net/jjm/for-science/) (PyWeek 16, 2013) | Juan J. Martínez | GPL-3.0-or-later | `for-science/` |
+| [54321](http://www.nklein.com/products/54321) (2001) | Patrick Stein / nklein software | `LicenseRef-NKlein-Universal-NonExclusive` | `54321/` — original material only; the JS port itself is GPL-3.0-or-later |
 
 `grugnetto-go/` is built for this collection, not a restoration; the
 third-party libraries and CC0/CC-licensed art it uses are itemized in its own
@@ -108,8 +110,13 @@ CC0-1.0 for the Klondike card decks; a mix of GPL-2.0/MIT/CC BY 4.0 for
 Briscola's nine historical AI sources; and, for four assets bundled with
 For Science! (a background image, two fonts, one sound effect), a mix of
 CC BY 2.0, CC BY 3.0, SIL OFL 1.1, and Apache-2.0 — see
-`for-science/THIRD_PARTY_NOTICES.md`. This is a legal requirement of those
-licenses, not a choice — MIT- and CC0-licensed work can be included in and
+`for-science/THIRD_PARTY_NOTICES.md`; and, for 54321's original 2001
+material, the custom `LicenseRef-NKlein-Universal-NonExclusive` grant
+(Patrick Stein / nklein software) — not GPL-compatible-by-assumption, but
+independently verified via dated Wayback Machine captures of its own
+copyright page bracketing the game's release, see
+`54321/docs/LICENSE-RESEARCH.md`. This is a legal requirement of those
+licenses, not a choice — permissively-licensed work can be included in and
 distributed alongside a GPL project, but including it doesn't relicense it.
 Every such file is declared per-folder (`THIRD_PARTY_NOTICES.md`,
 `REUSE.toml` where present, or the table above) rather than assumed.

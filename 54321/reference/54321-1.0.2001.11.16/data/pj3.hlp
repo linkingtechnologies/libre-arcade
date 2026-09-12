@@ -1,0 +1,32 @@
+image help 0 0
+
+text_center 280  72 "Then, click on a peg to select it."
+
+image peg      226  88
+image peg      262  88
+image peg      298  88
+image peg      226 124
+image empty    262 124
+image peg      298 124
+image peg      226 160
+image peg      262 160
+image peg      298 160
+
+image pointer 226 160
+
+text_center 280 224 "The selected cell will be highlighted."
+
+image peg      226 242
+image peg      262 242
+image peg      298 242
+image peg      226 278
+image empty    262 278
+image peg      298 278
+image selected 226 314
+image peg      262 314
+image hole     298 314
+
+image continue 230 490
+button pj4 230 490 100 64
+
+update 0 0 560 560

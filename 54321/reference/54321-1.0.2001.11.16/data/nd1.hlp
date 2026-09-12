@@ -1,0 +1,38 @@
+image help 0 0
+
+text_center 280  48 "In two dimensions, it is very easy to see the"
+text_center 280  72 "neighbors of a cell."
+text_center 280 104 "For example, in this picture, all of the neighbors"
+text_center 280 128 "of the center cell are highlighted."
+
+image off   226 152
+image on    262 152
+image off   298 152
+image on    226 188
+image off   262 188
+image on    298 188
+image off   226 224
+image on    262 224
+image off   298 224
+
+image pointer 262 188
+
+text_center 280 284 "The neighbors of the cell to its left are"
+text_center 280 310 "are highlighted below."
+
+image on    226 334
+image off   262 334
+image off   298 334
+image off   226 370
+image on    262 370
+image off   298 370
+image on    226 406
+image off   262 406
+image off   298 406
+
+image pointer 226 370
+
+image continue 230 490
+button nd2 230 490 100 64
+
+update 0 0 560 560

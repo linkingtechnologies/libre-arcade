@@ -1,0 +1,195 @@
+\section{The Generic Game Controller}
+\label{sec:controller}
+
+So that the main loop doesn't have to deal with five different game
+controllers, each of the game controllers inherits from this base
+class.  This class gives the main loop a method to call with mouse
+events.  Also, it gives the [[View]] class a consistent interface
+to call when buttons on the interface are pressed.  And, it includes
+variables which will be common to all of the game controllers.
+
+The namespace inside the controller class is a concatenation of the
+general namespace and the name of the controller class.
+<<ControllerNameSpace>>=
+<<NameSpace>>::Controller
+@
+
+The [[Controller]] class keeps a pointer to the cube used for the
+game.
+<<Controller Cube>>=
+    Cube* cube;
+@
+
+The [[Controller]] class also tracks the number of dimensions that are being
+used.  It needs this information so that it can properly determine the
+screen coordinate to cell coordinate transformations.
+<<Controller Dimensions>>=
+    unsigned int dims;
+@
+
+And, the [[Controller]] class tracks the current skill level so
+that it knows which buttons should be displayed ``pressed''.
+<<Controller Skill Level>>=
+    unsigned int skillLevel;
+@
+
+The [[Controller]] class also keeps track of whether or not it is
+wrapping around so that it can properly render that button, too.
+<<Controller Wrap>>=
+    bool wrap;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The constructor for the [[Controller]] class takes four arguments.
+The first is a pointer to the game cube, the second specifies the
+number of dimensions to employ, the third specifies the skill level
+to use, and the last specifies whether the edges wrap around.
+<<Controller Constructor Declaration>>=
+    Controller(
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the [[Controller]] class simply copies the
+arguments into its local variables.  Then, it does some simple
+checks on them to ensure that they meet expectations.
+<<Controller Constructor Implementation>>=
+    <<ControllerNameSpace>>::Controller(
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : cube( _cube ),
+	    dims( _dims ),
+	    skillLevel( _skillLevel ),
+	    wrap( _wrap )
+    {
+	assert( cube != 0 );
+	assert( dims > 1 );
+	assert( dims <= <<CubeNameSpace>>::DIMENSIONS );
+	assert( skillLevel < 3 );
+    }
+@
+
+The destructor for the [[Controller]] class doesn't have to do
+anything.  It is merely a place-holder to ensure that instances of
+subclasses get destructed properly.
+<<Controller Destructor Declaration>>=
+    virtual ~Controller( void );
+@
+<<Controller Destructor Implementation>>=
+    <<ControllerNameSpace>>::~Controller( void )
+    {
+    }
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Mouse Event Interface}
+
+The routine which handles mouse events needs to know whether the
+event is a mouse press or mouse release.  It also needs to know
+where the event happened.  And, it needs to know which mouse button
+was pressed.
+<<Controller Mouse Click Interface>>=
+    virtual void handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	) = 0;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Game Setting Interface}
+
+So that the view buttons can easily affect the controller state,
+the controller contains methods which allow the view class to tweak
+the game parameters.  These are pure virtual methods here but will
+be overridden in the derived classes to make the appropriate changes
+to the actual game-model class.
+<<Controller Game Setting Interface>>=
+    virtual void setDimension( unsigned int _dims ) = 0;
+    virtual void setSkillLevel( unsigned int _skillLevel ) = 0;
+    virtual void setWrap( bool _wrap ) = 0;
+    virtual void newGame( void ) = 0;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[Controller]] class}
+
+In this section, we assemble the [[Controller]] class from the pieces
+in the sections above.
+
+The controller class needs its constructor and destructor.
+<<Controller Class Definition>>=
+    protected:
+	<<Controller Constructor Declaration>>
+    public:
+	<<Controller Destructor Declaration>>
+@
+
+We include, in the [[Controller]] class, the interface used for mouse
+clicks.
+<<Controller Class Definition>>=
+    public:
+	<<Controller Mouse Click Interface>>
+@
+
+The [[Controller]] class also defines the methods used by the
+[[View]] class to update the settings for the game.
+<<Controller Class Definition>>=
+    public:
+	<<Controller Game Setting Interface>>
+@
+
+The [[Controller]] class also includes its member variables
+<<Controller Class Definition>>=
+    protected:
+	<<Controller Cube>>
+	<<Controller Dimensions>>
+	<<Controller Skill Level>>
+	<<Controller Wrap>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<Controller Class Declaration>>=
+    class Controller {
+	<<Controller Class Definition>>
+    };
+@ %def Controller
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[controller.h]] file}
+
+In this section, we assemble the header file for the [[Controller]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<controller.h>>=
+    namespace <<NameSpace>> {
+	<<Controller Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[controller.cpp]] file}
+
+There is not much to the [[controller.cpp]] source file
+at the moment.  It only contains the source code for the
+constructor and the destructor.
+<<controller.cpp>>=
+    #include <assert.h>
+    #include "cube.h"
+    #include "controller.h"
+
+    <<Controller Constructor Implementation>>
+    <<Controller Destructor Implementation>>
+@

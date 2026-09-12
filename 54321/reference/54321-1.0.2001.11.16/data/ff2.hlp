@@ -1,0 +1,32 @@
+image help 0 0
+
+text_center 280  48 "For example, clicking in the center of this pattern"
+
+image off   226  64
+image on    262  64
+image off   298  64
+image on    226 100
+image on    262 100
+image on    298 100
+image off   226 136
+image on    262 136
+image off   298 136
+
+image pointer   262 100
+
+text_center 280 200 "will clear all of the cells."
+
+image off   226 216
+image off   262 216
+image off   298 216
+image off   226 252
+image off   262 252
+image off   298 252
+image off   226 288
+image off   262 288
+image off   298 288
+
+image continue 230 490
+button ff3 230 490 100 64
+
+update 0 0 560 560

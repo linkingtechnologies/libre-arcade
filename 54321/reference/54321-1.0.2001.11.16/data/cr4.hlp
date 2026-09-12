@@ -1,0 +1,13 @@
+image help 0 0
+
+text_center 280 120 "This game was created for the SDL Game Development Contest"
+text_center 280 144 "sponsored by:"
+text_center 280 168 "Linux Journal --- http://www.linuxjournal.com/"
+text_center 280 192 "Loki Software --- http://www.lokigames.com/"
+text_center 280 216 "and"
+text_center 280 240 "No Starch Press --- http://www.nostarch.com/"
+
+image continue 230 490
+button top 230 490 100 64
+
+update 0 0 560 560

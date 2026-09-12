@@ -1,0 +1,32 @@
+image help 0 0
+
+text_center 280  48 "In this pattern, however, clicking the center cell"
+
+image off   226  64
+image off   262  64
+image off   298  64
+image off   226 100
+image on    262 100
+image on    298 100
+image off   226 136
+image on    262 136
+image off   298 136
+
+image pointer   262 100
+
+text_center 280 200 "will fill those neighbors that had been empty."
+
+image off   226 216
+image on    262 216
+image off   298 216
+image on    226 252
+image off   262 252
+image off   298 252
+image off   226 288
+image off   262 288
+image off   298 288
+
+image continue 230 490
+button ff4 230 490 100 64
+
+update 0 0 560 560

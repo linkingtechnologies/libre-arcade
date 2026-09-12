@@ -1,0 +1,318 @@
+\section{The Maze Game View}
+
+The namespace inside the Maze view class is a concatenation
+of the general namespace and the name of the Maze view
+class.
+<<MazeVNameSpace>>=
+<<NameSpace>>::MazeView
+@
+
+The Maze game view inherits from the generic game view of
+\S\ref{sec:view}.  It displays the current state of the [[Maze]]
+game.
+
+The Maze game stores pointers to the images of the tile pieces to
+use.  The base image depends on whether the person has been to this
+spot before or not.  The goal position and current position each
+have their own images which are overlayed on the base image before
+the walls are displayed.  There are twice as many walls as there
+are dimensions---a wall in the positive and negative direction for
+each axis.  The wall images are overlayed on the backdrop.
+<<Maze Tiles>>=
+    SDL_Surface* base[ 2 ];
+    SDL_Surface* finishHere;
+    SDL_Surface* amHere;
+    SDL_Surface* walls[ 2 * <<CubeNameSpace>>::DIMENSIONS ];
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the Maze view class takes six arguments.
+The first is a pointer to the screen, the second is a pointer to
+the sound device, the third is a pointer to the game cube, the
+fourth specifies the number of dimensions to employ, the fifth is
+the skill level, and the sixth is the wrapping mode.
+<<MazeV Constructor Declaration>>=
+    MazeView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the Maze view class passes all of its arguments
+to the [[View]] constructor.  Then, it loads the images it uses.
+<<MazeV Constructor Implementation>>=
+    <<MazeVNameSpace>>::MazeView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : View( _screen, _sound, _cube, _dims, _skillLevel, _wrap )
+    {
+	this->base[ 0 ] = ::IMG_Load( "../../data/unmarked.png" );
+	this->base[ 1 ] = ::IMG_Load( "../../data/marked.png" );
+
+        this->finishHere = ::IMG_Load( "../../data/goal.png" );
+	this->amHere = ::IMG_Load( "../../data/me.png" );
+
+	<<MazeV Load Wall Images>>
+    }
+@
+
+The images for the different walls are simply numbered.  There are
+two walls per dimension---one in the positive direction and one in
+the negative direction.
+<<MazeV Load Wall Images>>=
+    for ( unsigned int ii=0; ii < 2 * <<CubeNameSpace>>::DIMENSIONS; ++ii ) {
+	char buf[ 64 ];
+	sprintf( buf, "../../data/wall%1x.png", ii );
+	this->walls[ ii ] = ::IMG_Load( buf );
+    }
+@
+\textit{Note:}  The proper way to iterate through these filenames
+with C++ is to use [[strstream]] stuff.  But, in order to keep the
+executable very small, I'm not using the standard-template library
+at all.  You could replace the above code with the following code
+if you were really concerned about staying away from [[sprintf(3)]].
+<<MazeV Proper Load Wall Images>>=
+    for ( unsigned int ii=0; ii < 2 * <<CubeNameSpace>>::DIMENSIONS; ++ii ) {
+	std::ostrstream buf;
+	buf << "../../data/wall" << hex << ii << std::ends;
+	this->walls[ ii ] = ::IMG_Load( buf.str() );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Destructor}
+
+The destructor for the maze view class simply release
+the images that it loaded above in the constructor.
+<<MazeV Destructor Declaration>>=
+    ~MazeView( void );
+@
+<<MazeV Destructor Implementation>>=
+    <<MazeVNameSpace>>::~MazeView( void )
+    {
+	<<MazeV Release Wall Images>>
+
+	::SDL_FreeSurface( this->amHere );
+	::SDL_FreeSurface( this->finishHere );
+
+	::SDL_FreeSurface( this->base[ 1 ] );
+	::SDL_FreeSurface( this->base[ 0 ] );
+    }
+@
+
+We release the walls in the opposite order they were allocated
+in an effort to be nice to the memory allocation system.
+<<MazeV Release Wall Images>>=
+    for ( unsigned int ii=2*<<CubeNameSpace>>::DIMENSIONS; ii > 0 ; --ii ) {
+	::SDL_FreeSurface( this->walls[ ii-1 ] );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Redraw Methods}
+
+The Maze view class has a method which allows one to update
+the entire display area for the game.
+<<MazeV Redraw Declarations>>=
+    virtual void redraw( void );
+@
+
+The redraw function here calls the redraw function on the base
+class to update the sidebar and the background area of the cube.
+Then, it runs through each cell in the cube, drawing it.  After
+that, it updates the whole screen.
+<<MazeV Redraw Implementations>>=
+    void
+    <<MazeVNameSpace>>::redraw( void )
+    {
+	this->View::redraw();
+
+	unsigned int maxIndex
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	for ( unsigned int index=0; index < maxIndex; ++index ) {
+	    this->drawCell( index, false );
+	}
+
+	::SDL_UpdateRect( this->screen, 0, 0, 0, 0 );
+    }
+@
+
+The Maze view class has a method which allows one to update
+a single cell of the cube by index.
+<<MazeV Redraw Declarations>>=
+    virtual void redraw( unsigned int index );
+@
+
+This method simply uses the method defined next to draw the single
+cell in question.
+<<MazeV Redraw Implementations>>=
+    void
+    <<MazeVNameSpace>>::redraw( unsigned int index )
+    {
+	this->drawCell( index );
+    }
+@
+
+The Maze view class has a method to draw a single cell of
+the cube.  It uses this method in each of the above methods.
+<<MazeV Private Draw Declaration>>=
+    void drawCell( unsigned int index, bool update = true );
+@
+
+To draw a single cell, this method retrieves the screen coordinates
+of the cell from the conversion method in the base class.  Then,
+it prepares a rectangle to fill for the cell.  Then, it uses the
+state of the cell in the game cube to determine how to draw this
+cell.  It draws this cell differently depending on whether it was
+visited before or not.  Then, if this is the goal location, it
+draws the goal marker.  Then, on top of that, it draws the walls
+between directions.  And, if this is the location with the person
+in it, it draws the person.
+<<MazeV Private Draw Implementation>>=
+    void
+    <<MazeVNameSpace>>::drawCell(
+	    unsigned int index, bool update
+	)
+    {
+	unsigned int xx;
+	unsigned int yy;
+
+	View::cellToScreen( index, this->dims, &xx, &yy );
+
+	<<MazeV Prepare Single Cell Rect>>
+
+	unsigned int value = (*this->cube)[ index ];
+
+	if ( ( value & <<MazeNameSpace>>::BEEN_HERE ) != 0 ) {
+	    ::SDL_BlitSurface( this->base[ 1 ], 0, this->screen, &rect );
+	} else {
+	    ::SDL_BlitSurface( this->base[ 0 ], 0, this->screen, &rect );
+	}
+
+	if ( ( value & <<MazeNameSpace>>::FINISH_HERE ) != 0 ) {
+	    ::SDL_BlitSurface( this->finishHere, 0, this->screen, &rect );
+	}
+
+	<<MazeV Draw Walls>>
+
+	if ( ( value & <<MazeNameSpace>>::AM_HERE ) != 0 ) {
+	    ::SDL_BlitSurface( this->amHere, 0, this->screen, &rect );
+	}
+
+	if ( update ) {
+	    ::SDL_UpdateRect( this->screen, xx, yy, SQUARE, SQUARE );
+	}
+    }
+@
+
+The rectangle that will be filled to represent the cell simply
+starts at the starting coordinates of the rectangle and goes the
+full size of the cell.
+<<MazeV Prepare Single Cell Rect>>=
+    SDL_Rect rect;
+    rect.x = xx;
+    rect.y = yy;
+    rect.w = SQUARE;
+    rect.h = SQUARE;
+@
+
+To draw the walls, we loop through every possible wall.  We check
+the wall in the cell to see if it is set.  If it is, we draw it.
+<<MazeV Draw Walls>>=
+    for ( unsigned int ii=0; ii < 2 * <<CubeNameSpace>>::DIMENSIONS; ++ii ) {
+	unsigned int wall = <<MazeNameSpace>>::LEFT << ii;
+	if ( ( value & wall ) != 0 ) {
+	    ::SDL_BlitSurface( this->walls[ ii ], 0, this->screen, &rect );
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[MazeView]] class}
+
+In this section, we assemble the [[MazeView]] class from
+the pieces in the sections above.
+
+We include, in the [[MazeView]] class, the constructor,
+the destructor and the redraw methods.
+<<MazeV Class Definition>>=
+    public:
+	<<MazeV Constructor Declaration>>
+	<<MazeV Destructor Declaration>>
+	<<MazeV Redraw Declarations>>
+    private:
+	<<MazeV Private Draw Declaration>>
+@
+
+We include the variables that are used in the maze view class.
+<<MazeV Class Definition>>=
+    private:
+	<<Maze Tiles>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[MazeView]]
+inherits directly from the [[View]] class of \S\ref{sec:view}.
+<<MazeV Class Declaration>>=
+    class MazeView : public View {
+	<<MazeV Class Definition>>
+    };
+@ %def MazeView
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[mazeView.h]] file}
+
+In this section, we assemble the header file for the [[MazeView]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<mazeView.h>>=
+    namespace <<NameSpace>> {
+	<<MazeV Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[mazeView.cpp]] file}
+
+In this section, we assemble the Maze view source file.  It requires
+the [[SDL]] headers for dealing with surfaces, the screen, blitting,
+and loading images.  It requires the header files for the [[Cube]]
+class, the [[SoundDev]] class, the [[View]] class, and the [[MazeView]]
+class itself.
+<<mazeView.cpp>>=
+    #include <SDL.h>
+    #include <SDL_image.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "mazeView.h"
+@
+
+The [[MazeView]] implementation also needs the definition of
+the [[Maze]] class in order to get the flags used in the cells
+of the cube.
+<<mazeView.cpp>>=
+    #include "maze.h"
+@
+
+After the header files, we include the implementations of the
+constructor, the destructor, and the redraw methods.
+<<mazeView.cpp>>=
+    <<MazeV Constructor Implementation>>
+    <<MazeV Destructor Implementation>>
+    <<MazeV Redraw Implementations>>
+    <<MazeV Private Draw Implementation>>
+@

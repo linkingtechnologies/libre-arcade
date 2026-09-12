@@ -1,0 +1,56 @@
+image help 0 0
+
+text_center 280  48 "The goal of tile slider is to put the tiles in order."
+text_center 280  72 "When you click on a neighbor of the empty cell,"
+
+subimage borders  226  88   0 0 36 36
+subimage borders  262  88   0 0 36 36
+subimage borders  298  88   0 0 36 36
+subimage borders  226 124   0 0 36 36
+subimage borders  262 124   0 0 36 36
+subimage borders  226 160   0 0 36 36
+subimage borders  262 160   0 0 36 36
+subimage borders  298 160   0 0 36 36
+
+subimage centers  226  88    0  0 36 36
+subimage centers  262  88   36  0 36 36
+subimage centers  298  88   72  0 36 36
+subimage centers  226 124    0 36 36 36
+subimage centers  262 124   36 36 36 36
+subimage centers  226 160    0 72 36 36
+subimage centers  262 160   36 72 36 36
+subimage centers  298 160   72 36 36 36
+
+rect 298 124 36 36   0 0 0
+image pointer 298 160
+
+text_center 280 224 "that neighbor slides into the empty cell."
+
+subimage borders  226 248   0 0 36 36
+subimage borders  262 248   0 0 36 36
+subimage borders  298 248   0 0 36 36
+subimage borders  226 284   0 0 36 36
+subimage borders  262 284   0 0 36 36
+subimage borders  298 284   0 0 36 36
+subimage borders  226 320   0 0 36 36
+subimage borders  262 320   0 0 36 36
+
+subimage centers  226 248    0  0 36 36
+subimage centers  262 248   36  0 36 36
+subimage centers  298 248   72  0 36 36
+subimage centers  226 284    0 36 36 36
+subimage centers  262 284   36 36 36 36
+subimage centers  298 284   72 36 36 36
+
+subimage centers  226 320    0 72 36 36
+subimage centers  262 320   36 72 36 36
+
+rect 298 320 36 36   0 0 0
+
+text_center 280 380 "Hint:  A right-click or shift-click on the board will give"
+text_center 280 404 "you a sneak peak at where the tiles are supposed to be."
+
+image continue 230 490
+button ts2 230 490 100 64
+
+update 0 0 560 560

@@ -1,0 +1,13 @@
+image help 0 0
+
+text_center 280 136 "We've got tunnel vision.  We're myopic."
+text_center 280 160 "It's high time to see"
+text_center 280 184 "what we've been missing."
+
+text_center 280 248 "So what's all of this stuff that isn't"
+text_center 280 272 "two- or three-dimensional?"
+
+image continue 230 490
+button wn4 230 490 100 64
+
+update 0 0 560 560

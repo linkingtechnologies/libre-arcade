@@ -1,0 +1,55 @@
+image help 0 0
+
+text_center 280  72 "If you click further away from the empty cell,"
+
+subimage borders  226  88   0 0 36 36
+subimage borders  262  88   0 0 36 36
+subimage borders  226 124   0 0 36 36
+subimage borders  262 124   0 0 36 36
+subimage borders  298 124   0 0 36 36
+subimage borders  226 160   0 0 36 36
+subimage borders  262 160   0 0 36 36
+subimage borders  298 160   0 0 36 36
+
+subimage centers  226  88    0  0 36 36
+subimage centers  262  88   36  0 36 36
+subimage centers  226 124    0 36 36 36
+subimage centers  262 124   36 36 36 36
+subimage centers  298 124   72  0 36 36
+subimage centers  226 160    0 72 36 36
+subimage centers  262 160   36 72 36 36
+subimage centers  298 160   72 36 36 36
+
+rect 298 88 36 36   0 0 0
+image pointer 298 160
+
+text_center 280 224 "the tiles from your click to the empty cell will slide."
+
+subimage borders  226 248   0 0 36 36
+subimage borders  262 248   0 0 36 36
+subimage borders  298 248   0 0 36 36
+subimage borders  226 284   0 0 36 36
+subimage borders  262 284   0 0 36 36
+subimage borders  298 284   0 0 36 36
+subimage borders  226 320   0 0 36 36
+subimage borders  262 320   0 0 36 36
+
+subimage centers  226 248    0  0 36 36
+subimage centers  262 248   36  0 36 36
+subimage centers  298 248   72  0 36 36
+subimage centers  226 284    0 36 36 36
+subimage centers  262 284   36 36 36 36
+subimage centers  298 284   72 36 36 36
+
+subimage centers  226 320    0 72 36 36
+subimage centers  262 320   36 72 36 36
+
+rect 298 320 36 36   0 0 0
+
+text_center 280 380 "Note:  if you have "wrap" mode turned on, then the slide"
+text_center 280 404 "moves the fewest tiles possible."
+
+image continue 230 490
+button ts3 230 490 100 64
+
+update 0 0 560 560

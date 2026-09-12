@@ -1,0 +1,24 @@
+image help 0 0
+
+text_center 280  48 "The coordinates on the tile tell where that"
+text_center 280  72 "tile is supposed to be."
+
+text_center 280 148 "The coordinate in the upper right of the tile's center"
+text_center 280 172 "tells how far right inside its tier this tile belongs."
+
+text_center 280 204 "The coordinate in the lower left of the tile's center"
+text_center 280 228 "tells how far down inside its tier this tile belongs."
+
+subimage borders  262 252   72 108 36 36
+subimage centers  262 252    0  36 36 36
+
+text_center 280 320 "The coordinate in the upper right of the tile's border"
+text_center 280 344 "tells how many tiers from the right this tile belongs."
+
+text_center 280 376 "The coordinate in the lower left of the tile's border"
+text_center 280 400 "tells how many tiers down this tile belongs."
+
+image continue 230 490
+button ts4 230 490 100 64
+
+update 0 0 560 560

@@ -1,0 +1,18 @@
+image help 0 0
+
+text_center 280 136 "Say, for example, that you were doing some research"
+text_center 280 160 "to see how much one of your competitors has spent"
+text_center 280 184 "on advertising her major products."
+
+text_center 280 248 "Your competitor has four major products:"
+text_center 280 272 "W, X, Y, and Z."
+
+text_center 280 304 "You found quarterly data going back several years."
+
+text_center 280 336 "The data is broken down into different media:"
+text_center 280 360 "television, radio, print, and other."
+
+image continue 230 490
+button wn5 230 490 100 64
+
+update 0 0 560 560

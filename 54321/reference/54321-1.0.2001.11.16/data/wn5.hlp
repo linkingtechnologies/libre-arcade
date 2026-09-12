@@ -1,0 +1,19 @@
+image help 0 0
+
+text_center 280 116 "You could attempt to grok this pile of data"
+text_center 280 140 "by pouring over and over it, testing every hypothesis"
+text_center 280 164 "against the mountain of data."
+
+text_center 280 228 "You could attempt to create some meaningful"
+text_center 280 252 "two-dimensional plots."
+
+text_center 280 300 "For example, maybe it would be useful to make a chart"
+text_center 280 324 "that shows the competitor's use of television"
+text_center 280 348 "during winter to market product X as a function of year."
+
+text_center 280 396 "Then again... maybe not."
+
+image continue 230 490
+button wn6 230 490 100 64
+
+update 0 0 560 560

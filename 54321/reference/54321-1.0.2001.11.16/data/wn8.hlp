@@ -1,0 +1,21 @@
+image help 0 0
+
+text_center 280 106 "Computer Engineers often use a tool called"
+text_center 280 130 "Karnaugh maps to reduce a complex logical equation"
+text_center 280 154 "to an optimized sum of products."
+
+text_center 280 202 "If the equation has more than three variables in it,"
+text_center 280 226 "the Karnaugh map gets quite intricate."
+
+text_center 280 274 "Five-variable Karnaugh maps often span multiple sheets of paper."
+
+text_center 280 322 "The purpose of Karnaugh maps is better"
+text_center 280 346 "served by representing each variable on its own axis."
+
+text_center 280 394 "Then, the optimized sum of products can be found quickly"
+text_center 280 418 "by slicing off chunks of "1"s from the resulting cube."
+
+image continue 230 490
+button wn9 230 490 100 64
+
+update 0 0 560 560

@@ -1,0 +1,332 @@
+\section{The Maze Game Controller}
+
+The namespace inside the Maze controller class is a concatenation
+of the general namespace and the name of the Maze controller
+class.
+<<MazeCNameSpace>>=
+<<NameSpace>>::MazeController
+@
+
+The Maze game controller inherits from the generic game controller
+of \S\ref{sec:controller}.  It actually controls the initialization
+and game action of the Maze game.  It fields the mouse clicks
+and converts them from screen coordinates into cell coordinates.
+And, it fields events from the view sidebar that set the difficulty
+level and set the wrap mode and set the dimensions and reset the
+game.
+
+The Maze game controller contains an instance of the
+Maze game view.
+<<MazeC View>>=
+    MazeView view;
+@
+
+The Maze game controller also contains a pointer to the
+current instance of the game model.
+<<MazeC Model>>=
+    Maze* model;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The constructor for the Maze controller class takes six
+arguments.  The first is a pointer to the screen, the second is a
+pointer to the sound device, the third is a pointer to the game
+cube, the fourth specifies the number of dimensions to employ, the
+fifth specifies the skill level to use, and the last specifies
+whether the edges wrap around.
+<<MazeC Constructor Declaration>>=
+    MazeController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the Maze controller class simply passes
+most of its arguments to the [[Controller]] constructor.  Then, it
+calls its own [[reset()]] method to allocate a new instance of the
+[[Maze]] class.
+<<MazeC Constructor Implementation>>=
+    <<MazeCNameSpace>>::MazeController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : Controller( _cube, _dims, _skillLevel, _wrap ),
+	    view( _screen, _sound, _cube, _dims, _skillLevel, _wrap ),
+	    model( 0 )
+    {
+	this->view.backgroundMusic();
+	this->reset();
+    }
+@
+
+The destructor for the Maze controller class deletes
+the stored model for the Maze game.
+<<MazeC Destructor Declaration>>=
+    virtual ~MazeController( void );
+@
+<<MazeC Destructor Implementation>>=
+    <<MazeCNameSpace>>::~MazeController( void )
+    {
+	this->view.backgroundMusic( true );
+	delete this->model;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+The [[MazeController]] class has a method called [[reset()]].
+It uses this method to create a new instance of the Maze game
+model.
+<<MazeC Reset Declaration>>=
+    void reset( void );
+@
+
+The method first deletes the old model and then creates a new
+model.
+<<MazeC Reset Implementation>>=
+    void
+    <<MazeCNameSpace>>::reset( void )
+    {
+	delete this->model;
+	this->model = new Maze(
+		this->cube,
+		this->dims,
+		this->skillLevel,
+		this->wrap,
+		&this->view
+	    );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Mouse Event Interface}
+
+The routine which handles mouse events needs to know whether the
+event is a mouse press or mouse release.  It also needs to know
+where the event happened.  And, it gets to know which mouse button
+was pressed.
+<<MazeC Mouse Click Declaration>>=
+    virtual void handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	);
+@
+
+If the sidebar did not eat up this event, then this method checks
+to see if the event hit a cell of the cube.  If it did and the
+event was a mouse-release, then this method calls the [[move()]]
+method on the model.
+<<MazeC Mouse Click Implementation>>=
+    void
+    <<MazeCNameSpace>>::handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	)
+    {
+	unsigned int index;
+	bool hit;
+
+	hit = this->view.handleMouseClick(
+		    this, isMouseUp, xx, yy, buttonNumber
+		);
+
+	if ( !hit ) {
+	    hit = <<ViewNameSpace>>::screenToCell(
+		    xx, yy, this->dims, &index
+		);
+
+	    if ( hit && ! isMouseUp ) {
+		this->model->move( index );
+	    }
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Game Setting Interface}
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``dimensions'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<MazeC Game Setting Interface>>=
+    virtual void setDimension( unsigned int _dims );
+@
+<<MazeC Game Setting Implementation>>=
+    void
+    <<MazeCNameSpace>>::setDimension(
+	    unsigned int _dims
+	)
+    {
+	if ( _dims != this->dims ) {
+	    this->dims = _dims;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``skill level'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<MazeC Game Setting Interface>>=
+    virtual void setSkillLevel( unsigned int _skillLevel );
+@
+<<MazeC Game Setting Implementation>>=
+    void
+    <<MazeCNameSpace>>::setSkillLevel(
+	    unsigned int _skillLevel
+	)
+    {
+	if ( _skillLevel != this->skillLevel ) {
+	    this->skillLevel = _skillLevel;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``wrap'' button on the sidebar.  If the button wasn't
+already selected, then this triggers a [[reset()]].
+<<MazeC Game Setting Interface>>=
+    virtual void setWrap( bool _wrap );
+@
+<<MazeC Game Setting Implementation>>=
+    void
+    <<MazeCNameSpace>>::setWrap(
+	    bool _wrap
+	)
+    {
+	if ( _wrap != this->wrap ) {
+	    this->wrap = _wrap;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``new'' button on the sidebar.  This always triggers
+a [[reset()]].
+<<MazeC Game Setting Interface>>=
+    virtual void newGame( void );
+@
+<<MazeC Game Setting Implementation>>=
+    void
+    <<MazeCNameSpace>>::newGame( void )
+    {
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[MazeController]] class}
+
+In this section, we assemble the [[MazeController]] class from
+the pieces in the sections above.
+
+We include, in the [[MazeController]] class, the constructor
+and the destructor.
+<<MazeC Class Definition>>=
+    public:
+	<<MazeC Constructor Declaration>>
+	<<MazeC Destructor Declaration>>
+@
+
+The [[MazeController]] class also declares its reset method
+and the methods used by the [[View]] class to change the game
+state.
+<<MazeC Class Definition>>=
+    private:
+	<<MazeC Reset Declaration>>
+    public:
+	<<MazeC Game Setting Interface>>
+@
+
+We include, in the [[MazeController]] class, the method used
+for mouse clicks.
+<<MazeC Class Definition>>=
+    public:
+	<<MazeC Mouse Click Declaration>>
+@
+
+The [[MazeController]] class also contains the member variables
+which were defined at the beginning of this section of the document.
+<<MazeC Class Definition>>=
+    private:
+	<<MazeC View>>
+	<<MazeC Model>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[MazeController]]
+inherits directly from the [[Controller]] class of \S\ref{sec:controller}.
+<<MazeC Class Declaration>>=
+    class MazeController : public Controller {
+	<<MazeC Class Definition>>
+    };
+@ %def MazeController
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[mazeController.h]] file}
+
+In this section, we assemble the header file for the [[MazeController]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<mazeController.h>>=
+    namespace <<NameSpace>> {
+	<<MazeC Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[mazeController.cpp]] file}
+
+In this section, we assemble the Maze controller source file.  It
+requires the header files for the [[Cube]] class, the [[SoundDev]]
+class, the [[Controller]] class, the [[View]] class, the [[MazeView]]
+class, the [[Maze]] class, and the [[MazeController]] classes.
+<<mazeController.cpp>>=
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "controller.h"
+    #include "view.h"
+    #include "mazeView.h"
+    #include "maze.h"
+    #include "mazeController.h"
+@
+
+After the header files, we include the implementations of the
+constructor and destructor.
+<<mazeController.cpp>>=
+    <<MazeC Constructor Implementation>>
+    <<MazeC Destructor Implementation>>
+@
+
+After the constructor and destructor, the implementation of
+the [[reset()]] method and the game state methods
+are also included.
+<<mazeController.cpp>>=
+    <<MazeC Reset Implementation>>
+    <<MazeC Game Setting Implementation>>
+@
+
+Then, we include the implementation of the method used to field
+mouse clicks.
+<<mazeController.cpp>>=
+    <<MazeC Mouse Click Implementation>>
+@

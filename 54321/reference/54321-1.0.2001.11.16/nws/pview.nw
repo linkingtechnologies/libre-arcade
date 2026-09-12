@@ -1,0 +1,296 @@
+\section{The Peg Jumpers View}
+
+The namespace inside the peg view class is a concatenation
+of the general namespace and the name of the peg view
+class.
+<<PegVNameSpace>>=
+<<NameSpace>>::PegView
+@
+
+The Peg game view inherits from the generic game view of
+\S\ref{sec:view}.  It displays the current state of the [[Peg]]
+game.
+
+The Peg game stores pointers to the images containing the tile
+pieces to use.
+<<Peg Tiles>>=
+    SDL_Surface* peg;
+    SDL_Surface* hole;
+    SDL_Surface* empty;
+    SDL_Surface* selected;
+@
+
+The Peg game stores a pointer to the font to use for displaying
+the hint text.
+<<Peg Font>>=
+    Font* font;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the Peg view class takes six arguments.
+The first is a pointer to the screen, the second is a pointer to
+the sound device, the third is a pointer to the game cube, the
+fourth specifies the number of dimensions to employ, the fifth is
+the skill level, and the sixth is the wrapping mode.
+<<PegV Constructor Declaration>>=
+    PegView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the Peg view class passes all of its arguments
+to the [[View]] constructor.  Then, it loads the images it uses.
+After that, it loads the font.
+<<PegV Constructor Implementation>>=
+    <<PegVNameSpace>>::PegView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : View( _screen, _sound, _cube, _dims, _skillLevel, _wrap )
+    {
+	assert( this->screen != 0 );
+	assert( this->dims <= 4 );
+
+	this->peg = ::IMG_Load( "../../data/peg.png" );
+	this->hole = ::IMG_Load( "../../data/hole.png" );
+	this->empty = ::IMG_Load( "../../data/empty.png" );
+	this->selected = ::IMG_Load( "../../data/selected.png" );
+
+	this->font = new Font();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Destructor}
+
+The destructor for the peg view class simply release
+the images and font that it loaded above in the constructor.
+<<PegV Destructor Declaration>>=
+    ~PegView( void );
+@
+<<PegV Destructor Implementation>>=
+    <<PegVNameSpace>>::~PegView( void )
+    {
+	delete this->font;
+
+	::SDL_FreeSurface( this->selected );
+	::SDL_FreeSurface( this->empty );
+	::SDL_FreeSurface( this->hole );
+	::SDL_FreeSurface( this->peg );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Redraw Methods}
+
+The Peg view class has a method which allows one to update
+the entire display area for the game.
+<<PegV Redraw Declarations>>=
+    virtual void redraw( void );
+@
+
+The redraw function here calls the redraw function on the base
+class to update the sidebar and the background area of the cube.
+Then, it runs through each cell in the cube, drawing it.  It draws
+some quick hints in the sidebar.  After that, it updates the whole
+screen.
+<<PegV Redraw Implementations>>=
+    void
+    <<PegVNameSpace>>::redraw( void )
+    {
+	this->View::redraw();
+
+	unsigned int maxIndex
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	for ( unsigned int index=0; index < maxIndex; ++index ) {
+	    this->drawCell( index, false );
+	}
+
+	<<PegV Draw Quick Tip Text>>
+
+	::SDL_UpdateRect( this->screen, 0, 0, 0, 0 );
+    }
+@
+
+In the sidebar, we're going to scribble some hints for the player
+on what interactions are available.
+<<PegV Draw Quick Tip Text>>=
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 384,
+	    "Remove a peg to start."
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 434,
+	    "Click the peg to jump with."
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 474,
+	    "Then, click the peg"
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 498,
+	    "to jump over."
+	);
+@
+
+The Peg view class has a method which allows one to update
+a single cell of the cube by index.
+<<PegV Redraw Declarations>>=
+    virtual void redraw( unsigned int index );
+@
+
+This method simply uses the method defined next to draw the single
+cell in question.
+<<PegV Redraw Implementations>>=
+    void
+    <<PegVNameSpace>>::redraw( unsigned int index )
+    {
+	this->drawCell( index );
+    }
+@
+
+The Peg view class has a method to draw a single cell of
+the cube.  It uses this method in each of the above methods.
+<<PegV Private Draw Declaration>>=
+    void drawCell( unsigned int index, bool update = true );
+@
+
+To draw a single cell, this method retrieves the screen coordinates
+of the cell from the conversion method in the base class.  Then,
+it prepares a rectangle to fill for the cell.  Then, it checks
+the state of the cell in the cube to determine how to draw it.
+<<PegV Private Draw Implementation>>=
+    void
+    <<PegVNameSpace>>::drawCell(
+	    unsigned int index, bool update
+	)
+    {
+	unsigned int xx;
+	unsigned int yy;
+
+	View::cellToScreen( index, this->dims, &xx, &yy );
+
+	<<PegV Prepare Single Cell Dst Rect>>
+
+	unsigned int value = (*this->cube)[ index ];
+
+	if ( ( value & <<PegNameSpace>>::PEG ) != 0 ) {
+	    ::SDL_BlitSurface( this->peg, 0, this->screen, &dst );
+	} else if ( ( value & <<PegNameSpace>>::HOLE ) != 0 ) {
+	    ::SDL_BlitSurface( this->hole, 0, this->screen, &dst );
+	} else {
+	    ::SDL_BlitSurface( this->empty, 0, this->screen, &dst );
+	}
+
+	if ( ( value & <<PegNameSpace>>::SELECTED ) != 0 ) {
+	    ::SDL_BlitSurface( this->selected, 0, this->screen, &dst );
+	}
+
+	if ( update ) {
+	    ::SDL_UpdateRect( this->screen, xx, yy, SQUARE, SQUARE );
+	}
+    }
+@
+
+The rectangle that will be filled to represent the cell simply
+starts at the starting coordinates of the rectangle and goes the
+full size of the cell.
+<<PegV Prepare Single Cell Dst Rect>>=
+    SDL_Rect dst;
+    dst.x = xx;
+    dst.y = yy;
+    dst.w = SQUARE;
+    dst.h = SQUARE;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[PegView]] class}
+
+In this section, we assemble the [[PegView]] class from
+the pieces in the sections above.
+
+We include, in the [[PegView]] class, the constructor, the
+destructor, and the redraw methods.
+<<PegV Class Definition>>=
+    public:
+	<<PegV Constructor Declaration>>
+	<<PegV Destructor Declaration>>
+	<<PegV Redraw Declarations>>
+    private:
+	<<PegV Private Draw Declaration>>
+@
+
+We include the variables that are used in the tile view class.
+<<PegV Class Definition>>=
+    private:
+	<<Peg Tiles>>
+	<<Peg Font>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[PegView]]
+inherits directly from the [[View]] class of \S\ref{sec:view}.
+<<PegV Class Declaration>>=
+    class PegView : public View {
+	<<PegV Class Definition>>
+    };
+@ %def PegView
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[pegView.h]] file}
+
+In this section, we assemble the header file for the [[PegView]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<pegView.h>>=
+    namespace <<NameSpace>> {
+	<<PegV Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[pegView.cpp]] file}
+
+In this section, we assemble the Peg view source file.  It requires
+the [[SDL]] headers for dealing with surfaces, the screen, blitting,
+and loading images.  It requires the header files for the [[Cube]]
+class, the [[Font]] class, the [[SoundDev]] class, the [[View]]
+class, the [[PegView]] class itself, and the [[Peg]] class.
+<<pegView.cpp>>=
+    #include <assert.h>
+    #include <SDL.h>
+    #include <SDL_image.h>
+    #include "cube.h"
+    #include "font.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "pegView.h"
+    #include "peg.h"
+@
+
+After the header files, we include the implementations of the
+constructor, the destructor, the redraw methods, and the goal
+state methods.
+<<pegView.cpp>>=
+    <<PegV Constructor Implementation>>
+    <<PegV Destructor Implementation>>
+    <<PegV Redraw Implementations>>
+    <<PegV Private Draw Implementation>>
+@

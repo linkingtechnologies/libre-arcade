@@ -1,0 +1,32 @@
+image help 0 0
+
+text_center 280  48 "The light blue lines in the center of a cell show"
+text_center 280  72 "which passages to neighboring tiers are blocked."
+
+image unmarked 262 88
+image           wall0 262 88
+image           wall1 262 88
+image           wall2 262 88
+image           wall3 262 88
+image           wall4 262 88
+image           wall6 262 88
+image           wall7 262 88
+
+text_center 280 148 "The cell above shows that there is a passage open"
+text_center 280 176 "which leads one tier to the right."
+text_center 280 208 "With the cell below, there are passages open"
+
+image unmarked 262 232
+image           wall0 262 232
+image           wall1 262 232
+image           wall2 262 232
+image           wall3 262 232
+image           wall4 262 232
+image           wall5 262 232
+
+text_center 280 292 "which go up one tier and down one tier."
+
+image continue 230 490
+button mr3 230 490 100 64
+
+update 0 0 560 560

@@ -1,0 +1,421 @@
+\section{The BombSquad Game View}
+
+The namespace inside the BombSquad view class is a concatenation
+of the general namespace and the name of the BombSquad view
+class.
+<<BombSquadVNameSpace>>=
+<<NameSpace>>::BombSquadView
+@
+
+The BombSquad game view inherits from the generic game view of
+\S\ref{sec:view}.  It displays the current state of the [[BombSquad]]
+game.
+
+The BombSquad game stores pointers to the images of the tile pieces
+to use.
+<<BombSquad Tiles>>=
+    SDL_Surface* covered;
+    SDL_Surface* uncovered;
+    SDL_Surface* flagged;
+    SDL_Surface* bomb;
+@
+
+The BombSquad game stores a pointer to the font to use for displaying
+the numbers.
+<<BombSquad Font>>=
+    Font* font;
+@
+
+The BombSquad game also keeps track of whether or not the
+game is over.  If the game is over, then it display bombs
+whether they are uncovered or not.
+<<BombSquadV Game Over>>=
+    bool gameOver;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the BombSquad view class takes six arguments.
+The first is a pointer to the screen, the second is a pointer to
+the sound device, the third is a pointer to the game cube, the
+fourth specifies the number of dimensions to employ, the fifth is
+the skill level, and the sixth is the wrapping mode.
+<<BombSquadV Constructor Declaration>>=
+    BombSquadView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the BombSquad view class passes all of its
+arguments to the [[View]] constructor.  Then, it loads the images
+used to display the tile in the covered or uncovered state and
+the overlays for flags and bombs.  Then, it loads the font so
+that it can draw the help text in the sidebar.
+<<BombSquadV Constructor Implementation>>=
+    <<BombSquadVNameSpace>>::BombSquadView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : View( _screen, _sound, _cube, _dims, _skillLevel, _wrap ),
+	    gameOver( false )
+    {
+	this->covered = ::IMG_Load( "../../data/covered.png" );
+	this->uncovered = ::IMG_Load( "../../data/uncovered.png" );
+	this->flagged = ::IMG_Load( "../../data/flagged.png" );
+	this->bomb = ::IMG_Load( "../../data/bomb.png" );
+
+	this->font = new Font();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Destructor}
+
+The destructor for the BombSquad view class simply release
+the images loaded above in the constructor.
+<<BombSquadV Destructor Declaration>>=
+    ~BombSquadView( void );
+@
+<<BombSquadV Destructor Implementation>>=
+    <<BombSquadVNameSpace>>::~BombSquadView( void )
+    {
+	delete this->font;
+
+	::SDL_FreeSurface( this->bomb );
+	::SDL_FreeSurface( this->flagged );
+	::SDL_FreeSurface( this->uncovered );
+	::SDL_FreeSurface( this->covered );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Redraw Methods}
+
+The BombSquad view class has a method which allows one to update
+the entire display area for the game.
+<<BombSquadV Redraw Declarations>>=
+    virtual void redraw( void );
+@
+
+The redraw function here calls the redraw function on the base
+class to update the sidebar and the background area of the cube.
+Then, it runs through each cell in the cube, drawing it.  Next, it
+draws the quick-tip text in the sidebar.  After that, it updates
+the whole screen.
+<<BombSquadV Redraw Implementations>>=
+    void
+    <<BombSquadVNameSpace>>::redraw( void )
+    {
+	this->View::redraw();
+
+	unsigned int maxIndex
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	for ( unsigned int index=0; index < maxIndex; ++index ) {
+	    this->drawCell( index, false );
+	}
+
+	<<BombSquadV Draw Quick Tip Text>>
+
+	::SDL_UpdateRect( this->screen, 0, 0, 0, 0 );
+    }
+@
+
+In the sidebar, we're going to scribble some hints for the player
+on what interactions are available.
+<<BombSquadV Draw Quick Tip Text>>=
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 434,
+	    "Click on a tile to reveal it."
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 474,
+	    "Right-click or Shift-click"
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 498,
+	    "on a tile to flag it."
+	);
+@
+
+The BombSquad view class has a method which allows one to update
+a single cell of the cube by index.
+<<BombSquadV Redraw Declarations>>=
+    virtual void redraw( unsigned int index );
+@
+
+This method simply uses the method defined next to draw the single
+cell in question.
+<<BombSquadV Redraw Implementations>>=
+    void
+    <<BombSquadVNameSpace>>::redraw( unsigned int index )
+    {
+	this->drawCell( index );
+    }
+@
+
+The BombSquad view class has a method to draw a single cell of
+the cube.  It uses this method in each of the above methods.
+<<BombSquadV Private Draw Declaration>>=
+    void drawCell( unsigned int index, bool update = true );
+@
+
+To draw a single cell, this method prepares a rectangle to fill
+for the cell.  Then, depending on the state of the cell in the game
+cube, it either draws it as uncovered or covered.  If the game is
+over or the cell is uncovered, the contents of the cell (a
+number or bomb) is shown.  If the area is flagged, then the flag
+is drawn over the area.
+<<BombSquadV Private Draw Implementation>>=
+    void
+    <<BombSquadVNameSpace>>::drawCell(
+	    unsigned int index, bool update
+	)
+    {
+	<<BombSquadV Prepare Single Cell Rect>>
+
+	unsigned int cell = (*this->cube)[ index ];
+	bool showContents = this->gameOver;
+
+	if ( ( cell & <<BombSquadNameSpace>>::UNCOVERED ) != 0 ) {
+	    showContents = true;
+	    <<BombSquadV Draw Cell Uncovered>>
+	} else {
+	    <<BombSquadV Draw Cell Covered>>
+	}
+
+	if ( showContents ) {
+	    <<BombSquadV Draw Cell Contents>>
+	}
+
+	if ( ( cell & <<BombSquadNameSpace>>::FLAG ) != 0 ) {
+	    <<BombSquadV Draw Cell Flag>>
+	}
+
+	if ( update ) {
+	    ::SDL_UpdateRect( this->screen, xx, yy, SQUARE, SQUARE );
+	}
+    }
+@
+
+The rectangle that will be filled to represent the cell simply
+starts at the starting coordinates of the cell and goes the full
+size of the cell.
+<<BombSquadV Prepare Single Cell Rect>>=
+    unsigned int xx;
+    unsigned int yy;
+    View::cellToScreen( index, this->dims, &xx, &yy );
+
+    SDL_Rect rect;
+    rect.x = xx;
+    rect.y = yy;
+    rect.w = SQUARE;
+    rect.h = SQUARE;
+@
+
+The [[uncovered]] bitmap is displayed as the backdrop in cells
+that have already been uncovered.
+<<BombSquadV Draw Cell Uncovered>>=
+    ::SDL_BlitSurface( this->uncovered, 0, this->screen, &rect );
+@
+
+The [[covered]] bitmap is displayed as the backdrop in cells
+that have not already been uncovered.
+<<BombSquadV Draw Cell Covered>>=
+    ::SDL_BlitSurface( this->covered, 0, this->screen, &rect );
+@
+
+If the cell contains a bomb, then its contents are the bomb.  If
+the cell doesn't contain a bomb, but it does have a non-zero number
+of neighbors which are bombs, then the number is displayed.
+<<BombSquadV Draw Cell Contents>>=
+    unsigned int count = cell & 0x0FFF;
+
+    if ( ( cell & <<BombSquadNameSpace>>::BOMB ) != 0 ) {
+	<<BombSquadV Draw Cell Bomb>>
+    } else if ( count > 0 ) {
+	this->font->centerMessage(
+		this->screen, false,
+		rect.x + rect.w / 2,
+		rect.y + rect.h / 2 + 8,
+		"%d", count
+	    );
+    }
+@
+
+If the cell contains a bomb, we overlay the [[bomb]] bitmap.
+<<BombSquadV Draw Cell Bomb>>=
+    ::SDL_BlitSurface( this->bomb, 0, this->screen, &rect );
+@
+
+If the cell is flagged, we overlay the [[flagged]] bitmap.
+<<BombSquadV Draw Cell Flag>>=
+    ::SDL_BlitSurface( this->flagged, 0, this->screen, &rect );
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+The controller needs a way to signal that there is a new game
+to be played.  It invokes the [[reset()]] method defined here.
+<<BombSquadV Reset Declaration>>=
+    inline void reset( void ) {
+	this->gameOver = false;
+	this->View::reset();
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Winning Method}
+
+Once the game is over, the board must be shown with all of
+the bombs on it.  To accomplish this, this view class overrides
+the [[showWinning()]] method to set its own internal flag.
+<<BombSquadV Winning Declaration>>=
+    virtual void showWinning(
+	    unsigned int actualMoves,
+	    unsigned int expectedMoves
+	);
+@
+
+The method sets its internal flag, then it redraws the screen with
+this in mind.  Then, it displays the default winning message.
+<<BombSquadV Winning Implementation>>=
+    void
+    <<BombSquadVNameSpace>>::showWinning(
+	    unsigned int actualMoves,
+	    unsigned int expectedMoves
+	)
+    {
+	this->gameOver = true;
+	this->redraw();
+	this->View::showWinning( actualMoves, expectedMoves );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Losing Method}
+
+Once the game is over, the board must be shown with all of
+the bombs on it.  To accomplish this, this view class overrides
+the [[showLosing()]] method to set its own internal flag.
+<<BombSquadV Losing Declaration>>=
+    virtual void showLosing( void );
+@
+
+The method sets its internal flag, then it redraws the screen with
+this in mind.  Then, it displays the default losing message.
+<<BombSquadV Losing Implementation>>=
+    void
+    <<BombSquadVNameSpace>>::showLosing( void )
+    {
+	this->gameOver = true;
+	this->redraw();
+	this->View::showLosing();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[BombSquadView]] class}
+
+In this section, we assemble the [[BombSquadView]] class from
+the pieces in the sections above.
+
+We include, in the [[BombSquadView]] class, the constructor,
+the destructor, the redraw methods, and the reset method.
+<<BombSquadV Class Definition>>=
+    public:
+	<<BombSquadV Constructor Declaration>>
+	<<BombSquadV Destructor Declaration>>
+	<<BombSquadV Redraw Declarations>>
+	<<BombSquadV Reset Declaration>>
+    private:
+	<<BombSquadV Private Draw Declaration>>
+@
+
+The [[BombSquadView]] class also overrides some of
+the [[View]] methods to catch the end-game.
+<<BombSquadV Class Definition>>=
+    public:
+	<<BombSquadV Winning Declaration>>
+	<<BombSquadV Losing Declaration>>
+@
+
+We include the variables that are used in the bomb squad view class.
+<<BombSquadV Class Definition>>=
+    private:
+	<<BombSquad Tiles>>
+	<<BombSquad Font>>
+	<<BombSquadV Game Over>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[BombSquadView]]
+inherits directly from the [[View]] class of \S\ref{sec:view}.
+<<BombSquadV Class Declaration>>=
+    class BombSquadView : public View {
+	<<BombSquadV Class Definition>>
+    };
+@ %def BombSquadView
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[bombView.h]] file}
+
+In this section, we assemble the header file for the [[BombSquadView]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<bombView.h>>=
+    namespace <<NameSpace>> {
+	<<BombSquadV Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[bombView.cpp]] file}
+
+In this section, we assemble the BombSquad view source file.  It
+requires the [[SDL]] headers for dealing with surfaces, the screen,
+blitting, and loading images.  It requires the header files for
+the [[Cube]] class, the [[Font]] class, the [[SoundDev]] class,
+the [[View]] class, the [[BombSquadView]] class itself, and the
+[[BombSquad]] game model.
+<<bombView.cpp>>=
+    #include <SDL.h>
+    #include <SDL_image.h>
+    #include "cube.h"
+    #include "font.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "bombView.h"
+    #include "bomb.h"
+@
+
+After the header files, we include the implementations of the
+constructor, the destructor, and the redraw methods.
+<<bombView.cpp>>=
+    <<BombSquadV Constructor Implementation>>
+    <<BombSquadV Destructor Implementation>>
+    <<BombSquadV Redraw Implementations>>
+    <<BombSquadV Private Draw Implementation>>
+@
+
+The source file then includes the implementations of the
+end-game methods that it overrides from the base class.
+<<bombView.cpp>>=
+    <<BombSquadV Winning Implementation>>
+    <<BombSquadV Losing Implementation>>
+@

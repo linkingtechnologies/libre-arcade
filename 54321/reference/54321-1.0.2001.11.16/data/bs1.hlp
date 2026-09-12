@@ -1,0 +1,36 @@
+image help 0 0
+
+text_center 280  48 "The goal of bomb squad is to mark all of the bombs."
+text_center 280  72 "When you click on a covered cell,"
+
+image covered 226  88
+image covered 262  88
+image covered 298  88
+image covered 226 124
+image covered 262 124
+image covered 298 124
+image covered 226 160
+image covered 262 160
+image covered 298 160
+
+image pointer 262 124
+
+text_center 280 224 "it becomes uncovered and reveals how many"
+text_center 280 248 "neighboring cells contain bombs."
+
+image covered   226 266
+image covered   262 266
+image covered   298 266
+image covered   226 302
+image uncovered 262 302
+image covered   298 302
+image covered   226 338
+image covered   262 338
+image covered   298 338
+
+text_center 280 326 "4"
+
+image continue 230 490
+button bs2 230 490 100 64
+
+update 0 0 560 560

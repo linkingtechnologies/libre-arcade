@@ -1,0 +1,41 @@
+image help 0 0
+
+text_center 280 104 "If the edges are allowed to wrap, there are even more"
+text_center 280 128 "neighbors to take into account."
+
+image off   100 152
+image on    136 152
+image on    172 152
+image on    100 188
+image off   136 188
+image off   172 188
+image on    100 224
+image off   136 224
+image off   172 224
+
+image on    226 152
+image off   262 152
+image off   298 152
+image off   226 188
+image off   262 188
+image off   298 188
+image off   226 224
+image off   262 224
+image off   298 224
+
+image on    352 152
+image off   388 152
+image off   424 152
+image off   352 188
+image off   388 188
+image off   424 188
+image off   352 224
+image off   388 224
+image off   424 224
+
+image pointer 100 152
+
+image continue 230 490
+button nd7 230 490 100 64
+
+update 0 0 560 560

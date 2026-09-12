@@ -1,0 +1,19 @@
+image help 0 0
+
+text_center 280 106 "The games included here are meant to build from"
+text_center 280 130 "familiar two-dimensional visualizations"
+text_center 280 154 "into a particular method of three-dimensional visualization."
+text_center 280 202 "That method of three-dimensional visualization"
+text_center 280 226 "then extends on to four-dimensional visualizations."
+
+text_center 280 274 "The analogy can continue indefinitely."
+text_center 280 302 "However, it was held to four dimensions here because"
+text_center 280 326 "four dimensions makes the point"
+text_center 280 350 "and "four" makes the game's title pretty snappy."
+
+text_center 280 396 "Enjoy!"
+
+image continue 230 490
+button top 230 490 100 64
+
+update 0 0 560 560

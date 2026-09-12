@@ -1,0 +1,15 @@
+image help 0 0
+
+text_center 280 136 "Even if the world is only three-dimensional,"
+text_center 280 160 "we often deal with things which are not so "real"."
+
+text_center 280 224 "We've been exercising our three-dimensional"
+text_center 280 248 "vision all of our lives."
+
+text_center 280 288 "We've been exercising our two-dimensional"
+text_center 280 312 "vision for almost as long."
+
+image continue 230 490
+button wn3 230 490 100 64
+
+update 0 0 560 560

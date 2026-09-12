@@ -1,0 +1,167 @@
+image help 0 0
+
+text_center 280  48 "The goal of maze runner is to get to the target."
+text_center 280  72 "When you click on spot in direct line with you,"
+
+image unmarked 226 88
+image           wall0 226 88
+image           wall2 226 88
+image           wall3 226 88
+image           wall4 226 88
+image           wall5 226 88
+image           wall6 226 88
+image           wall7 226 88
+
+image unmarked 262 88
+image           wall2 262 88
+image           wall3 262 88
+image           wall4 262 88
+image           wall5 262 88
+image           wall6 262 88
+image           wall7 262 88
+
+image unmarked 298 88
+image           wall1 298 88
+image           wall2 298 88
+image           wall4 298 88
+image           wall5 298 88
+image           wall6 298 88
+image           wall7 298 88
+
+image unmarked 226 124
+image           wall0 226 124
+image           wall1 226 124
+image           wall2 226 124
+image           wall4 226 124
+image           wall5 226 124
+image           wall6 226 124
+image           wall7 226 124
+
+image unmarked 262 124
+image           wall0 262 124
+image           wall2 262 124
+image           wall4 262 124
+image           wall5 262 124
+image           wall6 262 124
+image           wall7 262 124
+
+image unmarked 298 124
+image           wall1 298 124
+image           wall3 298 124
+image           wall4 298 124
+image           wall5 298 124
+image           wall6 298 124
+image           wall7 298 124
+
+image unmarked 226 160
+image           wall0 226 160
+image           wall3 226 160
+image           wall4 226 160
+image           wall5 226 160
+image           wall6 226 160
+image           wall7 226 160
+
+image unmarked 262 160
+image           wall3 262 160
+image           wall4 262 160
+image           wall5 262 160
+image           wall6 262 160
+image           wall7 262 160
+
+image unmarked 298 160
+image goal 298 160
+image           wall1 298 160
+image           wall2 298 160
+image           wall3 298 160
+image           wall4 298 160
+image           wall5 298 160
+image           wall6 298 160
+image           wall7 298 160
+
+image me 226 88
+image pointer 298 88
+
+text_center 280 224 "You will move to that cell."
+
+image marked 226 248
+image           wall0 226 248
+image           wall2 226 248
+image           wall3 226 248
+image           wall4 226 248
+image           wall5 226 248
+image           wall6 226 248
+image           wall7 226 248
+
+image marked 262 248
+image           wall2 262 248
+image           wall3 262 248
+image           wall4 262 248
+image           wall5 262 248
+image           wall6 262 248
+image           wall7 262 248
+
+image unmarked 298 248
+image           wall1 298 248
+image           wall2 298 248
+image           wall4 298 248
+image           wall5 298 248
+image           wall6 298 248
+image           wall7 298 248
+
+image unmarked 226 284
+image           wall0 226 284
+image           wall1 226 284
+image           wall2 226 284
+image           wall4 226 284
+image           wall5 226 284
+image           wall6 226 284
+image           wall7 226 284
+
+image unmarked 262 284
+image           wall0 262 284
+image           wall2 262 284
+image           wall4 262 284
+image           wall5 262 284
+image           wall6 262 284
+image           wall7 262 284
+
+image unmarked 298 284
+image           wall1 298 284
+image           wall3 298 284
+image           wall4 298 284
+image           wall5 298 284
+image           wall6 298 284
+image           wall7 298 284
+
+image unmarked 226 320
+image           wall0 226 320
+image           wall3 226 320
+image           wall4 226 320
+image           wall5 226 320
+image           wall6 226 320
+image           wall7 226 320
+
+image unmarked 262 320
+image           wall3 262 320
+image           wall4 262 320
+image           wall5 262 320
+image           wall6 262 320
+image           wall7 262 320
+
+image unmarked 298 320
+image goal 298 320
+image           wall1 298 320
+image           wall2 298 320
+image           wall3 298 320
+image           wall4 298 320
+image           wall5 298 320
+image           wall6 298 320
+image           wall7 298 320
+
+image me 298 248
+
+
+image continue 230 490
+button mr2 230 490 100 64
+
+update 0 0 560 560

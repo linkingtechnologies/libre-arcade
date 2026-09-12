@@ -1,0 +1,332 @@
+\section{The FlipFlop Game Controller}
+
+The namespace inside the FlipFlop controller class is a concatenation
+of the general namespace and the name of the FlipFlop controller
+class.
+<<FlipFlopCNameSpace>>=
+<<NameSpace>>::FlipFlopController
+@
+
+The FlipFlop game controller inherits from the generic game controller
+of \S\ref{sec:controller}.  It actually controls the initialization
+and game action of the FlipFlop game.  It fields the mouse clicks
+and converts them from screen coordinates into cell coordinates.
+And, it fields events from the view sidebar that set the difficulty
+level and set the wrap mode and set the dimensions and reset the
+game.
+
+The FlipFlop game controller contains an instance of the
+FlipFlop game view.
+<<FlipFlopC View>>=
+    FlipFlopView view;
+@
+
+The FlipFlop game controller also contains a pointer to the
+current instance of the game model.
+<<FlipFlopC Model>>=
+    FlipFlop* model;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The constructor for the FlipFlop controller class takes six
+arguments.  The first is a pointer to the screen, the second is a
+pointer to the sound device, the third is a pointer to the game
+cube, the fourth specifies the number of dimensions to employ, the
+fifth specifies the skill level to use, and the last specifies
+whether the edges wrap around.
+<<FlipFlopC Constructor Declaration>>=
+    FlipFlopController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the FlipFlop controller class simply passes
+most of its arguments to the [[Controller]] constructor.  Then, it
+calls its own [[reset()]] method to allocate a new instance of the
+[[FlipFlop]] class.
+<<FlipFlopC Constructor Implementation>>=
+    <<FlipFlopCNameSpace>>::FlipFlopController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : Controller( _cube, _dims, _skillLevel, _wrap ),
+	    view( _screen, _sound, _cube, _dims, _skillLevel, _wrap ),
+	    model( 0 )
+    {
+	this->view.backgroundMusic();
+	this->reset();
+    }
+@
+
+The destructor for the FlipFlop controller class deletes
+the stored model for the FlipFlop game.
+<<FlipFlopC Destructor Declaration>>=
+    virtual ~FlipFlopController( void );
+@
+<<FlipFlopC Destructor Implementation>>=
+    <<FlipFlopCNameSpace>>::~FlipFlopController( void )
+    {
+	this->view.backgroundMusic( true );
+	delete this->model;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+The [[FlipFlopController]] class has a method called [[reset()]].
+It uses this method to create a new instance of the FlipFlop game
+model.
+<<FlipFlopC Reset Declaration>>=
+    void reset( void );
+@
+
+The method first deletes the old model and then creates a new
+model.
+<<FlipFlopC Reset Implementation>>=
+    void
+    <<FlipFlopCNameSpace>>::reset( void )
+    {
+	delete this->model;
+	this->model = new FlipFlop(
+		this->cube,
+		this->dims,
+		this->skillLevel,
+		this->wrap,
+		&this->view
+	    );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Mouse Event Interface}
+
+The routine which handles mouse events needs to know whether the
+event is a mouse press or mouse release.  It also needs to know
+where the event happened.  And, it needs to know which mouse button
+was pressed.
+<<FlipFlopC Mouse Click Declaration>>=
+    virtual void handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	);
+@
+
+This method first gives the mouse click to the view to see if any
+of the buttons on the sidebar can account for the click.  Then, if
+the view class didn't suck it up, it uses a view method to try to
+determine which cell of the cube was clicked (if any).  If there
+was a hit, and this is a mouse-down event, then the cell is toggled.
+<<FlipFlopC Mouse Click Implementation>>=
+    void
+    <<FlipFlopCNameSpace>>::handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	)
+    {
+	unsigned int index;
+	bool hit;
+
+	hit = this->view.handleMouseClick(
+		    this, isMouseUp, xx, yy, buttonNumber
+		);
+
+	if ( !hit ) {
+	    hit = <<ViewNameSpace>>::screenToCell(
+		    xx, yy, this->dims, &index
+		);
+
+	    if ( hit && ! isMouseUp ) {
+		this->model->flip( index );
+	    }
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Game Setting Interface}
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``dimensions'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<FlipFlopC Game Setting Interface>>=
+    virtual void setDimension( unsigned int _dims );
+@
+<<FlipFlopC Game Setting Implementation>>=
+    void
+    <<FlipFlopCNameSpace>>::setDimension(
+	    unsigned int _dims
+	)
+    {
+	if ( _dims != this->dims ) {
+	    this->dims = _dims;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``skill level'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<FlipFlopC Game Setting Interface>>=
+    virtual void setSkillLevel( unsigned int _skillLevel );
+@
+<<FlipFlopC Game Setting Implementation>>=
+    void
+    <<FlipFlopCNameSpace>>::setSkillLevel(
+	    unsigned int _skillLevel
+	)
+    {
+	if ( _skillLevel != this->skillLevel ) {
+	    this->skillLevel = _skillLevel;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``wrap'' button on the sidebar.  If the button wasn't
+already selected, then this triggers a [[reset()]].
+<<FlipFlopC Game Setting Interface>>=
+    virtual void setWrap( bool _wrap );
+@
+<<FlipFlopC Game Setting Implementation>>=
+    void
+    <<FlipFlopCNameSpace>>::setWrap(
+	    bool _wrap
+	)
+    {
+	if ( _wrap != this->wrap ) {
+	    this->wrap = _wrap;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``new'' button on the sidebar.  This always triggers
+a [[reset()]].
+<<FlipFlopC Game Setting Interface>>=
+    virtual void newGame( void );
+@
+<<FlipFlopC Game Setting Implementation>>=
+    void
+    <<FlipFlopCNameSpace>>::newGame( void )
+    {
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[FlipFlopController]] class}
+
+In this section, we assemble the [[FlipFlopController]] class from
+the pieces in the sections above.
+
+We include, in the [[FlipFlopController]] class, the constructor
+and the destructor.
+<<FlipFlopC Class Definition>>=
+    public:
+	<<FlipFlopC Constructor Declaration>>
+	<<FlipFlopC Destructor Declaration>>
+@
+
+The [[FlipFlopController]] class also declares its reset method
+and the methods used by the [[View]] class to change the game
+state.
+<<FlipFlopC Class Definition>>=
+    private:
+	<<FlipFlopC Reset Declaration>>
+    public:
+	<<FlipFlopC Game Setting Interface>>
+@
+
+We include, in the [[FlipFlopController]] class, the method used
+for mouse clicks.
+<<FlipFlopC Class Definition>>=
+    public:
+	<<FlipFlopC Mouse Click Declaration>>
+@
+
+The [[FlipFlopController]] class also contains the member variables
+which were defined at the beginning of this section of the document.
+<<FlipFlopC Class Definition>>=
+    private:
+	<<FlipFlopC View>>
+	<<FlipFlopC Model>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[FlipFlopController]]
+inherits directly from the [[Controller]] class of \S\ref{sec:controller}.
+<<FlipFlopC Class Declaration>>=
+    class FlipFlopController : public Controller {
+	<<FlipFlopC Class Definition>>
+    };
+@ %def FlipFlopController
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[flipflopController.h]] file}
+
+In this section, we assemble the header file for the [[FlipFlopController]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<flipflopController.h>>=
+    namespace <<NameSpace>> {
+	<<FlipFlopC Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[flipflopController.cpp]] file}
+
+In this section, we assemble the FlipFlop controller source file.
+It requires the header files for the [[Cube]] class, the [[Controller]]
+class, and the [[FlipFlopController]] classes.
+<<flipflopController.cpp>>=
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "controller.h"
+    #include "view.h"
+    #include "flipflopView.h"
+    #include "flipflop.h"
+    #include "flipflopController.h"
+@
+
+After the header files, we include the implementations of the
+constructor and destructor.
+<<flipflopController.cpp>>=
+    <<FlipFlopC Constructor Implementation>>
+    <<FlipFlopC Destructor Implementation>>
+@
+
+After the constructor and destructor, the implementation of
+the [[reset()]] method and the game state methods
+are also included.
+<<flipflopController.cpp>>=
+    <<FlipFlopC Reset Implementation>>
+    <<FlipFlopC Game Setting Implementation>>
+@
+
+Then, we include the implementation of the method used to field
+mouse clicks.
+<<flipflopController.cpp>>=
+    <<FlipFlopC Mouse Click Implementation>>
+@

@@ -1,0 +1,545 @@
+\part{Underlying Basics}
+\section{Generic Cube}
+
+The namespace inside the cube class is a concatenation of the
+general namespace and the name of the cube class.
+<<CubeNameSpace>>=
+<<NameSpace>>::Cube
+@
+
+All of the games here are based upon a cube that is length four on
+each side.  This class encapsulates a simple cube (in either two,
+three, or four dimensions) that is length four on each side.  This
+cube class simply stores an integer for each unit cell and allows
+access to it.
+<<Cube Type Declarations>>=
+    typedef int CellType;
+@ %def CellType
+<<Cube Constant Declarations>>=
+    enum { SIDE_LENGTH = 4 };
+@ %def SIDE_LENGTH
+
+The memory and computational requirements for this class could be
+significantly diminished for the two- and three-dimensional cases.
+However, because this code is geared toward a contest where the
+compiled size of the code matters (and because none of the games
+require stunning response times), this class doesn't make any
+allowance for the number of dimensions, it always assumes the
+four-dimensional case.
+<<Cube Constant Declarations>>=
+    enum { DIMENSIONS = 4 };
+@ %def DIMENSIONS
+
+The primary aim of this class is to store an integer at each
+point in a $4\times4\times4\times4$ cube.
+<<Cube Constant Declarations>>=
+    enum {
+	ARRAY_LEN = SIDE_LENGTH * SIDE_LENGTH * SIDE_LENGTH * SIDE_LENGTH
+    };
+@ %def ARRAY_LEN
+<<Cube Internal Array Declaration>>=
+    CellType array[ ARRAY_LEN ];
+@
+
+In addition to the whole four-dimensional array length, the class
+stores a lookup table for the effective array lengths in different
+dimensions.
+<<Cube Array Length Declaration>>=
+    static const unsigned int arrayLengths[];
+@
+
+The effective [[ARRAY_LEN]] for a particular number of dimensions
+is the [[SIDE_LEN]] raised to the dimensions power.
+<<Cube Array Length>>=
+    const unsigned int <<CubeNameSpace>>::arrayLengths[] = {
+	1,
+	SIDE_LENGTH, 
+	SIDE_LENGTH * SIDE_LENGTH, 
+	SIDE_LENGTH * SIDE_LENGTH * SIDE_LENGTH,
+	SIDE_LENGTH * SIDE_LENGTH * SIDE_LENGTH * SIDE_LENGTH
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The default constructor is the only one needed.  It, of course,
+requires no arguments.
+<<Cube Constructor Declaration>>=
+    Cube( void );
+@
+
+The constructor for the cube simply initializes each element of
+the array to zero using the assignment method defined in the
+following section.  The constructor also validates the assumption
+of all of this code that there are to be (at most) four spatial
+dimensions.
+<<Cube Constructor Implementation>>=
+<<CubeNameSpace>>::Cube( void )
+{
+    assert( DIMENSIONS == 4 );
+    CellType zero = (CellType)0;
+    *this = zero;
+}
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Assigning the Whole Cube a Single Value}
+
+We will override the assignment operator to allow one to
+set the whole cube to a single value.
+<<Cube Assignment Declaration>>=
+    void operator = ( const CellType& value );
+@
+
+This is as simple as looping through each possible index in the
+internal array and assigning the value to each one.  But, first,
+we verify that the value is in a legitimate portion of memory.
+<<Cube Assignment Implementation>>=
+    void
+    <<CubeNameSpace>>::operator = (
+	    const <<CubeNameSpace>>::CellType& value
+	)
+    {
+	<<Cube Check Value Address>>
+	for ( unsigned int ii=0; ii < ARRAY_LEN; ++ii ) {
+	    this->array[ ii ] = value;
+	}
+    }
+@
+
+The only check performed to ensure that the value is valid is to
+make sure that its address is non-null.
+<<Cube Check Value Address>>=
+    assert( &value != 0 );
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Coordinate Manipulation Methods}
+
+In order to facilitate simpler storage in classes that need to
+maintain references to particular cells, the [[Cube]] class makes
+available methods which convert between a coordinate representation
+and the cube's internal one-dimensional indexing and a method which
+can take two sets of coordinates that differ on one axis and tell
+which axis and which direction they differ.
+
+The first of these methods allows one to convert from vector
+coordinates into the cube's internal indexing.
+<<Cube Vector To Index Declaration>>=
+    static void vectorToIndex(
+	    const unsigned int vec[ DIMENSIONS ],
+	    unsigned int* index
+	);
+@
+
+This method first verifies that the output location and
+the input vector are legitmate.  Then, it calculates the
+index represented by the vector and stores it in the output
+location.
+<<Cube Vector To Index Implementation>>=
+    void
+    <<CubeNameSpace>>::vectorToIndex(
+	    const unsigned int vec[ <<CubeNameSpace>>::DIMENSIONS ],
+	    unsigned int* index
+	)
+    {
+	<<Cube Check Index Pointer>>
+	<<Cube Check Vector>>
+	<<Cube Calculate Index>>
+    }
+@
+
+The only check performed to ensure that the index pointer is valid
+is to make sure it is non-null.
+<<Cube Check Index Pointer>>=
+    assert( index != 0 );
+@
+
+Verifying the the coordinates are legitimate is as simple as making
+sure that each coordinate is less than [[SIDE_LENGTH]].  They are
+guaranteed to be greater than or equal to zero because they are
+unsigned integers.
+<<Cube Check Vector>>=
+    assert( vec[ 0 ] < SIDE_LENGTH );
+    assert( vec[ 1 ] < SIDE_LENGTH );
+    assert( vec[ 2 ] < SIDE_LENGTH );
+    assert( vec[ 3 ] < SIDE_LENGTH );
+@
+
+There are a variety of ways we could have calculated the index from
+the vector.  This is the most readable way, in my opinion.  If
+you've done any image processing, you are probably familiar with
+calculations like [[xx + yy * width]].  The following calculation
+is simply an $n$-dimensional version of that.  You can verify this
+to yourself by assuming that only [[vec[0]]] and [[vec[1]]] are
+non-zero.
+<<Cube Calculate Index>>=
+    *index = 0;
+
+    for ( unsigned int ii=0; ii < DIMENSIONS; ++ii ) {
+	*index *= SIDE_LENGTH;
+	*index += vec[ ( DIMENSIONS - 1 ) - ii ];
+    }
+@
+
+The second of these methods allows one to convert from the cube's
+internal indexing into vector coordinates.
+<<Cube Index To Vector Declaration>>=
+    static void indexToVector(
+	    unsigned int index,
+	    unsigned int vec[ DIMENSIONS ]
+	);
+@
+
+This method first verifies that the index is in the valid range
+and that the output vector is legitimate.  Then, it calculates the
+vector represented by the given index.
+<<Cube Index To Vector Implementation>>=
+    void
+    <<CubeNameSpace>>::indexToVector(
+	    unsigned int index,
+	    unsigned int vec[ <<CubeNameSpace>>::DIMENSIONS ]
+	)
+    {
+	<<Cube Check Index Value>>
+	<<Cube Check Vector Pointer>>
+	<<Cube Calculate Vector>>
+    }
+@
+
+The check to verify that the index is on a valid range is quite
+simple.  It simply checks to see that the index is smaller than
+the length of the internal array.  Since the index is an unsigned
+integer, we are already assured that it is at least zero.
+<<Cube Check Index Value>>=
+    assert( index < ARRAY_LEN );
+@
+
+The check to verify that the vector pointer is valid simply checks
+to be sure that it is non-null.  It's an unsophisticated check,
+but should never really get invoked anyway.
+<<Cube Check Vector Pointer>>=
+    assert( vec != 0 );
+@
+
+This calculation is the inverse of the calculation from the previous
+method (hopefully, that is no surprise).  The above method repeatedly
+added in coordinates and multiplied by [[SIDE_LENGTH]].  This method
+[[mod]]s out the coordinates and divides by [[SIDE_LENGTH]].
+<<Cube Calculate Vector>>=
+    for ( unsigned int ii=0; ii < DIMENSIONS; ++ii ) {
+	vec[ ii ] = index % SIDE_LENGTH;
+	index /= SIDE_LENGTH;
+    }
+@
+
+Several classes need to determine the direction of motion
+between two vectors that are in line with each other.
+This method returns [[true]] if the two vectors are on
+the same line and it assigns the [[axis]] parameter to
+the axis on which they differ and the [[positive]] parameter
+to reflect whether the distance is shorter in the positive
+or negative direction.
+\label{sec:determineAxis}
+<<Cube Determine Axis Declaration>>=
+    static bool determineAxis(
+	    unsigned int vf[ DIMENSIONS ],
+	    unsigned int vt[ DIMENSIONS ],
+	    bool wrapping,
+	    unsigned int* axis,
+	    bool* positive
+	);
+@
+
+This method counts the number of axises that differ.  There should
+be exactly one differing axis for any valid move.
+<<Cube Determine Axis Implementation>>=
+    bool
+    <<CubeNameSpace>>::determineAxis(
+	    unsigned int vf[ DIMENSIONS ],
+	    unsigned int vt[ DIMENSIONS ],
+	    bool wrapping,
+	    unsigned int* axis,
+	    bool* positive
+	)
+    {
+	assert( axis != 0 );
+	assert( positive != 0 );
+
+	*positive = true;
+
+	unsigned int diffCount = 0;
+	<<Cube Calculate Which Axis>>
+	return ( diffCount == 1 );
+    }
+@
+
+To determine which axis the change is on, we take the difference of
+each coordinate.  When we find one that is different, we record
+which axis it was on and whether the difference was positive or
+negative.
+<<Cube Calculate Which Axis>>=
+    for ( unsigned int ii=0; ii < DIMENSIONS; ++ii ) {
+	int diff = ( (int)vt[ ii ] - (int)vf[ ii ] );
+
+	if ( diff != 0 ) {
+	    if ( wrapping ) {
+		unsigned int udiff = ( SIDE_LENGTH + diff ) % SIDE_LENGTH;
+		if ( udiff >= SIDE_LENGTH/2 ) {
+		    *positive = false;
+		}
+	    } else {
+		if ( diff < 0 ) {
+		    *positive = false;
+		}
+	    }
+	    *axis = ii;
+	    ++diffCount;
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Access Methods}
+
+All of the storage space in the world is pointless if one cannot
+access it.  The [[Cube]] class allows one to access the elements
+in the cube by giving their vector coordinates.
+<<Cube Get Cell Declarations>>=
+    CellType& operator [] ( const unsigned int vec[ DIMENSIONS ] );
+@
+
+To do this, the method simply calls the method which converts
+the vector coordinates into an index and then uses that index
+to return the appropriate element.
+<<Cube Get Cell Implementations>>=
+    <<CubeNameSpace>>::CellType&
+    <<CubeNameSpace>>::operator [] (
+	    const unsigned int vec[ <<CubeNameSpace>>::DIMENSIONS ]
+	)
+    {
+	unsigned int index;
+	this->vectorToIndex( vec, &index );
+
+	return this->array[ index ];
+    }
+@
+
+In addition to allowing one to access the element via vector
+coordinates, the [[Cube]] class also allows one to access it by
+the internal index.
+<<Cube Get Cell Declarations>>=
+    CellType& operator [] ( const unsigned int index );
+@
+
+To do this, the method simply returns the appropriate element.
+<<Cube Get Cell Implementations>>=
+    <<CubeNameSpace>>::CellType&
+    <<CubeNameSpace>>::operator [] (
+	    const unsigned int index
+	)
+    {
+	assert( index < ARRAY_LEN );
+	return this->array[ index ];
+    }
+@
+
+The cube also has a topology to it.  Rather than encode that topology
+into every one of the subgames, the [[Cube]] class will have a
+method which retrieves the indexes of the neighbors of a particular
+cell.  The method returns the number of neighbors found.
+<<Cube Get Neighbors Declaration>>=
+    static unsigned int getNeighbors(
+	    unsigned int nn[ 2 * DIMENSIONS ],
+	    unsigned int index,
+	    unsigned int dimensions,
+	    bool wrap = true
+	);
+@
+
+This method simply goes through each of the possible directions
+and checks the neighboring coordinates.  This method loops through
+the dimensions of interest.  At each one, it checks the element at
+[[+1]] and [[-1]] in that direction.
+<<Cube Get Neighbors Implementation>>=
+    unsigned int
+    <<CubeNameSpace>>::getNeighbors(
+	    unsigned int nn[
+		    2 * <<CubeNameSpace>>::DIMENSIONS
+		],
+	    unsigned int index,
+	    unsigned int dims,
+	    bool wrap
+	)
+    {
+	unsigned int vec[ DIMENSIONS ];
+	<<CubeNameSpace>>::indexToVector( index, vec );
+
+	unsigned int ii=0;
+
+	if ( wrap ) {
+	    for ( unsigned int jj=0; jj < dims; ++jj ) {
+		<<Cube getNeighbors check wrapped>>
+	    }
+	} else {
+	    for ( unsigned int jj=0; jj < dims; ++jj ) {
+		<<Cube getNeighbors check no wrap>>
+	    }
+	}
+
+	return ii;
+    }
+@
+
+When checking for wrapped coordinates, we simply take the original
+coordinate and check it with plus or minus one added to it.  We
+take special care when subtracting to ensure that we stay positive
+the whole time.  Then, we restore the original coordinate.
+<<Cube getNeighbors check wrapped>>=
+    unsigned int coord = vec[ jj ];
+    vec[ jj ] = ( coord + 1 ) % SIDE_LENGTH;
+    <<CubeNameSpace>>::vectorToIndex( vec, &nn[ ii++ ] );
+    vec[ jj ] = ( coord + SIDE_LENGTH - 1 ) % SIDE_LENGTH;
+    <<CubeNameSpace>>::vectorToIndex( vec, &nn[ ii++ ] );
+    vec[ jj ] = coord;
+@
+
+When checking in the non-wrapped case, we have to make sure not to
+include elements that run off the edges.
+<<Cube getNeighbors check no wrap>>=
+    unsigned int coord = vec[ jj ];
+    if ( coord + 1 < SIDE_LENGTH ) {
+	vec[ jj ] = ( coord + 1 );
+	<<CubeNameSpace>>::vectorToIndex( vec, &nn[ ii++ ] );
+    }
+    if ( coord >= 1 ) {
+	vec[ jj ] = ( coord - 1 );
+	<<CubeNameSpace>>::vectorToIndex( vec, &nn[ ii++ ] );
+    }
+    vec[ jj ] = coord;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[Cube]] class}
+
+In this section, we assemble the [[Cube]] class from the pieces
+in the sections above.
+
+First, we include the type and constant declarations so that
+they will be readily available for use in other declarations.
+<<Cube Class Definition>>=
+    public:
+	<<Cube Type Declarations>>
+	<<Cube Constant Declarations>>
+@
+
+Then, we declare the constructor for the cube class.
+<<Cube Class Definition>>=
+    public:
+	<<Cube Constructor Declaration>>
+@
+
+After the constructor, we declare the method used to
+assign the same value to each element of the cube.
+<<Cube Class Definition>>=
+    public:
+	<<Cube Assignment Declaration>>
+@
+
+The next methods that we include are the vector to index and index
+to vector methods and the axis determination routine.
+<<Cube Class Definition>>=
+    public:
+	<<Cube Index To Vector Declaration>>
+	<<Cube Vector To Index Declaration>>
+	<<Cube Determine Axis Declaration>>
+@
+
+After that, we declare the accessor method for the cells of this
+class and the accessor method that retrieves neighbors of a given
+point.
+<<Cube Class Definition>>=
+    public:
+	<<Cube Get Cell Declarations>>
+	<<Cube Get Neighbors Declaration>>
+@
+
+Next, we declare the internal storage portion of the class.
+<<Cube Class Definition>>=
+    private:
+	<<Cube Internal Array Declaration>>
+@
+
+We also declare the lookup table which stores the effective array
+length for different dimensions.
+<<Cube Class Definition>>=
+    public:
+	<<Cube Array Length Declaration>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<Cube Class Declaration>>=
+    class Cube {
+	<<Cube Class Definition>>
+    };
+@ %def Cube
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[cube.h]] file}
+
+In this section, we assemble the header file for the [[Cube]] class.
+It is really straightforward since we assembled the class declaration
+in the previous section.  The only thing that we add to the class
+declaration is that we tuck it into our own name space so that we
+can keep the global namespace squeaky clean.
+<<cube.h>>=
+    namespace <<NameSpace>> {
+	<<Cube Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[cube.cpp]] file}
+
+For the actual C++ source code, we include the header file
+that defines [[assert()]] and then include the header file
+generated in the previous section.
+<<cube.cpp>>=
+    #include <assert.h>
+    #include "cube.h"
+@
+
+Next, we include the actual lookup table for the effective array
+lengths for different dimensions.
+<<cube.cpp>>=
+    <<Cube Array Length>>
+@
+
+After that, we incorporate the implementation of the constructor.
+<<cube.cpp>>=
+    <<Cube Constructor Implementation>>
+@
+
+The source file also includes the code for the method which assigns
+each element of the cube a given value.
+<<cube.cpp>>=
+    <<Cube Assignment Implementation>>
+@
+
+Next, we include the implementations of the vector to index and index
+to vector methods and the axis determination routine.
+<<cube.cpp>>=
+    <<Cube Vector To Index Implementation>>
+    <<Cube Index To Vector Implementation>>
+    <<Cube Determine Axis Implementation>>
+@
+
+And, finally, we incorporate the implementation of the accessor
+method for the cells of the cube and the method which retrieves
+neighbors of a given cell.
+<<cube.cpp>>=
+    <<Cube Get Cell Implementations>>
+    <<Cube Get Neighbors Implementation>>
+@

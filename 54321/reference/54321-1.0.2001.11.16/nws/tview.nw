@@ -1,0 +1,376 @@
+\section{The Tile Sliders View}
+
+The namespace inside the tile view class is a concatenation
+of the general namespace and the name of the tile view
+class.
+<<TileVNameSpace>>=
+<<NameSpace>>::TileView
+@
+
+The Tile game view inherits from the generic game view of
+\S\ref{sec:view}.  It displays the current state of the [[Tile]]
+game.
+
+The Tile game stores pointers to the images containing the tile
+pieces to use and the color to make the blank cell.
+<<Tile Tiles>>=
+    SDL_Surface* centers;
+    SDL_Surface* borders;
+    unsigned int blank;
+@
+
+The Tile game also tracks whether it is in normal display mode
+or in the mode to display the goal state.
+<<Tile Show Goal>>=
+    bool showGoal;
+@
+
+The Tile game stores a pointer to the font to use for displaying
+the help text.
+<<Tile Font>>=
+    Font* font;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the Tile view class takes six arguments.
+The first is a pointer to the screen, the second is a pointer to
+the sound device, the third is a pointer to the game cube, the
+fourth specifies the number of dimensions to employ, the fifth is
+the skill level, and the sixth is the wrapping mode.
+<<TileV Constructor Declaration>>=
+    TileView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the Tile view class passes all of its arguments
+to the [[View]] constructor.  It sets the mode to not be showing
+the goal state.  Then, it loads the images it uses and prepares
+the color for the blank cell.  After that, it loads the font.
+<<TileV Constructor Implementation>>=
+    <<TileVNameSpace>>::TileView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : View( _screen, _sound, _cube, _dims, _skillLevel, _wrap ),
+	    showGoal( false )
+    {
+	assert( this->screen != 0 );
+	assert( this->dims <= 4 );
+
+	this->centers = ::IMG_Load( "../../data/centers.png" );
+	this->borders = ::IMG_Load( "../../data/borders.png" );
+	this->blank = ::SDL_MapRGB( this->screen->format, 0, 0, 0 );
+
+	this->font = new Font();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Destructor}
+
+The destructor for the maze view class simply release
+the images and font that it loaded above in the constructor.
+<<TileV Destructor Declaration>>=
+    ~TileView( void );
+@
+<<TileV Destructor Implementation>>=
+    <<TileVNameSpace>>::~TileView( void )
+    {
+	delete this->font;
+
+	::SDL_FreeSurface( this->borders );
+	::SDL_FreeSurface( this->centers );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Redraw Methods}
+
+The Tile view class has a method which allows one to update
+the entire display area for the game.
+<<TileV Redraw Declarations>>=
+    virtual void redraw( void );
+@
+
+The redraw function here calls the redraw function on the base
+class to update the sidebar and the background area of the cube.
+Then, it runs through each cell in the cube, drawing it.  Then, it
+redraws quick tip text in the sidebar.  After that, it updates the
+whole screen.
+<<TileV Redraw Implementations>>=
+    void
+    <<TileVNameSpace>>::redraw( void )
+    {
+	this->View::redraw();
+
+	unsigned int maxIndex
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	for ( unsigned int index=0; index < maxIndex; ++index ) {
+	    this->drawCell( index, false );
+	}
+
+	<<TileV Draw Quick Tip Text>>
+
+	::SDL_UpdateRect( this->screen, 0, 0, 0, 0 );
+    }
+@
+
+In the sidebar, we're going to scribble some hints for the player
+on what interactions are available.
+<<TileV Draw Quick Tip Text>>=
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 434,
+	    "Click on a tile to slide it."
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 474,
+	    "Right-click or Shift-click"
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 498,
+	    "to see the winning state."
+	);
+@
+
+The Tile view class has a method which allows one to update
+a single cell of the cube by index.
+<<TileV Redraw Declarations>>=
+    virtual void redraw( unsigned int index );
+@
+
+This method simply uses the method defined next to draw the single
+cell in question.
+<<TileV Redraw Implementations>>=
+    void
+    <<TileVNameSpace>>::redraw( unsigned int index )
+    {
+	this->drawCell( index );
+    }
+@
+
+The Tile view class has a method to draw a single cell of
+the cube.  It uses this method in each of the above methods.
+<<TileV Private Draw Declaration>>=
+    void drawCell( unsigned int index, bool update = true );
+@
+
+To draw a single cell, this method retrieves the screen coordinates
+of the cell from the conversion method in the base class.  Then,
+it prepares a rectangle to fill for the cell.  Then, it uses the
+coordinates of the goal-position of the piece to draw the border
+and then the center of the of the cell.
+<<TileV Private Draw Implementation>>=
+    void
+    <<TileVNameSpace>>::drawCell(
+	    unsigned int index, bool update
+	)
+    {
+	unsigned int xx;
+	unsigned int yy;
+
+	View::cellToScreen( index, this->dims, &xx, &yy );
+
+	<<TileV Prepare Single Cell Dst Rect>>
+	<<TileV Get Cell Value>>
+
+	unsigned int blankCell
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ] - 1;
+
+	if ( value != blankCell ) {
+	    unsigned int coords[ <<CubeNameSpace>>::DIMENSIONS ];
+	    <<CubeNameSpace>>::indexToVector( value, coords );
+	    SDL_Rect src;
+
+	    <<TileV Draw Border>>
+	    <<TileV Draw Center>>
+	} else {
+	    <<TileV Draw A Blank>>
+	}
+
+	if ( update ) {
+	    ::SDL_UpdateRect( this->screen, xx, yy, SQUARE, SQUARE );
+	}
+    }
+@
+
+The rectangle that will be filled to represent the cell simply
+starts at the starting coordinates of the rectangle and goes the
+full size of the cell.
+<<TileV Prepare Single Cell Dst Rect>>=
+    SDL_Rect dst;
+    dst.x = xx;
+    dst.y = yy;
+    dst.w = SQUARE;
+    dst.h = SQUARE;
+@
+
+If we are showing the goal state, then the value of the cell is
+assumed to be the same as the index.  If we are not showing the
+goal state, then the value of the cell is taken from the cell
+itself.
+<<TileV Get Cell Value>>=
+    unsigned int value;
+    if ( this->showGoal ) {
+	value = index;
+    } else {
+	value = (*this->cube)[ index ];
+    }
+@
+
+To draw the border of a tile, we use the third and fourth coordinates
+in the vector to determine which column and row (respectively) to
+use from the border image.  Then, we blit the border.
+<<TileV Draw Border>>=
+    src.x = coords[ 2 ] * SQUARE;
+    src.y = coords[ 3 ] * SQUARE;
+    src.w = SQUARE;
+    src.h = SQUARE;
+
+    ::SDL_BlitSurface( this->borders, &src, this->screen, &dst );
+@
+
+To draw the center, we use the same approach as above except we
+do use the first and second coordinates.
+<<TileV Draw Center>>=
+    src.x = coords[ 0 ] * SQUARE;
+    src.y = coords[ 1 ] * SQUARE;
+    src.w = SQUARE;
+    src.h = SQUARE;
+
+    ::SDL_BlitSurface( this->centers, &src, this->screen, &dst );
+@
+
+To draw a blank, we merely fill in the cell with the color
+of the blank tile.
+<<TileV Draw A Blank>>=
+    ::SDL_FillRect( this->screen, &dst, this->blank );
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Goal State Methods}
+
+There are two methods associated with the goal state.
+The first method queries the current state.  The second
+method sets the state.
+<<TileV Goal State Declarations>>=
+    bool isShowingGoalState( void ) const;
+    void showGoalState( bool _state );
+@
+
+The method that returns the current state is very simple.
+It merely returns the internal state variable.
+<<TileV Goal State Implementations>>=
+    bool
+    <<TileVNameSpace>>::isShowingGoalState( void ) const
+    {
+	return this->showGoal;
+    }
+@
+
+The method that sets the state checks to see if it this is a change.
+If it is, then it sets the state and redraws.
+
+<<TileV Goal State Implementations>>=
+    void
+    <<TileVNameSpace>>::showGoalState( bool _state )
+    {
+	if ( _state != this->showGoal ) {
+	    this->showGoal = _state;
+	    this->redraw();
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[TileView]] class}
+
+In this section, we assemble the [[TileView]] class from
+the pieces in the sections above.
+
+We include, in the [[TileView]] class, the constructor, the
+destructor, the redraw methods, and the goal state methods.
+<<TileV Class Definition>>=
+    public:
+	<<TileV Constructor Declaration>>
+	<<TileV Destructor Declaration>>
+	<<TileV Redraw Declarations>>
+	<<TileV Goal State Declarations>>
+    private:
+	<<TileV Private Draw Declaration>>
+@
+
+We include the variables that are used in the tile view class.
+<<TileV Class Definition>>=
+    private:
+	<<Tile Tiles>>
+	<<Tile Show Goal>>
+	<<Tile Font>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[TileView]]
+inherits directly from the [[View]] class of \S\ref{sec:view}.
+<<TileV Class Declaration>>=
+    class TileView : public View {
+	<<TileV Class Definition>>
+    };
+@ %def TileView
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[tileView.h]] file}
+
+In this section, we assemble the header file for the [[TileView]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<tileView.h>>=
+    namespace <<NameSpace>> {
+	<<TileV Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[tileView.cpp]] file}
+
+In this section, we assemble the Tile view source file.  It requires
+the [[SDL]] headers for dealing with surfaces, the screen, blitting,
+and loading images.  It requires the header files for the [[Cube]]
+class, the [[Font]] class, the [[SoundDev]] class, the [[View]]
+class, and the [[TileView]] class itself.
+<<tileView.cpp>>=
+    #include <assert.h>
+    #include <SDL.h>
+    #include <SDL_image.h>
+    #include "cube.h"
+    #include "font.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "tileView.h"
+@
+
+After the header files, we include the implementations of the
+constructor, the destructor, the redraw methods, and the goal
+state methods.
+<<tileView.cpp>>=
+    <<TileV Constructor Implementation>>
+    <<TileV Destructor Implementation>>
+    <<TileV Redraw Implementations>>
+    <<TileV Private Draw Implementation>>
+    <<TileV Goal State Implementations>>
+@

@@ -1,0 +1,357 @@
+\section{The Tile Slider Game Controller}
+
+The namespace inside the tile controller class is a concatenation
+of the general namespace and the name of the Tile controller
+class.
+<<TileCNameSpace>>=
+<<NameSpace>>::TileController
+@
+
+The Tile game controller inherits from the generic game controller
+of \S\ref{sec:controller}.  It actually controls the initialization
+and game action of the Tile game.  It fields the mouse clicks
+and converts them from screen coordinates into cell coordinates.
+And, it fields events from the view sidebar that set the difficulty
+level and set the wrap mode and set the dimensions and reset the
+game.
+
+The Tile game controller contains an instance of the
+Tile game view.
+<<TileC View>>=
+    TileView view;
+@
+
+The Tile game controller also contains a pointer to the
+current instance of the game model.
+<<TileC Model>>=
+    Tile* model;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The constructor for the Tile controller class takes six
+arguments.  The first is a pointer to the screen, the second is a
+pointer to the sound device, the third is a pointer to the game
+cube, the fourth specifies the number of dimensions to employ, the
+fifth specifies the skill level to use, and the last specifies
+whether the edges wrap around.
+<<TileC Constructor Declaration>>=
+    TileController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the Tile controller class simply passes
+most of its arguments to the [[Controller]] constructor.  Then, it
+calls its own [[reset()]] method to allocate a new instance of the
+[[Tile]] class.
+<<TileC Constructor Implementation>>=
+    <<TileCNameSpace>>::TileController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : Controller( _cube, _dims, _skillLevel, _wrap ),
+	    view( _screen, _sound, _cube, _dims, _skillLevel, _wrap ),
+	    model( 0 )
+    {
+	this->view.backgroundMusic();
+	this->reset();
+    }
+@
+
+The destructor for the Tile controller class deletes
+the stored model for the Tile game.
+<<TileC Destructor Declaration>>=
+    virtual ~TileController( void );
+@
+<<TileC Destructor Implementation>>=
+    <<TileCNameSpace>>::~TileController( void )
+    {
+	this->view.backgroundMusic( true );
+	delete this->model;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+The [[TileController]] class has a method called [[reset()]].
+It uses this method to create a new instance of the Tile game
+model.
+<<TileC Reset Declaration>>=
+    void reset( void );
+@
+
+The method first deletes the old model and then creates a new
+model.
+<<TileC Reset Implementation>>=
+    void
+    <<TileCNameSpace>>::reset( void )
+    {
+	delete this->model;
+	this->model = new Tile(
+		this->cube,
+		this->dims,
+		this->skillLevel,
+		this->wrap,
+		&this->view
+	    );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Mouse Event Interface}
+
+The routine which handles mouse events needs to know whether the
+event is a mouse press or mouse release.  It also needs to know
+where the event happened.  And, it gets to know which mouse button
+was pressed.
+<<TileC Mouse Click Declaration>>=
+    virtual void handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	);
+@
+
+In this routine, we have to check whether we are in the mode of
+showing the goal state or not.  If we are, then we have to stop
+that.  If we are not, then we have to check whether the person
+right-clicked.  If they did right-click, then we should start
+showing the goal state.
+<<TileC Mouse Click Implementation>>=
+    void
+    <<TileCNameSpace>>::handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	)
+    {
+	<<TileC Check End Goal State>>
+	<<TileC Check Start Goal State>>
+
+	bool hit = this->view.handleMouseClick(
+		    this, isMouseUp, xx, yy, buttonNumber
+		);
+
+	if ( !hit ) {
+	    unsigned int index;
+	    hit = <<ViewNameSpace>>::screenToCell(
+		    xx, yy, this->dims, &index
+		);
+
+	    if ( hit && ! isMouseUp ) {
+		this->model->move( index );
+	    }
+	}
+    }
+@
+
+If the view is currently showing the goal state, then we
+have to stop that on the next mouse release.
+<<TileC Check End Goal State>>=
+    if ( this->view.isShowingGoalState() ) {
+	if ( isMouseUp ) {
+	    this->view.showGoalState( false );
+	}
+	return;
+    }
+@
+
+If the person clicked with the right mouse button,
+then we have to tell the view to start showing the goal state.
+<<TileC Check Start Goal State>>=
+    if ( buttonNumber != 1 ) {
+	if ( ! isMouseUp ) {
+	    this->view.showGoalState( true );
+	}
+	return;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Game Setting Interface}
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``dimensions'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<TileC Game Setting Interface>>=
+    virtual void setDimension( unsigned int _dims );
+@
+<<TileC Game Setting Implementation>>=
+    void
+    <<TileCNameSpace>>::setDimension(
+	    unsigned int _dims
+	)
+    {
+	if ( _dims != this->dims ) {
+	    this->dims = _dims;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``skill level'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<TileC Game Setting Interface>>=
+    virtual void setSkillLevel( unsigned int _skillLevel );
+@
+<<TileC Game Setting Implementation>>=
+    void
+    <<TileCNameSpace>>::setSkillLevel(
+	    unsigned int _skillLevel
+	)
+    {
+	if ( _skillLevel != this->skillLevel ) {
+	    this->skillLevel = _skillLevel;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``wrap'' button on the sidebar.  If the button wasn't
+already selected, then this triggers a [[reset()]].
+<<TileC Game Setting Interface>>=
+    virtual void setWrap( bool _wrap );
+@
+<<TileC Game Setting Implementation>>=
+    void
+    <<TileCNameSpace>>::setWrap(
+	    bool _wrap
+	)
+    {
+	if ( _wrap != this->wrap ) {
+	    this->wrap = _wrap;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``new'' button on the sidebar.  This always triggers
+a [[reset()]].
+<<TileC Game Setting Interface>>=
+    virtual void newGame( void );
+@
+<<TileC Game Setting Implementation>>=
+    void
+    <<TileCNameSpace>>::newGame( void )
+    {
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[TileController]] class}
+
+In this section, we assemble the [[TileController]] class from
+the pieces in the sections above.
+
+We include, in the [[TileController]] class, the constructor
+and the destructor.
+<<TileC Class Definition>>=
+    public:
+	<<TileC Constructor Declaration>>
+	<<TileC Destructor Declaration>>
+@
+
+The [[TileController]] class also declares its reset method
+and the methods used by the [[View]] class to change the game
+state.
+<<TileC Class Definition>>=
+    private:
+	<<TileC Reset Declaration>>
+    public:
+	<<TileC Game Setting Interface>>
+@
+
+We include, in the [[TileController]] class, the method used
+for mouse clicks.
+<<TileC Class Definition>>=
+    public:
+	<<TileC Mouse Click Declaration>>
+@
+
+The [[TileController]] class also contains the member variables
+which were defined at the beginning of this section of the document.
+<<TileC Class Definition>>=
+    private:
+	<<TileC View>>
+	<<TileC Model>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[TileController]]
+inherits directly from the [[Controller]] class of \S\ref{sec:controller}.
+<<TileC Class Declaration>>=
+    class TileController : public Controller {
+	<<TileC Class Definition>>
+    };
+@ %def TileController
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[tileController.h]] file}
+
+In this section, we assemble the header file for the [[TileController]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<tileController.h>>=
+    namespace <<NameSpace>> {
+	<<TileC Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[tileController.cpp]] file}
+
+In this section, we assemble the Tile controller source file.  It
+requires the header files for [[SDL]], the [[Cube]] class, the
+[[SoundDev]] class, the [[Controller]] class, the [[View]] class,
+the [[Font]], the [[Tile]] class, and the [[TileController]] classes.
+<<tileController.cpp>>=
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "controller.h"
+    #include "view.h"
+    #include "font.h"
+    #include "tileView.h"
+    #include "tile.h"
+    #include "tileController.h"
+@
+
+After the header files, we include the implementations of the
+constructor and destructor.
+<<tileController.cpp>>=
+    <<TileC Constructor Implementation>>
+    <<TileC Destructor Implementation>>
+@
+
+After the constructor and destructor, the implementation of
+the [[reset()]] method and the game state methods
+are also included.
+<<tileController.cpp>>=
+    <<TileC Reset Implementation>>
+    <<TileC Game Setting Implementation>>
+@
+
+Then, we include the implementation of the method used to field
+mouse clicks.
+<<tileController.cpp>>=
+    <<TileC Mouse Click Implementation>>
+@

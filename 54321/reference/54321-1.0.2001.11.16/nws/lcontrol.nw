@@ -1,0 +1,392 @@
+\section{The Life Game Controller}
+
+The namespace inside the Life controller class is a concatenation
+of the general namespace and the name of the Life controller
+class.
+<<LifeCNameSpace>>=
+<<NameSpace>>::LifeController
+@
+
+The Life game controller inherits from the generic game controller
+of \S\ref{sec:controller}.  It actually controls the initialization
+and game action of the Life game.  It fields the mouse clicks
+and converts them from screen coordinates into cell coordinates.
+And, it fields events from the view sidebar that set the difficulty
+level and set the wrap mode and set the dimensions and reset the
+game.
+
+The Life game controller contains an instance of the
+Life game view.
+<<LifeC View>>=
+    LifeView view;
+@
+
+The Life game controller also contains a pointer to the
+current instance of the game model.
+<<LifeC Model>>=
+    Life* model;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The constructor for the Life controller class takes six
+arguments.  The first is a pointer to the screen, the second is a
+pointer to the sound device, the third is a pointer to the game
+cube, the fourth specifies the number of dimensions to employ, the
+fifth specifies the skill level to use, and the last specifies
+whether the edges wrap around.
+<<LifeC Constructor Declaration>>=
+    LifeController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the Life controller class simply passes
+most of its arguments to the [[Controller]] constructor.  Then, it
+calls its own [[reset()]] method to allocate a new instance of the
+[[Life]] class.
+<<LifeC Constructor Implementation>>=
+    <<LifeCNameSpace>>::LifeController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : Controller( _cube, _dims, _skillLevel, _wrap ),
+	    view( _screen, _sound, _cube, _dims, _skillLevel, _wrap ),
+	    model( 0 )
+    {
+	this->view.backgroundMusic();
+	this->reset();
+    }
+@
+
+The destructor for the Life controller class deletes
+the stored model for the Life game.
+<<LifeC Destructor Declaration>>=
+    virtual ~LifeController( void );
+@
+<<LifeC Destructor Implementation>>=
+    <<LifeCNameSpace>>::~LifeController( void )
+    {
+	this->view.backgroundMusic( true );
+	delete this->model;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+The [[LifeController]] class has a method called [[reset()]].
+It uses this method to create a new instance of the Life game
+model.
+<<LifeC Reset Declaration>>=
+    void reset( void );
+@
+
+The method first deletes the old model and then creates a new
+model.
+<<LifeC Reset Implementation>>=
+    void
+    <<LifeCNameSpace>>::reset( void )
+    {
+	delete this->model;
+	this->model = new Life(
+		this->cube,
+		this->dims,
+		this->skillLevel,
+		this->wrap,
+		&this->view
+	    );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Mouse Event Interface}
+
+The routine which handles mouse events needs to know whether the
+event is a mouse press or mouse release.  It also needs to know
+where the event happened.  And, it needs to know which mouse button
+was pressed.
+<<LifeC Mouse Click Declaration>>=
+    virtual void handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	);
+@
+
+This method first gives the mouse click to the view to see if any
+of the buttons on the sidebar can account for the click.  Then, if
+the view class didn't suck it up, then it tries to use the event
+itself.  If this was a left-click, then it calls the [[flip()]]
+method on the model if a cell of the game cube was hit.  If it
+is not a left-click, then a generation is run.
+<<LifeC Mouse Click Implementation>>=
+    void
+    <<LifeCNameSpace>>::handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	)
+    {
+	unsigned int index;
+	bool hit;
+
+	hit = this->view.handleMouseClick(
+		    this, isMouseUp, xx, yy, buttonNumber
+		);
+
+	if ( !hit ) {
+	    if ( buttonNumber == 1 ) {
+		hit = <<ViewNameSpace>>::screenToCell(
+			xx, yy, this->dims, &index
+		    );
+
+		if ( hit && ! isMouseUp ) {
+		    this->model->flip( index );
+		}
+	    } else if ( ! isMouseUp ) {
+		this->model->generation();
+	    }
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Game Setting Interface}
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``dimensions'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<LifeC Game Setting Interface>>=
+    virtual void setDimension( unsigned int _dims );
+@
+<<LifeC Game Setting Implementation>>=
+    void
+    <<LifeCNameSpace>>::setDimension(
+	    unsigned int _dims
+	)
+    {
+	if ( _dims != this->dims ) {
+	    this->dims = _dims;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``skill level'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<LifeC Game Setting Interface>>=
+    virtual void setSkillLevel( unsigned int _skillLevel );
+@
+<<LifeC Game Setting Implementation>>=
+    void
+    <<LifeCNameSpace>>::setSkillLevel(
+	    unsigned int _skillLevel
+	)
+    {
+	if ( _skillLevel != this->skillLevel ) {
+	    this->skillLevel = _skillLevel;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``wrap'' button on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<LifeC Game Setting Interface>>=
+    virtual void setWrap( bool _wrap );
+@
+<<LifeC Game Setting Implementation>>=
+    void
+    <<LifeCNameSpace>>::setWrap(
+	    bool _wrap
+	)
+    {
+	if ( _wrap != this->wrap ) {
+	    this->wrap = _wrap;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``new'' button on the sidebar.  This always triggers
+a [[reset()]].
+<<LifeC Game Setting Interface>>=
+    virtual void newGame( void );
+@
+<<LifeC Game Setting Implementation>>=
+    void
+    <<LifeCNameSpace>>::newGame( void )
+    {
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Other Hooks}
+
+Pardon if this isn't well-documented.  It's meant to be
+a bit of an easter egg.
+<<MainMenuC Find Which Item Clicked>>=
+    {
+	extern int __counter;
+	extern int __wonCount;
+
+	if ( !hit && xx < <<ViewNameSpace>>::SIDEBAR_X
+	&& __counter == 76 && __wonCount == 1 ) {
+	    chosen = maxGame;
+	    hit = true;
+	    __wonCount = 2;
+	}
+    }
+@
+
+This would be nice to have to actually run the game.
+<<Main Handle State Change>>=
+    case <<MainMenuVNameSpace>>::MAX_GAME:
+	controller = new <<NameSpace>>::LifeController(
+		    screen, soundDev, &cube
+		);
+	break;
+@
+
+<<Help Load parse file>>=
+    const char* ptr = baseName;
+    while ( ptr != 0 && *ptr != 0 ) {
+	extern int __counter;
+	__counter ^= *ptr++;
+    }
+@
+
+<<Peg Jump Show Winning>>=
+{
+    extern int __wonCount;
+    if ( this->skillLevel == 2 ) {
+	++__wonCount;
+    }
+}
+@
+
+<<lifeController.cpp>>=
+namespace <<NameSpace>> {
+    int __counter = 0;
+    int __wonCount = 0;
+};
+int __counter = 0;
+int __wonCount = 0;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[LifeController]] class}
+
+In this section, we assemble the [[LifeController]] class from
+the pieces in the sections above.
+
+We include, in the [[LifeController]] class, the constructor
+and the destructor.
+<<LifeC Class Definition>>=
+    public:
+	<<LifeC Constructor Declaration>>
+	<<LifeC Destructor Declaration>>
+@
+
+The [[LifeController]] class also declares its reset method
+and the methods used by the [[View]] class to change the game
+state.
+<<LifeC Class Definition>>=
+    private:
+	<<LifeC Reset Declaration>>
+    public:
+	<<LifeC Game Setting Interface>>
+@
+
+We include, in the [[LifeController]] class, the method used
+for mouse clicks.
+<<LifeC Class Definition>>=
+    public:
+	<<LifeC Mouse Click Declaration>>
+@
+
+The [[LifeController]] class also contains the member variables
+which were defined at the beginning of this section of the document.
+<<LifeC Class Definition>>=
+    private:
+	<<LifeC View>>
+	<<LifeC Model>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[LifeController]]
+inherits directly from the [[Controller]] class of \S\ref{sec:controller}.
+<<LifeC Class Declaration>>=
+    class LifeController : public Controller {
+	<<LifeC Class Definition>>
+    };
+@ %def LifeController
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[lifeController.h]] file}
+
+In this section, we assemble the header file for the [[LifeController]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<lifeController.h>>=
+    namespace <<NameSpace>> {
+	<<LifeC Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[lifeController.cpp]] file}
+
+In this section, we assemble the Life controller source file.
+It requires the header files for the [[Cube]] class, the [[Controller]]
+class, and the [[LifeController]] classes.
+<<lifeController.cpp>>=
+    #include <SDL.h>
+    #include "cube.h"
+    #include "font.h"
+    #include "soundDev.h"
+    #include "controller.h"
+    #include "view.h"
+    #include "lifeView.h"
+    #include "life.h"
+    #include "lifeController.h"
+@
+
+After the header files, we include the implementations of the
+constructor and destructor.
+<<lifeController.cpp>>=
+    <<LifeC Constructor Implementation>>
+    <<LifeC Destructor Implementation>>
+@
+
+After the constructor and destructor, the implementation of
+the [[reset()]] method and the game state methods
+are also included.
+<<lifeController.cpp>>=
+    <<LifeC Reset Implementation>>
+    <<LifeC Game Setting Implementation>>
+@
+
+Then, we include the implementation of the method used to field
+mouse clicks.
+<<lifeController.cpp>>=
+    <<LifeC Mouse Click Implementation>>
+@

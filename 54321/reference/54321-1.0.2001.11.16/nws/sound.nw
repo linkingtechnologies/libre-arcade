@@ -1,0 +1,408 @@
+\section{Sound Device}
+
+The namespace inside the sound device class is a concatenation of the
+general namespace and the name of the sound device class.
+<<SoundDevNameSpace>>=
+<<NameSpace>>::SoundDev
+@
+
+The sound device uses a constant to define the frequency that
+it will open the system audio device.
+<<SoundDev Frequency>>=
+    enum {
+	FREQ = 8192
+    };
+@
+
+The sound device tracks the actual parameters with which the
+sound device was opened.
+<<SoundDev Audio Spec>>=
+    SDL_AudioSpec spec;
+    bool opened;
+@
+
+The sound device also keeps track of the size of the buffer
+that it is currently playing.
+<<SoundDev Current Buffer>>=
+    Uint8* currentBuf;
+    Uint8* currentPtr;
+    unsigned int currentLen;
+@
+
+The sound device has a buffer which it keeps set up with
+a ding in it.
+<<SoundDev Ding Buffer>>=
+    Uint8 dingBuf[ FREQ ];
+    unsigned int dingLen;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The default constructor is the only one available for the
+sound device.  It, of course, takes no arguments.
+<<SoundDev Constructor Declaration>>=
+    SoundDev( void );
+@
+
+The constructor for the sound device attempts to open the
+sound device for a single channel of the desired frequency.
+It first has to prepare the desired audio specification.
+Then, it has to attempt to open the device itself.
+If the device was opened, then we'll prepare a buffer with
+a ding noise in it.
+<<SoundDev Constructor Implementation>>=
+<<SoundDevNameSpace>>::SoundDev( void )
+	: currentBuf( 0 ), currentPtr( 0 ), currentLen( 0 )
+{
+    <<SoundDev Prepare Desired Spec>>
+    <<SoundDev Open Audio>>
+
+    if ( this->opened ) {
+	<<SoundDev fill ding buffer>>
+    }
+}
+@
+
+The desired sound format is 8-bit signed data at 8KHz with a sixty-fourth
+of a second buffer.
+<<SoundDev Prepare Desired Spec>>=
+    SDL_AudioSpec desired;
+
+    desired.freq = FREQ;
+    desired.format = AUDIO_S16SYS;
+    desired.channels = 1;
+    desired.samples = ( FREQ >> 6 );
+    desired.callback = SoundDev::callbackTrampoline;
+    desired.userdata = this;
+@
+
+To open the audio device, we simply call the appropriate method
+from the SDL library.  If we didn't get the frequency that we
+wanted, then we will just close up and forget about audio.
+<<SoundDev Open Audio>>=
+    if ( ::SDL_OpenAudio( &desired, &this->spec ) < 0 ) {
+	this->opened = false;
+    } else {
+	if ( this->spec.freq != FREQ
+	|| this->spec.format != AUDIO_S16SYS ) {
+	    ::SDL_CloseAudio();
+	    this->opened = false;
+	} else {
+	    this->opened = true;
+	}
+    }
+@
+
+First, we reset the length of the ding buffer to zero.  Then, we
+fill in the first part of the buffer with our tone getting louder
+and louder from zero up to its full volume of [[8192]] out of
+[[32767]] in the first 64-th of a second.  Then, we let the sound
+decay from that maximum volume.  We let it decay really quickly to
+give the ding a little bit of pop.
+<<SoundDev fill ding buffer>>=
+    this->dingLen = 0;
+    double volume = 0.0;
+    Uint16* ptr = (Uint16*)&this->dingBuf[ 0 ];
+
+    while ( this->dingLen < FREQ && volume < 8192.0 ) {
+	<<SoundDev add to ding>>
+	volume += 8192.0 * 64.0 / (double)FREQ;
+    }
+
+    while ( this->dingLen < FREQ && volume > 1.0 ) {
+	<<SoundDev add to ding>>
+	volume *= 0.90;
+    }
+@
+
+The sample at any given point is the based upon the frequency
+and the volume.  We're constructing a 256Hz tone.  Then, we clip
+that tone into the range of a valid 16-bit number.  Then, we add
+the sample into the buffer.
+<<SoundDev add to ding>>=
+    double angle = ( (double)this->dingLen / (double)FREQ * M_PI * 512.0 );
+    int ival = (int)( ::sin( angle ) * volume );
+
+    <<SoundDev clip value>>
+
+    unsigned short val = ( ival & 0x00FFFF );
+    *ptr++ = val;
+    this->dingLen += sizeof( Uint16 );
+@
+
+The valid range for a 16-bit number is from negative 32768 to
+negative 32767.
+<<SoundDev clip value>>=
+    if ( ival >= 32767 ) {
+	ival = 32767;
+    } else if ( ival < -32768 ) {
+	ival = -32768;
+    }
+@
+
+The destructor for the sound device has to release the audio
+device with SDL.
+<<SoundDev Destructor Declaration>>=
+    ~SoundDev( void );
+@
+
+The destructor for the sound device has to release the audio device
+with SDL.  But, it only has to do this if the device is still open.
+It also has to release any buffer that is currently around.
+<<SoundDev Destructor Implementation>>=
+    <<SoundDevNameSpace>>::~SoundDev( void )
+    {
+	if ( this->opened ) {
+	    ::SDL_PauseAudio( 1 );
+	    ::SDL_CloseAudio();
+	}
+
+	delete[] this->currentBuf;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Checking The Sound Device}
+
+Currently, the only check one can do on the sound device
+is see if it is opened.  This is a simple inline function
+because it requires almost nothing for code.
+<<SoundDev Is Opened Inline>>=
+    inline bool isOpened( void ) const {
+	return this->opened;
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Playing A Buffer}
+
+This method takes a buffer that already contains a sound
+and prepares it to be played on the audio device.
+<<SoundDev Play Declaration>>=
+    void play( Uint8* buffer, unsigned int len );
+@
+
+This method pauses the audio that is currently playing.
+Then, it deletes the current buffer.  Then, it allocates
+a new buffer and copies the parameters into the sound device.
+Then, it restarts the audio.
+<<SoundDev Play Implementation>>=
+    void
+    <<SoundDevNameSpace>>::play( Uint8* buffer, unsigned int len )
+    {
+	::SDL_PauseAudio( 1 );
+
+	delete[] this->currentBuf;
+
+	this->currentBuf = new Uint8[ len ];
+	::memcpy( this->currentBuf, buffer, len );
+
+	this->currentPtr = this->currentBuf;
+	this->currentLen = len;
+
+	::SDL_PauseAudio( 0 );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Making A Ding}
+
+This method generates a ding noise and plays it.
+<<SoundDev Ding Declaration>>=
+    void ding( void );
+@
+
+This method sets up a buffer big enough for the ding noise.  Then,
+it fills in the buffer with data for the noise.  The ``ding'' is
+a quickly rising pulse of a 256Hz tone that falls off in volume
+exponentially.  Then, it calls the [[play()]] method defined above
+to play the noise.
+<<SoundDev Ding Implementation>>=
+    void
+    <<SoundDevNameSpace>>::ding( void )
+    {
+	this->play( this->dingBuf, this->dingLen );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Callback Functions}
+
+There are two callback functions defined in the sound device class.
+The one that does all of the work for the class is an instance
+method.
+<<SoundDev Callback Declarations>>=
+    void callback( Uint8* stream, int len );
+@
+
+The other method defined simply fields the callback from the SDL
+library and converts it into a method call on the instance.
+<<SoundDev Callback Declarations>>=
+    static void callbackTrampoline(
+	    void* userData, Uint8* stream, int len
+	);
+@
+
+Currently, the callback function tries to copy data out of the
+current buffer if there is some.  If there is not any data left in
+the current buffer, then it simply pauses the audio.
+<<SoundDev Callback Implementations>>=
+    void
+    <<SoundDevNameSpace>>::callback( Uint8* stream, int len )
+    {
+	if ( this->currentLen > 0 ) {
+	    unsigned int copyLen = this->currentLen;
+
+	    if ( copyLen > len ) {
+		copyLen = len;
+	    }
+
+	    ::memcpy( stream, this->currentPtr, copyLen );
+	    this->currentPtr += copyLen;
+	    this->currentLen -= copyLen;
+
+	    stream += copyLen;
+	    len -= copyLen;
+	} else {
+	    ::SDL_PauseAudio( 1 );
+	}
+
+	if ( len > 0 ) {
+	    ::memset( stream, 0, len );
+	}
+    }
+@
+
+As mentioned above, the callback trampoline class-method simply
+springs from the SDL callback into a method call on the instance
+given as user data.
+<<SoundDev Callback Implementations>>=
+    void
+    <<SoundDevNameSpace>>::callbackTrampoline(
+	    void* userData, Uint8* stream, int len
+	)
+    {
+	assert( userData != 0 );
+	SoundDev* dev = (SoundDev*)userData;
+	dev->callback( stream, len );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[SoundDev]] class}
+
+In this section, we assemble the [[SoundDev]] class from the pieces
+in the sections above.
+
+First, we include constant declarations so that
+they will be readily available for use in other declarations.
+<<SoundDev Class Definition>>=
+    public:
+	<<SoundDev Frequency>>
+@
+
+Then, we declare the constructor and destructor for the sound
+device class.
+<<SoundDev Class Definition>>=
+    public:
+	<<SoundDev Constructor Declaration>>
+	<<SoundDev Destructor Declaration>>
+@
+
+After the constructor, we declare the method used to
+check if the device is opened.
+<<SoundDev Class Definition>>=
+    public:
+	<<SoundDev Is Opened Inline>>
+@
+
+Then, we declare the methods used to actually play sounds.
+<<SoundDev Class Definition>>=
+    protected:
+	<<SoundDev Play Declaration>>
+    public:
+	<<SoundDev Ding Declaration>>
+@
+
+After that, we declare the callback-related
+functions.
+<<SoundDev Class Definition>>=
+    private:
+	<<SoundDev Callback Declarations>>
+@
+
+Next, we declare the member variables used to hold the
+state of the device that was opened and any buffer currently
+being played.
+<<SoundDev Class Definition>>=
+    private:
+	<<SoundDev Audio Spec>>
+	<<SoundDev Current Buffer>>
+@
+
+Next, we declare the member variables which contain particular
+sounds.
+<<SoundDev Class Definition>>=
+	<<SoundDev Ding Buffer>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<SoundDev Class Declaration>>=
+    class SoundDev {
+	<<SoundDev Class Definition>>
+    };
+@ %def SoundDev
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[soundDev.h]] file}
+
+In this section, we assemble the header file for the [[SoundDev]] class.
+It is really straightforward since we assembled the class declaration
+in the previous section.  The only thing that we add to the class
+declaration is that we tuck it into our own name space so that we
+can keep the global namespace squeaky clean.
+<<soundDev.h>>=
+    namespace <<NameSpace>> {
+	<<SoundDev Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[soundDev.cpp]] file}
+
+For the actual C++ source code, we include the header file
+that defines [[assert()]], the one that defines [[memset()]],
+the SDL headers needed, and then include the header file
+generated in the previous section.
+<<soundDev.cpp>>=
+    #include <assert.h>
+    #include <string.h>
+    #include <math.h>
+    #include <SDL.h>
+    #include "soundDev.h"
+
+    #ifndef M_PI
+     #define M_PI 3.14159
+    #endif
+@
+
+After that, we incorporate the implementations of the constructor
+and destructor.
+<<soundDev.cpp>>=
+    <<SoundDev Constructor Implementation>>
+    <<SoundDev Destructor Implementation>>
+@
+
+Then, we incorporate the implementations of the methods used
+to play sounds.
+<<soundDev.cpp>>=
+    <<SoundDev Play Implementation>>
+    <<SoundDev Ding Implementation>>
+@
+
+The source file also includes the code for the callback routines.
+<<soundDev.cpp>>=
+    <<SoundDev Callback Implementations>>
+@

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <title>54321</title>
+  <link rel="stylesheet" href="./src/ui/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div class="toolbar" aria-label="54321">
+      <label id="game-label" for="game-select">Game / Gioco</label>
+      <select id="game-select">
+        <option value="flipflop">Flip-Flop</option>
+        <option value="bombsquad">Bomb Squad</option>
+        <option value="mazerunner">Maze Runner</option>
+        <option value="pegjumper">Peg Jumper</option>
+        <option value="tileslider">Tile Slider</option>
+      </select>
+
+      <label id="language-label" for="language-select">Language / Lingua</label>
+      <select id="language-select" aria-label="Language / Lingua">
+        <option value="en">English</option>
+        <option value="it">Italiano</option>
+      </select>
+
+      <button id="dimensional-help-toggle" type="button" hidden aria-pressed="false">Dimensional help / Aiuto dimensionale</button>
+      <button id="sound-toggle" type="button" aria-pressed="true">Sound / Suono</button>
+      <button id="context-action" type="button" hidden aria-pressed="false">Touch / Tocco</button>
+    </div>
+
+    <section class="stage" aria-label="54321">
+      <canvas id="game" width="800" height="600" aria-label="54321"></canvas>
+    </section>
+    <div id="status" class="status" aria-live="polite">…</div>
+  </main>
+
+  <dialog id="help-dialog">
+    <h1 id="help-title">54321</h1>
+    <div id="help-body"></div>
+    <button id="close-help" type="button">←</button>
+  </dialog>
+
+  <script type="module" src="./src/ui/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+\part{The Main Program}
+\section{The main loop of the program}
+
+Note, this uses [[stdio]] instead of the C++ [[iostream]] because
+using the [[iostream]] functions really causes a jump in the size
+of the program.  I know that [[iostream]] is the ``right'' thing
+to do, but the overhead in program size isn't worth it to me for
+this contest.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Initializing the SDL Library}
+
+We have to initialize all of the SDL components that we are going
+to use.  In our case, it's just the video and the audio.
+<<Main Initialize SDL>>=
+    unsigned int initFlags = 0;
+    initFlags |= SDL_INIT_VIDEO;
+    initFlags |= SDL_INIT_AUDIO;
+@
+
+After we prepare the flags, we simply call the init routine for
+the SDL library.
+<<Main Initialize SDL>>=
+    if ( ::SDL_Init( initFlags ) < 0 ) {
+	fprintf( stdout, "Failed to init SDL: %s\n", ::SDL_GetError() );
+	return __LINE__;
+    }
+@
+
+If we succeeded in initializing SDL, then we'll have to uninitialize
+it when we exit.
+<<Main Quit SDL>>=
+    ::SDL_Quit();
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Initializing the SDL Video Mode}
+
+The following code initializes the SDL video mode.  We require that
+the screen be 800x600.  All of the code in the [[View]] class
+assumes that, and all of the images are sized for those dimensions.
+At the moment, we're forcing a 24-bit depth.  Maybe we should use
+the [[SDL_ANYFORMAT]] flag instead.  But, for the moment, we'll go
+with this.
+<<Main Initialize Video Mode>>=
+    unsigned int videoFlags = 0;
+
+    videoFlags |= SDL_SWSURFACE;
+    if ( argc <= 1 ) {
+	videoFlags |= SDL_FULLSCREEN;
+    }
+
+    SDL_Surface* screen = ::SDL_SetVideoMode(
+	    800, 600, 24, videoFlags
+	);
+
+    if ( screen == 0 ) {
+	fprintf( stdout, "Failed to set video mode: %s\n",
+		::SDL_GetError()
+	    );
+	return __LINE__;
+    }
+@
+
+Once we've initialized the screen, we set up the text for the
+title bar of the window and the icon.
+<<Main Initialize Video Mode>>=
+    ::SDL_WM_SetCaption( "54321 v1.0.2001.11.16", "54321" );
+@
+
+After the screen has been initialized, we set the gamma to
+brighten things up a bit.
+<<Main Initialize Video Mode>>=
+    ::SDL_SetGamma( 1.6, 1.6, 1.6 );
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Initializing the SDL Audio Device}
+
+Here, we try to open the sound device.  If this fails, then
+we just forget about sound altogether.
+<<Main Initialize Audio Device>>=
+    <<NameSpace>>::SoundDev* soundDev = new <<NameSpace>>::SoundDev;
+
+    if ( ! soundDev->isOpened() ) {
+	delete soundDev;
+	soundDev = 0;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Seeding the Random Numbers}
+
+To ensure that we start with different games each time,
+we will initialize the random number generator based upon
+the process id and the number of ticks that have happened
+up until this point.
+<<Main Seed Random Number Generator>>=
+    ::srandom( getpid() ^ ::SDL_GetTicks() );
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Event Loop}
+
+The main loop passes mouse events into the current
+controller.  It catches user events to switch modes.
+And, it catches keyboard events to do screen captures
+unless we're in release mode.
+<<Main Event Loop>>=
+    bool done = false;
+
+    SDL_Event event;
+
+    while ( ! done && ::SDL_WaitEvent( &event ) ) {
+	switch ( event.type ) {
+	case SDL_MOUSEBUTTONDOWN:
+	case SDL_MOUSEBUTTONUP:
+	    <<Main Handle Mouse Click>>
+	    break;
+	case SDL_USEREVENT:
+	    delete controller;
+	    switch ( event.user.code ) {
+		<<Main Handle State Change>>
+	    }
+	    break;
+    #ifndef NDEBUG
+	case SDL_KEYUP:
+	    <<Main Handle Key Up>>
+	    break;
+    #endif
+	case SDL_QUIT:
+	    done = true;
+	    break;
+	}
+    }
+@
+
+The salient portions of the mouse click event are pulled out
+of the event structure and passed into the current controller's
+mouse click handler.  For those without a two-button mouse, a
+meta key or a shift key will simulate a higher button number.
+<<Main Handle Mouse Click>>=
+    if ( controller != 0 ) {
+	bool isMouseUp = ( event.type == SDL_MOUSEBUTTONUP );
+	unsigned int xx = event.button.x;
+	unsigned int yy = event.button.y;
+	unsigned int buttonNumber = event.button.button;
+	unsigned int mask = KMOD_META | KMOD_SHIFT;
+
+	if ( ( ::SDL_GetModState() & mask ) != 0 ) {
+	    ++buttonNumber;
+	}
+
+	controller->handleMouseClick(
+		isMouseUp, xx, yy, buttonNumber
+	    );
+    }
+@
+
+The main menu generates events which tell the main loop
+to load start a new controller.  These events are simple
+user events.  The event's code tells which game to pick.
+<<Main Handle State Change>>=
+    case <<MainMenuVNameSpace>>::FLIPFLOP:
+	controller = new <<NameSpace>>::FlipFlopController(
+		    screen, soundDev, &cube
+		);
+	break;
+    case <<MainMenuVNameSpace>>::BOMBSQUAD:
+	controller = new <<NameSpace>>::BombSquadController(
+		    screen, soundDev, &cube
+		);
+	break;
+    case <<MainMenuVNameSpace>>::MAZERUNNER:
+	controller = new <<NameSpace>>::MazeController(
+		    screen, soundDev, &cube
+		);
+	break;
+    case <<MainMenuVNameSpace>>::PEGJUMPER:
+	controller = new <<NameSpace>>::PegController(
+		    screen, soundDev, &cube
+		);
+	break;
+    case <<MainMenuVNameSpace>>::TILESLIDER:
+	controller = new <<NameSpace>>::TileController(
+		    screen, soundDev, &cube
+		);
+	break;
+    default:
+	controller = new <<NameSpace>>::MainMenuController(
+		    screen, &cube
+		);
+	break;
+@
+
+If we're not compiling for release mode, then the comma
+key causes a screen grab into a BMP.
+<<Main Handle Key Up>>=
+    if ( event.key.keysym.sym == SDLK_COMMA ) {
+	SDL_SaveBMP( screen, "../../screengrab.bmp" );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[main.cpp]] file}
+
+This next chunk defines the main routine of the program.  It incorporates
+all of the previous portions of this section.
+<<Main SDL-main>>=
+    extern "C" int
+    SDL_main( int argc, char** argv )
+    {
+	<<Main Initialize SDL>>
+	<<Main Initialize Video Mode>>
+	<<Main Initialize Audio Device>>
+
+	<<Main Seed Random Number Generator>>
+
+	<<NameSpace>>::Cube cube;
+	<<NameSpace>>::Controller* controller = 0;
+
+	SDL_Event change;
+	change.type = SDL_USEREVENT;
+	change.user.code = -1;
+	::SDL_PushEvent( &change );
+
+	<<Main Event Loop>>
+
+	delete controller;
+	delete soundDev;
+
+	<<Main Quit SDL>>
+	return 0;
+    }
+@
+
+The main routine requires the [[<stdio.h>]] header for the
+[[fprintf()]] calls it makes.  It needs [[<stdlib.h>]] for the
+declaration of [[srandom()]].  It needs [[<unistd.h>]] for the
+declaration of [[getpid()]].  It requires the [[<SDL.h>]] header
+for all of the Simple DirectMedia Layer calls it invokes.  It
+requires the [["cube.h"]] for the definition of the [[Cube]] class.
+It requires the [["font.h"]] as a prerequisite for some of the
+[[View]] subclasses.  It requires the [["soundDev.h"]] for the
+interface to the SDL audio device.  And, it requires the
+[["controller.h"]] for the interface to the game controllers.  It
+requires the [["view.h"]] file so that it can include the game-specific
+controllers which use the game-specific [[View]] derivatives.
+<<main.cpp>>=
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <unistd.h>
+    #include <SDL.h>
+    #include <SDL_keysym.h>
+    #include "cube.h"
+    #include "font.h"
+    #include "soundDev.h"
+    #include "controller.h"
+    #include "view.h"
+@
+
+After that, it includes the classes used for the main menu.
+<<main.cpp>>=
+    #include "mainmenuView.h"
+    #include "mainmenuController.h"
+@
+
+After that, it includes the classes used for the flip flop game.
+<<main.cpp>>=
+    #include "flipflopView.h"
+    #include "flipflop.h"
+    #include "flipflopController.h"
+@
+
+After that, it includes the classes used for the bomb squad game.
+<<main.cpp>>=
+    #include "bombView.h"
+    #include "bomb.h"
+    #include "bombController.h"
+@
+
+After that, it includes the classes used for the maze runner game.
+<<main.cpp>>=
+    #include "mazeView.h"
+    #include "maze.h"
+    #include "mazeController.h"
+@
+
+After that, it includes the classes used for the peg jumper game.
+<<main.cpp>>=
+    #include "pegView.h"
+    #include "peg.h"
+    #include "pegController.h"
+@
+
+After that, it includes the classes used for the tile slider game.
+<<main.cpp>>=
+    #include "tileView.h"
+    #include "tile.h"
+    #include "tileController.h"
+@
+
+After that, it includes the classes used for the life game.
+<<main.cpp>>=
+    #include "lifeView.h"
+    #include "life.h"
+    #include "lifeController.h"
+@
+
+The routine from the previous subsection is the only one included
+in the source file [[main.cpp]].
+<<main.cpp>>=
+    <<Main SDL-main>>
+@

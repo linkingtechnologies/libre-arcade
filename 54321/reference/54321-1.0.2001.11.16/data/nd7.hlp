@@ -1,0 +1,101 @@
+image help 0 0
+
+text_center 280  48 "If this diagram is extended into four dimensions, then"
+text_center 280  72 "we need to extend the "tiers"-concept in another direction."
+
+image off   100  96
+image off   136  96
+image off   172  96
+image off   100 130
+image off   136 130
+image off   172 130
+image off   100 166
+image off   136 166
+image off   172 166
+
+image off   226 96
+image off   262 96
+image off   298 96
+image off   226 130
+image on    262 130
+image off   298 130
+image off   226 166
+image off   262 166
+image off   298 166
+
+image off   352 96
+image off   388 96
+image off   424 96
+image off   352 130
+image off   388 130
+image off   424 130
+image off   352 166
+image off   388 166
+image off   424 166
+
+image off   100 222
+image off   136 222
+image off   172 222
+image off   100 258
+image on    136 258
+image off   172 258
+image off   100 294
+image off   136 294
+image off   172 294
+
+image off   226 222
+image on    262 222
+image off   298 222
+image on    226 258
+image off   262 258
+image on    298 258
+image off   226 294
+image on    262 294
+image off   298 294
+
+image off   352 222
+image off   388 222
+image off   424 222
+image off   352 258
+image on    388 258
+image off   424 258
+image off   352 294
+image off   388 294
+image off   424 294
+
+image off   100 348
+image off   136 348
+image off   172 348
+image off   100 384
+image off   136 384
+image off   172 384
+image off   100 420
+image off   136 420
+image off   172 420
+
+image off   226 348
+image off   262 348
+image off   298 348
+image off   226 384
+image on    262 384
+image off   298 384
+image off   226 420
+image off   262 420
+image off   298 420
+
+image off   352 348
+image off   388 348
+image off   424 348
+image off   352 384
+image off   388 384
+image off   424 384
+image off   352 420
+image off   388 420
+image off   424 420
+
+image pointer 262 258
+
+image continue 230 490
+button nd8 230 490 100 64
+
+update 0 0 560 560

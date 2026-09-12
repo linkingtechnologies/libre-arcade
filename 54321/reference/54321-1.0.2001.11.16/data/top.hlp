@@ -1,0 +1,82 @@
+image help 0 0
+
+text_center 280 90 "Flip Flop Help"
+image off   120 64
+image on    156 64
+image on    368 64
+image off   404 64
+button ff1 0 64 560 48
+
+text_center 280 138 "Bomb Squad Help"
+image uncovered 120 112
+text_center     138 138 "1"
+image covered   156 112
+image flagged    156 112
+image covered   368 112
+image flagged    368 112
+image uncovered 404 112
+text_center     422 138 "1"
+button bs1 0 112 560 48
+
+text_center 280 186 "Maze Runner Help"
+image unmarked 120 160
+image wall0    120 160
+image wall2    120 160
+image wall3    120 160
+image wall4    120 160
+image wall5    120 160
+image wall7    120 160
+image unmarked 156 160
+image goal     156 160
+image wall1    156 160
+image wall2    156 160
+image wall3    156 160
+image wall4    156 160
+image wall6    156 160
+image unmarked 368 160
+image goal     368 160
+image wall1    368 160
+image wall2    368 160
+image wall3    368 160
+image wall4    368 160
+image wall6    368 160
+image unmarked 404 160
+image wall0    404 160
+image wall2    404 160
+image wall3    404 160
+image wall4    404 160
+image wall5    404 160
+image wall7    404 160
+button mr1 0 160 560 48
+
+text_center 280 234 "Peg Jumper Help"
+image hole 120 208
+image peg  156 208
+image peg  368 208
+image hole 404 208
+button pj1 0 208 560 48
+
+text_center 280 282 "Tile Slider Help"
+subimage borders  120 256 0 0 36 36
+subimage centers  120 256 0 0 36 36
+subimage borders  156 256 0 0 36 36
+subimage centers  156 256 36 0 36 36
+subimage borders  368 256 0 0 36 36
+subimage centers  368 256 36 0 36 36
+subimage borders  404 256 0 0 36 36
+subimage centers  404 256 0 0 36 36
+button ts1 0 256 560 48
+
+text_center 280 358 "n-Dimensional Help"
+button nd1 0 332 560 48
+
+text_center 280 406 "Why n-Dimensional?"
+button wn1 0 380 560 48
+
+text_center 280 454 "Credits"
+button cr1 0 428 560 48
+
+image back 230 490
+button - 230 490 100 48
+
+update 0 0 560 560

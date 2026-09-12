@@ -1,0 +1,341 @@
+\section{The Peg Jumper Game Controller}
+
+The namespace inside the peg controller class is a concatenation
+of the general namespace and the name of the Peg controller
+class.
+<<PegCNameSpace>>=
+<<NameSpace>>::PegController
+@
+
+The Peg game controller inherits from the generic game controller
+of \S\ref{sec:controller}.  It actually controls the initialization
+and game action of the Peg game.  It fields the mouse clicks
+and converts them from screen coordinates into cell coordinates.
+And, it fields events from the view sidebar that set the difficulty
+level and set the wrap mode and set the dimensions and reset the
+game.
+
+The Peg game controller contains an instance of the
+Peg game view.
+<<PegC View>>=
+    PegView view;
+@
+
+The Peg game controller also contains a pointer to the
+current instance of the game model.
+<<PegC Model>>=
+    Peg* model;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor and Destructor}
+
+The constructor for the Peg controller class takes six
+arguments.  The first is a pointer to the screen, the second is a
+pointer to the sound device, the third is a pointer to the game
+cube, the fourth specifies the number of dimensions to employ, the
+fifth specifies the skill level to use, and the last specifies
+whether the edges wrap around.
+<<PegC Constructor Declaration>>=
+    PegController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the Peg controller class simply passes
+most of its arguments to the [[Controller]] constructor.  Then, it
+calls its own [[reset()]] method to allocate a new instance of the
+[[Peg]] class.
+<<PegC Constructor Implementation>>=
+    <<PegCNameSpace>>::PegController(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : Controller( _cube, _dims, _skillLevel, _wrap ),
+	    view( _screen, _sound, _cube, _dims, _skillLevel, _wrap ),
+	    model( 0 )
+    {
+	this->view.backgroundMusic();
+	this->reset();
+    }
+@
+
+The destructor for the Peg controller class deletes
+the stored model for the Peg game.
+<<PegC Destructor Declaration>>=
+    virtual ~PegController( void );
+@
+<<PegC Destructor Implementation>>=
+    <<PegCNameSpace>>::~PegController( void )
+    {
+	this->view.backgroundMusic( true );
+	delete this->model;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+The [[PegController]] class has a method called [[reset()]].
+It uses this method to create a new instance of the Peg game
+model.
+<<PegC Reset Declaration>>=
+    void reset( void );
+@
+
+The method first deletes the old model and then creates a new
+model.
+<<PegC Reset Implementation>>=
+    void
+    <<PegCNameSpace>>::reset( void )
+    {
+	delete this->model;
+	this->model = new Peg(
+		this->cube,
+		this->dims,
+		this->skillLevel,
+		this->wrap,
+		&this->view
+	    );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Mouse Event Interface}
+
+The routine which handles mouse events needs to know whether the
+event is a mouse press or mouse release.  It also needs to know
+where the event happened.  And, it gets to know which mouse button
+was pressed.
+<<PegC Mouse Click Declaration>>=
+    virtual void handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	);
+@
+
+This method first gives the base class a chance to absorb the
+event with the sidebar buttons.  If it does not, then this method
+looks to see if any cell of the cube was hit if the event is a
+mouse release.  If the user right-clicked or if there is no
+cell currently selected, this method selects the cell.  If
+there is a cell selected and this was a left-click, this method
+tries to jump the given cell.
+<<PegC Mouse Click Implementation>>=
+    void
+    <<PegCNameSpace>>::handleMouseClick(
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	)
+    {
+	unsigned int index;
+	bool hit;
+
+	hit = this->view.handleMouseClick(
+		    this, isMouseUp, xx, yy, buttonNumber
+		);
+
+	if ( !hit && !isMouseUp ) {
+	    hit = <<ViewNameSpace>>::screenToCell(
+		    xx, yy, this->dims, &index
+		);
+
+	    if ( hit ) {
+		if ( buttonNumber > 1 || !this->model->isSelected() ) {
+		    this->model->select( index );
+		} else {
+		    this->model->jump( index );
+		}
+	    }
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Game Setting Interface}
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``dimensions'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<PegC Game Setting Interface>>=
+    virtual void setDimension( unsigned int _dims );
+@
+<<PegC Game Setting Implementation>>=
+    void
+    <<PegCNameSpace>>::setDimension(
+	    unsigned int _dims
+	)
+    {
+	if ( _dims != this->dims ) {
+	    this->dims = _dims;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks one of the ``skill level'' buttons on the sidebar.  If the
+button wasn't already selected, then this triggers a [[reset()]].
+<<PegC Game Setting Interface>>=
+    virtual void setSkillLevel( unsigned int _skillLevel );
+@
+<<PegC Game Setting Implementation>>=
+    void
+    <<PegCNameSpace>>::setSkillLevel(
+	    unsigned int _skillLevel
+	)
+    {
+	if ( _skillLevel != this->skillLevel ) {
+	    this->skillLevel = _skillLevel;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``wrap'' button on the sidebar.  If the button wasn't
+already selected, then this triggers a [[reset()]].
+<<PegC Game Setting Interface>>=
+    virtual void setWrap( bool _wrap );
+@
+<<PegC Game Setting Implementation>>=
+    void
+    <<PegCNameSpace>>::setWrap(
+	    bool _wrap
+	)
+    {
+	if ( _wrap != this->wrap ) {
+	    this->wrap = _wrap;
+	    this->reset();
+	}
+    }
+@
+
+The following method is invoked by the [[View]] class when someone
+clicks on the ``new'' button on the sidebar.  This always triggers
+a [[reset()]].
+<<PegC Game Setting Interface>>=
+    virtual void newGame( void );
+@
+<<PegC Game Setting Implementation>>=
+    void
+    <<PegCNameSpace>>::newGame( void )
+    {
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[PegController]] class}
+
+In this section, we assemble the [[PegController]] class from
+the pieces in the sections above.
+
+We include, in the [[PegController]] class, the constructor
+and the destructor.
+<<PegC Class Definition>>=
+    public:
+	<<PegC Constructor Declaration>>
+	<<PegC Destructor Declaration>>
+@
+
+The [[PegController]] class also declares its reset method
+and the methods used by the [[View]] class to change the game
+state.
+<<PegC Class Definition>>=
+    private:
+	<<PegC Reset Declaration>>
+    public:
+	<<PegC Game Setting Interface>>
+@
+
+We include, in the [[PegController]] class, the method used
+for mouse clicks.
+<<PegC Class Definition>>=
+    public:
+	<<PegC Mouse Click Declaration>>
+@
+
+The [[PegController]] class also contains the member variables
+which were defined at the beginning of this section of the document.
+<<PegC Class Definition>>=
+    private:
+	<<PegC View>>
+	<<PegC Model>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[PegController]]
+inherits directly from the [[Controller]] class of \S\ref{sec:controller}.
+<<PegC Class Declaration>>=
+    class PegController : public Controller {
+	<<PegC Class Definition>>
+    };
+@ %def PegController
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[pegController.h]] file}
+
+In this section, we assemble the header file for the [[PegController]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<pegController.h>>=
+    namespace <<NameSpace>> {
+	<<PegC Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[pegController.cpp]] file}
+
+In this section, we assemble the Peg controller source file.  It
+requires the header files for the [[Cube]] class the [[SoundDev]]
+class, the [[Controller]] class, the [[Font]] class, the [[View]]
+class, the [[PegView]] class, the [[Peg]] class, and the
+[[PegController]] class.
+<<pegController.cpp>>=
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "controller.h"
+    #include "font.h"
+    #include "view.h"
+    #include "pegView.h"
+    #include "peg.h"
+    #include "pegController.h"
+@
+
+After the header files, we include the implementations of the
+constructor and destructor.
+<<pegController.cpp>>=
+    <<PegC Constructor Implementation>>
+    <<PegC Destructor Implementation>>
+@
+
+After the constructor and destructor, the implementation of
+the [[reset()]] method and the game state methods
+are also included.
+<<pegController.cpp>>=
+    <<PegC Reset Implementation>>
+    <<PegC Game Setting Implementation>>
+@
+
+Then, we include the implementation of the method used to field
+mouse clicks.
+<<pegController.cpp>>=
+    <<PegC Mouse Click Implementation>>
+@

@@ -1,0 +1,271 @@
+\section{The Life Game View}
+
+The namespace inside the Life view class is a concatenation
+of the general namespace and the name of the Life view
+class.
+<<LifeVNameSpace>>=
+<<NameSpace>>::LifeView
+@
+
+The Life game view inherits from the generic game view of
+\S\ref{sec:view}.  It displays the current state of the [[Life]]
+game.
+
+The Life game stores pointers to the images of the tile pieces
+to use.
+<<Life Tiles>>=
+    SDL_Surface* alive;
+    SDL_Surface* dead;
+@
+
+The Life game view also stores a pointer to the font to render
+some hint text in the sidebar.
+<<Life Font>>=
+    Font* font;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the Life view class takes six arguments.
+The first is a pointer to the screen, the second is a pointer to
+the sound device, the third is a pointer to the game cube, the
+fourth specifies the number of dimensions to employ, the fifth is
+the skill level, and the sixth is the wrapping mode.
+<<LifeV Constructor Declaration>>=
+    LifeView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the Life view class passes all of its
+arguments to the [[View]] constructor.  Then, it loads the images
+for alive and dead cells and the font for the hint text.
+<<LifeV Constructor Implementation>>=
+    <<LifeVNameSpace>>::LifeView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : View( _screen, _sound, _cube, _dims, _skillLevel, _wrap )
+    {
+	this->alive = ::IMG_Load( "../../data/on.png" );
+	this->dead = ::IMG_Load( "../../data/off.png" );
+
+	this->font = new Font;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Destructor}
+
+The destructor for the life view class simply release
+the font and images that it loaded above in the constructor.
+<<LifeV Destructor Declaration>>=
+    ~LifeView( void );
+@
+<<LifeV Destructor Implementation>>=
+    <<LifeVNameSpace>>::~LifeView( void )
+    {
+	delete font;
+
+	::SDL_FreeSurface( this->dead );
+	::SDL_FreeSurface( this->alive );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Redraw Methods}
+
+The Life view class has a method which allows one to update
+the entire display area for the game.
+<<LifeV Redraw Declarations>>=
+    virtual void redraw( void );
+@
+
+The redraw function here calls the redraw function on the base
+class to update the sidebar and the background area of the cube.
+Then, it runs through each cell in the cube, drawing it.  After
+that, it prints some hints and updates the whole screen.
+<<LifeV Redraw Implementations>>=
+    void
+    <<LifeVNameSpace>>::redraw( void )
+    {
+	this->View::redraw();
+
+	unsigned int maxIndex
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	for ( unsigned int index=0; index < maxIndex; ++index ) {
+	    this->drawCell( index, false );
+	}
+
+	<<LifeV Draw Quick Tip Text>>
+
+	::SDL_UpdateRect( this->screen, 0, 0, 0, 0 );
+    }
+@
+
+In the sidebar, we're going to scribble some hints for the player
+on what interactions are available.
+<<LifeV Draw Quick Tip Text>>=
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 434,
+	    "Click a cell to toggle it."
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 474,
+	    "Right-click or Shift-click"
+	);
+    this->font->centerMessage(
+	    this->screen, false,
+	    700, 498,
+	    "anywhere to pass time."
+	);
+@
+
+The Life view class has a method which allows one to update
+a single cell of the cube by index.
+<<LifeV Redraw Declarations>>=
+    virtual void redraw( unsigned int index );
+@
+
+This method simply uses the method defined next to draw the single
+cell in question.
+<<LifeV Redraw Implementations>>=
+    void
+    <<LifeVNameSpace>>::redraw( unsigned int index )
+    {
+	this->drawCell( index );
+    }
+@
+
+The Life view class has a method to draw a single cell of
+the cube.  It uses this method in each of the above methods.
+<<LifeV Private Draw Declaration>>=
+    void drawCell( unsigned int index, bool update = true );
+@
+
+To draw a single cell, this method retrieves the screen coordinates
+of the cell from the conversion method in the base class.  Then,
+it prepares a rectangle to fill for the cell.  Then, depending on
+the state of the cell in the game cube, it either draws the region
+off or on.
+<<LifeV Private Draw Implementation>>=
+    void
+    <<LifeVNameSpace>>::drawCell(
+	    unsigned int index, bool update
+	)
+    {
+	unsigned int xx;
+	unsigned int yy;
+
+	View::cellToScreen( index, this->dims, &xx, &yy );
+
+	<<LifeV Prepare Single Cell Rect>>
+
+	if ( (*this->cube)[ index ] == 0 ) {
+	    ::SDL_BlitSurface( this->dead, 0, this->screen, &rect );
+	} else {
+	    ::SDL_BlitSurface( this->alive, 0, this->screen, &rect );
+	}
+	if ( update ) {
+	    ::SDL_UpdateRect( this->screen, xx, yy, SQUARE, SQUARE );
+	}
+    }
+@
+
+The rectangle that will be filled to represent the cell simply
+starts at the starting coordinates of the rectangle and goes almost
+the full size of the cell.  It doesn't go quite to the edge so that
+one can clearly see the break between cells.
+<<LifeV Prepare Single Cell Rect>>=
+    SDL_Rect rect;
+    rect.x = xx;
+    rect.y = yy;
+    rect.w = SQUARE;
+    rect.h = SQUARE;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[LifeView]] class}
+
+In this section, we assemble the [[LifeView]] class from
+the pieces in the sections above.
+
+We include, in the [[LifeView]] class, the constructor,
+the destructor and the redraw methods.
+<<LifeV Class Definition>>=
+    public:
+	<<LifeV Constructor Declaration>>
+	<<LifeV Destructor Declaration>>
+	<<LifeV Redraw Declarations>>
+    private:
+	<<LifeV Private Draw Declaration>>
+@
+
+We include the variables that are used in the life view class.
+<<LifeV Class Definition>>=
+    private:
+	<<Life Tiles>>
+	<<Life Font>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[LifeView]]
+inherits directly from the [[View]] class of \S\ref{sec:view}.
+<<LifeV Class Declaration>>=
+    class LifeView : public View {
+	<<LifeV Class Definition>>
+    };
+@ %def LifeView
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[lifeView.h]] file}
+
+In this section, we assemble the header file for the [[LifeView]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<lifeView.h>>=
+    namespace <<NameSpace>> {
+	<<LifeV Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[lifeView.cpp]] file}
+
+In this section, we assemble the Life view source file.  It requires
+the [[SDL]] headers for dealing with surfaces, the screen, blitting,
+and loading images.  It requires the header files for the [[Cube]]
+class, the [[Font]] class, the [[SoundDev]] class, the [[View]]
+class, and the [[LifeView]] class itself.
+<<lifeView.cpp>>=
+    #include <SDL.h>
+    #include <SDL_image.h>
+    #include "cube.h"
+    #include "font.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "lifeView.h"
+@
+
+After the header files, we include the implementations of the
+constructor, the destructor, and the redraw methods.
+<<lifeView.cpp>>=
+    <<LifeV Constructor Implementation>>
+    <<LifeV Destructor Implementation>>
+    <<LifeV Redraw Implementations>>
+    <<LifeV Private Draw Implementation>>
+@

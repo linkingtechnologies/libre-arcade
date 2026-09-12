@@ -1,0 +1,115 @@
+
+Name:   Patrick Stein
+City:   Rochester, NY
+
+Title:  54321 (v1.0.2001.11.16)
+Description:
+        54321 is five games in four-, three-, or two- dimensions for
+        one player.  54321 takes five classic two-dimensional puzzle
+        games and extends them into three and four dimensions.
+        For more information, see the help within the game.
+
+Email:  54321@nklein.com
+Web:    http://www.nklein.com/products/54321
+
+Build Instructions:
+    Build:  gmake all size
+
+            This will build the executable and prepare the data.
+            All of the files needed for a binary release are placed
+            in the ``Release'' directory.
+
+            Or, if you're feeling really saucy and have pdflatex,
+            notangle, and noweave installed, you can uncomment the
+            ``HAS_NOWEB'' line at the top of the GNUmakefile.  But,
+            I've already distributed it with all of the source code
+            and the code doc generated, so there's no need to feel
+            saucy.
+
+            In the ``archs'' directory, there are subdirectories
+            for each platform that I have built this game under.
+            If there are any problems compiling, you may have to
+            check the ``variables.GNU'' file in the appropriate
+            subdirectory of ``archs''.
+
+            For example, if you are compiling under Linux and your
+            C++ is not called ``c++'', then you should change the
+            definition of ``CXX'' in ``archs/Linux/variables.GNU.''
+
+            And, if your are compiling under Linux or Solaris and
+            your SDL_image library is not in /usr/local/, then you
+            may have to change the definition of ``SDL_IMAGE'' in
+            the appropriate ``variables.GNU'' file.
+
+    Tools and Libraries:
+            gmake               (required)
+            a C++ compiler      (required)
+            SDL                 (required)
+            SDL_image           (required)
+            SDLmain             (required for Linux, Solaris, MacOS X)
+            libpng              (required for Linux, Solaris, MacOS X)
+            zlib                (required for Linux, Solaris, MacOS X)
+
+            pdflatex    (optional)
+            noweave     (optional)
+            notangle    (optional)
+
+Linux Info:
+    Build Size: 694k
+
+    Running:
+	    From the ``Release'' directory, run ``./54321-Linux''.
+
+            You can give the command-line option ``-window'' to
+            start 54321 in a window instead of in fullscreen
+            mode.
+
+    If you are using the binary release, then you must already have
+    the SDL, SDL_image, libpng, and zlib libraries available on
+    your system.
+
+Solaris Info:
+    Running:
+	    From the ``Release'' directory, run ``./54321-SunOS''.
+
+            You can give the command-line option ``-window'' to
+            start 54321 in a window instead of in fullscreen
+            mode.
+
+    If you are using the binary release, then you must already have
+    the SDL, SDL_image, libpng, and zlib libraries available on
+    your system.
+
+BeOS Info:
+    Running:
+            Open the ``54321-BeOS'' icon.
+
+    If you are using the binary release, then you must already have
+    the SDL and SDL_image libraries available on your system.
+
+MacOS X Info:
+    Running:
+            Open the ``54321-Darwin'' icon.
+
+    If you are using the binary release, then you must already have
+    the SDL, SDL_image, libpng, and zlib libraries available on
+    your system.
+
+Win32 Info:
+    Building:
+	    I had to hack things a great deal to get this to
+	    build.  I pretty much nuked the ``unsigned int''
+	    before all of the ``redefinition of "ii"'' errors.
+	    I deleted the ``unsigned char*'' in front of the
+	    ``redefinition of "ptr"'' errors.  I changed all
+	    of the ``random()'' calls to ``rand()'' and the
+	    ``srandom( getpid() ^ SDL_GetTicks() )'' to
+	    ``srand( SDL_GetTicks() )''.  I nuked the include
+	    of <unistd.h>.  And, I commented out the line
+	    in main ``videoFlags |= SDL_FULLSCREEN''.
+
+    Running:
+            Open the ``54321'' icon in the ``bin/Win32'' folder.
+
+    Warning:  This runs very slowly under Win32 on my test machine
+    (a P133 running Win95).

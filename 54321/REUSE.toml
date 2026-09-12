@@ -1,0 +1,36 @@
+version = 1
+SPDX-PackageName = "54321"
+SPDX-PackageSupplier = "Umberto Bresciani"
+
+# Project-authored code, tests, documentation and configuration: the
+# browser-shell restoration and this collection's own build tooling.
+[[annotations]]
+path = "**"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Umberto Bresciani"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# The preserved 2001 archive: source, data, artwork, and the exact uploaded
+# tarball. Licensed under nklein software's own site-wide grant — see
+# LICENSES/LicenseRef-NKlein-Universal-NonExclusive.txt and PROVENANCE.md.
+[[annotations]]
+path = "reference/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2001 Patrick Stein / nklein software"
+SPDX-License-Identifier = "LicenseRef-NKlein-Universal-NonExclusive"
+
+# Faithful transcription of the original game logic and byte-identical
+# copies of the original artwork. The nklein grant explicitly permits
+# derivative works under terms the derivative's author chooses (it does not
+# require deriving works to remain under the same license), so this port
+# carries this repository's own GPL-3.0-or-later while crediting the
+# original design/artwork it transcribes — see PROVENANCE.md.
+[[annotations]]
+path = [
+  "public/src/core/**",
+  "public/src/games/**",
+  "public/src/assets/original/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = ["2001 Patrick Stein / nklein software", "2026 Umberto Bresciani"]
+SPDX-License-Identifier = "GPL-3.0-or-later"

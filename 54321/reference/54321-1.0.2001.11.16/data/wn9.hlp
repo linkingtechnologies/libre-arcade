@@ -1,0 +1,12 @@
+image help 0 0
+
+text_center 280  48 "Mathematicians, engineers, and physicists often employ"
+text_center 280  72 "functions of complex variables."
+text_center 280 120 "Here is a representation of the equation f(z) = z * z."
+
+image z2 120 136
+
+image continue 230 490
+button wn10 230 490 100 64
+
+update 0 0 560 560

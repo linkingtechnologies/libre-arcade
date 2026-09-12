@@ -1,0 +1,1195 @@
+\section{The Generic Game View}
+\label{sec:view}
+
+So that the controllers don't have to each deal with different game
+views, each of the game views inherits from this base class.  This
+class gives the controllers a method to draw the screen.  And, it
+gives the controllers a method to use to convert screen coordinates
+to cell coordinates.
+
+The namespace inside the view class is a concatenation of the
+general namespace and the name of the view class.
+<<ViewNameSpace>>=
+<<NameSpace>>::View
+@
+
+The [[View]] class contains a pointer to the screen for output
+<<View Screen>>=
+    SDL_Surface* screen;
+@
+
+The [[View]] class contains a pointer to the sound device for
+audio output.
+<<View Sound>>=
+    SoundDev* sound;
+@
+
+The [[View]] class contains a pointer to the current game cube.
+<<View Cube>>=
+    Cube* cube;
+@
+
+The [[View]] class tracks the number of dimensions so that this
+information is available for the screen coordinate to cell index
+transformations.  And, it keeps track of the skill level and wrapping
+mode so that it can update the buttons properly.
+<<View Game State>>=
+    unsigned int dims;
+    unsigned int skillLevel;
+    bool wrap;
+@
+
+The [[View]] class contains a pointer to the image for the backdrop
+of the sidebar.  It also contains a pointer to the image for the
+text-overlay that is painted over the buttons.  It contains a
+pointer to the images for up and down dimensions buttons.  It
+contains a pointer to the images for up and down settings buttons.
+It contains a pointer to the images for up and down game-action
+buttons.  And, It contains a pointer to the image for up and down
+help buttons.
+<<View Images>>=
+    SDL_Surface* sidebar;
+    SDL_Surface* overlay;
+    SDL_Surface* dimButton[2];
+    SDL_Surface* setButton[2];
+    SDL_Surface* actButton[2];
+    SDL_Surface* helpButton[2];
+@
+
+In addition to these images for the sidebar, the [[View]] class
+also holds a pointer to the image used to congratulate the winner
+and a pointer to the image used to  harrass the loser when a game
+has been completed.
+<<View Images>>=
+    SDL_Surface* victory;
+    SDL_Surface* losing;
+@
+
+The [[View]] class also keeps track of which buttons should be
+pressed and which should be unpressed.  But, first, it must define
+which buttons there are.
+<<View Button Names>>=
+    enum {
+	DIM_2 = 0,
+	DIM_3,
+	DIM_4,
+	EASY,
+	MEDIUM,
+	HARD,
+	WRAP,
+	NEW,
+	BACK,
+	HELP,
+	MAX_BUTTON
+    };
+@
+
+After that, it can use that information to just keep an array of
+booleans for whether the button is pressed or not.
+<<View Button States>>=
+    bool bPressed[ MAX_BUTTON ];
+@ %def bPressed
+
+The [[View]] also keeps track of when an item has been clicked down
+but the mouse has not yet been released.  This is used for visual
+feedback to the user.  The [[View]] also tracks which state the
+button was in before the person pressed it.
+<<View Button States>>=
+    unsigned int clickedButton;
+    bool originalState;
+@
+
+It also keeps a static array of where the buttons are located.
+<<View Sidebar Location>>=
+    enum { SIDEBAR_X = 600, SIDEBAR_Y = 0 };
+@
+<<View Button Location>>=
+    static SDL_Rect bLocation[ MAX_BUTTON ];
+@
+<<View Button Location Declaration>>=
+    SDL_Rect <<ViewNameSpace>>::bLocation[
+	    <<ViewNameSpace>>::MAX_BUTTON
+	] =
+    {
+	{ SIDEBAR_X + 2, SIDEBAR_Y + 2, 64, 64 },
+	{ SIDEBAR_X + 68, SIDEBAR_Y + 2, 64, 64 },
+	{ SIDEBAR_X + 134, SIDEBAR_Y + 2, 64, 64 },
+	{ SIDEBAR_X + 2, SIDEBAR_Y + 68, 64, 32 },
+	{ SIDEBAR_X + 68, SIDEBAR_Y + 68, 64, 32 },
+	{ SIDEBAR_X + 134, SIDEBAR_Y + 68, 64, 32 },
+	{ SIDEBAR_X + 68, SIDEBAR_Y + 102, 64, 32 },
+	{ SIDEBAR_X + 36, SIDEBAR_Y + 180, 128, 64 },
+	{ SIDEBAR_X + 36, SIDEBAR_Y + 250, 128, 64 },
+	{ SIDEBAR_X + 2, SIDEBAR_Y + 534, 196, 64 }
+    };
+@ %def bLocation
+
+The [[View]] class keeps track of the color that it will paint the
+background of the cube area.
+<<View Colors>>=
+    unsigned int bgColor;
+@
+
+
+The [[View]] class defines several constants for use in its internal
+calculations.
+
+It defines [[SQUARE]] to be the size of each displayed cell of the
+cube.
+<<View Constant Definitions>>=
+    enum { SQUARE = 36 };
+@ %def SQUARE
+
+It defines [[GAP]] to be the size of the gap between each
+two-dimensional array of cells.
+<<View Constant Definitions>>=
+    enum { GAP = 4 };
+@ %def GAP
+
+It defines [[BLOCK]] to be the spacing between adjacent two-dimensional
+arrays of cells.
+<<View Constant Definitions>>=
+    enum { BLOCK = ( <<CubeNameSpace>>::SIDE_LENGTH * SQUARE ) + GAP };
+@ %def BLOCK
+
+The [[View]] also defines an array that tracks the starting screen
+coordinates of cubes of different dimensions.
+<<View Cube Start Coordinates>>=
+    static unsigned int startCoords[
+	    <<CubeNameSpace>>::DIMENSIONS + 1
+	][ 2 ];
+@
+<<View Cube Start Coordinates Definition>>=
+unsigned int <<ViewNameSpace>>::startCoords[
+	<<CubeNameSpace>>::DIMENSIONS + 1
+    ][ 2 ] = {
+	{ 0, 0 },
+	{ 
+	    ( 600 - ( BLOCK - GAP ) ) / 2,
+	    ( 600 - ( SQUARE ) ) / 2
+	},
+	{ 
+	    ( 600 - ( BLOCK - GAP ) ) / 2,
+	    ( 600 - ( BLOCK - GAP ) ) / 2
+	},
+	{ 
+	    ( 600 - ( <<CubeNameSpace>>::SIDE_LENGTH * BLOCK - GAP ) ) / 2,
+	    ( 600 - ( BLOCK - GAP ) ) / 2
+	},
+	{ 
+	    ( 600 - ( <<CubeNameSpace>>::SIDE_LENGTH * BLOCK - GAP ) ) / 2,
+	    ( 600 - ( <<CubeNameSpace>>::SIDE_LENGTH * BLOCK - GAP ) ) / 2
+	}
+    };
+@ %def startCoords
+
+The view also keeps a pointer to the current [[Help]] context
+if there is one.
+<<View Help>>=
+    Help* help;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the generic view class takes six arguments.
+The first is a pointer to the screen, the second is a pointer to
+the sound device, the third is a pointer to the game cube, the
+fourth specifies the number of dimensions to employ, the fifth
+specifies the skill level, and the sixth specifies the wrapping
+mode.
+<<View Constructor Declaration>>=
+    View(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor copies the arguments into local variables.  Then,
+it attempts to prepare the background color for the cube and to
+load the images for the sidebar and buttons.  Then, it calls its
+own [[reset()]] method to update the button pressed states and
+draw the screen.
+<<View Constructor Implementation>>=
+    <<ViewNameSpace>>::View(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : screen( _screen ), sound( _sound ), cube( _cube ),
+	    dims( _dims ), skillLevel( _skillLevel ), wrap( _wrap ),
+	    help( 0 )
+    {
+	if ( this->screen != 0 ) {
+	    SDL_PixelFormat* fmt = this->screen->format;
+	    this->bgColor = SDL_MapRGB( fmt, 0, 0, 0 );
+	}
+
+	<<View Load Images>>
+
+	this->clickedButton = MAX_BUTTON;
+	this->reset();
+    }
+@
+
+The view class loads the image for the backdrop of the sidebar
+and the text overlay that is displayed on top of the buttons.
+<<View Load Images>>=
+    this->sidebar = ::IMG_Load( "../../data/panel.png" );
+    this->overlay = ::IMG_Load( "../../data/overlay.png" );
+@
+
+Then, it loads the two states for the dimension buttons.
+<<View Load Images>>=
+    this->dimButton[ 0 ] = ::IMG_Load( "../../data/dimOff.png" );
+    this->dimButton[ 1 ] = ::IMG_Load( "../../data/dimOn.png" );
+@
+
+Then, it loads the two states for the settings buttons.
+<<View Load Images>>=
+    this->setButton[ 0 ] = ::IMG_Load( "../../data/setOff.png" );
+    this->setButton[ 1 ] = ::IMG_Load( "../../data/setOn.png" );
+@
+
+Then, it loads the two states for the game-action buttons.
+<<View Load Images>>=
+    this->actButton[ 0 ] = ::IMG_Load( "../../data/actOff.png" );
+    this->actButton[ 1 ] = ::IMG_Load( "../../data/actOn.png" );
+@
+
+Then, it loads the two states for the help button.
+<<View Load Images>>=
+    this->helpButton[ 0 ] = ::IMG_Load( "../../data/helpOff.png" );
+    this->helpButton[ 1 ] = ::IMG_Load( "../../data/helpOn.png" );
+@
+
+Finally, it loads the images to display when the game has
+been completed.
+<<View Load Images>>=
+    this->victory = ::IMG_Load( "../../data/victory.png" );
+    this->losing = ::IMG_Load( "../../data/defeat.png" );
+@
+
+The destructor for the view must release the images loaded above.
+<<View Destructor Declaration>>=
+    virtual ~View( void );
+@
+<<View Destructor Implementation>>=
+    <<ViewNameSpace>>::~View( void )
+    {
+	<<View Release Images>>
+    }
+@
+
+First, the destructor releases the memory for the messages
+that are displayed at the end of a game.
+<<View Release Images>>=
+    ::SDL_FreeSurface( this->losing );
+    ::SDL_FreeSurface( this->victory );
+@
+
+Next, the destructor releases the two states for the help button.
+<<View Release Images>>=
+    ::SDL_FreeSurface( this->helpButton[ 1 ] );
+    ::SDL_FreeSurface( this->helpButton[ 0 ] );
+@
+
+Then, it release the two states for the game-action buttons.
+<<View Release Images>>=
+    ::SDL_FreeSurface( this->actButton[ 1 ] );
+    ::SDL_FreeSurface( this->actButton[ 0 ] );
+@
+
+Then, it release the two states for the settings buttons.
+<<View Release Images>>=
+    ::SDL_FreeSurface( this->setButton[ 1 ] );
+    ::SDL_FreeSurface( this->setButton[ 0 ] );
+@
+
+Then, it release the two states for the dimension buttons.
+<<View Release Images>>=
+    ::SDL_FreeSurface( this->dimButton[ 1 ] );
+    ::SDL_FreeSurface( this->dimButton[ 0 ] );
+@
+
+Finally, the view class releases the sidebar image and the
+text overlay.
+<<View Release Images>>=
+    ::SDL_FreeSurface( this->overlay );
+    ::SDL_FreeSurface( this->sidebar );
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Resetting the Button States}
+
+This method is used to reset the button states of all of the buttons.
+<<View Reset Declaration>>=
+    void reset( void );
+@
+
+This method turns off all of the buttons and then turns on the
+appropriate dimension and settings buttons.
+<<View Reset Implementation>>=
+    void
+    <<ViewNameSpace>>::reset( void )
+    {
+	for ( unsigned int ii=0; ii < MAX_BUTTON; ++ii ) {
+	    this->bPressed[ ii ] = false;
+	}
+
+	this->bPressed[ DIM_2 + dims - 2 ] = true;
+	this->bPressed[ EASY + this->skillLevel ] = true;
+	this->bPressed[ WRAP ] = this->wrap;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Handling Mouse Clicks}
+
+When the controller receives a mouse click, it passes it on to the
+[[View]] class.  The view class is responsible for determining if
+any of the buttons in the sidebar were clicked.  If they were, then
+the appropriate update method is invoked on the controller.
+<<View Mouse Click Interface>>=
+    virtual bool handleMouseClick(
+	    Controller* controller,
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	);
+@
+
+If the event is a ``MouseDown'' event, this method loops through
+each button to see which button (if any) was clicked.  If a button
+was clicked, this is stored in the [[clickedButton]] member.  On
+a mouse up event where the [[clickedButton]] member had been set,
+the button is set back to its original state.  Then, if the release
+was still inside the button, the appropriate action for that button
+takes place.
+<<View Mouse Click Implementation>>=
+    bool
+    <<ViewNameSpace>>::handleMouseClick(
+	    Controller* control,
+	    bool isMouseUp,
+	    unsigned int xx,
+	    unsigned int yy,
+	    unsigned int buttonNumber
+	)
+    {
+	<<View Mouse Click check for help-mode click>>
+
+	if ( ! isMouseUp ) {
+	    for ( unsigned int ii=0; ii < MAX_BUTTON; ++ii ) {
+		if ( this->checkButton( xx, yy, ii ) ) {
+		    this->clickedButton = ii;
+		    <<View Mouse press button>>
+		    return true;
+		}
+	    }
+	} else if ( isMouseUp && this->clickedButton < MAX_BUTTON ) {
+	    unsigned int ii = this->clickedButton;
+	    bool inSide = this->checkButton( xx, yy, ii );
+
+	    <<View Mouse unpress button>>
+
+	    if ( inSide ) {
+		<<View Mouse Click do button thing>>
+	    } else {
+		this->drawButton( ii );
+	    }
+
+	    return true;
+	}
+
+	return false;
+    }
+@
+
+If we're in help mode, then we have to careful to
+let the help mode handle any clicks before we do.
+<<View Mouse Click check for help-mode click>>=
+    if ( this->help != 0 ) {
+	bool hit = this->help->handleMouseClick(
+		isMouseUp, xx, yy, buttonNumber
+	    );
+	if ( hit ) {
+	    return true;
+	}
+    }
+@
+
+When pressing the button, we save the original state so that it
+can be restored when we're finished.  Then, we redraw the button
+in the opposite state.
+<<View Mouse press button>>=
+    this->originalState = this->bPressed[ this->clickedButton ];
+    if ( ! this->originalState ) {
+	this->bPressed[ this->clickedButton ] = true;
+	this->drawButton( this->clickedButton );
+    }
+@
+
+When we go to unpress the button, we set it back to its original
+state.  Then, we clear the fact that this button has been clicked.
+<<View Mouse unpress button>>=
+    this->bPressed[ this->clickedButton ] = this->originalState;
+    this->clickedButton = MAX_BUTTON;
+@
+
+The proper thing to do when the mouse is released in the button
+that it was clicked in, depends upon which button that is.  First
+off, any click on a button will bump us out of help mode.  For the
+dimension buttons, we reset the dimensions.  For the skill level
+buttons, we reset the skill.  For the wrap button, we toggle it.
+For the new game button, we restart the current game.  For the back
+button, we kick off an event to load the main menu.  For any other
+button, we just redraw the button.
+<<View Mouse Click do button thing>>=
+    if ( this->help != 0 ) {
+	this->setHelp( 0 );
+	this->drawButton( ii );
+	this->drawButton( HELP );
+	this->redraw();
+    } else if ( ii >= DIM_2 && ii <= DIM_4 ) {
+	this->dims = ii + 2 - DIM_2;
+	control->setDimension( this->dims );
+    } else if ( ii >= EASY && ii <= HARD ) {
+	this->skillLevel = ii - EASY;
+	control->setSkillLevel( this->skillLevel );
+    } else if ( ii == WRAP ) {
+	this->wrap = ! this->wrap;
+	control->setWrap( this->wrap );
+    } else if ( ii == NEW ) {
+	control->newGame();
+    } else if ( ii == BACK ) {
+	SDL_Event change;
+	change.type = SDL_USEREVENT;
+	change.user.code = -1;
+	::SDL_PushEvent( &change );
+    } else if ( ii == HELP ) {
+	this->setHelp( new Help( this, this->screen ) );
+    } else {
+	this->drawButton( ii );
+    }
+@
+
+The mouse click function often needs to check whether a point is
+inside the bounding box for a particular button.  This method does
+that so that the same code doesn't have to be compiled twice.
+<<View Mouse Check Button Declaration>>=
+    bool checkButton(
+	    unsigned int xx, unsigned int yy,
+	    unsigned int ii
+	);
+@
+
+The implementation is straightforward.  It simply checks to make
+sure that both the x- and y-coordinates are within the box.
+<<View Mouse Check Button Implementation>>=
+    bool
+    <<ViewNameSpace>>::checkButton(
+	    unsigned int xx, unsigned int yy,
+	    unsigned int ii
+	)
+    {
+	return ( xx >= this->bLocation[ ii ].x
+	    && xx < this->bLocation[ ii ].x + this->bLocation[ ii ].w
+	    && yy >= this->bLocation[ ii ].y
+	    && yy < this->bLocation[ ii ].y + this->bLocation[ ii ].h
+	);
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Converting Between Screen and Cell Coordinates}
+
+Most controllers will need to go from mouse coordinates to
+cube coordinates and back again.  These two methods facilitate
+that.
+
+The first method converts from screen coordinates [[xx]] and
+[[yy]] into a cell index [[index]].  It returns false if the
+click missed the cube.
+<<View Screen-Cell Declarations>>=
+    static bool screenToCell(
+	    unsigned int xx, unsigned int yy,
+	    unsigned int dims,
+	    unsigned int* index
+	);
+@
+
+This method first ensures that the [[index]] pointer is valid
+and that the number of dimensions can be dealt with by this routine.
+Then, it resets the coordinates based upon where the top corner of
+the cube is to be displayed.  Then, it determines the cell coordinates
+for that point.  Then, it makes sure that the cell coordinates are
+valid.  Then, it gets the index from the [[Cube]] class method.
+<<View Screen-Cell Implementations>>=
+    bool
+    <<ViewNameSpace>>::screenToCell(
+	    unsigned int xx, unsigned int yy,
+	    unsigned int dims,
+	    unsigned int* index
+	)
+    {
+	assert( index != 0 );
+	assert( dims <= 4 && dims > 0 );
+
+	<<View Screen-Cell Reset Origin>>
+	<<View Screen-Cell Prepare Cell Coords>>
+	<<View Screen-Cell Check Cell Coords>>
+
+	<<CubeNameSpace>>::vectorToIndex( coords, index );
+	return true;
+    }
+@
+
+To reset the origin, we subtract out the starting coordinates
+for the current number of dimensions.  If this number would be
+negative, then we bail out.
+<<View Screen-Cell Reset Origin>>=
+    unsigned int sx = startCoords[ dims ][ 0 ];
+    unsigned int sy = startCoords[ dims ][ 1 ];
+
+    if ( xx < sx || sy < sy ) {
+	return false;
+    }
+
+    xx -= sx;
+    yy -= sy;
+@
+
+To get the cell coordinates, we have to take into account the fact
+that there may be multiple boards in a row.  I believe the following
+code is the most straightforward.  The position within each tier
+is the screen-position modulo the block size divided by the size
+of each cell.  Which tier is simply the position divided by the
+block size.
+<<View Screen-Cell Prepare Cell Coords (clear version)>>=
+    unsigned int coords[ <<CubeNameSpace>>::DIMENSIONS ];
+
+    coords[ 0 ] = ( xx % BLOCK ) / SQUARE;
+    coords[ 1 ] = ( yy % BLOCK ) / SQUARE;
+    coords[ 2 ] = xx / BLOCK;
+    coords[ 3 ] = yy / BLOCK;
+@
+
+However, that method requires six integer divisions.  Of course,
+if the compiler were really snazzy, it could determine [[xx %
+BLOCK]] and [[xx / BLOCK]] simultaneously on many architectures.
+However, integer division takes far longer on most processors than
+integer multiplication.  For example, on the Pentium, division of
+two unsigned 32-bit integers takes 41 clock cycles.  On the same
+processor, with the same size operands, multiplication takes 10
+clock cycles and subtraction takes 3 clock cycles.  Thus, I'm
+actually going to use the following bit of code, which should do
+the same thing with only four integer divisions.
+<<View Screen-Cell Prepare Cell Coords>>=
+    unsigned int coords[ <<CubeNameSpace>>::DIMENSIONS ];
+
+    coords[ 2 ] = xx / BLOCK;
+    coords[ 3 ] = yy / BLOCK;
+
+    coords[ 0 ] = ( xx - coords[ 2 ] * BLOCK ) / SQUARE;
+    coords[ 1 ] = ( yy - coords[ 3 ] * BLOCK ) / SQUARE;
+@
+
+Then, we have to check to make sure that none of the coordinates
+in the dimensions of interest exceeded the length of a side of the
+cube.
+<<View Screen-Cell Check Cell Coords>>=
+    for ( unsigned int ii=0; ii < dims; ++ii ) {
+	if ( coords[ ii ] >= <<CubeNameSpace>>::SIDE_LENGTH ) {
+	    return false;
+	}
+    }
+@
+
+And, we have to check that all of the coordinates for higher
+dimensions than those of interest came out to be zero.
+<<View Screen-Cell Check Cell Coords>>=
+    for ( unsigned int ii=dims; ii < <<CubeNameSpace>>::DIMENSIONS; ++ii ) {
+	if ( coords[ ii ] > 0 ) {
+	    return false;
+	}
+    }
+@
+
+The second method gets the screen coordinates [[xx]] and [[yy]] of
+the upper-left corner of the cell with a given index [[index]].
+<<View Screen-Cell Declarations>>=
+    static void cellToScreen(
+	    unsigned int index,
+	    unsigned int dims,
+	    unsigned int* xx, unsigned int* yy
+	);
+@
+
+This method is significantly easier than the previous method.  It
+simply needs to get the coordinates for the index from the cube
+and then use those to determine the screen coordinates.
+<<View Screen-Cell Implementations>>=
+    void
+    <<ViewNameSpace>>::cellToScreen(
+	    unsigned int index,
+	    unsigned int dims,
+	    unsigned int* xx, unsigned int* yy
+	)
+    {
+	assert( xx != 0 );
+	assert( yy != 0 );
+
+	unsigned int coords[ <<CubeNameSpace>>::DIMENSIONS ];
+	<<CubeNameSpace>>::indexToVector( index, coords );
+
+	*xx = startCoords[ dims ][ 0 ]
+	    + coords[ 0 ] * SQUARE
+	    + coords[ 2 ] * BLOCK
+	    ;
+
+	*yy = startCoords[ dims ][ 1 ]
+	    + coords[ 1 ] * SQUARE
+	    + coords[ 3 ] * BLOCK
+	    ;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Redraw Methods}
+
+The view class has a method which allows one to update
+the entire display area for the game.
+<<View Redraw Declarations>>=
+    virtual void redraw( void );
+@
+
+The redraw function for the base view simply blanks out the backdrop
+of the cube area and draws the sidebar with its buttons and its
+text overlay.
+<<View Redraw Implementation>>=
+    void
+    <<ViewNameSpace>>::redraw( void )
+    {
+	SDL_Rect rect;
+
+	<<View Blank Cube Area>>
+	<<View Draw Sidebar>>
+	<<View Draw Buttons>>
+	<<View Draw Overlay>>
+    }
+@
+
+To blank the cube area, this method simply creates a rectangle the
+size of the whole cube area and fills it with the background color.
+<<View Blank Cube Area>>=
+    rect.x = 0;
+    rect.y = 0;
+    rect.w = 600;
+    rect.h = 600;
+    ::SDL_FillRect( this->screen, 0, this->bgColor );
+@
+
+To draw the sidebar, this method simply copies the sidebar to
+the right-hand portion of the screen.
+<<View Draw Sidebar>>=
+    if ( this->sidebar != 0 ) {
+	rect.x = SIDEBAR_X;
+	rect.y = SIDEBAR_Y;
+	rect.w = 200;
+	rect.h = 600;
+	::SDL_BlitSurface( this->sidebar, 0, this->screen, &rect );
+    }
+@
+
+The [[View]] class runs through each of its buttons.  It calls its
+own [[drawButton]] method for each one.  It passes in the index
+for the button.  And, it sets the update flag to [[false]]
+here because the buttons will all be refreshed at once when the
+panel has been completely drawn.
+<<View Draw Buttons>>=
+    for ( unsigned int ii=0; ii < MAX_BUTTON; ++ii ) {
+	this->drawButton( ii, false );
+    }
+@
+
+To draw the overlay, this method simply copies the overlay to
+the right-hand portion of the screen.
+<<View Draw Overlay>>=
+    if ( this->overlay != 0 ) {
+	rect.x = SIDEBAR_X;
+	rect.y = SIDEBAR_Y;
+	rect.w = 200;
+	rect.h = 600;
+	::SDL_BlitSurface( this->overlay, 0, this->screen, &rect );
+    }
+@
+
+The view class has a method which allows one to update a single
+cell of the cube by index.  The base class does not implement this
+method itself because each game will have cells which look different
+depending on the state of the game cube.
+<<View Redraw Declarations>>=
+    virtual void redraw( unsigned int index ) = 0;
+@
+
+The view class has a method that redraws a single button
+in the side-panel.  The image is only available to the
+view class itself.
+<<View Private Draw Declaration>>=
+    void drawButton(
+	    unsigned int button,
+	    bool update = true
+	);
+@
+
+This method first picks which set of images to use based upon which
+type of button this is.  Then, the method checks whether the button
+is on or off.  It picks the appropriate image from the set accordingly.
+Then, it uses the rectangle defined for that button to do the blit.
+If it has to update the screen, it draws in the overlay for that button
+area, too, and then refreshes that rectangle of the screen.
+<<View Private Draw Implementation>>=
+    void
+    <<ViewNameSpace>>::drawButton(
+	    unsigned int button,
+	    bool update
+	)
+    {
+	SDL_Surface** images;
+
+	<<View Draw Button pick images>>
+
+	if ( this->bPressed[ button ] ) {
+	    ++images;
+	}
+
+	::SDL_BlitSurface(
+		*images, 0,
+		this->screen, &bLocation[ button ]
+	    );
+
+	if ( update ) {
+	    <<View Draw Button portion of overlay>>
+	    ::SDL_UpdateRect( this->screen,
+		    bLocation[ button ].x, bLocation[ button ].y,
+		    bLocation[ button ].w, bLocation[ button ].h
+		);
+	}
+    }
+@
+
+The different buttons have different images associated with
+them.  Fortunately, they're grouped quite a bit.  Which images
+to use is obvious from the index of the button.
+<<View Draw Button pick images>>=
+    if ( button >= DIM_2 && button <= DIM_4 ) {
+	images = this->dimButton;
+    } else if ( button >= EASY && button <= WRAP ) {
+	images = this->setButton;
+    } else if ( button >= NEW && button <= BACK ) {
+	images = this->actButton;
+    } else if ( button == HELP ) {
+	images = this->helpButton;
+    } else {
+	assert( 0 == 1 );
+    }
+@
+
+The overlay portion that fits in this button's bounding box has
+slightly different coordinates than the box itself since the sidebar
+doesn't start at the same place the box does.  Once this is taken
+into account, it is a simple blit to the screen.
+<<View Draw Button portion of overlay>>=
+    SDL_Rect overlayRect;
+    overlayRect.x = bLocation[ button ].x - SIDEBAR_X;
+    overlayRect.y = bLocation[ button ].y - SIDEBAR_Y;
+    overlayRect.w = bLocation[ button ].w;
+    overlayRect.h = bLocation[ button ].h;
+
+    ::SDL_BlitSurface(
+	    this->overlay, &overlayRect,
+	    this->screen, &bLocation[ button ]
+	);
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Sound Methods}
+
+There are four different sounds during the game.  These are the
+background music, the noise made when a move happens, the victory
+music, and the defeat music.  The [[View]] class defines default
+implementations of each of these methods.
+<<View Sound Interface>>=
+    virtual void backgroundMusic( bool stop = false );
+    virtual void moveNoise( void );
+    virtual void victoryMusic( void );
+    virtual void losingMusic( void );
+@
+
+At the moment, there is no background music.  If time and space
+permit before the contest deadline, I will hook in something to
+play music based upon which cells are set on the board.
+<<View Sound Implementations>>=
+    void
+    <<ViewNameSpace>>::backgroundMusic( bool stop )
+    {
+    }
+@
+
+If the sound device was successfully opened, then we play a ding
+with each move.
+<<View Sound Implementations>>=
+    void
+    <<ViewNameSpace>>::moveNoise( void )
+    {
+	if ( this->sound != 0 ) {
+	    this->sound->ding();
+	} else {
+	    ::SDL_Delay( 250U );
+	}
+    }
+@
+
+At the moment, there is no victory music.  If time permits,
+I will hook in something to play a little fanfare.  For the
+moment, this routine simply pauses for five seconds.
+<<View Sound Implementations>>=
+    void
+    <<ViewNameSpace>>::victoryMusic( void )
+    {
+	::SDL_Delay( 5000U );
+    }
+@
+
+At the moment, there is no losing music.  If time permits,
+I will hook in something to play a little fanfare.  For the
+moment, this routine simply pauses for three seconds.
+<<View Sound Implementations>>=
+    void
+    <<ViewNameSpace>>::losingMusic( void )
+    {
+	::SDL_Delay( 3000U );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Winning Method}
+
+The view class has a method which allows one to tell the
+user the game has been won.
+<<View Winning Declaration>>=
+    virtual void showWinning(
+	    unsigned int actualMoves,
+	    unsigned int expectedMoves
+	);
+@
+
+At the moment, the actual versus expected moves here are ignored.
+A simple banner is displayed to congratulate the player.  It is
+placed over the cube display area until the victory music is done.
+<<View Winning Implementation>>=
+    void
+    <<ViewNameSpace>>::showWinning(
+	    unsigned int /*actualMoves*/,
+	    unsigned int /*expectedMoves*/
+	)
+    {
+	if ( this->screen != 0 && this->victory != 0 ) {
+	    SDL_Rect rect;
+	    rect.x = ( 600 - this->victory->w ) / 2;
+	    rect.y = ( 600 - this->victory->h ) / 2;
+	    ::SDL_BlitSurface( this->victory, 0, this->screen, &rect );
+	    ::SDL_UpdateRect(
+		    this->screen,
+		    rect.x, rect.y,
+		    this->victory->w, this->victory->h
+		);
+	}
+	this->victoryMusic();
+	if ( this->screen != 0 && this->victory != 0 ) {
+	    this->redraw();
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Losing Method}
+
+The view class has a method which allows one to tell the
+user the game has been lost.
+<<View Losing Declaration>>=
+    virtual void showLosing( void );
+@
+
+This method is very similar to the previous method.  A simple banner
+is displayed to inform the player.  It is placed over the cube
+display area until the losing music is done.
+<<View Losing Implementation>>=
+    void
+    <<ViewNameSpace>>::showLosing( void )
+    {
+	if ( this->screen != 0 && this->losing != 0 ) {
+	    SDL_Rect rect;
+	    rect.x = ( 600 - this->losing->w ) / 2;
+	    rect.y = ( 600 - this->losing->h ) / 2;
+	    ::SDL_BlitSurface( this->losing, 0, this->screen, &rect );
+	    ::SDL_UpdateRect(
+		    this->screen,
+		    rect.x, rect.y,
+		    this->losing->w, this->losing->h
+		);
+	}
+	this->losingMusic();
+	if ( this->screen != 0 && this->losing != 0 ) {
+	    this->redraw();
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Setting the Help Mode}
+
+This method is used to allow one to set the current help context.
+<<View Set Help Declaration>>=
+    void setHelp( Help* nn );
+@
+
+This method simply releases the memory associated with any old
+help context and assigns the new help context from the argument.
+<<View Set Help Implementation>>=
+    void
+    <<ViewNameSpace>>::setHelp( Help* nn )
+    {
+	delete this->help;
+	this->help = nn;
+
+	if ( this->help == 0 ) {
+	    this->bPressed[ HELP ] = false;
+	    this->drawButton( HELP );
+	    this->redraw();
+	}
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[View]] class}
+
+In this section, we assemble the [[View]] class from the pieces
+in the sections above.
+
+The [[View]] class starts off by defining the constants it uses
+internally to size things.  And, it defines the names it uses for
+its buttons.
+<<View Class Definition>>=
+    public:
+	<<View Constant Definitions>>
+	<<View Button Names>>
+@
+
+The [[View]] class then defines its constructor and destructor.
+<<View Class Definition>>=
+    protected:
+	<<View Constructor Declaration>>
+	<<View Destructor Declaration>>
+@
+
+The [[View]] class then defines its reset method.
+<<View Class Definition>>=
+    public:
+	<<View Reset Declaration>>
+@
+
+The [[View]] class defines methods to convert between screen
+coordinates and cell indexes.
+<<View Class Definition>>=
+    public:
+	<<View Screen-Cell Declarations>>
+@
+
+The [[View]] class defines the interface for redrawing the view.
+And, it defines the functions it uses internally to draw things.
+<<View Class Definition>>=
+    public:
+	<<View Redraw Declarations>>
+    private:
+	<<View Private Draw Declaration>>
+@
+
+The [[View]] class also contains a method which shows a
+victory or failure message on the screen.  This method is declared
+here.
+<<View Class Definition>>=
+    public:
+	<<View Winning Declaration>>
+	<<View Losing Declaration>>
+@
+
+The [[View]] class also defines the interface that controllers
+can use to play particular game sounds.
+<<View Class Definition>>=
+    public:
+	<<View Sound Interface>>
+@
+
+The [[View]] class defines the interface for accepting mouse clicks
+and the method it uses internally to decide when the mouse has been
+clicked within a particular button.
+<<View Class Definition>>=
+    public:
+	<<View Mouse Click Interface>>
+    private:
+	<<View Mouse Check Button Declaration>>
+@
+
+The [[View]] class defines a method used to set the current
+help context.
+<<View Class Definition>>=
+    public:
+	<<View Set Help Declaration>>
+@
+
+The [[View]] class also declares the array it uses in its
+internal structures to track the starting position (in
+screen coordinates) of the cube display for different
+numbers of dimensions.
+<<View Class Definition>>=
+    private:
+	<<View Cube Start Coordinates>>
+@
+
+Then, the view class declares the array that it uses to
+track the locations of the buttons in the sidebar.
+<<View Class Definition>>=
+    public:
+	<<View Sidebar Location>>
+    private:
+	<<View Button Location>>
+@
+
+Then, the view class declares its instance variables.
+<<View Class Definition>>=
+    protected:
+	<<View Screen>>
+	<<View Sound>>
+	<<View Cube>>
+	<<View Game State>>
+    private:
+	<<View Colors>>
+	<<View Images>>
+	<<View Button States>>
+	<<View Help>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  We pre-declare the [[Controller]]
+class because we need a pointer to one of them as an argument to
+the mouse-click handler.  And, we pre-declare the [[Help]] class because
+we need a pointer to one of them as an argument to the [[setHelp()]]
+method.
+<<View Class Declaration>>=
+    class Controller;
+    class Help;
+    class View {
+	<<View Class Definition>>
+    };
+@ %def View
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[view.h]] file}
+
+In this section, we assemble the header file for the [[View]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<view.h>>=
+    namespace <<NameSpace>> {
+	<<View Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[view.cpp]] file}
+
+There is not much to the [[view.cpp]] source file at the moment.
+It contains the include files it needs for the [[SDL]] interactions.
+And, it contains the include file it needs to access the [[Cube]]
+class.  It also contains the header file generated in the previous
+section and the header files which let it deal with the cube,
+the controller, the font, and the help contexts.
+<<view.cpp>>=
+    #include <assert.h>
+    #include <SDL.h>
+    #include <SDL_image.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "controller.h"
+    #include "font.h"
+    #include "help.h"
+@
+
+After that, it includes the lookup table for the starting coordinates
+of cubes of different dimensions.  And, it includes the list of locations
+of its buttons.
+<<view.cpp>>=
+    <<View Cube Start Coordinates Definition>>
+    <<View Button Location Declaration>>
+@
+
+Next, the implementation file includes the source code for the
+constructor and destructor for the [[View]] class.
+<<view.cpp>>=
+    <<View Constructor Implementation>>
+    <<View Destructor Implementation>>
+@
+
+Next, the implementation file includes the source code for
+the reset method and the mouse handler and its internal
+code to check whether mouse events happen in particular
+buttons.
+<<view.cpp>>=
+    <<View Reset Implementation>>
+    <<View Mouse Click Implementation>>
+    <<View Mouse Check Button Implementation>>
+@
+
+Then, it includes the implementation
+of the coordinate transformation methods.
+<<view.cpp>>=
+    <<View Screen-Cell Implementations>>
+@
+
+After this, the source file includes the implementation of its
+redraw methods
+<<view.cpp>>=
+    <<View Redraw Implementation>>
+    <<View Private Draw Implementation>>
+@
+
+Next, in the source file, is the default implementations
+of the sound methods.  These are just hooks at the moment.
+They will be expanded if time permits.
+<<view.cpp>>=
+    <<View Sound Implementations>>
+@
+
+Then, the code used by the view class to display the victory
+or loss message is included.
+<<view.cpp>>=
+    <<View Winning Implementation>>
+    <<View Losing Implementation>>
+@
+
+Finally, the code used to set the current help mode is included.
+<<view.cpp>>=
+    <<View Set Help Implementation>>
+@
+

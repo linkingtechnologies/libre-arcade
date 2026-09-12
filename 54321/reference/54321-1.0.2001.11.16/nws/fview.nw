@@ -1,0 +1,237 @@
+\section{The FlipFlop Game View}
+
+The namespace inside the FlipFlop view class is a concatenation
+of the general namespace and the name of the FlipFlop view
+class.
+<<FlipFlopVNameSpace>>=
+<<NameSpace>>::FlipFlopView
+@
+
+The FlipFlop game view inherits from the generic game view of
+\S\ref{sec:view}.  It displays the current state of the [[FlipFlop]]
+game.
+
+The FlipFlop game stores pointers to the images of the tile pieces
+to use.
+<<FlipFlop Tiles>>=
+    SDL_Surface* on;
+    SDL_Surface* off;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the FlipFlop view class takes six arguments.
+The first is a pointer to the screen, the second is a pointer to
+the sound device, the third is a pointer to the game cube, the
+fourth specifies the number of dimensions to employ, the fifth is
+the skill level, and the sixth is the wrapping mode.
+<<FlipFlopV Constructor Declaration>>=
+    FlipFlopView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true
+	);
+@
+
+The constructor for the FlipFlop view class passes all of its
+arguments to the [[View]] constructor.  Then, it loads the images
+for on and off cells.
+<<FlipFlopV Constructor Implementation>>=
+    <<FlipFlopVNameSpace>>::FlipFlopView(
+	    SDL_Surface* _screen,
+	    SoundDev* _sound,
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap
+	) : View( _screen, _sound, _cube, _dims, _skillLevel, _wrap )
+    {
+	this->on = ::IMG_Load( "../../data/on.png" );
+	this->off = ::IMG_Load( "../../data/off.png" );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Destructor}
+
+The destructor for the flip-flop view class simply release
+the images that it loaded above in the constructor.
+<<FlipFlopV Destructor Declaration>>=
+    ~FlipFlopView( void );
+@
+<<FlipFlopV Destructor Implementation>>=
+    <<FlipFlopVNameSpace>>::~FlipFlopView( void )
+    {
+	::SDL_FreeSurface( this->off );
+	::SDL_FreeSurface( this->on );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Redraw Methods}
+
+The FlipFlop view class has a method which allows one to update
+the entire display area for the game.
+<<FlipFlopV Redraw Declarations>>=
+    virtual void redraw( void );
+@
+
+The redraw function here calls the redraw function on the base
+class to update the sidebar and the background area of the cube.
+Then, it runs through each cell in the cube, drawing it.  After
+that, it updates the whole screen.
+<<FlipFlopV Redraw Implementations>>=
+    void
+    <<FlipFlopVNameSpace>>::redraw( void )
+    {
+	this->View::redraw();
+
+	unsigned int maxIndex
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	for ( unsigned int index=0; index < maxIndex; ++index ) {
+	    this->drawCell( index, false );
+	}
+
+	::SDL_UpdateRect( this->screen, 0, 0, 0, 0 );
+    }
+@
+
+The FlipFlop view class has a method which allows one to update
+a single cell of the cube by index.
+<<FlipFlopV Redraw Declarations>>=
+    virtual void redraw( unsigned int index );
+@
+
+This method simply uses the method defined next to draw the single
+cell in question.
+<<FlipFlopV Redraw Implementations>>=
+    void
+    <<FlipFlopVNameSpace>>::redraw( unsigned int index )
+    {
+	this->drawCell( index );
+    }
+@
+
+The FlipFlop view class has a method to draw a single cell of
+the cube.  It uses this method in each of the above methods.
+<<FlipFlopV Private Draw Declaration>>=
+    void drawCell( unsigned int index, bool update = true );
+@
+
+To draw a single cell, this method retrieves the screen coordinates
+of the cell from the conversion method in the base class.  Then,
+it prepares a rectangle to fill for the cell.  Then, depending on
+the state of the cell in the game cube, it either draws the region
+off or on.
+<<FlipFlopV Private Draw Implementation>>=
+    void
+    <<FlipFlopVNameSpace>>::drawCell(
+	    unsigned int index, bool update
+	)
+    {
+	unsigned int xx;
+	unsigned int yy;
+
+	View::cellToScreen( index, this->dims, &xx, &yy );
+
+	<<FlipFlopV Prepare Single Cell Rect>>
+
+	if ( (*this->cube)[ index ] == 0 ) {
+	    ::SDL_BlitSurface( this->off, 0, this->screen, &rect );
+	} else {
+	    ::SDL_BlitSurface( this->on, 0, this->screen, &rect );
+	}
+	if ( update ) {
+	    ::SDL_UpdateRect( this->screen, xx, yy, SQUARE, SQUARE );
+	}
+    }
+@
+
+The rectangle that will be filled to represent the cell simply
+starts at the starting coordinates of the rectangle and goes almost
+the full size of the cell.  It doesn't go quite to the edge so that
+one can clearly see the break between cells.
+<<FlipFlopV Prepare Single Cell Rect>>=
+    SDL_Rect rect;
+    rect.x = xx;
+    rect.y = yy;
+    rect.w = SQUARE-1;
+    rect.h = SQUARE-1;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[FlipFlopView]] class}
+
+In this section, we assemble the [[FlipFlopView]] class from
+the pieces in the sections above.
+
+We include, in the [[FlipFlopView]] class, the constructor,
+the destructor and the redraw methods.
+<<FlipFlopV Class Definition>>=
+    public:
+	<<FlipFlopV Constructor Declaration>>
+	<<FlipFlopV Destructor Declaration>>
+	<<FlipFlopV Redraw Declarations>>
+    private:
+	<<FlipFlopV Private Draw Declaration>>
+@
+
+We include the variables that are used in the flipflop view class.
+<<FlipFlopV Class Definition>>=
+    private:
+	<<FlipFlop Tiles>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.  The [[FlipFlopView]]
+inherits directly from the [[View]] class of \S\ref{sec:view}.
+<<FlipFlopV Class Declaration>>=
+    class FlipFlopView : public View {
+	<<FlipFlopV Class Definition>>
+    };
+@ %def FlipFlopView
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[flipflopView.h]] file}
+
+In this section, we assemble the header file for the [[FlipFlopView]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<flipflopView.h>>=
+    namespace <<NameSpace>> {
+	<<FlipFlopV Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[flipflopView.cpp]] file}
+
+In this section, we assemble the FlipFlop view source file.  It
+requires the [[SDL]] headers for dealing with surfaces, the screen,
+blitting, and loading images.  It requires the header files for
+the [[Cube]] class, the [[SoundDev]] class, the [[View]] class,
+and the [[FlipFlopView]] class itself.
+<<flipflopView.cpp>>=
+    #include <SDL.h>
+    #include <SDL_image.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "flipflopView.h"
+@
+
+After the header files, we include the implementations of the
+constructor, the destructor, and the redraw methods.
+<<flipflopView.cpp>>=
+    <<FlipFlopV Constructor Implementation>>
+    <<FlipFlopV Destructor Implementation>>
+    <<FlipFlopV Redraw Implementations>>
+    <<FlipFlopV Private Draw Implementation>>
+@

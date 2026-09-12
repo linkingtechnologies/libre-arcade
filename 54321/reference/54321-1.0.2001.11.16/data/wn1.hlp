@@ -1,0 +1,12 @@
+image help 0 0
+
+text_center 280 136 "Many people think of the "real" world"
+text_center 280 160 "as inherently three-dimensional."
+
+text_center 280 224 "The world may well be only three-dimensional."
+text_center 280 248 "However, maybe we've just never looked."
+
+image continue 230 490
+button wn2 230 490 100 64
+
+update 0 0 560 560

@@ -1,0 +1,387 @@
+\part{The Tile Slider Game}
+\section{Tile Slider}
+
+The namespace inside the tile slider class is a concatenation of the
+general namespace and the name of the tile slider class.
+<<TileNameSpace>>=
+<<NameSpace>>::Tile
+@
+
+The [[Tile]] class keeps a pointer to the cube used for the
+game.
+<<Tile Cube>>=
+    Cube* cube;
+@
+
+The [[Tile]] class also tracks the number of dimensions that are
+being used.  It needs this information so that it can properly
+determine the neighbors of a given point.
+<<Tile Dimensions>>=
+    unsigned int dims;
+@
+
+And, the [[Tile]] class tracks the current skill level.
+<<Tile Skill Level>>=
+    unsigned int skillLevel;
+@
+
+The [[Tile]] class also keeps track of whether or not it is
+wrapping around.  This is necessary so that it can properly determine
+neighbors of things near the edge.
+<<Tile Wrap>>=
+    bool wrap;
+@
+
+The [[Tile]] class also keeps track of the index of the current
+location of the blank spot.
+<<Tile Blank Spot>>=
+    unsigned int blankSpot;
+@
+
+The [[Tile]] class also keeps track of the number of moves made.
+<<Tile Move Counter>>=
+    int stepsTaken;
+@
+
+Also, to track the winning condition, there is a flag that
+tells whether the game has already been won or not.  After
+a person wins, she can play around on the board as much as
+she likes before hitting the ``New'' button.
+<<Tile Has Won>>=
+    bool hasWon;
+@
+
+The [[Tile]] class also keeps track of the view pointer.
+<<Tile View>>=
+    TileView* view;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the [[Tile]] class takes five arguments.
+The first is a pointer to the game cube, the second specifies the
+number of dimensions to employ, the third specifies the skill level
+to use, the fourth specifies whether the edges wrap around, and
+the fifth is an option pointer to the view to update when cells
+change.
+<<Tile Constructor Declaration>>=
+    Tile(
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true,
+	    TileView* _view = 0
+	);
+@
+
+The constructor for the [[Tile]] class copies the arguments
+into its local variables.  Then, it calls its own reset method to
+start a new game.  But, first, it verifies that all of the input
+arguments match its range expectations.
+<<Tile Constructor Implementation>>=
+    <<TileNameSpace>>::Tile(
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap,
+	    TileView* _view
+	) : cube( _cube ),
+	    dims( _dims ),
+	    skillLevel( _skillLevel ),
+	    wrap( _wrap ),
+	    view( _view )
+    {
+	assert( cube != 0 );
+	assert( dims >= 1 );
+	assert( dims <= 4 );
+	assert( skillLevel < 3 );
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+This method is used to start a new game.  It requires no parameters.
+It assumes that the number of dimensions, the skill level,
+and the wrap mode have already been set.
+<<Tile Reset Declaration>>=
+    void reset( void );
+@
+
+The cube is set up to have each tile in order.  The cube is then
+shuffled.  Then, the statistics for the game are reset and the view
+is refreshed.
+<<Tile Reset Implementation>>=
+    void
+    <<TileNameSpace>>::reset( void )
+    {
+	unsigned int len
+	    = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	for ( unsigned int ii=0; ii < len; ++ii ) {
+	    (*this->cube)[ ii ] = ii;
+	}
+
+	<<Tile Shuffle Board>>
+	<<Tile Reset Current Statistics>>
+
+	if ( this->view != 0 ) {
+	    this->view->reset();
+	    this->view->redraw();
+	}
+    }
+@
+
+Each of the transpositions happens by picking two elements of the
+array.  The contents of the two elements are swapped.  We have to
+be careful not to swap an element with itself so that we stay with
+the number of swaps that we expected.  Additionally, we never want
+to swap the blank spot.
+<<Tile Shuffle Board>>=
+    <<Tile Swap Table>>
+    unsigned int swaps = table[ this->dims ][ this->skillLevel ];
+
+    for ( unsigned int ii=0; ii < swaps; ++ii ) {
+	unsigned int sa = random() % ( len - 1 );
+	unsigned int sb = random() % ( len - 2 );
+
+	if ( sb >= sa ) {
+	    ++sb;
+	}
+
+	unsigned int tmp = (*this->cube)[ sa ];
+	(*this->cube)[ sa ] = (*this->cube)[ sb ];
+	(*this->cube)[ sb ] = tmp;
+    }
+
+    if ( this->view != 0 ) {
+	this->view->redraw();
+    }
+@
+
+The following table is used to determine the number of swaps to
+perform based upon the skill level and dimensions.  These numbers
+have to be even to ensure that we get an even permutation.
+<<Tile Swap Table>>=
+    unsigned int table[ Cube::DIMENSIONS+1 ][ 3 ] = {
+	{   0,   0,   0 },
+	{   2,   4,   8 },
+	{   2,   4,   8 },
+	{   2,   4,   8 },
+	{   2,   4,   8 },
+    };
+@
+
+To reset the statistics for the game, we first clear out the
+number of steps taken and we set the current blank position to
+the location of the tile of highest number.
+<<Tile Reset Current Statistics>>=
+    this->hasWon = false;
+    this->stepsTaken = 0;
+    this->blankSpot = len-1;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Move Method}
+
+This method determines whether the person can go in a direct line
+from the position given by the [[fromIndex]] parameter to the blank
+spot.
+<<Tile Move Declaration>>=
+    void move( unsigned int fromIndex );
+@
+
+This method saves the current position.  Then, it retrieves the
+coordinates of the current position and the proposed destination.
+It uses those coordinates to determine which axis is the proposed
+axis of motion.  Then, it slides the tiles along that axis and
+checks to see if the user just won.
+<<Tile Move Implementation>>=
+    void
+    <<TileNameSpace>>::move( unsigned int toIndex )
+    {
+	unsigned int len = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	<<Tile Move Get Coordinates>>
+	<<Tile Move Determine Axis>>
+	<<Tile Move Slide Tiles>>
+	<<Tile Move Check Winning>>
+    }
+@
+
+To get the coordinates of the starting and ending locations,
+we call the [[indexToVector]] method on the [[Cube]] class.
+<<Tile Move Get Coordinates>>=
+    unsigned int vt[ <<CubeNameSpace>>::DIMENSIONS ];
+    <<CubeNameSpace>>::indexToVector( toIndex, vt );
+
+    unsigned int vc[ <<CubeNameSpace>>::DIMENSIONS ];
+    <<CubeNameSpace>>::indexToVector( this->blankSpot, vc );
+@
+
+To check the axis of motion, we determine the difference
+between the current position and the destination position.
+If the move is not parallel to an axis, we bail.
+<<Tile Move Determine Axis>>=
+    bool positive;
+    unsigned int axis;
+
+    if ( <<CubeNameSpace>>::determineAxis(
+	vc, vt, this->wrap, &axis, &positive
+    ) == false ) {
+	return;
+    }
+@
+
+Now that we know which direction we should slide the tiles, we step
+through in the appropriate direction sliding the tiles along.  The
+notation here is a bit confusing because we're actually moving the
+blank spot from where it is [[vt]] to where the person clicked
+[[vc]].  We cheat here and use the incrementing code from
+\S\ref{sec:mazeStep}.
+<<Tile Move Slide Tiles>>=
+    do {
+	if ( positive ) {
+	    <<Maze Do Positive Step>>
+	} else {
+	    <<Maze Do Negative Step>>
+	}
+
+	unsigned int newSpot;
+	<<CubeNameSpace>>::vectorToIndex( vc, &newSpot );
+
+	(*this->cube)[ this->blankSpot ] = (*this->cube)[ newSpot ];
+	if ( this->view != 0 ) {
+	    this->view->redraw( this->blankSpot );
+	}
+
+	this->blankSpot = newSpot;
+	(*this->cube)[ this->blankSpot ] = len - 1;
+
+	++this->stepsTaken;
+
+    } while ( vt[ axis ] != vc[ axis ] );
+
+    if ( this->view != 0 ) {
+	this->view->redraw( this->blankSpot );
+	this->view->moveNoise();
+    }
+@
+
+To check for a win, we first check to make sure the person has
+not already won.  If the person hasn't already won, they can only
+win if the blank spot is in the last place and all of the other
+tiles are in the correct order.
+<<Tile Move Check Winning>>=
+    if ( !this->hasWon ) {
+	this->hasWon = ( this->blankSpot == len-1 );
+
+	for ( unsigned int ii=0; this->hasWon && ii < len; ++ii ) {
+	    hasWon = ( (*this->cube)[ ii ] == ii );
+	}
+
+	if ( this->hasWon && this->view != 0 ) {
+	    this->view->showWinning(
+		    this->stepsTaken,
+		    this->stepsTaken
+		);
+	}
+    }
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[Tile]] class}
+
+In this section, we assemble the [[Tile]] class from the pieces
+in the sections above.
+
+The first thing declared in the [[Tile]] class
+is the constructor.
+<<Tile Class Definition>>=
+    public:
+	<<Tile Constructor Declaration>>
+@
+
+After that, the reset method and the move method are declared.
+<<Tile Class Definition>>=
+    public:
+	<<Tile Reset Declaration>>
+	<<Tile Move Declaration>>
+@
+
+The data members of the [[Tile]] class all have private scope.
+The data members specify the cube, the number of dimensions, the
+skill level, the wrapping mode, the current location of the blank spot,
+the variables for tracking the winning state, and the pointer to
+the view class if one was given.
+<<Tile Class Definition>>=
+    private:
+	<<Tile Cube>>
+	<<Tile Dimensions>>
+	<<Tile Skill Level>>
+	<<Tile Wrap>>
+	<<Tile Blank Spot>>
+	<<Tile Move Counter>>
+	<<Tile Has Won>>
+	<<Tile View>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<Tile Class Declaration>>=
+    class Tile {
+	<<Tile Class Definition>>
+    };
+@ %def Tile
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[tile.h]] file}
+
+In this section, we assemble the header file for the [[Tile]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<tile.h>>=
+    namespace <<NameSpace>> {
+	<<Tile Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[tile.cpp]] file}
+
+For the actual C++ source code, we include the header file that
+defines [[assert()]], the header file for [[random()]], the header
+file for the [[SDL]] stuff needed by the [[view.h]] file, the header
+file for the cube, the header file for the sound device, the header
+file for the generic view class, the header file for the font class,
+the header file for the view class for this particular game, and
+the header file generated in the previous section.
+<<tile.cpp>>=
+    #include <assert.h>
+    #include <stdlib.h>
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "font.h"
+    #include "tileView.h"
+    #include "tile.h"
+@
+
+Then, the source file incorporates the implementation of the
+constructor.
+<<tile.cpp>>=
+    <<Tile Constructor Implementation>>
+@
+
+After that, the source file incorporates the implementations of the
+reset method and the move method.
+<<tile.cpp>>=
+    <<Tile Reset Implementation>>
+    <<Tile Move Implementation>>
+@

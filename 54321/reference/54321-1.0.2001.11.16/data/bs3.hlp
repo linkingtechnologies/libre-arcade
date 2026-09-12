@@ -1,0 +1,34 @@
+image help 0 0
+
+text_center 280  72 "However, be careful not to uncover a bomb."
+
+image covered   226  88
+image covered   262  88
+image covered   298  88
+image uncovered 226 124
+image uncovered 262 124
+image covered   298 124
+image covered   226 160
+image covered   262 160
+image covered   298 160
+
+image bomb    262  88
+image flagged 262  88
+image bomb    226 124
+image bomb    298 124
+image flagged 298 124
+image bomb    262 160
+image flagged 262 160
+
+text_center 244 112 "2"
+text_center 316 112 "2"
+text_center 280 148 "4"
+text_center 244 184 "2"
+text_center 316 184 "2"
+
+text_center 280 224 "No one likes explosions up-close."
+
+image continue 230 490
+button bs4 230 490 100 64
+
+update 0 0 560 560

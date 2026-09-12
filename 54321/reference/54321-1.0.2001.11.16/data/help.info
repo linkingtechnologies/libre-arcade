@@ -1,0 +1,9 @@
+clear
+image image_name screen_x screen_y
+subimage image_name screen_x screen_y image_x image_y w h
+button destination_page x y w h
+rect x y w h red green blue
+rect_3d x y w h red green blue
+text x y "String of text"
+text_center x y "String of text"
+update x y w h

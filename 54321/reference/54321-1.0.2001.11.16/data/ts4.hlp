@@ -1,0 +1,14 @@
+image help 0 0
+
+text_center 280  48 "For example, this tile is supposed to be"
+
+subimage borders  262  72   72 108 36 36
+subimage centers  262  72    0  36 36 36
+
+text_center 280 132 "in the first column and second row of the third tier"
+text_center 280 156 "from the left in the fourth row of tiers from the top."
+
+image continue 230 490
+button top 230 490 100 64
+
+update 0 0 560 560

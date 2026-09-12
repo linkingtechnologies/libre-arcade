@@ -1,0 +1,21 @@
+image help 0 0
+
+text_center 280 106 "Beyond these financial applications, many surveys"
+text_center 280 130 "ask people to rate themselves or some personal experience"
+text_center 280 154 "across a number of categories."
+
+text_center 280 202 "This multi-dimensional data is frequently"
+text_center 280 226 "squished down to one dimension to form a single"
+text_center 280 250 ""overall satisfaction" metric."
+
+text_center 280 298 "Other times, a variety of correlation metrics"
+text_center 280 322 "are calculated to show the correlation"
+text_center 280 346 "or anti-correlation on any pair of questions."
+
+text_center 280 394 "What if the "overall satisfaction" isn't one-dimensional?"
+text_center 280 418 "What if the correlations aren't simply by pairs?"
+
+image continue 230 490
+button wn8 230 490 100 64
+
+update 0 0 560 560

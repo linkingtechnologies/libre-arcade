@@ -1,0 +1,559 @@
+\part{The Peg Jumper Game}
+\section{Peg Jumper}
+
+The namespace inside the peg jumper class is a concatenation of the
+general namespace and the name of the peg jumper class.
+<<PegNameSpace>>=
+<<NameSpace>>::Peg
+@
+
+The [[Peg]] class defines some constants it uses to keep track
+of the board state.
+<<Peg Constants>>=
+    enum {
+	EMPTY = 0,
+	HOLE = 1,
+	PEG = 2,
+	SELECTED = 4
+    };
+@
+
+The [[Peg]] class keeps a pointer to the cube used for the
+game.
+<<Peg Cube>>=
+    Cube* cube;
+@
+
+The [[Peg]] class also tracks the number of dimensions that are
+being used.  It needs this information so that it can properly
+determine the neighbors of a given point.
+<<Peg Dimensions>>=
+    unsigned int dims;
+@
+
+And, the [[Peg]] class tracks the current skill level.
+<<Peg Skill Level>>=
+    unsigned int skillLevel;
+@
+
+The [[Peg]] class also keeps track of whether or not it is
+wrapping around.  This is necessary so that it can properly determine
+neighbors of things near the edge.
+<<Peg Wrap>>=
+    bool wrap;
+@
+
+The [[Peg]] class also keeps track of the index of the current
+location of the selected spot.  If no spot is selected, then this
+will be set higher than the maximum index for this number of
+dimensions.
+<<Peg Selected Spot>>=
+    unsigned int selectedSpot;
+@
+
+The [[Peg]] class also keeps track of the number of pegs remaining.
+<<Peg Move Counter>>=
+    unsigned int pegsRemaining;
+    unsigned int stepsTaken;
+    bool firstMove;
+@
+
+Also, to track the winning condition, there is a flag that
+tells whether the game has already been won or not.  After
+a person wins, she has to hit the ``New'' button before
+getting another game.
+<<Peg Has Won>>=
+    bool hasWon;
+@
+
+The [[Peg]] class also keeps track of the view pointer.
+<<Peg View>>=
+    PegView* view;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Constructor}
+
+The constructor for the [[Peg]] class takes five arguments.
+The first is a pointer to the game cube, the second specifies the
+number of dimensions to employ, the third specifies the skill level
+to use, the fourth specifies whether the edges wrap around, and
+the fifth is an option pointer to the view to update when cells
+change.
+<<Peg Constructor Declaration>>=
+    Peg(
+	    Cube* _cube,
+	    unsigned int _dims = 2,
+	    unsigned int _skillLevel = 0,
+	    bool _wrap = true,
+	    PegView* _view = 0
+	);
+@
+
+The constructor for the [[Peg]] class copies the arguments
+into its local variables.  Then, it calls its own reset method to
+start a new game.  But, first, it verifies that all of the input
+arguments match its range expectations.
+<<Peg Constructor Implementation>>=
+    <<PegNameSpace>>::Peg(
+	    Cube* _cube,
+	    unsigned int _dims,
+	    unsigned int _skillLevel,
+	    bool _wrap,
+	    PegView* _view
+	) : cube( _cube ),
+	    dims( _dims ),
+	    skillLevel( _skillLevel ),
+	    wrap( _wrap ),
+	    view( _view )
+    {
+	assert( cube != 0 );
+	assert( dims >= 2 );
+	assert( dims <= 4 );
+	assert( skillLevel < 3 );
+	this->reset();
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Reset Method}
+
+This method is used to start a new game.  It requires no parameters.
+It assumes that the number of dimensions, the skill level,
+and the wrap mode have already been set.
+<<Peg Reset Declaration>>=
+    void reset( void );
+@
+
+The cube is set up from a pattern given in a data file.  Which
+data file depends upon the skill level and the number of dimensions.
+Then, the statistics for the game are reset and the view
+is refreshed.
+<<Peg Reset Implementation>>=
+    void
+    <<PegNameSpace>>::reset( void )
+    {
+	<<Peg Load Board>>
+	<<Peg Reset Current Statistics>>
+
+	if ( this->view != 0 ) {
+	    this->view->reset();
+	    this->view->redraw();
+	}
+    }
+@
+
+The board to load is chosen based upon the current number of
+dimensions and the current skill level.
+<<Peg Load Board>>=
+    char buf[ 512 ];
+    ::sprintf( buf, "../../data/b%d-%d%c.peg",
+	    this->dims, this->skillLevel,
+	    ( this->wrap ) ? 'w' : 'n'
+	);
+@
+
+The real way to do this in C++ involves an [[ostrstream]], but
+that would add quite a bit of size to my program.  As this
+program is being written for a contest with a size limit,
+I'm using the [[sprintf()]] call above instead of the block
+below with uses the standard template library.
+<<Peg Load Board with STL>>=
+    std::ostrstream stream;
+
+    stream << "../../data/b"
+	<< this->dims << '-'
+	<< this->skillLevel
+	<< ( (this->wrap) ? 'w' : 'n' )
+	<< std::ends;
+@
+And then the [[fopen()]] call below would take the argument
+[[stream.str()]] instead of [[buf]].
+
+The board is read in a space at a time.  The board is specified
+with dashes indicating empty cells, [[o]]'s indicating holes,
+and [[x]]'s indicating pegs.
+<<Peg Load Board>>=
+    this->pegsRemaining = 0;
+
+    FILE* fp = ::fopen( buf, "r" );
+    if ( fp != 0 ) {
+	for ( unsigned int ii=0; /**/; /**/ ) {
+	    char ch;
+	    if ( ::fscanf( fp, "%c", &ch ) == 1 ) {
+		if ( ch == '-' ) {
+		    (*this->cube)[ ii ] = EMPTY;
+		    ++ii;
+		} else if ( ch == 'o' ) {
+		    (*this->cube)[ ii ] = HOLE;
+		    ++ii;
+		} else if ( ch == 'x' ) {
+		    (*this->cube)[ ii ] = PEG;
+		    ++this->pegsRemaining;
+		    ++ii;
+		}
+	    } else {
+		break;
+	    }
+	}
+
+	::fclose( fp );
+    }
+@
+
+Then, we reset the game statistics.  In this case, it's
+simply that the game has not yet been won.
+<<Peg Reset Current Statistics>>=
+    this->hasWon = false;
+    this->firstMove = true;
+
+    unsigned int len = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+    this->selectedSpot = len;
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Check Selected Method}
+
+This method checks to see if the selected spot is within the range
+of the board.
+<<Peg Check Selected Declaration>>=
+    bool isSelected( void ) const;
+@
+
+<<Peg Check Selected Implementation>>=
+    bool
+    <<PegNameSpace>>::isSelected( void ) const
+    {
+	unsigned int len = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+	return ( this->selectedSpot < len );
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Select Method}
+
+This method is used to select the peg with which to jump.
+<<Peg Select Declaration>>=
+    void select( unsigned int cell );
+@
+
+This method checks to see if the cell contains a peg.
+If it does, then whatever cell had been selected is
+unselected and the new cell is selected.
+<<Peg Select Implementation>>=
+    void
+    <<PegNameSpace>>::select( unsigned int cell )
+    {
+	unsigned int len = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+
+	if ( ( (*this->cube)[ cell ] & PEG ) != 0 ) {
+
+	    <<Peg Select Check First Move>>
+
+	    if ( this->selectedSpot < len ) {
+		(*this->cube)[ this->selectedSpot ] &= ~SELECTED;
+		if ( this->view != 0 ) {
+		    this->view->redraw( this->selectedSpot );
+		}
+	    }
+
+	    (*this->cube)[ cell ] |= SELECTED;
+	    if ( this->view != 0 ) {
+		this->view->moveNoise();
+		this->view->redraw( cell );
+	    }
+
+	    this->selectedSpot = cell;
+	}
+    }
+@
+
+If this is the first move of the game, then we zot the
+first peg selected.
+<<Peg Select Check First Move>>=
+    if ( this->firstMove == true ) {
+	(*this->cube)[ cell ] = HOLE;
+	if ( this->view != 0 ) {
+	    this->view->moveNoise();
+	    this->view->redraw( cell );
+	}
+	this->firstMove = false;
+	--this->pegsRemaining;
+	return;
+    }
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Jump Method}
+
+This method is used to jump over the peg specified
+by the parameter.
+<<Peg Jump Declaration>>=
+    void jump( unsigned int cell );
+@
+
+This method first checks to see if the cell contains a peg.  If it
+does, then it checks to make sure that the selected spot is a
+neighbor of this spot.  If it is, then it checks to make sure that
+the destination cell is empty and a legitimate neighbor of the
+current cell.  If it is, then the jump is executed.
+<<Peg Jump Implementation>>=
+    void
+    <<PegNameSpace>>::jump( unsigned int cell )
+    {
+	unsigned int len = <<CubeNameSpace>>::arrayLengths[ this->dims ];
+	unsigned int srcSpot = this->selectedSpot;
+
+	<<Peg Jump Clear Selected Cell>>
+
+	<<Peg Jump Check For Null Jump>>
+	<<Peg Jump Check For Peg>>
+	<<Peg Jump Check Selected Is Neighbor>>
+	<<Peg Jump Check Destination Empty>>
+	<<Peg Jump Check Destination Is Neighbor>>
+	<<Peg Jump Do Jump>>
+	<<Peg Jump Check Winning>>
+    }
+@
+
+To clear the selected spot, we mask out all of the bits except
+the one marked [[SELECTED]].  Then, we redraw the spot and then
+reset it so that the [[isSelected]] method returns false.
+<<Peg Jump Clear Selected Cell>>=
+    (*this->cube)[ this->selectedSpot ] &= ~SELECTED;
+    if ( this->view != 0 ) {
+	this->view->redraw( this->selectedSpot );
+    }
+    this->selectedSpot = len;
+@
+
+If the person tried to jump over the spot that
+was already selected, then we have to just forget the
+selected spot.
+<<Peg Jump Check For Null Jump>>=
+    if ( cell == srcSpot ) {
+	return;
+    }
+@
+
+If the clicked cell does not contain a peg, then we'll
+just bail out.  We cannot jump an empty cell.
+<<Peg Jump Check For Peg>>=
+    if ( ( (*this->cube)[ cell ] & PEG ) == 0 ) {
+	return;
+    }
+@
+
+Then, we run through the neighbors of the cell looking
+for the selected spot.  If it isn't there, then we'll
+bail.  This is an illegal jump.
+<<Peg Jump Check Selected Is Neighbor>>=
+    unsigned int nn[ 2 * <<CubeNameSpace>>::DIMENSIONS ];
+    unsigned int nc = this->cube->getNeighbors(
+	    nn, cell, this->dims, this->wrap
+	);
+
+    bool found = false;
+
+    for ( unsigned int ii=0; !found && ii < nc; ++ii ) {
+	found = ( nn[ ii ] == srcSpot );
+    }
+
+    if ( !found ) {
+	return;
+    }
+@
+
+We retrieve the coordinates of the selected cell and the current
+cell.  We use them to determine the coordinates of the destination
+cell.  The idea here is that the difference between the peg to jump
+over and the peg to jump with should be the same magnitude and sign
+as the difference between the destination cell and the peg to jump
+over.
+<<Peg Jump Check Destination Empty>>=
+    unsigned int src[ <<CubeNameSpace>>::DIMENSIONS ];
+    unsigned int cur[ <<CubeNameSpace>>::DIMENSIONS ];
+
+    <<CubeNameSpace>>::indexToVector( srcSpot, src );
+    <<CubeNameSpace>>::indexToVector( cell, cur );
+
+    unsigned int dst[ <<CubeNameSpace>>::DIMENSIONS ];
+
+    for ( unsigned int ii=0; ii < <<CubeNameSpace>>::DIMENSIONS; ++ii ) {
+	dst[ ii ] = ( cur[ ii ]
+		+ ( <<CubeNameSpace>>::SIDE_LENGTH 
+		    + cur[ ii ] - src[ ii ]
+		)
+	    ) % <<CubeNameSpace>>::SIDE_LENGTH;
+    }
+
+    unsigned int index;
+    <<CubeNameSpace>>::vectorToIndex( dst, &index );
+
+    if ( ( (*this->cube)[ index ] & HOLE ) == 0 ) {
+	return;
+    }
+@
+
+We also have to make sure that the destination cell is
+a legitimate neighbor of the current cell.  This is necessary
+because the calculation doesn't care whether wrapping is turned
+on or not.
+<<Peg Jump Check Destination Is Neighbor>>=
+    found = false;
+
+    for ( unsigned int ii=0; !found && ii < nc; ++ii ) {
+	found = ( nn[ ii ] == index );
+    }
+
+    if ( !found ) {
+	return;
+    }
+@
+
+To actually do the jump, we clear out the selected cell
+and the current cell and put a peg in the destination cell.
+<<Peg Jump Do Jump>>=
+    (*this->cube)[ srcSpot ] = HOLE;
+    (*this->cube)[ cell ] = HOLE;
+    (*this->cube)[ index ] = PEG;
+
+    if ( this->view != 0 ) {
+	this->view->moveNoise();
+	this->view->redraw( srcSpot );
+	this->view->redraw( cell );
+	this->view->redraw( index );
+    }
+
+    --this->pegsRemaining;
+    ++this->stepsTaken;
+@
+
+The game has been won if there is only one peg remaining.
+<<Peg Jump Check Winning>>=
+    if ( !this->hasWon ) {
+	this->hasWon = ( this->pegsRemaining == 1 );
+
+	if ( this->hasWon && this->view != 0 ) {
+	    <<Peg Jump Show Winning>>
+	}
+    }
+@
+
+To display the winning, we simply call the appropriate method
+on the [[View]] class.
+<<Peg Jump Show Winning>>=
+    this->view->showWinning(
+	    this->stepsTaken,
+	    this->stepsTaken
+	);
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[Peg]] class}
+
+In this section, we assemble the [[Peg]] class from the pieces
+in the sections above.
+
+The first thing declared in the [[Peg]] class are the constants
+used to label the contents of the cells.
+<<Peg Class Definition>>=
+    public:
+	<<Peg Constants>>
+@
+
+The next thing declared in the [[Peg]] class
+is the constructor.
+<<Peg Class Definition>>=
+    public:
+	<<Peg Constructor Declaration>>
+@
+
+After that, the reset method, the is-selected method,
+the select method, and the jump method are declared.
+<<Peg Class Definition>>=
+    public:
+	<<Peg Reset Declaration>>
+	<<Peg Check Selected Declaration>>
+	<<Peg Select Declaration>>
+	<<Peg Jump Declaration>>
+@
+
+The data members of the [[Peg]] class all have private scope.
+The data members specify the cube, the number of dimensions, the
+skill level, the wrapping mode, the current location of the selected spot,
+the variables for tracking the winning state, and the pointer to
+the view class if one was given.
+<<Peg Class Definition>>=
+    private:
+	<<Peg Cube>>
+	<<Peg Dimensions>>
+	<<Peg Skill Level>>
+	<<Peg Wrap>>
+	<<Peg Selected Spot>>
+	<<Peg Move Counter>>
+	<<Peg Has Won>>
+	<<Peg View>>
+@
+
+Once these declarations are all done, we throw all of these together
+into the class declaration itself.
+<<Peg Class Declaration>>=
+    class Peg {
+	<<Peg Class Definition>>
+    };
+@ %def Peg
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[peg.h]] file}
+
+In this section, we assemble the header file for the [[Peg]]
+class.  It is really straightforward since we assembled the class
+declaration in the previous section.  The only thing that we add
+to the class declaration is that we tuck it into our own name space
+so that we can keep the global namespace squeaky clean.
+<<peg.h>>=
+    namespace <<NameSpace>> {
+	<<Peg Class Declaration>>
+    };
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The [[peg.cpp]] file}
+
+For the actual C++ source code, we include the header file that
+defines [[assert()]], the header file for [[random()]], the header
+file for the [[SDL]] stuff needed by the [[view.h]] file, the header
+file for the cube, the header for the sound device, the header file
+for the generic view class, the header file for the view class for
+this particular game, the header file for the font class, the header
+file for the peg view class, and the header file generated in the
+previous section.
+<<peg.cpp>>=
+    #include <assert.h>
+    #include <stdlib.h>
+    #include <SDL.h>
+    #include "cube.h"
+    #include "soundDev.h"
+    #include "view.h"
+    #include "font.h"
+    #include "pegView.h"
+    #include "peg.h"
+@
+
+Then, the source file incorporates the implementation of the
+constructor.
+<<peg.cpp>>=
+    <<Peg Constructor Implementation>>
+@
+
+After that, the source file incorporates the implementations of
+the reset method, the is-selected method, the select method, and
+the jump method.
+<<peg.cpp>>=
+    <<Peg Reset Implementation>>
+    <<Peg Check Selected Implementation>>
+    <<Peg Select Implementation>>
+    <<Peg Jump Implementation>>
+@

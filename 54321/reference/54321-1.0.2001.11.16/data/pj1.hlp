@@ -1,0 +1,19 @@
+image help 0 0
+
+text_center 280  48 "The goal of peg jumper is to get"
+text_center 280  72 "rid of as many pegs as possible."
+
+image hole  226  88
+image peg   262  88
+image hole  298  88
+image peg   226 124
+image empty 262 124
+image peg   298 124
+image hole  226 160
+image peg   262 160
+image hole  298 160
+
+image continue 230 490
+button pj2 230 490 100 64
+
+update 0 0 560 560

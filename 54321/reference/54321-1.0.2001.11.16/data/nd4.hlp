@@ -1,0 +1,78 @@
+image help 0 0
+
+text_center 280  48 "When the diagram is extended into three dimensions,"
+text_center 280  72 "we must look differently to see some of the neighbors."
+text_center 280 104 "For example, in this picture, all of the neighbors"
+text_center 280 128 "of the center cell are highlighted."
+
+image off   100 152
+image off   136 152
+image off   172 152
+image off   100 188
+image on    136 188
+image off   172 188
+image off   100 224
+image off   136 224
+image off   172 224
+
+image off   226 152
+image on    262 152
+image off   298 152
+image on    226 188
+image off   262 188
+image on    298 188
+image off   226 224
+image on    262 224
+image off   298 224
+
+image off   352 152
+image off   388 152
+image off   424 152
+image off   352 188
+image on    388 188
+image off   424 188
+image off   352 224
+image off   388 224
+image off   424 224
+
+image pointer 262 188
+
+text_center 280 284 "The neighbors of the cell to its left are"
+text_center 280 310 "are highlighted below."
+
+image off   100 334
+image off   136 334
+image off   172 334
+image on    100 370
+image off   136 370
+image off   172 370
+image off   100 406
+image off   136 406
+image off   172 406
+
+image on    226 334
+image off   262 334
+image off   298 334
+image off   226 370
+image on    262 370
+image off   298 370
+image on    226 406
+image off   262 406
+image off   298 406
+
+image off   352 334
+image off   388 334
+image off   424 334
+image on    352 370
+image off   388 370
+image off   424 370
+image off   352 406
+image off   388 406
+image off   424 406
+
+image pointer 226 370
+
+image continue 230 490
+button nd5 230 490 100 64
+
+update 0 0 560 560

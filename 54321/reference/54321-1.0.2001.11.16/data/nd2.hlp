@@ -1,0 +1,38 @@
+image help 0 0
+
+text_center 280  48 "Things are slightly more complicated when the"
+text_center 280  72 "edges are allowed to wrap."
+text_center 280 104 "Things in the center are unaffected.  All of the neighbors"
+text_center 280 128 "of the center cell are the same as before."
+
+image off   226 152
+image on    262 152
+image off   298 152
+image on    226 188
+image off   262 188
+image on    298 188
+image off   226 224
+image on    262 224
+image off   298 224
+
+image pointer 262 188
+
+text_center 280 284 "In contrast, pieces near the edge have some new neighbors."
+text_center 280 310 "For example, the neighbors of an edge cell are shown below."
+
+image on    226 334
+image off   262 334
+image off   298 334
+image off   226 370
+image on    262 370
+image on    298 370
+image on    226 406
+image off   262 406
+image off   298 406
+
+image pointer 226 370
+
+image continue 230 490
+button nd3 230 490 100 64
+
+update 0 0 560 560

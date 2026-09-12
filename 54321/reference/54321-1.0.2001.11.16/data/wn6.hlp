@@ -1,0 +1,17 @@
+image help 0 0
+
+text_center 280 136 "Wouldn't it be better if you could lay out a chart"
+text_center 280 160 "with the products on one axis, the media on another axis,"
+text_center 280 184 "the seasons on a third axis, and the years on a fourth?"
+
+text_center 280 248 "If you could see this four-dimensional chart all"
+text_center 280 272 "at once, wouldn't that be better than trying"
+text_center 280 296 "to prematurely flatten it down to two-dimensions?"
+
+text_center 280 360 "If you later need to distinguish amongst several"
+text_center 280 384 "sales regions, just add another axis."
+
+image continue 230 490
+button wn7 230 490 100 64
+
+update 0 0 560 560

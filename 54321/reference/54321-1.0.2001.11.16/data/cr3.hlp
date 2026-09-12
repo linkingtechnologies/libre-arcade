@@ -1,0 +1,18 @@
+
+image help 0 0
+
+image _bvfonts 120 48
+image _umlaut  312 48
+
+text_center 280 120 "A special thanks to Jess @ Blue Vinyl Fonts"
+text_center 280 144 "who designed this wonderful font."
+text_center 280 168 "http://www.bvfonts.com/"
+
+text_center 280 200 "And, a special thanks to Jerry who let me"
+text_center 280 224 "bounce ideas off of him on a regular basis."
+text_center 280 248 "http://www.UmlautLlama.com/"
+
+image continue 230 490
+button cr4 230 490 100 64
+
+update 0 0 560 560
