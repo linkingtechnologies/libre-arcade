@@ -1,0 +1,13 @@
+PSY PONG 3D 0.9 upstream archive fingerprints established during the audit
+
+Supplied archive:
+  filename: psypong3d-0.9.tar.gz
+  SHA-256: e3842c4410a2bd45ab1e7d43c16f03682d810ee6ad8094c8c05f6f4f854d75d7
+  MD5:     ea31abc4ca1e4b26c802c62f8a507e31
+
+Historical PLD Source0 cross-check:
+  filename: psypong3d-0.9.tar.bz2
+  MD5:     c0f5891a306dbcfed07e2e513a854362
+
+The TAR stream from the supplied .tar.gz, recompressed as bzip2 during the audit,
+matched the historical PLD Source0 MD5 above.

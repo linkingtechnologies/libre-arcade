@@ -1,0 +1,130 @@
+#
+# This file is part of PSY PONG 3D.
+#
+# Copyright (C) 2008-2009 Quetzy Garcia, <quetzyg@users.sourceforge.net>
+# For news and updates, see <http://psypong3d.sourceforge.net/>
+#
+# PSY PONG 3D is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# PSY PONG 3D is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with PSY PONG 3D.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+
+  This game was created as a Computer Graphics class project at
+  Universidade do Algarve <http://www.ualg.pt/>.
+
+
+  Requirements/dependencies
+  -------------------------
+
+  Besides the GNU tool chain and standard libraries, you also need:
+
+  * freeglut >= 2.4.0 or compatible
+
+
+  Compiling from source
+  ---------------------
+
+  The simplest way to compile this program is:
+
+  'cd' to the directory containing the source code and type 'make'.
+
+
+  Running the game
+  ----------------
+
+  From an X11 terminal emulator, just type './pp3d'
+
+
+  Game rules...
+  -------------
+
+  * The game level will start at 1 (one), and will increase every two seconds.
+  * Everything in the game will be affected by the current level:
+    - Player speed
+    - Ball speed
+    - Camera rotation
+    - CPU player performance (if you play against it)
+  * During the game, the players may swap sides randomly, so watch out!
+  * There's an invisible warp hole when you pass beyond the floor wall, that
+  will transport the player to the opposite side.
+  * The first player to score 5 points wins!
+
+
+  ...are made to be broken!
+  -------------------------
+
+  * The game can start from a different level. To do that, just use the --level
+  command line option, followed by the level you want. You can also stop the
+  game level from increasing, by issuing the --no-inc option.
+  * OK, not everything is affected by the game level. If you wish, you can stop
+  the camera from rotating, using the --no-rot option.
+  * Player warping and swapping, can also be turned off with the --no-warp and
+  --no-swap options respectively.
+  * You can choose to win at a different score. To do that, just use the --limit
+  option, followed by the score limit.
+  * Other game options can also be changed, like enabling full screen mode,
+  changing screen resolution, or setting different floor, player and ball sizes.
+  * Use the --help option to see all the available options.
+
+
+  Example
+  -------
+  * ./pp3d --level 30 --no-inc --fs --resx 1024 --resy 768
+  This will start the game from level 30 without level increase, at a screen
+  resolution of 1024x768 in full screen.
+
+
+  Game keys
+  ---------
+
+  * [F1]      : Start Human Vs. CPU game
+  * [F2]      : Start Human Vs. Human game
+  * [ESC]     : Go to menu/quit game
+  * [Q]       : Player 1 up
+  * [A]       : Player 1 down
+  * [KEY UP]  : Player 2 up
+  * [KEY DOWN]: Player 2 down
+  * [SPACE]   : Pause game
+
+
+  Game textures
+  -------------
+
+  * Menu texture
+    - Made with GIMP Logo creator (Alien Neon)
+
+  * Background texture
+    - http://flickr.com/photos/apophysis_rocks/534994444/
+    - Credits go to Lynn (Gracie's mom)
+
+  * Floor texture
+    - http://www.adobeusersite.com/How-to-use-photoshop-tutorials-to-create-a-bright-light-spiral-circle._94.html
+    - Credits go to AdobeUserSite.com
+
+
+  References
+  ----------
+
+  * Multiple keyboard input handling
+    - Rob Bateman (http://www.robthebloke.org/opengl_examples/gameKeys.zip)
+
+  * Game FPS counter
+    - http://www.oreillynet.com/network/2000/06/23/magazine/cube.c
+
+  * Texture mapping
+    - http://www.gamedev.net/reference/articles/article947.asp
+    - http://www.nullterminator.net/gltexture.html
+
+  * Game camera
+    - http://glprogramming.com/red/chapter03.html#name2
+    - http://www.swiftless.com/tutorials/opengl/camera2.html

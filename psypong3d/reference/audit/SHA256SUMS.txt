@@ -1,0 +1,23 @@
+# SHA-256 checksums of the preserved historical text/source subset from PSY PONG 3D 0.9.
+# Historical BMP media are intentionally excluded; see LEGAL_AUDIT.md.
+d5506051389a1c143ffa508862861078a9dfdc1fcd1b0fbcd033c79e96e267a6  reference/original-source/psypong3d-0.9/CHANGELOG
+8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903  reference/original-source/psypong3d-0.9/LICENSE
+1afa55810e84bfe588176c88cfa5456820d6de6b63db4998046314ddf24b91a1  reference/original-source/psypong3d-0.9/README
+209cb7b8bb90be62dc6e1710769488ae5890950d0d43f4b015aa9162a5cab1f0  reference/original-source/psypong3d-0.9/src/Makefile
+e836cff98e667513722df2e48acfe2bb06483f79eeb211dfcd3ed5d623296c4d  reference/original-source/psypong3d-0.9/src/ball.c
+484fcf09a1e09f224280458b1abde6eb720d51a2f1a0783e1593f91f382bbc30  reference/original-source/psypong3d-0.9/src/ball.h
+7eed084b254f2bb9171f82213374a21770deb23c93faf2c0006f3c8e94553e00  reference/original-source/psypong3d-0.9/src/bmp.c
+40f83d449a08846abd58bc885a416cddfbe99a8bdcae02479e8e01ad50119292  reference/original-source/psypong3d-0.9/src/bmp.h
+e14335cd01717f53982f79349099e4c66a432e9a57eccf9c540d090a941c5134  reference/original-source/psypong3d-0.9/src/camera.c
+f965af6003047a353655a4016ffee8f2152c55c63875bd9eff64824669849917  reference/original-source/psypong3d-0.9/src/camera.h
+3691191fc9a228a1938b1aceba2c99e223113c769bce2e04fbc0a61ac88c20a8  reference/original-source/psypong3d-0.9/src/common.c
+81a616f823c0ec72385eb0d1a46d858edc7e069f6059890db4ff68357e89f86d  reference/original-source/psypong3d-0.9/src/common.h
+233bc9a8bec47f204b1c8c320bf247bd29e589ce86a1cdd848a26351d934ece1  reference/original-source/psypong3d-0.9/src/floor.c
+bb86f40b9385cfda05bddd38906460a85b525e3c855afa38c440c0aa5cedca19  reference/original-source/psypong3d-0.9/src/floor.h
+39b92c6eafa8531dece8fea6ba9e7f0bd0edd83ca961040739d90a3aaa9ff881  reference/original-source/psypong3d-0.9/src/game.c
+acc1d600b7ff76c8e36c1054d9196756e10fc8f4f04eaa6bb39a25a7d9a728d3  reference/original-source/psypong3d-0.9/src/game.h
+deeeec607c045dd5a1ea991a44c6dd234b8b9f93865d310b2e09ebeccec07dbb  reference/original-source/psypong3d-0.9/src/keyboard.c
+24046f56e7a53497ec112db180656e5faf1874b07bfcf09e879d2b7ceb6b628b  reference/original-source/psypong3d-0.9/src/keyboard.h
+9a59c5beeedbf46d7ce8cb85b417413fe164e876dc84fc5fff81afbef92f3e93  reference/original-source/psypong3d-0.9/src/main.c
+54bee8ca51583c1baf5c4ad28debb23fb26a360adcf6376cf0e52cdcef3a07c5  reference/original-source/psypong3d-0.9/src/player.c
+971954ce033e82f9b5012bebba14f5adcefd421210ad8d0096cb7d55ee9ae7dc  reference/original-source/psypong3d-0.9/src/player.h

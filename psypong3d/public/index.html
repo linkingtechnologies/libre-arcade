@@ -1,0 +1,82 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050817">
+  <meta name="description" content="PSY PONG 3D — restored browser edition of the 2009 open-source 3D Pong game, with newly created replacement artwork.">
+  <title>PSY PONG 3D</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="shell">
+  <canvas id="game" aria-label="PSY PONG 3D"></canvas>
+  <header id="hud"><span id="score1"></span><span id="level"></span><span id="score2"></span></header>
+  <div id="status" aria-live="polite"></div>
+
+  <nav id="gamebar" aria-label="Game controls">
+    <button id="pause" type="button" data-i18n="pause">PAUSE</button>
+    <button id="menuBtn" type="button" data-i18n="menu">MENU</button>
+  </nav>
+
+  <section id="menu" class="panel" aria-labelledby="title">
+    <h1 id="title">PSY PONG 3D</h1>
+    <div class="version">VERSION 0.9</div>
+    <button id="one" type="button" data-i18n="one"></button>
+    <button id="two" type="button" data-i18n="two"></button>
+    <button id="how" type="button" data-i18n="how"></button>
+    <button id="options" type="button" data-i18n="settings"></button>
+    <button id="about" type="button" data-i18n="about"></button>
+    <button id="lang" type="button" class="small">IT</button>
+  </section>
+
+  <section id="how-panel" class="panel hidden" aria-labelledby="how-title">
+    <h2 id="how-title" data-i18n="how"></h2>
+    <div class="copy">
+      <p data-i18n="howGoal"></p>
+      <p data-i18n="howSingle"></p>
+      <p data-i18n="howControls"></p>
+      <p data-i18n="howEvents"></p>
+      <p data-i18n="howPace"></p>
+    </div>
+    <button type="button" data-back data-i18n="back"></button>
+  </section>
+
+  <section id="options-panel" class="panel hidden" aria-labelledby="options-title">
+    <h2 id="options-title" data-i18n="settings"></h2>
+    <div class="opts">
+      <label><input id="opt-warp" type="checkbox"><span data-i18n="warp"></span></label>
+      <label><input id="opt-swap" type="checkbox"><span data-i18n="swap"></span></label>
+      <label><input id="opt-rotate" type="checkbox"><span data-i18n="rotate"></span></label>
+      <label><input id="opt-reset" type="checkbox"><span data-i18n="reset"></span></label>
+      <label><input id="opt-inc" type="checkbox"><span data-i18n="inc"></span></label>
+      <label><span data-i18n="startLevel"></span><input id="opt-level" type="number" min="1" max="256" inputmode="numeric"></label>
+      <label><span data-i18n="scoreLimit"></span><input id="opt-limit" type="number" min="1" max="32" inputmode="numeric"></label>
+    </div>
+    <button id="apply" type="button" data-i18n="apply"></button>
+    <button id="defaults" type="button" data-i18n="defaults"></button>
+    <button type="button" data-back data-i18n="back"></button>
+  </section>
+
+  <section id="about-panel" class="panel hidden" aria-labelledby="about-title">
+    <h2 id="about-title" data-i18n="about"></h2>
+    <div class="copy"><p data-i18n="aboutText"></p></div>
+    <button type="button" data-back data-i18n="back"></button>
+  </section>
+
+  <section id="webgl-panel" class="panel hidden" role="alert" aria-labelledby="webgl-title">
+    <h2 id="webgl-title" data-i18n="webglTitle"></h2>
+    <div class="copy"><p data-i18n="webglText"></p></div>
+    <button id="reload" type="button" data-i18n="reload"></button>
+  </section>
+
+  <div id="touch" aria-label="Touch controls">
+    <div class="p1controls"><button type="button" data-input="p1Up" aria-label="Player 1 up">▲</button><button type="button" data-input="p1Down" aria-label="Player 1 down">▼</button></div>
+    <div class="p2controls"><button type="button" data-input="p2Up" aria-label="Player 2 up">▲</button><button type="button" data-input="p2Down" aria-label="Player 2 down">▼</button></div>
+  </div>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

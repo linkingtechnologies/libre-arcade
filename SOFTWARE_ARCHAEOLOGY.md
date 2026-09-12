@@ -68,6 +68,7 @@ original with an executable oracle or a benchmark:
 - [`for-science/SOFTWARE_ARCHAEOLOGY.md`](for-science/SOFTWARE_ARCHAEOLOGY.md)
 - [`54321/SOFTWARE_ARCHAEOLOGY.md`](54321/SOFTWARE_ARCHAEOLOGY.md)
 - [`donkey-bolonkey/SOFTWARE_ARCHAEOLOGY.md`](donkey-bolonkey/SOFTWARE_ARCHAEOLOGY.md)
+- [`psypong3d/SOFTWARE_ARCHAEOLOGY.md`](psypong3d/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already
