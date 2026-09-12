@@ -1,0 +1,39 @@
+*{box-sizing:border-box}
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#0d1114;color:#f3f3f0}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0d1114;color:#f3f3f0}
+body{height:100dvh;min-height:0;overscroll-behavior:none}
+button{font:inherit;color:inherit;background:#273039;border:1px solid #48535d;border-radius:.65rem;padding:.55rem .72rem;min-height:2.55rem;cursor:pointer;touch-action:manipulation}
+button:hover:not(:disabled),button:focus-visible{background:#35414b;outline:2px solid #e7dc9c;outline-offset:2px}
+button:disabled{opacity:.45;cursor:default}
+button[aria-pressed="false"]{opacity:.72}
+[hidden]{display:none!important}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.app{width:min(980px,100%);height:100dvh;min-height:0;margin:0 auto;padding:clamp(.55rem,1.8vw,1rem);padding-top:max(clamp(.55rem,1.8vw,1rem),env(safe-area-inset-top));padding-right:max(clamp(.55rem,1.8vw,1rem),env(safe-area-inset-right));padding-left:max(clamp(.55rem,1.8vw,1rem),env(safe-area-inset-left));display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(.45rem,1.4vh,.8rem);overflow:hidden}
+.topbar{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:.8rem;min-width:0}
+.brand{min-width:max-content}.brand h1{margin:0;font-size:clamp(1.2rem,3.5vw,1.9rem);line-height:1.05}.brand p{margin:.2rem 0 0;color:#aeb6bd;font-size:clamp(.72rem,1.8vw,.9rem);white-space:nowrap}
+.menu{display:flex;justify-content:flex-end;gap:.4rem;flex-wrap:wrap;min-width:0}.menu button{font-size:.88rem;padding:.48rem .65rem}
+.stage{display:grid;place-items:center;min-width:0;min-height:0;overflow:hidden}
+canvas{display:block;width:320px;height:240px;max-width:100%;max-height:100%;aspect-ratio:4/3;background:#222;border:1px solid #4b565f;border-radius:.55rem;image-rendering:auto;box-shadow:0 .8rem 2.4rem rgba(0,0,0,.32);touch-action:manipulation;outline:none}
+canvas:focus-visible{border-color:#e7dc9c;box-shadow:0 0 0 2px #e7dc9c,0 .8rem 2.4rem rgba(0,0,0,.32)}
+.control-dock{min-height:0;padding-bottom:env(safe-area-inset-bottom)}.touch-controls{display:flex;align-items:center;justify-content:center;gap:.75rem}
+.touch-controls button{min-height:3rem}.name-entry{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem}.name-entry label{font-size:.9rem;color:#c8d0d4}.name-entry input{width:min(16rem,55vw);min-width:0;min-height:2.55rem;border:1px solid #59636a;border-radius:.55rem;background:#10171b;color:#fff;font:inherit;padding:.5rem .65rem}.name-entry input:focus{outline:2px solid #e7dc9c;outline-offset:2px}.circle{min-width:3rem;border-radius:50%;font-size:1.05rem}.swap{min-width:8.5rem;font-weight:700}
+dialog{width:min(36rem,calc(100% - 1.25rem));max-height:min(80dvh,42rem);overflow:auto;border:1px solid #59636a;border-radius:.8rem;background:#171d21;color:inherit;padding:1.1rem;box-shadow:0 1rem 3rem rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(0,0,0,.72)}dialog h2{margin:0 0 .7rem;font-size:1.35rem}dialog h3{margin:1rem 0 .4rem;font-size:1rem}dialog p{line-height:1.45}dialog ul{margin:.5rem 0;padding-left:1.25rem;line-height:1.55}.dialog-content{min-width:0}.dialog-note{color:#b9c4ca;font-size:.92rem}dialog form{display:flex;justify-content:flex-end;margin-top:1rem}
+@media(max-width:760px){
+  .app{gap:.45rem}
+  .topbar{grid-template-columns:1fr;gap:.45rem}
+  .brand{display:flex;align-items:baseline;justify-content:space-between;gap:.65rem;min-width:0}.brand p{overflow:hidden;text-overflow:ellipsis}
+  .menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.35rem}.menu button{min-width:0;padding:.42rem .35rem;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media(max-width:430px){
+  .brand p{display:none}.brand h1{font-size:1.25rem}
+  .menu button{min-height:2.3rem;font-size:.74rem}
+  .touch-controls button{min-height:2.8rem}.swap{min-width:7.7rem}
+}
+@media(max-height:560px) and (orientation:landscape){
+  .app{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto minmax(0,1fr);gap:.4rem}
+  .topbar{grid-column:1/-1;grid-template-columns:auto minmax(0,1fr)}
+  .brand p{display:none}.menu{display:flex;flex-wrap:nowrap}.menu button{min-height:2.2rem;font-size:.72rem;padding:.34rem .5rem}
+  .control-dock{grid-column:2;grid-row:2;align-self:center;padding:0 env(safe-area-inset-right) 0 0}.touch-controls{flex-direction:column;gap:.45rem}.name-entry{flex-direction:column;max-width:8rem}.name-entry label{display:none}.name-entry input{width:7rem;min-height:2.4rem}.name-entry button{min-height:2.4rem}.touch-controls button{min-height:2.6rem}.circle{min-width:2.6rem}.swap{min-width:5.8rem}
+}
+@media(prefers-reduced-motion:reduce){button{scroll-behavior:auto}}

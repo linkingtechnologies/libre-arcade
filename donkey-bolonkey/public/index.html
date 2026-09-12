@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#161b1f">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Donkey Bolonkey, a colourful puzzle game by David A. Capello.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="application-name" content="Donkey Bolonkey">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Donkey Bolonkey</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <h1 id="title">Donkey Bolonkey</h1>
+        <p id="subtitle">Colour-matching puzzle</p>
+      </div>
+      <nav class="menu" aria-label="Game menu">
+        <button id="new-game" type="button">New game</button>
+        <button id="pause" type="button">Pause</button>
+        <button id="instructions-open" type="button">How to play</button>
+        <button id="language" type="button">Italiano</button>
+        <button id="sound" type="button" aria-pressed="true">Sound: on</button>
+        <button id="about-open" type="button">About</button>
+      </nav>
+    </header>
+
+    <section class="stage" aria-label="Game area">
+      <canvas id="game" width="320" height="240" tabindex="0" aria-label="Donkey Bolonkey game screen" aria-describedby="game-help"></canvas>
+      <p id="game-help" class="sr-only">Use the game controls or keyboard. Open How to play for full instructions.</p>
+      <p id="screen-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <div class="control-dock">
+      <section id="touch-controls" class="touch-controls" aria-label="Game controls" hidden>
+        <button id="prev" class="circle" type="button" aria-label="Previous bubble">◀</button>
+        <button id="swap" class="swap" type="button">Swap</button>
+        <button id="next" class="circle" type="button" aria-label="Next bubble">▶</button>
+      </section>
+      <form id="name-entry" class="name-entry" hidden>
+        <label id="name-label" for="player-name">Name</label>
+        <input id="player-name" type="text" maxlength="22" autocomplete="nickname" autocapitalize="words" spellcheck="false">
+        <button id="name-save" type="submit">Save</button>
+      </form>
+    </div>
+  </main>
+
+  <dialog id="instructions" aria-labelledby="instructions-title">
+    <div class="dialog-content">
+      <h2 id="instructions-title">How to play</h2>
+      <p id="instructions-goal"></p>
+      <h3 id="instructions-controls-title">Controls</h3>
+      <ul id="instructions-list"></ul>
+      <p id="instructions-tip" class="dialog-note"></p>
+    </div>
+    <form method="dialog"><button id="instructions-close">Close</button></form>
+  </dialog>
+
+  <dialog id="about" aria-labelledby="about-title">
+    <div class="dialog-content">
+      <h2 id="about-title">About</h2>
+      <p id="about-body"></p>
+      <p id="about-credit" class="dialog-note"></p>
+    </div>
+    <form method="dialog"><button id="about-close">Close</button></form>
+  </dialog>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

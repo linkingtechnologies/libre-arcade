@@ -37,6 +37,7 @@ safe embedding, but otherwise left exactly as its authors built it.
 | [`naval-battle/`](naval-battle/) | Grugnetto's Naval Battle (BattleLab) | *Ported.* Historical Battleship AIs — Warboats 0.51 (2009, GPL-2.0-or-later) and a binary/debug reconstruction of Bataille Navale OS4 (2009, GPLv3) — behind a simplified five-difficulty player UI. Gnome Batalla Naval was evaluated and rejected as GPLv3-incompatible (GPL-2.0-only evidence); see `specs/candidates.md`. |
 | [`for-science/`](for-science/) | For Science! | *Ported.* [For Science!](https://www.usebox.net/jjm/for-science/) (Juan J. Martínez, PyWeek 16, 2013, GPL-3.0-or-later) — a turn-based match-3 duel, ported from Python/Cocos2d/Pyglet with a Python 2.7 deterministic oracle and a 1000-seed AI stress run verifying the original AI's move/attack heuristics. |
 | [`54321/`](54321/) | 54321 | *Ported.* [54321](http://www.nklein.com/products/54321) (Patrick Stein / nklein software, 2001 1 MB SDL Game Programming Contest) — five n-dimensional puzzle games (Flip-Flop, Bomb Squad, Maze Runner, Peg Jumper, Tile Slider) sharing one 2D/3D/4D topology engine, in HTML5 Canvas 2D. Original material carries nklein's own historical `LicenseRef-NKlein-Universal-NonExclusive` grant, not GPL; see `54321/PROVENANCE.md`. |
+| [`donkey-bolonkey/`](donkey-bolonkey/) | Donkey Bolonkey | *Ported.* [Donkey Bolonkey](http://www.davidcapello.com.ar/) (David A. Capello, SpeedHack 2001, GPL-2.0-or-later) — a color-matching puzzle with six historical levels, ported from C/Allegro. Original audio/graphics datafile has unclear media provenance and is intentionally excluded; the browser runtime uses procedural graphics and synthesized Web Audio instead. |
 | [`grugnetto-go/`](grugnetto-go/) | Grugnetto Go! | *Built here.* An original platformer for this collection (melonJS + lit-html), not a restoration. |
 
 Each project's own `README.md` covers how to run it, test it, and where its
@@ -75,6 +76,7 @@ the full authorship and third-party library/font breakdown.
 | Bataille Navale OS4 (2009) | billux13 (concept/code), Hugues Nouvel "HunoPPC" (AmigaOS4 port) | GPLv3 | `naval-battle/` — binary/debug reconstruction, no original C source recovered |
 | [For Science!](https://www.usebox.net/jjm/for-science/) (PyWeek 16, 2013) | Juan J. Martínez | GPL-3.0-or-later | `for-science/` |
 | [54321](http://www.nklein.com/products/54321) (2001) | Patrick Stein / nklein software | `LicenseRef-NKlein-Universal-NonExclusive` | `54321/` — original material only; the JS port itself is GPL-3.0-or-later |
+| Donkey Bolonkey (SpeedHack 2001) | David A. Capello | GPL-2.0-or-later | `donkey-bolonkey/` — the JS port exercises the "or later" grant and is GPL-3.0-or-later; original media datafile not redistributed |
 
 `grugnetto-go/` is built for this collection, not a restoration; the
 third-party libraries and CC0/CC-licensed art it uses are itemized in its own

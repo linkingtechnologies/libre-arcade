@@ -1,0 +1,45 @@
+# Historical binary/media package: quarantined for unclear provenance, never published.
+# See specs/ASSET_AUDIT.md.
+reference/archive/*.tar.gz
+reference/dkbk/dkbk.dat
+
+# Dependencies
+/node_modules/
+
+# Generated build output
+/game/
+/release/
+
+# Tests and coverage
+/coverage/
+/.nyc_output/
+
+# Tool caches
+/.cache/
+.eslintcache
+
+# Local environment and secret files
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editors
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local Claude Code session/runtime metadata
+.claude/

@@ -1,0 +1,18 @@
+[
+  {"tick":0,"moveTime":600,"addTime":5,"banner":[0,-1,4],"donkeys":[],"counter":16,"score":0,"gameOver":false},
+  {"tick":1,"moveTime":0,"addTime":0,"banner":[1,-1,4],"donkeys":[[0,2,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":38,"moveTime":0,"addTime":1,"banner":[38,-1,4],"donkeys":[[0,1,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":75,"moveTime":0,"addTime":2,"banner":[75,-1,4],"donkeys":[[1,1,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":112,"moveTime":0,"addTime":3,"banner":[112,-1,4],"donkeys":[[2,1,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":149,"moveTime":0,"addTime":4,"banner":[149,-1,4],"donkeys":[[3,1,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":186,"moveTime":0,"addTime":5,"banner":[186,-1,4],"donkeys":[[3,2,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":223,"moveTime":0,"addTime":0,"banner":[223,-1,4],"donkeys":[[0,2,1],[4,2,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":260,"moveTime":0,"addTime":1,"banner":[260,-1,4],"donkeys":[[0,1,1],[5,2,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":297,"moveTime":0,"addTime":2,"banner":[297,-1,4],"donkeys":[[1,1,1],[6,2,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":334,"moveTime":0,"addTime":3,"banner":[334,-1,4],"donkeys":[[2,1,1],[7,2,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":361,"moveTime":27,"addTime":3,"banner":[0,0,0],"donkeys":[[2,1,1],[7,2,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":421,"moveTime":13,"addTime":5,"banner":[60,60,0],"donkeys":[[3,2,1],[9,2,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":481,"moveTime":36,"addTime":0,"banner":[120,120,0],"donkeys":[[0,2,1],[4,2,1],[9,3,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":511,"moveTime":29,"addTime":1,"banner":[150,150,0],"donkeys":[[0,1,1],[5,2,1],[9,4,1]],"counter":16,"score":0,"gameOver":false},
+  {"tick":512,"moveTime":30,"addTime":1,"banner":[151,-1,0],"donkeys":[[0,1,1],[5,2,1],[9,4,1]],"counter":16,"score":0,"gameOver":false}
+]
