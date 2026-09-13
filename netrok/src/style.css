@@ -12,9 +12,8 @@ button, select { color: inherit; }
 button { cursor: pointer; }
 .app { width: min(1100px, 100%); margin: 0 auto; padding: clamp(10px, 2.5vw, 24px); }
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
-.brand { display: flex; align-items: baseline; gap: 8px; letter-spacing: .02em; }
+.brand { display: flex; align-items: baseline; letter-spacing: .02em; }
 .brand strong { font-size: clamp(1.25rem, 4vw, 1.75rem); }
-.brand span { color: #9b9b9b; font-size: .85rem; }
 .menuButton, .iconButton, .menuActions button, .menuNav button {
   border: 1px solid #575b62; background: #1a1c20; border-radius: 8px; min-height: 44px; padding: 9px 14px;
 }

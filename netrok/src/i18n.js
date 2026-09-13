@@ -5,7 +5,7 @@
   const autoLanguage = () => ((navigator.language || 'en').toLowerCase().startsWith('it') ? 'it' : 'en');
   const STRINGS = {
     en: {
-      'brand.edition':'Web Edition','common.menu':'Menu','common.game':'Game','common.options':'Options','common.cheats':'Cheats','common.extras':'Extras','common.instructions':'Instructions','common.about':'About',
+      'common.menu':'Menu','common.game':'Game','common.options':'Options','common.cheats':'Cheats','common.extras':'Extras','common.instructions':'Instructions','common.about':'About',
       'common.loading':'Loading…','common.loading_netrok':'Loading Netrok…','common.retry':'Retry','common.ready':'Ready','common.saved_ready':'Ready · saved game available',
       'common.run':'RUN','common.jump':'JUMP','common.flag':'FLAG','common.run_aria':'Run','common.jump_aria':'Jump','common.flag_aria':'Place checkpoint flag','common.shield':'Shield','common.close_menu':'Close menu',
       'common.up':'Up','common.down':'Down','common.left':'Left','common.right':'Right','common.touch_controls':'Touch game controls','common.game_canvas':'Netrok game canvas','common.game_area':'Netrok game',
@@ -40,7 +40,7 @@
       'editor.ready':'Ready. Level 1 loaded as a copy.','editor.asset_fail':'Editor could not load required images: {message}'
     },
     it: {
-      'brand.edition':'Edizione Web','common.menu':'Menu','common.game':'Gioco','common.options':'Opzioni','common.cheats':'Trucchi','common.extras':'Extra','common.instructions':'Istruzioni','common.about':'Informazioni',
+      'common.menu':'Menu','common.game':'Gioco','common.options':'Opzioni','common.cheats':'Trucchi','common.extras':'Extra','common.instructions':'Istruzioni','common.about':'Informazioni',
       'common.loading':'Caricamento…','common.loading_netrok':'Caricamento di Netrok…','common.retry':'Riprova','common.ready':'Pronto','common.saved_ready':'Pronto · partita salvata disponibile',
       'common.run':'CORRI','common.jump':'SALTA','common.flag':'BANDIERA','common.run_aria':'Corri','common.jump_aria':'Salta','common.flag_aria':'Posiziona bandiera checkpoint','common.shield':'Scudo','common.close_menu':'Chiudi menu',
       'common.up':'Su','common.down':'Giù','common.left':'Sinistra','common.right':'Destra','common.touch_controls':'Comandi touch','common.game_canvas':'Area di gioco Netrok','common.game_area':'Gioco Netrok',
