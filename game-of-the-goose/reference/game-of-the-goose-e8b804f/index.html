@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/index.css" />
+
+        <title>Game of the Goose</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Game of the Goose</h1>
+
+            <div class="input-section">
+                <div>
+                    <label for="player-name">Player name:</label>
+                    <input type="text" id="player-name" name="player-name" placeholder="Enter your name" />
+                </div>
+
+                <div>
+                    <label for="match-id">Custom match ID:</label>
+                    <input type="text" id="match-id" name="match-id" placeholder="(Optional) match ID" />
+                </div>
+            </div>
+
+            <div class="main-buttons">
+                <button id="join-match-button" class="button" disabled>Join match</button>
+                <button id="new-match-button" class="button">New match</button>
+            </div>
+        </div>
+
+        <script src="./src/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{
+    "name": "game-of-the-goose",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "start": "parcel *.html --open",
+        "serve": "node -r esm src/server.js",
+        "build": "parcel build *.html --out-dir build --no-source-maps",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "browserslist": "defaults and supports async-functions",
+    "keywords": [],
+    "author": "Robert Riesebos",
+    "license": "ISC",
+    "dependencies": {
+        "boardgame.io": "^0.47.1",
+        "confetti-js": "0.0.18",
+        "esm": "^3.2.25",
+        "koa-static": "^5.0.0",
+        "src": "^1.1.2"
+    },
+    "devDependencies": {
+        "parcel-bundler": "^1.12.5"
+    }
+}

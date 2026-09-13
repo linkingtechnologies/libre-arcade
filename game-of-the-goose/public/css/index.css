@@ -1,0 +1,19 @@
+.home-container {
+    text-align: center;
+}
+
+.home-intro {
+    max-width: 34em;
+    margin: 0.5em auto 1.75em;
+    line-height: 1.5;
+}
+
+.main-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.primary-link {
+    display: inline-block;
+    text-decoration: none;
+}

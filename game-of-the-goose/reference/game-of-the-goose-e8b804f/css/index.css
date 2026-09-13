@@ -1,0 +1,22 @@
+#player-name {
+    margin-bottom: 0.8em;
+}
+
+.button {
+    margin: 0;
+}
+
+.main-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    gap: 1.2em;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 750px) {
+    .main-buttons {
+        flex-direction: row;
+        margin-top: 0;
+        gap: 2em;
+    }
+}

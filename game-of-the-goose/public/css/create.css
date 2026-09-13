@@ -1,0 +1,51 @@
+#ruleset-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8em;
+}
+
+select {
+    margin: 0;
+}
+
+.info-icon {
+    position: relative;
+    display: inline-block;
+    align-self: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+    fill: #777;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.info-icon:hover,
+.info-icon:focus {
+    fill: black;
+}
+
+.ruleset-hint {
+    margin: -0.25em 0 0.8em;
+    font-size: 0.8em;
+    line-height: 1.35;
+    opacity: 0.75;
+}
+
+.player-name-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65em;
+}
+
+.player-name-inputs input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+@media screen and (max-width: 620px) {
+    .player-name-inputs {
+        grid-template-columns: 1fr;
+    }
+}

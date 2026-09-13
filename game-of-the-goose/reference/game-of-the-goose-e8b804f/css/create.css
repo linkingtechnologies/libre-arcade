@@ -1,0 +1,26 @@
+#ruleset-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8em;
+}
+
+select {
+    margin: 0;
+}
+
+.info-icon {
+    position: relative;
+    display: inline-block;
+    align-self: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+    fill: #777;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.info-icon:hover,
+.info-icon:focus {
+    fill: black;
+}
