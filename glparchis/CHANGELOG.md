@@ -17,6 +17,29 @@
   `no-useless-escape` findings from unnecessary `\"` escapes inside regex
   character classes) — no behavior change. No gameplay, rules or AI content
   changed.
+- Improved turn clarity and pacing based on play-testing feedback: the
+  current player's name and Human/Computer status are now shown in a large
+  color-matched badge (`#activeColor`) instead of a thin 8px color strip,
+  the current player's row in the sidebar is tinted with their own color
+  instead of a subtle gray outline, and the badge pulses while it's a human
+  player's turn to act. AI turns are slower and easier to follow: each
+  step now waits 850ms (up from 260ms), with an extra pause (1300ms) the
+  moment the turn actually hands off to a new player, so a turn change
+  registers before the next dice roll happens. Also shrank the oversized
+  `<h1>glParchis</h1>` title and tightened the header, reclaiming vertical
+  space for the board on shorter viewports. No gameplay, rules or AI
+  content changed.
+- Removed an unintended vertical scrollbar on the setup screen. The cause
+  was two separate CSS oversights: every `h1`/`h2`/`h3`/`p` only ever had
+  its `margin-top` reset to 0, so each element's default browser
+  `margin-bottom` (up to ~20px) was silently stacking up the setup panel;
+  and the topbar's language `<label>` stacked its "Lingua" text above the
+  `<select>` (70px tall) instead of sitting beside it. Fixed the margin
+  reset globally and made the language control a single inline row.
+  Verified with no scrollbar down to a 1024×650 viewport. Also boosted the
+  Web Audio sound-effect gains (previously 0.018–0.04, now 0.05–0.1) after
+  they turned out to be inaudible at normal speaker volume — same
+  clean-room oscillator cues, just louder.
 
 ## 0.5.0 — Phase 5, production-ready static build
 

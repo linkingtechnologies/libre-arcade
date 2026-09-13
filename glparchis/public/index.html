@@ -10,7 +10,7 @@
 </head>
 <body>
   <header class="topbar">
-    <div>
+    <div class="brand">
       <h1>glParchis</h1>
       <p id="subtitle">Il classico Parchís</p>
     </div>
@@ -68,7 +68,10 @@
 
       <aside class="side-column">
         <section class="panel control-panel">
-          <div id="activeColor" class="active-color"></div>
+          <div id="activeColor" class="active-color">
+            <span id="activeColorName" class="active-color-name"></span>
+            <span id="activeColorKind" class="active-color-kind"></span>
+          </div>
           <div id="die" class="die" aria-live="polite">–</div>
           <button id="roll" class="primary big" type="button">Tira il dado</button>
           <div id="moveChoices" class="move-choices"></div>

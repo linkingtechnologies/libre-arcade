@@ -29,6 +29,7 @@ let game = null;
 let actionToken = 0;
 let pawnHitboxes = [];
 let eventCursor = 0;
+let lastDrivenPlayerId = null;
 
 function t(key){ return TXT[lang][key] ?? key; }
 function freshSeed(){
@@ -38,6 +39,7 @@ function freshSeed(){
   return (Date.now() ^ Math.floor(Math.random()*0xffffffff)) >>> 0 || 1;
 }
 function cssColor(c, alpha=1){ return `rgba(${c.rgb[0]},${c.rgb[1]},${c.rgb[2]},${alpha})`; }
+function contrastText(rgb){ const lum=(0.299*rgb[0]+0.587*rgb[1]+0.114*rgb[2])/255; return lum>0.6 ? '#20201c' : '#fff'; }
 
 function applyLanguage(){
   document.documentElement.lang = lang;
@@ -85,6 +87,7 @@ function startNewGame(){
   if(players.filter(p=>p.plays).length<2){ $('setupError').textContent=t('needPlayers'); return; }
   $('setupError').textContent='';
   actionToken++;
+  lastDrivenPlayerId=null;
   game=new GlParchisGame({maxPlayers:Number($('maxPlayers').value),difficulty:Number($('difficulty').value),seed:freshSeed(),players});
   eventCursor=game.events.length;
   audio.unlock();
@@ -98,7 +101,7 @@ function saveGame(){ if(!game)return; storageSet(SAVE_KEY,JSON.stringify(game.sn
 function resumeGame(){
   audio.unlock();
   const raw=storageGet(SAVE_KEY); if(!raw){$('setupError').textContent=t('noSave');return;}
-  try { game=GlParchisGame.fromSnapshot(JSON.parse(raw)); actionToken++; eventCursor=game.events.length; $('setup').classList.add('hidden'); $('game').classList.remove('hidden'); renderAll(); driveTurn(); }
+  try { game=GlParchisGame.fromSnapshot(JSON.parse(raw)); actionToken++; lastDrivenPlayerId=null; eventCursor=game.events.length; $('setup').classList.add('hidden'); $('game').classList.remove('hidden'); renderAll(); driveTurn(); }
   catch(err){ $('setupError').textContent=String(err.message||err); }
 }
 function updateResume(){ $('resumeGame').disabled=!storageGet(SAVE_KEY); }
@@ -112,14 +115,19 @@ function maybeAutoUnique(){
   const token=actionToken; setTimeout(()=>{ if(token!==actionToken||!game||game.state!=='await-move'||game.player().ai)return; const now=game.legalMoves(); if(now.length===1){game.movePawn(now[0].pawn.id);renderAll();driveTurn();}},180);
 }
 
+const AI_STEP_DELAY = 850;
+const AI_TURN_CHANGE_DELAY = 1300;
+
 function driveTurn(){
   if(!game || game.state==='finished')return;
-  if(!game.player().ai){ maybeAutoUnique(); return; }
+  if(!game.player().ai){ lastDrivenPlayerId=game.currentPlayerId; maybeAutoUnique(); return; }
+  const isNewTurn = game.currentPlayerId!==lastDrivenPlayerId;
+  lastDrivenPlayerId=game.currentPlayerId;
   const token=actionToken;
   setTimeout(()=>{
     if(token!==actionToken||!game||game.state==='finished'||!game.player().ai)return;
     game.aiStep(); renderAll(); driveTurn();
-  },260);
+  },isNewTurn ? AI_TURN_CHANGE_DELAY : AI_STEP_DELAY);
 }
 
 function renderAll(){
@@ -168,7 +176,12 @@ function playNewSounds(){
 }
 
 function renderStatus(){
-  const p=game.player(); $('activeColor').style.background=cssColor(p.color);
+  const p=game.player();
+  $('activeColor').style.background=cssColor(p.color);
+  $('activeColor').style.color=contrastText(p.color.rgb);
+  $('activeColorName').textContent=p.name;
+  $('activeColorKind').textContent=p.ai ? t('cpu') : t('human');
+  $('activeColor').classList.toggle('your-turn', game.state!=='finished' && !p.ai);
   const last=game.lastRoll(); $('die').textContent=DICE[last??0];
   let detail='';
   if(game.state==='finished') detail=`${game.player(game.winnerId).name} ${t('winner')}`;
@@ -188,7 +201,9 @@ function renderPlayers(){
   const box=$('playersStatus'); box.innerHTML='';
   game.activePlayers().forEach(p=>{
     const pawns=game.pawnsOf(p.id); const home=pawns.filter(x=>game.isHome(x)).length; const goal=pawns.filter(x=>game.isGoal(x)).length;
-    const card=document.createElement('div'); card.className='player-card'+(p.id===game.currentPlayerId?' current':'');
+    const isCurrent=p.id===game.currentPlayerId;
+    const card=document.createElement('div'); card.className='player-card'+(isCurrent?' current':'');
+    if(isCurrent){ card.style.background=cssColor(p.color,.14); card.style.borderColor=cssColor(p.color,.7); }
     card.innerHTML=`<div class="player-color" style="background:${cssColor(p.color)}"></div><div><strong>${escapeHtml(p.name)}</strong><small>${p.ai?t('cpu'):t('human')} · ${t('home')}: ${home} · ${t('goal')}: ${goal}</small></div>`;
     box.append(card);
   });

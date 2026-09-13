@@ -57,21 +57,21 @@ export class GameAudio {
   playUnlocked(kind) {
     if (!this.enabled || !this.ctx || this.ctx.state !== 'running') return;
     if (kind === 'roll') {
-      this.tone(180, .035, 0, .025, 'square');
-      this.tone(240, .035, .045, .02, 'square');
+      this.tone(180, .035, 0, .07, 'square');
+      this.tone(240, .035, .045, .055, 'square');
     } else if (kind === 'move') {
-      this.tone(360, .04, 0, .018, 'sine');
+      this.tone(360, .04, 0, .05, 'sine');
     } else if (kind === 'capture') {
-      this.tone(520, .08, 0, .035, 'triangle');
-      this.tone(260, .12, .07, .035, 'triangle');
+      this.tone(520, .08, 0, .09, 'triangle');
+      this.tone(260, .12, .07, .09, 'triangle');
     } else if (kind === 'goal') {
-      this.tone(440, .08, 0, .035, 'sine');
-      this.tone(660, .10, .07, .035, 'sine');
+      this.tone(440, .08, 0, .09, 'sine');
+      this.tone(660, .10, .07, .09, 'sine');
     } else if (kind === 'penalty') {
-      this.tone(180, .15, 0, .04, 'sawtooth');
-      this.tone(130, .16, .12, .035, 'sawtooth');
+      this.tone(180, .15, 0, .1, 'sawtooth');
+      this.tone(130, .16, .12, .09, 'sawtooth');
     } else if (kind === 'win') {
-      [523, 659, 784, 1047].forEach((f, i) => this.tone(f, .16, i * .09, .04, 'triangle'));
+      [523, 659, 784, 1047].forEach((f, i) => this.tone(f, .16, i * .09, .1, 'triangle'));
     }
   }
 }
