@@ -1,0 +1,141 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+0003baa8 <Train::removeGroupedCarriages()>:
+   3baa8: e92d4ff0     	push	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+   3baac: e2802004     	add	r2, r0, #4
+   3bab0: e5923008     	ldr	r3, [r2, #0x8]
+   3bab4: e24dd014     	sub	sp, sp, #20
+   3bab8: e3530002     	cmp	r3, #2
+   3babc: e1a09000     	mov	r9, r0
+   3bac0: e58d2000     	str	r2, [sp]
+   3bac4: da000038     	ble	0x3bbac <Train::removeGroupedCarriages()+0x104> @ imm = #0xe0
+   3bac8: e2808010     	add	r8, r0, #16
+   3bacc: e5983004     	ldr	r3, [r8, #0x4]
+   3bad0: e3a0b001     	mov	r11, #1
+   3bad4: e3530000     	cmp	r3, #0
+   3bad8: 15933004     	ldrne	r3, [r3, #0x4]
+   3badc: 05903010     	ldreq	r3, [r0, #0x10]
+   3bae0: 15803010     	strne	r3, [r0, #0x10]
+   3bae4: e3530000     	cmp	r3, #0
+   3bae8: e5936000     	ldr	r6, [r3]
+   3baec: 15933008     	ldrne	r3, [r3, #0x8]
+   3baf0: 15803010     	strne	r3, [r0, #0x10]
+   3baf4: e3530000     	cmp	r3, #0
+   3baf8: 0a000024     	beq	0x3bb90 <Train::removeGroupedCarriages()+0xe8> @ imm = #0x90
+   3bafc: e593a000     	ldr	r10, [r3]
+   3bb00: e59a0000     	ldr	r0, [r10]
+   3bb04: ebff32cb     	bl	0x8638 <Bubble::getType()> @ imm = #-0x334d4
+   3bb08: e3500002     	cmp	r0, #2
+   3bb0c: 0a000006     	beq	0x3bb2c <Train::removeGroupedCarriages()+0x84> @ imm = #0x18
+   3bb10: e59a0000     	ldr	r0, [r10]
+   3bb14: ebff32bb     	bl	0x8608 <Bubble::getColour()> @ imm = #-0x33514
+   3bb18: e1a04000     	mov	r4, r0
+   3bb1c: e5960000     	ldr	r0, [r6]
+   3bb20: ebff32b8     	bl	0x8608 <Bubble::getColour()> @ imm = #-0x33520
+   3bb24: e1540000     	cmp	r4, r0
+   3bb28: 0a000036     	beq	0x3bc08 <Train::removeGroupedCarriages()+0x160> @ imm = #0xd8
+   3bb2c: e35b0002     	cmp	r11, #2
+   3bb30: da00000e     	ble	0x3bb70 <Train::removeGroupedCarriages()+0xc8> @ imm = #0x38
+   3bb34: e5983000     	ldr	r3, [r8]
+   3bb38: e1a0100b     	mov	r1, r11
+   3bb3c: e3530000     	cmp	r3, #0
+   3bb40: 15933004     	ldrne	r3, [r3, #0x4]
+   3bb44: e1a00009     	mov	r0, r9
+   3bb48: 15883000     	strne	r3, [r8]
+   3bb4c: ebfffcdd     	bl	0x3aec8 <Train::removeCarriageGroup(int)> @ imm = #-0xc8c
+   3bb50: e5983000     	ldr	r3, [r8]
+   3bb54: e3530000     	cmp	r3, #0
+   3bb58: 15933008     	ldrne	r3, [r3, #0x8]
+   3bb5c: 15883000     	strne	r3, [r8]
+   3bb60: 0a000013     	beq	0x3bbb4 <Train::removeGroupedCarriages()+0x10c> @ imm = #0x4c
+   3bb64: ebffdee4     	bl	0x336fc <Theme::Instance()> @ imm = #-0x8470
+   3bb68: e3a01003     	mov	r1, #3
+   3bb6c: ebffd486     	bl	0x30d8c <Theme::playSound(SndRes)> @ imm = #-0xade8
+   3bb70: e3a0b001     	mov	r11, #1
+   3bb74: e5983000     	ldr	r3, [r8]
+   3bb78: e1a0600a     	mov	r6, r10
+   3bb7c: e3530000     	cmp	r3, #0
+   3bb80: 15933008     	ldrne	r3, [r3, #0x8]
+   3bb84: 15883000     	strne	r3, [r8]
+   3bb88: e3530000     	cmp	r3, #0
+   3bb8c: 1affffda     	bne	0x3bafc <Train::removeGroupedCarriages()+0x54> @ imm = #-0x98
+   3bb90: e35b0002     	cmp	r11, #2
+   3bb94: ca00000b     	bgt	0x3bbc8 <Train::removeGroupedCarriages()+0x120> @ imm = #0x2c
+   3bb98: e59d2000     	ldr	r2, [sp]
+   3bb9c: e5923008     	ldr	r3, [r2, #0x8]
+   3bba0: e3530000     	cmp	r3, #0
+   3bba4: 02833002     	addeq	r3, r3, #2
+   3bba8: 05893028     	streq	r3, [r9, #0x28]
+   3bbac: e28dd014     	add	sp, sp, #20
+   3bbb0: e8bd8ff0     	pop	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+   3bbb4: e5983004     	ldr	r3, [r8, #0x4]
+   3bbb8: e3530000     	cmp	r3, #0
+   3bbbc: 15933004     	ldrne	r3, [r3, #0x4]
+   3bbc0: 15883000     	strne	r3, [r8]
+   3bbc4: eaffffe6     	b	0x3bb64 <Train::removeGroupedCarriages()+0xbc> @ imm = #-0x68
+   3bbc8: e5983004     	ldr	r3, [r8, #0x4]
+   3bbcc: e1a0100b     	mov	r1, r11
+   3bbd0: e3530000     	cmp	r3, #0
+   3bbd4: 15933000     	ldrne	r3, [r3]
+   3bbd8: e1a00009     	mov	r0, r9
+   3bbdc: 15883000     	strne	r3, [r8]
+   3bbe0: ebfffcb8     	bl	0x3aec8 <Train::removeCarriageGroup(int)> @ imm = #-0xd20
+   3bbe4: ebffdec4     	bl	0x336fc <Theme::Instance()> @ imm = #-0x84f0
+   3bbe8: e3a01003     	mov	r1, #3
+   3bbec: ebffd466     	bl	0x30d8c <Theme::playSound(SndRes)> @ imm = #-0xae68
+   3bbf0: e59d2000     	ldr	r2, [sp]
+   3bbf4: e5923008     	ldr	r3, [r2, #0x8]
+   3bbf8: e3530000     	cmp	r3, #0
+   3bbfc: 02833002     	addeq	r3, r3, #2
+   3bc00: 05893028     	streq	r3, [r9, #0x28]
+   3bc04: eaffffe8     	b	0x3bbac <Train::removeGroupedCarriages()+0x104> @ imm = #-0x60
+   3bc08: e28d000c     	add	r0, sp, #12
+   3bc0c: e59a1000     	ldr	r1, [r10]
+   3bc10: ebff3280     	bl	0x8618 <Bubble::getPosition()> @ imm = #-0x33600
+   3bc14: e28d300c     	add	r3, sp, #12
+   3bc18: e8930018     	ldm	r3, {r3, r4}
+   3bc1c: e5961000     	ldr	r1, [r6]
+   3bc20: e28d0004     	add	r0, sp, #4
+   3bc24: e1a06004     	mov	r6, r4
+   3bc28: e1a07003     	mov	r7, r3
+   3bc2c: ebff3279     	bl	0x8618 <Bubble::getPosition()> @ imm = #-0x3361c
+   3bc30: e99d0030     	ldmib	sp, {r4, r5}
+   3bc34: e1a00006     	mov	r0, r6
+   3bc38: e1a01005     	mov	r1, r5
+   3bc3c: eb056b47     	bl	0x196960 <__subsf3>     @ imm = #0x15ad1c
+   3bc40: e1a01000     	mov	r1, r0
+   3bc44: eb056bee     	bl	0x196c04 <__mulsf3>     @ imm = #0x15afb8
+   3bc48: e1a01004     	mov	r1, r4
+   3bc4c: e1a06000     	mov	r6, r0
+   3bc50: e1a00007     	mov	r0, r7
+   3bc54: eb056b41     	bl	0x196960 <__subsf3>     @ imm = #0x15ad04
+   3bc58: e1a01000     	mov	r1, r0
+   3bc5c: eb056be8     	bl	0x196c04 <__mulsf3>     @ imm = #0x15afa0
+   3bc60: e1a01000     	mov	r1, r0
+   3bc64: e1a00006     	mov	r0, r6
+   3bc68: eb056b3d     	bl	0x196964 <__aeabi_fadd> @ imm = #0x15acf4
+   3bc6c: e3a01000     	mov	r1, #0
+   3bc70: e1a04000     	mov	r4, r0
+   3bc74: eb056ca0     	bl	0x196efc <__gtsf2>      @ imm = #0x15b280
+   3bc78: e3500000     	cmp	r0, #0
+   3bc7c: d3a03000     	movle	r3, #0
+   3bc80: d3a04000     	movle	r4, #0
+   3bc84: da000004     	ble	0x3bc9c <Train::removeGroupedCarriages()+0x1f4> @ imm = #0x10
+   3bc88: e1a00004     	mov	r0, r4
+   3bc8c: eb056947     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x15a51c
+   3bc90: eb0b2ed8     	bl	0x3077f8 <sqrtl>        @ imm = #0x2cbb60
+   3bc94: e3c03102     	bic	r3, r0, #-2147483648
+   3bc98: e1a04001     	mov	r4, r1
+   3bc9c: e1a00003     	mov	r0, r3
+   3bca0: e1a01004     	mov	r1, r4
+   3bca4: e59f2014     	ldr	r2, [pc, #0x14]         @ 0x3bcc0 <Train::removeGroupedCarriages()+0x218>
+   3bca8: e3a03000     	mov	r3, #0
+   3bcac: eb056a8b     	bl	0x1966e0 <__gtdf2>      @ imm = #0x15aa2c
+   3bcb0: e3500000     	cmp	r0, #0
+   3bcb4: d28bb001     	addle	r11, r11, #1
+   3bcb8: daffffad     	ble	0x3bb74 <Train::removeGroupedCarriages()+0xcc> @ imm = #-0x14c
+   3bcbc: eaffff9a     	b	0x3bb2c <Train::removeGroupedCarriages()+0x84> @ imm = #-0x198
+   3bcc0: 00 00 2a 40                     ..*@

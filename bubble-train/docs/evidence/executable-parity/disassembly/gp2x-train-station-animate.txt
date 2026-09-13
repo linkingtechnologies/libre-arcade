@@ -1,0 +1,35 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+0003cc4c <TrainStation::animate(LevelState)>:
+   3cc4c: e92d4030     	push	{r4, r5, lr}
+   3cc50: e1a04001     	mov	r4, r1
+   3cc54: e1a05000     	mov	r5, r0
+   3cc58: e5900018     	ldr	r0, [r0, #0x18]
+   3cc5c: ebfffead     	bl	0x3c718 <Train::animate(LevelState)> @ imm = #-0x54c
+   3cc60: e3540001     	cmp	r4, #1
+   3cc64: 18bd8030     	popne	{r4, r5, pc}
+   3cc68: e5950018     	ldr	r0, [r5, #0x18]
+   3cc6c: ebfffc14     	bl	0x3bcc4 <Train::clearedStation()> @ imm = #-0xfb0
+   3cc70: e3500000     	cmp	r0, #0
+   3cc74: 1a000006     	bne	0x3cc94 <TrainStation::animate(LevelState)+0x48> @ imm = #0x18
+   3cc78: e5950018     	ldr	r0, [r5, #0x18]
+   3cc7c: ebfff753     	bl	0x3a9d0 <Train::returnStationedCarriages()> @ imm = #-0x22b4
+   3cc80: e2501000     	subs	r1, r0, #0
+   3cc84: 08bd8030     	popeq	{r4, r5, pc}
+   3cc88: e5950020     	ldr	r0, [r5, #0x20]
+   3cc8c: e8bd4030     	pop	{r4, r5, lr}
+   3cc90: eaff3e25     	b	0xc52c <CarriageFactory::pushCarriage(Carriage*)> @ imm = #-0x3076c
+   3cc94: e5950020     	ldr	r0, [r5, #0x20]
+   3cc98: ebff3e74     	bl	0xc670 <CarriageFactory::count()> @ imm = #-0x30630
+   3cc9c: e3500000     	cmp	r0, #0
+   3cca0: 0afffff4     	beq	0x3cc78 <TrainStation::animate(LevelState)+0x2c> @ imm = #-0x30
+   3cca4: e5950020     	ldr	r0, [r5, #0x20]
+   3cca8: e5954018     	ldr	r4, [r5, #0x18]
+   3ccac: ebff3e58     	bl	0xc614 <CarriageFactory::popCarriage()> @ imm = #-0x306a0
+   3ccb0: e1a01000     	mov	r1, r0
+   3ccb4: e1a00004     	mov	r0, r4
+   3ccb8: ebfff855     	bl	0x3ae14 <Train::addCarriage(Carriage*)> @ imm = #-0x1eac
+   3ccbc: eaffffed     	b	0x3cc78 <TrainStation::animate(LevelState)+0x2c> @ imm = #-0x4c

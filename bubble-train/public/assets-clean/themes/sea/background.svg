@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="sea background"><metadata>
+  Clean-room vector background created for the Bubble Train Restoration project.
+  No historical Bubble Train artwork was copied or traced.
+  Intended asset license: CC0-1.0.
+</metadata>
+<defs>
+  <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fb3d7"/><stop offset="1" stop-color="#0f3d58"/></linearGradient>
+  <radialGradient id="light" cx="50%" cy="-10%" r="90%"><stop offset="0" stop-color="#ecffff" stop-opacity=".65"/><stop offset="1" stop-color="#ecffff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="600" fill="url(#water)"/>
+<rect width="800" height="600" fill="url(#light)"/>
+<path d="M0 128c82 22 133 21 211 0s143-22 219 0 159 26 370-2v58c-160 26-275 27-384-3-63-17-122-17-187 1s-137 18-229-2Z" fill="#dffcff" opacity=".18"/>
+<path d="M0 395c77-28 133-36 221-23 87 13 118 44 220 44 120 0 144-31 219-42s89-9 140-1v206H0Z" fill="#0b3149" opacity=".46"/>
+<path d="M104 486c24-16 44-18 68-4-21 1-39 12-54 34 20-8 40-7 60 6-37 8-66 2-88-18-10-9-17-11-28-6 8-8 22-12 42-12Zm492-44c21-15 40-17 61-6-17 2-32 12-44 28 18-7 36-6 54 5-30 8-55 4-75-13-9-8-17-10-27-6 8-6 18-9 31-8Z" fill="#d7f8ff" opacity=".24"/>
+<circle cx="692" cy="95" r="33" fill="#fff" opacity=".16"/>
+</svg>

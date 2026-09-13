@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level>
+  <cannons>
+    <cannon type="rotation" pos="400,575" bulletreloadtime="400" bulletspeed="12.00">
+      <bullets random="1" colour-num="5">
+        <bullet type="SFX_RAINBOW" special="true" number="2"/>
+        <bullet type="SFX_BOMB" special="true" number="1"/>
+        <bullet type="SFX_COLOUR_BOMB" special="true" number="2"/>
+      </bullets>
+    </cannon>
+  </cannons>
+  <trainstations>
+    <train speed="1.00">
+      <track colour="#010101">
+        <arc startpos="40,40" endpos="200,480" centre="120,260" rotation="clockwise"/>
+      </track>
+      <carriages random="1" colour-num="5" carriage-num="20"/>
+    </train>
+    <train speed="1.00">
+      <track colour="#010101">
+        <arc startpos="761,41" endpos="601,480" centre="681,260" rotation="anticlockwise"/>
+      </track>
+      <carriages random="1" colour-num="5" carriage-num="20"/>
+    </train>
+  </trainstations>
+</level>

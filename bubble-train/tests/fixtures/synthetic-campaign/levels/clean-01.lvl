@@ -1,0 +1,13 @@
+<level>
+  <cannons>
+    <cannon type="rotation" pos="400,550" bulletreloadtime="420" bulletspeed="12">
+      <bullets random="1" colour-num="3"/>
+    </cannon>
+  </cannons>
+  <trainstations>
+    <train speed="0.65">
+      <track><line startpos="90,185" endpos="710,185"/></track>
+      <carriages random="1" colour-num="3" carriage-num="18"/>
+    </train>
+  </trainstations>
+</level>

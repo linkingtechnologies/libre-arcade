@@ -1,0 +1,184 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+00008eac <main>:
+    8eac: e1a0c00d     	mov	r12, sp
+    8eb0: e92ddff0     	push	{r4, r5, r6, r7, r8, r9, r10, r11, r12, lr, pc}
+    8eb4: e59f34a4     	ldr	r3, [pc, #0x4a4]        @ 0x9360 <main+0x4b4>
+    8eb8: e24cb004     	sub	r11, r12, #4
+    8ebc: e24dd07c     	sub	sp, sp, #124
+    8ec0: e59f249c     	ldr	r2, [pc, #0x49c]        @ 0x9364 <main+0x4b8>
+    8ec4: e50b304c     	str	r3, [r11, #-0x4c]
+    8ec8: e59f3498     	ldr	r3, [pc, #0x498]        @ 0x9368 <main+0x4bc>
+    8ecc: e24b1028     	sub	r1, r11, #40
+    8ed0: e24b0064     	sub	r0, r11, #100
+    8ed4: e50b2048     	str	r2, [r11, #-0x48]
+    8ed8: e50b3040     	str	r3, [r11, #-0x40]
+    8edc: e50b1044     	str	r1, [r11, #-0x44]
+    8ee0: e50bd03c     	str	sp, [r11, #-0x3c]
+    8ee4: eb0de7b4     	bl	0x382dbc <_Unwind_SjLj_Register> @ imm = #0x379ed0
+    8ee8: e3a00000     	mov	r0, #0
+    8eec: eb0d14df     	bl	0x34e270 <time>         @ imm = #0x34537c
+    8ef0: eb0c9333     	bl	0x32dbc4 <srandom>      @ imm = #0x324ccc
+    8ef4: e3e02000     	mvn	r2, #0
+    8ef8: e3a00e23     	mov	r0, #560
+    8efc: e50b2060     	str	r2, [r11, #-0x60]
+    8f00: eb00db32     	bl	0x3fbd0 <SDL_Init>      @ imm = #0x36cc8
+    8f04: e3500000     	cmp	r0, #0
+    8f08: ba0000f3     	blt	0x92dc <main+0x430>     @ imm = #0x3cc
+    8f0c: e3e03000     	mvn	r3, #0
+    8f10: e50b3060     	str	r3, [r11, #-0x60]
+    8f14: eb002dac     	bl	0x145cc <GP2X_JoystickOpen()> @ imm = #0xb6b0
+    8f18: e59f044c     	ldr	r0, [pc, #0x44c]        @ 0x936c <main+0x4c0>
+    8f1c: eb0c92d0     	bl	0x32da64 <atexit>       @ imm = #0x324b40
+    8f20: e3a00d05     	mov	r0, #320
+    8f24: e3a010f0     	mov	r1, #240
+    8f28: e3a02010     	mov	r2, #16
+    8f2c: e3a03000     	mov	r3, #0
+    8f30: eb02bfdf     	bl	0xb8eb4 <SDL_SetVideoMode> @ imm = #0xaff7c
+    8f34: e59fc434     	ldr	r12, [pc, #0x434]       @ 0x9370 <main+0x4c4>
+    8f38: e3500000     	cmp	r0, #0
+    8f3c: e50b007c     	str	r0, [r11, #-0x7c]
+    8f40: e58c0000     	str	r0, [r12]
+    8f44: 0a0000ee     	beq	0x9304 <main+0x458>     @ imm = #0x3b8
+    8f48: e3e01000     	mvn	r1, #0
+    8f4c: e50b1060     	str	r1, [r11, #-0x60]
+    8f50: e59f041c     	ldr	r0, [pc, #0x41c]        @ 0x9374 <main+0x4c8>
+    8f54: e59f141c     	ldr	r1, [pc, #0x41c]        @ 0x9378 <main+0x4cc>
+    8f58: e3a02002     	mov	r2, #2
+    8f5c: e3a03080     	mov	r3, #128
+    8f60: eb043bf8     	bl	0x117f48 <Mix_OpenAudio> @ imm = #0x10efe0
+    8f64: e3700001     	cmn	r0, #1
+    8f68: 0a0000d1     	beq	0x92b4 <main+0x408>     @ imm = #0x344
+    8f6c: e3e02000     	mvn	r2, #0
+    8f70: e3a00040     	mov	r0, #64
+    8f74: e50b2060     	str	r2, [r11, #-0x60]
+    8f78: eb044380     	bl	0x119d80 <Mix_VolumeMusic> @ imm = #0x110e00
+    8f7c: e3a00008     	mov	r0, #8
+    8f80: eb043cac     	bl	0x118238 <Mix_AllocateChannels> @ imm = #0x10f2b0
+    8f84: e3a01000     	mov	r1, #0
+    8f88: e59f03ec     	ldr	r0, [pc, #0x3ec]        @ 0x937c <main+0x4d0>
+    8f8c: eb02bd20     	bl	0xb8414 <SDL_WM_SetCaption> @ imm = #0xaf480
+    8f90: eb00a9d9     	bl	0x336fc <Theme::Instance()> @ imm = #0x2a764
+    8f94: e59f13e4     	ldr	r1, [pc, #0x3e4]        @ 0x9380 <main+0x4d4>
+    8f98: e59f23e4     	ldr	r2, [pc, #0x3e4]        @ 0x9384 <main+0x4d8>
+    8f9c: eb00ada4     	bl	0x34634 <Theme::load(char const*, char const*)> @ imm = #0x2b690
+    8fa0: e59f33e0     	ldr	r3, [pc, #0x3e0]        @ 0x9388 <main+0x4dc>
+    8fa4: e3a00064     	mov	r0, #100
+    8fa8: e5933000     	ldr	r3, [r3]
+    8fac: e50b3070     	str	r3, [r11, #-0x70]
+    8fb0: eb01cf2f     	bl	0x7cc74 <operator new(unsigned int)> @ imm = #0x73cbc
+    8fb4: e59f33b4     	ldr	r3, [pc, #0x3b4]        @ 0x9370 <main+0x4c4>
+    8fb8: e50b006c     	str	r0, [r11, #-0x6c]
+    8fbc: e5931000     	ldr	r1, [r3]
+    8fc0: e3a03001     	mov	r3, #1
+    8fc4: e50b3060     	str	r3, [r11, #-0x60]
+    8fc8: eb00949a     	bl	0x2e238 <SplashScreen::SplashScreen(SDL_Surface*)> @ imm = #0x25268
+    8fcc: e3e02000     	mvn	r2, #0
+    8fd0: e51b0070     	ldr	r0, [r11, #-0x70]
+    8fd4: e51b106c     	ldr	r1, [r11, #-0x6c]
+    8fd8: e50b2060     	str	r2, [r11, #-0x60]
+    8fdc: eb00da4e     	bl	0x3f91c <WindowManager::push(IWidget*)> @ imm = #0x36938
+    8fe0: eb002bd9     	bl	0x13f4c <GP2X_MouseOn()> @ imm = #0xaf64
+    8fe4: e3a03000     	mov	r3, #0
+    8fe8: e50b3084     	str	r3, [r11, #-0x84]
+    8fec: e24b102c     	sub	r1, r11, #44
+    8ff0: e3e0c000     	mvn	r12, #0
+    8ff4: e24b0030     	sub	r0, r11, #48
+    8ff8: e50bc060     	str	r12, [r11, #-0x60]
+    8ffc: eb002c9b     	bl	0x14270 <GP2X_GetMouseState(int*, int*)> @ imm = #0xb26c
+    9000: e2100001     	ands	r0, r0, #1
+    9004: 13a01001     	movne	r1, #1
+    9008: e50b0094     	str	r0, [r11, #-0x94]
+    900c: 150b1084     	strne	r1, [r11, #-0x84]
+    9010: 1a000004     	bne	0x9028 <main+0x17c>     @ imm = #0x10
+    9014: e51b2084     	ldr	r2, [r11, #-0x84]
+    9018: e3520001     	cmp	r2, #1
+    901c: 151b3094     	ldrne	r3, [r11, #-0x94]
+    9020: 150b3084     	strne	r3, [r11, #-0x84]
+    9024: 0a000095     	beq	0x9280 <main+0x3d4>     @ imm = #0x254
+    9028: e3a02000     	mov	r2, #0
+    902c: e50b2088     	str	r2, [r11, #-0x88]
+    9030: e3e01000     	mvn	r1, #0
+    9034: e59f0350     	ldr	r0, [pc, #0x350]        @ 0x938c <main+0x4e0>
+    9038: e50b1060     	str	r1, [r11, #-0x60]
+    903c: eb02c3fc     	bl	0xba034 <SDL_PollEvent> @ imm = #0xb0ff0
+    9040: e3500000     	cmp	r0, #0
+    9044: 0a000032     	beq	0x9114 <main+0x268>     @ imm = #0xc8
+    9048: e59fc33c     	ldr	r12, [pc, #0x33c]       @ 0x938c <main+0x4e0>
+    904c: e5dc3000     	ldrb	r3, [r12]
+    9050: e2433001     	sub	r3, r3, #1
+    9054: e353000b     	cmp	r3, #11
+    9058: 979ff103     	ldrls	pc, [pc, r3, lsl #2]
+    905c: eafffff3     	b	0x9030 <main+0x184>     @ imm = #-0x34
+    9060: 90 90 00 00 30 90 00 00         ....0...
+    9068: 94 91 00 00 30 90 00 00         ....0...
+    9070: d0 91 00 00 30 90 00 00         ....0...
+    9078: 30 90 00 00 30 90 00 00         0...0...
+    9080: 30 90 00 00 00 92 00 00         0.......
+    9088: 10 92 00 00 60 92 00 00         ....`...
+    9090: e59f22f4     	ldr	r2, [pc, #0x2f4]        @ 0x938c <main+0x4e0>
+    9094: e5d23002     	ldrb	r3, [r2, #0x2]
+    9098: e3530001     	cmp	r3, #1
+    909c: 0affffe3     	beq	0x9030 <main+0x184>     @ imm = #-0x74
+    90a0: e3e03000     	mvn	r3, #0
+    90a4: e50b3060     	str	r3, [r11, #-0x60]
+    90a8: eb007e16     	bl	0x28908 <Log::Instance()> @ imm = #0x1f858
+    90ac: e59f12dc     	ldr	r1, [pc, #0x2dc]        @ 0x9390 <main+0x4e4>
+    90b0: eb007dce     	bl	0x287f0 <Log::log(char*, ...)> @ imm = #0x1f738
+    90b4: e59fc2d0     	ldr	r12, [pc, #0x2d0]       @ 0x938c <main+0x4e0>
+    90b8: e59f12c8     	ldr	r1, [pc, #0x2c8]        @ 0x9388 <main+0x4dc>
+    90bc: e5dc3001     	ldrb	r3, [r12, #0x1]
+    90c0: e5912000     	ldr	r2, [r1]
+    90c4: e2533000     	subs	r3, r3, #0
+    90c8: 13a03001     	movne	r3, #1
+    90cc: e50b3098     	str	r3, [r11, #-0x98]
+    90d0: e1a00002     	mov	r0, r2
+    90d4: e5923000     	ldr	r3, [r2]
+    90d8: e51b1098     	ldr	r1, [r11, #-0x98]
+    90dc: e1a0e00f     	mov	lr, pc
+    90e0: e593f008     	ldr	pc, [r3, #0x8]
+    90e4: e51b2098     	ldr	r2, [r11, #-0x98]
+    90e8: e3520000     	cmp	r2, #0
+    90ec: 1affffcf     	bne	0x9030 <main+0x184>     @ imm = #-0xc4
+    90f0: eb00a981     	bl	0x336fc <Theme::Instance()> @ imm = #0x2a604
+    90f4: e3a01001     	mov	r1, #1
+    90f8: eb0099f2     	bl	0x2f8c8 <Theme::pauseSounds(bool)> @ imm = #0x267c8
+    90fc: e3e01000     	mvn	r1, #0
+    9100: e59f0284     	ldr	r0, [pc, #0x284]        @ 0x938c <main+0x4e0>
+    9104: e50b1060     	str	r1, [r11, #-0x60]
+    9108: eb02c3c9     	bl	0xba034 <SDL_PollEvent> @ imm = #0xb0f24
+    910c: e3500000     	cmp	r0, #0
+    9110: 1affffcc     	bne	0x9048 <main+0x19c>     @ imm = #-0xd0
+    9114: e59f326c     	ldr	r3, [pc, #0x26c]        @ 0x9388 <main+0x4dc>
+    9118: e59f2250     	ldr	r2, [pc, #0x250]        @ 0x9370 <main+0x4c4>
+    911c: e5930000     	ldr	r0, [r3]
+    9120: e5921000     	ldr	r1, [r2]
+    9124: eb00d7df     	bl	0x3f0a8 <WindowManager::processFrame(SDL_Surface*)> @ imm = #0x35f7c
+    9128: e59f3240     	ldr	r3, [pc, #0x240]        @ 0x9370 <main+0x4c4>
+    912c: e5930000     	ldr	r0, [r3]
+    9130: eb02baca     	bl	0xb7c60 <SDL_Flip>      @ imm = #0xaeb28
+    9134: e3e0c000     	mvn	r12, #0
+    9138: e50bc060     	str	r12, [r11, #-0x60]
+    913c: eb02d723     	bl	0xbedd0 <SDL_GetTicks>  @ imm = #0xb5c8c
+    9140: e59f124c     	ldr	r1, [pc, #0x24c]        @ 0x9394 <main+0x4e8>
+    9144: e5913000     	ldr	r3, [r1]
+    9148: e0630000     	rsb	r0, r3, r0
+    914c: e3500020     	cmp	r0, #32
+    9150: 9afffff7     	bls	0x9134 <main+0x288>     @ imm = #-0x24
+    9154: eb02d71d     	bl	0xbedd0 <SDL_GetTicks>  @ imm = #0xb5c74
+    9158: e51b2088     	ldr	r2, [r11, #-0x88]
+    915c: e59f3230     	ldr	r3, [pc, #0x230]        @ 0x9394 <main+0x4e8>
+    9160: e3520000     	cmp	r2, #0
+    9164: e5830000     	str	r0, [r3]
+    9168: 0affff9f     	beq	0x8fec <main+0x140>     @ imm = #-0x184
+    916c: eb044501     	bl	0x11a578 <Mix_HaltMusic> @ imm = #0x111404
+    9170: eb04409c     	bl	0x1193e8 <Mix_CloseAudio> @ imm = #0x110270
+    9174: e59f320c     	ldr	r3, [pc, #0x20c]        @ 0x9388 <main+0x4dc>
+    9178: e5930000     	ldr	r0, [r3]
+    917c: eb00d671     	bl	0x3eb48 <WindowManager::clear()> @ imm = #0x359c4
+    9180: e24b0064     	sub	r0, r11, #100
+    9184: eb0de809     	bl	0x3831b0 <_Unwind_SjLj_Unregister> @ imm = #0x37a024
+    9188: e3a00000     	mov	r0, #0

@@ -1,0 +1,245 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+0003aa70 <Train::triggerColourBomb(Bubble*, DListIterator<Carriage*>)>:
+   3aa70: e92d41f0     	push	{r4, r5, r6, r7, r8, lr}
+   3aa74: e1a04002     	mov	r4, r2
+   3aa78: e1a05003     	mov	r5, r3
+   3aa7c: e1a07000     	mov	r7, r0
+   3aa80: ebffe31d     	bl	0x336fc <Theme::Instance()> @ imm = #-0x738c
+   3aa84: e3a01007     	mov	r1, #7
+   3aa88: ebffd8bf     	bl	0x30d8c <Theme::playSound(SndRes)> @ imm = #-0x9d04
+   3aa8c: e5943000     	ldr	r3, [r4]
+   3aa90: e5930000     	ldr	r0, [r3]
+   3aa94: ebff36db     	bl	0x8608 <Bubble::getColour()> @ imm = #-0x32494
+   3aa98: e3550000     	cmp	r5, #0
+   3aa9c: 15954000     	ldrne	r4, [r5]
+   3aaa0: e1a08000     	mov	r8, r0
+   3aaa4: e3540000     	cmp	r4, #0
+   3aaa8: 0a00002d     	beq	0x3ab64 <Train::triggerColourBomb(Bubble*, DListIterator<Carriage*>)+0xf4> @ imm = #0xb4
+   3aaac: e5943000     	ldr	r3, [r4]
+   3aab0: e5930000     	ldr	r0, [r3]
+   3aab4: ebff36d3     	bl	0x8608 <Bubble::getColour()> @ imm = #-0x324b4
+   3aab8: e1580000     	cmp	r8, r0
+   3aabc: 15944004     	ldrne	r4, [r4, #0x4]
+   3aac0: 1afffff7     	bne	0x3aaa4 <Train::triggerColourBomb(Bubble*, DListIterator<Carriage*>)+0x34> @ imm = #-0x24
+   3aac4: e5943000     	ldr	r3, [r4]
+   3aac8: e1a00007     	mov	r0, r7
+   3aacc: e5931000     	ldr	r1, [r3]
+   3aad0: ebffff41     	bl	0x3a7dc <Train::addExplodedCarriage(Bubble*)> @ imm = #-0x2fc
+   3aad4: e5945000     	ldr	r5, [r4]
+   3aad8: e3550000     	cmp	r5, #0
+   3aadc: 0a000003     	beq	0x3aaf0 <Train::triggerColourBomb(Bubble*, DListIterator<Carriage*>)+0x80> @ imm = #0xc
+   3aae0: e1a00005     	mov	r0, r5
+   3aae4: ebff45f7     	bl	0xc2c8 <Carriage::~Carriage()> @ imm = #-0x2e824
+   3aae8: e1a00005     	mov	r0, r5
+   3aaec: eb001801     	bl	0x40af8 <operator delete(void*)> @ imm = #0x6004
+   3aaf0: e5973004     	ldr	r3, [r7, #0x4]
+   3aaf4: e2876004     	add	r6, r7, #4
+   3aaf8: e1530004     	cmp	r3, r4
+   3aafc: 05943004     	ldreq	r3, [r4, #0x4]
+   3ab00: 05873004     	streq	r3, [r7, #0x4]
+   3ab04: 0a000003     	beq	0x3ab18 <Train::triggerColourBomb(Bubble*, DListIterator<Carriage*>)+0xa8> @ imm = #0xc
+   3ab08: e5963004     	ldr	r3, [r6, #0x4]
+   3ab0c: e1540003     	cmp	r4, r3
+   3ab10: 05943008     	ldreq	r3, [r4, #0x8]
+   3ab14: 05863004     	streq	r3, [r6, #0x4]
+   3ab18: e5942008     	ldr	r2, [r4, #0x8]
+   3ab1c: e5945004     	ldr	r5, [r4, #0x4]
+   3ab20: e3520000     	cmp	r2, #0
+   3ab24: 15825004     	strne	r5, [r2, #0x4]
+   3ab28: e1a03005     	mov	r3, r5
+   3ab2c: 15943004     	ldrne	r3, [r4, #0x4]
+   3ab30: e1a00004     	mov	r0, r4
+   3ab34: e3530000     	cmp	r3, #0
+   3ab38: 15832008     	strne	r2, [r3, #0x8]
+   3ab3c: eb0017ed     	bl	0x40af8 <operator delete(void*)> @ imm = #0x5fb4
+   3ab40: e5963000     	ldr	r3, [r6]
+   3ab44: e1a04005     	mov	r4, r5
+   3ab48: e3530000     	cmp	r3, #0
+   3ab4c: 05863004     	streq	r3, [r6, #0x4]
+   3ab50: e5963008     	ldr	r3, [r6, #0x8]
+   3ab54: e3540000     	cmp	r4, #0
+   3ab58: e2433001     	sub	r3, r3, #1
+   3ab5c: e5863008     	str	r3, [r6, #0x8]
+   3ab60: 1affffd1     	bne	0x3aaac <Train::triggerColourBomb(Bubble*, DListIterator<Carriage*>)+0x3c> @ imm = #-0xbc
+   3ab64: e597300c     	ldr	r3, [r7, #0xc]
+   3ab68: e3530000     	cmp	r3, #0
+   3ab6c: 02833002     	addeq	r3, r3, #2
+   3ab70: 05873028     	streq	r3, [r7, #0x28]
+   3ab74: e8bd81f0     	pop	{r4, r5, r6, r7, r8, pc}
+
+0003ab78 <Train::animateExplosion()>:
+   3ab78: e92d41f0     	push	{r4, r5, r6, r7, r8, lr}
+   3ab7c: e24dd018     	sub	sp, sp, #24
+   3ab80: e1a04000     	mov	r4, r0
+   3ab84: eb01f27b     	bl	0xb7578 <SDL_GetVideoSurface> @ imm = #0x7c9ec
+   3ab88: e5900008     	ldr	r0, [r0, #0x8]
+   3ab8c: eb056fe5     	bl	0x196b28 <__floatsisf>  @ imm = #0x15bf94
+   3ab90: e1a08000     	mov	r8, r0
+   3ab94: eb01f277     	bl	0xb7578 <SDL_GetVideoSurface> @ imm = #0x7c9dc
+   3ab98: e590000c     	ldr	r0, [r0, #0xc]
+   3ab9c: eb056fe1     	bl	0x196b28 <__floatsisf>  @ imm = #0x15bf84
+   3aba0: e5945018     	ldr	r5, [r4, #0x18]
+   3aba4: e1a07000     	mov	r7, r0
+   3aba8: e3550000     	cmp	r5, #0
+   3abac: e2846018     	add	r6, r4, #24
+   3abb0: 0a000035     	beq	0x3ac8c <Train::animateExplosion()+0x114> @ imm = #0xd4
+   3abb4: e5950000     	ldr	r0, [r5]
+   3abb8: ebff4fdc     	bl	0xeb30 <ExplodingBubble::animate()> @ imm = #-0x2c090
+   3abbc: e3a03000     	mov	r3, #0
+   3abc0: e58d7014     	str	r7, [sp, #0x14]
+   3abc4: e58d3008     	str	r3, [sp, #0x8]
+   3abc8: e58d8010     	str	r8, [sp, #0x10]
+   3abcc: e58d300c     	str	r3, [sp, #0xc]
+   3abd0: e28dc008     	add	r12, sp, #8
+   3abd4: e89c000e     	ldm	r12, {r1, r2, r3}
+   3abd8: e59dc014     	ldr	r12, [sp, #0x14]
+   3abdc: e5950000     	ldr	r0, [r5]
+   3abe0: e3a0e000     	mov	lr, #0
+   3abe4: e88d5000     	stm	sp, {r12, lr}
+   3abe8: ebff37fb     	bl	0x8bdc <Bubble::onScreen(Rect, bool)> @ imm = #-0x32014
+   3abec: e3500000     	cmp	r0, #0
+   3abf0: 11a04005     	movne	r4, r5
+   3abf4: 1a000020     	bne	0x3ac7c <Train::animateExplosion()+0x104> @ imm = #0x80
+   3abf8: e5953000     	ldr	r3, [r5]
+   3abfc: e3530000     	cmp	r3, #0
+   3ac00: 11a00003     	movne	r0, r3
+   3ac04: 15933000     	ldrne	r3, [r3]
+   3ac08: 11a0e00f     	movne	lr, pc
+   3ac0c: 1593f004     	ldrne	pc, [r3, #0x4]
+   3ac10: e5963000     	ldr	r3, [r6]
+   3ac14: e1530005     	cmp	r3, r5
+   3ac18: 05953004     	ldreq	r3, [r5, #0x4]
+   3ac1c: 05863000     	streq	r3, [r6]
+   3ac20: 0a000003     	beq	0x3ac34 <Train::animateExplosion()+0xbc> @ imm = #0xc
+   3ac24: e5963004     	ldr	r3, [r6, #0x4]
+   3ac28: e1530005     	cmp	r3, r5
+   3ac2c: 05953008     	ldreq	r3, [r5, #0x8]
+   3ac30: 05863004     	streq	r3, [r6, #0x4]
+   3ac34: e5952008     	ldr	r2, [r5, #0x8]
+   3ac38: e5954004     	ldr	r4, [r5, #0x4]
+   3ac3c: e3520000     	cmp	r2, #0
+   3ac40: 15824004     	strne	r4, [r2, #0x4]
+   3ac44: e1a03004     	mov	r3, r4
+   3ac48: 15953004     	ldrne	r3, [r5, #0x4]
+   3ac4c: e1a00005     	mov	r0, r5
+   3ac50: e3530000     	cmp	r3, #0
+   3ac54: 15832008     	strne	r2, [r3, #0x8]
+   3ac58: eb0017a6     	bl	0x40af8 <operator delete(void*)> @ imm = #0x5e98
+   3ac5c: e5963000     	ldr	r3, [r6]
+   3ac60: e3530000     	cmp	r3, #0
+   3ac64: 05863004     	streq	r3, [r6, #0x4]
+   3ac68: e5963008     	ldr	r3, [r6, #0x8]
+   3ac6c: e3540000     	cmp	r4, #0
+   3ac70: e2433001     	sub	r3, r3, #1
+   3ac74: e5863008     	str	r3, [r6, #0x8]
+   3ac78: 0a000000     	beq	0x3ac80 <Train::animateExplosion()+0x108> @ imm = #0x0
+   3ac7c: e5944004     	ldr	r4, [r4, #0x4]
+   3ac80: e1a05004     	mov	r5, r4
+   3ac84: e3550000     	cmp	r5, #0
+   3ac88: 1affffc9     	bne	0x3abb4 <Train::animateExplosion()+0x3c> @ imm = #-0xdc
+   3ac8c: e28dd018     	add	sp, sp, #24
+   3ac90: e8bd81f0     	pop	{r4, r5, r6, r7, r8, pc}
+
+0003ac94 <Train::draw(SDL_Surface*)>:
+   3ac94: e92d4070     	push	{r4, r5, r6, lr}
+   3ac98: e2806010     	add	r6, r0, #16
+   3ac9c: e5963004     	ldr	r3, [r6, #0x4]
+   3aca0: e1a04000     	mov	r4, r0
+   3aca4: e3530000     	cmp	r3, #0
+   3aca8: e1a05001     	mov	r5, r1
+   3acac: 05900010     	ldreq	r0, [r0, #0x10]
+   3acb0: 15933000     	ldrne	r3, [r3]
+   3acb4: 11a00003     	movne	r0, r3
+   3acb8: 15843010     	strne	r3, [r4, #0x10]
+   3acbc: e3500000     	cmp	r0, #0
+   3acc0: e1a01005     	mov	r1, r5
+   3acc4: 1a000008     	bne	0x3acec <Train::draw(SDL_Surface*)+0x58> @ imm = #0x20
+   3acc8: e5944018     	ldr	r4, [r4, #0x18]
+   3accc: ea000002     	b	0x3acdc <Train::draw(SDL_Surface*)+0x48> @ imm = #0x8
+   3acd0: e5940000     	ldr	r0, [r4]
+   3acd4: ebff380d     	bl	0x8d10 <Bubble::draw(SDL_Surface*)> @ imm = #-0x31fcc
+   3acd8: e5944004     	ldr	r4, [r4, #0x4]
+   3acdc: e3540000     	cmp	r4, #0
+   3ace0: e1a01005     	mov	r1, r5
+   3ace4: 1afffff9     	bne	0x3acd0 <Train::draw(SDL_Surface*)+0x3c> @ imm = #-0x1c
+   3ace8: e8bd8070     	pop	{r4, r5, r6, pc}
+   3acec: e5900000     	ldr	r0, [r0]
+   3acf0: ebff45ad     	bl	0xc3ac <Carriage::draw(SDL_Surface*)> @ imm = #-0x2e94c
+   3acf4: e5960000     	ldr	r0, [r6]
+   3acf8: e3500000     	cmp	r0, #0
+   3acfc: 0afffff1     	beq	0x3acc8 <Train::draw(SDL_Surface*)+0x34> @ imm = #-0x3c
+   3ad00: e5900004     	ldr	r0, [r0, #0x4]
+   3ad04: e5860000     	str	r0, [r6]
+   3ad08: eaffffeb     	b	0x3acbc <Train::draw(SDL_Surface*)+0x28> @ imm = #-0x54
+
+0003ad0c <Train::Train(Track*)>:
+   3ad0c: e59f3070     	ldr	r3, [pc, #0x70]         @ 0x3ad84 <Train::Train(Track*)+0x78>
+   3ad10: e1a0c000     	mov	r12, r0
+   3ad14: e92d4010     	push	{r4, lr}
+   3ad18: e48c3004     	str	r3, [r12], #4
+   3ad1c: e59f3064     	ldr	r3, [pc, #0x64]         @ 0x3ad88 <Train::Train(Track*)+0x7c>
+   3ad20: e3a02000     	mov	r2, #0
+   3ad24: e2804018     	add	r4, r0, #24
+   3ad28: e5c32000     	strb	r2, [r3]
+   3ad2c: e3a03002     	mov	r3, #2
+   3ad30: e5803028     	str	r3, [r0, #0x28]
+   3ad34: e58c2008     	str	r2, [r12, #0x8]
+   3ad38: e3a03101     	mov	r3, #1073741824
+   3ad3c: e5842008     	str	r2, [r4, #0x8]
+   3ad40: e5842004     	str	r2, [r4, #0x4]
+   3ad44: e3a04000     	mov	r4, #0
+   3ad48: e5803034     	str	r3, [r0, #0x34]
+   3ad4c: e5804038     	str	r4, [r0, #0x38]
+   3ad50: e59f3034     	ldr	r3, [pc, #0x34]         @ 0x3ad8c <Train::Train(Track*)+0x80>
+   3ad54: e280e010     	add	lr, r0, #16
+   3ad58: e3a04000     	mov	r4, #0
+   3ad5c: e58e2004     	str	r2, [lr, #0x4]
+   3ad60: e58c2004     	str	r2, [r12, #0x4]
+   3ad64: e5801024     	str	r1, [r0, #0x24]
+   3ad68: e580c014     	str	r12, [r0, #0x14]
+   3ad6c: e5802010     	str	r2, [r0, #0x10]
+   3ad70: e5802004     	str	r2, [r0, #0x4]
+   3ad74: e5802018     	str	r2, [r0, #0x18]
+   3ad78: e580302c     	str	r3, [r0, #0x2c]
+   3ad7c: e5804030     	str	r4, [r0, #0x30]
+   3ad80: e8bd8010     	pop	{r4, pc}
+   3ad84: ec 79 38 00 d0 a3 41 00         .y8...A.
+   3ad8c: 00 00 f0 3f                     ...?
+
+0003ad90 <Train::Train(Track*)>:
+   3ad90: e59f3070     	ldr	r3, [pc, #0x70]         @ 0x3ae08 <Train::Train(Track*)+0x78>
+   3ad94: e1a0c000     	mov	r12, r0
+   3ad98: e92d4010     	push	{r4, lr}
+   3ad9c: e48c3004     	str	r3, [r12], #4
+   3ada0: e59f3064     	ldr	r3, [pc, #0x64]         @ 0x3ae0c <Train::Train(Track*)+0x7c>
+   3ada4: e3a02000     	mov	r2, #0
+   3ada8: e2804018     	add	r4, r0, #24
+   3adac: e5c32000     	strb	r2, [r3]
+   3adb0: e3a03002     	mov	r3, #2
+   3adb4: e5803028     	str	r3, [r0, #0x28]
+   3adb8: e58c2008     	str	r2, [r12, #0x8]
+   3adbc: e3a03101     	mov	r3, #1073741824
+   3adc0: e5842008     	str	r2, [r4, #0x8]
+   3adc4: e5842004     	str	r2, [r4, #0x4]
+   3adc8: e3a04000     	mov	r4, #0
+   3adcc: e5803034     	str	r3, [r0, #0x34]
+   3add0: e5804038     	str	r4, [r0, #0x38]
+   3add4: e59f3034     	ldr	r3, [pc, #0x34]         @ 0x3ae10 <Train::Train(Track*)+0x80>
+   3add8: e280e010     	add	lr, r0, #16
+   3addc: e3a04000     	mov	r4, #0
+   3ade0: e58e2004     	str	r2, [lr, #0x4]
+   3ade4: e58c2004     	str	r2, [r12, #0x4]
+   3ade8: e5801024     	str	r1, [r0, #0x24]
+   3adec: e580c014     	str	r12, [r0, #0x14]
+   3adf0: e5802010     	str	r2, [r0, #0x10]
+   3adf4: e5802004     	str	r2, [r0, #0x4]
+   3adf8: e5802018     	str	r2, [r0, #0x18]
+   3adfc: e580302c     	str	r3, [r0, #0x2c]
+   3ae00: e5804030     	str	r4, [r0, #0x30]
+   3ae04: e8bd8010     	pop	{r4, pc}
+   3ae08: ec 79 38 00 d0 a3 41 00         .y8...A.
+   3ae10: 00 00 f0 3f                     ...?

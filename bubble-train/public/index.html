@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bubble Train</title>
+<style>
+  :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:dark;background:#101318;color:#f4f6f8;--panel:#1a1f27;--line:#343c48;--soft:#aeb7c3}
+  *{box-sizing:border-box} body{margin:0;min-height:100svh;overflow-x:hidden;background:radial-gradient(circle at 50% 10%,#202938 0,#101318 55%)}
+  button,select{font:inherit;color:inherit} button{border:1px solid #4c5869;background:#252d38;border-radius:.65rem;padding:.58rem .9rem;cursor:pointer} button:hover{background:#303a47} button.primary{background:#e8edf2;color:#101318;border-color:#e8edf2;font-weight:700} button:disabled{opacity:.45;cursor:default}
+  .app{width:min(100%,1100px);min-height:100svh;margin:auto;padding:max(10px,env(safe-area-inset-top)) 12px max(10px,env(safe-area-inset-bottom));display:grid;grid-template-rows:auto 1fr auto;gap:10px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;flex-direction:column;line-height:1.08}.brand strong{font-size:clamp(1.05rem,2.8vw,1.45rem)}.brand span{font-size:.8rem;color:var(--soft)}.top-actions{display:flex;gap:7px}
+  .stage{min-height:0;display:grid;place-items:center;position:relative}.frame{width:min(100%,calc((100svh - 190px)*4/3),900px);aspect-ratio:4/3;position:relative}.frame canvas{width:100%;height:100%;display:block;border:1px solid var(--line);border-radius:.85rem;background:#15171a;touch-action:none;box-shadow:0 16px 50px #0008}
+  .hud{position:absolute;inset:10px 10px auto;display:flex;justify-content:space-between;gap:8px;pointer-events:none}.pill{background:#090c11c9;border:1px solid #ffffff1f;border-radius:99px;padding:.38rem .65rem;font-size:clamp(.72rem,2vw,.9rem);backdrop-filter:blur(5px);display:inline-flex;align-items:center;gap:.38rem}.hudIcon{width:1.05em;height:1.05em;display:block;opacity:.92}
+  .overlay{position:absolute;inset:0;display:grid;place-items:center;background:#090c11c2;border-radius:.85rem;padding:18px}.overlay[hidden]{display:none}.card{width:min(92%,440px);background:#171d25f2;border:1px solid #45505e;border-radius:1rem;padding:clamp(16px,4vw,28px);box-shadow:0 18px 60px #0009}.card h1,.card h2{margin:.1rem 0 .5rem}.card p{color:#c6ced8}.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .controls{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:8px;width:min(540px,100%);margin:auto}.controls button{min-height:48px;font-weight:700}.controls .fire{background:#e8edf2;color:#101318}.foot{display:flex;justify-content:center;text-align:center;color:var(--soft);font-size:.78rem;padding:0 6px}
+  dialog{border:1px solid #4b5665;border-radius:1rem;background:var(--panel);color:inherit;width:min(92vw,500px);max-height:90svh;overflow:auto;padding:0;box-shadow:0 20px 70px #000b}dialog::backdrop{background:#000a}.dialog-body{padding:20px}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.dialog-head h2{margin:0}.settings{display:grid;gap:14px;margin:20px 0}.row{display:flex;align-items:center;justify-content:space-between;gap:14px}.row select{background:#11161d;border:1px solid #495565;border-radius:.5rem;padding:.45rem .6rem}.scores{margin:15px 0 0;padding:0;list-style:none;display:grid;gap:7px}.scores li{display:grid;grid-template-columns:2rem 1fr auto;gap:8px;padding:.55rem .65rem;background:#11161d;border-radius:.5rem}.muted{color:var(--soft);font-size:.86rem}
+  .help-section{margin-top:18px}.help-section h3{margin:0 0 7px;font-size:1rem}.help-section p{margin:.35rem 0;color:#cbd2db;line-height:1.45}.specials{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}.special{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:center;background:#11161d;border-radius:.65rem;padding:.6rem}.special img{width:42px;height:42px}.special strong{display:block;font-size:.9rem}.special span{display:block;color:var(--soft);font-size:.78rem;line-height:1.28;margin-top:2px}
+  @media(max-width:430px){.specials{grid-template-columns:1fr}}
+  @media (max-height:700px){.app{gap:6px}.brand span,.foot{display:none}.frame{width:min(100%,calc((100svh - 126px)*4/3),900px)}.controls button{min-height:42px;padding:.35rem}.hud{inset:6px 6px auto}}
+  @media (min-width:760px){.controls{display:none}.foot{padding-bottom:4px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand"><strong id="brandTitle">Bubble Train</strong></div>
+  <div class="top-actions"><button id="scoresBtn" type="button">Fastest times</button><button id="optionsBtn" type="button">Options</button></div>
+</header>
+<main class="stage">
+  <div class="frame">
+    <canvas id="game" width="800" height="600" aria-label="Bubble Train"></canvas>
+    <div class="hud"><span class="pill"><img class="hudIcon" src="./assets-clean/svg/ui/icon-level.svg" alt=""><span id="hudLevel">Level 1/3</span></span><span class="pill"><img class="hudIcon" src="./assets-clean/svg/ui/icon-time.svg" alt=""><span id="hudTime">00:00.0</span></span><span class="pill"><img class="hudIcon" src="./assets-clean/svg/ui/icon-credit.svg" alt=""><span id="hudCredits">Credits 5</span></span></div>
+    <section class="overlay" id="overlay">
+      <div class="card"><h1 id="overlayTitle">Bubble Train</h1><p id="overlayText"></p><div class="card-actions" id="overlayActions"></div></div>
+    </section>
+  </div>
+</main>
+<div>
+  <div class="controls"><button id="leftBtn" aria-label="Aim left">◀</button><button class="fire" id="fireBtn">●</button><button id="rightBtn" aria-label="Aim right">▶</button></div>
+  <div class="foot" id="footText"></div>
+</div>
+</div>
+<dialog id="optionsDialog"><div class="dialog-body"><div class="dialog-head"><h2 id="optionsTitle">Options</h2><button class="closeDialog">×</button></div><div class="settings"><label class="row"><span id="languageLabel">Language</span><select id="languageSelect"><option value="en">English</option><option value="it">Italiano</option></select></label><label class="row"><span id="campaignLabel">Game</span><select id="campaignSelect"></select></label><label class="row"><span id="creditsLabel">Credits</span><select id="creditsSelect"><option value="3">3</option><option value="5">5</option><option value="10">10</option><option value="-1">∞</option></select></label><label class="row"><span id="soundLabel">Sound</span><select id="soundSelect"><option value="on">On</option><option value="off">Off</option></select></label></div></div></dialog>
+<dialog id="scoresDialog"><div class="dialog-body"><div class="dialog-head"><h2 id="scoresTitle">Fastest times</h2><button class="closeDialog">×</button></div><ol class="scores" id="scoresList"></ol></div></dialog>
+<dialog id="helpDialog"><div class="dialog-body">
+  <div class="dialog-head"><h2 id="helpTitle">How to play</h2><button class="closeDialog">×</button></div>
+  <section class="help-section"><h3 id="helpGoalTitle">Goal</h3><p id="helpGoalText"></p></section>
+  <section class="help-section"><h3 id="helpControlsTitle">Controls</h3><p id="helpControlsText"></p></section>
+  <section class="help-section"><h3 id="helpSpecialsTitle">Special bubbles</h3><div class="specials">
+    <div class="special"><img src="./assets-clean/svg/bubbles/bubble-bomb.svg" alt=""><div><strong id="helpBombName">Bomb</strong><span id="helpBombText"></span></div></div>
+    <div class="special"><img src="./assets-clean/svg/bubbles/bubble-colour-bomb.svg" alt=""><div><strong id="helpColourBombName">Colour bomb</strong><span id="helpColourBombText"></span></div></div>
+    <div class="special"><img src="./assets-clean/svg/bubbles/bubble-speed.svg" alt=""><div><strong id="helpSpeedName">Speed</strong><span id="helpSpeedText"></span></div></div>
+    <div class="special"><img src="./assets-clean/svg/bubbles/bubble-rainbow.svg" alt=""><div><strong id="helpRainbowName">Rainbow</strong><span id="helpRainbowText"></span></div></div>
+  </div></section>
+  <section class="help-section"><p class="muted" id="helpAudioText"></p></section>
+</div></dialog>
+<script type="module" src="./main.js"></script>
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

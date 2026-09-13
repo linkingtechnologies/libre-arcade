@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level>
+  <cannons>
+    <cannon type="rotation" pos="400,575" bulletreloadtime="500" bulletspeed="10.00">
+      <bullets random="1" colour-num="3"/>
+    </cannon>
+  </cannons>
+  <trainstations>
+    <train speed="1.00">
+      <track colour="#010101">
+        <line startpos="220,40" endpos="440,40"/>
+        <arc startpos="440,40" endpos="440,200" centre="440,120" rotation="clockwise"/>
+        <line startpos="440,200" endpos="320,200"/>
+        <arc startpos="320,200" endpos="320,260" centre="320,230" rotation="anticlockwise"/>
+        <line startpos="320,260" endpos="440,260"/>
+        <arc startpos="440,260" endpos="440,420" centre="440,340" rotation="clockwise"/>
+        <line startpos="440,420" endpos="280,420"/>
+        <arc startpos="280,420" endpos="220,360" centre="280,360" rotation="clockwise"/>
+        <line startpos="220,360" endpos="220,80"/>
+      </track>
+      <carriages random="1" colour-num="3" carriage-num="25"/>
+    </train>
+  </trainstations>
+</level>

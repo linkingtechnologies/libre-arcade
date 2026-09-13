@@ -1,0 +1,27 @@
+{
+  "name": "bubble-train-faithful-restoration",
+  "version": "0.14.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test",
+    "serve": "node tools/serve.mjs",
+    "soak": "node tools/release-soak.mjs",
+    "release:check": "npm test && node tools/release-check.mjs && node tools/release-soak.mjs && node tools/http-smoke.mjs",
+    "http:smoke": "node tools/http-smoke.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "displayName": "Bubble Train"
+}

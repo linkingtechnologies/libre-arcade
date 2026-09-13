@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level>
+  <cannons>
+    <cannon type="rotation" pos="400,575" bulletreloadtime="500" bulletspeed="12.00">
+      <bullets random="1" colour-num="4">
+        <bullet type="SFX_BOMB" special="true" number="1"/>
+        <bullet type="SFX_COLOUR_BOMB" special="true" number="1"/>
+      </bullets>
+    </cannon>
+  </cannons>
+  <trainstations>
+    <train speed="1.00">
+      <track colour="#010101">
+        <line startpos="60,80" endpos="60,360"/>
+        <arc startpos="60,360" endpos="100,400" centre="100,360" rotation="anticlockwise"/>
+        <line startpos="100,400" endpos="480,400"/>
+        <arc startpos="480,400" endpos="520,360" centre="480,360" rotation="anticlockwise"/>
+        <line startpos="520,360" endpos="520,200"/>
+        <arc startpos="520,200" endpos="400,200" centre="460,200" rotation="anticlockwise"/>
+        <line startpos="400,200" endpos="400,280"/>
+        <arc startpos="400,280" endpos="280,280" centre="340,280" rotation="clockwise"/>
+        <line startpos="280,280" endpos="280,120"/>
+        <arc startpos="280,120" endpos="320,80" centre="320,120" rotation="clockwise"/>
+        <line startpos="320,80" endpos="700,80"/>
+        <arc startpos="700,80" endpos="740,120" centre="700,120" rotation="clockwise"/>
+        <line startpos="740,120" endpos="740,400"/>
+      </track>
+      <carriages random="1" colour-num="4" carriage-num="50"/>
+    </train>
+  </trainstations>
+</level>

@@ -1,0 +1,190 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+0000bc64 <Cannon::rotateLeft()>:
+    bc64: e92d47f0     	push	{r4, r5, r6, r7, r8, r9, r10, lr}
+    bc68: e1a0a000     	mov	r10, r0
+    bc6c: e24dd008     	sub	sp, sp, #8
+    bc70: e5900004     	ldr	r0, [r0, #0x4]
+    bc74: eb06294d     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a534
+    bc78: e28f2f4b     	add	r2, pc, #300
+    bc7c: e892000c     	ldm	r2, {r2, r3}
+    bc80: eb06287d     	bl	0x195e7c <__aeabi_dadd> @ imm = #0x18a1f4
+    bc84: eb062b0b     	bl	0x1968b8 <__truncdfsf2> @ imm = #0x18ac2c
+    bc88: e3a01000     	mov	r1, #0
+    bc8c: e58a0004     	str	r0, [r10, #0x4]
+    bc90: e1a04000     	mov	r4, r0
+    bc94: eb062c9a     	bl	0x196f04 <__ltsf2>      @ imm = #0x18b268
+    bc98: e3a03000     	mov	r3, #0
+    bc9c: e3500000     	cmp	r0, #0
+    bca0: e1a00004     	mov	r0, r4
+    bca4: e3a04000     	mov	r4, #0
+    bca8: e88d0018     	stm	sp, {r3, r4}
+    bcac: da000036     	ble	0xbd8c <Cannon::rotateLeft()+0x128> @ imm = #0xd8
+    bcb0: eb06293e     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a4f8
+    bcb4: e28f20f8     	add	r2, pc, #248
+    bcb8: e892000c     	ldm	r2, {r2, r3}
+    bcbc: eb062a89     	bl	0x1966e8 <__ltdf2>      @ imm = #0x18aa24
+    bcc0: e3500000     	cmp	r0, #0
+    bcc4: c59f30f0     	ldrgt	r3, [pc, #0xf0]         @ 0xbdbc <Cannon::rotateLeft()+0x158>
+    bcc8: c58a3004     	strgt	r3, [r10, #0x4]
+    bccc: da00002e     	ble	0xbd8c <Cannon::rotateLeft()+0x128> @ imm = #0xb8
+    bcd0: e59a9020     	ldr	r9, [r10, #0x20]
+    bcd4: e3590000     	cmp	r9, #0
+    bcd8: 0a000031     	beq	0xbda4 <Cannon::rotateLeft()+0x140> @ imm = #0xc4
+    bcdc: e59a0004     	ldr	r0, [r10, #0x4]
+    bce0: eb062932     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a4c8
+    bce4: e1a06000     	mov	r6, r0
+    bce8: e59a0008     	ldr	r0, [r10, #0x8]
+    bcec: e1a07001     	mov	r7, r1
+    bcf0: eb06292e     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a4b8
+    bcf4: e1a04000     	mov	r4, r0
+    bcf8: e1a05001     	mov	r5, r1
+    bcfc: e1a00006     	mov	r0, r6
+    bd00: e1a01007     	mov	r1, r7
+    bd04: eb0bcf53     	bl	0x2ffa58 <sinl>         @ imm = #0x2f3d4c
+    bd08: e59f20b0     	ldr	r2, [pc, #0xb0]         @ 0xbdc0 <Cannon::rotateLeft()+0x15c>
+    bd0c: e3a03000     	mov	r3, #0
+    bd10: eb062956     	bl	0x196270 <__muldf3>     @ imm = #0x18a558
+    bd14: e1a02000     	mov	r2, r0
+    bd18: e1a03001     	mov	r3, r1
+    bd1c: e1a00004     	mov	r0, r4
+    bd20: e1a01005     	mov	r1, r5
+    bd24: eb062854     	bl	0x195e7c <__aeabi_dadd> @ imm = #0x18a150
+    bd28: eb062ae2     	bl	0x1968b8 <__truncdfsf2> @ imm = #0x18ab88
+    bd2c: e1a08000     	mov	r8, r0
+    bd30: e59a000c     	ldr	r0, [r10, #0xc]
+    bd34: eb06291d     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a474
+    bd38: e1a04000     	mov	r4, r0
+    bd3c: e1a05001     	mov	r5, r1
+    bd40: e1a00006     	mov	r0, r6
+    bd44: e1a01007     	mov	r1, r7
+    bd48: eb0be156     	bl	0x3042a8 <cosl>         @ imm = #0x2f8558
+    bd4c: e59f206c     	ldr	r2, [pc, #0x6c]         @ 0xbdc0 <Cannon::rotateLeft()+0x15c>
+    bd50: e3a03000     	mov	r3, #0
+    bd54: eb062945     	bl	0x196270 <__muldf3>     @ imm = #0x18a514
+    bd58: e1a02000     	mov	r2, r0
+    bd5c: e1a03001     	mov	r3, r1
+    bd60: e1a00004     	mov	r0, r4
+    bd64: e1a01005     	mov	r1, r5
+    bd68: eb062843     	bl	0x195e7c <__aeabi_dadd> @ imm = #0x18a10c
+    bd6c: eb062ad1     	bl	0x1968b8 <__truncdfsf2> @ imm = #0x18ab44
+    bd70: e58d0004     	str	r0, [sp, #0x4]
+    bd74: e5990020     	ldr	r0, [r9, #0x20]
+    bd78: e58d8000     	str	r8, [sp]
+    bd7c: e89d0006     	ldm	sp, {r1, r2}
+    bd80: e28dd008     	add	sp, sp, #8
+    bd84: e8bd47f0     	pop	{r4, r5, r6, r7, r8, r9, r10, lr}
+    bd88: eafff22e     	b	0x8648 <Bubble::setPosition(Point)> @ imm = #-0x3748
+    bd8c: eb009e5a     	bl	0x336fc <Theme::Instance()> @ imm = #0x27968
+    bd90: e3a01001     	mov	r1, #1
+    bd94: eb0093fc     	bl	0x30d8c <Theme::playSound(SndRes)> @ imm = #0x24ff0
+    bd98: e59a9020     	ldr	r9, [r10, #0x20]
+    bd9c: e3590000     	cmp	r9, #0
+    bda0: 1affffcd     	bne	0xbcdc <Cannon::rotateLeft()+0x78> @ imm = #-0xcc
+    bda4: e28dd008     	add	sp, sp, #8
+    bda8: e8bd87f0     	pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+    bdac: e9 ce aa 3f d5 eb 7b f3         ...?..{.
+    bdb4: fb 21 f9 3f 18 2d 44 54         .!.?.-DT
+    bdbc: db 0f c9 3f 00 00 32 c0         ...?..2.
+
+0000bdc4 <Cannon::rotateRight()>:
+    bdc4: e92d47f0     	push	{r4, r5, r6, r7, r8, r9, r10, lr}
+    bdc8: e1a0a000     	mov	r10, r0
+    bdcc: e24dd008     	sub	sp, sp, #8
+    bdd0: e5900004     	ldr	r0, [r0, #0x4]
+    bdd4: eb0628f5     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a3d4
+    bdd8: e28f2f4b     	add	r2, pc, #300
+    bddc: e892000c     	ldm	r2, {r2, r3}
+    bde0: eb062824     	bl	0x195e78 <__subdf3>     @ imm = #0x18a090
+    bde4: eb062ab3     	bl	0x1968b8 <__truncdfsf2> @ imm = #0x18aacc
+    bde8: e3a01000     	mov	r1, #0
+    bdec: e58a0004     	str	r0, [r10, #0x4]
+    bdf0: e1a04000     	mov	r4, r0
+    bdf4: eb062c40     	bl	0x196efc <__gtsf2>      @ imm = #0x18b100
+    bdf8: e3a03000     	mov	r3, #0
+    bdfc: e3500000     	cmp	r0, #0
+    be00: e1a00004     	mov	r0, r4
+    be04: e3a04000     	mov	r4, #0
+    be08: e88d0018     	stm	sp, {r3, r4}
+    be0c: ba000031     	blt	0xbed8 <Cannon::rotateRight()+0x114> @ imm = #0xc4
+    be10: eb009e39     	bl	0x336fc <Theme::Instance()> @ imm = #0x278e4
+    be14: e3a01001     	mov	r1, #1
+    be18: eb0093db     	bl	0x30d8c <Theme::playSound(SndRes)> @ imm = #0x24f6c
+    be1c: e59a9020     	ldr	r9, [r10, #0x20]
+    be20: e3590000     	cmp	r9, #0
+    be24: 0a000036     	beq	0xbf04 <Cannon::rotateRight()+0x140> @ imm = #0xd8
+    be28: e59a0004     	ldr	r0, [r10, #0x4]
+    be2c: eb0628df     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a37c
+    be30: e1a06000     	mov	r6, r0
+    be34: e59a0008     	ldr	r0, [r10, #0x8]
+    be38: e1a07001     	mov	r7, r1
+    be3c: eb0628db     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a36c
+    be40: e1a04000     	mov	r4, r0
+    be44: e1a05001     	mov	r5, r1
+    be48: e1a00006     	mov	r0, r6
+    be4c: e1a01007     	mov	r1, r7
+    be50: eb0bcf00     	bl	0x2ffa58 <sinl>         @ imm = #0x2f3c00
+    be54: e59f20c0     	ldr	r2, [pc, #0xc0]         @ 0xbf1c <Cannon::rotateRight()+0x158>
+    be58: e3a03000     	mov	r3, #0
+    be5c: eb062903     	bl	0x196270 <__muldf3>     @ imm = #0x18a40c
+    be60: e1a02000     	mov	r2, r0
+    be64: e1a03001     	mov	r3, r1
+    be68: e1a00004     	mov	r0, r4
+    be6c: e1a01005     	mov	r1, r5
+    be70: eb062801     	bl	0x195e7c <__aeabi_dadd> @ imm = #0x18a004
+    be74: eb062a8f     	bl	0x1968b8 <__truncdfsf2> @ imm = #0x18aa3c
+    be78: e1a08000     	mov	r8, r0
+    be7c: e59a000c     	ldr	r0, [r10, #0xc]
+    be80: eb0628ca     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a328
+    be84: e1a04000     	mov	r4, r0
+    be88: e1a05001     	mov	r5, r1
+    be8c: e1a00006     	mov	r0, r6
+    be90: e1a01007     	mov	r1, r7
+    be94: eb0be103     	bl	0x3042a8 <cosl>         @ imm = #0x2f840c
+    be98: e59f207c     	ldr	r2, [pc, #0x7c]         @ 0xbf1c <Cannon::rotateRight()+0x158>
+    be9c: e3a03000     	mov	r3, #0
+    bea0: eb0628f2     	bl	0x196270 <__muldf3>     @ imm = #0x18a3c8
+    bea4: e1a02000     	mov	r2, r0
+    bea8: e1a03001     	mov	r3, r1
+    beac: e1a00004     	mov	r0, r4
+    beb0: e1a01005     	mov	r1, r5
+    beb4: eb0627f0     	bl	0x195e7c <__aeabi_dadd> @ imm = #0x189fc0
+    beb8: eb062a7e     	bl	0x1968b8 <__truncdfsf2> @ imm = #0x18a9f8
+    bebc: e58d0004     	str	r0, [sp, #0x4]
+    bec0: e5990020     	ldr	r0, [r9, #0x20]
+    bec4: e58d8000     	str	r8, [sp]
+    bec8: e89d0006     	ldm	sp, {r1, r2}
+    becc: e28dd008     	add	sp, sp, #8
+    bed0: e8bd47f0     	pop	{r4, r5, r6, r7, r8, r9, r10, lr}
+    bed4: eafff1db     	b	0x8648 <Bubble::setPosition(Point)> @ imm = #-0x3894
+    bed8: eb0628b4     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18a2d0
+    bedc: e28f2030     	add	r2, pc, #48
+    bee0: e892000c     	ldm	r2, {r2, r3}
+    bee4: eb0629fd     	bl	0x1966e0 <__gtdf2>      @ imm = #0x18a7f4
+    bee8: e3500000     	cmp	r0, #0
+    beec: b59f302c     	ldrlt	r3, [pc, #0x2c]         @ 0xbf20 <Cannon::rotateRight()+0x15c>
+    bef0: b58a3004     	strlt	r3, [r10, #0x4]
+    bef4: aaffffc5     	bge	0xbe10 <Cannon::rotateRight()+0x4c> @ imm = #-0xec
+    bef8: e59a9020     	ldr	r9, [r10, #0x20]
+    befc: e3590000     	cmp	r9, #0
+    bf00: 1affffc8     	bne	0xbe28 <Cannon::rotateRight()+0x64> @ imm = #-0xe0
+    bf04: e28dd008     	add	sp, sp, #8
+    bf08: e8bd87f0     	pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+    bf0c: e9 ce aa 3f d5 eb 7b f3         ...?..{.
+    bf14: fb 21 f9 bf 18 2d 44 54         .!...-DT
+    bf1c: 00 00 32 c0 db 0f c9 bf         ..2.....
+
+0000bf24 <ILoadSave::load(char const*, char const*)>:
+    bf24: e12fff1e     	<unknown>
+
+0000bf28 <ILoadSave::load(_xmlDoc*, _xmlNode*)>:
+    bf28: e12fff1e     	<unknown>
+
+0000bf2c <ILoadSave::save(char const*, char const*)>:
+    bf2c: e12fff1e     	<unknown>
+
+0000bf30 <ILoadSave::save(_xmlDoc*, _xmlNode*)>:
+    bf30: e12fff1e     	<unknown>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="mexico background"><metadata>
+  Clean-room vector background created for the Bubble Train Restoration project.
+  No historical Bubble Train artwork was copied or traced.
+  Intended asset license: CC0-1.0.
+</metadata>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcf6d"/><stop offset="1" stop-color="#ffe9b5"/></linearGradient>
+  <linearGradient id="mesa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dd8d4f"/><stop offset="1" stop-color="#915028"/></linearGradient>
+  <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0c986"/><stop offset="1" stop-color="#cc8f52"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#sky)"/>
+<circle cx="676" cy="100" r="56" fill="#ffefc2" opacity=".66"/>
+<path d="M0 370c114-34 207-59 287-66 152-14 283 24 513 2v294H0Z" fill="url(#sand)"/>
+<path d="M42 298h118v90H42Zm210-49h164v120H252Zm310 25h196v105H562Z" fill="url(#mesa)" opacity=".82"/>
+<path d="M104 492v-70M84 454h40M92 435h24M108 422h14" stroke="#2d7a47" stroke-width="10" stroke-linecap="round"/>
+<path d="M614 510v-82M591 478h46M598 455h34M610 438h16" stroke="#2d7a47" stroke-width="11" stroke-linecap="round"/>
+<path d="M0 170h800M0 200h800" stroke="#fff" stroke-opacity=".08" stroke-width="4"/>
+</svg>

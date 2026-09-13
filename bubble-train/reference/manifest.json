@@ -1,0 +1,20 @@
+[
+  {
+    "path": "reference/os4depot/bubbletrain-os4-1.0final.lha",
+    "size": 4852167,
+    "sha256": "e7e131d6c96192f595e3533295f539adabd81d9399a6fc25326dc7147bc52161",
+    "note": "OS4Depot 1.0final candidate; F11 fullscreen fix present"
+  },
+  {
+    "path": "reference/os4depot/bubbletrain-os4-earlier-as-received.lha",
+    "size": 4825939,
+    "sha256": "becda393a683fec6f1162900c2a2a9891fa5d6d57ad6fa2deb7321ee801fb054",
+    "note": "Earlier OS4 snapshot as received; likely pre-27-Oct fix, not proven byte-identical to Aminet copy"
+  },
+  {
+    "path": "reference/ports/gp2x-gbax2006/BubbleTrain_GP2X-2006_Entry.zip",
+    "size": 31828029,
+    "sha256": "3eaea86c75fbd764808319902db6273a281cafc2cfcac4e2700840e2f7ff3b84",
+    "note": "GBAX 2006 GP2X contest entry"
+  }
+]

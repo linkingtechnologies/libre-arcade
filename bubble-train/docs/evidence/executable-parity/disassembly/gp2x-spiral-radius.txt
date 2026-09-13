@@ -1,0 +1,22 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+0003877c <TrackSpiral::calcRadius(double)>:
+   3877c: e3c11102     	bic	r1, r1, #-2147483648
+   38780: e92d4010     	push	{r4, lr}
+   38784: e1a04000     	mov	r4, r0
+   38788: e1a00001     	mov	r0, r1
+   3878c: e1a01002     	mov	r1, r2
+   38790: e28f2020     	add	r2, pc, #32
+   38794: e892000c     	ldm	r2, {r2, r3}
+   38798: eb0576b4     	bl	0x196270 <__muldf3>     @ imm = #0x15dad0
+   3879c: eb0b3a8d     	bl	0x3071d8 <expl>         @ imm = #0x2cea34
+   387a0: e1a02000     	mov	r2, r0
+   387a4: e1a03001     	mov	r3, r1
+   387a8: e284004c     	add	r0, r4, #76
+   387ac: e8900003     	ldm	r0, {r0, r1}
+   387b0: eb0576ae     	bl	0x196270 <__muldf3>     @ imm = #0x15dab8
+   387b4: e8bd8010     	pop	{r4, pc}
+   387b8: 99 99 b9 bf 9a 99 99 99         ........

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="mountains background"><metadata>
+  Clean-room vector background created for the Bubble Train Restoration project.
+  No historical Bubble Train artwork was copied or traced.
+  Intended asset license: CC0-1.0.
+</metadata>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb8ff"/><stop offset="1" stop-color="#eff8ff"/></linearGradient>
+  <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#679f69"/><stop offset="1" stop-color="#34583a"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#sky)"/>
+<circle cx="660" cy="98" r="44" fill="#fff9cb" opacity=".8"/>
+<path d="M0 354l130-154 87 103 83-116 110 153 67-80 72 90 91-135 160 199v186H0Z" fill="#728ca1"/>
+<path d="M0 390l138-134 83 93 79-102 104 142 79-89 66 77 84-122 167 188v157H0Z" fill="#8ba6bc"/>
+<path d="M0 470c128-67 197-53 315-9s233 33 485-35v174H0Z" fill="url(#hill)"/>
+<path d="M134 225l-38 49h71Zm168-38l-44 62h81Zm356 129-41 61h77Z" fill="#f2f8fc" opacity=".88"/>
+</svg>

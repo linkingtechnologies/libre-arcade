@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="sky background"><metadata>
+  Clean-room vector background created for the Bubble Train Restoration project.
+  No historical Bubble Train artwork was copied or traced.
+  Intended asset license: CC0-1.0.
+</metadata>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4b95ff"/><stop offset="1" stop-color="#d8efff"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#sky)"/>
+<circle cx="646" cy="98" r="54" fill="#fff5bd" opacity=".68"/>
+<g fill="#fff" opacity=".88">
+<ellipse cx="125" cy="143" rx="66" ry="28"/><ellipse cx="172" cy="149" rx="44" ry="20"/><ellipse cx="93" cy="152" rx="34" ry="16"/>
+<ellipse cx="546" cy="172" rx="74" ry="30"/><ellipse cx="603" cy="181" rx="46" ry="20"/><ellipse cx="512" cy="181" rx="40" ry="18"/>
+<ellipse cx="276" cy="252" rx="58" ry="24"/><ellipse cx="324" cy="258" rx="38" ry="17"/><ellipse cx="241" cy="261" rx="30" ry="14"/>
+</g>
+<path d="M0 454c90-46 163-42 264-7s203 41 536-11v164H0Z" fill="#a6d2f2" opacity=".36"/>
+</svg>

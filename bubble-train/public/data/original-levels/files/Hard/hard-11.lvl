@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level>
+  <cannons>
+    <cannon type="rotation" pos="400,575" bulletreloadtime="500" bulletspeed="12.00">
+      <bullets random="1" colour-num="4">
+        <bullet type="SFX_RAINBOW" special="true" number="2"/>
+        <bullet type="SFX_SPEED" special="true" number="1"/>
+        <bullet type="SFX_BOMB" special="true" number="1"/>
+      </bullets>
+    </cannon>
+  </cannons>
+  <trainstations>
+    <train speed="1.50">
+      <track colour="#010101">
+        <line startpos="80,40" endpos="80,320"/>
+        <arc startpos="80,320" endpos="240,320" centre="160,320" rotation="anticlockwise"/>
+        <line startpos="240,320" endpos="240,120"/>
+        <arc startpos="240,120" endpos="320,120" centre="280,120" rotation="clockwise"/>
+        <line startpos="320,120" endpos="320,320"/>
+        <arc startpos="320,320" endpos="480,320" centre="400,320" rotation="anticlockwise"/>
+        <line startpos="480,320" endpos="480,120"/>
+        <arc startpos="480,120" endpos="560,120" centre="520,120" rotation="clockwise"/>
+        <line startpos="560,120" endpos="560,320"/>
+        <arc startpos="560,320" endpos="720,320" centre="640,320" rotation="anticlockwise"/>
+        <line startpos="720,320" endpos="720,40"/>
+      </track>
+      <carriages random="1" colour-num="4" carriage-num="30"/>
+    </train>
+    <train speed="1.00">
+      <track colour="#010101">
+        <line startpos="120,40" endpos="120,320"/>
+        <arc startpos="120,320" endpos="200,320" centre="160,320" rotation="anticlockwise"/>
+        <line startpos="200,320" endpos="200,120"/>
+        <arc startpos="200,120" endpos="360,120" centre="280,120" rotation="clockwise"/>
+        <line startpos="360,120" endpos="360,320"/>
+        <arc startpos="360,320" endpos="440,320" centre="400,320" rotation="anticlockwise"/>
+        <line startpos="440,320" endpos="440,120"/>
+        <arc startpos="440,120" endpos="600,120" centre="520,120" rotation="clockwise"/>
+        <line startpos="600,120" endpos="600,320"/>
+        <arc startpos="600,320" endpos="680,320" centre="640,320" rotation="anticlockwise"/>
+        <line startpos="680,320" endpos="680,40"/>
+      </track>
+      <carriages random="1" colour-num="4" carriage-num="20"/>
+    </train>
+  </trainstations>
+</level>

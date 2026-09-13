@@ -1,0 +1,11 @@
+OS4 binary: /mnt/data/bt_tmp_os4/BubbleTrain_OS4/src/bubbletrain
+SHA-256: 132fb1b82208554d289c2ec07b36c1c9da9d5d6c21b691c618d2216cefd97890
+Direct big-endian literal scan (presence is corroborative; GP2X symbolized disassembly provides function attribution):
+double pi/60 (3 degree cannon step): count=2 offsets=0x278430,0x278458
+double pi/2 (cannon rotation limit): count=8 offsets=0x2783e8,0x278460,0x2785a8,0x278600,0x279bf0,0x279c18,0x27cc20,0x27d1c8
+double 31 (touch threshold): count=3 offsets=0x27d550,0x27d5c0,0x27d688
+double 60 (bomb radius): count=5 offsets=0x27d5f0,0x2a20d0,0x2a20e0,0x2a2110,0x2a22e8
+double 30 (bubble diameter/ripple): count=4 offsets=0x278648,0x27d538,0x27d590,0x2804f8
+double 15 (bubble radius/insertion half-step): count=2 offsets=0x27d638,0x2803a8
+double 45 (cannon length): count=6 offsets=0x278428,0x278448,0x278470,0x278578,0x2785b8,0x2785d0
+float 15 (bubble radius): count=13 offsets=0x2780c0,0x278238,0x279000,0x279028,0x279a00,0x27bad0,0x27bae8,0x27bb08,0x27bb18,0x27bb38,0x27bb48,0x2de33e,0x35e702

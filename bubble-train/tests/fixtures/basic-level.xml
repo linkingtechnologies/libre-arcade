@@ -1,0 +1,17 @@
+<level>
+  <cannons>
+    <cannon type="rotation" pos="400,575" bulletreloadtime="500" bulletspeed="10.00">
+      <bullets random="1" colour-num="3"/>
+    </cannon>
+  </cannons>
+  <trainstations>
+    <train speed="1.00">
+      <track colour="clean-room">
+        <line startpos="100,200" endpos="300,200"/>
+        <arc startpos="300,200" endpos="400,300" centre="300,300" rotation="clockwise"/>
+        <spiral startpos="500,300" endpos="336.7879,309.9303" centre="300,300" rotation="clockwise"/>
+      </track>
+      <carriages random="1" colour-num="3" carriage-num="10"/>
+    </train>
+  </trainstations>
+</level>

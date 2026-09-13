@@ -1,0 +1,19 @@
+<level>
+  <cannons>
+    <cannon type="rotation" pos="400,550" bulletreloadtime="380" bulletspeed="12">
+      <bullets random="1" colour-num="4">
+        <bullet special="true" type="SFX_BOMB" number="2"/>
+        <bullet special="true" type="SFX_RAINBOW" number="2"/>
+      </bullets>
+    </cannon>
+  </cannons>
+  <trainstations>
+    <train speed="0.75">
+      <track colour="clean">
+        <line startpos="100,170" endpos="700,170"/>
+        <line endpos="700,330"/>
+      </track>
+      <carriages random="1" colour-num="4" carriage-num="24"/>
+    </train>
+  </trainstations>
+</level>

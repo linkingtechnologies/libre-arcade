@@ -1,0 +1,35 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+000093e4 <Bullet::animate()>:
+    93e4: e92d40f0     	push	{r4, r5, r6, r7, lr}
+    93e8: e24dd008     	sub	sp, sp, #8
+    93ec: e1a06000     	mov	r6, r0
+    93f0: e5901020     	ldr	r1, [r0, #0x20]
+    93f4: e1a0000d     	mov	r0, sp
+    93f8: ebfffc86     	bl	0x8618 <Bubble::getPosition()> @ imm = #-0xde8
+    93fc: e89d0030     	ldm	sp, {r4, r5}
+    9400: e1a00004     	mov	r0, r4
+    9404: eb063369     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18cda4
+    9408: e896000c     	ldm	r6, {r2, r3}
+    940c: eb06329a     	bl	0x195e7c <__aeabi_dadd> @ imm = #0x18ca68
+    9410: eb063528     	bl	0x1968b8 <__truncdfsf2> @ imm = #0x18d4a0
+    9414: e1a07000     	mov	r7, r0
+    9418: e1a00005     	mov	r0, r5
+    941c: eb063363     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x18cd8c
+    9420: e2862008     	add	r2, r6, #8
+    9424: e892000c     	ldm	r2, {r2, r3}
+    9428: eb063292     	bl	0x195e78 <__subdf3>     @ imm = #0x18ca48
+    942c: eb063521     	bl	0x1968b8 <__truncdfsf2> @ imm = #0x18d484
+    9430: e1a05000     	mov	r5, r0
+    9434: e1a01007     	mov	r1, r7
+    9438: e5960020     	ldr	r0, [r6, #0x20]
+    943c: e1a02005     	mov	r2, r5
+    9440: ebfffc80     	bl	0x8648 <Bubble::setPosition(Point)> @ imm = #-0xe00
+    9444: e5960020     	ldr	r0, [r6, #0x20]
+    9448: e1a04007     	mov	r4, r7
+    944c: e28dd008     	add	sp, sp, #8
+    9450: e8bd40f0     	pop	{r4, r5, r6, r7, lr}
+    9454: eafffdac     	b	0x8b0c <Bubble::animate()> @ imm = #-0x950

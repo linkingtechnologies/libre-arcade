@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="space background"><metadata>
+  Clean-room vector background created for the Bubble Train Restoration project.
+  No historical Bubble Train artwork was copied or traced.
+  Intended asset license: CC0-1.0.
+</metadata>
+<defs>
+  <radialGradient id="space" cx="50%" cy="45%" r="80%"><stop offset="0" stop-color="#29395e"/><stop offset=".6" stop-color="#151b31"/><stop offset="1" stop-color="#090c18"/></radialGradient>
+  <radialGradient id="planet" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffcf88"/><stop offset=".55" stop-color="#d36c7e"/><stop offset="1" stop-color="#6b3f93"/></radialGradient>
+</defs>
+<rect width="800" height="600" fill="url(#space)"/>
+<g fill="#fff">
+  <circle cx="92" cy="94" r="2"/><circle cx="138" cy="170" r="1.8"/><circle cx="224" cy="84" r="1.5"/><circle cx="270" cy="218" r="1.9"/>
+  <circle cx="312" cy="126" r="1.4"/><circle cx="388" cy="66" r="1.8"/><circle cx="430" cy="164" r="1.6"/><circle cx="516" cy="96" r="2"/>
+  <circle cx="580" cy="210" r="1.6"/><circle cx="639" cy="144" r="1.8"/><circle cx="708" cy="93" r="1.4"/><circle cx="742" cy="187" r="2"/>
+  <circle cx="118" cy="286" r="1.4"/><circle cx="202" cy="338" r="1.8"/><circle cx="297" cy="292" r="1.5"/><circle cx="354" cy="366" r="2"/>
+  <circle cx="472" cy="288" r="1.6"/><circle cx="546" cy="336" r="1.8"/><circle cx="625" cy="280" r="1.4"/><circle cx="714" cy="352" r="1.7"/>
+</g>
+<circle cx="618" cy="128" r="72" fill="url(#planet)"/>
+<ellipse cx="618" cy="128" rx="102" ry="22" fill="none" stroke="#d7d0ff" stroke-opacity=".4" stroke-width="9" transform="rotate(-18 618 128)"/>
+<path d="M0 440c98-28 170-24 276 14s222 45 524-2v154H0Z" fill="#0a1020" opacity=".4"/>
+</svg>

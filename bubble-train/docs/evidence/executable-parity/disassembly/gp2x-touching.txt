@@ -1,0 +1,57 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+0003c8d4 <Train::touchingCarriages(Carriage*, Carriage*)>:
+   3c8d4: e92d40f0     	push	{r4, r5, r6, r7, lr}
+   3c8d8: e24dd010     	sub	sp, sp, #16
+   3c8dc: e1a05002     	mov	r5, r2
+   3c8e0: e5911000     	ldr	r1, [r1]
+   3c8e4: e28d0008     	add	r0, sp, #8
+   3c8e8: ebff2f4a     	bl	0x8618 <Bubble::getPosition()> @ imm = #-0x342d8
+   3c8ec: e28d3008     	add	r3, sp, #8
+   3c8f0: e8930018     	ldm	r3, {r3, r4}
+   3c8f4: e5951000     	ldr	r1, [r5]
+   3c8f8: e1a06004     	mov	r6, r4
+   3c8fc: e1a0000d     	mov	r0, sp
+   3c900: e1a07003     	mov	r7, r3
+   3c904: ebff2f43     	bl	0x8618 <Bubble::getPosition()> @ imm = #-0x342f4
+   3c908: e89d0030     	ldm	sp, {r4, r5}
+   3c90c: e1a00006     	mov	r0, r6
+   3c910: e1a01005     	mov	r1, r5
+   3c914: eb056811     	bl	0x196960 <__subsf3>     @ imm = #0x15a044
+   3c918: e1a01000     	mov	r1, r0
+   3c91c: eb0568b8     	bl	0x196c04 <__mulsf3>     @ imm = #0x15a2e0
+   3c920: e1a01004     	mov	r1, r4
+   3c924: e1a06000     	mov	r6, r0
+   3c928: e1a00007     	mov	r0, r7
+   3c92c: eb05680b     	bl	0x196960 <__subsf3>     @ imm = #0x15a02c
+   3c930: e1a01000     	mov	r1, r0
+   3c934: eb0568b2     	bl	0x196c04 <__mulsf3>     @ imm = #0x15a2c8
+   3c938: e1a01000     	mov	r1, r0
+   3c93c: e1a00006     	mov	r0, r6
+   3c940: eb056807     	bl	0x196964 <__aeabi_fadd> @ imm = #0x15a01c
+   3c944: e3a01000     	mov	r1, #0
+   3c948: e1a04000     	mov	r4, r0
+   3c94c: eb05696a     	bl	0x196efc <__gtsf2>      @ imm = #0x15a5a8
+   3c950: e3500000     	cmp	r0, #0
+   3c954: e3a03000     	mov	r3, #0
+   3c958: e1a00004     	mov	r0, r4
+   3c95c: e3a04000     	mov	r4, #0
+   3c960: da000003     	ble	0x3c974 <Train::touchingCarriages(Carriage*, Carriage*)+0xa0> @ imm = #0xc
+   3c964: eb056611     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x159844
+   3c968: eb0b2ba2     	bl	0x3077f8 <sqrtl>        @ imm = #0x2cae88
+   3c96c: e3c03102     	bic	r3, r0, #-2147483648
+   3c970: e1a04001     	mov	r4, r1
+   3c974: e1a00003     	mov	r0, r3
+   3c978: e1a01004     	mov	r1, r4
+   3c97c: e59f2018     	ldr	r2, [pc, #0x18]         @ 0x3c99c <Train::touchingCarriages(Carriage*, Carriage*)+0xc8>
+   3c980: e3a03000     	mov	r3, #0
+   3c984: eb056757     	bl	0x1966e8 <__ltdf2>      @ imm = #0x159d5c
+   3c988: e3500000     	cmp	r0, #0
+   3c98c: c3a00000     	movgt	r0, #0
+   3c990: d3a00001     	movle	r0, #1
+   3c994: e28dd010     	add	sp, sp, #16
+   3c998: e8bd80f0     	pop	{r4, r5, r6, r7, pc}
+   3c99c: 00 00 2a 40                     ..*@

@@ -1,0 +1,11 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+0001b0fc <Level::canFireBullet()>:
+   1b0fc: e5900044     	ldr	r0, [r0, #0x44]
+   1b100: e350000a     	cmp	r0, #10
+   1b104: c3a00000     	movgt	r0, #0
+   1b108: d3a00001     	movle	r0, #1
+   1b10c: e12fff1e     	<unknown>

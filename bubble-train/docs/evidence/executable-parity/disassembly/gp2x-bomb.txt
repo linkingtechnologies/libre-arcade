@@ -1,0 +1,108 @@
+
+/mnt/data/bt_tmp_gp2x/BubTrain/bin/BubTrain:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+0003b264 <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)>:
+   3b264: e92d47f0     	push	{r4, r5, r6, r7, r8, r9, r10, lr}
+   3b268: e24dd010     	sub	sp, sp, #16
+   3b26c: e1a06003     	mov	r6, r3
+   3b270: e1a07002     	mov	r7, r2
+   3b274: e1a04001     	mov	r4, r1
+   3b278: e1a08000     	mov	r8, r0
+   3b27c: ebffe11e     	bl	0x336fc <Theme::Instance()> @ imm = #-0x7b88
+   3b280: e3a01006     	mov	r1, #6
+   3b284: ebffd6c0     	bl	0x30d8c <Theme::playSound(SndRes)> @ imm = #-0xa500
+   3b288: e1a01004     	mov	r1, r4
+   3b28c: e28d0008     	add	r0, sp, #8
+   3b290: ebff34e0     	bl	0x8618 <Bubble::getPosition()> @ imm = #-0x32c80
+   3b294: e28d3008     	add	r3, sp, #8
+   3b298: e8930018     	ldm	r3, {r3, r4}
+   3b29c: e3560000     	cmp	r6, #0
+   3b2a0: 15967000     	ldrne	r7, [r6]
+   3b2a4: e1a09003     	mov	r9, r3
+   3b2a8: e3570000     	cmp	r7, #0
+   3b2ac: e1a0a004     	mov	r10, r4
+   3b2b0: 0a000023     	beq	0x3b344 <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)+0xe0> @ imm = #0x8c
+   3b2b4: e5973000     	ldr	r3, [r7]
+   3b2b8: e1a0000d     	mov	r0, sp
+   3b2bc: e5931000     	ldr	r1, [r3]
+   3b2c0: ebff34d4     	bl	0x8618 <Bubble::getPosition()> @ imm = #-0x32cb0
+   3b2c4: e89d0030     	ldm	sp, {r4, r5}
+   3b2c8: e1a0000a     	mov	r0, r10
+   3b2cc: e1a01005     	mov	r1, r5
+   3b2d0: eb056da2     	bl	0x196960 <__subsf3>     @ imm = #0x15b688
+   3b2d4: e1a01000     	mov	r1, r0
+   3b2d8: eb056e49     	bl	0x196c04 <__mulsf3>     @ imm = #0x15b924
+   3b2dc: e1a01004     	mov	r1, r4
+   3b2e0: e1a06000     	mov	r6, r0
+   3b2e4: e1a00009     	mov	r0, r9
+   3b2e8: eb056d9c     	bl	0x196960 <__subsf3>     @ imm = #0x15b670
+   3b2ec: e1a01000     	mov	r1, r0
+   3b2f0: eb056e43     	bl	0x196c04 <__mulsf3>     @ imm = #0x15b90c
+   3b2f4: e1a01000     	mov	r1, r0
+   3b2f8: e1a00006     	mov	r0, r6
+   3b2fc: eb056d98     	bl	0x196964 <__aeabi_fadd> @ imm = #0x15b660
+   3b300: e3a01000     	mov	r1, #0
+   3b304: e1a04000     	mov	r4, r0
+   3b308: eb056efb     	bl	0x196efc <__gtsf2>      @ imm = #0x15bbec
+   3b30c: e3500000     	cmp	r0, #0
+   3b310: da000011     	ble	0x3b35c <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)+0xf8> @ imm = #0x44
+   3b314: e1a00004     	mov	r0, r4
+   3b318: eb056ba4     	bl	0x1961b0 <__extendsfdf2> @ imm = #0x15ae90
+   3b31c: eb0b3135     	bl	0x3077f8 <sqrtl>        @ imm = #0x2cc4d4
+   3b320: e59f20d0     	ldr	r2, [pc, #0xd0]         @ 0x3b3f8 <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)+0x194>
+   3b324: e3a03000     	mov	r3, #0
+   3b328: eb056cee     	bl	0x1966e8 <__ltdf2>      @ imm = #0x15b3b8
+   3b32c: e3500000     	cmp	r0, #0
+   3b330: a5974004     	ldrge	r4, [r7, #0x4]
+   3b334: ba000008     	blt	0x3b35c <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)+0xf8> @ imm = #0x20
+   3b338: e1a07004     	mov	r7, r4
+   3b33c: e3570000     	cmp	r7, #0
+   3b340: 1affffdb     	bne	0x3b2b4 <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)+0x50> @ imm = #-0x94
+   3b344: e598300c     	ldr	r3, [r8, #0xc]
+   3b348: e3530000     	cmp	r3, #0
+   3b34c: 02833002     	addeq	r3, r3, #2
+   3b350: 05883028     	streq	r3, [r8, #0x28]
+   3b354: e28dd010     	add	sp, sp, #16
+   3b358: e8bd87f0     	pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+   3b35c: e5973000     	ldr	r3, [r7]
+   3b360: e1a00008     	mov	r0, r8
+   3b364: e5931000     	ldr	r1, [r3]
+   3b368: ebfffd1b     	bl	0x3a7dc <Train::addExplodedCarriage(Bubble*)> @ imm = #-0xb94
+   3b36c: e5974000     	ldr	r4, [r7]
+   3b370: e3540000     	cmp	r4, #0
+   3b374: 0a000003     	beq	0x3b388 <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)+0x124> @ imm = #0xc
+   3b378: e1a00004     	mov	r0, r4
+   3b37c: ebff43d1     	bl	0xc2c8 <Carriage::~Carriage()> @ imm = #-0x2f0bc
+   3b380: e1a00004     	mov	r0, r4
+   3b384: eb0015db     	bl	0x40af8 <operator delete(void*)> @ imm = #0x576c
+   3b388: e5983004     	ldr	r3, [r8, #0x4]
+   3b38c: e2886004     	add	r6, r8, #4
+   3b390: e1570003     	cmp	r7, r3
+   3b394: 05973004     	ldreq	r3, [r7, #0x4]
+   3b398: 05883004     	streq	r3, [r8, #0x4]
+   3b39c: 0a000003     	beq	0x3b3b0 <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)+0x14c> @ imm = #0xc
+   3b3a0: e5963004     	ldr	r3, [r6, #0x4]
+   3b3a4: e1570003     	cmp	r7, r3
+   3b3a8: 05973008     	ldreq	r3, [r7, #0x8]
+   3b3ac: 05863004     	streq	r3, [r6, #0x4]
+   3b3b0: e5972008     	ldr	r2, [r7, #0x8]
+   3b3b4: e5974004     	ldr	r4, [r7, #0x4]
+   3b3b8: e3520000     	cmp	r2, #0
+   3b3bc: 15824004     	strne	r4, [r2, #0x4]
+   3b3c0: e1a03004     	mov	r3, r4
+   3b3c4: 15973004     	ldrne	r3, [r7, #0x4]
+   3b3c8: e1a00007     	mov	r0, r7
+   3b3cc: e3530000     	cmp	r3, #0
+   3b3d0: 15832008     	strne	r2, [r3, #0x8]
+   3b3d4: eb0015c7     	bl	0x40af8 <operator delete(void*)> @ imm = #0x571c
+   3b3d8: e5963000     	ldr	r3, [r6]
+   3b3dc: e1a07004     	mov	r7, r4
+   3b3e0: e3530000     	cmp	r3, #0
+   3b3e4: 05863004     	streq	r3, [r6, #0x4]
+   3b3e8: e5963008     	ldr	r3, [r6, #0x8]
+   3b3ec: e2433001     	sub	r3, r3, #1
+   3b3f0: e5863008     	str	r3, [r6, #0x8]
+   3b3f4: eaffffd0     	b	0x3b33c <Train::triggerBomb(Bubble*, DListIterator<Carriage*>)+0xd8> @ imm = #-0xc0
+   3b3f8: 00 00 38 40                     ..8@
