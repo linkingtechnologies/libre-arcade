@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+const app=fs.readFileSync(new URL('../public/src/app.js',import.meta.url),'utf8');
+const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('../public/src/style.css',import.meta.url),'utf8');
+const audio=fs.readFileSync(new URL('../public/src/audio.js',import.meta.url),'utf8');
+for(const x of ['overlay','safeBadge','tiltBadge','soundBtn','musicBtn','menuBtn','fullscreenBtn'])if(!html.includes(x))throw new Error('missing '+x);
+for(const x of ['pauseGame()','finishGame()','nova-scores','CleanAudio','missionTitleText','spawnSparks','spawnScore','toggleFullscreen','overlayReturn'])if(!app.includes(x))throw new Error('missing '+x);
+if(app.includes("querySelector('#resetBtn')"))throw new Error('obsolete resetBtn reference');
+if(!app.includes("if(action==='back'){uiMode=overlayReturn"))throw new Error('overlay back navigation not release-safe');
+if(!css.includes('orientation:landscape')||!css.includes('.touch-controls'))throw new Error('responsive touch polish missing');
+if(!css.includes(':fullscreen .footer-controls')||!css.includes('flex-wrap:nowrap'))throw new Error('fullscreen control-row no-wrap fix missing');
+if(!html.includes('class="footer-help"'))throw new Error('dedicated footer help row missing');
+if(!app.includes('panel menu-panel'))throw new Error('main menu panel class missing');
+if(!css.includes('.menu-panel,.pause-panel')||!css.includes('overflow:hidden'))throw new Error('scroll-free menu/pause layout missing');
+if(!app.includes('updateMusicButton')||!app.includes("musicBtn.addEventListener('click'"))throw new Error('footer music selector missing');
+if(!audio.includes('createDynamicsCompressor')||!audio.includes('this.bus'))throw new Error('clean audio output bus/compressor missing');
+console.log('OK — menu/pause/Safe Mode/TILT/fullscreen/mission/effects/audio UI hooks');

@@ -1,0 +1,10 @@
+import {DEFAULT_SCORES,insertScore,qualifies,cleanInitials} from '../public/src/scores.js';
+const ok=(x,m)=>{if(!x)throw new Error(m)};
+ok(DEFAULT_SCORES.length===8,'default scores');
+ok(qualifies(9500,DEFAULT_SCORES),'9500 must qualify');
+ok(!qualifies(1500,DEFAULT_SCORES),'1500 must not qualify');
+const r=insertScore(DEFAULT_SCORES,9500,'a!b9',new Date(2026,8,14));
+ok(r.scores[0].score===9500&&r.scores[0].initials==='AB9','insert/initials failed');
+ok(r.scores.length===8,'cull failed');
+ok(cleanInitials('x-y_z')==='XYZ','clean initials');
+console.log('OK — persistent-score model');

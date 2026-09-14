@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
+const app=fs.readFileSync(new URL('../public/src/app.js',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('../public/src/style.css',import.meta.url),'utf8');
+if(!html.includes('id="musicBtn"'))throw new Error('music footer button missing');
+for(const token of ['updateMusicButton','cycleMusic()',"musicBtn.addEventListener('click'"])if(!app.includes(token))throw new Error('music footer hook missing: '+token);
+if(!html.includes('class="footer-controls"')||!html.includes('class="footer-help"'))throw new Error('two-row footer structure missing');
+if(!css.includes('.footer-controls #musicBtn')||!css.includes(':fullscreen .footer-controls #musicBtn'))throw new Error('music footer sizing missing');
+if(!css.includes(':fullscreen .footer-help')||!css.includes('flex-wrap:wrap'))throw new Error('fullscreen help row missing');
+if(!css.includes('justify-content:center'))throw new Error('footer controls are not centered');
+if(!css.includes('.menu-panel,.pause-panel')||!css.includes('overflow:hidden'))throw new Error('menu/pause scroll suppression missing');
+console.log('OK — centered footer, music selector, two-row help and scroll-free primary menus');

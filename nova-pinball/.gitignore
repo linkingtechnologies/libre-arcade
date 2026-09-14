@@ -1,0 +1,33 @@
+.DS_Store
+Thumbs.db
+reference/*.love
+reference/*.zip
+reference/*.exe
+*.log
+
+# Dependencies
+/node_modules/
+
+# Generated build output
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+# Local archaeological artifacts/media: keep them private and verify via reference/MANIFEST.md
+reference/**/*.love
+reference/**/*.zip
+reference/**/*.exe
+reference/**/*.wav
+reference/**/*.it
+reference/**/*.xm
+reference/**/*.mod
+reference/**/*.s3m
+reference/**/*.ttf
+reference/**/*.otf
+reference/**/*.png
+reference/**/*.jpg
+reference/**/*.jpeg
+reference/**/*.gif
+reference/**/*.webp
+reference/**/*.xcf

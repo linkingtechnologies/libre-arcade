@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import {ballCameraTarget,fullTableTransform} from '../public/src/camera.js';
+const t=JSON.parse(fs.readFileSync(new URL('../public/data/table.json',import.meta.url)));
+const H=600,W=800;
+const bottom=ballCameraTarget(t.size,800,H);
+const top=ballCameraTarget(t.size,100,H);
+if(Math.abs(bottom-(-359.19938033579))>0.001) throw new Error(`bottom camera mismatch ${bottom}`);
+if(Math.abs(top-101.26526828241)>0.001) throw new Error(`top camera mismatch ${top}`);
+if(!(top>bottom)) throw new Error('camera must move down when ball moves up');
+const full=fullTableTransform(t.size,W,H);
+if(full.scale<=0 || full.scale>=1) throw new Error('invalid full table scale');
+console.log('OK — camera parity:',{top:top.toFixed(2),bottom:bottom.toFixed(2),tableScale:full.scale.toFixed(4)});

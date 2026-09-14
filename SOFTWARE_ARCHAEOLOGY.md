@@ -77,6 +77,7 @@ original with an executable oracle or a benchmark:
 - [`game-of-the-goose/SOFTWARE_ARCHAEOLOGY.md`](game-of-the-goose/SOFTWARE_ARCHAEOLOGY.md)
 - [`bubble-train/SOFTWARE_ARCHAEOLOGY.md`](bubble-train/SOFTWARE_ARCHAEOLOGY.md)
 - [`grugnettos-goose/SOFTWARE_ARCHAEOLOGY.md`](grugnettos-goose/SOFTWARE_ARCHAEOLOGY.md)
+- [`nova-pinball/SOFTWARE_ARCHAEOLOGY.md`](nova-pinball/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already
