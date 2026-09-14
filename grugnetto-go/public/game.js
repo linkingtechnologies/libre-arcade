@@ -77,25 +77,23 @@ export const INVINCIBILITY_MS = 8000;
 // frame of contact instead of once per encounter.
 export const HIT_GRACE_MS = 1200;
 
-// Super jump: a limited-charge extra mid-air jump, requested live ("una barra di consumo del
-// supersalto, quello quando premo ripetutamente il tasto freccia su, che deve essere limitata per
-// livello"). entities/player.js consumes one charge per airborne jump press (each press is its
-// own edge-triggered isKeyPressed("jump") call — see that file's own comment on why a SECOND
-// physically-stronger jump isn't how this works: melonJS's Body.update() hard-clamps vel.y to
-// [-maxVel.y, maxVel.y] every single frame regardless of how vel.y was set, so no jump can ever
-// exceed a normal jump's peak velocity — the "super" in "super jump" comes from re-triggering a
-// full second (or third...) ascent before landing, not a stronger single kick). 5, not unlimited:
-// "deve essere limitata per livello" (must be limited per level) was explicit — screens/play.js's
+// Super jump: a limited-charge extra mid-air jump. entities/player.js consumes one charge per
+// airborne jump press (each press is its own edge-triggered isKeyPressed("jump") call — see that
+// file's own comment on why a SECOND physically-stronger jump isn't how this works: melonJS's
+// Body.update() hard-clamps vel.y to [-maxVel.y, maxVel.y] every single frame regardless of how
+// vel.y was set, so no jump can ever exceed a normal jump's peak velocity — the "super" in "super
+// jump" comes from re-triggering a full second (or third...) ascent before landing, not a stronger
+// single kick). 5, not unlimited, and explicitly limited PER LEVEL, not per run — screens/play.js's
 // loadLevel() and player.js's loseLife() both reset this back to SUPERJUMP_MAX, same "fresh
 // attempt" treatment score/coins already get, so it's a per-ATTEMPT budget, not a one-time global
 // currency.
 export const SUPERJUMP_MAX = 5;
 
 // --- Scoring variety (combo chain + level-completion bonuses) ------------------------------
-// Requested live: "capire se ci sono altre idee per rendere il punteggio più variabile" — four
-// additions on top of the flat per-pickup point values coin.js/bonus.js/enemy.js already had:
-// a combo multiplier for chaining pickups/stomps without getting hit, plus three one-time bonuses
-// (speed, no-damage, full-coin-clear) evaluated once at goal.js's own "won" trigger.
+// Four additions on top of the flat per-pickup point values coin.js/bonus.js/enemy.js already had,
+// aimed at making scoring feel less flat: a combo multiplier for chaining pickups/stomps without
+// getting hit, plus three one-time bonuses (speed, no-damage, full-coin-clear) evaluated once at
+// goal.js's own "won" trigger.
 
 // Every coin/stomp/bonus pickup adds 1 to game.data.combo (see addComboScore() below) — this is
 // how many "steps" of COMBO_STEP each raises the multiplier by one, capped at

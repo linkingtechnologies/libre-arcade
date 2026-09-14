@@ -16,8 +16,8 @@ import game, { playMusic, STARTING_LIVES, SUPERJUMP_MAX } from "../game.js?v=11"
 // premise is a single shared life pool across the entire world1->world4 run, not a fresh set per
 // level the way Practice mode (and every call before this option existed) works — so advancing to
 // the next level in that mode must carry game.data.lives forward unchanged instead of resetting
-// it. `resetScore` is the same idea for score — requested live ("volevo un punteggio persistente
-// per l'arcade") — kept as its OWN separate flag rather than reusing resetLives, since app.js's
+// it. `resetScore` is the same idea for score (Arcade's score is meant to persist across the whole
+// run) — kept as its OWN separate flag rather than reusing resetLives, since app.js's
 // arcadeNextLevel() needs both true at once for BOTH normally, but they're conceptually
 // independent (score and lives are different resources; a future call site might want to reset
 // one without the other). Defaults preserve the original always-reset behavior for every other
@@ -37,8 +37,8 @@ export function loadLevel(resource, music, { resetLives = true, startingLives = 
   if (resetLives) {
     game.data.lives = startingLives;
   }
-  // Unconditional, unlike lives above — "limitata per livello" (limited PER LEVEL) was explicit,
-  // not per-run, so this resets on every level load regardless of Arcade mode's resetLives:false
+  // Unconditional, unlike lives above — super jumps are explicitly limited PER LEVEL, not per-run,
+  // so this resets on every level load regardless of Arcade mode's resetLives:false
   // (which only exists to carry the LIFE pool across levels, a separate, deliberately different
   // resource — see game.js's own SUPERJUMP_MAX comment).
   game.data.superJumps = SUPERJUMP_MAX;

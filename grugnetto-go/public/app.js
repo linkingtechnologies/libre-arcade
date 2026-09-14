@@ -7,16 +7,15 @@
 // module; neither is a separate copy of the game logic.
 //
 // melonJS/lit-html used to be loaded straight from jsDelivr's CDN here — switched to vendored
-// local copies (games/grugnetto-go/vendor/) per explicit request ("vorrei evitare CDN"): both
-// this Camila-hosted tab AND the standalone index.html now work with zero outbound network
-// calls, not just "portable to any web server" (the previous, weaker guarantee — a server
-// without internet access, or a user's browser with third-party requests blocked, could still
-// break the game before this). vendor/melonjs-19.9.1.esm.js is jsDelivr's own "+esm" bundle
-// output saved as a static file (not just a redirect target) — melonJS's real npm build
-// (build/index.js) uses bare "core-js"/"howler" import specifiers that only resolve via
-// Node/bundler resolution, not in a plain browser <script type=module>; the +esm bundle is a
-// real, necessary transform (inlines those deps into one flat file), not merely a CDN proxy —
-// confirmed by fetching it directly and checking for zero further from"https://... imports
+// local copies (games/grugnetto-go/vendor/) so both this Camila-hosted tab AND the standalone
+// index.html work with zero outbound network calls, not just "portable to any web server" (the
+// previous, weaker guarantee — a server without internet access, or a user's browser with
+// third-party requests blocked, could still break the game before this). vendor/melonjs-19.9.1.esm.js
+// is jsDelivr's own "+esm" bundle output saved as a static file (not just a redirect target) —
+// melonJS's real npm build (build/index.js) uses bare "core-js"/"howler" import specifiers that
+// only resolve via Node/bundler resolution, not in a plain browser <script type=module>; the +esm
+// bundle is a real, necessary transform (inlines those deps into one flat file), not merely a CDN
+// proxy — confirmed by fetching it directly and checking for zero further from"https://... imports
 // inside, i.e. it's fully self-contained already. vendor/lit-html-3.3.2.js is a byte-identical
 // copy of camila/js/lit-html/lit-html.js — the Camila framework's own already-vendored,
 // version-verified stock lit-html build (see that file's own litHtmlVersions push("3.3.2")),
@@ -78,10 +77,10 @@ const uiState = {
 const WRAPPER_VISIBLE_SCREENS = ["loading", "playing", "level-complete", "gameover"];
 
 // Same frame sequence/timing as player.js's own WALK_FRAMES (walk-a -> idle -> walk-b -> idle),
-// requested explicitly ("la stessa animazione di grugnetto quando corre") — but as raw filenames,
-// not resource names: the title screen renders before the melonJS engine boots (see start()
-// below), so me.loader.getImage() isn't available yet here. This is a plain lit-html <img>, swapped
-// via a DOM-level src change on a timer instead of a melonJS-managed sprite.
+// so the title mascot runs with the same animation as in-game — but as raw filenames, not resource
+// names: the title screen renders before the melonJS engine boots (see start() below), so
+// me.loader.getImage() isn't available yet here. This is a plain lit-html <img>, swapped via a
+// DOM-level src change on a timer instead of a melonJS-managed sprite.
 const TITLE_MASCOT_FRAMES = ["grugnetto_walk_a.png", "grugnetto_idle.png", "grugnetto_walk_b.png", "grugnetto_idle.png"];
 let titleMascotFrame = 0;
 setInterval(() => {
@@ -133,29 +132,26 @@ function createNoiseBurst(ctx, durationSec) {
 }
 
 // Two short, low, buzzy pulses ("hnk-hnk") layered with filtered noise — not a sampled sound,
-// synthesized on the fly with plain oscillator/filter/noise nodes. Requested live ("quando pigio
-// i tasti si può emettere un grugnito?"): a real recorded pig grunt would mean sourcing + vetting
-// + crediting yet another third-party asset (see CreditsScreen()) for a one-off keypress easter
-// egg — synthesizing it instead keeps this fully self-contained, in the same spirit as this
-// session's CDN-removal work (vendor/), and costs nothing to tweak.
+// synthesized on the fly with plain oscillator/filter/noise nodes. A real recorded pig grunt would
+// mean sourcing + vetting + crediting yet another third-party asset (see CreditsScreen()) for a
+// one-off keypress easter egg — synthesizing it instead keeps this fully self-contained, in the
+// same spirit as this session's CDN-removal work (vendor/), and costs nothing to tweak.
 //
-// This is the SECOND pass at the sound itself — the first version (a single smooth sawtooth
-// pitch sweep, no noise) was reported live as not actually reading as a grunt at all ("il grunt
-// non è affatto il grugnito di un maiale"), more like a sci-fi descending blip. Two changes
+// This is the SECOND pass at the sound itself — the first version (a single smooth sawtooth pitch
+// sweep, no noise) read more like a sci-fi descending blip than an actual grunt. Two changes
 // address that directly: a real grunt is a double, choppy sound, not one smooth sweep — hence two
 // short pulses instead of one longer one; and a real grunt has a breathy, rough texture a pure
 // tone can't produce alone — hence the noise layer under each pulse. Lower base frequency range
-// too (85-105Hz vs the original 170-200Hz) — a chesty low register reads as an animal grunt,
-// the higher range read as a zap. Randomized per pulse so rapid-fire key mashing doesn't sound
-// like the exact same sound on a loop.
+// too (85-105Hz vs the original 170-200Hz) — a chesty low register reads as an animal grunt, the
+// higher range read as a zap. Randomized per pulse so rapid-fire key mashing doesn't sound like
+// the exact same sound on a loop.
 //
-// Reported live as silent ("non sento i grugniti al click sui tasti"). Root cause: the FIRST
-// call ever creates a brand-new AudioContext, which starts life "suspended" — calling resume()
-// on it is necessary but NOT synchronous (it returns a Promise), so scheduling playback
+// The FIRST call ever creates a brand-new AudioContext, which starts life "suspended" — calling
+// resume() on it is necessary but NOT synchronous (it returns a Promise), so scheduling playback
 // immediately afterward, in the same tick, could race a browser that hasn't actually finished
 // resuming yet and silently drop the very first grunt. Every call AFTER that first one hits an
-// already-"running" context (a real gesture already unlocked it), so schedules synchronously
-// with no added latency — only the true first-ever press waits on the resume() promise.
+// already-"running" context (a real gesture already unlocked it), so schedules synchronously with
+// no added latency — only the true first-ever press waits on the resume() promise.
 function playGrunt() {
   const ctx = getTitleAudioCtx();
   const fire = () => {
@@ -203,13 +199,10 @@ function playGrunt() {
   }
 }
 
-// Fires on clicking any menu button (title's "Gioca"/credits, mode-select's "Esercitazione"/
-// "Arcade", world/level tiles, credits' back button, ...) — NOT on raw keydown as the first cut
-// of this feature did. Reported live, twice, as inaudible ("non sento i grugniti al click sui
-// tasti") even after fixing a real AudioContext race (see playGrunt() below) — the actual gap was
-// the trigger itself: the report's own wording ("clicco i pulsanti", a mouse-click verb + "the
-// buttons") was a real signal that testing has been via clicking on-screen buttons, which a
-// keydown-only listener never sees at all. Scoped to GRUNT_SCREENS (menu screens only, not
+// Fires on clicking any menu button (title's play/credits, mode-select's practice/arcade,
+// world/level tiles, credits' back button, ...) — NOT on raw keydown as the first cut of this
+// feature did: a keydown-only listener never sees a mouse/touch click on an on-screen button at
+// all, which is how players actually trigger these. Scoped to GRUNT_SCREENS (menu screens only, not
 // "playing"/"loading"/"level-complete"/"gameover" — those buttons live inside
 // #grugnetto-go-wrapper, mixed with actual gameplay chrome, where a random grunt over the HUD's
 // fullscreen/back button would read as an odd interruption rather than the title-screen easter
@@ -225,10 +218,9 @@ document.addEventListener("click", (e) => {
 
 // A short, soft ascending arpeggio (three notes, sine waves) — synthesized, not a sampled clip.
 // Replaces an earlier version that played a recorded Kenney "Music Jingles" stinger: even after
-// fading its volume in (a first attempt at "più dolce"), the clip's own sharp, punchy character
-// was the actual problem, not just its loudness — reported live again ("cambiamo anche il jingle
-// con uno più soft"). A sine wave has none of a sawtooth/square's harsh upper harmonics, so a
-// gentle envelope on top of it reads as soft by construction, not just quiet. Reuses the exact
+// fading its volume in, the clip's own sharp, punchy character was the actual problem, not just
+// its loudness. A sine wave has none of a sawtooth/square's harsh upper harmonics, so a gentle
+// envelope on top of it reads as soft by construction, not just quiet. Reuses the exact
 // same getTitleAudioCtx()/resume()-race-safety pattern as playGrunt() below (this is now also a
 // Web Audio API synth, same as the grunt, not a separate HTMLAudioElement) — see playGrunt()'s own
 // comment for why that race matters specifically on the first-ever call. Played once, on the
@@ -250,9 +242,9 @@ function playTitleJingleOnce() {
       const gain = ctx.createGain();
       osc.type = "sine";
       osc.frequency.value = freq;
-      // Soft attack (30ms ramp up, not an instant jump to peak) and a low peak (0.18) — both
-      // directly aimed at "non mi deve far sobbalzare" (shouldn't startle), same reasoning as
-      // playGrunt()'s own envelope, just gentler across the board.
+      // Soft attack (30ms ramp up, not an instant jump to peak) and a low peak (0.18) — both aimed
+      // at not startling the player, same reasoning as playGrunt()'s own envelope, just gentler
+      // across the board.
       gain.gain.setValueAtTime(0.0001, startAt);
       gain.gain.exponentialRampToValueAtTime(synthGain(0.18), startAt + 0.03);
       gain.gain.exponentialRampToValueAtTime(0.0001, startAt + NOTE_LEN);
@@ -271,10 +263,10 @@ function playTitleJingleOnce() {
 document.addEventListener("keydown", playTitleJingleOnce, { once: true });
 document.addEventListener("pointerdown", playTitleJingleOnce, { once: true });
 
-// Bigger celebratory fanfare for Arcade's "run complete" moment specifically — requested live
-// ("nessun jingle fanfara?"), distinct from playTitleJingleOnce() above (that one deliberately
-// stays gentle since it can fire on every visit to the title screen; this one only ever fires
-// once per entire Arcade run, so it can afford to actually sound like a "ta-da"). Reuses the same
+// Bigger celebratory fanfare for Arcade's "run complete" moment specifically — distinct from
+// playTitleJingleOnce() above (that one deliberately stays gentle since it can fire on every visit
+// to the title screen; this one only ever fires once per entire Arcade run, so it can afford to
+// actually sound like a "ta-da"). Reuses the same
 // shared getTitleAudioCtx()/resume()-race-safety pattern — see playGrunt()'s own comment for why
 // that race matters on a context's first-ever use. A separate, independent AudioContext from
 // melonJS's own me.audio (used for every other in-game sound, including the plain "win" jingle
@@ -289,9 +281,9 @@ function playArcadeFanfare() {
   const fire = () => {
     const now = ctx.currentTime;
     // Rising arpeggio across TWO octaves (C5-E5-G5-C6-E6-G6, not just one) into a sustained major
-    // chord (C6+E6+G6) — reported live as too short/quiet ("pensavo fosse più lungo e audibile")
-    // for a first pass at ~1.1s total and a 0.16-0.22 peak gain; this version runs ~2.5s
-    // (0.9s arpeggio build + 1.6s held chord) at a noticeably louder 0.3-0.35 peak — still 3 sine
+    // chord (C6+E6+G6) — a first pass at ~1.1s total and a 0.16-0.22 peak gain read as too
+    // short/quiet; this version runs ~2.5s (0.9s arpeggio build + 1.6s held chord) at a noticeably
+    // louder 0.3-0.35 peak — still 3 sine
     // oscillators at once at the chord's worst case (peak sum ~0.9), comfortably under the 1.0
     // clipping ceiling.
     const ARPEGGIO_HZ = [523.25, 659.25, 783.99, 1046.5, 1318.51, 1567.98];
@@ -384,10 +376,9 @@ const MENU_SCREENS = ["title", "mode-select", "world-select", "level-select", "c
 
 // Every navigable menu control (world/level tiles, back buttons, next-level/retry/etc.) is a
 // plain <button> inside .spa-title-box — no separate data-attribute bookkeeping needed for those.
-// input[type=range]/select ADDED to the query (settings screen's volume slider/language picker)
-// — reported live as unreachable by D-pad/TV-remote navigation ("può essere giocato anche con il
-// telecomando... della mia smart tv?"): they exist in the DOM the whole time, they just weren't
-// in this list, so moveMenuFocus() below could never land on them. Filters out disabled buttons
+// input[type=range]/select ADDED to the query (settings screen's volume slider/language picker) —
+// otherwise unreachable by D-pad/TV-remote navigation: they exist in the DOM the whole time, they
+// just weren't in this list, so moveMenuFocus() below could never land on them. Filters out disabled buttons
 // (a locked world's tile) and hidden ones (offsetParent is null for a display:none ancestor —
 // true for every button still sitting inert inside #grugnetto-go-wrapper while it's hidden on
 // title/world-select/level-select, since that div is always present in the DOM, only its
@@ -420,11 +411,11 @@ function isAdjustableControl(el) {
 // whenever nothing currently focused belongs to the freshly-rendered screen (a fresh page load,
 // or the previous screen's focused button just got swapped out of the DOM by a screen change), so
 // a gamepad-only player always has something useful focused without ever having had a mouse.
-// Prefers a button explicitly marked [data-menu-default] (the first world/level tile, "Prossimo
-// livello"/"Riprova", etc. — see each screen function below) over plain DOM order, since a
-// screen's first <button> in markup is often a "Back"/nav control, not what should greet a
-// player arriving on it (reported live: world-select was defaulting to "Indietro" instead of the
-// first world). A no-op the rest of the time — never steals focus from a button just clicked.
+// Prefers a button explicitly marked [data-menu-default] (the first world/level tile, "next
+// level"/"retry", etc. — see each screen function below) over plain DOM order, since a screen's
+// first <button> in markup is often a "Back"/nav control, not what should greet a player arriving
+// on it (world-select used to default to the back button instead of the first world). A no-op the
+// rest of the time — never steals focus from a button just clicked.
 function ensureMenuFocus() {
   if (!MENU_SCREENS.includes(uiState.screen)) return;
   const items = getMenuFocusables();
@@ -455,10 +446,9 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault();
   } else if (e.key === "Escape") {
     // TV remote "Back"/"Return" buttons are inconsistently mapped across platforms (a Tizen-
-    // specific keyCode, plain browser-history-back, or nothing this app can see at all) —
-    // reported live as a real uncertainty ("può essere giocato anche con il telecomando... della
-    // mia smart tv?"). Escape is at least the closest thing to a standardized "close/back" key
-    // across browsers, so every menu screen's own visible back button gets a shared
+    // specific keyCode, plain browser-history-back, or nothing this app can see at all). Escape is
+    // at least the closest thing to a standardized "close/back" key across browsers, so every menu
+    // screen's own visible back button gets a shared
     // [data-menu-back] marker (see each screen function) that this can target directly, giving
     // remote/keyboard users one more reliable way back besides D-pad-navigating to the button by
     // hand. A no-op on screens with no such button (title, level-complete, gameover — see each
@@ -471,21 +461,18 @@ document.addEventListener("keydown", (e) => {
 // standard mapping) or the left stick's axes move focus; button 0 OR 1 (A/B, Cross/Circle —
 // mirrors player.js's own jump binding, which accepts EITHER FACE_1 or FACE_2, specifically so
 // confirming a menu with "the jump button" always works regardless of which face button a given
-// pad happens to call "jump" — reported live: "col joypad non posso... selezionare (premendo il
-// pulsante di salto o altro)") activates whatever is focused. GAMEPAD_REPEAT_MS debounces a held
+// pad happens to call "jump") activates whatever is focused. GAMEPAD_REPEAT_MS debounces a held
 // direction so it doesn't sweep through every button in one frame; lastConfirmPressed (per
 // gamepad index) is edge-detected the same way, so holding a confirm button doesn't repeatedly
 // re-click. Runs unconditionally (every frame, for the page's whole lifetime) but is a cheap
 // no-op outside MENU_SCREENS/without a connected pad.
 //
 // try/catch around the actual per-frame logic (NOT around the requestAnimationFrame reschedule
-// itself, which always has to run) — added after the same live report above also mentioned "né
-// muovere tasto selezionato per cambiare selezione" (menu movement not working either): a plain
-// requestAnimationFrame(self) loop with no error boundary silently dies FOREVER the first time it
-// throws once (nothing left to call it again), which would read as "gamepad menu nav stopped
-// working" from exactly the point something odd happened onward — a real robustness gap
-// regardless of whether it was actually the original cause, so guarding against a whole class of
-// "one weird frame permanently kills navigation for the rest of the session" bugs here.
+// itself, which always has to run): a plain requestAnimationFrame(self) loop with no error
+// boundary silently dies FOREVER the first time it throws once (nothing left to call it again),
+// which would read as "gamepad menu nav stopped working" from exactly the point something odd
+// happened onward — guards against a whole class of "one weird frame permanently kills navigation
+// for the rest of the session" bugs here.
 const GAMEPAD_REPEAT_MS = 220;
 let lastGamepadMoveAt = 0;
 const lastConfirmPressed = [];
@@ -558,8 +545,8 @@ function backToTitle() {
 
 // Practice mode: today's world-select/level-select flow, unchanged, just gated behind picking
 // this mode first — see progress.js's own header comment for why world-select itself no longer
-// checks any lock state (this mode's whole point is "provare tutti i livelli" — try every level
-// freely, requested live — so nothing here is gated by prior completion).
+// checks any lock state (this mode's whole point is trying every level freely, so nothing here is
+// gated by prior completion).
 function choosePractice() {
   uiState.mode = "practice";
   // Mirrored onto game.data.mode too — see game.js's own comment on why entities/player.js needs
@@ -570,7 +557,7 @@ function choosePractice() {
 }
 
 // Arcade mode: skips world-select/level-select entirely — always starts at world1's first level,
-// requested live as "li devo fare in sequenza" (do them in sequence). Reuses selectLevel() itself
+// the levels done strictly in sequence. Reuses selectLevel() itself
 // (below) rather than duplicating its lazy-engine-boot-vs-already-running branch, just forcing the
 // options a normal Practice-mode pick never needs: reset (this IS a fresh run) but to
 // ARCADE_STARTING_LIVES (8, shared for the whole run), not the Practice-mode default of 3.
@@ -584,7 +571,7 @@ function chooseArcade() {
 }
 
 // Shared by Arcade mode's game-over overlay (8 lives spent) and its "you finished the whole run"
-// panel — both requested live to return straight to the title screen, not level-select (there's
+// panel — both return straight to the title screen, not level-select (there's
 // no level-select to return TO in this mode). Clearing mode isn't strictly required (every mode
 // picker below sets it fresh anyway) but leaves uiState in an unambiguous "nothing chosen yet"
 // state rather than a stale "arcade" hanging around on the title screen.
@@ -680,13 +667,12 @@ function arcadeNextLevel() {
   loadLevel(next.resource, world.music, { resetLives: false, resetScore: false });
 }
 
-// Auto-advance countdown for Arcade mode's "Prossimo livello" button, requested live — a classic
-// arcade-cabinet touch (finish a level, the next one starts on its own after a beat) that also
-// just saves a click on a run where the player's about to hit this same button 30+ times anyway.
-// Deliberately scoped to ONLY the "there's a next level" case (see game.onChange() below, which
-// starts this) — the "you finished the whole run" panel's "Torna alla home" button was NOT part
-// of the request and auto-clicking a player back to the title screen without them asking for it
-// would be a genuinely unwelcome surprise, not a convenience.
+// Auto-advance countdown for Arcade mode's "next level" button — a classic arcade-cabinet touch
+// (finish a level, the next one starts on its own after a beat) that also just saves a click on a
+// run where the player's about to hit this same button 30+ times anyway. Deliberately scoped to
+// ONLY the "there's a next level" case (see game.onChange() below, which starts this) — the "you
+// finished the whole run" panel's "back to title" button auto-clicking a player back to the title
+// screen without them asking for it would be a genuinely unwelcome surprise, not a convenience.
 const ARCADE_AUTO_ADVANCE_SECONDS = 3;
 let arcadeAutoAdvanceTimer = null;
 let arcadeAutoAdvanceRemaining = 0;
@@ -754,12 +740,11 @@ function TitleScreen() {
     <div class="has-text-centered py-5">
       <img class="gg-mascot mb-3" src="${BASE}${TITLE_MASCOT_FRAMES[titleMascotFrame]}" alt="Grugnetto">
       <h1 class="title is-3 gg-title-glow">${t("grugnettogo.title")}</h1>
-      <!-- Mission paragraph — requested live ("serve anche un paragrafo in home per raccontare la
-           missione... qualcosa di epico relativo ai 4 mondi"): names all 4 worlds in their actual
-           play order and ties the "epic" framing directly to the real coinGoal mechanic (every
-           level's flag stays locked until every coin is collected — see goal.js's isUnlocked()),
-           rather than inventing lore the game itself doesn't back up. Centered, capped width so it
-           reads as a tight couple of sentences instead of sprawling edge-to-edge on a wide screen. -->
+      <!-- Mission paragraph — names all 4 worlds in their actual play order and ties the "epic"
+           framing directly to the real coinGoal mechanic (every level's flag stays locked until
+           every coin is collected — see goal.js's isUnlocked()), rather than inventing lore the
+           game itself doesn't back up. Centered, capped width so it reads as a tight couple of
+           sentences instead of sprawling edge-to-edge on a wide screen. -->
       <p class="subtitle is-6 mb-3 gg-mission" style="max-width: 32rem; margin-left: auto; margin-right: auto;">${t("grugnettogo.mission")}</p>
       <p class="help mb-4">${t("grugnettogo.controls")}</p>
       <button class="button is-primary is-medium gg-cta" data-menu-default @click=${goToModeSelect}>${t("grugnettogo.play")}</button>
@@ -775,10 +760,10 @@ function TitleScreen() {
   `;
 }
 
-// Requested live: "esercitazione" (try any level, no restrictions) vs "arcade" (fixed sequence,
-// 8 shared lives, game over sends you back here) — two very different commitments, so this gets
-// its own screen between title and world-select rather than, say, a toggle buried in world-select
-// itself. Reuses the same .pj-tile/--pj-accent styling WorldTile/LevelTile already use (a plain
+// Practice (try any level, no restrictions) vs Arcade (fixed sequence, 8 shared lives, game over
+// sends you back here) are two very different commitments, so this gets its own screen between
+// title and world-select rather than, say, a toggle buried in world-select itself. Reuses the same
+// .pj-tile/--pj-accent styling WorldTile/LevelTile already use (a plain
 // Bulma .box with a themed left border, see app.css) instead of inventing a second card style for
 // what's structurally the same "pick one of a few options" layout.
 function ModeSelectScreen() {
@@ -829,12 +814,12 @@ const CREDITS = [
     // block_top, background_clouds, fence, mushroom_brown, ...) matched exactly. Its own
     // License.txt (CC0) is now saved alongside the assets it covers, at
     // assets/kenney-extras/License.txt — same paper trail impact-sounds/ and digital-audio/
-    // already had, requested live ("credits per materiali e librerie... OK?").
+    // already had.
     { name: "Kenney — New Platformer Pack (1.1)", note: "Terrain, platforms, enemies, backgrounds, props", license: "CC0 1.0", url: "kenney.nl/assets/new-platformer-pack" },
-    // Deliberately NOT a Creative Commons tag — requested live ("non voglio che riutilizzino i
-    // miei asset di grugnetto"): even the most restrictive CC license (BY-NC-ND) still grants
-    // some public reuse right, which is the opposite of what was asked for. Plain copyright
-    // ("all rights reserved") is the correct, strongest fit — see this folder's own LICENSE.txt
+    // Deliberately NOT a Creative Commons tag — the intent is that nobody reuses Grugnetto's own
+    // character art, and even the most restrictive CC license (BY-NC-ND) still grants some public
+    // reuse right, the opposite of that. Plain copyright ("all rights reserved") is the correct,
+    // strongest fit — see this folder's own LICENSE.txt
     // for the fuller split (code vs. this art vs. every third-party asset above/below).
     { name: "Grugnetto — character, coin & collectible art", note: "Original illustration for this game", license: "All rights reserved", url: null },
   ]},
@@ -868,9 +853,8 @@ function CreditsScreen() {
       <!-- gg-credits-content, not just the plain Bulma .content class: app.css's own text-color
            override needs to target THIS specific block (sitting directly on the screen's black
            background) without also catching BonusBreakdown()'s own .content div elsewhere, which
-           sits on the level-complete overlay's white Bulma .box instead — see app.css's own
-           comment on the bug that caused (reported live: "i box di fine livello... hanno a volte
-           dei colori dei caratteri troppo chiari"). -->
+           sits on the level-complete overlay's white Bulma .box instead — a shared class had made
+           text on that white box unreadably light, see app.css's own comment on the fix. -->
       <div class="content gg-credits-content">
         ${CREDITS.map(group => html`
           <p class="title is-6 mb-2">${t(`grugnettogo.credits.${group.section}`)}</p>
@@ -889,8 +873,7 @@ function CreditsScreen() {
   `;
 }
 
-// Master volume slider — requested live ("mettiamo 3 e 5" against a readiness review that flagged
-// no in-game volume control). Persists via settings.js, and applies immediately in two places
+// Master volume slider. Persists via settings.js, and applies immediately in two places
 // that DON'T share a single audio system: game.setMasterVolume() (melonJS's own me.audio, used by
 // every sound played once the engine has booted) and this file's own raw-Web-Audio synthesized
 // cues (title screen grunt/jingle, Arcade fanfare — see synthGain()'s own comment below for why
@@ -1043,9 +1026,9 @@ function LoadingOverlay() {
   `;
 }
 
-// Arcade mode branch requested live: "li devo fare in sequenza" means no free level-select/
-// world-select to offer here at all, and finishing world4's last level is a genuinely different
-// moment (the whole run is done) from finishing an ordinary level mid-run — findNextGlobalLevel()
+// Arcade mode has no free level-select/world-select to offer here at all, and finishing world4's
+// last level is a genuinely different moment (the whole run is done) from finishing an ordinary
+// level mid-run — findNextGlobalLevel()
 // returning null is exactly that distinction (see worlds.js's own comment on it).
 // Shared by both LevelCompleteOverlay() branches below — the three level-completion bonuses
 // (see game.js's own comment on TIME_BONUS_MAX/NO_DAMAGE_BONUS/COIN_CLEAR_BONUS) are computed
@@ -1067,9 +1050,9 @@ function BonusBreakdown() {
 
 // Confetti burst — CSS-only animation (see app.css's own .grugnetto-go-confetti* rules), no new
 // asset/library. Shown ONLY for Arcade's "run complete" moment (finishing world4's last level),
-// not on any of the other 31 ordinary level-completes — requested live ("quale celebration?" /
-// "cosa mi suggerisci?"): a burst on every single level would be gaudy noise, but the one time
-// the whole run is actually finished deserves more than the same plain overlay every level gets.
+// not on any of the other 31 ordinary level-completes: a burst on every single level would be
+// gaudy noise, but the one time the whole run is actually finished deserves more than the same
+// plain overlay every level gets.
 // Randomized per render (position/timing/color/spin) — purely decorative, so this is exactly the
 // "explicitly randomized, isolated to one spot" cosmetic case AGENTS.md's determinism principle
 // carves out; it never reads or writes game.data or any gameplay state. Rotation is animated via
@@ -1136,9 +1119,9 @@ function LevelCompleteOverlay() {
   `;
 }
 
-// Arcade mode branch requested live: 8 lives spent sends the player straight back to the title
-// screen, no retry/level-select offered (there's no level-select to offer in this mode anyway,
-// and a mid-run retry would undercut the "one shared life pool for the whole run" premise).
+// Arcade mode: 8 lives spent sends the player straight back to the title screen, no retry/
+// level-select offered (there's no level-select to offer in this mode anyway, and a mid-run retry
+// would undercut the "one shared life pool for the whole run" premise).
 function GameOverOverlay() {
   if (uiState.mode === "arcade") {
     return html`
@@ -1161,9 +1144,8 @@ function GameOverOverlay() {
   `;
 }
 
-// On-screen touch controls — requested live ("mettiamo 3 e 5" against a readiness review that
-// flagged no way to play on a touch-only device: keyboard and physical gamepad were the only
-// input paths). HAS_TOUCH is a device capability, computed once (not per-render, not something
+// On-screen touch controls — keyboard and physical gamepad were the only input paths otherwise,
+// no way to play on a touch-only device. HAS_TOUCH is a device capability, computed once (not per-render, not something
 // that changes mid-session) — showing the overlay on any touch-capable device (including hybrid
 // laptops with both a touchscreen and a keyboard) rather than trying to guess "is this really a
 // phone" from screen size; extra on-screen buttons are harmless clutter for someone who'd rather
@@ -1229,9 +1211,8 @@ function TouchControls() {
 // (HUD/loading/level-complete) is a plain SIBLING of #grugnetto-go-screen, safe to conditionally
 // add/remove since none of them touch that div.
 //
-// Outer container is "pt-0" only — its "pb-4" was removed (requested live: "è il pb-4 nel
-// container... toglilo"), diagnosed as the root cause of an unwanted page scrollbar on the
-// standalone page (index.html): that page's own CSS makes .spa-title-box below claim
+// Outer container is "pt-0" only — its "pb-4" was removed, diagnosed as the root cause of an
+// unwanted page scrollbar on the standalone page (index.html): that page's own CSS makes .spa-title-box below claim
 // min-height:100vh (the whole viewport) on its own, so this container's leftover ~1rem bottom
 // padding pushed the total rendered height past 100vh. Harmless to drop for the Camila-hosted tab
 // too — that context never had min-height:100vh in the first place, so pb-4 there was just a
@@ -1257,12 +1238,11 @@ function App() {
         <div id="grugnetto-go-wrapper" style="display:${wrapperVisible ? "" : "none"}">
           <div id="grugnetto-go-screen"></div>
           <div class="grugnetto-go-hud-overlay">
-            <!-- Counters group — requested live ("i contatori li sposterei in alto a sx nell'area
-                 di gioco - tutto a sx tranne full screen e back"): every readout (world/level,
-                 lives, super jump, invincibility, coins, score, combo) now anchors to the play
-                 area's top-LEFT corner as its own flex group, instead of sharing one flex-end row
-                 with the back/fullscreen buttons — see app.css's own .grugnetto-go-hud-overlay
-                 (space-between, not flex-end) for the actual left/right split. -->
+            <!-- Counters group — every readout (world/level, lives, super jump, invincibility,
+                 coins, score, combo) anchors to the play area's top-LEFT corner as its own flex
+                 group, instead of sharing one flex-end row with the back/fullscreen buttons — see
+                 app.css's own .grugnetto-go-hud-overlay (space-between, not flex-end) for the
+                 actual left/right split. -->
             <div class="grugnetto-go-hud-counters">
               <span class="tag is-primary is-medium mr-2">
                 <i class="ri-map-2-line mr-1"></i>${t("grugnettogo.hud.worldlevel", WORLDS.findIndex(w => w.id === uiState.currentWorld) + 1, uiState.currentLevel)}
@@ -1270,19 +1250,17 @@ function App() {
               <span class="tag is-danger is-medium mr-2">
                 <i class="ri-heart-3-fill mr-1"></i>${game.data.lives}
               </span>
-              <!-- Super jump gauge — requested live ("una barra di consumo del supersalto"): the
-                   outer shell reuses Bulma's own .tag.is-dark.is-medium (same sizing/padding/font
-                   as every other HUD tag beside it), with a compact custom bar inside instead of
-                   Bulma's block-level <progress> element, which wouldn't fit this single-row HUD.
-                   Width is set via inline style since lit-html can't express a CSS calc() with a
-                   dynamic ratio through a plain class — see app.css's own
-                   .grugnetto-go-superjump-bar-* rules for the static track/fill styling. The
-                   is-empty class (dims the whole tag) is a separate, explicit "this is currently
-                   unusable" cue on top of the bar just reading 0% — requested live ("quando finisce
-                   la super jump... deve essere disabilitato"): the mechanic itself was already
-                   gated on game.data.superJumps > 0 (see player.js's update()), this only makes
-                   that state visibly obvious rather than relying on the player to notice an empty
-                   bar on their own. -->
+              <!-- Super jump gauge — the outer shell reuses Bulma's own .tag.is-dark.is-medium
+                   (same sizing/padding/font as every other HUD tag beside it), with a compact
+                   custom bar inside instead of Bulma's block-level <progress> element, which
+                   wouldn't fit this single-row HUD. Width is set via inline style since lit-html
+                   can't express a CSS calc() with a dynamic ratio through a plain class — see
+                   app.css's own .grugnetto-go-superjump-bar-* rules for the static track/fill
+                   styling. The is-empty class (dims the whole tag) is a separate, explicit "this is
+                   currently unusable" cue on top of the bar just reading 0%: the mechanic itself
+                   was already gated on game.data.superJumps > 0 (see player.js's update()), this
+                   only makes that state visibly obvious rather than relying on the player to notice
+                   an empty bar on their own. -->
               <span class="tag is-dark is-medium mr-2 grugnetto-go-superjump-bar ${game.data.superJumps <= 0 ? "is-empty" : ""}" title=${t("grugnettogo.superjump", game.data.superJumps, SUPERJUMP_MAX)}>
                 <i class="ri-rocket-2-line mr-1"></i>
                 <span class="grugnetto-go-superjump-bar-track">
@@ -1298,9 +1276,8 @@ function App() {
                 <i class="ri-coin-line mr-1"></i>${game.data.coins} / ${game.data.totalCoins}
               </span>
               <span class="tag is-info is-medium mr-2">${t("grugnettogo.score", game.data.score)}</span>
-              <!-- Combo indicator — requested live ("capire se ci sono altre idee per rendere il
-                   punteggio più variabile"): only shown once a chain is actually running (combo=0
-                   right after a pickup resets/expires would just be visual noise every level).
+              <!-- Combo indicator — only shown once a chain is actually running (combo=0 right
+                   after a pickup resets/expires would just be visual noise every level).
                    comboMultiplier() is the same pure function game.js's addComboScore() uses
                    internally, kept in sync by construction rather than duplicating the x/3 math
                    here. -->
@@ -1342,7 +1319,7 @@ function App() {
 // "level-select") left the browser stuck showing an empty fullscreen surface: the Fullscreen API
 // doesn't auto-exit just because its target got display:none, but everything that screen is
 // supposed to show (world/level tiles) lives OUTSIDE that element, so none of it was visible or
-// clickable — reported live as "non riesco più a cliccare nulla". Exiting fullscreen first, right
+// clickable. Exiting fullscreen first, right
 // here before the render that would hide the wrapper, means the browser is back to its normal
 // windowed layout by the time that content needs to be seen. The later "fullscreenchange" event
 // (see its own listener above) still does the authoritative uiState.isFullscreen sync + resize
@@ -1391,9 +1368,9 @@ function startEngine(initialResource, initialMusic, initialOptions) {
     // regardless of this window size, so no level/entity code needed touching.
     //
     // "flex-width" only resizes the canvas's WIDTH to fit its container, leaving the height
-    // fixed at the requested design height regardless of the actual browser window — reported
-    // live as forcing a page scrollbar, since that height plus the HUD/nav chrome above it often
-    // exceeds the visible viewport. "fit" (letterboxed) scales BOTH dimensions to stay inside
+    // fixed at the requested design height regardless of the actual browser window — this forced
+    // a page scrollbar, since that height plus the HUD/nav chrome above it often exceeds the
+    // visible viewport. "fit" (letterboxed) scales BOTH dimensions to stay inside
     // whatever size the measured element actually has — see scaleTarget below for which element
     // that is, and app.css for the sizing rules on #grugnetto-go-screen (including its own
     // :fullscreen rule).
@@ -1409,14 +1386,14 @@ function startEngine(initialResource, initialMusic, initialOptions) {
     // than relying on that parent-measurement default at all — belt and suspenders, since
     // #grugnetto-go-screen fills its parent exactly either way (see app.css's inset:0 rule) —
     // and is what fixed the canvas staying pinned at its old small pre-fullscreen size in the
-    // top-left corner, reported live before this was added.
+    // top-left corner.
     scaleTarget: "grugnetto-go-screen",
     renderer: me.video.AUTO,
     // Default is false ("crisp"/nearest-neighbor scaling) — fine for the tile/coin/flag/enemy
     // art, which is all drawn at native 1:1 size with no scaling involved anyway, but the
     // player sprite (Grugnetto) is a detailed painterly illustration scaled down ~4x (345px
     // art -> ~84px on screen), and nearest-neighbor downscaling of that much fine brushwork
-    // reads as "sgranato" (grainy/jagged) — reported live. True enables smooth interpolation.
+    // reads as grainy/jagged. True enables smooth interpolation.
     antiAlias: true,
   })) {
     uiState.loadError = "HTML5 canvas not supported";

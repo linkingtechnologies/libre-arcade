@@ -3,9 +3,8 @@
 // per-level LEVEL_NAME/URL-param testing shortcut in screens/play.js.
 //
 // Deliberately NO "name" field on worlds or levels here (removed — see git history for the
-// earlier hardcoded-Italian version) — requested live ("dobbiamo prevedere nome dei mondi anche
-// in inglese"): a raw string here can only ever be one language, so display names now go through
-// the normal t() i18n system instead, keyed off each world's own stable `id`
+// earlier hardcoded-Italian version): a raw string here can only ever be one language, so display
+// names now go through the normal t() i18n system instead, keyed off each world's own stable `id`
 // (`grugnettogo.world.<id>.name`, see lang/*.lang.php / i18n.js) and a shared numbered-level
 // template (`grugnettogo.level.number`) rather than 32 near-identical "Livello N" strings. `id`
 // itself is NOT translated (it's an internal key, never shown), which is exactly why it's the

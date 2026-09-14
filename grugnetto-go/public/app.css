@@ -1,7 +1,6 @@
-/* Requested live ("usiamo anche font-family: monospace per i font") — scoped to #app (this
-   game's own root mount, the same scoping root every other rule in this file already uses) so it
-   overrides Bulma's default sans-serif stack for every screen/button/tag here, without touching
-   the rest of the Camila dashboard chrome around it. */
+/* Scoped to #app (this game's own root mount, the same scoping root every other rule in this file
+   already uses) so it overrides Bulma's default sans-serif stack for every screen/button/tag here,
+   without touching the rest of the Camila dashboard chrome around it. */
 #app {
   font-family: monospace;
 }
@@ -65,8 +64,7 @@
    #grugnetto-go-wrapper box so it lines up with the actual game area in both normal and
    fullscreen view. pointer-events:none on the row (auto on its actual children) lets clicks
    fall through the empty parts of the overlay strip to the canvas underneath.
-   justify-content: space-between (not flex-end) — requested live ("i contatori li sposterei in
-   alto a sx nell'area di gioco - tutto a sx tranne full screen e back"): the two child groups
+   justify-content: space-between (not flex-end): the two child groups
    below (counters / actions) now anchor to opposite top corners of the play area instead of
    both being crammed into one right-aligned row. align-items: flex-start (not center) so the
    actions group stays pinned to the top edge even if the counters group wraps to a second line
@@ -274,11 +272,11 @@
 }
 
 /* === Pipe Jumper: buttons, dark/arcade themed instead of Bulma's stock light-UI palette ===
-   Reported live: Bulma's default colors (turquoise is-primary, plain white/light .button) read
-   as generic and clashed against the game's black background and the title screen's warm gold
-   glow. Recolored around that same warm gold instead — coin-colored, ties into the title glow —
-   so "the main action" reads consistently everywhere it shows up (title's Play, world/level
-   tiles' Scegli/Gioca, level-complete's Prossimo livello, game-over's Riprova). Dark text on the
+   Bulma's default colors (turquoise is-primary, plain white/light .button) read as generic and
+   clashed against the game's black background and the title screen's warm gold glow. Recolored
+   around that same warm gold instead — coin-colored, ties into the title glow — so "the main
+   action" reads consistently everywhere it shows up (title's Play, world/level tiles' Select/Play,
+   level-complete's Next level, game-over's Try again). Dark text on the
    gold fill (not Bulma's default white) for contrast — white-on-gold fails typical contrast
    checks, dark brown reads clearly and still feels "coin-like". */
 #app .button.is-primary {
@@ -291,8 +289,8 @@
   border-color: #ffce54;
   color: #2b1d00;
 }
-/* Plain (uncoloured) buttons — back/fullscreen icons, and secondary options like "Selezione
-   mondo" next to a colored primary action — a dark panel instead of Bulma's stark white
+/* Plain (uncoloured) buttons — back/fullscreen icons, and secondary options like "World select"
+   next to a colored primary action — a dark panel instead of Bulma's stark white
    default, so they read as part of this dark UI rather than a foreign light widget dropped
    on top of it. */
 #app .button:not(.is-primary) {
@@ -364,7 +362,7 @@
 }
 
 /* === Pipe Jumper: title screen "arcade" feel ===
-   Requested live: make the title screen feel more "arcade" without pixel-art/CRT trappings —
+   Makes the title screen feel more "arcade" without pixel-art/CRT trappings —
    Grugnetto's painterly illustrated art (see player.js's own comments on how those frames were
    made) would clash with a hard 8-bit look. Motion/glow instead: a bobbing mascot, a pulsing
    title glow, and a pulsing "PRESS START"-style ring on the play button — arcade-cabinet energy
@@ -378,7 +376,7 @@
   animation: gg-bob 2.4s ease-in-out infinite;
 }
 
-/* Pink title text, requested live ("Grugnetto Go in rosa") — was inheriting Bulma's default
+/* Pink title text — was inheriting Bulma's default
    title color with only a gold glow; now an explicit pink fill plus a matching pink glow so the
    two don't clash the way a pink word with a gold halo would have. */
 @keyframes gg-title-glow {
@@ -390,8 +388,7 @@
   animation: gg-title-glow 2.2s ease-in-out infinite;
 }
 
-/* Mission paragraph text color, requested live ("come text color del testo su sfondo nero
-   (missione) usiamo questo colore #d9e8c9") — Bulma's own .subtitle color is a dark gray, meant
+/* Mission paragraph text color — Bulma's own .subtitle color is a dark gray, meant
    for a light page background, so it read as low-contrast/hard to read against this screen's own
    black background without an explicit override. */
 #app .gg-mission {
@@ -399,8 +396,7 @@
 }
 
 /* Section headings (mode select, world/level select, credits, settings) — same low-contrast bug
-   as .gg-mission above, reported live one screen later ("anche 'Scegli una modalità' non si
-   legge... stesso colore di sfondo"): Bulma's own .title color is dark, meant for a light page,
+   as .gg-mission above: Bulma's own .title color is dark, meant for a light page,
    and reads as barely-there against this screen's black background. Scoped to h2 specifically
    (every one of these section headings, and only those) so the title screen's own H1
    ("Grugnetto Go!", .gg-title-glow) keeps its own explicit pink color/glow untouched. Reuses the
@@ -411,20 +407,17 @@
 }
 
 /* Credits screen body text (asset names/notes, and the Graphics/Audio/Libraries .title.is-6
-   section headers) — same low-contrast bug, reported live ("anche i crediti sono illeggibili,
-   stesso colore indicato prima"): Bulma's own .content color and .title color are both dark,
-   meant for a light page. The explicit ".gg-credits-content .title"/"... strong" selectors are
-   needed alongside the bare class — Bulma sets its own color directly on both (".content strong"
-   gets its own darker shade specifically to read as "heavier", the same instinct that made it
-   wrong here too — reported live again: "anche lo <strong> dentro ai crediti deve avere quel
-   colore"), which wins over a merely-inherited color from the ancestor, so relying on inheritance
-   alone wouldn't have reached either one.
+   section headers) — same low-contrast bug: Bulma's own .content color and .title color are both
+   dark, meant for a light page. The explicit ".gg-credits-content .title"/"... strong" selectors
+   are needed alongside the bare class — Bulma sets its own color directly on both (".content
+   strong" gets its own darker shade specifically to read as "heavier", the same instinct that made
+   it wrong here too), which wins over a merely-inherited color from the ancestor, so relying on
+   inheritance alone wouldn't have reached either one.
    Scoped to app.js's own .gg-credits-content marker, NOT the bare Bulma .content class — a bare
    ".content" selector here also matched BonusBreakdown()'s own .content div on the level-complete/
    game-over overlay, which sits on THAT overlay's separate white Bulma .box (never touched,
    unlike this screen's own black background), so the exact same pale color that fixes credits
-   landed as washed-out light text on a white card there instead — reported live ("i box di fine
-   livello... hanno a volte dei colori dei caratteri troppo chiari"). */
+   would land as washed-out light text on a white card there instead. */
 #app .spa-title-box .gg-credits-content,
 #app .spa-title-box .gg-credits-content .title,
 #app .spa-title-box .gg-credits-content strong {
@@ -433,17 +426,15 @@
 /* .tag.is-light (the license badges) needs its OWN explicit override, not just left alone —
    turns out the color above inherits straight into it too (.tag has no color of its own to win
    the way .title/strong do), landing this same pale text on the tag's light-gray background
-   instead of the black page background it was actually meant for — reported live ("nei badge
-   però mettiamo il testo nero altrimenti non si legge"). Explicit black text restores that
-   badge's own self-contained contrast regardless of what surrounds it. */
+   instead of the black page background it was actually meant for. Explicit black text restores
+   that badge's own self-contained contrast regardless of what surrounds it. */
 #app .spa-title-box .gg-credits-content .tag.is-light {
   color: #000;
 }
 
-/* Settings screen field labels ("Volume: %s" / "Lingua") — same pattern as .title/.content strong
+/* Settings screen field labels (volume / language) — same pattern as .title/.content strong
    above: Bulma's own .label class sets its own explicit dark color, so it needs this same
-   explicit override rather than relying on inherited color — reported live ("anche le label
-   nelle impostazioni devono avere quel colore che ti ho dato"). */
+   explicit override rather than relying on inherited color. */
 #app .spa-title-box .label {
   color: #d9e8c9;
 }

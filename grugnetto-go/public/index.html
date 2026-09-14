@@ -30,34 +30,25 @@
 <style>
   /* Full-viewport, no page scrollbars/margins — this page has no tab bar/nav chrome above the
      game the way the Camila-hosted dashboard does. Deliberately NOT flexbox/aspect-ratio-on-an-
-     auto-sized-flex-item (two earlier versions of this block tried that: one stretched the
-     wrapper to fill both axes and let melonJS's own canvas letterboxing handle the shape, which
-     left the HUD — position:absolute against #grugnetto-go-wrapper — anchored to the full-bleed
-     box instead of the narrower visible game rect; the other tried sizing the wrapper itself via
-     aspect-ratio while auto/align-self:center inside a flex column, which collapsed it to a tiny
-     box instead of the largest one that fits — flex's own main-axis sizing for an auto/non-grown
-     item is content-based, not "fill available space", and fighting that turned out fragile).
-
-     Simplest fix: this is exactly app.css's own base #grugnetto-go-wrapper rule (height +
-     aspect-ratio:16/9 + width:auto + max-width:100% + margin:0 auto — a plain, non-flex block,
-     proven working in the Camila-hosted case, see app.css's own comment on it), just with the
-     "reserve 100px for chrome above" subtraction removed (this page has none) and the
-     max-height:576px cap removed (that cap made sense next to a tab bar; here the whole point is
-     using the full monitor). No flex, no aspect-ratio recomputation fighting anything — same
-     one CSS rule that already worked, adjusted for having the whole viewport to itself. */
+     auto-sized-flex-item: that approach either anchors the HUD to the full-bleed wrapper instead
+     of the narrower visible game rect, or collapses the wrapper to a tiny box instead of the
+     largest one that fits (flex's own main-axis sizing for an auto/non-grown item is content-
+     based, not "fill available space"). Reuses app.css's own base #grugnetto-go-wrapper rule
+     instead (height + aspect-ratio:16/9 + width:auto + max-width:100% + margin:0 auto — a plain,
+     non-flex block, proven working in the Camila-hosted case), just without the "reserve 100px for
+     chrome above" subtraction (this page has none) or the max-height:576px cap (here the whole
+     point is using the full monitor). */
   html, body { margin: 0; height: 100%; background: #000; }
   #app .container { max-width: 100%; background: #000; }
   #app .spa-title-box {
     border: none; box-shadow: none; border-radius: 0;
-    /* Bulma's .box default is a white background AND 1.25rem padding on all four sides —
-       harmless in the Camila-hosted case (a small, centered card on a page using the app's own
-       theme), but here this box IS the whole page. Background: white would show through
-       anywhere the game doesn't cover; kept black instead. Padding: zeroing ALL of it once
-       already caused a real regression (reported live) — Bulma's .columns grid (used by world-
-       select/level-select's tile layout) relies on a negative margin that's meant to be absorbed
-       by the parent's own padding, so removing the LEFT/RIGHT padding too made those tiles bleed
-       past the viewport edge. Zeroing only top/bottom (the axis actually pushing height past
-       100vh) leaves that compensation intact. */
+    /* Bulma's .box default is a white background AND 1.25rem padding on all sides — harmless in
+       the Camila-hosted case (a small, centered card on the app's own themed page), but here this
+       box IS the whole page. White would show through anywhere the game doesn't cover, so kept
+       black instead. Only top/bottom padding is zeroed, not left/right: Bulma's .columns grid
+       (world-select/level-select's tile layout) relies on a negative margin meant to be absorbed
+       by the parent's own left/right padding — removing that too made tiles bleed past the
+       viewport edge. */
     background: #000;
     padding: 0 1.25rem;
     min-height: 100vh;

@@ -13,9 +13,9 @@ import game, { playSound, HIT_GRACE_MS, SUPERJUMP_MAX, COMBO_TIMEOUT_MS } from "
 // user-supplied illustrated sheet, background removed with rembg, each padded onto a shared
 // square canvas with the character bottom-aligned (see resources.js and the scratchpad crop
 // script), THEN downsampled once offline with PIL's LANCZOS filter from that 345x345 padded
-// canvas to 173x173 — found live: leaving the full 345px art for the engine's own runtime
-// scale(SPRITE_SIZE/FRAME_SIZE) to shrink by itself (a ~4x reduction) read as "sgranato"
-// (grainy/jagged), because the engine's antiAlias option is only a simple bilinear filter, far
+// canvas to 173x173 — leaving the full 345px art for the engine's own runtime
+// scale(SPRITE_SIZE/FRAME_SIZE) to shrink by itself (a ~4x reduction) read as grainy/jagged,
+// because the engine's antiAlias option is only a simple bilinear filter, far
 // weaker at preserving fine brushwork than a proper offline Lanczos resize. Pre-shrinking most
 // of the way here means the engine only has a gentle ~2x reduction left to do at runtime.
 // All 5 frames MUST share identical pixel dimensions for the same reason the original Kenney
@@ -26,9 +26,9 @@ import game, { playSound, HIT_GRACE_MS, SUPERJUMP_MAX, COMBO_TIMEOUT_MS } from "
 const FRAME_SIZE = 173;
 // Rendered size of the player sprite after scale(SPRITE_SIZE / FRAME_SIZE) — the physics body
 // is sized to match THIS, not Tiled's originally-declared object height (64x96), or the
-// invisible hitbox extends above the visible sprite (found live with the previous Kenney art;
+// invisible hitbox extends above the visible sprite (a real bug with the previous Kenney art;
 // see git history for that bug's full story — same principle applies to any future art swap).
-// 110, not 64 (a full tile): reported live as looking too small even at the previous 84 — since
+// 110, not 64 (a full tile): even the previous 84 read as too small — since
 // idle/walk only fill about a third of the shared canvas (the rest is headroom padding needed to
 // fit the taller jump pose without cropping it, see HEAD_MARGIN below), scaling that whole
 // canvas down leaves the actual standing character much shorter than SPRITE_SIZE itself. 110
@@ -45,10 +45,10 @@ const SPRITE_SIZE = 110;
 // safely conservative (a *smaller* margin only shrinks the hitbox a few px further than
 // strictly necessary, never causes clipping) so it was left alone rather than re-tuned for 3px.
 // Feet sit EXACTLY on the canvas's bottom row (0px margin, previously ~2-3px of leftover
-// transparent padding there made the feet hover visibly above the ground — reported live as
-// "sembra che voli"). A full SPRITE_SIZE square hitbox would reach into the headroom above,
-// touching a platform's underside before the visibly-drawn head does (this exact bug,
-// previously found live with the Kenney art — see HEAD_MARGIN's git history). Using the
+// transparent padding there made the feet hover visibly above the ground, as if the character
+// were flying). A full SPRITE_SIZE square hitbox would reach into the headroom above,
+// touching a platform's underside before the visibly-drawn head does (this exact bug happened
+// with the Kenney art too — see HEAD_MARGIN's git history). Using the
 // smallest margin across all frames, scaled by the same SPRITE_SIZE/FRAME_SIZE ratio as the
 // art itself, keeps the hitbox from ever clipping into whichever frame's head is drawn highest.
 const HEAD_MARGIN = Math.round(57 * (SPRITE_SIZE / FRAME_SIZE));
@@ -65,9 +65,9 @@ const HITBOX_WIDTH = Math.round(91 * (SPRITE_SIZE / FRAME_SIZE));
 
 // A tapered me.Polygon (wide at the head, narrow at the feet) was tried here briefly, to fix a
 // real cosmetic issue: a plain rectangle sized to HITBOX_WIDTH (the character's WIDEST point)
-// left the hitbox visibly wider than the actual feet, reading as "il grugnetto vola" when
-// standing near a platform's edge. REVERTED — it broke something worse: reported live as no
-// longer able to stand on bridge platforms at all ("non riesco più a salire sul ponte"). Root
+// left the hitbox visibly wider than the actual feet, making the character look like it was
+// floating when standing near a platform's edge. REVERTED — it broke something worse: no longer
+// able to stand on bridge platforms at all. Root
 // cause (reasoned from how SAT collision resolution works, not directly observed): a rectangle
 // only ever has 2 candidate separating axes (horizontal, vertical), so landing always resolves
 // straight up — but a trapezoid's two slanted side edges add 2 MORE candidate axes, and against a
@@ -261,10 +261,9 @@ class PlayerEntity extends me.Sprite {
     // frames into ANY jump, mid-ascent, well before actually landing. This was always a latent
     // bug in the interaction between this codebase's force-based jump and melonJS's own flags,
     // and harmless before now (worst case a 1-frame sprite flicker) — but reading `onGround`
-    // directly for jumpsSinceGround made it a real, reliably-reproducing one (reported live:
-    // "ora non diminuisce mai il livello di supersalto disponibile" — the spurious reset was
-    // firing on essentially every frame after the first jump, so a genuine super-jump press
-    // almost never survived to see jumpsSinceGround still >0). Requiring several consecutive
+    // directly for jumpsSinceGround made it a real, reliably-reproducing one: the spurious reset
+    // was firing on essentially every frame after the first jump, so a genuine super-jump press
+    // almost never survived to see jumpsSinceGround still >0. Requiring several consecutive
     // grounded-AND-near-zero-velocity frames filters this out: the glitch's false "grounded"
     // reading coincides with vel.y still being large (mid-ascent, far from zero) for most of the
     // arc, and even right at the apex (the one point vel.y legitimately nears zero mid-air) it
@@ -307,8 +306,7 @@ class PlayerEntity extends me.Sprite {
       this.jumpsSinceGround = 1;
       playSound("sfx_jump");
     } else if (jumpPressed && game.data.superJumps > 0) {
-      // Super jump: requested live as "una barra di consumo del supersalto, quello quando premo
-      // ripetutamente il tasto freccia su" — every jump press AFTER the first since last landing
+      // Super jump: every jump press AFTER the first since last landing
       // spends one charge for a full extra ascent. Gated on jumpsSinceGround (this entity's own
       // press count, only reset via the debounced ground+near-zero-velocity check above — see
       // its own long comment for why a plain onGround read isn't trustworthy here) rather than
@@ -378,17 +376,15 @@ class PlayerEntity extends me.Sprite {
   // coins/superJumps are reset here too, not just in screens/play.js's loadLevel() —
   // me.level.reload() (below) is melonJS's own "reload the current level" call, it does NOT go
   // through loadLevel() again, so without this the HUD kept showing coins collected before the
-  // death across the reload (reported live: "quando il personaggio muore, il numero di monete
-  // raccolte non si azzera"). A life lost already means this whole attempt restarts from the
+  // death across the reload. A life lost already means this whole attempt restarts from the
   // level's own start (me.level.reload() below puts every CoinEntity back), so coins/superJumps
   // need to match that same fresh-attempt reset, same as a brand new loadLevel() call already
   // does — coins in particular isn't a scoring choice, see loadLevel()'s own comment on why it
   // always resets regardless of mode.
   //
   // score is the one exception, gated on game.data.mode (see game.js's own comment on why that
-  // field lives there instead of only in app.js's uiState) — requested live ("volevo un
-  // punteggio persistente per l'arcade"): Arcade mode's score is meant to survive the WHOLE run,
-  // including a life lost mid-level, not just level-to-level transitions (which
+  // field lives there instead of only in app.js's uiState): Arcade mode's score is meant to
+  // survive the WHOLE run, including a life lost mid-level, not just level-to-level transitions (which
   // screens/play.js's loadLevel() already handles via its own resetScore option). Practice mode
   // keeps the original always-reset-on-death behavior — a life lost there has always meant "this
   // attempt's score is gone", unchanged.

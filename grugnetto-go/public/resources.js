@@ -39,9 +39,9 @@ const resources = [
   // Trap coin — a hazard disguised as a collectible (see entities/trapcoin.js): the plain coin
   // art unchanged, ringed with short grey spikes (procedurally generated from collectable_
   // coin.png's own alpha mask, not hand-drawn) as the only visual difference — earlier versions
-  // also recolored the disc itself (near-black, then dark maroon) plus a red outline, both
-  // reported live as too grim/alarming ("angosciante") for the rest of this game's tone; the
-  // shape alone (spikes) carries the "something's off" read now. Same 128x128 canvas/scale as
+  // also recolored the disc itself (near-black, then dark maroon) plus a red outline, both too
+  // grim/alarming for the rest of this game's tone; the shape alone (spikes) carries the
+  // "something's off" read now. Same 128x128 canvas/scale as
   // the plain coin. Touching one costs a life instead of granting points.
   { name: "trapcoin",    type: "image", src: BASE + "collectable_trapcoin.png" },
 
@@ -323,9 +323,9 @@ export const audioResources = [
   { name: "sfx_bump", type: "audio", src: BASE + "audio/" },
   // One bgm track per world (see worlds.js's own "music" field, and play.js's loadLevel, which
   // picks between these by world id) — replaces a single shared bgm.ogg that was actually a
-  // ~1.76s Kenney "Music Jingles" stinger looping the whole level, reported live as sounding
-  // "angoscianti" (anxiety-inducing) on that tight a loop; those jingles were never meant for
-  // continuous looping (they're one-shot cues). That original is kept as bgm.ogg.bak.
+  // ~1.76s Kenney "Music Jingles" stinger looping the whole level, anxiety-inducing on that tight
+  // a loop; those jingles were never meant for continuous looping (they're one-shot cues). That
+  // original is kept as bgm.ogg.bak.
   //   world1 — "Flowerbed Fields [Loop]", Zane Little Music, CC0.
   //     opengameart.org/content/flowerbed-fields-loop
   //   world2 — "Fort Fairy", iamoneabe, CC0. Source was MP3-only; converted to ogg with ffmpeg

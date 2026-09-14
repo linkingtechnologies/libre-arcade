@@ -12,12 +12,11 @@
 // "<plugin-dir>:<feature>:<key>".
 //
 // isWorldComplete()/isWorldUnlocked() (per-world completion gating world-select's lock icon)
-// lived here until the Practice/Arcade mode split: Practice mode is explicitly meant to let the
-// player "provare tutti i livelli" (try every level) with no locks at all, and Arcade mode never
-// visits world-select in the first place (it's a fixed world1->world4 sequence, see app.js's
-// chooseArcade()/arcadeNextLevel()) — so nothing was calling either function anymore. Completion
-// tracking itself (isLevelComplete/markLevelComplete below) stays; only the "compute a lock state
-// from it" layer was removed.
+// lived here until the Practice/Arcade mode split: Practice mode is meant to let the player try
+// every level freely with no locks at all, and Arcade mode never visits world-select in the first
+// place (it's a fixed world1->world4 sequence, see app.js's chooseArcade()/arcadeNextLevel()) — so
+// nothing was calling either function anymore. Completion tracking itself (isLevelComplete/
+// markLevelComplete below) stays; only the "compute a lock state from it" layer was removed.
 const KEY = "libre-arcade:grugnetto-go:progress";
 
 function read() {

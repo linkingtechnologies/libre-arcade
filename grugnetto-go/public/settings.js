@@ -1,7 +1,6 @@
 // settings.js — persisted player preferences (master volume, language), localStorage-backed,
 // same isolation pattern as progress.js (every localStorage touch stays behind these functions,
-// nothing calls localStorage directly elsewhere in the game). Requested live ("mettiamo 3 e 5" —
-// touch controls and a volume/language settings screen, from a "cosa manca" readiness review).
+// nothing calls localStorage directly elsewhere in the game).
 //
 // `lang` defaults to null ("follow the browser/host" — see index.html's own pickLanguage() call
 // and dashboard-grugnetto-go.inc.php's PHP-side $_CAMILA['lang']) rather than a hardcoded
