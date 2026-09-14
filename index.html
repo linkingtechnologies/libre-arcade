@@ -90,11 +90,28 @@
     margin-bottom: 0.5rem;
     background: linear-gradient(var(--bg) 70%, transparent);
   }
+  .search-input {
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--text);
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    flex: 1 1 11rem;
+    max-width: 16rem;
+    min-width: 0;
+  }
+  .search-input::placeholder { color: var(--muted); }
+  .search-input:focus, .search-input:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+  }
   .filters {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    flex: 1;
+    flex: 2 1 auto;
   }
   .filter-pill {
     font: inherit;
@@ -187,6 +204,11 @@
     font-size: 0.9rem;
   }
   [hidden] { display: none !important; }
+  .no-results {
+    color: var(--muted);
+    text-align: center;
+    padding: 3rem 0;
+  }
   footer {
     text-align: center;
     padding: 1.5rem;
@@ -207,10 +229,12 @@
   </header>
   <main>
     <div class="toolbar">
+      <input type="search" id="searchInput" class="search-input" autocomplete="off">
       <div class="filters" id="filters"></div>
       <span class="count" id="count"></span>
     </div>
     <div id="categories"></div>
+    <p class="no-results" id="noResults" hidden data-i18n="noResults"></p>
   </main>
   <footer>
     <span data-i18n="footer"></span>
@@ -222,11 +246,17 @@
         tagline: 'Archeologia videoludica, giocabile.',
         all: 'Tutti',
         footer: 'Ogni gioco qui è libero e open-source — vedi',
+        searchPlaceholder: 'Cerca un gioco…',
+        searchAria: 'Cerca un gioco',
+        noResults: 'Nessun gioco trovato.',
       },
       en: {
         tagline: 'Video game archaeology, playable.',
         all: 'All',
         footer: 'Every game here is free and open-source — see',
+        searchPlaceholder: 'Search for a game…',
+        searchAria: 'Search for a game',
+        noResults: 'No games found.',
       },
     };
 
@@ -325,10 +355,13 @@
     if (!lang) lang = (navigator.language || '').toLowerCase().startsWith('it') ? 'it' : 'en';
     if (!TEXT[lang]) lang = 'en';
     let activeFilter = 'all';
+    let searchQuery = '';
 
     const filtersEl = document.getElementById('filters');
     const categoriesEl = document.getElementById('categories');
     const countEl = document.getElementById('count');
+    const searchInputEl = document.getElementById('searchInput');
+    const noResultsEl = document.getElementById('noResults');
 
     function buildFilters() {
       filtersEl.innerHTML = '';
@@ -373,6 +406,12 @@
       }
     }
 
+    function matchesSearch(game) {
+      if (!searchQuery) return true;
+      const haystack = `${game.title} ${game.desc.it} ${game.desc.en}`.toLowerCase();
+      return haystack.includes(searchQuery);
+    }
+
     function render() {
       document.documentElement.lang = lang;
       for (const btn of filtersEl.querySelectorAll('.filter-pill')) {
@@ -389,22 +428,31 @@
       for (const btn of document.querySelectorAll('[data-lang-btn]')) {
         btn.setAttribute('aria-pressed', String(btn.dataset.langBtn === lang));
       }
+      searchInputEl.placeholder = TEXT[lang].searchPlaceholder;
+      searchInputEl.setAttribute('aria-label', TEXT[lang].searchAria);
 
       let visible = 0;
       for (const section of categoriesEl.querySelectorAll('section.category')) {
         const catId = section.dataset.category;
         section.querySelector('[data-role="label"]').textContent = CATEGORIES.find((c) => c.id === catId).label[lang];
-        const matches = activeFilter === 'all' || activeFilter === catId;
-        section.hidden = !matches;
-        if (matches) {
-          for (const card of section.querySelectorAll('a.card')) {
+        const categoryMatches = activeFilter === 'all' || activeFilter === catId;
+        let visibleInSection = 0;
+        for (const card of section.querySelectorAll('a.card')) {
+          const show = categoryMatches && matchesSearch(card._game);
+          card.hidden = !show;
+          if (show) {
             card.querySelector('[data-role="title"]').textContent = card._game.title;
             card.querySelector('[data-role="desc"]').textContent = card._game.desc[lang];
-            visible++;
+            visibleInSection++;
           }
         }
+        section.hidden = visibleInSection === 0;
+        visible += visibleInSection;
       }
-      countEl.textContent = lang === 'it' ? `${visible} giochi` : `${visible} games`;
+      countEl.textContent = lang === 'it'
+        ? `${visible} gioc${visible === 1 ? 'o' : 'hi'}`
+        : `${visible} game${visible === 1 ? '' : 's'}`;
+      noResultsEl.hidden = visible !== 0;
     }
 
     document.querySelector('.lang-toggle').addEventListener('click', (event) => {
@@ -415,9 +463,38 @@
       render();
     });
 
+    searchInputEl.addEventListener('input', () => {
+      searchQuery = searchInputEl.value.trim().toLowerCase();
+      render();
+    });
+
     buildFilters();
     buildCategories();
     render();
+  </script>
+  <script>
+    // Silently reload this page when a newer deploy is live, so returning
+    // visitors (and the author, right after pushing an update) never need
+    // to manually clear the browser cache to see it. A `cache: "no-store"`
+    // fetch bypasses the browser's own HTTP cache; the first check only
+    // records a baseline, so a fresh load never triggers a spurious reload.
+    (function watchForUpdates() {
+      let baseline = null;
+      async function check() {
+        try {
+          const response = await fetch(location.href, { cache: 'no-store' });
+          if (!response.ok) return;
+          const text = await response.text();
+          if (baseline === null) { baseline = text; return; }
+          if (text !== baseline) location.reload();
+        } catch {
+          // Offline or blocked; just try again on the next check.
+        }
+      }
+      check();
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) check(); });
+      setInterval(check, 5 * 60 * 1000);
+    })();
   </script>
   <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
