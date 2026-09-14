@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#efe3c4">
+  <title>🐽’s Goose</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/ui/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#gamePanel" data-i18n="skipToGame">Vai ai controlli di gioco</a>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div>
+          <h1 data-i18n="title">🐽’s Goose</h1>
+        </div>
+      </div>
+      <nav class="top-actions" aria-label="Menu" data-i18n-aria-label="menuAria">
+        <button id="rulesButton" class="secondary compact" type="button" data-i18n="rules">Regole</button>
+        <button id="languageButton" class="secondary compact language-button" type="button" aria-label="Cambia lingua" data-i18n-aria-label="changeLanguageAria">EN</button>
+      </nav>
+    </header>
+
+    <section class="game-layout">
+      <div class="board-column">
+        <div class="board-frame">
+          <div class="board-heading">
+            <div class="board-title-block">
+              <span class="eyebrow" data-i18n="classicBoard">Percorso classico</span>
+              <div class="board-title-row">
+                <strong>63</strong>
+                <span data-i18n="squares">caselle</span>
+              </div>
+            </div>
+            <div class="board-heading-tools">
+              <label class="board-theme-picker">
+                <span data-i18n="boardTheme">Tabellone</span>
+                <select id="boardThemeSelect" data-i18n-aria-label="boardThemeAria" aria-label="Scegli il tabellone"></select>
+              </label>
+              <div id="turnBadge" class="turn-badge" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <div class="board-stage">
+            <div id="board" class="board" role="group" aria-label="Tabellone del Gioco dell’Oca" data-i18n-aria-label="boardAria"></div>
+            <div id="startZone" class="start-zone">
+              <span class="start-label" data-i18n="start">Partenza</span>
+              <span id="startTokens" class="tokens"></span>
+            </div>
+            <div id="turnNotice" class="turn-notice" role="status" aria-live="assertive" aria-atomic="true" hidden>
+              <span id="turnNoticeAvatar" class="turn-notice-avatar" aria-hidden="true"></span>
+              <span class="turn-notice-copy">
+                <strong id="turnNoticeTitle"></strong>
+                <span id="turnNoticeDetail"></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="board-info-strip" aria-label="Riepilogo del tabellone" data-i18n-aria-label="boardSummaryAria">
+            <span class="board-info-pill" data-i18n="twoDice">2 dadi</span>
+            <span class="board-info-pill" data-i18n="exactFinish">Arrivo esatto</span>
+            <span class="board-info-pill" data-i18n="localPlayers">2–4 giocatori</span>
+          </div>
+
+          <p id="boardThemeCaption" class="board-theme-caption"></p>
+
+          <section id="calibrationPanel" class="calibration-panel" hidden aria-label="Calibrazione tabellone" data-i18n-aria-label="calibrationPanelAria">
+            <div class="calibration-copy">
+              <strong data-i18n="calibrationTitle">Calibrazione caselle</strong>
+              <span data-i18n="calibrationHint">Trascina i numeri sulle rispettive caselle del tabellone.</span>
+              <small id="calibrationStatus" data-i18n="calibrationReady">Layout pronto per la calibrazione.</small>
+            </div>
+            <div class="calibration-actions">
+              <button id="calibrationSaveButton" class="secondary compact" type="button" data-i18n="calibrationSave">Salva</button>
+              <button id="calibrationResetButton" class="secondary compact" type="button" data-i18n="calibrationResetButton">Ripristina</button>
+              <button id="calibrationExportButton" class="secondary compact" type="button" data-i18n="calibrationExport">Esporta JSON</button>
+            </div>
+          </section>
+
+          <div id="specialLegend" class="special-legend" aria-label="Caselle speciali" data-i18n-aria-label="specialLegendAria"></div>
+        </div>
+      </div>
+
+      <aside id="gamePanel" class="panel" tabindex="-1">
+        <section class="card play-card">
+          <div class="play-head">
+            <div>
+              <div id="turnLabel" class="turn-label"></div>
+              <div id="lastRoll" class="dice-readout" data-i18n="noRoll">Nessun tiro ancora</div>
+            </div>
+            <div class="dice-tray">
+              <span class="dice-caption" data-i18n="twoDice">2 dadi</span>
+              <div id="diceVisual" class="dice-visual" aria-hidden="true">
+                <span class="die">⚀</span><span class="die">⚀</span>
+              </div>
+            </div>
+          </div>
+          <button id="rollButton" class="roll-button" type="button" data-i18n="roll">Tira i dadi</button>
+          <button id="replayButton" class="secondary replay-button" type="button" data-i18n="replay" disabled>Rigioca</button>
+        </section>
+
+        <section class="card players-card">
+          <div class="card-title-row">
+            <h2 data-i18n="players">Giocatori</h2>
+            <span id="turnCounter" class="small-meta"></span>
+          </div>
+          <div id="playersList" class="players-list"></div>
+        </section>
+
+        <details id="setupDetails" class="card setup-card" open>
+          <summary data-i18n="gameSetup">Prepara la partita</summary>
+          <div class="setup-content">
+            <div class="setup-primary-row">
+              <label class="player-count-field">
+                <span data-i18n="players">Giocatori</span>
+                <select id="playerCount">
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </label>
+              <div class="setup-actions">
+                <button id="startButton" type="button" data-i18n="newGame">Nuova partita</button>
+                <button id="continueButton" class="secondary" type="button" data-i18n="continueGame" hidden>Continua</button>
+              </div>
+            </div>
+            <div id="playerSetup" class="player-setup"></div>
+            <div class="game-options" aria-label="Impostazioni di gioco" data-i18n-aria-label="gameOptionsAria">
+              <label class="toggle-row">
+                <span><strong data-i18n="audio">Audio</strong><small data-i18n="audioHint">Effetti sonori</small></span>
+                <input id="audioToggle" type="checkbox" checked>
+              </label>
+              <label class="toggle-row">
+                <span><strong data-i18n="reducedMotion">Animazioni ridotte</strong><small data-i18n="reducedMotionHint">Movimenti più rapidi e discreti</small></span>
+                <input id="motionToggle" type="checkbox">
+              </label>
+            </div>
+          </div>
+        </details>
+
+        <section class="card log-card">
+          <div class="card-title-row">
+            <h2 data-i18n="whatHappened">Cosa è successo</h2>
+          </div>
+          <div id="gameLog" class="game-log" role="log" aria-live="polite" aria-relevant="additions text"></div>
+        </section>
+
+        <button id="resetButton" class="danger-link" type="button" data-i18n="resetData">Azzera dati locali</button>
+      </aside>
+    </section>
+  </main>
+
+  <dialog id="rulesDialog" class="rules-dialog">
+    <form method="dialog">
+      <div class="dialog-head">
+        <div>
+          <span class="eyebrow" data-i18n="classicRules">Regole classiche</span>
+          <h2 data-i18n="rules">Regole</h2>
+        </div>
+        <button class="icon-button" value="close" aria-label="Chiudi" data-i18n-aria-label="closeDialogAria">×</button>
+      </div>
+      <div class="rules-copy">
+        <p data-i18n="rulesIntro">Arriva esattamente alla casella 63. Se la superi, torni indietro dell’eccedenza.</p>
+        <div class="rules-grid">
+          <div><strong><span class="asset-icon icon-goose" aria-hidden="true"></span></strong><span data-i18n="ruleGoose">Oca: ripeti lo stesso movimento.</span></div>
+          <div><strong><span class="asset-icon icon-bridge" aria-hidden="true"></span></strong><span data-i18n="ruleBridge">Ponte: vai dalla 6 alla 12.</span></div>
+          <div><strong><span class="asset-icon icon-inn" aria-hidden="true"></span></strong><span data-i18n="ruleInn">Locanda: perdi due turni.</span></div>
+          <div><strong><span class="asset-icon icon-well" aria-hidden="true"></span></strong><span data-i18n="ruleWell">Pozzo: aspetta che un altro giocatore ti sostituisca.</span></div>
+          <div><strong><span class="asset-icon icon-maze" aria-hidden="true"></span></strong><span data-i18n="ruleMaze">Labirinto: torna alla 39.</span></div>
+          <div><strong><span class="asset-icon icon-prison" aria-hidden="true"></span></strong><span data-i18n="rulePrison">Prigione: aspetta che un altro giocatore ti sostituisca.</span></div>
+          <div><strong><span class="asset-icon icon-death" aria-hidden="true"></span></strong><span data-i18n="ruleDeath">Morte: torna alla Partenza.</span></div>
+          <div><strong>⇄</strong><span data-i18n="ruleSwap">Se arrivi su un giocatore, vi scambiate di posto.</span></div>
+        </div>
+      </div>
+      <button class="dialog-close" value="close" data-i18n="close">Chiudi</button>
+    </form>
+  </dialog>
+
+
+  <div id="mobileActionBar" class="mobile-action-bar" aria-live="polite">
+    <div class="mobile-turn-copy">
+      <strong id="mobileTurnLabel" data-i18n="noGame">Inizia una partita</strong>
+      <span id="mobileRollLabel" data-i18n="noRoll">Nessun tiro ancora</span>
+    </div>
+    <button id="mobileRollButton" class="mobile-roll-button" type="button" data-i18n="roll" disabled>Tira i dadi</button>
+  </div>
+
+  <script type="module" src="./src/ui/app.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

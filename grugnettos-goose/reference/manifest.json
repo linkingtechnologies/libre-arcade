@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "auditDate": "2026-09-14",
+  "policy": "Historical originals are redistributed only after direct licence and asset/provenance admission. This production package includes cleared historical board artwork and status/provenance records for quarantined software references.",
+  "references": [
+    {
+      "id": "goose-game",
+      "project": "zaccaro1980/goose-game",
+      "snapshot": "2c12317749b0c6b0a78b4a019132cd016432c965",
+      "role": "behavioural/parity reference",
+      "sourceBundled": false,
+      "licenceStatus": "conflicting-metadata",
+      "evidence": [
+        "repository LICENSE is GPLv3",
+        "README says GPLv3",
+        "package.json says ISC"
+      ],
+      "admission": "quarantine until licensing conflict is resolved or a clearly licensed historical snapshot is selected"
+    },
+    {
+      "id": "game-of-the-goose",
+      "project": "rriesebos/game-of-the-goose",
+      "localArchive": "game-of-the-goose-main.zip",
+      "sha256": "adeff309f94048dd7502f6af35ea4d781ded6ddd3d3904db17a505f8e5e8e5f2",
+      "role": "visual/UX and rules-variant reference",
+      "sourceBundled": false,
+      "licenceStatus": "package-metadata-isc-assets-unresolved",
+      "evidence": [
+        "package.json says ISC",
+        "archive has no standalone LICENSE",
+        "SVG goose/player provenance not documented in the archive"
+      ],
+      "admission": "reference-only; do not copy SVG art until provenance is resolved"
+    },
+    {
+      "id": "snakes-ladders",
+      "project": "SourceForge asnakesladders",
+      "localArchive": "SnakesLadders.zip",
+      "sha256": "c683fbe6de00811a46185002d6c2b6208d3dc886c555a427d928626c46335b83",
+      "role": "turn flow, Human/CPU and manual/automatic dice reference",
+      "sourceBundled": false,
+      "licenceStatus": "project-metadata-gplv3-archive-does-not-carry-licence",
+      "evidence": [
+        "SourceForge project page labels GPLv3",
+        "archive contains no LICENSE/COPYING",
+        "source headers inspected do not state GPL terms"
+      ],
+      "admission": "quarantine; behavioural study only until redistribution terms and asset provenance are established"
+    },
+    {
+      "id": "ludox-2.2",
+      "project": "LudoX 2.2",
+      "localArchive": "LudoXv22-Source+Executable.rar",
+      "sha256": "8cb57033b99cc38cc4acd5e4235367045dac07ea5fd6e45afd4fb2771b6a99a9",
+      "role": "local players, AI and state/UI reference",
+      "sourceBundled": false,
+      "licenceStatus": "sourceforge-gplv2-version-qualifier-unresolved",
+      "evidence": [
+        "SourceForge labels GPLv2",
+        "archive has no LICENSE/COPYING",
+        "LudoX.java header has author/version only and no GPL wording"
+      ],
+      "admission": "reference-only; do not derive GPLv3 code"
+    },
+    {
+      "id": "ludox-2.1",
+      "project": "LudoX 2.1",
+      "localArchive": "LudoXv21-Source+Executable.rar",
+      "sha256": "4a4b5c3734e69e956591ba1d16effda7f520689db60ba7b6c8b1f732ea6e421c",
+      "role": "chronology/control reference",
+      "sourceBundled": false,
+      "licenceStatus": "sourceforge-gplv2-version-qualifier-unresolved",
+      "evidence": [
+        "SourceForge labels project GPLv2",
+        "archive has no LICENSE/COPYING",
+        "LudoXv2.java header has author/version only and no GPL wording"
+      ],
+      "admission": "reference-only"
+    },
+    {
+      "id": "glparchis-20181125",
+      "project": "glParchis",
+      "localArchive": "glparchis-20181125.tar.gz",
+      "sha256": "17a39f659625e8a8f6113053ee2f59b403f781fbbd8c1970b365ba2b319dc730",
+      "role": "multi-player state, UI, statistics and piece-management reference",
+      "sourceBundled": false,
+      "licenceStatus": "code/package-gplv3-assets-provenance-not-closed",
+      "evidence": [
+        "archive contains GNU GPL v3 LICENSE.txt",
+        "setup.py declares GPL-3/GPLv3",
+        "PKG-INFO declares GPL-3",
+        "archive contains many images/icons/sounds without a complete per-asset provenance ledger"
+      ],
+      "admission": "code/package licence evidence is strong; full archive remains out until asset provenance is closed"
+    },
+    {
+      "id": "tibetan-sho",
+      "project": "Tibetan Sho",
+      "role": "traditional race-game comparison",
+      "sourceBundled": false,
+      "licenceStatus": "sourceforge-metadata-gplv3-direct-source-audit-pending",
+      "evidence": [
+        "SourceForge labels GPLv3",
+        "2011 project news describes MVC refactor and alpha GUI"
+      ],
+      "admission": "retrieve exact source snapshot before inclusion"
+    },
+    {
+      "id": "ganzenbord-pd",
+      "project": "Wikimedia Commons File:Ganzenbord_pd.svg",
+      "snapshot": "Commons current file originally uploaded 2008-05-04",
+      "role": "runtime historical board artwork / visual archaeology",
+      "sourceBundled": true,
+      "runtimeUsed": true,
+      "licenceStatus": "public-domain-dedication",
+      "evidence": [
+        "Commons identifies author Pmathijssen",
+        "Commons contains a worldwide public-domain dedication by the copyright holder",
+        "bundled SHA-1 exactly matches Commons: 2324f0f685f17a39771bb4b42617b52dc0b2953f",
+        "bundled runtime path: assets/boards/original/Ganzenbord_pd.svg",
+        "v0.14 has no network fallback for board artwork"
+      ],
+      "admission": "approved and bundled: exact Commons SVG verified by the published SHA-1",
+      "runtimeAsset": "assets/boards/original/Ganzenbord_pd.svg",
+      "sha256": "483f65d3ebfb456a9f3c3973391c1344d19b3f772386946689c583c8571786c2",
+      "sha1": "2324f0f685f17a39771bb4b42617b52dc0b2953f"
+    },
+    {
+      "id": "ganzenbordspel",
+      "project": "Wikimedia Commons File:Ganzenbordspel.jpg",
+      "snapshot": "Commons current file uploaded 2018-12-15 (original artwork ca. 1910-1920)",
+      "role": "runtime alternative historical board artwork / visual archaeology",
+      "sourceBundled": true,
+      "runtimeUsed": true,
+      "licenceStatus": "public-domain-historical-artwork",
+      "evidence": [
+        "Commons describes a 63-space Ganzenbord colour lithograph",
+        "Commons attributes the work to Daan Hoeksema and dates it ca. 1910-1920",
+        "Commons marks the historical artwork PD-old",
+        "bundled runtime image is a locally supplied 2048x1470 representation of the same scan",
+        "its 63 square centres are independently calibrated from the bundled image",
+        "v0.14 has no network fallback for board artwork"
+      ],
+      "admission": "approved historical artwork; bundled runtime copy is the user-supplied 2048x1470 representation, with full-resolution Commons provenance retained separately",
+      "runtimeAsset": "assets/boards/original/Ganzenbordspel.jpg",
+      "sha256": "b3de3ad4694963427bb70567327662641669c7adeb0589964c377d664cee73fc",
+      "sha1": "8794dc21c769e9f3f0ded66b96f16670f40c3260",
+      "bundledDimensions": "2048x1470"
+    }
+  ]
+}

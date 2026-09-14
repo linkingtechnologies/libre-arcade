@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "goose-classic-63",
+  "title": "Classic 63",
+  "start": 0,
+  "finish": 63,
+  "dice": { "count": 2, "sides": 6 },
+  "finishRule": { "type": "exact", "overflow": "bounce" },
+  "firstRollRules": [
+    { "faces": [3, 6], "destination": 26 },
+    { "faces": [4, 5], "destination": 53 }
+  ],
+  "tiles": [
+    { "index": 5, "type": "goose" },
+    { "index": 6, "type": "bridge", "destination": 12 },
+    { "index": 9, "type": "goose" },
+    { "index": 14, "type": "goose" },
+    { "index": 18, "type": "goose" },
+    { "index": 19, "type": "inn", "skipTurns": 2 },
+    { "index": 23, "type": "goose" },
+    { "index": 27, "type": "goose" },
+    { "index": 31, "type": "well", "blockMode": "untilReplaced" },
+    { "index": 32, "type": "goose" },
+    { "index": 36, "type": "goose" },
+    { "index": 41, "type": "goose" },
+    { "index": 42, "type": "maze", "destination": 39 },
+    { "index": 45, "type": "goose" },
+    { "index": 50, "type": "goose" },
+    { "index": 52, "type": "prison", "blockMode": "untilReplaced" },
+    { "index": 54, "type": "goose" },
+    { "index": 58, "type": "death", "destination": 0 },
+    { "index": 59, "type": "goose" }
+  ]
+}
