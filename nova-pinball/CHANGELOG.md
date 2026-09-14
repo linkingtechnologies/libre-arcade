@@ -8,6 +8,7 @@
 - Removed `serve.bat`/`serve.sh` in favor of `npm run dev`, matching the rest of the collection.
 - Removed a dead `stars`/`makeStars` starfield array in `src/app.js` that was computed but never read (caught by the shared ESLint config); no visual or gameplay change.
 - Updated `tests/` to read from the new `public/` paths and narrowed the release-audit test's external-URL scan to exempt the GoatCounter domains and to skip dev-only files (`node_modules/`, `package-lock.json`) it was never meant to police.
+- Fixed the About/Info screen overflowing at short window heights: it showed an unwanted scrollbar and clipped longer mission-hint text (e.g. "Follow the display and table lights") off the right edge instead of wrapping it. `.about-stage`'s fixed `min-height:300px` and the heading/detail text's `white-space:nowrap` are now responsive (`clamp()`-based sizing, wrapping enabled), matching the scroll-free treatment the Menu and Pause screens already had.
 - No gameplay, physics, mission, audio or scoring changes.
 
 ## 1.0.1 — 2026-09-14
