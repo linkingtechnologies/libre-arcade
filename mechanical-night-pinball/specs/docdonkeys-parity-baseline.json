@@ -1,0 +1,55 @@
+{
+  "project": "DocDonkeys/Pinup-Pinball",
+  "parity_target": "DocDonkeys 1.0",
+  "reference_commit": "220820357a6a9a455df920619e2240e4da130cb9",
+  "viewport": {"width": 428, "height": 822},
+  "physics": {
+    "engine_reference": "Box2D 2.3.2",
+    "pixels_per_meter": 50.0,
+    "gravity": {"x": 0.0, "y_screen_down": 7.0},
+    "time_step": 0.016666666666666666,
+    "velocity_iterations": 6,
+    "position_iterations": 2
+  },
+  "ball": {
+    "radius_px": 9,
+    "density": 1.0,
+    "friction": 0.2,
+    "restitution": 0.3,
+    "linear_damping": 0.0,
+    "angular_damping": 0.0,
+    "start_position_px": {"x": 412, "y": 700}
+  },
+  "flippers": {
+    "left": {"limits_deg": [-45, 0], "active_speed_rad_s": -25, "active_torque": 25, "return_speed_rad_s": 25, "return_torque": 10},
+    "right": {"limits_deg": [0, 45], "active_speed_rad_s": 25, "active_torque": 25, "return_speed_rad_s": -25, "return_torque": 10}
+  },
+  "tunnel": {
+    "delay_ms": 2000,
+    "left_exit": {"position_px": [55, 439], "velocity": [4.0, 4.0]},
+    "right_exit": {"position_px": [408, 303], "velocity": [-5.0, -4.0]}
+  },
+  "score_rewards": {
+    "left_kicker": 5,
+    "top_left_light": 3,
+    "big_bumper": 5,
+    "small_bumper": 44,
+    "tunnel": 33,
+    "peg_score": 9,
+    "top_light": 11,
+    "ramp_entry": 444,
+    "third_ramp": 100000
+  },
+  "player": {"starting_balls": 3, "starting_multiplier": 1, "multiplier_cap": 100},
+  "intentional_divergences_from_flash": [
+    "no multiball",
+    "ramp event awards reserve ball",
+    "all pegs recover together",
+    "static camera",
+    "no impact score popup",
+    "no bumper animations",
+    "right ramp uses common 444 reward",
+    "third ramp uses 100000 and multiplier"
+  ],
+  "asset_policy": "clean replacement pack required"
+}

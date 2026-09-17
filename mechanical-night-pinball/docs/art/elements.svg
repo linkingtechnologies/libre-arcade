@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 428 822" width="428" height="822">
+  <rect width="428" height="822" fill="#0e161d"/>
+  <text x="214" y="42" text-anchor="middle" fill="#f4e8c1" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Mechanical Night Arcade — Elements</text>
+  <g transform="translate(28,88)">
+    <rect x="0" y="0" width="372" height="150" rx="16" fill="#132632" stroke="#355565"/>
+    <circle cx="34" cy="38" r="16" fill="#e9c46a"/><text x="62" y="43" fill="#f4e8c1" font-family="system-ui, sans-serif" font-size="14">Amber insert</text>
+    <circle cx="34" cy="86" r="16" fill="#2a9d8f"/><text x="62" y="91" fill="#f4e8c1" font-family="system-ui, sans-serif" font-size="14">Teal insert</text>
+    <circle cx="34" cy="134" r="16" fill="#e76f51"/><text x="62" y="139" fill="#f4e8c1" font-family="system-ui, sans-serif" font-size="14">Coral event marker</text>
+    <rect x="220" y="26" width="72" height="18" rx="9" transform="rotate(-12 256 35)" fill="#b8c1c8" stroke="#f4e8c1" stroke-width="2"/>
+    <text x="303" y="40" fill="#f4e8c1" font-family="system-ui, sans-serif" font-size="14">Flipper material</text>
+    <path d="M220 88 h22 a10 10 0 0 1 10 10 v26 a10 10 0 0 1 -10 10 h-22 z" fill="#102430" stroke="#8ce7f5" stroke-width="2"/>
+    <text x="264" y="110" fill="#f4e8c1" font-family="system-ui, sans-serif" font-size="14">Tunnel portal</text>
+  </g>
+</svg>

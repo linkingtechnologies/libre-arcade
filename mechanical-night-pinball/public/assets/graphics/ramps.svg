@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 428 822" width="428" height="822">
+  <defs>
+    <linearGradient id="rampCore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fbcb1" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#204956" stop-opacity="0.48"/>
+    </linearGradient>
+    <linearGradient id="rampEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f4e8c1"/>
+      <stop offset="0.4" stop-color="#b5fff0"/>
+      <stop offset="1" stop-color="#2a9d8f"/>
+    </linearGradient>
+    <radialGradient id="cap" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff0e8"/>
+      <stop offset="0.35" stop-color="#e76f51"/>
+      <stop offset="1" stop-color="#773020"/>
+    </radialGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <path d="M78 101 C116 133, 139 184, 133 243 C126 309, 104 360, 71 429 L49 423 C75 362, 97 306, 103 241 C109 184, 96 149, 67 123 Z"
+          fill="url(#rampCore)" stroke="url(#rampEdge)" stroke-width="3.2"/>
+    <path d="M168 136 C207 165, 237 216, 242 282 C247 351, 238 414, 221 492 L199 490 C214 418, 218 353, 211 287 C205 226, 183 183, 155 155 Z"
+          fill="url(#rampCore)" stroke="url(#rampEdge)" stroke-width="3.2"/>
+    <path d="M257 171 C296 201, 330 246, 347 308 C362 362, 365 414, 358 493 L336 492 C343 418, 341 370, 326 319 C310 264, 281 225, 242 194 Z"
+          fill="url(#rampCore)" stroke="url(#rampEdge)" stroke-width="3.2"/>
+
+    <path d="M84 113 C112 141, 127 191, 121 243" fill="none" stroke="#efffff" stroke-width="1.5" stroke-opacity="0.62"/>
+    <path d="M173 148 C203 174, 226 226, 230 284" fill="none" stroke="#efffff" stroke-width="1.5" stroke-opacity="0.62"/>
+    <path d="M261 183 C292 210, 320 254, 336 309" fill="none" stroke="#efffff" stroke-width="1.5" stroke-opacity="0.62"/>
+
+    <g>
+      <circle cx="92" cy="115" r="8.5" fill="url(#cap)" stroke="#fff0dc" stroke-width="1.6"/>
+      <circle cx="179" cy="150" r="8.5" fill="url(#cap)" stroke="#fff0dc" stroke-width="1.6"/>
+      <circle cx="264" cy="187" r="8.5" fill="url(#cap)" stroke="#fff0dc" stroke-width="1.6"/>
+      <circle cx="61" cy="112" r="8.5" fill="url(#cap)" stroke="#fff0dc" stroke-width="1.6"/>
+      <circle cx="210" cy="182" r="8.5" fill="url(#cap)" stroke="#fff0dc" stroke-width="1.6"/>
+      <circle cx="252" cy="150" r="8.5" fill="url(#cap)" stroke="#fff0dc" stroke-width="1.6"/>
+      <circle cx="253" cy="33" r="10.2" fill="url(#cap)" stroke="#fff0dc" stroke-width="1.8"/>
+    </g>
+  </g>
+
+  <!-- Exact active ramp boundaries. Box2D CreateChain is OPEN: no last-to-first segment. -->
+  <g id="collision-visible-ramps" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline id="collider-leftRampWalls" points="30,554 70,530 71,169 79,154 90,147 116,142 117,130 112,121 47,114 50,92 122,102 135,109 141,120 144,137 163,134 207,126 245,125 279,126 278,155 226,151 180,154 95,170 92,534 87,546 78,555 43,572" stroke="#eafff9" stroke-width="5" opacity="0.86"/>
+    <polyline id="collider-rightRampWalls" points="352,591 406,564 412,556 415,213 410,202 398,192 224,160 185,162 189,190 224,184 391,213 393,544 336,578" stroke="#eafff9" stroke-width="5" opacity="0.86"/>
+  </g>
+
+</svg>

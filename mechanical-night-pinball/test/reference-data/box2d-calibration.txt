@@ -1,0 +1,17 @@
+Reference generated from vendored Box2D 2.3.2 at 1/60, 6/2 iterations.
+freefall y=277.916779 vy=350.000275
+wall vx=99.033539 vy=-102.250000 omega=11.163641
+bigbounce vy=-596.458435
+kickerbounce vy=-1363.333496
+left flipper powered frame 1: angle=-14.15896 omega=-14.96494
+left flipper powered frame 2: angle=-37.45394 omega=-25.03191
+left flipper settled lower=-47.0 deg
+right flipper powered frame 1: angle=11.32836 omega=12.13910
+right flipper powered frame 2: angle=33.84320 omega=24.15718
+right flipper settled upper=47.0 deg
+kicker top y=779.25
+kicker bottom y=851.25
+kicker first held vy=16.0458
+kicker first return vy=-219.0952
+full launcher peak vy=-689.582031
+full launcher max ball y=787.632263

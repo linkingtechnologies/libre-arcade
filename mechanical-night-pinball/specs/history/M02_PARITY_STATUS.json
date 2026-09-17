@@ -1,0 +1,26 @@
+{
+  "milestone": "M0.2",
+  "parity_target": "DocDonkeys Pinup-Pinball 1.0",
+  "status": "geometry-and-parameter-parity; numerical calibration pending",
+  "exact_or_source_driven": [
+    "viewport 428x822",
+    "fixed outer dt 1/60",
+    "50 px/m",
+    "gravity 7 m/s^2",
+    "wall/ramp chains",
+    "sensor rectangles",
+    "bumper/peg coordinates",
+    "restitution constants",
+    "score rules",
+    "tunnel 2000ms and exit velocities",
+    "flipper pivots/limits/speed targets",
+    "kicker travel/speed target"
+  ],
+  "approximated": [
+    "custom collision impulse solver",
+    "flipper inertia/torque response",
+    "kicker negative max-force solver effect",
+    "continuous collision/contact ordering"
+  ],
+  "next_gate": "compare deterministic trajectories and launcher/flipper shots against original 1.0 executable"
+}

@@ -1,0 +1,11 @@
+{
+  "version": "0.9.0-rc.3",
+  "restingContact": {
+    "fullTableReference": true,
+    "rightHeldStopDeg": 46.523,
+    "bilateralEquilibriaTested": true,
+    "positionStableManifoldSleep": true,
+    "singleFlipperFreezeWorkaroundRemoved": true
+  },
+  "note": "RC3 supersedes RC2 for resting-contact acceptance."
+}

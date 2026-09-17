@@ -1,0 +1,23 @@
+{
+  "milestone": "M0.7",
+  "status": "playable-ux-polished-gameplay-parity-regressed",
+  "parityTarget": "DocDonkeys Pinup-Pinball 1.0",
+  "physics": "DocDonkeysCalibratedParitySolverM04",
+  "physicsConstantsChanged": false,
+  "ux": [
+    "hi-score HUD",
+    "score bursts",
+    "event toasts",
+    "press/release flipper audio",
+    "generic contact audio"
+  ],
+  "gameplayRegressionTests": [
+    "multiplier bank",
+    "third ramp",
+    "dual-ramp extra ball",
+    "peg restore scoring",
+    "tunnel timing/exit"
+  ],
+  "cleanRoomAssets": true,
+  "runtimeDependencies": []
+}

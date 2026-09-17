@@ -1,0 +1,57 @@
+{
+  "version": "1.1.0-rc2",
+  "status": "production-source-clean-automated-gates-passed-manual-device-matrix-pending",
+  "parityTarget": "DocDonkeys Pinup-Pinball 1.0 base plus explicitly documented Flash flipper press-snap restoration",
+  "runtimeDependencies": [],
+  "frameworks": [],
+  "productionBuild": "game/",
+  "licenses": {
+    "code": "GPL-3.0-or-later",
+    "cleanRoomAssets": "CC0-1.0",
+    "historicalReferences": "not redistributed; provenance only"
+  },
+  "productionGuardrails": {
+    "publicSourceHistoricalBinariesExcluded": true,
+    "gameHistoricalBinariesExcluded": true,
+    "forbiddenBinaryExtensionsChecked": true,
+    "githubPagesNoJekyll": true
+  },
+  "physics": {
+    "solver": "MechanicalNightPhysics1.0",
+    "geometryParity": true,
+    "parameterParity": true,
+    "numericalBox2DParity": "calibrated micro-parity; not bit-identical",
+    "openChains": true,
+    "restingContact": true,
+    "sleepWake": true,
+    "adaptiveHighSpeedSubsteps": true
+  },
+  "flipperProfiles": {
+    "default": "flash-enhanced",
+    "strict2018Comparison": "?flipper=docdonkeys"
+  },
+  "diagnostics": {
+    "collisionOverlay": "?debug=colliders",
+    "stateMachinePanel": "?debug=states"
+  },
+  "camera": "vertical-follow 428x600 over 428x822 physical table",
+  "audio": "procedural SFX plus separately toggled bundled CC0 background music; procedural fallback ambience",
+  "manualAcceptance": "Cross-browser/device matrix and long-session gameplay remain human acceptance checks.",
+  "controls": {
+    "desktopFlippers": {
+      "left": [
+        "ArrowLeft",
+        "Z",
+        "A"
+      ],
+      "right": [
+        "ArrowRight",
+        "M",
+        "L"
+      ]
+    },
+    "launcher": "ArrowDown",
+    "restart": "Space",
+    "touch": true
+  }
+}

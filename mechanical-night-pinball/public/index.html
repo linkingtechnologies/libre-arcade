@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a0f14">
+  <title>Mechanical Night Pinball</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" class="app-shell is-menu">
+    <section class="game-column" aria-label="Pinball">
+      <header class="hud" aria-live="polite">
+        <div class="hud-stat"><span data-i18n="highScore">Record</span><strong id="highScore">0</strong></div>
+        <div class="hud-stat"><span data-i18n="score">Punti</span><strong id="score">0</strong></div>
+        <div class="hud-stat"><span data-i18n="multiplier">Moltip.</span><strong id="multiplier">×1</strong></div>
+        <div class="hud-stat"><span data-i18n="balls">Palle</span><strong id="balls">3</strong></div>
+        <div class="hud-actions">
+          <button id="langButton" class="icon-button" type="button" aria-label="Cambia lingua">IT</button>
+          <button id="audioButton" class="icon-button" type="button" aria-label="Effetti sonori">🔊</button>
+          <button id="musicButton" class="icon-button" type="button" aria-label="Musica">🎵</button>
+        </div>
+      </header>
+
+      <div id="boardWrap" class="board-wrap">
+        <canvas id="gameCanvas" width="428" height="600" aria-label="Tavolo da flipper"></canvas>
+        <div id="eventToast" class="event-toast" role="status" aria-live="polite"></div>
+        <div id="scoreBurst" class="score-burst" aria-hidden="true"></div>
+        <div id="launchMeter" class="launch-meter" aria-hidden="true">
+          <span data-i18n="launchPower">Carica</span>
+          <div class="launch-meter-track"><i id="launchMeterFill"></i></div>
+          <b id="launchPercent">0%</b>
+        </div>
+
+        <div id="mainMenu" class="menu-overlay">
+          <section id="menuHome" class="menu-panel" aria-labelledby="menuTitle">
+            <p class="menu-kicker">ARCADE PINBALL</p>
+            <h1 id="menuTitle" class="menu-title"><span>Mechanical Night</span><strong>PINBALL</strong></h1>
+            <div class="menu-divider" aria-hidden="true"><span></span><i></i><span></span></div>
+            <div class="menu-primary-actions">
+              <button id="playButton" class="menu-button menu-button-primary" type="button" data-i18n="play">Gioca</button>
+              <button id="howButton" class="menu-button" type="button" data-i18n="howToPlay">Come si gioca</button>
+            </div>
+            <div class="menu-utility-actions">
+              <button id="menuLangButton" class="menu-chip" type="button" aria-label="Cambia lingua">IT</button>
+              <button id="menuAudioButton" class="menu-chip" type="button">Effetti: attivi</button>
+              <button id="menuMusicButton" class="menu-chip" type="button">Musica: attiva</button>
+            </div>
+            <p class="menu-hint" data-i18n="menuHint">Invio per giocare</p>
+          </section>
+
+          <section id="howPanel" class="menu-panel how-panel" aria-labelledby="howTitle" hidden>
+            <p class="menu-kicker">MECHANICAL NIGHT</p>
+            <h2 id="howTitle" data-i18n="howTitle">Come si gioca</h2>
+            <ul class="how-list">
+              <li><strong>← →</strong><span data-i18n="howFlippers">Muovi le palette</span></li>
+              <li><strong>↓</strong><span data-i18n="howLaunch">Tieni premuto e rilascia per lanciare</span></li>
+              <li><strong>×4</strong><span data-i18n="howMultiplier">Completa le quattro luci per aumentare il moltiplicatore</span></li>
+              <li><strong>R</strong><span data-i18n="howRamps">Attiva e completa le rampe per bonus ed extra ball</span></li>
+            </ul>
+            <p class="how-note" data-i18n="howGoal">Tieni la pallina in gioco, accendi gli inserti e costruisci il punteggio.</p>
+            <button id="menuBackButton" class="menu-button" type="button" data-i18n="back">Indietro</button>
+          </section>
+        </div>
+
+        <div id="gameOver" class="game-over" hidden>
+          <strong data-i18n="gameOver">Partita finita</strong>
+          <div class="game-over-actions">
+            <button id="restartButton" type="button" data-i18n="restart">Rigioca</button>
+            <button id="gameOverMenuButton" class="secondary-button" type="button" data-i18n="menu">Menu</button>
+          </div>
+        </div>
+
+        <button id="touchLeft" class="touch-control touch-left" type="button" aria-label="Flipper sinistro"><span>L</span> ◀</button>
+        <button id="touchRight" class="touch-control touch-right" type="button" aria-label="Flipper destro">▶ <span>R</span></button>
+        <button id="touchLaunch" class="touch-control touch-launch" type="button" aria-label="Lancia pallina">●</button>
+      </div>
+
+      <footer class="help-line">
+        <span class="desktop-help" data-i18n="controlsDesktop">← → flipper · ↓ launcher · Spazio rigioca</span>
+        <span class="touch-help" data-i18n="controlsTouch">Usa i controlli sul tavolo</span>
+      </footer>
+    </section>
+
+    <aside id="stateDebugger" class="state-debugger" hidden aria-label="State machine diagnostic">
+      <header class="state-debugger-head">
+        <div><strong>STATE MACHINE DIAGNOSTIC</strong><small>?debug=states</small></div>
+        <button type="button" data-debug-action="reset">Reset</button>
+      </header>
+      <pre class="state-debug-state" data-debug-state></pre>
+      <div class="debug-actions">
+        <section><h2>Multiplier</h2><div class="debug-grid four">
+          <button type="button" data-debug-action="top0">TOP 0</button><button type="button" data-debug-action="top1">TOP 1</button><button type="button" data-debug-action="top2">TOP 2</button><button type="button" data-debug-action="top3">TOP 3</button>
+        </div></section>
+        <section><h2>Ramp key / third ramp</h2><div class="debug-grid four">
+          <button type="button" data-debug-action="topLeft0">KEY 0</button><button type="button" data-debug-action="topLeft1">KEY 1</button><button type="button" data-debug-action="topLeft2">KEY 2</button><button type="button" data-debug-action="topLeft3">KEY 3</button>
+        </div><div class="debug-grid"><button type="button" data-debug-action="thirdRamp">HIT THIRD RAMP</button></div></section>
+        <section><h2>Ramp event</h2><div class="debug-grid">
+          <button type="button" data-debug-action="middle0">MIDDLE L</button><button type="button" data-debug-action="middle1">MIDDLE R</button>
+          <button type="button" data-debug-action="rampFinishLeft">FINISH L</button><button type="button" data-debug-action="rampFinishRight">FINISH R</button>
+        </div><div class="debug-grid"><button type="button" data-debug-action="rampActivate0">RAMPS ON</button><button type="button" data-debug-action="rampDeactivate0">RAMPS OFF</button></div></section>
+        <section><h2>Pegs / recovery</h2><div class="debug-grid three">
+          <button type="button" data-debug-action="peg0">PEG L</button><button type="button" data-debug-action="peg1">PEG C</button><button type="button" data-debug-action="peg2">PEG R</button>
+        </div><div class="debug-grid"><button type="button" data-debug-action="down0">DOWN L</button><button type="button" data-debug-action="down1">DOWN R</button></div></section>
+        <section><h2>Tunnel / life</h2><div class="debug-grid">
+          <button type="button" data-debug-action="tunnelLeft">TUNNEL L</button><button type="button" data-debug-action="tunnelRight">TUNNEL R</button>
+          <button type="button" data-debug-action="tunnelTimeout">EXIT NOW</button><button type="button" data-debug-action="drain">DRAIN</button>
+        </div></section>
+        <section><h2>Controls</h2><div class="debug-grid">
+          <button type="button" data-debug-action="tapLeft">TAP FLIPPER L</button><button type="button" data-debug-action="tapRight">TAP FLIPPER R</button>
+          <button type="button" data-debug-action="launcherDown">LAUNCH ↓</button><button type="button" data-debug-action="launcherUp">LAUNCH ↑</button>
+        </div></section>
+      </div>
+      <pre class="state-debug-log" data-debug-log aria-label="Diagnostic event log"></pre>
+    </aside>
+  </main>
+  <script type="module" src="src/main.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

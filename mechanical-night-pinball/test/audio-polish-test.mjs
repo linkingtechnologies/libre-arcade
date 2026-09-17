@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { readFile, stat } from 'node:fs/promises';
+const audio=await readFile(new URL('../public/src/audio.js',import.meta.url),'utf8');
+const main=await readFile(new URL('../public/src/main.js',import.meta.url),'utf8');
+const musicFile=new URL('../public/assets/music/mechanical-night-loop.ogg',import.meta.url);
+const info=await stat(musicFile);
+assert.ok(info.size>100000,'bundled music loop is missing or unexpectedly small');
+assert.match(audio,/musicUrl='assets\/music\/mechanical-night-loop\.ogg'/,'bundled music path missing');
+assert.match(audio,/startMusic\(\)/,'music playback lifecycle missing');
+assert.match(audio,/setSfxEnabled/,'SFX toggle missing');
+assert.match(audio,/setMusicEnabled/,'music toggle missing');
+assert.match(audio,/source\.loop=true/,'music must loop');
+assert.match(main,/toggleMusic/,'music UI must be wired');
+assert.match(main,/audio\.startMusic\(\)/,'gameplay must start music when enabled');
+console.log('SFX/music separation and bundled background loop: PASS');

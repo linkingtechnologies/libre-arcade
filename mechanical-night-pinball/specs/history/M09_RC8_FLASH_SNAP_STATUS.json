@@ -1,0 +1,21 @@
+{
+  "milestone": "0.9.0-rc8",
+  "defaultProfile": "flash-enhanced",
+  "referenceProfile": "docdonkeys",
+  "historicalFlashImpulse": {
+    "x": 0,
+    "y": -13.5,
+    "applicationOffsetPixels": 45,
+    "physicsScalePixelsPerMeter": 30
+  },
+  "cleanRoomAssistRadiansPerSecond": 6.0,
+  "rawHistoricalImpulseTransplanted": false,
+  "motorTorqueChanged": false,
+  "motorSpeedChanged": false,
+  "ballRestitutionChanged": false,
+  "restingContactRegressionPassed": true,
+  "representativeLeftStrikePxPerSec": {
+    "docdonkeys": -121.97,
+    "flashEnhanced": -235.78
+  }
+}

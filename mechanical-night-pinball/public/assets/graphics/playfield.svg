@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 428 822" width="428" height="822">
+  <defs>
+    <linearGradient id="pfBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f2029"/>
+      <stop offset="0.42" stop-color="#15303c"/>
+      <stop offset="1" stop-color="#0a1117"/>
+    </linearGradient>
+    <radialGradient id="haloTop" cx="50%" cy="8%" r="75%">
+      <stop offset="0" stop-color="#3c6b76" stop-opacity="0.58"/>
+      <stop offset="0.4" stop-color="#244653" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eff1ee"/>
+      <stop offset="0.45" stop-color="#c8ced1"/>
+      <stop offset="1" stop-color="#7f8d95"/>
+    </linearGradient>
+    <linearGradient id="tealGlass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4d95a0" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#173744" stop-opacity="0.22"/>
+    </linearGradient>
+    <linearGradient id="goldStroke" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1d992"/>
+      <stop offset="1" stop-color="#a4803d"/>
+    </linearGradient>
+    <radialGradient id="lampAmber" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff7cb"/>
+      <stop offset="0.38" stop-color="#e9c46a"/>
+      <stop offset="1" stop-color="#71511b"/>
+    </radialGradient>
+    <radialGradient id="lampTeal" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#e7fffb"/>
+      <stop offset="0.38" stop-color="#2a9d8f"/>
+      <stop offset="1" stop-color="#0d514b"/>
+    </radialGradient>
+    <radialGradient id="lampCoral" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffece4"/>
+      <stop offset="0.38" stop-color="#e76f51"/>
+      <stop offset="1" stop-color="#743221"/>
+    </radialGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000000" flood-opacity="0.36"/>
+    </filter>
+    <filter id="insertGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="428" height="822" rx="18" fill="url(#pfBg)"/>
+  <ellipse cx="214" cy="106" rx="175" ry="88" fill="url(#haloTop)"/>
+  <rect x="10" y="10" width="408" height="802" rx="16" fill="none" stroke="#c3aa6a" stroke-width="2" opacity="0.7"/>
+  <rect x="20" y="20" width="388" height="782" rx="15" fill="none" stroke="#30505a" stroke-width="3" opacity="0.72"/>
+
+  <!-- top marquee -->
+  <g filter="url(#shadow)">
+    <path d="M38 42 C106 18, 323 18, 390 42 L381 112 C314 133, 114 133, 47 112 Z" fill="#112732" stroke="#355564" stroke-width="3"/>
+    <path d="M52 51 C110 31, 317 31, 376 51" fill="none" stroke="#5ecdbd" stroke-width="2.2" opacity="0.7"/>
+    <rect x="95" y="38" width="238" height="66" rx="20" fill="#0e171c" stroke="url(#goldStroke)" stroke-width="3"/>
+    <text x="214" y="63" text-anchor="middle" fill="#f4e8c1" font-size="20" font-weight="700" font-family="system-ui, sans-serif">MECHANICAL NIGHT</text>
+    <text x="214" y="86" text-anchor="middle" fill="#77d8ce" font-size="17" font-weight="700" font-family="system-ui, sans-serif">ARCADE PINBALL</text>
+  </g>
+
+  <!-- small star deco -->
+  <g opacity="0.72" fill="#f4e8c1">
+    <circle cx="64" cy="58" r="1.2"/><circle cx="93" cy="88" r="1.05"/><circle cx="154" cy="68" r="1.25"/>
+    <circle cx="217" cy="47" r="1.1"/><circle cx="283" cy="68" r="1.2"/><circle cx="340" cy="56" r="1.1"/>
+    <circle cx="366" cy="94" r="1.2"/>
+  </g>
+
+  <!-- upper mechanical arch details -->
+  <path d="M48 127 C99 114, 147 113, 214 124 C272 134, 327 135, 378 120" fill="none" stroke="#26454f" stroke-width="4"/>
+  <path d="M61 135 C110 126, 157 128, 214 136 C273 144, 317 144, 364 136" fill="none" stroke="#476c78" stroke-width="1.8" opacity="0.7"/>
+
+  <!-- outer rails -->
+  <path d="M402 793 L400 423 L397 438 L367 464 L366 497 L398 526 L397 697 L391 710 L373 721 L234 786 L234 822 L166 822 L164 785 L13 713 L4 699 L3 519 L32 498 L31 462 L45 452 L32 423 L55 411 L72 430 L56 405 L28 420 L25 500 L3 500 L3 150 L8 137 L19 129 L125 128 L127 136 L128 195 L131 209 L129 225 L116 249 L108 251 L110 258 L100 272 L90 279 L100 279 L105 269 L130 234 L141 202 L164 174 L192 164 L224 161 L282 170 L281 194 L222 183 L184 190 L175 199 L175 219 L184 225 L223 229 L252 226 L276 224 L287 211 L294 202 L297 189 L301 176 L291 156 L256 152 L181 153 L159 156 L154 134 L210 130 L263 130 L294 134 L314 140 L327 150 L337 164 L342 184 L348 191 L367 174 L376 164 L389 143 L393 124 L371 33 L35 44 L33 88 L125 101 L138 111 L141 118 L111 122 L73 118 L29 113 L10 95 L9 44 L14 27 L28 16 L43 13 L199 12 L370 7 L388 12 L396 26 L409 74 L420 120 L417 152 L409 184 L403 211 L402 257 L402 280 L428 297 L427 338 L397 313 L396 365 L412 380 L420 392 L422 416"
+        fill="none" stroke="#f6e7bc" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.97"/>
+  <path d="M402 793 L400 423 L397 438 L367 464 L366 497 L398 526 L397 697 L391 710 L373 721 L234 786 L234 822 L166 822 L164 785 L13 713 L4 699 L3 519 L32 498 L31 462 L45 452 L32 423 L55 411 L72 430 L56 405 L28 420 L25 500 L3 500 L3 150 L8 137 L19 129 L125 128 L127 136 L128 195 L131 209 L129 225 L116 249 L108 251 L110 258 L100 272 L90 279 L100 279 L105 269 L130 234 L141 202 L164 174 L192 164 L224 161 L282 170 L281 194 L222 183 L184 190 L175 199 L175 219 L184 225 L223 229 L252 226 L276 224 L287 211 L294 202 L297 189 L301 176 L291 156 L256 152 L181 153 L159 156 L154 134 L210 130 L263 130 L294 134 L314 140 L327 150 L337 164 L342 184 L348 191 L367 174 L376 164 L389 143 L393 124 L371 33 L35 44 L33 88 L125 101 L138 111 L141 118 L111 122 L73 118 L29 113 L10 95 L9 44 L14 27 L28 16 L43 13 L199 12 L370 7 L388 12 L396 26 L409 74 L420 120 L417 152 L409 184 L403 211 L402 257 L402 280 L428 297 L427 338 L397 313 L396 365 L412 380 L420 392 L422 416"
+        fill="none" stroke="#0b1115" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+
+  <!-- guide lanes -->
+  <path d="M75 117 C109 144, 129 190, 123 245 C116 310, 95 360, 69 422" fill="none" stroke="url(#tealGlass)" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+  <path d="M163 150 C201 180, 224 231, 226 286 C228 352, 222 405, 212 468" fill="none" stroke="url(#tealGlass)" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+  <path d="M249 190 C286 220, 317 264, 331 319 C343 365, 347 414, 343 476" fill="none" stroke="url(#tealGlass)" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+  <g fill="#d8e2e4" font-family="system-ui, sans-serif" font-size="11" font-weight="700" opacity="0.88">
+    <text x="82" y="104">R1</text><text x="172" y="139">R2</text><text x="260" y="178">R3</text>
+  </g>
+
+  <!-- lower feature bands -->
+  <path d="M62 304 C95 311, 112 329, 126 358" fill="none" stroke="#35525f" stroke-width="3" opacity="0.65"/>
+  <path d="M300 290 C327 306, 342 331, 350 361" fill="none" stroke="#35525f" stroke-width="3" opacity="0.65"/>
+  <path d="M58 463 C104 451, 136 448, 182 452" fill="none" stroke="#264550" stroke-width="2.6" opacity="0.5"/>
+  <path d="M248 454 C294 449, 327 453, 367 467" fill="none" stroke="#264550" stroke-width="2.6" opacity="0.5"/>
+
+  <!-- portals -->
+  <g filter="url(#shadow)">
+    <path d="M25 406 h50 a18 18 0 0 1 0 34 h-50 z" fill="#112430" stroke="#8ce7f5" stroke-width="3"/>
+    <circle cx="51" cy="423" r="10" fill="#8ce7f5"/>
+    <circle cx="51" cy="423" r="17" fill="none" stroke="#8ce7f5" stroke-width="2" opacity="0.46"/>
+    <path d="M391 276 h22 a12 12 0 0 1 12 12 v61 a12 12 0 0 1 -12 12 h-22 z" fill="#112430" stroke="#8ce7f5" stroke-width="3"/>
+    <circle cx="407" cy="317" r="10" fill="#8ce7f5"/>
+    <circle cx="407" cy="317" r="16" fill="none" stroke="#8ce7f5" stroke-width="2" opacity="0.46"/>
+  </g>
+  <text x="45" y="396" text-anchor="middle" fill="#cfe6eb" font-size="9" font-family="system-ui, sans-serif">TUNNEL</text>
+  <text x="407" y="269" text-anchor="middle" fill="#cfe6eb" font-size="9" font-family="system-ui, sans-serif">TUNNEL</text>
+
+  <!-- top bumpers -->
+  <g filter="url(#shadow)">
+    <g>
+      <circle cx="61" cy="212" r="21" fill="#16252d" stroke="#f0d284" stroke-width="3"/>
+      <circle cx="61" cy="212" r="12.5" fill="url(#lampAmber)"/>
+      <circle cx="56.5" cy="207.5" r="2.8" fill="#fff" opacity="0.8"/>
+    </g>
+    <g>
+      <circle cx="102" cy="217" r="18" fill="#16252d" stroke="#f0d284" stroke-width="3"/>
+      <circle cx="102" cy="217" r="10" fill="url(#lampAmber)"/>
+      <circle cx="98.5" cy="213.5" r="2.5" fill="#fff" opacity="0.8"/>
+    </g>
+    <g>
+      <circle cx="77" cy="250" r="21" fill="#16252d" stroke="#f0d284" stroke-width="3"/>
+      <circle cx="77" cy="250" r="12.5" fill="url(#lampAmber)"/>
+      <circle cx="72.5" cy="245.5" r="2.8" fill="#fff" opacity="0.8"/>
+    </g>
+    <g>
+      <circle cx="400" cy="153" r="25" fill="#17252d" stroke="#ef8f6f" stroke-width="3"/>
+      <circle cx="400" cy="153" r="14" fill="url(#lampTeal)"/>
+      <circle cx="395.5" cy="148.5" r="2.8" fill="#fff" opacity="0.85"/>
+    </g>
+  </g>
+
+  <!-- big bumpers / slings -->
+  <g filter="url(#shadow)">
+    <path d="M78 580 Q92 607 112 662" fill="none" stroke="#ef8f6f" stroke-width="10" stroke-linecap="round"/>
+    <path d="M332 582 Q318 607 289 661" fill="none" stroke="#ef8f6f" stroke-width="10" stroke-linecap="round"/>
+    <path d="M78 580 Q92 607 112 662" fill="none" stroke="#fff2cf" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+    <path d="M332 582 Q318 607 289 661" fill="none" stroke="#fff2cf" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+  </g>
+  <g fill="#f1dfac" font-family="system-ui, sans-serif" font-size="9" font-weight="700" opacity="0.8">
+    <text x="106" y="628" transform="rotate(58 106 628)">BOOST</text>
+    <text x="302" y="626" transform="rotate(-58 302 626)">BOOST</text>
+  </g>
+
+  <!-- inserts and labels -->
+  <g filter="url(#insertGlow)">
+    <g>
+      <circle cx="46" cy="144" r="7" fill="url(#lampAmber)"/>
+      <circle cx="72" cy="144" r="7" fill="url(#lampAmber)"/>
+      <circle cx="98" cy="144" r="7" fill="url(#lampAmber)"/>
+      <circle cx="124" cy="144" r="7" fill="url(#lampAmber)"/>
+      <text x="84" y="124" text-anchor="middle" fill="#f4e8c1" font-size="10" font-family="system-ui, sans-serif">RAMP KEY</text>
+    </g>
+    <g>
+      <circle cx="190" cy="245" r="7" fill="url(#lampTeal)"/>
+      <circle cx="215" cy="245" r="7" fill="url(#lampTeal)"/>
+      <circle cx="240" cy="245" r="7" fill="url(#lampTeal)"/>
+      <circle cx="265" cy="245" r="7" fill="url(#lampTeal)"/>
+      <text x="228" y="266" text-anchor="middle" fill="#f4e8c1" font-size="10" font-family="system-ui, sans-serif">MULTIPLIER</text>
+    </g>
+    <g>
+      <circle cx="42" cy="486" r="8" fill="url(#lampTeal)"/>
+      <circle cx="364" cy="486" r="8" fill="url(#lampTeal)"/>
+      <text x="214" y="503" text-anchor="middle" fill="#f4e8c1" font-size="10" font-family="system-ui, sans-serif">RAMP EVENT</text>
+    </g>
+    <g>
+      <circle cx="48" cy="585" r="8" fill="url(#lampAmber)"/>
+      <circle cx="358" cy="585" r="8" fill="url(#lampAmber)"/>
+      <text x="214" y="603" text-anchor="middle" fill="#f4e8c1" font-size="10" font-family="system-ui, sans-serif">PEG RECOVERY</text>
+    </g>
+  </g>
+
+  <!-- arrow inserts -->
+  <g fill="#ef8f6f" stroke="#fff1d6" stroke-width="1.1">
+    <path d="M149 259 l11 -18 l11 18 h-7 v15 h-8 v-15z"/>
+    <path d="M320 227 l11 -18 l11 18 h-7 v15 h-8 v-15z"/>
+    <path d="M354 238 l11 -18 l11 18 h-7 v15 h-8 v-15z"/>
+  </g>
+  <g fill="#b9d0d3" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" opacity="0.88">
+    <text x="142" y="280">LOCK</text>
+    <text x="315" y="248">OPEN</text>
+    <text x="349" y="260">OPEN</text>
+  </g>
+
+  <!-- mid decorative orbits -->
+  <g opacity="0.75">
+    <circle cx="153" cy="332" r="24" fill="none" stroke="#28515d" stroke-width="2"/>
+    <circle cx="153" cy="332" r="11" fill="#143240" stroke="#2a9d8f" stroke-width="1.3"/>
+    <circle cx="301" cy="358" r="26" fill="none" stroke="#28515d" stroke-width="2"/>
+    <path d="M289 358 h24 M301 346 v24" stroke="#e9c46a" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- pegs -->
+  <g filter="url(#shadow)">
+    <g><circle cx="25" cy="520" r="10" fill="#132731" stroke="#f4e8c1" stroke-width="2"/><circle cx="25" cy="520" r="3" fill="#e9c46a"/></g>
+    <g><circle cx="200" cy="764" r="10" fill="#132731" stroke="#f4e8c1" stroke-width="2"/><circle cx="200" cy="764" r="3" fill="#e9c46a"/></g>
+    <g><circle cx="375" cy="520" r="10" fill="#132731" stroke="#f4e8c1" stroke-width="2"/><circle cx="375" cy="520" r="3" fill="#e9c46a"/></g>
+  </g>
+
+  <!-- lower apron / shooter lane -->
+  <path d="M35 730 C89 773, 146 792, 214 794 C278 796, 338 778, 393 733" fill="none" stroke="#2d4a55" stroke-width="3" opacity="0.9"/>
+  <path d="M56 736 C104 766, 153 780, 214 782 C271 784, 325 769, 372 739" fill="none" stroke="#496f7c" stroke-width="1.8" opacity="0.7"/>
+  <rect x="403" y="676" width="18" height="132" rx="9" fill="#15242c" stroke="#d2bb80" stroke-width="2"/>
+  <rect x="407" y="682" width="10" height="120" rx="5" fill="#0f171b" opacity="0.8"/>
+  <rect x="67" y="744" width="112" height="25" rx="12" fill="#112632" stroke="#355565" stroke-width="1.6"/>
+  <rect x="249" y="744" width="112" height="25" rx="12" fill="#112632" stroke="#355565" stroke-width="1.6"/>
+  <text x="123" y="761" text-anchor="middle" fill="#f4e8c1" font-size="10" font-family="system-ui, sans-serif" font-weight="700">LEFT ORBIT</text>
+  <text x="305" y="761" text-anchor="middle" fill="#f4e8c1" font-size="10" font-family="system-ui, sans-serif" font-weight="700">SHOOTER LANE</text>
+  <g font-family="system-ui, sans-serif" font-weight="800" font-size="11" text-anchor="middle">
+    <circle cx="111" cy="704" r="12" fill="#112632" stroke="#d2bb80" stroke-width="1.5"/><text x="111" y="708" fill="#f4e8c1">L</text>
+    <circle cx="318" cy="704" r="12" fill="#112632" stroke="#d2bb80" stroke-width="1.5"/><text x="318" y="708" fill="#f4e8c1">R</text>
+  </g>
+  <text x="412" y="668" text-anchor="middle" fill="#9fc0c9" font-size="8" font-family="system-ui, sans-serif" transform="rotate(-90 412 668)">PULL</text>
+<!-- Collision-visibility rails deliberately mirror the open Box2D chains. -->
+  <g id="collision-visible-base" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline id="collider-topLeftWalls" points="32,380 27,380 27,151 32,151 32,222 40,241 46,242 44,250 62,293 82,301 80,308 68,305 54,290 49,280 34,281 32,379" stroke="#d9cda8" stroke-width="5" opacity="0.88"/>
+    <polyline id="collider-downLeftWalls" points="27,539 32,539 32,636 37,644 144,731 127,742 31,693 27,688 27,540" stroke="#d9cda8" stroke-width="5" opacity="0.88"/>
+    <polyline id="collider-downRightWalls" points="368,539 372,539 372,688 369,692 270,742 253,731 360,648 367,637 368,540" stroke="#d9cda8" stroke-width="5" opacity="0.88"/>
+    <polyline id="collider-leftBumperHugger" points="68,583 78,580 71,567 66,566 62,566 59,568 56,572 56,630 111,677 119,677 124,672 124,664 120,658 110,662" stroke="#8aa0a8" stroke-width="4" opacity="0.95"/>
+    <polyline id="collider-rightBumperHugger" points="332,582 322,578 329,567 335,566 340,567 344,573 344,630 289,677 282,677 278,674 276,670 276,664 280,657 289,661" stroke="#8aa0a8" stroke-width="4" opacity="0.95"/>
+    <polyline id="collider-leftBumper" points="78,580 120,658 110,662 68,583" stroke="#ef8f6f" stroke-width="8" opacity="0.9"/>
+    <polyline id="collider-rightBumper" points="332,582 322,578 280,657 289,661" stroke="#ef8f6f" stroke-width="8" opacity="0.9"/>
+  </g>
+  <g id="collision-visible-fixtures">
+    <rect id="collider-leftKicker" x="-10" y="460" width="40" height="20" rx="6" fill="#5f2f22" stroke="#ef8f6f" stroke-width="2"/>
+    <rect id="collider-topPost0" x="53.5" y="153.5" width="3" height="23" rx="1.5" fill="#f4e8c1"/>
+    <rect id="collider-topPost1" x="78" y="153.5" width="4" height="23" rx="2" fill="#f4e8c1"/>
+    <rect id="collider-topPost2" x="103" y="153.5" width="4" height="23" rx="2" fill="#f4e8c1"/>
+    <circle id="collider-attacherLeft" cx="147" cy="745" r="5.5" fill="#b79556" stroke="#f4e8c1"/>
+    <circle id="collider-attacherRight" cx="252" cy="745" r="5.5" fill="#b79556" stroke="#f4e8c1"/>
+    <circle id="collider-attacherKicker" cx="412" cy="801" r="5.5" fill="#b79556" stroke="#f4e8c1"/>
+  </g>
+
+</svg>

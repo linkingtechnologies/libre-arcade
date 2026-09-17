@@ -1,0 +1,24 @@
+{
+  "milestone": "M0.4",
+  "reference": "vendored Box2D 2.3.2 from commit 220820357a6a9a455df920619e2240e4da130cb9",
+  "fixed_dt": 0.016666666666666666,
+  "velocity_iterations": 6,
+  "position_iterations": 2,
+  "calibrated": [
+    "ball spin and friction",
+    "static restitution",
+    "flipper mass/inertia/motor timing",
+    "joint angular slop",
+    "plunger motor quirk",
+    "joint-attacher colliders",
+    "launcher trajectory"
+  ],
+  "launcher": {
+    "reference_peak_vy_px_s": -689.582031,
+    "web_peak_vy_px_s": -686.880768,
+    "difference_percent": 0.392,
+    "reference_max_y_px": 787.632263,
+    "web_max_y_px": 787.43333
+  },
+  "claim": "close deterministic calibration, not bit-identical Box2D"
+}

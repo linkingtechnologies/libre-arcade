@@ -1,0 +1,21 @@
+{
+  "milestone": "M0.9-RC2",
+  "parityTarget": "DocDonkeys Pinup-Pinball 1.0",
+  "fixes": {
+    "velocityThresholdPxPerSecond": 50,
+    "sleepConstantsFromBox2D232": true,
+    "openChainSemantics": true,
+    "sameFrameContactDebounce": true,
+    "deferredPhysicalMutations": true,
+    "adaptiveHighSpeedSubsteps": true,
+    "collisionVisibilityAudit": true,
+    "colliderDebugOverlay": "?debug=colliders",
+    "poweredFlipperRestingContact": true
+  },
+  "confirmedRegression": {
+    "m08ClosedOpenChains": "fixed",
+    "effect": "removed phantom last-to-first collision segments",
+    "m09rc1PoweredFlipperEnergyPump": "fixed"
+  },
+  "fullBox2DBitParity": false
+}
