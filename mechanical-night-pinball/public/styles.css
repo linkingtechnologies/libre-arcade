@@ -10,6 +10,13 @@ html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background:
 button { font: inherit; }
 .app-shell {
   width: 100%; height: 100dvh; display: grid; place-items: center;
+  /* Without an explicit track, this single-cell grid sizes its implicit row/
+     column to content instead of the container, so .game-column's `height:
+     100%` has nothing definite to resolve against and grows to fit its own
+     content (overflowing on short/wide viewports). Pin both tracks to the
+     full container so percentage heights inside actually cap correctly. */
+  grid-template-rows: 100%;
+  grid-template-columns: 100%;
   padding: max(8px, env(safe-area-inset-top)) 8px max(8px, env(safe-area-inset-bottom));
 }
 .game-column {

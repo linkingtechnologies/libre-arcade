@@ -6,6 +6,7 @@
 - Added the standard `package.json` scripts (`dev`, `build`, `start`, `test`, `lint`, `check`), `scripts/serve.mjs` and `eslint.config.mjs` shared by every game in the collection, alongside this project's own `verify:source`/`verify:game`/`release` pipeline (kept, just retargeted from `dist/` to `game/`).
 - Added the GoatCounter analytics snippet used by every other game.
 - Renamed the 17 `test/*.mjs` regression files to `test/*-test.mjs` so `node --test` discovers them directly, replacing the hand-chained `&&` test script.
+- Fixed the table overflowing (and getting clipped at the bottom) on short/wide viewports: `.app-shell`'s single-cell grid had no explicit track, so it sized to content instead of the container, leaving `.game-column`'s `height: 100%` with nothing definite to resolve against. Pinning `grid-template-rows`/`grid-template-columns` to `100%` fixes it; some empty space left/right on a wide screen is expected letterboxing for the table's fixed portrait aspect ratio, not a bug.
 - No gameplay, physics, table, scoring or audio changes.
 
 ## 1.1.0-rc2
