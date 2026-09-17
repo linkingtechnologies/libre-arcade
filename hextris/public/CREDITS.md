@@ -2,7 +2,7 @@
 
 ## Hextris
 
-The game itself. Vendored here with local modifications — see [`specs/hextris/design.md`](../../specs/hextris/design.md) (relative to the plugin root) for the full list of what changed from upstream and why.
+The game itself. Vendored here with local modifications — see [`specs/design.md`](../specs/design.md) for the full list of what changed from upstream and why.
 
 - **By**: Logan Engstrom & Garrett Finucane, and the [Hextris](https://github.com/Hextris/hextris) contributors
 - **Source**: https://github.com/Hextris/hextris
@@ -24,6 +24,6 @@ The game itself. Vendored here with local modifications — see [`specs/hextris/
 | Font | Used? |
 |---|---|
 | Exo 2 (Natanael Gama, SIL Open Font License 1.1) | Yes — the game's primary UI font |
-| [Font Awesome](https://fontawesome.com/) 4.1.0 (Dave Gandy — CSS: MIT, font: SIL Open Font License 1.1) | **Yes** — not via any `<i class="fa-*">` markup (there is none), but drawn directly onto the `<canvas>`: `js/view.js`/`js/render.js` set `ctx.font = "...FontAwesome"` and `fillText()` the play-triangle icon (codepoint `0xf04b`) for the start button and arrow-key hints. See `specs/hextris/design.md`'s vendor-audit table for how this was first wrongly deleted as "unused" (a plain HTML-class grep can't see canvas-drawn icon usage) and restored. |
+| [Font Awesome](https://fontawesome.com/) 4.1.0 (Dave Gandy — CSS: MIT, font: SIL Open Font License 1.1) | **Yes** — not via any `<i class="fa-*">` markup (there is none), but drawn directly onto the `<canvas>`: `js/view.js`/`js/render.js` set `ctx.font = "...FontAwesome"` and `fillText()` the play-triangle icon (codepoint `0xf04b`) for the start button and arrow-key hints. See `specs/design.md`'s vendor-audit table for how this was first wrongly deleted as "unused" (a plain HTML-class grep can't see canvas-drawn icon usage) and restored. |
 
 Three more font files shipped in upstream (Quattrocento Sans, Roboto, Lovelo) were vendored too but never referenced by any `@font-face` or `ctx.font`/`renderText(...)` call anywhere in this game's own HTML/JS/CSS — confirmed unused (checked both the CSS-class AND the canvas-font-usage pattern, see the point above), and **deleted**. Not upstream's fault to begin with (dead weight in the original repo too) — removing them here is a straight deletion, not a functional change.

@@ -13,7 +13,7 @@
 		<link rel="apple-touch-icon" sizes="512x512" href="images/icons/apple-touch-512.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
 		<link rel="icon" type="image/png" href="favicon.ico">
-		<!-- Local modifications, all documented in specs/hextris/design.md — summary:
+		<!-- Local modifications, all documented in specs/design.md — summary:
 		     - No "apple-itunes-app" meta (triggered iOS's native "install this app" smart banner
 		       for the original mobile Hextris app — not appropriate for an embedded internal copy).
 		     - No manifest.webmanifest link (PWA installability for the standalone hextris.github.io
@@ -37,7 +37,7 @@
 		       the Play button's icon going invisible (the click target — #startBtn — was still
 		       there and still worked, just its drawn glyph vanished, since 0xf04b is a Private Use
 		       Area codepoint with no visual glyph in any font but FontAwesome itself). See
-		       CREDITS.md and specs/hextris/design.md. -->
+		       CREDITS.md and specs/design.md. -->
 		<link rel="stylesheet" href="style/fa/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="style/style.css">
 	</head>
@@ -81,7 +81,7 @@
 				     VK variant, and Google Play/App Store badges — all removed live (requested:
 				     "togliamo i riferimenti ai social che tanto non sono più validi"). They pointed
 				     at the public hextris.github.io project/its mobile apps, none of it relevant to
-				     an internal embedded copy. See specs/hextris/design.md. -->
+				     an internal embedded copy. See specs/design.md. -->
 				<!-- #buttonCont stays, deliberately empty — NOT purely cosmetic scaffolding:
 				     main.js's setBottomContainer()/set_score_pos() (both called from
 				     scaleCanvas(), i.e. on every window resize) read $("#buttonCont").offset().top
@@ -111,7 +111,7 @@
 		     anchor, until it (and vendor/sweet-alert.min.js, elsewhere in this list) was deleted
 		     for being completely unused by this game's own code (grep confirmed: zero references
 		     to either) — if this list's first entry ever changes again, update the regex below to
-		     match. See specs/hextris/design.md. -->
+		     match. See specs/design.md. -->
 		<script>window.HEXTRIS_BASE = document.currentScript.previousElementSibling.src.replace(/vendor\/js\.cookie\.js$/, '');</script>
 		<script type='text/javascript' src="vendor/jsonfn.min.js"></script>
 		<script type='text/javascript' src="vendor/keypress.min.js"></script>
@@ -136,7 +136,7 @@
 		     SweetAlert (superseded by SweetAlert2) besides. -->
 		<!-- Local modification: the rrssb share-button script + its jQuery-dependent
 		     Russian-locale (VK) variant were removed here along with the share-button markup
-		     above — see this file's own comment there and specs/hextris/design.md. -->
+		     above — see this file's own comment there and specs/design.md. -->
 		</div>
 		<!-- APP-CONTENT-END -->
 	  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

@@ -167,7 +167,7 @@ function initialize(a) {
 		addKeyListeners();
 		// Local modification: upstream loads Google Analytics here (remote script fetch +
 		// tracking calls to a Hextris-owned property). Removed — no CDN/telemetry calls at
-		// runtime, see plugins/libre-arcade/specs/hextris/design.md.
+		// runtime, see specs/design.md.
 
 		document.addEventListener("pause", handlePause, false);
 		document.addEventListener("backbutton", handlePause, false);

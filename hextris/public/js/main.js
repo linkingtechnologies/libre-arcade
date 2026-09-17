@@ -339,7 +339,7 @@ function checkGameOver() {
 		if (isInfringing(MainHex)) {
 			// Local modification: upstream silently POSTs every final score to a raw third-party
 			// IP address here (a Hextris-owned stats endpoint). Removed — this integration sends
-			// nothing to any external server, see plugins/libre-arcade/specs/hextris/design.md.
+			// nothing to any external server, see specs/design.md.
 			if (highscores.indexOf(score) == -1) {
 				highscores.push(score);
 			}
@@ -379,4 +379,4 @@ function showHelp() {
 
 // Local modification: upstream dynamically loaded a remote script from hextris.io here at
 // runtime (arbitrary third-party code execution on every page load). Removed entirely — see
-// plugins/libre-arcade/specs/hextris/design.md.
+// specs/design.md.

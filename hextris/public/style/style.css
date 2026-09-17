@@ -1,4 +1,4 @@
-/* Local modification (this whole file — see plugins/libre-arcade/specs/hextris/design.md):
+/* Local modification (this whole file — see specs/design.md):
    every originally-bare "*"/"body"/"a"/"button" selector in this file is now scoped under
    "#app", this game's own exclusive mount root (see games/hextris/index.html and
    ../../dashboard-hextris.inc.php) — unscoped, a universal "* { margin:0; padding:0; }" reset
@@ -445,7 +445,7 @@
 
 /* Local modification: #socialShare rule deleted — the element it styled (the "SHARE MY SCORE!"
    Twitter popup) was removed from index.html, see that file's own comment and
-   specs/hextris/design.md. */
+   specs/design.md. */
 
 .unselectable {
 	-webkit-touch-callout:none;
@@ -520,7 +520,7 @@
 
 /* Local modification: #androidBadge/#iOSBadge rules deleted — the Play Store/App Store badge
    <img>s they styled were removed from index.html along with the share buttons, see that file's
-   own comment and specs/hextris/design.md. */
+   own comment and specs/design.md. */
 
 #authors {
 	position:absolute;
