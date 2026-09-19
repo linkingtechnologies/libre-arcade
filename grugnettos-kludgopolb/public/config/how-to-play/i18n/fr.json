@@ -1,0 +1,89 @@
+{
+  "title": "Comment jouer",
+  "subtitle": "Explore les mondes de Grugnetto, prends possession des meilleurs Lieux et reste le dernier joueur en jeu.",
+  "sections": {
+    "objective": {
+      "title": "But du jeu",
+      "paragraphs": [
+        "Choisis de {{minCpuOpponents}} à {{maxCpuOpponents}} adversaires : la partie compte donc de {{minPlayers}} à {{maxPlayers}} joueurs.",
+        "Chaque joueur commence avec {{startingCash}} pièces. Le dernier joueur encore en jeu remporte la partie."
+      ]
+    },
+    "turn": {
+      "title": "Ton tour",
+      "paragraphs": [
+        "Lance deux dés et avance du total obtenu. Chaque fois que tu dépasses la Maison de Grugnetto, reçois {{passStartSalary}} pièces.",
+        "Si tu fais un double, résous la case puis relance les dés. Trois doubles de suite t’envoient directement au Camp de base."
+      ]
+    },
+    "places": {
+      "title": "Lieux et Revenus",
+      "paragraphs": [
+        "Si tu arrives sur un Lieu libre, tu peux l’acheter au prix indiqué. Si tu ne l’achètes pas, le Lieu est mis aux enchères.",
+        "Si tu arrives sur le Lieu d’un autre joueur, paie son Revenu. Un Lieu en gage ne rapporte aucun Revenu."
+      ]
+    },
+    "worlds": {
+      "title": "Mondes et Embellissements",
+      "paragraphs": [
+        "Le plateau comprend {{worldCount}} Mondes de {{placesPerWorld}} Lieux chacun. Quand tu possèdes tous les Lieux d’un Monde, leur Revenu de base double tant qu’aucun n’est en gage.",
+        "Un Monde complété peut être embelli. Chaque Lieu peut recevoir jusqu’à {{maxEmbellishments}} Embellissements, chacun au coût indiqué. Il n’est pas nécessaire de les répartir uniformément."
+      ]
+    },
+    "portalsServices": {
+      "title": "Portails et Lieux spéciaux",
+      "paragraphs": [
+        "Les {{portalCount}} Portails s’achètent comme les autres Lieux. Plus tu possèdes de Portails, plus chacun rapporte.",
+        "Les {{specialPlaceCount}} Lieux spéciaux fonctionnent ensemble : leur Revenu dépend du total des dés et augmente si tu possèdes les deux."
+      ]
+    },
+    "baseCamp": {
+      "title": "Camp de base",
+      "paragraphs": [
+        "Au Camp de base, tu peux payer {{detentionFee}} pièces pour repartir immédiatement, ou tenter de faire un double.",
+        "Tu disposes de {{detentionTurns}} tours au maximum. Si le deuxième essai n’est pas un double, paie {{detentionFee}} pièces puis avance quand même du résultat obtenu. Un double qui te fait sortir ne donne pas de lancer supplémentaire."
+      ]
+    },
+    "auctions": {
+      "title": "Enchères",
+      "paragraphs": [
+        "Lorsqu’un Lieu libre n’est pas acheté, tous les joueurs encore en jeu peuvent participer aux enchères.",
+        "Indique la somme maximale que tu souhaites dépenser. Le jeu compare les offres et attribue le Lieu au gagnant, qui peut payer moins que son maximum. Entre 0 pour ne pas participer."
+      ]
+    },
+    "trades": {
+      "title": "Échanges",
+      "paragraphs": [
+        "Pendant ton tour, tu peux proposer un échange à un autre joueur : offrir des Lieux, en demander d’autres et ajouter des pièces d’un côté ou de l’autre.",
+        "Les Lieux d’un Monde ne peuvent pas être échangés tant que ce Monde possède au moins un Embellissement. Il faut d’abord tous les vendre."
+      ]
+    },
+    "pledges": {
+      "title": "Gages",
+      "paragraphs": [
+        "Tu peux mettre en gage un de tes Lieux et recevoir {{pledgePercent}} % de son prix. Le racheter coûte {{redeemPercent}} % de son prix d’origine.",
+        "Avant de mettre en gage un Lieu appartenant à un Monde, tous les Embellissements de ce Monde doivent être vendus. Un Embellissement vendu rapporte {{sellEmbellishmentPercent}} % de son coût."
+      ]
+    },
+    "events": {
+      "title": "Aventures et Contretemps",
+      "paragraphs": [
+        "Les cases Aventure et Contretemps font piocher une carte. Elle peut faire gagner ou perdre des pièces, déplacer ton pion, t’envoyer vers un Portail ou au Camp de base, ou agir sur tes Embellissements.",
+        "Suis simplement la carte : le jeu applique immédiatement son effet."
+      ]
+    },
+    "debts": {
+      "title": "Quand les pièces viennent à manquer",
+      "paragraphs": [
+        "Si tu dois payer plus que l’argent disponible, le jeu essaie automatiquement de réunir la somme : il vend d’abord tes Embellissements, puis met en gage tes Lieux.",
+        "Si cela ne suffit toujours pas, tu es éliminé. Si la dette était due à un autre joueur, tes Lieux lui sont transférés ; sinon ils redeviennent libres."
+      ]
+    },
+    "winning": {
+      "title": "Gagner la partie",
+      "paragraphs": [
+        "Continue à acheter, embellir, échanger et gérer tes pièces. Dès qu’il ne reste plus qu’un seul joueur, la partie se termine et ce joueur gagne."
+      ]
+    }
+  }
+}

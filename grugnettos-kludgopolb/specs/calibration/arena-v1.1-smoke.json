@@ -1,0 +1,19 @@
+{
+  "games": 100,
+  "seedStart": 1000,
+  "completed": 98,
+  "completionRate": 0.98,
+  "averageTurns": 274.57,
+  "wins": {
+    "Zilla": 16,
+    "Queen": 16,
+    "Wallace": 41,
+    "Hans": 27
+  },
+  "winRates": {
+    "Zilla": 0.16,
+    "Queen": 0.16,
+    "Wallace": 0.41,
+    "Hans": 0.27
+  }
+}

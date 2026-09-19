@@ -1,0 +1,81 @@
+{
+  "title": "Grugnettos Freunde",
+  "subtitle": "Jeder spielt anders. Tippe auf ⓘ, um mehr zu erfahren.",
+  "friendOf": "Grugnettos Freund",
+  "strengths": "So spielt er",
+  "bestFor": "Perfekt, wenn du…",
+  "note": "Diese Beschreibungen stammen aus Simulationen auf dem aktuellen Spielbrett. Sie beschreiben das Verhalten hier und sind keine Bezeichnungen des ursprünglichen KludgopolB-Autors.",
+  "tags": {
+    "versatile": "Vielseitig",
+    "duels": "Stark im Duell",
+    "challenge": "Anspruchsvoll",
+    "balanced": "Ausgeglichen",
+    "topTier": "Einer der Stärksten",
+    "manyPlayers": "Stark mit vielen Spielern",
+    "learning": "Gut zum Lernen",
+    "fairChallenge": "Faire Herausforderung",
+    "surprise": "Unberechenbar",
+    "crowdedWeak": "Schwächer in großen Runden",
+    "firstGame": "Ideal für die erste Partie",
+    "easy": "Leichter",
+    "aggressiveBuying": "Kauft fast alles",
+    "buildsImmediately": "Baut sofort, wenn möglich",
+    "cashPoor": "Schwaches Geldmanagement",
+    "weakAuctions": "Vorsichtig bei Auktionen",
+    "noTrading": "Handelt nicht",
+    "predictable": "Sehr berechenbar",
+    "longDuels": "Kann Duelle in die Länge ziehen"
+  },
+  "players": {
+    "Zilla": {
+      "label": "Erfahrener Stratege",
+      "description": "Stark und zuverlässig. Er kommt sowohl im Duell als auch in größeren Runden gut zurecht.",
+      "bestFor": "eine ernsthafte Herausforderung ohne gleich den Champion zu wählen"
+    },
+    "Queen": {
+      "label": "Ausgeglichene Expertin",
+      "description": "Solide und vielseitig, ohne klare Schwäche. Im Duell liegt sie fast gleichauf mit Zilla.",
+      "bestFor": "eine starke, aber noch gut lesbare Gegnerin"
+    },
+    "Wallace": {
+      "label": "Champion",
+      "description": "Im Duell am gefährlichsten und auch mit vielen Mitspielern weiterhin einer der Besten.",
+      "bestFor": "eine echte Bewährungsprobe"
+    },
+    "Hans": {
+      "label": "Mehrspieler-Spezialist",
+      "description": "Je voller der Tisch, desto gefährlicher wird er. In großen Runden gehört er zu den Besten.",
+      "bestFor": "eine große, umkämpfte Runde"
+    },
+    "Mimrock": {
+      "label": "Fortgeschritten",
+      "description": "Ein ordentlicher Gegner, aber weniger gnadenlos als die Veteranen. Er lässt Raum zum Lernen und für kleine Fehler.",
+      "bestFor": "eine faire Herausforderung nach den ersten Partien"
+    },
+    "Lost Soul": {
+      "label": "Unberechenbar",
+      "description": "Im Duell kann er überraschend gefährlich sein, in großen Runden verliert er aber deutlich an Stärke. Man weiß nie genau, was er als Nächstes tut.",
+      "bestFor": "eine ungewöhnliche, schwer vorhersehbare Partie"
+    },
+    "Pazifik": {
+      "label": "Erst kaufen, später denken.",
+      "description": "Ein alter Freund, der am liebsten alles besitzt, was ihm vor die Füße fällt. Er baut sofort, sobald er kann, und erhöht bei Auktionen stur um eine Münze. Große Tauschgeschäfte darfst du nicht erwarten.",
+      "bestFor": "eine leichtere, berechenbare Herausforderung; mit mehr als zwei Spielern laufen Partien meist flüssiger"
+    },
+    "Lemming": {
+      "label": "Anfänger",
+      "description": "Er macht viele Fehler und ist der leichteste Freund am Tisch. Perfekt, um das Spiel kennenzulernen.",
+      "bestFor": "deine erste Partie oder ein entspanntes Spiel"
+    }
+  },
+  "ratingsTitle": "Spielprofil",
+  "ratings": {
+    "buying": "Käufe",
+    "building": "Bauen",
+    "auctions": "Auktionen",
+    "cashManagement": "Geldmanagement",
+    "trading": "Handel",
+    "prudence": "Vorsicht",
+    "predictability": "Berechenbarkeit"
+  }
+}

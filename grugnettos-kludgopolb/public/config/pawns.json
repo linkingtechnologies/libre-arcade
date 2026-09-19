@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "human": {
+    "asset": "assets/grugnetto/grugnetto_token.svg",
+    "label": "Grugnetto"
+  },
+  "cpu": {
+    "Zilla": {
+      "asset": "assets/grugnetto-go/enemies/slime_normal_rest.png"
+    },
+    "Queen": {
+      "asset": "assets/grugnetto-go/enemies/bee_rest.png"
+    },
+    "Wallace": {
+      "asset": "assets/grugnetto-go/enemies/mouse_rest.png"
+    },
+    "Hans": {
+      "asset": "assets/grugnetto-go/enemies/frog_idle.png"
+    },
+    "Mimrock": {
+      "asset": "assets/grugnetto-go/enemies/barnacle_attack_rest.png"
+    },
+    "Lost Soul": {
+      "asset": "assets/grugnetto-go/enemies/fly_rest.png"
+    },
+    "Lemming": {
+      "asset": "assets/grugnetto-go/enemies/ladybug_rest.png"
+    },
+    "Pazifik": {
+      "asset": "assets/grugnetto-go/enemies/fish_blue_rest.png"
+    }
+  },
+  "license": {
+    "humanToken": "Grugnetto original art — all rights reserved",
+    "grugnettoGoEnemyTokens": "Kenney enemy art as shipped by Grugnetto Go! — CC0 1.0"
+  },
+  "reserveCharacters": [
+    "assets/grugnetto-go/enemies/snail_rest.png",
+    "assets/grugnetto-go/enemies/worm_normal_rest.png"
+  ]
+}

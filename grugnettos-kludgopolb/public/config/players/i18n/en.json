@@ -1,0 +1,81 @@
+{
+  "title": "Grugnetto’s friends",
+  "subtitle": "They all play differently. Tap ⓘ to get to know them.",
+  "friendOf": "Grugnetto’s friend",
+  "strengths": "How they play",
+  "bestFor": "Great if you want…",
+  "note": "These descriptions come from simulations on the current board. They describe behaviour here, not labels written by the original KludgopolB author.",
+  "tags": {
+    "versatile": "Versatile",
+    "duels": "Strong in duels",
+    "challenge": "Tough challenge",
+    "balanced": "Balanced",
+    "topTier": "One of the strongest",
+    "manyPlayers": "Strong with many players",
+    "learning": "Good for learning",
+    "fairChallenge": "Fair challenge",
+    "surprise": "Unpredictable",
+    "crowdedWeak": "Struggles in crowded games",
+    "firstGame": "Great for a first game",
+    "easy": "Easier",
+    "aggressiveBuying": "Buys almost everything",
+    "buildsImmediately": "Builds whenever possible",
+    "cashPoor": "Poor cash management",
+    "weakAuctions": "Cautious at auctions",
+    "noTrading": "Does not trade",
+    "predictable": "Very predictable",
+    "longDuels": "Can make duels run long"
+  },
+  "players": {
+    "Zilla": {
+      "label": "Expert strategist",
+      "description": "Strong and consistent. He performs well both in duels and at a crowded table.",
+      "bestFor": "a serious challenge without picking the outright champion"
+    },
+    "Queen": {
+      "label": "Balanced expert",
+      "description": "Solid and well-rounded, with no obvious weak spot. In duels she is almost level with Zilla.",
+      "bestFor": "a strong opponent who is still readable"
+    },
+    "Wallace": {
+      "label": "Champion",
+      "description": "The most dangerous duelist and still one of the very best when more players join in.",
+      "bestFor": "a real test of your game"
+    },
+    "Hans": {
+      "label": "Multiplayer specialist",
+      "description": "The more players at the table, the more dangerous he becomes. In crowded games he is among the best.",
+      "bestFor": "a busy table with plenty of competition"
+    },
+    "Mimrock": {
+      "label": "Intermediate",
+      "description": "A decent opponent, but less ruthless than the veterans. He leaves room to learn and recover from mistakes.",
+      "bestFor": "a fair challenge once you know the basics"
+    },
+    "Lost Soul": {
+      "label": "Unpredictable",
+      "description": "He can be surprisingly dangerous in a duel, but loses a lot of strength in crowded games. You never quite know what he will do.",
+      "bestFor": "a strange, unpredictable match"
+    },
+    "Pazifik": {
+      "label": "Buy first, think later.",
+      "description": "An old friend who loves owning almost anything that lands in front of him. He builds as soon as he can and stubbornly raises auctions one coin at a time. Do not expect clever deals.",
+      "bestFor": "an easier, predictable challenge; games tend to flow better with more than two players"
+    },
+    "Lemming": {
+      "label": "Beginner",
+      "description": "He makes plenty of mistakes and is the easiest friend to face. Perfect while you are learning the game.",
+      "bestFor": "your first game or a relaxed match"
+    }
+  },
+  "ratingsTitle": "Play profile",
+  "ratings": {
+    "buying": "Buying",
+    "building": "Building",
+    "auctions": "Auctions",
+    "cashManagement": "Cash management",
+    "trading": "Trading",
+    "prudence": "Caution",
+    "predictability": "Predictability"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "title": "Les amis de Grugnetto",
+  "subtitle": "Chacun joue à sa façon. Touche ⓘ pour mieux le connaître.",
+  "friendOf": "Ami de Grugnetto",
+  "strengths": "Sa façon de jouer",
+  "bestFor": "Parfait si tu veux…",
+  "note": "Ces descriptions viennent de simulations sur le plateau actuel. Elles décrivent leur comportement ici, pas des étiquettes écrites par l’auteur original de KludgopolB.",
+  "tags": {
+    "versatile": "Polyvalent",
+    "duels": "Fort en duel",
+    "challenge": "Défi relevé",
+    "balanced": "Équilibrée",
+    "topTier": "Parmi les meilleurs",
+    "manyPlayers": "Fort à plusieurs",
+    "learning": "Bien pour apprendre",
+    "fairChallenge": "Défi équilibré",
+    "surprise": "Imprévisible",
+    "crowdedWeak": "Moins à l’aise à nombreux",
+    "firstGame": "Idéal pour débuter",
+    "easy": "Plus facile",
+    "aggressiveBuying": "Achète presque tout",
+    "buildsImmediately": "Construit dès que possible",
+    "cashPoor": "Gère mal son argent",
+    "weakAuctions": "Prudent aux enchères",
+    "noTrading": "Ne négocie pas",
+    "predictable": "Très prévisible",
+    "longDuels": "Peut rallonger les duels"
+  },
+  "players": {
+    "Zilla": {
+      "label": "Stratège expérimenté",
+      "description": "Fort et régulier. Il se débrouille très bien en duel comme autour d’une table bien remplie.",
+      "bestFor": "un vrai défi sans choisir le champion absolu"
+    },
+    "Queen": {
+      "label": "Experte équilibrée",
+      "description": "Solide et complète, sans faiblesse évidente. En duel, elle est presque au niveau de Zilla.",
+      "bestFor": "une adversaire forte mais encore lisible"
+    },
+    "Wallace": {
+      "label": "Champion",
+      "description": "Le plus dangereux en duel, et toujours l’un des meilleurs quand la partie accueille plus de joueurs.",
+      "bestFor": "te mettre vraiment à l’épreuve"
+    },
+    "Hans": {
+      "label": "Spécialiste multijoueur",
+      "description": "Plus il y a de joueurs, plus il devient dangereux. Dans les parties chargées, il fait partie des meilleurs.",
+      "bestFor": "une grande table très compétitive"
+    },
+    "Mimrock": {
+      "label": "Intermédiaire",
+      "description": "Un adversaire correct, mais moins impitoyable que les vétérans. Il laisse de la place pour apprendre et se rattraper.",
+      "bestFor": "un défi équilibré après les premières parties"
+    },
+    "Lost Soul": {
+      "label": "Imprévisible",
+      "description": "Il peut surprendre en duel, mais perd beaucoup d’efficacité quand la table se remplit. Difficile de deviner son prochain coup.",
+      "bestFor": "une partie étrange et imprévisible"
+    },
+    "Pazifik": {
+      "label": "Acheter d’abord, réfléchir après.",
+      "description": "Un vieil ami qui adore posséder tout ce qui lui passe sous le nez. Il construit dès qu’il le peut et, aux enchères, surenchérit obstinément d’une pièce à la fois. N’attends pas de grandes négociations.",
+      "bestFor": "un défi plus facile et prévisible ; les parties ont tendance à mieux avancer à plus de deux"
+    },
+    "Lemming": {
+      "label": "Débutant",
+      "description": "Il commet beaucoup d’erreurs et reste l’ami le plus facile à affronter. Idéal pour découvrir le jeu.",
+      "bestFor": "une première partie ou une partie détendue"
+    }
+  },
+  "ratingsTitle": "Profil de jeu",
+  "ratings": {
+    "buying": "Achats",
+    "building": "Constructions",
+    "auctions": "Enchères",
+    "cashManagement": "Gestion de l’argent",
+    "trading": "Échanges",
+    "prudence": "Prudence",
+    "predictability": "Prévisibilité"
+  }
+}

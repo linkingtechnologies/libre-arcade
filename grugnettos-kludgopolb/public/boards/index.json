@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "defaultBoard": "grugnetto-32-worlds-v1.4",
+  "boards": [
+    {
+      "id": "grugnetto-32-worlds-v1.4",
+      "contentVersion": "1.4.1",
+      "path": "boards/grugnetto-32-v1.4/board.json",
+      "i18nBase": "boards/grugnetto-32-v1.4/i18n",
+      "defaultLocale": "it",
+      "locales": [
+        "it",
+        "en",
+        "fr",
+        "de"
+      ],
+      "frozen": true,
+      "layout": "boards/layouts/grugnetto-islands/layout.json"
+    }
+  ]
+}

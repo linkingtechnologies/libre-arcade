@@ -1,0 +1,89 @@
+{
+  "title": "How to play",
+  "subtitle": "Explore Grugnetto’s worlds, claim the best Places and be the last player still in the game.",
+  "sections": {
+    "objective": {
+      "title": "Goal",
+      "paragraphs": [
+        "Choose between {{minCpuOpponents}} and {{maxCpuOpponents}} opponents, for a total of {{minPlayers}} to {{maxPlayers}} players.",
+        "Everyone starts with {{startingCash}} coins. The last player still in the game wins."
+      ]
+    },
+    "turn": {
+      "title": "Your turn",
+      "paragraphs": [
+        "Roll two dice and move by their total. Whenever you pass Grugnetto’s Home, collect {{passStartSalary}} coins.",
+        "If you roll doubles, resolve the space and roll again. Three doubles in a row send you straight to Base Camp."
+      ]
+    },
+    "places": {
+      "title": "Places and Revenue",
+      "paragraphs": [
+        "When you land on an unclaimed Place, you may buy it for the listed price. If you do not buy it, the Place goes to auction.",
+        "When you land on another player’s Place, pay its Revenue. A pledged Place does not collect Revenue."
+      ]
+    },
+    "worlds": {
+      "title": "Worlds and Embellishments",
+      "paragraphs": [
+        "The board contains {{worldCount}} Worlds with {{placesPerWorld}} Places each. Once you own every Place in a World, their base Revenue doubles as long as none of them is pledged.",
+        "A completed World can be embellished. Each Place can have up to {{maxEmbellishments}} Embellishments, each bought for its listed cost. You do not have to build evenly across the World."
+      ]
+    },
+    "portalsServices": {
+      "title": "Portals and Special Places",
+      "paragraphs": [
+        "The {{portalCount}} Portals can be bought like other Places. The more Portals you own, the more Revenue each Portal earns.",
+        "The {{specialPlaceCount}} Special Places work as a pair: their Revenue is based on the dice total and increases if you own both."
+      ]
+    },
+    "baseCamp": {
+      "title": "Base Camp",
+      "paragraphs": [
+        "At Base Camp you may pay {{detentionFee}} coins and leave immediately, or try to roll doubles.",
+        "You have up to {{detentionTurns}} turns to succeed. If the second attempt is not doubles, you pay {{detentionFee}} coins and move by that roll anyway. Rolling doubles to leave does not grant another roll."
+      ]
+    },
+    "auctions": {
+      "title": "Auctions",
+      "paragraphs": [
+        "Whenever an unclaimed Place is not bought, every player still in the game may join the auction.",
+        "Enter the most you are willing to spend. The game compares all bids and awards the Place to the winner, who may pay less than their maximum. Enter 0 to sit out."
+      ]
+    },
+    "trades": {
+      "title": "Trading",
+      "paragraphs": [
+        "During your turn you may propose a trade to another player, offering Places, asking for others and adding coins from either side.",
+        "Places from a World cannot be traded while that World has any Embellishments. Sell all of them first."
+      ]
+    },
+    "pledges": {
+      "title": "Pledges",
+      "paragraphs": [
+        "You may pledge one of your Places and receive {{pledgePercent}}% of its price. Redeeming it costs {{redeemPercent}}% of the original price.",
+        "Before pledging a Place from a World, every Embellishment in that World must be sold. Selling an Embellishment returns {{sellEmbellishmentPercent}}% of its cost."
+      ]
+    },
+    "events": {
+      "title": "Adventures and Setbacks",
+      "paragraphs": [
+        "Adventure and Setback spaces make you draw a card. It may give or take coins, move you around the board, send you to a Portal or Base Camp, or affect your Embellishments.",
+        "Just follow the card: the game applies its effect immediately."
+      ]
+    },
+    "debts": {
+      "title": "When you run short of coins",
+      "paragraphs": [
+        "If you owe more than your current cash, the game automatically tries to raise the money: it sells your Embellishments first, then pledges your Places.",
+        "If that is still not enough, you are eliminated. If the debt was owed to another player, your Places pass to that player; otherwise they become unclaimed again."
+      ]
+    },
+    "winning": {
+      "title": "Winning the game",
+      "paragraphs": [
+        "Keep buying, embellishing, trading and managing your coins. As soon as only one player remains, the game ends and that player wins."
+      ]
+    }
+  }
+}

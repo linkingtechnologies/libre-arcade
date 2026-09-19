@@ -1,0 +1,880 @@
+{
+  "schemaVersion": 1,
+  "layoutId": "grugnetto-islands",
+  "boardId": "grugnetto-32-worlds-v1.4",
+  "presentation": "illustrated",
+  "viewBox": [
+    0,
+    0,
+    1448,
+    1086
+  ],
+  "background": "boards/layouts/grugnetto-islands/board_blank_tiles.webp",
+  "defaultSpaceSize": {
+    "w": 90,
+    "h": 58
+  },
+  "center": {
+    "x": 649,
+    "y": 490,
+    "w": 150,
+    "h": 78
+  },
+  "regions": [
+    {
+      "id": "meadow-island",
+      "worldId": "world1",
+      "spaceIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "forest-island",
+      "worldId": "world2",
+      "spaceIndexes": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "id": "dunes-island",
+      "worldId": "world3",
+      "spaceIndexes": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "id": "mine-island",
+      "worldId": "world4",
+      "spaceIndexes": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    }
+  ],
+  "connectors": [
+    {
+      "from": 7,
+      "to": 8,
+      "kind": "bridge",
+      "waypoints": [
+        {
+          "x": 1180,
+          "y": 650
+        },
+        {
+          "x": 895,
+          "y": 565
+        },
+        {
+          "x": 720,
+          "y": 560
+        },
+        {
+          "x": 540,
+          "y": 650
+        }
+      ]
+    },
+    {
+      "from": 15,
+      "to": 16,
+      "kind": "bridge",
+      "waypoints": [
+        {
+          "x": 520,
+          "y": 690
+        },
+        {
+          "x": 600,
+          "y": 600
+        },
+        {
+          "x": 720,
+          "y": 520
+        },
+        {
+          "x": 850,
+          "y": 410
+        },
+        {
+          "x": 930,
+          "y": 330
+        }
+      ]
+    },
+    {
+      "from": 23,
+      "to": 24,
+      "kind": "bridge",
+      "waypoints": [
+        {
+          "x": 1220,
+          "y": 250
+        },
+        {
+          "x": 920,
+          "y": 355
+        },
+        {
+          "x": 760,
+          "y": 470
+        },
+        {
+          "x": 610,
+          "y": 390
+        },
+        {
+          "x": 520,
+          "y": 330
+        }
+      ]
+    },
+    {
+      "from": 31,
+      "to": 0,
+      "kind": "bridge",
+      "waypoints": [
+        {
+          "x": 520,
+          "y": 315
+        },
+        {
+          "x": 610,
+          "y": 400
+        },
+        {
+          "x": 720,
+          "y": 500
+        },
+        {
+          "x": 850,
+          "y": 600
+        },
+        {
+          "x": 1000,
+          "y": 690
+        }
+      ]
+    }
+  ],
+  "spaces": [
+    {
+      "index": 0,
+      "id": "home",
+      "x": 941,
+      "y": 726,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 986,
+        "y": 755
+      },
+      "visualWorldId": "world1",
+      "levelRef": "world1-level1",
+      "iconAsset": "assets/third_party/kenney/board-icons/flag_triangle.png",
+      "iconRole": "home"
+    },
+    {
+      "index": 1,
+      "id": "flower-path",
+      "x": 1045,
+      "y": 702,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1090,
+        "y": 731
+      },
+      "visualWorldId": "world1",
+      "levelRef": "world1-level2",
+      "iconAsset": "assets/grugnetto/world-icons/home-meadow.png",
+      "iconRole": "flower-path"
+    },
+    {
+      "index": 2,
+      "id": "adventure-1",
+      "x": 1157,
+      "y": 708,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1202,
+        "y": 737
+      },
+      "visualWorldId": "world1",
+      "levelRef": "world1-level3",
+      "iconAsset": "assets/third_party/kenney/board-icons/hexagon_question.png",
+      "iconRole": "adventure"
+    },
+    {
+      "index": 3,
+      "id": "meadow-mill",
+      "x": 1252,
+      "y": 766,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1297,
+        "y": 795
+      },
+      "visualWorldId": "world1",
+      "levelRef": "world1-level4",
+      "iconAsset": "assets/grugnetto/world-icons/home-meadow.png",
+      "iconRole": "meadow-mill"
+    },
+    {
+      "index": 4,
+      "id": "repairs",
+      "x": 1169,
+      "y": 902,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1214,
+        "y": 931
+      },
+      "visualWorldId": "world1",
+      "levelRef": "world1-level5",
+      "iconAsset": "assets/third_party/kenney/board-icons/resource_planks.png",
+      "iconRole": "repairs"
+    },
+    {
+      "index": 5,
+      "id": "meadow-portal",
+      "x": 1042,
+      "y": 921,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1087,
+        "y": 950
+      },
+      "visualWorldId": "world1",
+      "levelRef": "world1-level6",
+      "iconAsset": "assets/grugnetto/flags/flag_green_a.png",
+      "iconRole": "meadow-portal"
+    },
+    {
+      "index": 6,
+      "id": "frog-pond",
+      "x": 921,
+      "y": 883,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 966,
+        "y": 912
+      },
+      "visualWorldId": "world1",
+      "levelRef": "world1-level7",
+      "iconAsset": "assets/grugnetto/world-icons/home-meadow.png",
+      "iconRole": "frog-pond"
+    },
+    {
+      "index": 7,
+      "id": "windy-hill",
+      "x": 885,
+      "y": 799,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 930,
+        "y": 828
+      },
+      "visualWorldId": "world1",
+      "levelRef": "world1-level8",
+      "iconAsset": "assets/grugnetto/world-icons/home-meadow.png",
+      "iconRole": "windy-hill"
+    },
+    {
+      "index": 8,
+      "id": "picnic-spot",
+      "x": 331,
+      "y": 685,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 376,
+        "y": 714
+      },
+      "visualWorldId": "world2",
+      "levelRef": "world2-level1",
+      "iconAsset": "assets/third_party/kenney/board-icons/hourglass.png",
+      "iconRole": "picnic-spot"
+    },
+    {
+      "index": 9,
+      "id": "acorn-glade",
+      "x": 203,
+      "y": 682,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 248,
+        "y": 711
+      },
+      "visualWorldId": "world2",
+      "levelRef": "world2-level2",
+      "iconAsset": "assets/grugnetto/world-icons/squirrel-woods.png",
+      "iconRole": "acorn-glade"
+    },
+    {
+      "index": 10,
+      "id": "setback-1",
+      "x": 96,
+      "y": 722,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 141,
+        "y": 751
+      },
+      "visualWorldId": "world2",
+      "levelRef": "world2-level3",
+      "iconAsset": "assets/third_party/kenney/board-icons/hexagon_question.png",
+      "iconRole": "setback"
+    },
+    {
+      "index": 11,
+      "id": "great-root",
+      "x": 65,
+      "y": 804,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 110,
+        "y": 833
+      },
+      "visualWorldId": "world2",
+      "levelRef": "world2-level4",
+      "iconAsset": "assets/grugnetto/world-icons/squirrel-woods.png",
+      "iconRole": "great-root"
+    },
+    {
+      "index": 12,
+      "id": "supply-shop",
+      "x": 119,
+      "y": 878,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 164,
+        "y": 907
+      },
+      "visualWorldId": "world2",
+      "levelRef": "world2-level5",
+      "iconAsset": "assets/grugnetto/collectable_key.png",
+      "iconRole": "supply-shop"
+    },
+    {
+      "index": 13,
+      "id": "base-camp",
+      "x": 240,
+      "y": 918,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 285,
+        "y": 947
+      },
+      "visualWorldId": "world2",
+      "levelRef": "world2-level6",
+      "iconRole": "base-camp",
+      "iconAsset": "assets/third_party/kenney/board-icons/campfire.png"
+    },
+    {
+      "index": 14,
+      "id": "log-bridge",
+      "x": 406,
+      "y": 904,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 451,
+        "y": 933
+      },
+      "visualWorldId": "world2",
+      "levelRef": "world2-level7",
+      "iconAsset": "assets/grugnetto/world-icons/squirrel-woods.png",
+      "iconRole": "log-bridge"
+    },
+    {
+      "index": 15,
+      "id": "mushroom-woods",
+      "x": 437,
+      "y": 749,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 482,
+        "y": 778
+      },
+      "visualWorldId": "world2",
+      "levelRef": "world2-level8",
+      "iconAsset": "assets/grugnetto/world-icons/squirrel-woods.png",
+      "iconRole": "mushroom-woods"
+    },
+    {
+      "index": 16,
+      "id": "forest-passage",
+      "x": 882,
+      "y": 249,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 927,
+        "y": 278
+      },
+      "visualWorldId": "world3",
+      "levelRef": "world3-level1",
+      "iconAsset": "assets/grugnetto/flags/flag_blue_a.png",
+      "iconRole": "forest-passage"
+    },
+    {
+      "index": 17,
+      "id": "dune-oasis",
+      "x": 881,
+      "y": 173,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 926,
+        "y": 202
+      },
+      "visualWorldId": "world3",
+      "levelRef": "world3-level2",
+      "iconAsset": "assets/grugnetto/world-icons/golden-dunes.png",
+      "iconRole": "dune-oasis"
+    },
+    {
+      "index": 18,
+      "id": "adventure-2",
+      "x": 941,
+      "y": 101,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 986,
+        "y": 130
+      },
+      "visualWorldId": "world3",
+      "levelRef": "world3-level3",
+      "iconAsset": "assets/third_party/kenney/board-icons/hexagon_question.png",
+      "iconRole": "adventure"
+    },
+    {
+      "index": 19,
+      "id": "cactus-trail",
+      "x": 1054,
+      "y": 78,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1099,
+        "y": 107
+      },
+      "visualWorldId": "world3",
+      "levelRef": "world3-level4",
+      "iconAsset": "assets/grugnetto/world-icons/golden-dunes.png",
+      "iconRole": "cactus-trail"
+    },
+    {
+      "index": 20,
+      "id": "grand-portal",
+      "x": 1166,
+      "y": 97,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1211,
+        "y": 126
+      },
+      "visualWorldId": "world3",
+      "levelRef": "world3-level5",
+      "iconAsset": "assets/third_party/kenney/board-icons/hourglass.png",
+      "iconRole": "grand-portal"
+    },
+    {
+      "index": 21,
+      "id": "golden-canyon",
+      "x": 1258,
+      "y": 161,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1303,
+        "y": 190
+      },
+      "visualWorldId": "world3",
+      "levelRef": "world3-level6",
+      "iconAsset": "assets/grugnetto/world-icons/golden-dunes.png",
+      "iconRole": "golden-canyon"
+    },
+    {
+      "index": 22,
+      "id": "travel-toll",
+      "x": 1278,
+      "y": 248,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1323,
+        "y": 277
+      },
+      "visualWorldId": "world3",
+      "levelRef": "world3-level7",
+      "iconAsset": "assets/third_party/kenney/board-icons/hand_token.png",
+      "iconRole": "travel-toll"
+    },
+    {
+      "index": 23,
+      "id": "sand-arch",
+      "x": 1230,
+      "y": 324,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 1275,
+        "y": 353
+      },
+      "visualWorldId": "world3",
+      "levelRef": "world3-level8",
+      "iconAsset": "assets/grugnetto/world-icons/golden-dunes.png",
+      "iconRole": "sand-arch"
+    },
+    {
+      "index": 24,
+      "id": "grugnetto-workshop",
+      "x": 489,
+      "y": 260,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 534,
+        "y": 289
+      },
+      "visualWorldId": "world4",
+      "levelRef": "world4-level1",
+      "iconAsset": "assets/grugnetto/collectable_key.png",
+      "iconRole": "workshop"
+    },
+    {
+      "index": 25,
+      "id": "mine-entrance",
+      "x": 507,
+      "y": 183,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 552,
+        "y": 212
+      },
+      "visualWorldId": "world4",
+      "levelRef": "world4-level2",
+      "iconAsset": "assets/grugnetto/world-icons/stone-mine.png",
+      "iconRole": "mine-entrance"
+    },
+    {
+      "index": 26,
+      "id": "worlds-tunnel",
+      "x": 456,
+      "y": 112,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 501,
+        "y": 141
+      },
+      "visualWorldId": "world4",
+      "levelRef": "world4-level3",
+      "iconAsset": "assets/grugnetto/flags/flag_red_a.png",
+      "iconRole": "worlds-tunnel"
+    },
+    {
+      "index": 27,
+      "id": "minecart-hall",
+      "x": 345,
+      "y": 79,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 390,
+        "y": 108
+      },
+      "visualWorldId": "world4",
+      "levelRef": "world4-level4",
+      "iconAsset": "assets/grugnetto/world-icons/stone-mine.png",
+      "iconRole": "minecart-hall"
+    },
+    {
+      "index": 28,
+      "id": "setback-2",
+      "x": 220,
+      "y": 81,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 265,
+        "y": 110
+      },
+      "visualWorldId": "world4",
+      "levelRef": "world4-level5",
+      "iconAsset": "assets/third_party/kenney/board-icons/hexagon_question.png",
+      "iconRole": "setback"
+    },
+    {
+      "index": 29,
+      "id": "torch-shaft",
+      "x": 119,
+      "y": 122,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 164,
+        "y": 151
+      },
+      "visualWorldId": "world4",
+      "levelRef": "world4-level6",
+      "iconAsset": "assets/grugnetto/world-icons/stone-mine.png",
+      "iconRole": "torch-shaft"
+    },
+    {
+      "index": 30,
+      "id": "back-to-base-camp",
+      "x": 85,
+      "y": 199,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 130,
+        "y": 228
+      },
+      "visualWorldId": "world4",
+      "levelRef": "world4-level7",
+      "iconRole": "back-to-base-camp",
+      "iconAsset": "assets/third_party/kenney/board-icons/arrow_counterclockwise.png"
+    },
+    {
+      "index": 31,
+      "id": "heart-of-mine",
+      "x": 103,
+      "y": 274,
+      "w": 90,
+      "h": 58,
+      "tokenAnchor": {
+        "x": 148,
+        "y": 303
+      },
+      "visualWorldId": "world4",
+      "levelRef": "world4-level8",
+      "iconAsset": "assets/grugnetto/world-icons/stone-mine.png",
+      "iconRole": "heart-of-mine"
+    }
+  ],
+  "centerHub": {
+    "role": "scenic-only",
+    "note": "No logical spaces are mapped to the central island; it is a visual hub for the four bridges."
+  },
+  "worldLabels": [
+    {
+      "worldId": "world4",
+      "x": 175,
+      "y": 36,
+      "w": 300,
+      "h": 42,
+      "align": "center"
+    },
+    {
+      "worldId": "world3",
+      "x": 970,
+      "y": 40,
+      "w": 280,
+      "h": 42,
+      "align": "center"
+    },
+    {
+      "worldId": "world2",
+      "x": 140,
+      "y": 613,
+      "w": 330,
+      "h": 42,
+      "align": "center"
+    },
+    {
+      "worldId": "world1",
+      "x": 982,
+      "y": 620,
+      "w": 285,
+      "h": 42,
+      "align": "center"
+    }
+  ],
+  "semanticIcons": true,
+  "backgroundRevision": "artifact-clean-v2",
+  "centerCharacter": "grugnetto",
+  "tileCount": 32,
+  "routeArrows": false,
+  "tileRevision": "32-visible-tiles-v1",
+  "tilePresentation": "rc62-background-plaque-runtime-content",
+  "mappingRevision": "32-plaque-physical-path-v4",
+  "numberPositionRevision": "v6",
+  "worldLabelPresentation": "runtime-banner",
+  "numberPositions": {
+    "1": {
+      "left": 65.22,
+      "top": 69.12
+    },
+    "2": {
+      "left": 74.48,
+      "top": 65.02
+    },
+    "3": {
+      "left": 85.09,
+      "top": 67.09
+    },
+    "4": {
+      "left": 88.92,
+      "top": 70.65
+    },
+    "5": {
+      "left": 80.81,
+      "top": 84.81
+    },
+    "6": {
+      "left": 72.27,
+      "top": 85.22
+    },
+    "7": {
+      "left": 66.37,
+      "top": 81.52
+    },
+    "8": {
+      "left": 62.59,
+      "top": 73.99
+    },
+    "9": {
+      "left": 28.08,
+      "top": 65.12
+    },
+    "10": {
+      "left": 17.73,
+      "top": 63.04
+    },
+    "11": {
+      "left": 6.71,
+      "top": 69.67
+    },
+    "12": {
+      "left": 6.33,
+      "top": 74.35
+    },
+    "13": {
+      "left": 10.69,
+      "top": 81.24
+    },
+    "14": {
+      "left": 16.1,
+      "top": 86.32
+    },
+    "15": {
+      "left": 32.52,
+      "top": 83.28
+    },
+    "16": {
+      "left": 31.88,
+      "top": 68.86
+    },
+    "17": {
+      "left": 61.83,
+      "top": 23.59
+    },
+    "18": {
+      "left": 62.92,
+      "top": 16.38
+    },
+    "19": {
+      "left": 64.74,
+      "top": 12.33
+    },
+    "20": {
+      "left": 75.12,
+      "top": 7.51
+    },
+    "21": {
+      "left": 85.31,
+      "top": 11.1
+    },
+    "22": {
+      "left": 88.97,
+      "top": 14.92
+    },
+    "23": {
+      "left": 88.83,
+      "top": 23.6
+    },
+    "24": {
+      "left": 87.49,
+      "top": 30.23
+    },
+    "25": {
+      "left": 35.39,
+      "top": 24.77
+    },
+    "26": {
+      "left": 36.51,
+      "top": 17.47
+    },
+    "27": {
+      "left": 33.37,
+      "top": 10.62
+    },
+    "28": {
+      "left": 26.09,
+      "top": 7.59
+    },
+    "29": {
+      "left": 15.08,
+      "top": 9.3
+    },
+    "30": {
+      "left": 9.98,
+      "top": 11.83
+    },
+    "31": {
+      "left": 6.62,
+      "top": 22.19
+    },
+    "32": {
+      "left": 9.1,
+      "top": 25.66
+    }
+  },
+  "tileOutlines": "boards/layouts/grugnetto-islands/tile-outlines.json"
+}

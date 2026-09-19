@@ -1,0 +1,81 @@
+{
+  "title": "Gli amici di Grugnetto",
+  "subtitle": "Ognuno gioca a modo suo. Tocca la ⓘ per conoscerlo meglio.",
+  "friendOf": "Amico di Grugnetto",
+  "strengths": "Come gioca",
+  "bestFor": "Perfetto se vuoi…",
+  "note": "Queste descrizioni derivano da simulazioni sul tabellone attuale: raccontano come si comportano qui, non sono etichette dell’autore originale.",
+  "tags": {
+    "versatile": "Versatile",
+    "duels": "Bravo nei duelli",
+    "challenge": "Sfida impegnativa",
+    "balanced": "Equilibrata",
+    "topTier": "Tra i più forti",
+    "manyPlayers": "Forte con molti giocatori",
+    "learning": "Buono per imparare",
+    "fairChallenge": "Sfida equilibrata",
+    "surprise": "Imprevedibile",
+    "crowdedWeak": "Soffre i tavoli affollati",
+    "firstGame": "Ideale per iniziare",
+    "easy": "Più facile",
+    "aggressiveBuying": "Compra quasi tutto",
+    "buildsImmediately": "Costruisce appena può",
+    "cashPoor": "Gestisce male la cassa",
+    "weakAuctions": "Prudente nelle aste",
+    "noTrading": "Non tratta",
+    "predictable": "Molto prevedibile",
+    "longDuels": "Può allungare i duelli"
+  },
+  "players": {
+    "Zilla": {
+      "label": "Stratega esperto",
+      "description": "Forte e regolare. Sa cavarsela bene sia in due sia quando il tavolo si riempie.",
+      "bestFor": "una sfida seria senza scegliere il campione assoluto"
+    },
+    "Queen": {
+      "label": "Esperta equilibrata",
+      "description": "Gioca in modo solido e senza grandi punti deboli. Nei duelli è quasi alla pari con Zilla.",
+      "bestFor": "un’avversaria forte ma prevedibile il giusto"
+    },
+    "Wallace": {
+      "label": "Campione",
+      "description": "È il più pericoloso nei duelli e resta fortissimo anche nelle partite affollate.",
+      "bestFor": "metterti davvero alla prova"
+    },
+    "Hans": {
+      "label": "Specialista multiplayer",
+      "description": "Più amici ci sono al tavolo, più diventa pericoloso. Nelle partite affollate è tra i migliori.",
+      "bestFor": "una partita con tanti giocatori e molta competizione"
+    },
+    "Mimrock": {
+      "label": "Intermedio",
+      "description": "Un buon avversario, ma meno spietato dei veterani. Lascia spazio per imparare e recuperare dagli errori.",
+      "bestFor": "una sfida equilibrata dopo le prime partite"
+    },
+    "Lost Soul": {
+      "label": "Imprevedibile",
+      "description": "Può sorprendere parecchio in due, ma perde efficacia quando il tavolo si affolla. Non sai mai bene cosa farà.",
+      "bestFor": "una partita strana e poco prevedibile"
+    },
+    "Pazifik": {
+      "label": "Compra prima, pensa dopo.",
+      "description": "Un vecchio amico che adora possedere qualsiasi cosa gli capiti davanti. Costruisce appena può e nelle aste rilancia ostinatamente una moneta alla volta. Non aspettarti grandi trattative.",
+      "bestFor": "una sfida facile e prevedibile; con più di due giocatori le partite tendono a scorrere meglio"
+    },
+    "Lemming": {
+      "label": "Principiante",
+      "description": "Fa diversi errori ed è l’amico più semplice da affrontare. È perfetto per prendere confidenza con il gioco.",
+      "bestFor": "la prima partita o una sfida rilassata"
+    }
+  },
+  "ratingsTitle": "Profilo di gioco",
+  "ratings": {
+    "buying": "Acquisti",
+    "building": "Costruzioni",
+    "auctions": "Aste",
+    "cashManagement": "Gestione soldi",
+    "trading": "Trading",
+    "prudence": "Prudenza",
+    "predictability": "Prevedibilità"
+  }
+}

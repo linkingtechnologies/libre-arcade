@@ -1,0 +1,63 @@
+{
+  "id": "grugnetto-32-v0",
+  "title": "Grugnetto's Board",
+  "currency": "G",
+  "startingCash": 1200,
+  "passStartSalary": 160,
+  "detentionIndex": 13,
+  "detentionTurns": 2,
+  "detentionFee": 70,
+  "development": { "maxEmbellishments": 4, "sellPercent": 50 },
+  "spaces": [
+    {"type":"start","name":"Partenza"},
+    {"type":"site","name":"Borgo Ghiaia","group":"bronze","price":70,"buildCost":55,"rents":[5,22,65,145,260],"landingWeight":1.10},
+    {"type":"event","name":"Contrattempo","deck":"contrattempi"},
+    {"type":"site","name":"Via del Mulino","group":"bronze","price":85,"buildCost":55,"rents":[7,28,78,165,285],"landingWeight":1.04},
+    {"type":"tax","name":"Fondo strade","amount":85},
+    {"type":"hub","name":"Deposito Nord","price":175,"rents":[24,55,105],"landingWeight":0.98},
+    {"type":"site","name":"Porta delle Oche","group":"azure","price":105,"buildCost":70,"rents":[9,38,105,225,360],"landingWeight":1.12},
+    {"type":"site","name":"Corte del Fico","group":"azure","price":115,"buildCost":70,"rents":[10,42,115,240,385],"landingWeight":0.96},
+    {"type":"event","name":"Opportunità","deck":"opportunita"},
+    {"type":"site","name":"Vicolo del Grano","group":"azure","price":130,"buildCost":70,"rents":[12,48,128,270,420],"landingWeight":1.08},
+    {"type":"neutral","name":"Piazza del Pozzo"},
+    {"type":"site","name":"Riva delle Barche","group":"plum","price":145,"buildCost":90,"rents":[14,58,150,315,470],"landingWeight":0.93},
+    {"type":"service","name":"Officina Comune","price":140,"factors":[3,7],"landingWeight":1.06},
+    {"type":"detention","name":"Magazzino comunale"},
+    {"type":"site","name":"Salita dei Tigli","group":"plum","price":155,"buildCost":90,"rents":[15,62,165,335,495],"landingWeight":1.02},
+    {"type":"site","name":"Belvedere Vecchio","group":"plum","price":170,"buildCost":90,"rents":[17,70,180,365,530],"landingWeight":0.89},
+    {"type":"hub","name":"Scalo del Mercato","price":190,"rents":[26,60,115],"landingWeight":1.11},
+    {"type":"site","name":"Contrada Rossa","group":"coral","price":185,"buildCost":110,"rents":[19,78,200,405,585],"landingWeight":1.07},
+    {"type":"event","name":"Contrattempo","deck":"contrattempi"},
+    {"type":"site","name":"Via delle Fucine","group":"coral","price":200,"buildCost":110,"rents":[21,84,215,430,615],"landingWeight":0.94},
+    {"type":"site","name":"Campo Alto","group":"coral","price":215,"buildCost":110,"rents":[23,92,235,465,655],"landingWeight":1.09},
+    {"type":"tax","name":"Cassa consortile","amount":115},
+    {"type":"site","name":"Viale dei Castagni","group":"gold","price":230,"buildCost":130,"rents":[26,105,265,520,720],"landingWeight":0.97},
+    {"type":"site","name":"Piazza della Torre","group":"gold","price":245,"buildCost":130,"rents":[28,112,285,550,755],"landingWeight":1.05},
+    {"type":"service","name":"Rete Civica","price":165,"factors":[4,8],"landingWeight":0.91},
+    {"type":"site","name":"Strada dei Filari","group":"gold","price":260,"buildCost":130,"rents":[30,120,305,585,800],"landingWeight":1.13},
+    {"type":"hub","name":"Terminale Sud","price":205,"rents":[28,65,125],"landingWeight":1.00},
+    {"type":"site","name":"Rocca Piccola","group":"green","price":275,"buildCost":155,"rents":[34,135,335,640,865],"landingWeight":1.03},
+    {"type":"event","name":"Opportunità","deck":"opportunita"},
+    {"type":"site","name":"Giardini Lunghi","group":"green","price":295,"buildCost":155,"rents":[37,145,360,685,915],"landingWeight":0.95},
+    {"type":"moveToDetention","name":"Controllo straordinario"},
+    {"type":"site","name":"Colle Grugnetto","group":"green","price":325,"buildCost":155,"rents":[42,165,405,760,995],"landingWeight":1.06}
+  ],
+  "events": {
+    "contrattempi": [
+      {"id":"i1","text":"Riparazione urgente: paga 55.","cash":-55},
+      {"id":"i2","text":"Rimborso inatteso: ricevi 75.","cash":75},
+      {"id":"i3","text":"Contributo di quartiere: paga 35.","cash":-35},
+      {"id":"i4","text":"Avanza di 4 caselle.","move":4},
+      {"id":"i5","text":"Torna indietro di 2 caselle.","move":-2},
+      {"id":"i6","text":"Controllo straordinario: vai al Magazzino comunale.","detain":true}
+    ],
+    "opportunita": [
+      {"id":"o1","text":"Premio locale: ricevi 90.","cash":90},
+      {"id":"o2","text":"Vendita favorevole: ricevi 45.","cash":45},
+      {"id":"o3","text":"Spese di gestione: paga 40.","cash":-40},
+      {"id":"o4","text":"Avanza di 3 caselle.","move":3},
+      {"id":"o5","text":"Bonus attività: ricevi 60.","cash":60},
+      {"id":"o6","text":"Piccolo contrattempo: paga 25.","cash":-25}
+    ]
+  }
+}

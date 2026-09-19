@@ -1,0 +1,139 @@
+{
+  "locale": "en",
+  "languageName": "English",
+  "boardTitle": "Grugnetto's Board — The Four Worlds",
+  "subtitle": "A journey through the Four Worlds",
+  "currencyName": "Grugnetto Coins",
+  "preview": "Explore the Four Worlds, buy Places, embellish them and build your adventure.",
+  "footer": "Four worlds, thirty-two spaces and a different game every time.",
+  "types": {
+    "start": "Home",
+    "site": "Place",
+    "event": "Event",
+    "tax": "Travel cost",
+    "hub": "Portal",
+    "service": "Special place",
+    "neutral": "Rest",
+    "detention": "Base Camp",
+    "moveToDetention": "Base Camp"
+  },
+  "terms": {
+    "site": "Place",
+    "purchase": "Buy",
+    "rent": "Revenue",
+    "development": "Embellishment",
+    "completeGroup": "World completed",
+    "hub": "Portal",
+    "service": "Special place",
+    "detention": "Base Camp",
+    "adventures": "Adventures",
+    "setbacks": "Setbacks"
+  },
+  "worlds": {
+    "world1": "Home Meadow",
+    "world2": "Squirrel Woods",
+    "world3": "Golden Dunes",
+    "world4": "Stone Mine"
+  },
+  "spaces": {
+    "home": "Grugnetto’s Home",
+    "flower-path": "Flower Path",
+    "adventure-1": "Adventure!",
+    "meadow-mill": "Meadow Mill",
+    "repairs": "Repairs",
+    "meadow-portal": "Meadow Portal",
+    "frog-pond": "Frog Pond",
+    "windy-hill": "Windy Hill",
+    "picnic-spot": "Picnic Spot",
+    "acorn-glade": "Acorn Glade",
+    "setback-1": "Setback!",
+    "great-root": "Great Root",
+    "supply-shop": "Supply Shop",
+    "base-camp": "Base Camp",
+    "log-bridge": "Log Bridge",
+    "mushroom-woods": "Mushroom Woods",
+    "forest-passage": "Forest Passage",
+    "dune-oasis": "Dune Oasis",
+    "adventure-2": "Adventure!",
+    "cactus-trail": "Cactus Trail",
+    "grand-portal": "Grand Portal",
+    "golden-canyon": "Golden Canyon",
+    "travel-toll": "Bridge Toll",
+    "sand-arch": "Sand Arch",
+    "grugnetto-workshop": "Grugnetto’s Workshop",
+    "mine-entrance": "Mine Entrance",
+    "worlds-tunnel": "Worlds Tunnel",
+    "minecart-hall": "Minecart Hall",
+    "setback-2": "Setback!",
+    "torch-shaft": "Torch Shaft",
+    "back-to-base-camp": "Back to Base Camp",
+    "heart-of-mine": "Heart of the Mine"
+  },
+  "events": {
+    "a1": {
+      "title": "Meadow Festival",
+      "text": "The Meadow is celebrating! The stalls are busy and business is good: collect 45 coins, the same coins Grugnetto gathers on every level."
+    },
+    "a2": {
+      "title": "Squirrel Shortcut",
+      "text": "A squirrel points out a hidden trail, the same one Grugnetto follows through the Squirrel Forest. Head to the next Portal."
+    },
+    "a3": {
+      "title": "Oasis Ahead",
+      "text": "You find a cool oasis, just like the ones in the Golden Dunes. Catch your breath, collect 20 coins and move forward 1 space."
+    },
+    "a4": {
+      "title": "Builder’s Kit",
+      "text": "A crate contains everything you need for a quick job — even a tool that looks suspiciously like a super-jump booster. Add one free Embellishment to one of your Places; if you cannot, sell the kit for 20 coins."
+    },
+    "a5": {
+      "title": "The Grand Portal",
+      "text": "The Grand Portal lights up ahead, a golden heart pulsing at its center. Go there at once."
+    },
+    "a6": {
+      "title": "Four Worlds Festival",
+      "text": "All Four Worlds are celebrating together, one big chain of festivities. Collect 6 coins for every Place you own."
+    },
+    "a7": {
+      "title": "Hidden Treasure",
+      "text": "Beneath some old boards you find a chest full of the same golden coins Grugnetto collects across his worlds. Collect 55 coins."
+    },
+    "a8": {
+      "title": "The Road Home",
+      "text": "A glowing trail, like the arc of a perfect jump, shows you the way. Return to Grugnetto’s Home."
+    },
+    "i1": {
+      "title": "Downpour!",
+      "text": "A downpour ruins some of your supplies — only the frogs at the Pond seem happy about it. Spend 40 coins to get moving again."
+    },
+    "i2": {
+      "title": "Hungry Squirrels",
+      "text": "The squirrels have raided the stores, leaving only picked-clean acorns behind. Spend 6 coins for every Place you own; if you own none, spend 15."
+    },
+    "i3": {
+      "title": "Sandstorm",
+      "text": "Sand covers the trail, and even the Dune mice take shelter. Move back 3 spaces."
+    },
+    "i4": {
+      "title": "Blocked Passage",
+      "text": "A collapse blocks the way in a cloud of mine dust. Return to Base Camp."
+    },
+    "i5": {
+      "title": "Fussy Portal",
+      "text": "The Portal refuses to cooperate: its flag hangs still, without a spark of magic. Spend 20 coins to fix it, then travel to the next Portal."
+    },
+    "i6": {
+      "title": "Maintenance Day",
+      "text": "Time for inspections, with tools as sharp as the Mine's saws. Spend 8 coins for every Embellishment you own; if you have none, spend 15."
+    },
+    "i7": {
+      "title": "Road Closed",
+      "text": "The trail is closed. Take a detour to the Picnic Spot, where a juicy apple is waiting for you."
+    },
+    "i8": {
+      "title": "Small Breakdown",
+      "text": "A small breakdown damages one of your Embellishments — you'd need the right key from Grugnetto's Workshop. Remove one; if you have none, spend 25 coins."
+    }
+  },
+  "copyVersion": "1.3.0"
+}

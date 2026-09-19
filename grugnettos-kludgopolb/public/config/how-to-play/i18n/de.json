@@ -1,0 +1,89 @@
+{
+  "title": "Spielanleitung",
+  "subtitle": "Erkunde Grugnettos Welten, sichere dir die besten Orte und bleibe als letzter Spieler im Spiel.",
+  "sections": {
+    "objective": {
+      "title": "Ziel",
+      "paragraphs": [
+        "Wähle {{minCpuOpponents}} bis {{maxCpuOpponents}} Gegner. Insgesamt spielen also {{minPlayers}} bis {{maxPlayers}} Spieler mit.",
+        "Jeder startet mit {{startingCash}} Münzen. Wer als Letzter noch im Spiel ist, gewinnt."
+      ]
+    },
+    "turn": {
+      "title": "Dein Zug",
+      "paragraphs": [
+        "Wirf zwei Würfel und ziehe um ihre Summe weiter. Jedes Mal, wenn du Grugnettos Zuhause passierst, erhältst du {{passStartSalary}} Münzen.",
+        "Bei einem Pasch führst du zuerst das Feld aus und würfelst danach erneut. Drei Pasche hintereinander schicken dich direkt ins Basislager."
+      ]
+    },
+    "places": {
+      "title": "Orte und Erträge",
+      "paragraphs": [
+        "Landest du auf einem freien Ort, kannst du ihn zum angegebenen Preis kaufen. Kaufst du ihn nicht, wird er versteigert.",
+        "Landest du auf dem Ort eines anderen Spielers, zahlst du dessen Ertrag. Ein verpfändeter Ort bringt keinen Ertrag."
+      ]
+    },
+    "worlds": {
+      "title": "Welten und Verschönerungen",
+      "paragraphs": [
+        "Das Spielfeld besteht aus {{worldCount}} Welten mit jeweils {{placesPerWorld}} Orten. Sobald dir alle Orte einer Welt gehören, verdoppelt sich ihr Grundertrag, solange keiner davon verpfändet ist.",
+        "Eine vollständige Welt kann verschönert werden. Jeder Ort kann bis zu {{maxEmbellishments}} Verschönerungen erhalten, jeweils zum angegebenen Preis. Du musst sie nicht gleichmäßig auf die Welt verteilen."
+      ]
+    },
+    "portalsServices": {
+      "title": "Portale und besondere Orte",
+      "paragraphs": [
+        "Die {{portalCount}} Portale können wie andere Orte gekauft werden. Je mehr Portale dir gehören, desto höher ist der Ertrag jedes Portals.",
+        "Die {{specialPlaceCount}} besonderen Orte gehören zusammen: Ihr Ertrag richtet sich nach der Würfelsumme und steigt, wenn dir beide gehören."
+      ]
+    },
+    "baseCamp": {
+      "title": "Basislager",
+      "paragraphs": [
+        "Im Basislager kannst du {{detentionFee}} Münzen zahlen und sofort weiterziehen oder versuchen, einen Pasch zu würfeln.",
+        "Dafür hast du höchstens {{detentionTurns}} Züge. Gelingt beim zweiten Versuch kein Pasch, zahlst du {{detentionFee}} Münzen und ziehst trotzdem um das Würfelergebnis weiter. Ein Pasch zum Verlassen des Basislagers gibt keinen zusätzlichen Wurf."
+      ]
+    },
+    "auctions": {
+      "title": "Versteigerungen",
+      "paragraphs": [
+        "Wird ein freier Ort nicht gekauft, dürfen alle noch aktiven Spieler an der Versteigerung teilnehmen.",
+        "Gib den Höchstbetrag ein, den du zahlen möchtest. Das Spiel vergleicht die Gebote und vergibt den Ort an den Gewinner; der tatsächliche Preis kann unter deinem Höchstgebot liegen. Mit 0 setzt du aus."
+      ]
+    },
+    "trades": {
+      "title": "Tauschen",
+      "paragraphs": [
+        "Während deines Zuges kannst du einem anderen Spieler einen Tausch anbieten: Orte abgeben, andere verlangen und auf einer Seite Münzen hinzufügen.",
+        "Orte aus einer Welt können nicht getauscht werden, solange es in dieser Welt noch Verschönerungen gibt. Verkaufe sie zuerst vollständig."
+      ]
+    },
+    "pledges": {
+      "title": "Verpfänden",
+      "paragraphs": [
+        "Du kannst einen eigenen Ort verpfänden und erhältst {{pledgePercent}} % seines Preises. Das Auslösen kostet {{redeemPercent}} % des ursprünglichen Preises.",
+        "Bevor du einen Ort aus einer Welt verpfändest, müssen alle Verschönerungen dieser Welt verkauft sein. Für eine verkaufte Verschönerung erhältst du {{sellEmbellishmentPercent}} % ihrer Kosten zurück."
+      ]
+    },
+    "events": {
+      "title": "Abenteuer und Missgeschicke",
+      "paragraphs": [
+        "Auf Abenteuer- und Missgeschick-Feldern ziehst du eine Karte. Sie kann Münzen bringen oder kosten, dich versetzen, dich zu einem Portal oder ins Basislager schicken oder deine Verschönerungen beeinflussen.",
+        "Folge einfach der Karte: Das Spiel führt den Effekt sofort aus."
+      ]
+    },
+    "debts": {
+      "title": "Wenn das Geld knapp wird",
+      "paragraphs": [
+        "Musst du mehr zahlen, als du gerade an Münzen hast, versucht das Spiel automatisch, Geld zu beschaffen: Zuerst werden deine Verschönerungen verkauft, danach deine Orte verpfändet.",
+        "Reicht das immer noch nicht, scheidest du aus. War die Schuld bei einem anderen Spieler, gehen deine Orte an ihn über; andernfalls werden sie wieder frei."
+      ]
+    },
+    "winning": {
+      "title": "So gewinnst du",
+      "paragraphs": [
+        "Kaufe, verschönere, tausche und behalte deine Münzen im Blick. Sobald nur noch ein Spieler übrig ist, endet die Partie und dieser Spieler gewinnt."
+      ]
+    }
+  }
+}

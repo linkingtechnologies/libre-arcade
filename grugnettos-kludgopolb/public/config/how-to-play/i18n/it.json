@@ -1,0 +1,89 @@
+{
+  "title": "Come si gioca",
+  "subtitle": "Esplora i mondi di Grugnetto, conquista i Luoghi migliori e resta l’ultimo giocatore in partita.",
+  "sections": {
+    "objective": {
+      "title": "Obiettivo",
+      "paragraphs": [
+        "Scegli da {{minCpuOpponents}} a {{maxCpuOpponents}} avversari: sarete da {{minPlayers}} a {{maxPlayers}} giocatori in totale.",
+        "Ognuno parte con {{startingCash}} monete. Vince l’ultimo giocatore che riesce a restare in partita."
+      ]
+    },
+    "turn": {
+      "title": "Il tuo turno",
+      "paragraphs": [
+        "Tira due dadi e muovi la pedina della somma ottenuta. Quando superi Casa di Grugnetto ricevi {{passStartSalary}} monete.",
+        "Se fai doppio, dopo aver risolto la casella tiri di nuovo. Tre doppi consecutivi ti mandano direttamente al Campo Base."
+      ]
+    },
+    "places": {
+      "title": "Luoghi e rendite",
+      "paragraphs": [
+        "Se arrivi su un Luogo libero puoi acquistarlo al prezzo indicato. Se non lo acquisti, il Luogo va all’asta.",
+        "Se arrivi su un Luogo di un altro giocatore paghi la sua Rendita. Un Luogo in pegno non produce Rendita."
+      ]
+    },
+    "worlds": {
+      "title": "Mondi e Abbellimenti",
+      "paragraphs": [
+        "Il tabellone ha {{worldCount}} Mondi, ciascuno formato da {{placesPerWorld}} Luoghi. Quando possiedi tutti i Luoghi di un Mondo, la Rendita base di quei Luoghi raddoppia finché nessuno di essi è in pegno.",
+        "Un Mondo completato può essere abbellito. Ogni Luogo può ricevere fino a {{maxEmbellishments}} Abbellimenti, pagando ogni volta il costo indicato. Non sei obbligato a distribuirli in modo uniforme."
+      ]
+    },
+    "portalsServices": {
+      "title": "Portali e Luoghi speciali",
+      "paragraphs": [
+        "I {{portalCount}} Portali si acquistano come gli altri Luoghi. Più Portali possiedi, maggiore è la Rendita di ciascuno.",
+        "I {{specialPlaceCount}} Luoghi speciali funzionano in coppia: la Rendita dipende dal totale dei dadi e aumenta se li possiedi entrambi."
+      ]
+    },
+    "baseCamp": {
+      "title": "Campo Base",
+      "paragraphs": [
+        "Al Campo Base puoi pagare {{detentionFee}} monete e ripartire subito, oppure provare a fare doppio.",
+        "Hai fino a {{detentionTurns}} turni per riuscirci. Se al secondo tentativo non fai doppio, paghi {{detentionFee}} monete e ti muovi comunque del risultato ottenuto. Uscendo con un doppio non ottieni un tiro extra."
+      ]
+    },
+    "auctions": {
+      "title": "Aste",
+      "paragraphs": [
+        "Quando un Luogo libero non viene acquistato, tutti i giocatori ancora in partita possono partecipare all’asta.",
+        "Indica il massimo che sei disposto a spendere. Il sistema confronta le offerte e assegna il Luogo al vincitore: potresti pagare meno del tuo massimo. Inserisci 0 per non partecipare."
+      ]
+    },
+    "trades": {
+      "title": "Scambi",
+      "paragraphs": [
+        "Durante il tuo turno puoi proporre uno scambio a un altro giocatore, offrendo Luoghi, chiedendone altri e aggiungendo monete da una delle due parti.",
+        "I Luoghi di un Mondo non possono essere scambiati finché in quel Mondo esiste almeno un Abbellimento: prima devi venderli tutti."
+      ]
+    },
+    "pledges": {
+      "title": "Pegno",
+      "paragraphs": [
+        "Puoi mettere in pegno un tuo Luogo e ricevere il {{pledgePercent}}% del suo prezzo. Per riscattarlo paghi il {{redeemPercent}}% del prezzo originale.",
+        "Prima di mettere in pegno un Luogo appartenente a un Mondo, devi vendere tutti gli Abbellimenti presenti in quel Mondo. Un Abbellimento venduto restituisce il {{sellEmbellishmentPercent}}% del suo costo."
+      ]
+    },
+    "events": {
+      "title": "Avventure e Contrattempi",
+      "paragraphs": [
+        "Le caselle Avventura e Contrattempo fanno pescare una carta. Può farti guadagnare o spendere monete, spostarti sul tabellone, portarti a un Portale o al Campo Base, oppure intervenire sui tuoi Abbellimenti.",
+        "Segui semplicemente ciò che indica la carta: l’effetto viene applicato subito dal gioco."
+      ]
+    },
+    "debts": {
+      "title": "Quando mancano le monete",
+      "paragraphs": [
+        "Se devi pagare più monete di quelle che hai, il gioco prova automaticamente a raccogliere il necessario: prima vende i tuoi Abbellimenti, poi mette in pegno i tuoi Luoghi.",
+        "Se nemmeno così riesci a coprire il debito, sei eliminato. Se il debito era verso un altro giocatore, i tuoi Luoghi passano a lui; negli altri casi tornano liberi."
+      ]
+    },
+    "winning": {
+      "title": "Come si vince",
+      "paragraphs": [
+        "Continua ad acquistare, abbellire, scambiare e gestire le tue monete. Quando rimane un solo giocatore non eliminato, la partita è finita: è lui il vincitore."
+      ]
+    }
+  }
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=5">
+  <meta name="theme-color" content="#eaf4ee">
+  <title>Grugnetto's KludgopolB</title>
+  <link rel="stylesheet" href="src/ui/app.css">
+</head>
+<body>
+  <main class="app-shell" id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div><h1 aria-label="Grugnetto's KludgopolB" title="Grugnetto's KludgopolB"><span class="brand-pig" aria-hidden="true">🐽's</span> <strong>KludgopolB</strong></h1></div>
+      </div>
+      <div class="top-actions">
+        <span class="turn-pill" id="turnPill">—</span>
+        <button class="icon-button help-button" id="helpBtn" type="button" title="Come si gioca" aria-label="Come si gioca">?</button>
+        <button class="icon-button" id="saveBtn" type="button" title="Salva" aria-label="Salva">💾</button>
+        <button class="icon-button" id="loadBtn" type="button" title="Carica" aria-label="Carica">↩</button>
+        <button class="icon-button" id="newBtn" type="button" title="Nuova partita" aria-label="Nuova partita">＋</button>
+        <select id="lang" class="lang-select" aria-label="Lingua"></select>
+      </div>
+    </header>
+
+    <section class="game-layout">
+      <aside class="players-panel panel" aria-label="Giocatori">
+        <div class="panel-title" id="playersTitle">Giocatori</div>
+        <div id="players" class="players-list"></div>
+      </aside>
+
+      <section class="board-stage" aria-label="Tabellone">
+        <div class="board-toolbar" id="boardToolbar" aria-label="Controlli tabellone">
+          <button class="zoom-button" id="zoomOutBtn" type="button" aria-label="Riduci zoom">−</button>
+          <button class="zoom-readout" id="zoomResetBtn" type="button" aria-label="Reimposta zoom">100%</button>
+          <button class="zoom-button" id="zoomInBtn" type="button" aria-label="Aumenta zoom">＋</button>
+          <button class="toolbar-pill number-edit-button" id="numberEditBtn" type="button" aria-pressed="false" hidden><span aria-hidden="true">#</span><span id="numberEditLabel">Numeri</span></button>
+          <button class="toolbar-pill secondary" id="numberExportBtn" type="button" hidden>Esporta</button>
+          <button class="toolbar-pill secondary" id="numberResetBtn" type="button" hidden>Reset</button>
+          <button class="follow-button active" id="followBtn" type="button" aria-pressed="true"><span aria-hidden="true">🎯</span><span id="followLabel">Segui</span></button>
+          <select id="speedSelect" class="speed-select" aria-label="Velocità animazioni">
+            <option value="normal">Normale</option>
+            <option value="fast">Rapida</option>
+          </select>
+        </div>
+        <div class="board-viewport" id="boardViewport">
+          <div class="board-wrap">
+            <div id="board" class="board">
+              <img id="boardBackground" class="board-background" src="" alt="" aria-hidden="true" hidden>
+              <div id="worldLabels" class="world-label-layer" aria-hidden="true"></div>
+              <div id="routeDirections" class="route-direction-layer" aria-hidden="true"></div>
+              <section class="center-panel">
+                <div class="center-top">
+                  <div class="current-summary">
+                    <strong id="currentName">Grugnetto</strong>
+                    <span id="currentCash">—</span>
+                  </div>
+                </div>
+                <div id="centerMessage" class="center-message">
+                  <img src="assets/grugnetto/grugnetto_idle.png" alt="Grugnetto" class="center-mascot">
+                  <h2>Grugnetto's KludgopolB</h2>
+                  <p id="centerHint">Pronto per partire!</p>
+                </div>
+                <div class="event-strip" id="eventStrip" aria-live="polite"></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="action-panel panel" aria-label="Azioni">
+        <div class="panel-title" id="actionsTitle">Azioni</div>
+        <div id="decision" class="decision"></div>
+        <section class="turn-review-panel" id="turnReviewPanel" aria-live="polite" hidden>
+          <div class="turn-review-header">
+            <strong id="turnReviewTitle">Dettaglio turno</strong>
+          </div>
+          <div id="turnReviewBody" class="turn-review-body"></div>
+        </section>
+        <section class="roll-tracker-panel" id="rollTrackerPanel" aria-live="polite">
+          <div class="subpanel-title" id="rollTrackerTitle">Lanci dei giocatori</div>
+          <div class="roll-tracker-list" id="rollTrackerList"></div>
+        </section>
+      </aside>
+    </section>
+
+    <nav class="mobile-players" id="mobilePlayers" aria-label="Giocatori"></nav>
+    <section class="mobile-actions" id="mobileActions"></section>
+    <p id="liveRegion" class="visually-hidden" aria-live="polite" aria-atomic="true"></p>
+  </main>
+
+  <dialog id="setupDialog" class="game-dialog setup-dialog">
+    <form method="dialog" id="setupForm">
+      <div class="dialog-head"><img src="assets/grugnetto/grugnetto_idle.png" alt=""><div><h2 id="setupTitle">Nuova partita</h2><p id="setupSubtitle">Scegli chi sfiderà Grugnetto.</p></div></div>
+      <label class="field"><span id="nameLabel">Il tuo nome</span><input id="humanName" maxlength="20" value="Grugnetto"></label>
+      <fieldset class="cpu-fieldset"><legend id="cpuLegend">Avversari</legend><div id="cpuChoices" class="cpu-grid"></div></fieldset>
+      <p class="form-error" id="setupError"></p>
+      <div class="dialog-actions"><button type="button" class="secondary" id="cancelSetup">Annulla</button><button class="primary" value="start" id="startGame">Gioca</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="recoveryDialog" class="game-dialog recovery-dialog">
+    <div id="recoveryContent"></div>
+  </dialog>
+
+  <dialog id="helpDialog" class="game-dialog help-dialog"><div id="helpContent"></div></dialog>
+  <dialog id="friendDialog" class="game-dialog friend-dialog"><div id="friendContent"></div></dialog>
+  <dialog id="manageDialog" class="game-dialog manage-dialog"><div id="manageContent"></div></dialog>
+  <dialog id="cardDialog" class="game-dialog card-dialog"><div id="cardContent"></div></dialog>
+  <dialog id="tradeDialog" class="game-dialog trade-dialog"><div id="tradeContent"></div></dialog>
+  <dialog id="tradeResultDialog" class="game-dialog trade-result-dialog"><div id="tradeResultContent"></div></dialog>
+
+  <script type="module" src="src/ui/app.js"></script>
+</body>
+</html>

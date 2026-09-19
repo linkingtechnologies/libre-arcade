@@ -1,0 +1,139 @@
+{
+  "locale": "fr",
+  "languageName": "Français",
+  "boardTitle": "Plateau de Grugnetto — Les Quatre Mondes",
+  "subtitle": "En voyage dans les Quatre Mondes",
+  "currencyName": "Pièces Grugnetto",
+  "preview": "Explore les Quatre Mondes, achète des Lieux, embellis-les et construis ton aventure.",
+  "footer": "Quatre mondes, trente-deux cases et une partie différente à chaque fois.",
+  "types": {
+    "start": "Maison",
+    "site": "Lieu",
+    "event": "Événement",
+    "tax": "Frais de voyage",
+    "hub": "Portail",
+    "service": "Lieu spécial",
+    "neutral": "Pause",
+    "detention": "Camp de Base",
+    "moveToDetention": "Camp de Base"
+  },
+  "terms": {
+    "site": "Lieu",
+    "purchase": "Acheter",
+    "rent": "Revenu",
+    "development": "Embellissement",
+    "completeGroup": "Monde complété",
+    "hub": "Portail",
+    "service": "Lieu spécial",
+    "detention": "Camp de base",
+    "adventures": "Aventures",
+    "setbacks": "Contretemps"
+  },
+  "worlds": {
+    "world1": "Pré de la Maison",
+    "world2": "Forêt des Écureuils",
+    "world3": "Dunes Dorées",
+    "world4": "Mine de Pierre"
+  },
+  "spaces": {
+    "home": "Maison de Grugnetto",
+    "flower-path": "Sentier des Fleurs",
+    "adventure-1": "Aventure !",
+    "meadow-mill": "Moulin du Pré",
+    "repairs": "Réparations",
+    "meadow-portal": "Portail du Pré",
+    "frog-pond": "Étang des Grenouilles",
+    "windy-hill": "Colline du Vent",
+    "picnic-spot": "Aire de Pique-nique",
+    "acorn-glade": "Clairière des Glands",
+    "setback-1": "Contretemps !",
+    "great-root": "Grande Racine",
+    "supply-shop": "Boutique de Provisions",
+    "base-camp": "Camp de Base",
+    "log-bridge": "Petit Pont de Rondins",
+    "mushroom-woods": "Bois aux Champignons",
+    "forest-passage": "Passage de la Forêt",
+    "dune-oasis": "Oasis des Dunes",
+    "adventure-2": "Aventure !",
+    "cactus-trail": "Sentier des Cactus",
+    "grand-portal": "Grand Portail",
+    "golden-canyon": "Canyon Doré",
+    "travel-toll": "Péage du Pont",
+    "sand-arch": "Arche de Sable",
+    "grugnetto-workshop": "Atelier de Grugnetto",
+    "mine-entrance": "Entrée de la Mine",
+    "worlds-tunnel": "Galerie des Mondes",
+    "minecart-hall": "Salle des Wagonnets",
+    "setback-2": "Contretemps !",
+    "torch-shaft": "Puits aux Torches",
+    "back-to-base-camp": "Retour au Camp de Base",
+    "heart-of-mine": "Cœur de la Mine"
+  },
+  "events": {
+    "a1": {
+      "title": "Fête dans la Prairie",
+      "text": "La Prairie est en fête ! Les stands ne désemplissent pas : gagne 45 pièces, les mêmes que Grugnetto ramasse à chaque niveau."
+    },
+    "a2": {
+      "title": "Raccourci des Écureuils",
+      "text": "Un écureuil te montre un sentier caché, le même que suit Grugnetto dans la Forêt des Écureuils. Rejoins le prochain Portail."
+    },
+    "a3": {
+      "title": "Une oasis !",
+      "text": "Tu trouves une oasis bien fraîche, comme celles des Dunes Dorées. Reprends ton souffle, gagne 20 pièces et avance d’une case."
+    },
+    "a4": {
+      "title": "Kit de bricolage",
+      "text": "Une caisse contient tout le nécessaire pour quelques travaux — et même un outil qui ressemble fort à un propulseur de super-saut. Ajoute gratuitement un Embellissement à l’un de tes Lieux ; si tu ne peux pas, vends le kit pour 20 pièces."
+    },
+    "a5": {
+      "title": "Le Grand Portail",
+      "text": "Le Grand Portail s’illumine devant toi, un cœur doré pulsant en son centre. Rejoins-le immédiatement."
+    },
+    "a6": {
+      "title": "Festival des Quatre Mondes",
+      "text": "Les Quatre Mondes font la fête ensemble, une vraie chaîne de réjouissances. Gagne 6 pièces pour chaque Lieu que tu possèdes."
+    },
+    "a7": {
+      "title": "Trésor caché",
+      "text": "Sous de vieilles planches, tu découvres un coffre rempli des mêmes pièces dorées que Grugnetto récolte dans ses mondes. Gagne 55 pièces."
+    },
+    "a8": {
+      "title": "Le chemin du retour",
+      "text": "Un sentier lumineux, comme la trace d’un saut parfait, te montre la route. Retourne chez Grugnetto."
+    },
+    "i1": {
+      "title": "Grosse averse !",
+      "text": "Une grosse averse abîme une partie de tes provisions — seules les grenouilles de l’Étang semblent ravies. Dépense 40 pièces pour repartir."
+    },
+    "i2": {
+      "title": "Écureuils affamés",
+      "text": "Les écureuils ont dévalisé les réserves, ne laissant que des glands grignotés. Dépense 6 pièces pour chaque Lieu que tu possèdes ; si tu n’en as aucun, dépense 15 pièces."
+    },
+    "i3": {
+      "title": "Tempête de sable",
+      "text": "Le sable recouvre le sentier, et même les souris des Dunes se mettent à l’abri. Recule de 3 cases."
+    },
+    "i4": {
+      "title": "Passage bloqué",
+      "text": "Un éboulement bloque le passage dans un nuage de poussière de mine. Retourne au Camp de base."
+    },
+    "i5": {
+      "title": "Portail capricieux",
+      "text": "Le Portail refuse de fonctionner : son drapeau reste immobile, sans la moindre étincelle de magie. Dépense 20 pièces pour le réparer, puis rejoins le prochain Portail."
+    },
+    "i6": {
+      "title": "Jour d’entretien",
+      "text": "C’est l’heure des vérifications, avec des outils aussi affûtés que les scies de la Mine. Dépense 8 pièces pour chaque Embellissement ; si tu n’en as aucun, dépense 15 pièces."
+    },
+    "i7": {
+      "title": "Route barrée",
+      "text": "Le sentier est fermé. Fais un détour jusqu’à l’Aire de pique-nique, où t’attend une pomme bien juteuse."
+    },
+    "i8": {
+      "title": "Petite panne",
+      "text": "Une petite panne endommage l’un de tes Embellissements — il te faudrait la bonne clé de l’Atelier de Grugnetto. Retire-en un ; si tu n’en as aucun, dépense 25 pièces."
+    }
+  },
+  "copyVersion": "1.3.0"
+}

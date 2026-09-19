@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "sourceBoardId": "grugnetto-32-worlds-v1.4",
+  "sourceBoardContentVersion": "1.4.1",
+  "defaultLocale": "it",
+  "locales": [
+    "it",
+    "en",
+    "fr",
+    "de"
+  ],
+  "simulationBasis": {
+    "kind": "empirical",
+    "date": "2026-09-13",
+    "headToHeadVerificationGamesPerPair": 20,
+    "headToHeadGamesPerAi": 120,
+    "allSevenVerificationGames": 80,
+    "note": "Player-facing archetypes describe observed behaviour on the current Grugnetto board; they are empirical labels, not historical author descriptions. Pazifik is a separate behavioural reimplementation documented from JAtlantik r36; its benchmark fields are refreshed by scripts/benchmark-pazifik.js."
+  },
+  "players": [
+    {
+      "id": "Zilla",
+      "archetype": "strategist",
+      "headToHeadRate": 0.6833,
+      "allSevenWins": 10,
+      "tags": [
+        "versatile",
+        "duels",
+        "challenge"
+      ]
+    },
+    {
+      "id": "Queen",
+      "archetype": "balancedExpert",
+      "headToHeadRate": 0.625,
+      "allSevenWins": 13,
+      "tags": [
+        "balanced",
+        "duels",
+        "challenge"
+      ]
+    },
+    {
+      "id": "Wallace",
+      "archetype": "champion",
+      "headToHeadRate": 0.7167,
+      "allSevenWins": 28,
+      "tags": [
+        "duels",
+        "topTier",
+        "challenge"
+      ]
+    },
+    {
+      "id": "Hans",
+      "archetype": "multiplayerSpecialist",
+      "headToHeadRate": 0.5833,
+      "allSevenWins": 26,
+      "tags": [
+        "manyPlayers",
+        "topTier",
+        "challenge"
+      ]
+    },
+    {
+      "id": "Mimrock",
+      "archetype": "intermediate",
+      "headToHeadRate": 0.3917,
+      "allSevenWins": 3,
+      "tags": [
+        "learning",
+        "fairChallenge"
+      ]
+    },
+    {
+      "id": "Lost Soul",
+      "archetype": "unpredictable",
+      "headToHeadRate": 0.5,
+      "allSevenWins": 0,
+      "tags": [
+        "duels",
+        "surprise",
+        "crowdedWeak"
+      ]
+    },
+    {
+      "id": "Pazifik",
+      "archetype": "impulsiveBuilder",
+      "headToHeadRate": 0.14,
+      "allSevenWins": null,
+      "tags": [
+        "aggressiveBuying",
+        "buildsImmediately",
+        "cashPoor",
+        "weakAuctions",
+        "noTrading",
+        "predictable",
+        "easy",
+        "crowdedWeak",
+        "longDuels"
+      ],
+      "source": "JAtlantik r36 SimpleAI",
+      "year": 2007,
+      "type": "historical-reimplementation",
+      "difficulty": "easy",
+      "personality": "impulsive-builder",
+      "deterministic": true,
+      "historical": true,
+      "provenance": "Historical AI reimplementation based on the documented behavior of JAtlantik r36 SimpleAI.",
+      "allEightWins": 0,
+      "benchmark": {
+        "board": "grugnetto-32-worlds-v1.3",
+        "pairGamesPerOpponent": 50,
+        "pairTurnCap": 600,
+        "longPairGamesPerOpponent": 20,
+        "longPairTurnCap": 1500,
+        "allEightGames": 20,
+        "allEightTurnCap": 1500,
+        "completedHeadToHeadWinRate": 0.14,
+        "allEightWinRate": 0.0,
+        "allEightBankruptcyRate": 0.9,
+        "allEightAverageRank": 5.1,
+        "note": "Pazifik often produces long two-player strategic stalls because the historical strategy never trades; capped games are treated as non-wins for completedHeadToHeadWinRate."
+      },
+      "ratings": {
+        "buying": 4,
+        "building": 5,
+        "auctions": 2,
+        "cashManagement": 1,
+        "trading": 0,
+        "prudence": 1,
+        "predictability": 5
+      }
+    },
+    {
+      "id": "Lemming",
+      "archetype": "beginner",
+      "headToHeadRate": 0.0,
+      "allSevenWins": 0,
+      "tags": [
+        "firstGame",
+        "easy"
+      ]
+    }
+  ]
+}

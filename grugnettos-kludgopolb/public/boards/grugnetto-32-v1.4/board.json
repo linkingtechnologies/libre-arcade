@@ -1,0 +1,535 @@
+{
+  "schemaVersion": 1,
+  "id": "grugnetto-32-worlds-v1.4",
+  "contentVersion": "1.4.1",
+  "frozen": true,
+  "contentNote": "Adds Grugnetto Go! goal-flag artwork to the three Portal spaces (assets/grugnetto/flags/) and refreshed adventure/setback copy. No prices, rents, landingWeight values, world groups or event mechanics changed from v1.3. RC33 later applied metadata/footer-only wording redactions to historical packages, including v1.3, without changing gameplay data.",
+  "defaultLocale": "it",
+  "locales": [
+    "it",
+    "en",
+    "fr",
+    "de"
+  ],
+  "currency": "G",
+  "startingCash": 1200,
+  "passStartSalary": 160,
+  "detentionIndex": 13,
+  "detentionTurns": 2,
+  "detentionFee": 70,
+  "development": {
+    "maxEmbellishments": 4,
+    "sellPercent": 50
+  },
+  "spaces": [
+    {
+      "id": "home",
+      "type": "start"
+    },
+    {
+      "id": "flower-path",
+      "type": "site",
+      "world": "world1",
+      "group": "world1",
+      "price": 115,
+      "buildCost": 50,
+      "rents": [
+        10,
+        30,
+        100,
+        240,
+        500
+      ],
+      "landingWeight": 0.9553
+    },
+    {
+      "id": "adventure-1",
+      "type": "event",
+      "deck": "avventure"
+    },
+    {
+      "id": "meadow-mill",
+      "type": "site",
+      "world": "world1",
+      "group": "world1",
+      "price": 125,
+      "buildCost": 55,
+      "rents": [
+        12,
+        36,
+        120,
+        288,
+        600
+      ],
+      "landingWeight": 0.9892
+    },
+    {
+      "id": "repairs",
+      "type": "tax",
+      "amount": 65
+    },
+    {
+      "id": "meadow-portal",
+      "type": "hub",
+      "price": 150,
+      "rents": [
+        18,
+        42,
+        82
+      ],
+      "landingWeight": 1.0407,
+      "theme": "portal",
+      "asset": "assets/grugnetto/flags/flag_green_a.png"
+    },
+    {
+      "id": "frog-pond",
+      "type": "site",
+      "world": "world1",
+      "group": "world1",
+      "price": 140,
+      "buildCost": 65,
+      "rents": [
+        15,
+        45,
+        150,
+        360,
+        750
+      ],
+      "landingWeight": 0.8206
+    },
+    {
+      "id": "windy-hill",
+      "type": "site",
+      "world": "world1",
+      "group": "world1",
+      "price": 215,
+      "buildCost": 95,
+      "rents": [
+        18,
+        54,
+        180,
+        432,
+        900
+      ],
+      "landingWeight": 0.9494
+    },
+    {
+      "id": "picnic-spot",
+      "type": "neutral",
+      "bonus": 20
+    },
+    {
+      "id": "acorn-glade",
+      "type": "site",
+      "world": "world2",
+      "group": "world2",
+      "price": 105,
+      "buildCost": 45,
+      "rents": [
+        11,
+        33,
+        110,
+        264,
+        550
+      ],
+      "landingWeight": 0.8517
+    },
+    {
+      "id": "setback-1",
+      "type": "event",
+      "deck": "contrattempi"
+    },
+    {
+      "id": "great-root",
+      "type": "site",
+      "world": "world2",
+      "group": "world2",
+      "price": 130,
+      "buildCost": 60,
+      "rents": [
+        13,
+        39,
+        130,
+        312,
+        650
+      ],
+      "landingWeight": 0.8973
+    },
+    {
+      "id": "supply-shop",
+      "type": "service",
+      "price": 125,
+      "factors": [
+        3,
+        7
+      ],
+      "landingWeight": 0.8838,
+      "asset": "assets/grugnetto/collectable_key.png"
+    },
+    {
+      "id": "base-camp",
+      "type": "detention"
+    },
+    {
+      "id": "log-bridge",
+      "type": "site",
+      "world": "world2",
+      "group": "world2",
+      "price": 160,
+      "buildCost": 70,
+      "rents": [
+        16,
+        48,
+        160,
+        384,
+        800
+      ],
+      "landingWeight": 0.8829
+    },
+    {
+      "id": "mushroom-woods",
+      "type": "site",
+      "world": "world2",
+      "group": "world2",
+      "price": 205,
+      "buildCost": 90,
+      "rents": [
+        19,
+        57,
+        190,
+        456,
+        950
+      ],
+      "landingWeight": 0.9521
+    },
+    {
+      "id": "forest-passage",
+      "type": "hub",
+      "price": 165,
+      "rents": [
+        18,
+        42,
+        82
+      ],
+      "landingWeight": 1.0305,
+      "theme": "portal",
+      "asset": "assets/grugnetto/flags/flag_blue_a.png"
+    },
+    {
+      "id": "dune-oasis",
+      "type": "site",
+      "world": "world3",
+      "group": "world3",
+      "price": 95,
+      "buildCost": 45,
+      "rents": [
+        8,
+        24,
+        80,
+        192,
+        400
+      ],
+      "landingWeight": 0.967
+    },
+    {
+      "id": "adventure-2",
+      "type": "event",
+      "deck": "avventure"
+    },
+    {
+      "id": "cactus-trail",
+      "type": "site",
+      "world": "world3",
+      "group": "world3",
+      "price": 125,
+      "buildCost": 55,
+      "rents": [
+        10,
+        30,
+        100,
+        240,
+        500
+      ],
+      "landingWeight": 1.1745
+    },
+    {
+      "id": "grand-portal",
+      "type": "neutral",
+      "bonus": 30
+    },
+    {
+      "id": "golden-canyon",
+      "type": "site",
+      "world": "world3",
+      "group": "world3",
+      "price": 175,
+      "buildCost": 80,
+      "rents": [
+        12,
+        36,
+        120,
+        288,
+        600
+      ],
+      "landingWeight": 1.0751
+    },
+    {
+      "id": "travel-toll",
+      "type": "tax",
+      "amount": 80
+    },
+    {
+      "id": "sand-arch",
+      "type": "site",
+      "world": "world3",
+      "group": "world3",
+      "price": 205,
+      "buildCost": 90,
+      "rents": [
+        14,
+        42,
+        140,
+        336,
+        700
+      ],
+      "landingWeight": 1.0747
+    },
+    {
+      "id": "grugnetto-workshop",
+      "type": "service",
+      "price": 150,
+      "factors": [
+        4,
+        8
+      ],
+      "landingWeight": 1.0202,
+      "asset": "assets/grugnetto/collectable_key.png"
+    },
+    {
+      "id": "mine-entrance",
+      "type": "site",
+      "world": "world4",
+      "group": "world4",
+      "price": 120,
+      "buildCost": 55,
+      "rents": [
+        9,
+        27,
+        90,
+        216,
+        450
+      ],
+      "landingWeight": 1.1582
+    },
+    {
+      "id": "worlds-tunnel",
+      "type": "hub",
+      "price": 180,
+      "rents": [
+        18,
+        42,
+        82
+      ],
+      "landingWeight": 1.1311,
+      "theme": "portal",
+      "asset": "assets/grugnetto/flags/flag_red_a.png"
+    },
+    {
+      "id": "minecart-hall",
+      "type": "site",
+      "world": "world4",
+      "group": "world4",
+      "price": 125,
+      "buildCost": 55,
+      "rents": [
+        10,
+        30,
+        100,
+        240,
+        500
+      ],
+      "landingWeight": 1.0382
+    },
+    {
+      "id": "setback-2",
+      "type": "event",
+      "deck": "contrattempi"
+    },
+    {
+      "id": "torch-shaft",
+      "type": "site",
+      "world": "world4",
+      "group": "world4",
+      "price": 160,
+      "buildCost": 70,
+      "rents": [
+        13,
+        39,
+        130,
+        312,
+        650
+      ],
+      "landingWeight": 1.0527
+    },
+    {
+      "id": "back-to-base-camp",
+      "type": "moveToDetention"
+    },
+    {
+      "id": "heart-of-mine",
+      "type": "site",
+      "world": "world4",
+      "group": "world4",
+      "price": 190,
+      "buildCost": 85,
+      "rents": [
+        15,
+        45,
+        150,
+        360,
+        750
+      ],
+      "landingWeight": 1.0547
+    }
+  ],
+  "events": {
+    "avventure": [
+      {
+        "id": "a1",
+        "cash": 45
+      },
+      {
+        "id": "a2",
+        "moveToNextType": "hub",
+        "resolve": true
+      },
+      {
+        "id": "a3",
+        "cash": 20,
+        "move": 1
+      },
+      {
+        "id": "a4",
+        "grantEmbellishment": true,
+        "fallbackCash": 20
+      },
+      {
+        "id": "a5",
+        "moveTo": "grand-portal",
+        "salary": true,
+        "resolve": true
+      },
+      {
+        "id": "a6",
+        "cashPerOwnedSite": 6
+      },
+      {
+        "id": "a7",
+        "cash": 55
+      },
+      {
+        "id": "a8",
+        "moveTo": "home",
+        "salary": false,
+        "resolve": true
+      }
+    ],
+    "contrattempi": [
+      {
+        "id": "i1",
+        "cash": -40
+      },
+      {
+        "id": "i2",
+        "cashPerOwnedSite": -6,
+        "fallbackCash": -15
+      },
+      {
+        "id": "i3",
+        "move": -3
+      },
+      {
+        "id": "i4",
+        "detain": true
+      },
+      {
+        "id": "i5",
+        "cash": -20,
+        "moveToNextType": "hub",
+        "resolve": true
+      },
+      {
+        "id": "i6",
+        "cashPerEmbellishment": -8,
+        "fallbackCash": -15
+      },
+      {
+        "id": "i7",
+        "moveTo": "picnic-spot",
+        "salary": false,
+        "resolve": true
+      },
+      {
+        "id": "i8",
+        "removeEmbellishment": true,
+        "fallbackCash": -25
+      }
+    ]
+  },
+  "currencyAsset": "assets/grugnetto/collectable_coin.png",
+  "humanTokenAsset": "assets/grugnetto/grugnetto_idle.png",
+  "worlds": [
+    {
+      "id": "world1",
+      "accent": "#48c774",
+      "emoji": "🌼"
+    },
+    {
+      "id": "world2",
+      "accent": "#3298dc",
+      "emoji": "🐿️"
+    },
+    {
+      "id": "world3",
+      "accent": "#e6b800",
+      "emoji": "🏜️"
+    },
+    {
+      "id": "world4",
+      "accent": "#f14668",
+      "emoji": "⛏️"
+    }
+  ],
+  "economyVersion": "0.4-calibrated-v1",
+  "economy": {
+    "version": "v1",
+    "method": "Each world has roughly the same total acquisition cost (~600 coins). Within a world, location prestige is multiplied by empirical landing frequency to distribute prices. Base revenue is then corrected by landing frequency so traffic alone does not make a location dominant.",
+    "worldTargetCost": 600,
+    "prestigeFactors": [
+      0.75,
+      0.9,
+      1.1,
+      1.3
+    ],
+    "landingCalibration": "2,000,000 simulated turns (500 runs × 4,000), deterministic seeded movement including doubles, themed event v2 movement and Base Camp.",
+    "baseRevenueTarget": "about 8.5% of list price, corrected by empirical landing weight",
+    "embellishmentCost": "about 45% of list price, rounded to 5 coins",
+    "embellishmentCurveMultipliers": [
+      1,
+      3,
+      10,
+      24,
+      50
+    ],
+    "note": "Economy v1 uses original Grugnetto pricing and revenue tables. Prices/rents are retained; landingWeight values were refreshed for themed event v2 so the historical AIs evaluate the updated traffic pattern."
+  },
+  "eventVersion": "2.0-themed",
+  "eventDesign": {
+    "version": "v2",
+    "method": "Two deterministic 8-card decks. Cards are shuffled once per game with the seeded RNG, then cycled without replacement within each 8-card cycle.",
+    "themes": "Adventures reward exploration, world ownership and embellishments; Setbacks introduce travel disruption, upkeep and occasional embellishment loss.",
+    "note": "Effects are original to the Grugnetto board and are independent of the recovered regional card decks.",
+    "balance": "Cash values tuned so the two decks together remain close to economically neutral while preserving non-cash strategic effects."
+  },
+  "landingWeightVersion": "event-v2 / 2,000,000 simulated turns"
+}

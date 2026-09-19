@@ -1,0 +1,9 @@
+2012-12-23
+	Bug fix; when moving from jail, display "end roll" window only once.
+	Bug fix; when computer player ends move, "press" button only when actually ending move.
+	Annoyance fix; ball pit window should no longer be popping up unless manually un-minimised.
+	Figures displayed at end of game at 5 decimal places, or something appropriate for the number of rolls made.
+2012-10-26
+	Bug fix; when declaring bankrupt, any buildings the player owned no longer just "vanish".
+	Minor changes to log display (e.g. display when landing on a RandomSpace).
+	Added new feature (command line argument "--ballpit") to rig certain things mid-game (so as to easily allow testing of whether some RandomCards work correctly for example).

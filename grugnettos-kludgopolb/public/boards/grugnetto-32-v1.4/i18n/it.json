@@ -1,0 +1,139 @@
+{
+  "locale": "it",
+  "languageName": "Italiano",
+  "boardTitle": "Grugnetto's Board — I Quattro Mondi",
+  "subtitle": "In viaggio nei Quattro Mondi",
+  "currencyName": "Monete Grugnetto",
+  "preview": "Esplora i Quattro Mondi, acquista Luoghi, abbelliscili e costruisci la tua avventura.",
+  "footer": "Quattro mondi, trentadue caselle e una partita sempre diversa.",
+  "types": {
+    "start": "Casa",
+    "site": "Luogo",
+    "event": "Evento",
+    "tax": "Costo di viaggio",
+    "hub": "Portale",
+    "service": "Luogo speciale",
+    "neutral": "Sosta",
+    "detention": "Campo Base",
+    "moveToDetention": "Campo Base"
+  },
+  "terms": {
+    "site": "Luogo",
+    "purchase": "Acquista",
+    "rent": "Rendita",
+    "development": "Abbellimento",
+    "completeGroup": "Mondo completato",
+    "hub": "Portale",
+    "service": "Luogo speciale",
+    "detention": "Campo Base",
+    "adventures": "Avventure",
+    "setbacks": "Contrattempi"
+  },
+  "worlds": {
+    "world1": "Prato di Casa",
+    "world2": "Bosco degli Scoiattoli",
+    "world3": "Dune Dorate",
+    "world4": "Miniera di Pietra"
+  },
+  "spaces": {
+    "home": "Casa di Grugnetto",
+    "flower-path": "Sentiero dei Fiori",
+    "adventure-1": "Avventura!",
+    "meadow-mill": "Mulino del Prato",
+    "repairs": "Riparazioni",
+    "meadow-portal": "Portale del Prato",
+    "frog-pond": "Stagno delle Rane",
+    "windy-hill": "Collina del Vento",
+    "picnic-spot": "Area Picnic",
+    "acorn-glade": "Radura delle Ghiande",
+    "setback-1": "Contrattempo!",
+    "great-root": "Radice Grande",
+    "supply-shop": "Bottega delle Provviste",
+    "base-camp": "Campo Base",
+    "log-bridge": "Ponticello dei Tronchi",
+    "mushroom-woods": "Bosco dei Funghi",
+    "forest-passage": "Passaggio del Bosco",
+    "dune-oasis": "Oasi delle Dune",
+    "adventure-2": "Avventura!",
+    "cactus-trail": "Sentiero dei Cactus",
+    "grand-portal": "Grande Portale",
+    "golden-canyon": "Canyon Dorato",
+    "travel-toll": "Pedaggio del Ponte",
+    "sand-arch": "Arco di Sabbia",
+    "grugnetto-workshop": "Officina di Grugnetto",
+    "mine-entrance": "Ingresso della Miniera",
+    "worlds-tunnel": "Galleria dei Mondi",
+    "minecart-hall": "Sala dei Carrelli",
+    "setback-2": "Contrattempo!",
+    "torch-shaft": "Pozzo delle Torce",
+    "back-to-base-camp": "Torna al Campo Base",
+    "heart-of-mine": "Cuore della Miniera"
+  },
+  "events": {
+    "a1": {
+      "title": "Festa al Prato",
+      "text": "Il Prato è in festa! Tra bancarelle e musica fai ottimi affari: incassa 45 monete, proprio come quelle che Grugnetto raccoglie a ogni livello."
+    },
+    "a2": {
+      "title": "Scorciatoia degli Scoiattoli",
+      "text": "Uno scoiattolo ti indica un sentiero nascosto, lo stesso che Grugnetto percorre nel Bosco degli Scoiattoli. Raggiungi il prossimo Portale."
+    },
+    "a3": {
+      "title": "Oasi in vista",
+      "text": "Hai trovato un’oasi fresca, proprio come quelle delle Dune Dorate. Riprendi fiato, incassa 20 monete e avanza di 1 casella."
+    },
+    "a4": {
+      "title": "Kit da costruttore",
+      "text": "In una cassa trovi tutto il necessario per un piccolo lavoro — e persino un attrezzo che sembra fatto apposta per un supersalto. Aggiungi gratis un Abbellimento a uno dei tuoi Luoghi; se non puoi, vendi il kit e incassa 20 monete."
+    },
+    "a5": {
+      "title": "Il Grande Portale",
+      "text": "Il Grande Portale si illumina davanti a te, un cuore dorato pulsa al centro. Raggiungilo subito."
+    },
+    "a6": {
+      "title": "Festival dei Quattro Mondi",
+      "text": "I Quattro Mondi festeggiano insieme, un vero e proprio festival a catena. Incassa 6 monete per ogni Luogo che possiedi."
+    },
+    "a7": {
+      "title": "Tesoro nascosto",
+      "text": "Sotto alcune vecchie assi trovi una cassa piena delle stesse monete dorate che Grugnetto raccoglie nei suoi mondi. Incassa 55 monete."
+    },
+    "a8": {
+      "title": "La strada di casa",
+      "text": "Una scia luminosa, come quella lasciata da un salto ben riuscito, ti mostra la strada. Torna a Casa di Grugnetto."
+    },
+    "i1": {
+      "title": "Acquazzone!",
+      "text": "Un acquazzone rovina parte delle provviste: le rane dello Stagno sono le uniche contente. Spendi 40 monete per rimetterti in viaggio."
+    },
+    "i2": {
+      "title": "Scoiattoli affamati",
+      "text": "Gli scoiattoli hanno fatto razzia delle scorte, lasciando in giro solo ghiande spolpate. Spendi 6 monete per ogni Luogo che possiedi; se non ne hai, spendine 15."
+    },
+    "i3": {
+      "title": "Tempesta di sabbia",
+      "text": "La sabbia copre il sentiero, e persino i topi delle Dune si rifugiano al riparo. Torna indietro di 3 caselle."
+    },
+    "i4": {
+      "title": "Passaggio bloccato",
+      "text": "Un crollo chiude il passaggio, sollevando una nuvola di polvere di miniera. Torna al Campo Base."
+    },
+    "i5": {
+      "title": "Portale capriccioso",
+      "text": "Il Portale fa i capricci: la sua bandiera resta immobile, senza una scintilla di magia. Spendi 20 monete per rimetterlo in funzione, poi raggiungi il prossimo Portale."
+    },
+    "i6": {
+      "title": "Giornata di manutenzione",
+      "text": "È tempo di controlli, con tanto di attrezzi affilati come le seghe della Miniera. Spendi 8 monete per ogni Abbellimento; se non ne hai, spendine 15."
+    },
+    "i7": {
+      "title": "Strada chiusa",
+      "text": "Il sentiero è chiuso. Fai una deviazione e raggiungi l’Area Picnic, dove ti aspetta una mela succosa."
+    },
+    "i8": {
+      "title": "Piccolo guasto",
+      "text": "Un piccolo guasto danneggia uno dei tuoi Abbellimenti: avresti bisogno della chiave giusta dell’Officina di Grugnetto. Rimuovine uno; se non ne hai, spendi 25 monete."
+    }
+  },
+  "copyVersion": "1.3.0"
+}

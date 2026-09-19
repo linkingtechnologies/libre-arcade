@@ -1,0 +1,139 @@
+{
+  "locale": "de",
+  "languageName": "Deutsch",
+  "boardTitle": "Grugnettos Spielbrett — Die Vier Welten",
+  "subtitle": "Auf Reise durch die Vier Welten",
+  "currencyName": "Grugnetto-Münzen",
+  "preview": "Erkunde die Vier Welten, kaufe Orte, verschönere sie und erlebe dein eigenes Abenteuer.",
+  "footer": "Vier Welten, zweiunddreißig Felder und jedes Mal ein anderes Spiel.",
+  "types": {
+    "start": "Zuhause",
+    "site": "Ort",
+    "event": "Ereignis",
+    "tax": "Reisekosten",
+    "hub": "Portal",
+    "service": "Sonderort",
+    "neutral": "Pause",
+    "detention": "Basislager",
+    "moveToDetention": "Basislager"
+  },
+  "terms": {
+    "site": "Ort",
+    "purchase": "Kaufen",
+    "rent": "Ertrag",
+    "development": "Verschönerung",
+    "completeGroup": "Welt vervollständigt",
+    "hub": "Portal",
+    "service": "Besonderer Ort",
+    "detention": "Basislager",
+    "adventures": "Abenteuer",
+    "setbacks": "Missgeschicke"
+  },
+  "worlds": {
+    "world1": "Heimatwiese",
+    "world2": "Eichhörnchenwald",
+    "world3": "Goldene Dünen",
+    "world4": "Steinmine"
+  },
+  "spaces": {
+    "home": "Grugnettos Zuhause",
+    "flower-path": "Blumenpfad",
+    "adventure-1": "Abenteuer!",
+    "meadow-mill": "Wiesenmühle",
+    "repairs": "Reparaturen",
+    "meadow-portal": "Wiesenportal",
+    "frog-pond": "Froschteich",
+    "windy-hill": "Windhügel",
+    "picnic-spot": "Picknickplatz",
+    "acorn-glade": "Eichellichtung",
+    "setback-1": "Missgeschick!",
+    "great-root": "Große Wurzel",
+    "supply-shop": "Proviantladen",
+    "base-camp": "Basislager",
+    "log-bridge": "Baumstammbrücke",
+    "mushroom-woods": "Pilzwald",
+    "forest-passage": "Waldpassage",
+    "dune-oasis": "Dünenoase",
+    "adventure-2": "Abenteuer!",
+    "cactus-trail": "Kaktuspfad",
+    "grand-portal": "Großes Portal",
+    "golden-canyon": "Goldener Canyon",
+    "travel-toll": "Brückenzoll",
+    "sand-arch": "Sandbogen",
+    "grugnetto-workshop": "Grugnettos Werkstatt",
+    "mine-entrance": "Mineneingang",
+    "worlds-tunnel": "Weltenstollen",
+    "minecart-hall": "Lorenhalle",
+    "setback-2": "Missgeschick!",
+    "torch-shaft": "Fackelschacht",
+    "back-to-base-camp": "Zurück zum Basislager",
+    "heart-of-mine": "Herz der Mine"
+  },
+  "events": {
+    "a1": {
+      "title": "Fest auf der Wiese",
+      "text": "Auf der Wiese wird gefeiert! Die Stände sind voll und die Geschäfte laufen gut: Du erhältst 45 Münzen, dieselben, die Grugnetto in jedem Level sammelt."
+    },
+    "a2": {
+      "title": "Abkürzung der Eichhörnchen",
+      "text": "Ein Eichhörnchen zeigt dir einen versteckten Pfad, denselben, dem Grugnetto durch den Eichhörnchenwald folgt. Ziehe zum nächsten Portal."
+    },
+    "a3": {
+      "title": "Oase in Sicht",
+      "text": "Du findest eine kühle Oase, wie sie auch in den Goldenen Dünen vorkommen. Ruhe dich kurz aus, erhalte 20 Münzen und ziehe 1 Feld weiter."
+    },
+    "a4": {
+      "title": "Baukasten",
+      "text": "In einer Kiste findest du alles für eine kleine Reparatur — sogar ein Werkzeug, das verdächtig nach einem Superjump-Booster aussieht. Füge einem deiner Orte kostenlos eine Verschönerung hinzu; falls das nicht möglich ist, verkaufe den Kasten für 20 Münzen."
+    },
+    "a5": {
+      "title": "Das Große Portal",
+      "text": "Das Große Portal leuchtet vor dir auf, ein goldenes Herz pulsiert in seiner Mitte. Ziehe sofort dorthin."
+    },
+    "a6": {
+      "title": "Fest der Vier Welten",
+      "text": "Alle Vier Welten feiern gemeinsam, eine einzige Kettenreaktion aus Festlichkeiten. Du erhältst 6 Münzen für jeden Ort, den du besitzt."
+    },
+    "a7": {
+      "title": "Versteckter Schatz",
+      "text": "Unter alten Brettern findest du eine Kiste voller derselben goldenen Münzen, die Grugnetto in seinen Welten sammelt. Du erhältst 55 Münzen."
+    },
+    "a8": {
+      "title": "Der Weg nach Hause",
+      "text": "Ein leuchtender Pfad, wie die Flugbahn eines perfekten Sprungs, zeigt dir den Weg. Kehre zu Grugnettos Zuhause zurück."
+    },
+    "i1": {
+      "title": "Wolkenbruch!",
+      "text": "Ein Wolkenbruch ruiniert einen Teil deiner Vorräte — nur die Frösche am Teich freuen sich darüber. Zahle 40 Münzen, um weiterziehen zu können."
+    },
+    "i2": {
+      "title": "Hungrige Eichhörnchen",
+      "text": "Die Eichhörnchen haben die Vorräte geplündert und nur abgenagte Eicheln zurückgelassen. Zahle 6 Münzen für jeden Ort, den du besitzt; besitzt du keinen, zahle 15 Münzen."
+    },
+    "i3": {
+      "title": "Sandsturm",
+      "text": "Der Sand bedeckt den Weg, und selbst die Mäuse der Dünen suchen Schutz. Gehe 3 Felder zurück."
+    },
+    "i4": {
+      "title": "Weg versperrt",
+      "text": "Ein Einsturz versperrt den Weg in einer Wolke aus Minenstaub. Kehre ins Basislager zurück."
+    },
+    "i5": {
+      "title": "Launisches Portal",
+      "text": "Das Portal will nicht funktionieren: Seine Fahne hängt reglos, ohne einen Funken Magie. Zahle 20 Münzen für die Reparatur und ziehe anschließend zum nächsten Portal."
+    },
+    "i6": {
+      "title": "Wartungstag",
+      "text": "Zeit für eine Kontrolle, mit Werkzeug so scharf wie die Sägen der Mine. Zahle 8 Münzen für jede Verschönerung; hast du keine, zahle 15 Münzen."
+    },
+    "i7": {
+      "title": "Weg gesperrt",
+      "text": "Der Pfad ist gesperrt. Nimm den Umweg zum Picknickplatz, wo ein saftiger Apfel auf dich wartet."
+    },
+    "i8": {
+      "title": "Kleine Panne",
+      "text": "Eine kleine Panne beschädigt eine deiner Verschönerungen — du bräuchtest den richtigen Schlüssel aus Grugnettos Werkstatt. Entferne eine; hast du keine, zahle 25 Münzen."
+    }
+  },
+  "copyVersion": "1.3.0"
+}

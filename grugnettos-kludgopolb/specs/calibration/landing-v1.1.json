@@ -1,0 +1,295 @@
+{
+  "runs": 500,
+  "turnsPerRun": 4000,
+  "totalResolvedLandings": 2363998,
+  "spaces": [
+    {
+      "index": 0,
+      "name": "home",
+      "type": "start",
+      "world": null,
+      "landings": 91396,
+      "share": 0.038661623233183784,
+      "landingWeight": 1.247537996844944
+    },
+    {
+      "index": 1,
+      "name": "flower-path",
+      "type": "site",
+      "world": "world1",
+      "landings": 69985,
+      "share": 0.029604508971665798,
+      "landingWeight": 0.9552819238171628
+    },
+    {
+      "index": 2,
+      "name": "adventure-1",
+      "type": "event",
+      "world": null,
+      "landings": 66645,
+      "share": 0.02819164821628445,
+      "landingWeight": 0.9096915598027407
+    },
+    {
+      "index": 3,
+      "name": "meadow-mill",
+      "type": "site",
+      "world": "world1",
+      "landings": 72469,
+      "share": 0.030655271281955398,
+      "landingWeight": 0.989188050826691
+    },
+    {
+      "index": 4,
+      "name": "repairs",
+      "type": "tax",
+      "world": null,
+      "landings": 61026,
+      "share": 0.02581474265206654,
+      "landingWeight": 0.8329932797437476
+    },
+    {
+      "index": 5,
+      "name": "meadow-portal",
+      "type": "hub",
+      "world": null,
+      "landings": 76242,
+      "share": 0.03225129632089367,
+      "landingWeight": 1.0406887823914857
+    },
+    {
+      "index": 6,
+      "name": "frog-pond",
+      "type": "site",
+      "world": "world1",
+      "landings": 60115,
+      "share": 0.025429378535853246,
+      "landingWeight": 0.8205583032116702
+    },
+    {
+      "index": 7,
+      "name": "windy-hill",
+      "type": "site",
+      "world": "world1",
+      "landings": 69553,
+      "share": 0.029421767700311085,
+      "landingWeight": 0.9493852060763752
+    },
+    {
+      "index": 8,
+      "name": "picnic-spot",
+      "type": "neutral",
+      "world": null,
+      "landings": 79794,
+      "share": 0.033753835663143536,
+      "landingWeight": 1.0891729060379607
+    },
+    {
+      "index": 9,
+      "name": "acorn-glade",
+      "type": "site",
+      "world": "world2",
+      "landings": 62400,
+      "share": 0.026395961417903062,
+      "landingWeight": 0.8517481181137523
+    },
+    {
+      "index": 10,
+      "name": "setback-1",
+      "type": "event",
+      "world": null,
+      "landings": 64460,
+      "share": 0.02726736655445563,
+      "landingWeight": 0.8798667258591742
+    },
+    {
+      "index": 11,
+      "name": "great-root",
+      "type": "site",
+      "world": "world2",
+      "landings": 65738,
+      "share": 0.02780797614887999,
+      "landingWeight": 0.897311182509004
+    },
+    {
+      "index": 12,
+      "name": "supply-shop",
+      "type": "service",
+      "world": null,
+      "landings": 64749,
+      "share": 0.027389617080894317,
+      "landingWeight": 0.8838115208292845
+    },
+    {
+      "index": 13,
+      "name": "base-camp",
+      "type": "detention",
+      "world": null,
+      "landings": 64423,
+      "share": 0.02725171510297386,
+      "landingWeight": 0.8793616829045235
+    },
+    {
+      "index": 14,
+      "name": "log-bridge",
+      "type": "site",
+      "world": "world2",
+      "landings": 64685,
+      "share": 0.027362544299952878,
+      "landingWeight": 0.8829379330158345
+    },
+    {
+      "index": 15,
+      "name": "mushroom-woods",
+      "type": "site",
+      "world": "world2",
+      "landings": 69751,
+      "share": 0.02950552411634866,
+      "landingWeight": 0.9520878683742362
+    },
+    {
+      "index": 16,
+      "name": "forest-passage",
+      "type": "hub",
+      "world": null,
+      "landings": 75493,
+      "share": 0.0319344601814384,
+      "landingWeight": 1.0304650750122035
+    },
+    {
+      "index": 17,
+      "name": "dune-oasis",
+      "type": "site",
+      "world": "world3",
+      "landings": 70845,
+      "share": 0.029968299465566384,
+      "landingWeight": 0.9670207600603972
+    },
+    {
+      "index": 18,
+      "name": "adventure-2",
+      "type": "event",
+      "world": null,
+      "landings": 71174,
+      "share": 0.03010747048009347,
+      "landingWeight": 0.9715115474139135
+    },
+    {
+      "index": 19,
+      "name": "cactus-trail",
+      "type": "site",
+      "world": "world3",
+      "landings": 86045,
+      "share": 0.03639808493915816,
+      "landingWeight": 1.1744978657547727
+    },
+    {
+      "index": 20,
+      "name": "grand-portal",
+      "type": "neutral",
+      "world": null,
+      "landings": 95057,
+      "share": 0.04021027090547454,
+      "landingWeight": 1.2975099497362013
+    },
+    {
+      "index": 21,
+      "name": "golden-canyon",
+      "type": "site",
+      "world": "world3",
+      "landings": 78763,
+      "share": 0.03331771008266504,
+      "landingWeight": 1.0750999523556646
+    },
+    {
+      "index": 22,
+      "name": "travel-toll",
+      "type": "tax",
+      "world": null,
+      "landings": 76234,
+      "share": 0.03224791222327599,
+      "landingWeight": 1.0405795839148044
+    },
+    {
+      "index": 23,
+      "name": "sand-arch",
+      "type": "site",
+      "world": "world3",
+      "landings": 78737,
+      "share": 0.03330671176540759,
+      "landingWeight": 1.0747450573064505
+    },
+    {
+      "index": 24,
+      "name": "grugnetto-workshop",
+      "type": "service",
+      "world": null,
+      "landings": 74738,
+      "share": 0.03161508596876986,
+      "landingWeight": 1.0201594687754105
+    },
+    {
+      "index": 25,
+      "name": "mine-entrance",
+      "type": "site",
+      "world": "world4",
+      "landings": 84853,
+      "share": 0.035893854394123854,
+      "landingWeight": 1.1582272927292665
+    },
+    {
+      "index": 26,
+      "name": "worlds-tunnel",
+      "type": "hub",
+      "world": null,
+      "landings": 82868,
+      "share": 0.03505417517273703,
+      "landingWeight": 1.1311324207027311
+    },
+    {
+      "index": 27,
+      "name": "minecart-hall",
+      "type": "site",
+      "world": "world4",
+      "landings": 76062,
+      "share": 0.032175154124495876,
+      "landingWeight": 1.0382318166661575
+    },
+    {
+      "index": 28,
+      "name": "setback-2",
+      "type": "event",
+      "world": null,
+      "landings": 77142,
+      "share": 0.03263200730288266,
+      "landingWeight": 1.0529736110181263
+    },
+    {
+      "index": 29,
+      "name": "torch-shaft",
+      "type": "site",
+      "world": "world4",
+      "landings": 77121,
+      "share": 0.03262312404663625,
+      "landingWeight": 1.052686965016838
+    },
+    {
+      "index": 30,
+      "name": "back-to-base-camp",
+      "type": "moveToDetention",
+      "world": null,
+      "landings": 78164,
+      "share": 0.033064325773541264,
+      "landingWeight": 1.066923716414156
+    },
+    {
+      "index": 31,
+      "name": "heart-of-mine",
+      "type": "site",
+      "world": "world4",
+      "landings": 77271,
+      "share": 0.032686575876967744,
+      "landingWeight": 1.0547344364546114
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "grugnettos-kludgopolb-how-to-play",
+  "contentVersion": "1.0.0",
+  "sourceBoardId": "grugnetto-32-worlds-v1.4",
+  "sourceBoardContentVersion": "1.4.1",
+  "defaultLocale": "it",
+  "locales": [
+    "it",
+    "en",
+    "fr",
+    "de"
+  ],
+  "variables": {
+    "minPlayers": 2,
+    "maxPlayers": 8,
+    "minCpuOpponents": 1,
+    "maxCpuOpponents": 7,
+    "startingCash": 1200,
+    "passStartSalary": 160,
+    "detentionTurns": 2,
+    "detentionFee": 70,
+    "maxEmbellishments": 4,
+    "pledgePercent": 50,
+    "redeemPercent": 55,
+    "sellEmbellishmentPercent": 50,
+    "worldCount": 4,
+    "placesPerWorld": 4,
+    "portalCount": 3,
+    "specialPlaceCount": 2
+  },
+  "sections": [
+    "objective",
+    "turn",
+    "places",
+    "worlds",
+    "portalsServices",
+    "baseCamp",
+    "auctions",
+    "trades",
+    "pledges",
+    "events",
+    "debts",
+    "winning"
+  ],
+  "notes": {
+    "scope": "Player-facing rules only. Values mirror the stable Grugnetto board mechanics and implemented GameController behavior.",
+    "translation": "Localized files may use {{variableName}} placeholders from variables."
+  }
+}
