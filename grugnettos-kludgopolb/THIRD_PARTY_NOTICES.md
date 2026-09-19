@@ -54,6 +54,8 @@ are not relicensed by it. An overview table is in
 - `public/assets/audio/dice.wav` and `unlock.wav`, generated for Grugnetto's Goose by the
   same author with no third-party recordings, are reused here under GPL-3.0-only.
   See `public/assets/audio/NOTICE.md`.
+- `public/assets/audio/cash-register.wav` is not third-party: it is synthesised by
+  `scripts/cash-register.mjs` and listed here only to keep all sound files in one place.
 
 ## Atkinson Hyperlegible Next
 

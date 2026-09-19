@@ -15,24 +15,21 @@
       { "file": "assets/audio/dice.wav" }
     ],
     "startPassed": [
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg" },
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg", "delay": 90, "rate": 1.2 },
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_gem.ogg", "delay": 190 }
+      { "file": "assets/audio/cash-register.wav", "rate": 1.08 },
+      { "file": "assets/third_party/kenney/audio/platformer/sfx_gem.ogg", "delay": 260, "gain": 0.8 }
     ],
     "purchase": [
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg" },
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg", "delay": 80, "rate": 0.85 }
+      { "file": "assets/audio/cash-register.wav" }
     ],
     "auction": [
       { "file": "assets/third_party/kenney/audio/impact/impactWood_heavy_000.ogg" },
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg", "delay": 160 }
+      { "file": "assets/audio/cash-register.wav", "delay": 170 }
     ],
     "pay": [
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg", "rate": 0.75 }
+      { "file": "assets/audio/cash-register.wav", "rate": 0.82, "gain": 0.9 }
     ],
     "receive": [
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg", "rate": 1.3 },
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg", "delay": 70, "rate": 1.55, "gain": 0.8 }
+      { "file": "assets/audio/cash-register.wav", "rate": 1.12 }
     ],
     "adventure": [
       { "file": "assets/third_party/kenney/audio/impact/impactSoft_medium_000.ogg", "gain": 0.6 },
@@ -78,12 +75,12 @@
     ],
     "victory": [
       { "file": "assets/third_party/kenney/audio/digital/powerUp1.ogg" },
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_coin.ogg", "delay": 250, "rate": 1.3 },
-      { "file": "assets/third_party/kenney/audio/platformer/sfx_gem.ogg", "delay": 420 }
+      { "file": "assets/audio/cash-register.wav", "delay": 260, "rate": 1.2, "gain": 0.8 },
+      { "file": "assets/third_party/kenney/audio/platformer/sfx_gem.ogg", "delay": 460 }
     ]
   },
   "license": {
     "kenney": "Kenney New Platformer Pack 1.1, Digital Audio and Impact Sounds - CC0 1.0",
-    "projectAuthored": "assets/audio/dice.wav and unlock.wav - generated for Grugnetto's Goose by the same author, GPL-3.0-only, no third-party recordings"
+    "projectAuthored": "assets/audio/dice.wav and unlock.wav - generated for Grugnetto's Goose by the same author; assets/audio/cash-register.wav - synthesised by scripts/cash-register.mjs; all GPL-3.0-only, no third-party recordings"
   }
 }

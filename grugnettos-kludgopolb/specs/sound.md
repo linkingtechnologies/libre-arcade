@@ -30,6 +30,10 @@ Short sound effects for what happens between players. Sound is a second channel 
 
 Silent on purpose: `CASH_CHANGED`, `TURN_ENDED`, `SPACE_LANDED`, `PLAYER_MOVED`, `PROPERTY_TRANSFERRED`, `AUCTION_LIMIT_SET`, `DETENTION_DECISION`, `DETENTION_CARD_USED`, an unsold auction, and `PAYMENT` for rent or purchases (covered by `RENT_DUE` and `PROPERTY_ACQUIRED`). A test fails when the core starts emitting an event that is neither mapped nor listed as silent.
 
+## The cash register
+
+Every money cue (purchase, rent paid or received, salary, tax, auction) rings the same register, a clack followed by a double-struck bell: lower and slightly muted when the human pays, higher when they are paid. The sound is synthesised by `scripts/cash-register.mjs` (`node scripts/cash-register.mjs` rewrites `assets/audio/cash-register.wav`) and a test checks that the committed file is exactly what the script produces, so its shape (clack, then a bell that rings out and decays) can be retuned in code.
+
 ## Files
 
 `src/ui/sound.js` holds the event-to-cue routing and the Web Audio player. `config/sounds.json` says what each cue sounds like: a list of layers with a file, delay, pitch and gain, so a cue can be retuned or swapped without touching code. The files and their licences are listed in `licensing.md`.

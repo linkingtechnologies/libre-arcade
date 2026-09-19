@@ -35,8 +35,9 @@ The four world icons (`assets/grugnetto/world-icons/`) are derived from Kenney t
 
 Twenty-one short sound files back the twenty event cues (`config/sounds.json` maps events to files, see `specs/sound.md`):
 
-- Nineteen distinct Kenney files under `assets/third_party/kenney/audio/` (five from the New Platformer Pack sounds, six from Digital Audio, eight from Impact Sounds) remain **CC0 1.0**, with each pack's `License.txt` alongside. They were copied from the copies already shipped by the sibling Grugnetto Go! project.
+- Eighteen distinct Kenney files under `assets/third_party/kenney/audio/` (four from the New Platformer Pack sounds, six from Digital Audio, eight from Impact Sounds) remain **CC0 1.0**, with each pack's `License.txt` alongside. They were copied from the copies already shipped by the sibling Grugnetto Go! project.
 - `assets/audio/dice.wav` and `assets/audio/unlock.wav` were generated for Grugnetto's Goose (same author), which documents them as project-authored with no third-party recordings; they are reused under **GPL-3.0-only**. See `assets/audio/NOTICE.md`.
+- `assets/audio/cash-register.wav` is synthesised by `scripts/cash-register.mjs` in this repository (a mechanical clack and a double-struck bell from a seeded noise source), contains no recording, and is distributed under **GPL-3.0-only**.
 
 ## UI font
 

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { setTimeout as delay } from 'node:timers/promises';
 import { cueForEvent, createSoundPlayer, EVENT_CUE_NAMES, NEUTRAL_GAIN } from '../public/src/ui/sound.js';
 import { UI_TEXT } from '../public/src/ui/i18n.js';
+import { renderCashRegisterWav, renderCashRegisterSamples, SAMPLE_RATE } from '../scripts/cash-register.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicFile = rel => path.join(root, 'public', rel);
@@ -240,4 +241,33 @@ test('the toolbar sound control is fed by every event packet, persisted and loca
   for (const lang of ['it', 'en', 'fr', 'de']) {
     for (const key of ['soundLabel', 'soundOff', 'soundLow', 'soundMedium', 'soundHigh']) assert.ok(UI_TEXT[lang][key], `${lang}.${key}`);
   }
+});
+
+test('the cash register sound is exactly what scripts/cash-register.mjs generates', () => {
+  assert.deepEqual(fs.readFileSync(publicFile('assets/audio/cash-register.wav')), renderCashRegisterWav());
+});
+
+test('the cash register is a clack followed by a bell that rings out and decays', () => {
+  const pcm = renderCashRegisterSamples();
+  const at = seconds => Math.round(seconds * SAMPLE_RATE);
+  const rms = (from, to) => Math.sqrt(pcm.slice(at(from), at(to)).reduce((sum, sample) => sum + (sample / 32768) ** 2, 0) / (at(to) - at(from)));
+  // energy of one frequency (single-bin DFT) in a window
+  const tone = (from, to, hz) => {
+    let re = 0;
+    let im = 0;
+    for (let i = at(from); i < at(to); i += 1) {
+      const t = i / SAMPLE_RATE;
+      re += (pcm[i] / 32768) * Math.cos(2 * Math.PI * hz * t);
+      im += (pcm[i] / 32768) * Math.sin(2 * Math.PI * hz * t);
+    }
+    return Math.hypot(re, im);
+  };
+  assert.ok(pcm.length / SAMPLE_RATE > 0.8 && pcm.length / SAMPLE_RATE < 1.1, 'about a second, so a cue does not pile up on the next beat');
+  assert.ok(Math.max(...pcm.map(Math.abs)) / 32768 <= 0.9, 'no clipping');
+  assert.ok(rms(0, 0.06) > 0.05, 'the clack is audible');
+  assert.ok(tone(0, 0.07, 100) > 10 * tone(0, 0.07, 6500), 'the clack is a low thump, not a hiss');
+  assert.ok(tone(0.08, 0.3, 2350) > 20 * tone(0.08, 0.3, 100), 'then the bell rings high');
+  assert.ok(tone(0.08, 0.3, 4700) > 5 * tone(0.08, 0.3, 9000), 'with its overtones dying away toward the top');
+  assert.ok(rms(0.08, 0.2) > rms(0.4, 0.6) && rms(0.4, 0.6) > rms(0.75, 0.9), 'the bell decays');
+  assert.equal(pcm[pcm.length - 1], 0, 'and ends on silence');
 });
