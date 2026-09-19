@@ -31,6 +31,13 @@ Nine icons (`assets/third_party/kenney/board-icons/flag_triangle.png`, `campfire
 
 The four world icons (`assets/grugnetto/world-icons/`) are derived from Kenney terrain blocks (CC0) and the Grugnetto acorn; details in `assets/grugnetto/NOTICE.md`.
 
+## Sound effects
+
+Twenty-one short sound files back the twenty event cues (`config/sounds.json` maps events to files, see `specs/sound.md`):
+
+- Nineteen distinct Kenney files under `assets/third_party/kenney/audio/` (five from the New Platformer Pack sounds, six from Digital Audio, eight from Impact Sounds) remain **CC0 1.0**, with each pack's `License.txt` alongside. They were copied from the copies already shipped by the sibling Grugnetto Go! project.
+- `assets/audio/dice.wav` and `assets/audio/unlock.wav` were generated for Grugnetto's Goose (same author), which documents them as project-authored with no third-party recordings; they are reused under **GPL-3.0-only**. See `assets/audio/NOTICE.md`.
+
 ## UI font
 
 The UI font is Atkinson Hyperlegible Next (Latin subset, variable weight), Copyright 2020-2024 The Atkinson Hyperlegible Next Project Authors, licensed under the **SIL Open Font License 1.1**. The license text is preserved at `assets/fonts/atkinson/OFL-LICENSE.txt`. It replaces GNU FreeSans, which is no longer shipped.

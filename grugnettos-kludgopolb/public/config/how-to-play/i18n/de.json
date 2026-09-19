@@ -20,7 +20,8 @@
       "title": "Orte und Erträge",
       "paragraphs": [
         "Landest du auf einem freien Ort, kannst du ihn zum angegebenen Preis kaufen. Kaufst du ihn nicht, wird er versteigert.",
-        "Landest du auf dem Ort eines anderen Spielers, zahlst du dessen Ertrag. Ein verpfändeter Ort bringt keinen Ertrag."
+        "Landest du auf dem Ort eines anderen Spielers, zahlst du dessen Ertrag. Ein verpfändeter Ort bringt keinen Ertrag.",
+        "Auf dem Spielplan zeigt ein freier Ort seinen Preis, in Grün. Hat er einen Besitzer, zeigt er stattdessen den Ertrag, den du beim Betreten zahlst: braun, golden mit Verschönerungen und grau durchgestrichen, wenn er verpfändet ist (der Ertrag, den er nach dem Auslösen wieder bringen würde). Bei besonderen Orten ist der Ertrag ein Vielfaches des Würfelwurfs, zum Beispiel ×3."
       ]
     },
     "worlds": {

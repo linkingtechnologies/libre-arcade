@@ -10,8 +10,11 @@ A static, client-side browser game built on the production `GameController`: one
 
 - eight selectable CPU friends: the seven preserved KludgopolB personalities plus Pazifik, each with a localized friend card and a Grugnetto Go! character pawn;
 - an illustrated four-island board (Prato di Casa, Bosco degli Scoiattoli, Dune Dorate, Miniera di Pietra) with 32 spaces, drawn from one background image plus a JSON layout;
+- each ownable place shows one amount: its price in green while it is free, then the rent it collects once owned (brown, gold with embellishments, struck-through grey when pledged, ×N of the dice for special places), computed by the same `rentTerms` rule the engine charges;
 - CPU turns are reviewed action by action in the right-hand column and end with an **OK** button; the same review is reachable from the bottom dock on phones;
 - four-language **How to play** manual, board zoom, active-player follow mode and normal/fast animation speed;
+- short **sound effects** for what happens between players (dice, purchases, rent, trades, cards, pledges, embellishments, Base Camp), on by default at a low volume, with an off/low/medium/high control in the toolbar (see `specs/sound.md`);
+- arcade-style floating amounts (green **+100**, red **−120**) whenever money moves, over the player's cash and their pawn (see `specs/money-pops.md`);
 - keyboard-accessible board spaces, live-region announcements and `prefers-reduced-motion` support;
 - a **Reset local data** command that deletes only this game's keys from the browser origin;
 - no visible deterministic seed and no internal AI-level labels in normal play.

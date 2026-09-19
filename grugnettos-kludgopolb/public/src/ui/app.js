@@ -1,7 +1,9 @@
-import { GameController, serializeSave, deserializeSave } from '../core/index.js';
+import { GameController, serializeSave, deserializeSave, rentTerms } from '../core/index.js';
 import { UI_TEXT } from './i18n.js';
 import { loadHowToPlay } from './how-to-play.js';
 import { loadAiProfiles } from './ai-profiles.js';
+import { createSoundPlayer } from './sound.js';
+import { buildFeedbackBeats, popText } from './feedback.js';
 
 const SAVE_KEY = 'grugnettos-kludgopolb.save.v1';
 const AUTOSAVE_KEY = 'grugnettos-kludgopolb.autosave.v1';
@@ -15,7 +17,8 @@ const MIN_NUMBERS_ZOOM = 1.25;
 const ANIMATION_SPEED_KEY = 'grugnettos-kludgopolb.animationSpeed';
 const FOLLOW_TURN_KEY = 'grugnettos-kludgopolb.followTurn';
 const NUMBER_POSITIONS_KEY = 'grugnettos-kludgopolb.numberPositions.v6';
-const LOCAL_STORAGE_KEYS = [SAVE_KEY, AUTOSAVE_KEY, LANGUAGE_KEY, BOARD_ZOOM_KEY, ANIMATION_SPEED_KEY, FOLLOW_TURN_KEY, NUMBER_POSITIONS_KEY];
+const SOUND_LEVEL_KEY = 'grugnettos-kludgopolb.soundLevel';
+const LOCAL_STORAGE_KEYS = [SAVE_KEY, AUTOSAVE_KEY, LANGUAGE_KEY, BOARD_ZOOM_KEY, ANIMATION_SPEED_KEY, FOLLOW_TURN_KEY, NUMBER_POSITIONS_KEY, SOUND_LEVEL_KEY];
 const MANUAL_FOLLOW_PAUSE_MS = 6000;
 const DOUBLE_TAP_MS = 320;
 const CPU_NAMES = ['Zilla','Queen','Wallace','Hans','Mimrock','Lost Soul','Pazifik','Lemming'];
@@ -66,6 +69,7 @@ const zoomResetBtn = el('zoomResetBtn');
 const followBtn = el('followBtn');
 const followLabel = el('followLabel');
 const speedSelect = el('speedSelect');
+const soundSelect = el('soundSelect');
 const numberEditBtn = el('numberEditBtn');
 const numberEditLabel = el('numberEditLabel');
 const numberExportBtn = el('numberExportBtn');
@@ -99,6 +103,10 @@ let suppressBoardClickUntil = 0;
 let lastSpaceTap = { index: -1, time: 0, timer: null };
 let notificationGeneration = 0;
 let eventStripQueue = [];
+let sound = null;
+let soundConfig = null;
+let feedbackQueue = [];
+let feedbackWorkerRunning = false;
 let eventStripWorkerRunning = false;
 let boardDrag = null;
 let recoveryCandidate = null;
@@ -610,6 +618,118 @@ function speedMultiplier() { return animationSpeed === 'fast' ? 0.55 : 1; }
 function motionMs(ms) { return Math.max(35, Math.round(ms * speedMultiplier())); }
 function cpuPopupHoldMs() { return animationSpeed === 'fast' ? 1450 : 2700; }
 
+const SOUND_LEVEL_LABEL_KEYS = { off: 'soundOff', low: 'soundLow', medium: 'soundMedium', high: 'soundHigh' };
+function updateSoundUi() {
+  if (!soundSelect) return;
+  soundSelect.hidden = !sound;
+  if (!sound) return;
+  soundSelect.replaceChildren(...Object.keys(soundConfig.levels).map(level => {
+    const option = document.createElement('option');
+    option.value = level;
+    option.textContent = t(SOUND_LEVEL_LABEL_KEYS[level] ?? level);
+    return option;
+  }));
+  soundSelect.value = sound.level;
+  soundSelect.title = t('soundLabel');
+  soundSelect.setAttribute('aria-label', t('soundLabel'));
+}
+async function setupSound() {
+  try {
+    const response = await fetch('config/sounds.json');
+    if (!response.ok) throw new Error(`Sounds HTTP ${response.status}`);
+    soundConfig = await response.json();
+  } catch (error) {
+    console.warn('Sound config unavailable, the game stays silent', error);
+    return;
+  }
+  const stored = storage.get(SOUND_LEVEL_KEY);
+  const level = stored in soundConfig.levels ? stored : soundConfig.defaultLevel;
+  sound = createSoundPlayer({ cues: soundConfig.cues, levels: soundConfig.levels, level });
+  // Browsers only start audio after a user gesture: unlock on the first press or key.
+  const unlock = async () => {
+    await sound.unlock();
+    if (!sound.running) return;
+    document.removeEventListener('pointerdown', unlock, true);
+    document.removeEventListener('keydown', unlock, true);
+  };
+  document.addEventListener('pointerdown', unlock, true);
+  document.addEventListener('keydown', unlock, true);
+  soundSelect?.addEventListener('change', () => {
+    sound.setLevel(soundSelect.value);
+    storage.set(SOUND_LEVEL_KEY, sound.level);
+    sound.unlock().then(() => sound.play('receive'));
+  });
+  updateSoundUi();
+}
+function humanPlayerId() {
+  return packet?.state?.players?.find(player => player.type === 'human')?.id ?? null;
+}
+// A CPU turn is computed in one go, so what it did is played back one beat at a time, paced like the animations:
+// each beat is a sound cue together with the floating amounts of the money that moved with it.
+const MAX_BEATS_PER_PACKET = 12;
+const MONEY_POP_MS = 1150;
+function feedbackGapMs() { return animationSpeed === 'fast' ? 260 : 480; }
+function enqueuePacketFeedback(events = []) {
+  const beats = buildFeedbackBeats(events, humanPlayerId());
+  feedbackQueue.push(...beats.slice(-MAX_BEATS_PER_PACKET));
+  drainFeedbackQueue();
+}
+async function drainFeedbackQueue() {
+  if (feedbackWorkerRunning) return;
+  feedbackWorkerRunning = true;
+  const generation = notificationGeneration;
+  try {
+    while (feedbackQueue.length) {
+      if (generation !== notificationGeneration) return;
+      const { cue, pops } = feedbackQueue.shift();
+      if (cue) sound?.play(cue.cue, { gain: cue.gain, rate: cue.rate });
+      pops.forEach(showMoneyPop);
+      await wait(feedbackGapMs());
+    }
+  } finally {
+    if (generation === notificationGeneration) feedbackWorkerRunning = false;
+  }
+}
+
+// Arcade-style "+100" / "−120": floats up from the player's cash in their card and from their pawn on the board.
+let moneyPopLayer = null;
+function spawnMoneyPop(text, kind, mine, x, y) {
+  if (!moneyPopLayer?.isConnected) {
+    moneyPopLayer = document.createElement('div');
+    moneyPopLayer.className = 'money-pop-layer';
+    moneyPopLayer.setAttribute('aria-hidden', 'true');
+    document.body.append(moneyPopLayer);
+  }
+  const node = document.createElement('span');
+  node.className = `money-pop ${kind}${mine ? ' mine' : ''}`;
+  node.textContent = text;
+  node.style.left = `${Math.round(x)}px`;
+  node.style.top = `${Math.round(y)}px`;
+  node.style.setProperty('--pop-ms', `${motionMs(MONEY_POP_MS)}ms`);
+  moneyPopLayer.append(node);
+  setTimeout(() => node.remove(), motionMs(MONEY_POP_MS) + 80);
+}
+function visibleRect(node, within = null) {
+  const rect = node?.getBoundingClientRect();
+  if (!rect || rect.width <= 0 || rect.height <= 0) return null;
+  const clip = within ? within.getBoundingClientRect() : { left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight };
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  return cx >= clip.left && cx <= clip.right && cy >= clip.top && cy <= clip.bottom ? rect : null;
+}
+function showMoneyPop({ playerId, amount }) {
+  const player = playerById(playerId);
+  if (!player || !amount) return;
+  const kind = amount > 0 ? 'gain' : 'spend';
+  const text = popText(amount);
+  const mine = player.type === 'human';
+  const card = [...document.querySelectorAll(`.player-card[data-player-id="${playerId}"] .player-money, .mobile-player[data-player-id="${playerId}"]`)]
+    .map(node => visibleRect(node)).find(Boolean);
+  if (card) spawnMoneyPop(text, kind, mine, card.left + Math.min(card.width / 2, 60), card.top + card.height / 2);
+  const tile = visibleRect(boardEl?.querySelector(`.space[data-index="${player.position}"]`), boardViewport);
+  if (tile) spawnMoneyPop(text, kind, mine, tile.left + tile.width / 2, tile.top + tile.height * 0.3);
+}
+
 function updateSpeedUi() {
   if (!speedSelect) return;
   speedSelect.value = animationSpeed;
@@ -1111,6 +1231,8 @@ function resetCpuPopupQueue() {
   notificationGeneration += 1;
   eventStripQueue = [];
   eventStripWorkerRunning = false;
+  feedbackQueue = [];
+  feedbackWorkerRunning = false;
   cpuPopupQueue = [];
   cpuPopupWorkerRunning = false;
   hideTurnPopup();
@@ -1200,6 +1322,7 @@ function renderLanguage() {
   helpBtn.setAttribute('aria-label', t('howToPlay'));
   updateFollowButton();
   updateSpeedUi();
+  updateSoundUi();
   updateNumberEditUi();
   applyBoardZoom();
   document.documentElement.lang = language;
@@ -1397,15 +1520,19 @@ function renderBoard() {
     if (pos?.levelRef) node.dataset.levelRef = pos.levelRef;
     const owner = state?.players?.find(p => p.id === st.owner);
     if (owner) node.style.setProperty('--owner', playerColor(owner));
-    const price = ['site','hub','service'].includes(space.type) && Number.isFinite(space.price) ? `<span class="space-price"><img src="${board.currencyAsset}" alt="">${space.price}</span>` : '';
     const isOwnable = ['site','hub','service'].includes(space.type);
+    // A free place shows its price; an owned one shows the rent it collects (what it would collect once redeemed while pledged, struck through by CSS).
+    const terms = isOwnable && state?.spaces ? rentTerms(board, state.spaces, index, { ifRedeemed: true }) : null;
+    const amountText = terms ? (terms.kind === 'dice' ? `×${terms.factor}` : String(terms.amount)) : (isOwnable && Number.isFinite(space.price) ? String(space.price) : null);
+    const price = amountText != null ? `<span class="space-price"><img src="${board.currencyAsset}" alt="">${amountText}</span>` : '';
     const specialSymbol = isOwnable ? '' : (space.type === 'start' ? boardIconMask('flag_triangle') : iconFor(space,index));
     const worldSymbol = worldCellSymbol(space.world);
     const typeBadge = spaceTypeBadge(space);
     const spaceNumber = index + 1;
     node.innerHTML = `<span class="space-number" title="${escapeHtml(t('space'))} ${spaceNumber}">${spaceNumber}</span>${worldSymbol}${typeBadge}${specialSymbol}<strong class="space-title">${escapeHtml(spaceName(space))}</strong>${price}`;
     const ownerLabel = (owner ? ` · ${t('owner')}: ${owner.name}` : '') + (st.embellishments ? ` · ${t('embellishments')}: ${st.embellishments}` : '') + (st.pledged ? ` · ${t('pledged')}` : '');
-    const priceLabel = Number.isFinite(space.price) ? ` · ${t('price')}: ${space.price}` : '';
+    const rentLabel = terms && !st.pledged ? ` · ${t('rent')}: ${terms.kind === 'dice' ? tf('diceMultiplier', { n: terms.factor }) : terms.amount}` : '';
+    const priceLabel = terms ? rentLabel : (Number.isFinite(space.price) ? ` · ${t('price')}: ${space.price}` : '');
     const worldLabel = space.world ? ` · ${t('world')}: ${worldName(space.world)}` : '';
     node.setAttribute('aria-label', `${t('space')} ${spaceNumber}: ${spaceName(space)}${worldLabel}${priceLabel}${ownerLabel}. ${t('accessibilitySpace')}`);
     if (!tileShapes) node.addEventListener('click', () => handleSpaceClick(index));
@@ -1887,6 +2014,8 @@ function processPacket(nextPacket,{showCards=true}={}) {
     if (e.type==='CARD_DRAWN' && packet.state.players.find(p=>p.id===e.playerId)?.type==='human') latestCard=e;
   }
   renderAll();
+  // Sounds and floating amounts do not wait for the next animation frame: they start as soon as the packet is shown.
+  enqueuePacketFeedback(events);
   requestAnimationFrame(() => animatePacketEvents(events));
   if (showCards && latestCard) {
     const cardEvent=latestCard; latestCard=null;
@@ -2030,33 +2159,22 @@ function showSpaceInfo(index) {
   let currentRent = null;
   let schedule = [];
   let scheduleNote = '';
+  const terms = packet?.state?.spaces ? rentTerms(board, packet.state.spaces, index) : null;
+  const isCurrent = level => terms !== null && terms.level === level;
   if (space.type === 'site' && Array.isArray(space.rents)) {
-    const level=Math.min(st?.embellishments||0,space.rents.length-1);
-    let active=space.rents[level]??0;
-    if (owner && !st?.pledged && level===0) {
-      const group=board.spaces.map((s,i)=>({s,i})).filter(x=>x.s.group===space.group);
-      const complete=group.length>0 && group.every(x=>packet.state.spaces[x.i].owner===owner.id && !packet.state.spaces[x.i].pledged);
-      if (complete) active*=2;
-    }
-    currentRent=owner&&!st?.pledged?`${active} 🪙`:t('notCollecting');
-    schedule=space.rents.map((amount,levelIndex)=>({
-      label:levelIndex===0?t('baseLevel'):tf(levelIndex===1?'embellishmentLevel':'embellishmentLevels',{n:levelIndex}),
-      value:`${amount} 🪙`,
-      active:owner&&!st?.pledged&&levelIndex===level
+    currentRent = terms ? `${terms.amount} 🪙` : t('notCollecting');
+    schedule = space.rents.map((amount, levelIndex) => ({
+      label: levelIndex === 0 ? t('baseLevel') : tf(levelIndex === 1 ? 'embellishmentLevel' : 'embellishmentLevels', { n: levelIndex }),
+      value: `${amount} 🪙`,
+      active: isCurrent(levelIndex)
     }));
-    scheduleNote=t('completeWorldBonus');
+    scheduleNote = t('completeWorldBonus');
   } else if (space.type === 'hub' && Array.isArray(space.rents)) {
-    let ownedCount=0;
-    if(owner) ownedCount=board.spaces.reduce((count,s,i)=>count+(s.type==='hub'&&packet.state.spaces[i].owner===owner.id&&!packet.state.spaces[i].pledged?1:0),0);
-    const level=Math.max(0,Math.min(ownedCount-1,space.rents.length-1));
-    currentRent=owner&&!st?.pledged?`${space.rents[level]} 🪙`:t('notCollecting');
-    schedule=space.rents.map((amount,i)=>({label:tf(i===0?'portalOwnedLevel':'portalsOwnedLevel',{n:i+1}),value:`${amount} 🪙`,active:owner&&!st?.pledged&&i===level}));
+    currentRent = terms ? `${terms.amount} 🪙` : t('notCollecting');
+    schedule = space.rents.map((amount, i) => ({ label: tf(i === 0 ? 'portalOwnedLevel' : 'portalsOwnedLevel', { n: i + 1 }), value: `${amount} 🪙`, active: isCurrent(i) }));
   } else if (space.type === 'service' && Array.isArray(space.factors)) {
-    let ownedCount=0;
-    if(owner) ownedCount=board.spaces.reduce((count,s,i)=>count+(s.type==='service'&&packet.state.spaces[i].owner===owner.id&&!packet.state.spaces[i].pledged?1:0),0);
-    const level=Math.max(0,Math.min(ownedCount-1,space.factors.length-1));
-    currentRent=owner&&!st?.pledged?tf('diceMultiplier',{n:space.factors[level]}):t('notCollecting');
-    schedule=space.factors.map((factor,i)=>({label:tf(i===0?'specialOwnedLevel':'specialsOwnedLevel',{n:i+1}),value:tf('diceMultiplier',{n:factor}),active:owner&&!st?.pledged&&i===level}));
+    currentRent = terms ? tf('diceMultiplier', { n: terms.factor }) : t('notCollecting');
+    schedule = space.factors.map((factor, i) => ({ label: tf(i === 0 ? 'specialOwnedLevel' : 'specialsOwnedLevel', { n: i + 1 }), value: tf('diceMultiplier', { n: factor }), active: isCurrent(i) }));
   }
   if(currentRent!==null) rows.push([t('currentRent'), `<strong class="current-rent">${escapeHtml(currentRent)}</strong>`]);
 
@@ -2376,6 +2494,7 @@ async function loadLocale(code) { const r=await fetch(`${boardEntry.i18nBase}/${
 async function boot() {
   const [rr,pr]=await Promise.all([fetch('boards/index.json'),fetch('config/pawns.json')]); registry=await rr.json(); pawnConfig=await pr.json(); boardEntry=registry.boards.find(x=>x.id===registry.defaultBoard); const br=await fetch(boardEntry.path);board=await br.json();
   boardLayout=await loadBoardLayout();
+  await setupSound();
   tileShapes = await loadTileOutlines(boardLayout);
   setupBoardShapeHitTesting();
   boardNumberEditMode = NUMBER_EDIT_ENABLED && !!boardLayout;

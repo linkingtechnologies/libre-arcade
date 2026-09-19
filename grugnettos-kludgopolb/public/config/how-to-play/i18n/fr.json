@@ -20,7 +20,8 @@
       "title": "Lieux et Revenus",
       "paragraphs": [
         "Si tu arrives sur un Lieu libre, tu peux l’acheter au prix indiqué. Si tu ne l’achètes pas, le Lieu est mis aux enchères.",
-        "Si tu arrives sur le Lieu d’un autre joueur, paie son Revenu. Un Lieu en gage ne rapporte aucun Revenu."
+        "Si tu arrives sur le Lieu d’un autre joueur, paie son Revenu. Un Lieu en gage ne rapporte aucun Revenu.",
+        "Sur le plateau, un Lieu libre affiche son prix, en vert. Dès qu’il a un propriétaire, il affiche à la place le Revenu à payer en y arrivant : en brun, en or s’il a des Embellissements, en gris barré s’il est en gage (c’est alors le Revenu qu’il rapporterait de nouveau une fois racheté). Pour les Lieux spéciaux, le Revenu est un multiple du lancer de dés, par exemple ×3."
       ]
     },
     "worlds": {

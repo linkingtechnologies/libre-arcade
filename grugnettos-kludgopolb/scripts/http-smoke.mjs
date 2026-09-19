@@ -15,6 +15,9 @@ const checks = [
   ['/boards/layouts/grugnetto-islands/world-banner.svg', 'image/svg+xml'],
   ['/boards/layouts/grugnetto-islands/tile-outlines.json', 'application/json'],
   ['/config/pawns.json', 'application/json'],
+  ['/config/sounds.json', 'application/json'],
+  ['/assets/third_party/kenney/audio/platformer/sfx_coin.ogg', 'audio/ogg'],
+  ['/assets/audio/dice.wav', 'audio/wav'],
   ['/assets/grugnetto/grugnetto_idle.png', 'image/png']
 ];
 

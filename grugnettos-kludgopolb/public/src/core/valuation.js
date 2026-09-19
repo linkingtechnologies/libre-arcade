@@ -62,32 +62,43 @@ export function propertyValue(game, player, index, profile, { randomUplift = fal
   return Math.floor(value);
 }
 
+/**
+ * The rent rule as pure data, shared by the engine, the board tiles and the place details. `states` is the
+ * per-space state (owner, pledged, embellishments): the engine's `game.state` or the UI's `packet.state.spaces`.
+ * Returns null when nothing is collected (unowned, or pledged unless `ifRedeemed`), otherwise
+ * { kind: 'fixed', amount, level, doubled } or { kind: 'dice', factor, level }, where `level` indexes the
+ * rent (or factor) schedule of the space. `ifRedeemed` asks what a pledged place would collect once redeemed.
+ */
+export function rentTerms(board, states, index, { ifRedeemed = false } = {}) {
+  const space = board.spaces[index];
+  const st = states[index];
+  if (!isProperty(space) || st.owner == null) return null;
+  if (st.pledged && !ifRedeemed) return null;
+  // This place counts as collecting: either it is not pledged, or the caller asked what it would collect if redeemed.
+  const collecting = i => !states[i].pledged || i === index;
+  const ownedCollecting = type => board.spaces.reduce(
+    (count, s, i) => count + (s.type === type && states[i].owner === st.owner && collecting(i) ? 1 : 0), 0);
+
+  if (space.type === 'site') {
+    const level = Math.min(st.embellishments ?? 0, space.rents.length - 1);
+    const doubled = level === 0 && sameGroup(board, space).every(s => {
+      const i = board.spaces.indexOf(s);
+      return states[i].owner === st.owner && collecting(i);
+    });
+    return { kind: 'fixed', amount: space.rents[level] * (doubled ? 2 : 1), level, doubled };
+  }
+
+  const schedule = space.type === 'hub' ? space.rents : space.factors;
+  const level = Math.min(Math.max(ownedCollecting(space.type) - 1, 0), schedule.length - 1);
+  return space.type === 'hub'
+    ? { kind: 'fixed', amount: space.rents[level], level, doubled: false }
+    : { kind: 'dice', factor: space.factors[level], level };
+}
+
 export function rentFor(game, index, diceTotal = 7) {
-  const s = game.board.spaces[index];
-  const st = game.state[index];
-  if (!isProperty(s) || st.owner == null || st.pledged) return 0;
-  const owner = game.playerById(st.owner);
+  const owner = game.state[index].owner == null ? null : game.playerById(game.state[index].owner);
   if (!owner || owner.bankrupt) return 0;
-
-  if (s.type === 'site') {
-    const level = Math.min(st.embellishments, s.rents.length - 1);
-    let rent = s.rents[level];
-    if (level === 0) {
-      const group = sameGroup(game.board, s);
-      const complete = group.every(gs => {
-        const gi = game.board.spaces.indexOf(gs);
-        return game.state[gi].owner === owner.id && !game.state[gi].pledged;
-      });
-      if (complete) rent *= 2;
-    }
-    return rent;
-  }
-
-  if (s.type === 'hub') {
-    const count = propertiesOwnedBy(game, owner).filter(x => x.space.type === 'hub' && !game.state[x.index].pledged).length;
-    return s.rents[Math.min(Math.max(count - 1, 0), s.rents.length - 1)];
-  }
-
-  const count = propertiesOwnedBy(game, owner).filter(x => x.space.type === 'service' && !game.state[x.index].pledged).length;
-  return s.factors[Math.min(Math.max(count - 1, 0), s.factors.length - 1)] * diceTotal;
+  const terms = rentTerms(game.board, game.state, index);
+  if (!terms) return 0;
+  return terms.kind === 'dice' ? terms.factor * diceTotal : terms.amount;
 }

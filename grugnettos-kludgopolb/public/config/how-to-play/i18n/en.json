@@ -20,7 +20,8 @@
       "title": "Places and Revenue",
       "paragraphs": [
         "When you land on an unclaimed Place, you may buy it for the listed price. If you do not buy it, the Place goes to auction.",
-        "When you land on another player’s Place, pay its Revenue. A pledged Place does not collect Revenue."
+        "When you land on another player’s Place, pay its Revenue. A pledged Place does not collect Revenue.",
+        "On the board, an unclaimed Place shows its price in green. Once it has an owner it shows the Revenue you pay when you land there instead: brown, gold if it has Embellishments, and struck-through grey if it is pledged (the Revenue it would collect again once redeemed). For special Places the Revenue is a multiple of the dice roll, such as ×3."
       ]
     },
     "worlds": {

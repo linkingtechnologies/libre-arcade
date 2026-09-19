@@ -34,5 +34,6 @@ These must not be marked complete without actual observation on the target brows
 - [ ] IT / EN / FR / DE visual overflow pass
 - [ ] save → reload → resume
 - [ ] Reset local data → reload → no recovery prompt / preferences reset
+- [ ] sound: silent until the first tap, plays after it, the toolbar level changes the volume and off is silent (also with the phone's silent switch on iPhone/iPad Safari, and with the tab in the background)
 
 Until the applicable browser/device gates are completed, RC39 remains a release candidate rather than a final production-labelled build.

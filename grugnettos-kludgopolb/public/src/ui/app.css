@@ -282,9 +282,15 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px s
 .property-header,.manage-place-head,.dialog-title-stack{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .world-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:999px;background:color-mix(in srgb, var(--world) 16%, white);border:1px solid color-mix(in srgb, var(--world) 52%, white);color:#314038;font-size:.68rem;font-weight:800;white-space:nowrap}.world-badge-image{width:1.18rem;height:1.18rem;border-radius:4px;flex:0 0 auto}.world-badge.compact{padding:2px 7px;font-size:.62rem;gap:4px}
 .place-name-with-world,.place-line-item{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
-.trade-place-option{display:block;padding:4px 2px}
-.trade-place-option input{vertical-align:middle}
-.trade-place-option .place-line-item{margin-left:2px;vertical-align:middle}
+/* The checkbox keeps its own column: when the name and the world badge do not fit on one line the badge wraps
+   under the name, never under the checkbox, and the checkbox stays aligned with the first line. */
+.trade-box .trade-place-option{display:flex;align-items:baseline;gap:8px;padding:4px 2px}
+.trade-place-option input{flex:none;margin:0;position:relative;top:3px}
+.trade-place-option .place-line-item{flex:1 1 0;min-width:0}
+.trade-place-option .place-name-with-world{row-gap:3px}
+.trade-columns>div{min-width:0}
+/* In the narrow trade columns a long world name may wrap inside its pill instead of being clipped. */
+.trade-place-option .world-badge{white-space:normal;min-width:0;max-width:100%}
 .trade-items-list{display:grid;gap:4px;margin-top:4px}
 .trade-item{padding:4px 6px;border-radius:9px;background:#f7f9f7}
 .trade-offer-side{padding:7px 8px;margin:7px 0;border-radius:11px;background:#f7faf7}
@@ -1544,3 +1550,20 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px s
 .board-icon-mask.event-icon.adventure,.card-art.adventure .card-symbol-mask{background-color:#6d4fc2}
 .board-icon-mask.event-icon.setback,.card-art.setback .card-symbol-mask{background-color:#c95a49}
 .card-art .card-symbol-mask{display:inline-block;width:54px;height:54px;filter:drop-shadow(0 3px 5px #0002)}
+
+/* Floating "+100" / "−120" when money moves (arcade style), from the player's cash and from their pawn. */
+.money-pop-layer{position:fixed;inset:0;z-index:2500;pointer-events:none;overflow:hidden}
+.money-pop{position:fixed;transform:translate(-50%,-50%);font-weight:900;font-size:clamp(1.05rem,2.3vmin,1.55rem);font-variant-numeric:tabular-nums;line-height:1;white-space:nowrap;
+  paint-order:stroke fill;-webkit-text-stroke:4px rgba(255,255,255,.96);text-shadow:0 2px 6px rgba(20,30,25,.28);animation:money-pop var(--pop-ms,1150ms) cubic-bezier(.2,.7,.3,1) forwards}
+.money-pop.gain{color:#1c8a3f}
+.money-pop.spend{color:#d23b3b}
+.money-pop.mine{font-size:clamp(1.3rem,3vmin,2.1rem)}
+@keyframes money-pop{
+  0%{opacity:0;transform:translate(-50%,-20%) scale(.6)}
+  14%{opacity:1;transform:translate(-50%,-70%) scale(1.3)}
+  30%{opacity:1;transform:translate(-50%,-85%) scale(1)}
+  72%{opacity:1}
+  100%{opacity:0;transform:translate(-50%,-210%) scale(1)}
+}
+/* No movement for reduced motion: the amount just stays in place for its time, then is removed. */
+@media (prefers-reduced-motion:reduce){.money-pop{animation:none!important;transform:translate(-50%,-70%)}}

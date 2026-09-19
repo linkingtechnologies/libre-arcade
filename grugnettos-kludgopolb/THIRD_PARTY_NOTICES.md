@@ -37,15 +37,23 @@ are not relicensed by it. An overview table is in
   no JAtlantik licence grant is relied on. The archive bundles board and token
   graphics and is not redistributed. Notes are in `reference/jatlantik-r36/`.
 
-## Kenney New Platformer Pack 1.1 and Board Game Icons 1.1
+## Kenney New Platformer Pack 1.1, Board Game Icons 1.1, Digital Audio and Impact Sounds
 
 - Author: Kenney (www.kenney.nl)
 - Licence: Creative Commons Zero, CC0 1.0
 - Files: `public/assets/third_party/kenney/` (props and background),
   `public/assets/third_party/kenney/board-icons/` (nine icons),
   `public/assets/grugnetto-go/enemies/` (CPU pawn sprites) and
-  `public/assets/grugnetto/world-icons/` (terrain crops)
+  `public/assets/grugnetto/world-icons/` (terrain crops) and
+  `public/assets/third_party/kenney/audio/` (sound effects from the New Platformer Pack,
+  Digital Audio and Impact Sounds)
 - The licence files are kept alongside the assets.
+
+## Project-authored sound effects
+
+- `public/assets/audio/dice.wav` and `unlock.wav`, generated for Grugnetto's Goose by the
+  same author with no third-party recordings, are reused here under GPL-3.0-only.
+  See `public/assets/audio/NOTICE.md`.
 
 ## Atkinson Hyperlegible Next
 

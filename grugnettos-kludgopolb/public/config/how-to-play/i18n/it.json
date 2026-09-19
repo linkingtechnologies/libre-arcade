@@ -20,7 +20,8 @@
       "title": "Luoghi e rendite",
       "paragraphs": [
         "Se arrivi su un Luogo libero puoi acquistarlo al prezzo indicato. Se non lo acquisti, il Luogo va all’asta.",
-        "Se arrivi su un Luogo di un altro giocatore paghi la sua Rendita. Un Luogo in pegno non produce Rendita."
+        "Se arrivi su un Luogo di un altro giocatore paghi la sua Rendita. Un Luogo in pegno non produce Rendita.",
+        "Sul tabellone un Luogo libero mostra il suo prezzo, in verde. Quando ha un proprietario mostra invece la Rendita che si paga arrivandoci: in marrone, in oro se ha Abbellimenti, in grigio barrato se è in pegno (in quel caso è la Rendita che tornerebbe a produrre una volta riscattato). Per i Luoghi speciali la Rendita è un multiplo del tiro dei dadi, ad esempio ×3."
       ]
     },
     "worlds": {

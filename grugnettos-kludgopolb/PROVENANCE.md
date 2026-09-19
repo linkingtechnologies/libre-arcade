@@ -20,7 +20,9 @@ could not be established is recorded as unresolved rather than assumed.
 | KludgopolB UK/US boards, cards and runtime graphics | same archives | same | scope undocumented | Not used and not redistributed |
 | Pazifik (`atlantik.ai.SimpleAI`) | JAtlantik, SourceForge (Java) | r36 (2007); `jatlantik-code-r36-trunk.zip` SHA-256 `1850680fc548d3b6621331fdec7677ecd3bbbd75aa7211d42de62d93d8000dfd` | SourceForge metadata identifies GPLv2; the snapshot has no top-level `LICENSE` or `COPYING`; "or later" is not verified | Behavioural reimplementation from the documented behaviour; no JAtlantik code or media is imported; archive not redistributed |
 | Grugnetto Go! artwork (character, coin, collectibles, flags) | Umberto Bresciani, `grugnetto-go` | user-supplied sources | Copyright (c) 2026 Umberto Bresciani, all rights reserved | Reused at the author's explicit request under `public/assets/grugnetto/`; not relicensed under GPL-3.0 |
-| Kenney New Platformer Pack | kenney.nl | 1.1 (created 2025-12-03) | CC0 1.0 | Selected props, enemy sprites and terrain crops copied with the licence kept alongside |
+| Kenney New Platformer Pack | kenney.nl | 1.1 (created 2025-12-03) | CC0 1.0 | Selected props, enemy sprites, terrain crops and five sound effects copied with the licence kept alongside |
+| Kenney Digital Audio, Impact Sounds | kenney.nl | Impact Sounds 1.0 (created 2019-12-19); Digital Audio unversioned | CC0 1.0 | Six and eight sound effects copied with each pack's licence kept alongside |
+| Dice and unlock sound effects | Grugnetto's Goose, same author | none | GPL-3.0-only (project-authored, no third-party recordings) | Two WAV files reused in `public/assets/audio/` |
 | Kenney Board Game Icons | kenney.nl | 1.1 (created 2024-07-22) | CC0 1.0 | Nine icons copied with the licence kept alongside |
 | Atkinson Hyperlegible Next (Latin subset, variable weight) | Atkinson Hyperlegible Next Project Authors | as shipped in `public/assets/fonts/atkinson/` | SIL OFL 1.1 | Shipped with its licence text |
 | Engine, controller, save contract, board data, browser UI, tests | this repository | none | GPL-3.0-only | New integration code and content |

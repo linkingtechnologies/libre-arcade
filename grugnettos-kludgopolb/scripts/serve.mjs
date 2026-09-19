@@ -20,7 +20,7 @@ const types = new Map([
   ['.css', 'text/css; charset=utf-8'], ['.json', 'application/json; charset=utf-8'],
   ['.png', 'image/png'], ['.webp', 'image/webp'], ['.svg', 'image/svg+xml; charset=utf-8'],
   ['.md', 'text/markdown; charset=utf-8'], ['.txt', 'text/plain; charset=utf-8'],
-  ['.ttf', 'font/ttf']
+  ['.ttf', 'font/ttf'], ['.ogg', 'audio/ogg'], ['.wav', 'audio/wav']
 ]);
 
 http.createServer((req, res) => {
