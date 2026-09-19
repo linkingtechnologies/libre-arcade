@@ -1,0 +1,27 @@
+# Public reference metadata is tracked; original archive/extraction bytes are private.
+/reference/archives/
+/reference/extracted/
+/reference/private/
+/reference/screenshots/
+*.zip
+*.tgz
+*.tar.gz
+
+# Dependencies
+node_modules/
+
+# Generated build output (npm run build)
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+# Transient local/build artifacts.
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+*.pyo
+*.log
+coverage/
+.tmp/

@@ -1,0 +1,57 @@
+{
+  "physics_core": {
+    "lib/DfConstants.py": {
+      "v1.0_sha256": "c4862bd2f730128f0ae295b0ad821a0771c78edf22fe3250f1288c7d0bb005aa",
+      "v1.01_sha256": "c4862bd2f730128f0ae295b0ad821a0771c78edf22fe3250f1288c7d0bb005aa",
+      "byte_identical": true
+    },
+    "lib/DfDisk.py": {
+      "v1.0_sha256": "04d81bfa77faf800aa4c0adfb0ca68c6c06e71cd02f16075116aabf3e671734c",
+      "v1.01_sha256": "04d81bfa77faf800aa4c0adfb0ca68c6c06e71cd02f16075116aabf3e671734c",
+      "byte_identical": true
+    },
+    "lib/DfLevelData.py": {
+      "v1.0_sha256": "6b33e6b83b5aa375c9465a73a784c40b9828d84b6c000c421dc3cdd3bf3b731f",
+      "v1.01_sha256": "6b33e6b83b5aa375c9465a73a784c40b9828d84b6c000c421dc3cdd3bf3b731f",
+      "byte_identical": true
+    },
+    "lib/DfObjects.py": {
+      "v1.0_sha256": "d20123a959473953a9547ccc9d651c261895b0e0ebe3ffd9231cacc8166b8821",
+      "v1.01_sha256": "d20123a959473953a9547ccc9d651c261895b0e0ebe3ffd9231cacc8166b8821",
+      "byte_identical": true
+    },
+    "lib/DfVector.py": {
+      "v1.0_sha256": "160c5a042a51f3e07d3c874910d5a0f4491456a673a6101cb8525b1718c32a1a",
+      "v1.01_sha256": "160c5a042a51f3e07d3c874910d5a0f4491456a673a6101cb8525b1718c32a1a",
+      "byte_identical": true
+    }
+  },
+  "DfWorld_note": "DfWorld.py differs, but v1.0 bFieldsActive is initialized True and toggleFields has no call sites. v1.01 removes the unreachable fixed-only branch. Reachable getVectorAtPoint semantics are unchanged.",
+  "runtime_status": {
+    "historical_runtime_executed": false,
+    "reason": "Current environment has Python 3.13 only; no Python 2, pygame, or PyOpenGL. v1.0 .pyc magic 62131 identifies the CPython 2.5 bytecode family."
+  },
+  "determinism": {
+    "nominal_tick_rate_hz": 30,
+    "elapsed_dt_used": false,
+    "random_gameplay": "Level internal index 6 uses random() 10 times at level construction for five moving walls; RNG seed/state must be captured for deterministic replay. Audio thud selection is random but physics-neutral."
+  },
+  "recommended_trace_fields": [
+    "version",
+    "rng_seed_or_state",
+    "level_internal",
+    "tick",
+    "input_left",
+    "input_right",
+    "disk_x",
+    "disk_y",
+    "disk_vx",
+    "disk_vy",
+    "disk_rotation",
+    "disk_angular_v",
+    "hole_step",
+    "finished",
+    "moving_wall_state",
+    "level_finished"
+  ]
+}

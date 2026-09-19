@@ -1,0 +1,367 @@
+diff -ruN '--exclude=*.pyc' "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/CHANGES.txt" "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/CHANGES.txt"
+--- "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/CHANGES.txt"	1970-01-01 00:00:00.000000000 +0000
++++ "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/CHANGES.txt"	2007-09-25 17:53:44.000000000 +0000
+@@ -0,0 +1,10 @@
++v1.01
++Made text crisper on card supporting non power of two textures
++Peformance tweaks on arrow drawing
++Enabled psyco on capable machines (release version accidnetly had it disabled!)
++Made arrows in preview mode (select level) thinner.
++Fixed crash with level selection on 64 bit systems.
++
++
++v1.0
++Competition release version
+\ No newline at end of file
+diff -ruN '--exclude=*.pyc' "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/README.txt" "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/README.txt"
+--- "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/README.txt"	2007-09-08 20:53:46.000000000 +0000
++++ "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/README.txt"	2007-09-25 22:34:20.000000000 +0000
+@@ -9,8 +9,6 @@
+ 
+ DEPENDENCIES:
+ 
+-NOTE: Windows users should be able to simply run the shortcut to the exe in this folder.
+-
+ You might need to install some of these before running the game:
+ 
+   Python:     http://www.python.org/
+@@ -23,9 +21,7 @@
+ 
+ RUNNING THE GAME:
+ 
+-On Mac OS X, locate the "run_game.pyw" file and double-click it.
+-
+-On Windows, locate "DiskField.exe - Shortcut" and run it.
++On Windows or Mac OS X, locate the "run_game.pyw" file and double-click it.
+ 
+ Othewise open a terminal / console and "cd" to the game directory and run:
+ 
+@@ -50,3 +46,5 @@
+ LICENSE:
+ 
+ Do whatever you like. Would like it if you gave me some sort of credit.
++
++Music from http://multifaros.info.se/
+diff -ruN '--exclude=*.pyc' "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/lib/DfArrow.py" "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/lib/DfArrow.py"
+--- "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/lib/DfArrow.py"	2007-09-08 16:15:32.000000000 +0000
++++ "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/lib/DfArrow.py"	2007-09-24 23:13:04.000000000 +0000
+@@ -28,6 +28,10 @@
+ 			self.fixedProportion = self.fixedStrength / self.strength
+ 		else:
+ 			self.fixedProportion = 0
++			
++		if self.strength:
++			self.normVec = self.vector / self.strength
++			self.angle = atan2(float(self.normVec[1]), float(self.normVec[0])) * RAD_TO_DEG
+ 
+ 	def getPos(self):
+ 		return self.pos
+@@ -44,6 +48,12 @@
+ 	def getStrength(self):
+ 		return self.strength
+ 		
++	def getNormVec(self):
++		return self.normVec
++		
++	def getAngle(self):
++		return self.angle
++		
+ 	def getFixedStrength(self):
+ 		return self.fixedStrength
+ 		
+@@ -60,26 +70,29 @@
+ 				
+ 			self.vector += vecDifference
+ 			self.strength = sqrt(sum(self.vector ** 2))
++			
++			if self.strength:
++				self.normVec = self.vector / self.strength
++				self.angle = atan2(float(self.normVec[1]), float(self.normVec[0])) * RAD_TO_DEG
+ 
+ 			self.fixedStrength = sqrt(sum(self.fixedVector ** 2))
+ 				
+ 			if self.strength:
+-				self.fixedProportion =  self.fixedStrength / self.strength	
++				self.fixedProportion = self.fixedStrength / self.strength	
+ 			else:
+ 				self.fixedProportion = 0
+ 	def getFixedVec(self):
+ 		return self.fixedVector
+ 		
+-	def setRotVec(self, rotVector):
+-		self.rotVector = rotVector
+-		self.vector = self.fixedVector + rotVector
+-		self.strength = sqrt(sum(self.vector ** 2))
+-		
+ 	def changeRotVecDirection(self, rotVector):
+ 		self.rotVector = rotVector
+ 		self.vector = self.fixedVector + rotVector
+ 		self.strength = sqrt(sum(self.vector ** 2))
+ 		
++		if self.strength:
++			self.normVec = self.vector / self.strength
++			self.angle = atan2(float(self.normVec[1]), float(self.normVec[0])) * RAD_TO_DEG
++		
+ 		
+ 		
+ 		
+\ No newline at end of file
+diff -ruN '--exclude=*.pyc' "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/lib/DfMain.py" "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/lib/DfMain.py"
+--- "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/lib/DfMain.py"	2007-09-08 21:22:46.000000000 +0000
++++ "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/lib/DfMain.py"	2007-09-25 21:58:26.000000000 +0000
+@@ -6,20 +6,23 @@
+ try:
+ 	import pygame
+ 	from pygame.locals import *
+-except ImportError:
++except ImportError, errmsg:
+ 	print "Requires PyGame"
++	print errmsg
+ 	sys.exit(1)	
+ try:
+ 	from OpenGL.GL import *
+ 	from OpenGL.GLU import *
+ 	
+-except ImportError:
++except ImportError, errmsg:
+ 	print "Requires PyOpenGL"
++	print errmsg
+ 	sys.exit(1)
+ try:
+ 	import numpy
+-except ImportError:
++except ImportError, errmsg:
+ 	print "Requires numpy"
++	print errmsg
+ 	sys.exit(1)
+ 
+ from data import filepath
+@@ -34,13 +37,14 @@
+ world = None
+ 
+ def main():
+-	# try:
+-		# import psyco
+-		# psyco.full()
+-	# except:
+-		# print "Pysco recommended for optimal performance (not available on all platforms)"
++	try:
++		import psyco
++		psyco.full()
++	except:
++		print "Pysco recommended for optimal performance (not available on all platforms)"
+ 
+ 	global world
++	pygame.mixer.pre_init(22050, -16, 2, 1024)
+ 	pygame.init()
+ 	setupScreen()
+ 	initOGL()
+diff -ruN '--exclude=*.pyc' "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/lib/DfSplash.py" "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/lib/DfSplash.py"
+--- "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/lib/DfSplash.py"	2007-09-08 21:16:18.000000000 +0000
++++ "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/lib/DfSplash.py"	2007-09-24 16:24:44.000000000 +0000
+@@ -12,6 +12,8 @@
+ from DfWorld import World
+ from DfSoundManager import SoundManager
+ 
++global bPOTScale
++
+ def drawBorder():
+ 	glColor4f(*BORDER_COLOR)
+ 	glBegin(GL_QUADS)
+@@ -44,23 +46,34 @@
+ 	
+ 	
+ def scaleToPOT(texture):
+-	x = 1
+-	y = 1
+-	
+-	while x < texture.get_width():
+-		x *= 2
+-	while y < texture.get_height():
+-		y *= 2	
+-	
+-	texture = pygame.transform.rotozoom(texture, 0, min(float(x) / texture.get_width(), float(y) / texture.get_height()))
++	# Will be slightly crisper if machine supports NPOT textures
++	if bPOTScale:
++		x = 1
++		y = 1
++		
++		while x < texture.get_width():
++			x *= 2
++		while y < texture.get_height():
++			y *= 2	
+ 		
+-	return pygame.transform.scale(texture, (x, y))
++		texture = pygame.transform.rotozoom(texture, 0, min(float(x) / texture.get_width(), float(y) / texture.get_height()))
++			
++		return pygame.transform.scale(texture, (x, y))
++	else:
++		return texture
+ 
+ 
+ def splashScreen():
+-	global world 
++	global world
++	global bPOTScale
++	
+ 	diskRadius = DISK_RADIUS * 1.5 
+ 	
++	bPOTScale = glGetString(GL_EXTENSIONS).find("GL_ARB_texture_non_power_of_two") == -1
++	
++	if bPOTScale:
++		print "Non power of two textures not available"
++	
+ 	clock = pygame.time.Clock()
+ 	clock.tick()	
+ 	
+@@ -317,11 +330,12 @@
+ 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, scaleTex.get_width(), scaleTex.get_height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, pygame.image.tostring(scaleTex, "RGBX", 1))
+ 	
+ 	
+-	textures = glGenTextures(numLevels + 1)
++	textures = [int(t) for t in glGenTextures(numLevels + 1)]
++	#textures = glGenTextures(numLevels + 1)
+ 	normFont = pygame.font.Font(filepath(FONT_NAME), 54)
+ 	
+ 	surfList = []
+-
++	
+ 	for i in range(numLevels):
+ 		surf = normFont.render("Level " + str(i + 1), True, (0, 0, 0)).convert_alpha()
+ 		surfList.append(surf)
+diff -ruN '--exclude=*.pyc' "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/lib/DfWorld.py" "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/lib/DfWorld.py"
+--- "/mnt/data/disk-field-audit/work/v1.0/DiskField v1.0/lib/DfWorld.py"	2007-09-08 19:56:40.000000000 +0000
++++ "/mnt/data/disk-field-audit/work/v1.01/DiskField v1.01/lib/DfWorld.py"	2007-09-25 21:58:00.000000000 +0000
+@@ -31,7 +31,6 @@
+ 
+ 		
+ 		self.bFinished = False
+-		self.bFieldsActive = True
+ 		
+ 		self.iLevel = iLevel
+ 		self.x = getWorldX(iLevel)
+@@ -98,12 +97,11 @@
+ 		glEndList()				
+ 		
+ 		
+-	def drawVectorFeild(self):
++	def drawVectorFeild(self, bPreview):
+ 		oldStrength = -1
+ 		oldFixedProp = -1
+ 		glPushMatrix()
+-		if not self.bFieldsActive:
+-			glColor3f(0.0, 0.0, 1.0)
++		
+ 		for arrowSubList in self.arrowList:
+ 			glTranslatef(VECTOR_ARROW_SPACING, 0.0, 0.0)
+ 			glPushMatrix()
+@@ -111,38 +109,41 @@
+ 				glTranslatef(0.0, VECTOR_ARROW_SPACING, 0.0)
+ 				
+ 				pos = arrow.getPos()
+-				if self.bFieldsActive:
+-					vec = arrow.getVec()
+-					strength = arrow.getStrength()
+-				else:
+-					vec = arrow.getFixedVec()
+-					strength = arrow.getFixedStrength()
++
++				strength = arrow.getStrength()
+ 				
+-				# Stick this in arrow display list
+-				if self.bFieldsActive:
+-					fixedProp = arrow.getFixedProportion()
+-					#if fixedProp != oldFixedProp:
+-					glColor3f(float(1.0 - 2 * fixedProp), 0.0, float(fixedProp))
+ 				# Floating point stuff
+-				if strength > 0.000001:
+-					normVec = vec / strength
+-				
+-					#if strength != oldStrength:
+-					glLineWidth(float(strength))
++				if strength > 0.00001:
++					fixedProp = arrow.getFixedProportion()
++					if fixedProp != oldFixedProp:
++						glColor3f(float(1.0 - 2 * fixedProp), 0.0, float(fixedProp))	
++						
++					normVec = arrow.getNormVec()
++				
++					if strength != oldStrength:
++						if bPreview:
++							glLineWidth(float(strength) / 2)
++						else:
++							glLineWidth(float(strength))
+ 					
+ 					glPushMatrix()
+-					glRotatef(atan2(float(normVec[1]), float(normVec[0])) * RAD_TO_DEG, 0.0, 0.0, 1.0)
++					glRotatef(arrow.getAngle(), 0.0, 0.0, 1.0)
+ 					
+ 					glCallList(self.arrowDList)
+ 					glPopMatrix()
+ 					
++					oldFixedProp = fixedProp
++					
+ 				else:
++					if strength != oldStrength:
++						glColor3f(1.0, 0.0, 0.0)
+ 					glBegin(GL_POINTS)
+ 					glVertex2f(0.0, 0.0)
+ 					glEnd()
+ 					
++					oldFixedProp = 0
++					
+ 				oldStrength = strength
+-				oldFixedProp = fixedProp
+ 			glPopMatrix()		
+ 
+ 					
+@@ -181,22 +182,14 @@
+ 		pointX -= 1
+ 		pointY -= 1
+ 		
+-		if self.bFieldsActive:
+-			result += self.arrowList[int(floor(pointX))][int(floor(pointY))].getVec() * (1 - x) * (1 - y)
+-			if ceil(pointX) < self.x and ceil(pointX) >= 0:
+-				result += self.arrowList[int(ceil(pointX))][int(floor(pointY))].getVec() * x * (1 - y)
+-				if ceil(pointY) < self.y and ceil(pointY) >= 0:
+-					result += self.arrowList[int(ceil(pointX))][int(ceil(pointY))].getVec() * x * y
+-			if ceil(pointY) < self.y and ceil(pointY) >= 0:
+-				result += self.arrowList[int(floor(pointX))][int(ceil(pointY))].getVec() * (1 - x) * y
+-		else:
+-			result += self.arrowList[int(floor(pointX))][int(floor(pointY))].getFixedVec() * (1 - x) * (1 - y)
+-			if ceil(pointX) < self.x and ceil(pointX) >= 0:
+-				result += self.arrowList[int(ceil(pointX))][int(floor(pointY))].getFixedVec() * x * (1 - y)
+-				if ceil(pointY) < self.y and ceil(pointY) >= 0:
+-					result += self.arrowList[int(ceil(pointX))][int(ceil(pointY))].getFixedVec() * x * y
++		result += self.arrowList[int(floor(pointX))][int(floor(pointY))].getVec() * (1 - x) * (1 - y)
++		if ceil(pointX) < self.x and ceil(pointX) >= 0:
++			result += self.arrowList[int(ceil(pointX))][int(floor(pointY))].getVec() * x * (1 - y)
+ 			if ceil(pointY) < self.y and ceil(pointY) >= 0:
+-				result += self.arrowList[int(floor(pointX))][int(ceil(pointY))].getFixedVec() * (1 - x) * y
++				result += self.arrowList[int(ceil(pointX))][int(ceil(pointY))].getVec() * x * y
++		if ceil(pointY) < self.y and ceil(pointY) >= 0:
++			result += self.arrowList[int(floor(pointX))][int(ceil(pointY))].getVec() * (1 - x) * y
++
+ 				
+ 		return result
+ 		
+@@ -221,10 +214,6 @@
+ 	def isFinished(self):
+ 		return self.bFinished
+ 		
+-	def toggleFields(self):
+-		self.bFieldsActive = not self.bFieldsActive
+-		
+-		
+ 	def rotate(self, bClockWise):
+ 		if bClockWise:
+ 			rot = -ROT_INC
+@@ -281,7 +270,7 @@
+ 			self.checkVictory()
+ 
+ 	def draw(self, bPreview = False):
+-		self.drawVectorFeild()
++		self.drawVectorFeild(bPreview)
+ 		self.drawWalls()
+ 		self.drawBorder()
+ 		self.drawHoles()

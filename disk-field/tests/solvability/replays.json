@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "baseline": "Disk Field HTML5 engine/levels validated from 1.01",
+  "actionAlphabet": {
+    "L": "rotate counter-clockwise 10 degrees before tick",
+    "R": "rotate clockwise 10 degrees before tick",
+    ".": "no rotation"
+  },
+  "replays": [
+    {
+      "level": 1,
+      "levelIndex": 0,
+      "ticks": 65,
+      "actions": "RRRRRRRRRRRRRRRRRRR..................L........................R.L",
+      "actionsSha256": "2766b2ca8dd553d3b31c478d767de4be957503d9ed14be527e994a48cffe294c",
+      "expectedFinalPosition": [
+        398.40399169921875,
+        290.1820983886719
+      ]
+    },
+    {
+      "level": 2,
+      "levelIndex": 1,
+      "ticks": 111,
+      "actions": "RRRRRRRRRRRRR.LLRRRRRRRR................LLR...................................................................L",
+      "actionsSha256": "b648788f2bddf09e31c192ae4bfbacb448603bf443d37ee0b5da2e7969bca89d",
+      "expectedFinalPosition": [
+        92.04563903808594,
+        304.6738586425781
+      ]
+    },
+    {
+      "level": 3,
+      "levelIndex": 2,
+      "ticks": 152,
+      "actions": "LLLLLLLLLLLLLLL.RRRRLLLL.RRRL.RLLLLL...LRRRL.LL..RR...L..LLLRRRRLLRRR...RRRRRRRR.R.RRRR.L.R.R...R.........L.....RL.RL.R...............................RL",
+      "actionsSha256": "c36a70c3a2f5481ea20f2ac986ad3c9a5a03ee57bc980261ce8a2d843da1ce2e",
+      "expectedFinalPosition": [
+        686.1064453125,
+        453.2886657714844
+      ]
+    },
+    {
+      "level": 4,
+      "levelIndex": 3,
+      "ticks": 94,
+      "actions": "LLLLLLLLLLLLLLLLLLLLLRRR.LRLLLLL..R.L.RRR...LLLLLLLLLL.LL.RLR.LLL.LL.RRRR.LLRLL.RRRRRR.RR.RRRL",
+      "actionsSha256": "5246d39472734728908b46e2650ff319c63ef8bd22946ec9189debff64c706da",
+      "expectedFinalPosition": [
+        406.43464038250215,
+        535.4940909649927
+      ]
+    },
+    {
+      "level": 5,
+      "levelIndex": 4,
+      "ticks": 396,
+      "actions": "LLLLLLLLLLLLLLLLLL...RRLL...........................RL....L......RRLRLRLLR..LLRL..LLLLLLLLLLLLLLLLLLL.RRR.............................LRRLR......L...........RRRRRRRRRRRRRRRRRRRRRRLLLL.................L...RLRLRL.R.LRL..RRRLL..L.RRRL.RLLLLLLLLLLLLLLLLLLLLLLL.RRR..........................R.LLLRRR.....LR.......L..RRRRRR.RRRRRRRRRRRRRRR.LLL.RLRL................LR.R.LRRLL.L.RL.R...............R....L",
+      "actionsSha256": "b4baef8a9e28cad22d12bf4361ca4090d4117ecc635f895751da702c038521e6",
+      "expectedFinalPosition": [
+        712.1225677037852,
+        544.4308352532481
+      ]
+    },
+    {
+      "level": 6,
+      "levelIndex": 5,
+      "ticks": 135,
+      "actions": "LLLLLLLLL......RRRRRRRR.LLRR.R.LLLLLLLLLLLLLLLLL.RRRRRR.LLL.R...LL.R.RRLR....L.RRLL..LLLL.R.RLL.RL.R..LR.L.RRRRLLRRRRRR...............L",
+      "actionsSha256": "60787f5a7ea8d0f1c82b3f9e25801c91609898f7312fc9cd8d528ecc8ed63ecf",
+      "expectedFinalPosition": [
+        715.7565793875227,
+        422.38711143686055
+      ]
+    },
+    {
+      "level": 7,
+      "levelIndex": 6,
+      "ticks": 182,
+      "actions": "LLLLLLLLLLLLLLLLLL.......................RRRRRLLLLL...LR..........LLL.LL..RRRRRRRRRRR.LLRRRLRRLLLLLLLRLLR.LRLRLRLRLRLR.LRRRLR.RLL.L.RR.R..L.....RRRL.LLLLL..........LRL....R..L......L",
+      "actionsSha256": "fbd035f5f86f12d3e6581f484e5fa4a03368c394e819b1241b447ef4c30f201c",
+      "expectedFinalPosition": [
+        712.909806963018,
+        297.61554216389254
+      ],
+      "seed": "solvability-v1",
+      "randomizeDodge": true
+    },
+    {
+      "level": 8,
+      "levelIndex": 7,
+      "ticks": 138,
+      "actions": "LLLLLLL.RLLLLLLL.RRRRRLRRRRLLLLL..RRLR.L.RRL.RLLL.RRR.LLL.RRRRLLLL.R.L.LRRRL...R.LLRRL....LRRL...LRRL...LRRLLL.....R..R.L................L",
+      "actionsSha256": "cf6e15dc95cf8272876208cdf1557532e1f642eb72d0abf9dc9ca19703de083e",
+      "expectedFinalPosition": [
+        736.3118896484375,
+        295.1064147949219
+      ]
+    },
+    {
+      "level": 9,
+      "levelIndex": 8,
+      "ticks": 169,
+      "actions": "LLLLLL.LLLLLLLLL.L..RRLR....LRRLLL...L.L.R.LLLL.RRRRRRRRRRRRRLLLRRRRR.RRRR.RRRRLL..LLLRLRR.RR.RRLLLLLL.RRRRRLLLLLLLLLLLLLLLL.RRRRRRRRRRRRRR.RLR....L....................L",
+      "actionsSha256": "8e4eea938d5988fd544c4217f91549ea7fb3cdfa474eb532197bd7c539292de8",
+      "expectedFinalPosition": [
+        618.6393432617188,
+        512.982666015625
+      ]
+    },
+    {
+      "level": 10,
+      "levelIndex": 9,
+      "ticks": 334,
+      "actions": "LLLLRRRRRRRRRRR.L.........R.LRRRRLLRL.LLLLLLLLLRRRRRRRRLL.R.LLLLRR.LLL.RRRRR.RL.LL.LLLLRRRL.RRRRRRRRLLLLRRR.....RLL.LLLL..RRLLR.RRRR.L..L.LRRR..L.LR.LLL.LLLLLLRRRRRRRRRRRLRR.LLL......L.LLLLLL.LRRRRL.RLLR.LRL.RRRRRRRLLR..R.LLRL...L.R.LR.LLLLRR..LLLLLR...LL.RRLLL.RLLLR.LLLLR..RLLLLLRRRRR.LLLLRRL.RR..LL.R.LL...RRRR.LLLLRRRRRRRR.LL.LLLR",
+      "actionsSha256": "c5fe200124fc79d52a018ff34296a78f628194ea5480ba482b6781aa91867e45",
+      "expectedFinalPosition": [
+        78.43766678280683,
+        516.3570833821253
+      ]
+    },
+    {
+      "level": 11,
+      "levelIndex": 10,
+      "ticks": 152,
+      "actions": "LLLLLLLLLLLLLLLLLL..RL......LLLLLLLLL.LL.LRRRRRRRRL.LRRR.RRR.RRRRRRRRRRRLLLRL.......LLR.LLLRR..RL.L.LRL.RL.LLL....LLLLLLLLL.........RRRLLRRLRRRRRRRRR..L",
+      "actionsSha256": "e9f39558e514398a71f3a9156ef868939adfd5659647198468b63098b84e64ae",
+      "expectedFinalPosition": [
+        718.4662779980385,
+        354.2842568617308
+      ]
+    },
+    {
+      "level": 12,
+      "levelIndex": 11,
+      "ticks": 185,
+      "actions": "RRRRRRRRRRRRR......RRR..R.L.LRRRL.RRRRRRRR.RLLLLLLLLLLLLLLRRRRR.LRRLLLR.RRRLRRRRRRRR.RLLL.LRRRRLLLRLL.RRRRRRRRRLLLLLRRL.RR..RRRRRRRRR.L.RLL.RRRLRR..RR.R.LRRRLL...RR.L.RL.L........RLR..L",
+      "actionsSha256": "60b201c1592f728667a60d9b0dfb4e89455ecb81039685ea1271a7de3f138abd",
+      "expectedFinalPosition": [
+        359.45515872983583,
+        539.104417654033
+      ]
+    },
+    {
+      "level": 13,
+      "levelIndex": 12,
+      "ticks": 86,
+      "actions": "LLLLLLLLL...................R......LLRLLLRLL..L.LLRRLLLL...LLLLLLLLLLL.L.LLLL.RR.RRRRL",
+      "actionsSha256": "52adfadbafbc1c40541b4d6795fa3b1062f8f69d89fc1799707746e35f019692",
+      "expectedFinalPosition": [
+        381.98263405977303,
+        323.62649666652203
+      ]
+    },
+    {
+      "level": 14,
+      "levelIndex": 13,
+      "ticks": 98,
+      "actions": "LLLLLLLLLLLLLLLLLLLL.L.RRRLLLLLRR..R..RRRRLLLLLLLLLLLLLLLLL...RRRLLLRRRLRLLLL.L.LLRRRRRRRLRR.RRRR.",
+      "actionsSha256": "aa58bc65c849fbd0660d765c27ae323117b526f83117423a0d17e642f6695331",
+      "expectedFinalPosition": [
+        402.3541646461389,
+        530.2879528100326
+      ]
+    },
+    {
+      "level": 15,
+      "levelIndex": 14,
+      "ticks": 285,
+      "actions": "RRRRR.RRRRRLLLLLLLLL.LRR.LLRRRRRRR.L.LL..LR.R..RL.....LLLLLRRRRRRL.LLL.LLL.RRRRRRRR.L.RRRL...LLR.RR.LLRRLLLRRLRLR.LRLR.L.RL.R.LLRRR.LLLLLLLLRRRRRRRL.LLLLL.RRRRLLLL.RRRRLLR.LRLRRRRL..R..LRLL.LRRLLL.R.RLRRLLLLRRLLLLLLLLLL.LR.......RLRLLLL.RRR.LLLRR.LLLLLLRRRRRRRLLL.LRLLRRRRRRRRRLLLRRRRL",
+      "actionsSha256": "82f58a57e23bed3edc209edbd5069ab8984c9bbcf01829f3baa2d0e42a3a2664",
+      "expectedFinalPosition": [
+        72.83464345045287,
+        512.8999093930228
+      ]
+    },
+    {
+      "level": 16,
+      "levelIndex": 15,
+      "ticks": 146,
+      "actions": "RRRRRRRRRRRRRRRRRR..L..R..LLLLL...LLLLLRRL..RRRR.R.RR...RRRRRRRRL.R.RRR.......LLLR.RRLLLLR.RLLL.R.....LLLRLL.LLLLL.LLLL......R.R.RRR.RLR......RL.L",
+      "actionsSha256": "f24fc8f47698e5a4439552b5b723060328006fbbd75a55bb61c4074677c6a88a",
+      "expectedFinalPosition": [
+        716.5317993164062,
+        334.5342712402344
+      ]
+    },
+    {
+      "level": 17,
+      "levelIndex": 16,
+      "ticks": 190,
+      "actions": "RRRRRRRRRRRRRRRRRRRRR.LLRLR..RRRLRRLLLRRRLLRR.LRRR.RL.RL.LLLLLRRRRRRRRRRRRRRRRRLLLLRRRLLL..LLLRLLLL.RRR.RLL..RLRRLRLLLRRR.RL.RRRRRR.LLLR.LLRRRRRRRR.RRRRLLLRRLRRL.L.RRLLLR.......R...........L",
+      "actionsSha256": "408679f5d84fb01c58b2e3469993baa2854694915ee0c659b58ba8733debc751",
+      "expectedFinalPosition": [
+        353.46585229513687,
+        543.7606367004843
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+[
+  {"name":"level0_idle","level":0,"seed":20070908,"ticks":240,"segments":[]},
+  {"name":"level0_rotate_ccw","level":0,"seed":20070908,"ticks":240,"segments":[{"start":0,"end":89,"input":"ccw"}]},
+  {"name":"level1_rotate_mix","level":1,"seed":20070908,"ticks":300,"segments":[{"start":0,"end":59,"input":"cw"},{"start":60,"end":119,"input":"ccw"}]},
+  {"name":"level3_rotate_mix","level":3,"seed":20070908,"ticks":360,"segments":[{"start":0,"end":89,"input":"ccw"},{"start":150,"end":239,"input":"cw"}]},
+  {"name":"level6_dodge_seeded","level":6,"seed":20070906,"ticks":360,"segments":[{"start":0,"end":79,"input":"ccw"},{"start":160,"end":239,"input":"cw"}]},
+  {"name":"level8_holes","level":8,"seed":20070908,"ticks":420,"segments":[{"start":0,"end":119,"input":"cw"},{"start":180,"end":299,"input":"ccw"}]},
+  {"name":"level12_blackholes","level":12,"seed":20070908,"ticks":420,"segments":[{"start":0,"end":119,"input":"ccw"},{"start":180,"end":299,"input":"cw"}]}
+]

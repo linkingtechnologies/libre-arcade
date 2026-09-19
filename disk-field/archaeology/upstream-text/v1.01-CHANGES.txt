@@ -1,0 +1,10 @@
+v1.01
+Made text crisper on card supporting non power of two textures
+Peformance tweaks on arrow drawing
+Enabled psyco on capable machines (release version accidnetly had it disabled!)
+Made arrows in preview mode (select level) thinner.
+Fixed crash with level selection on 64 bit systems.
+
+
+v1.0
+Competition release version

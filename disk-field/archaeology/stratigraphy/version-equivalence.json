@@ -1,0 +1,53 @@
+{
+  "all_identical": true,
+  "files": [
+    {
+      "file": "field_samples.csv",
+      "identical": true,
+      "v1.0_sha256": "6dd81a44d135fe302137df5b62333d8ce51758be68882d9c492eaff82cfca18b",
+      "v1.01_sha256": "6dd81a44d135fe302137df5b62333d8ce51758be68882d9c492eaff82cfca18b"
+    },
+    {
+      "file": "level0_idle.csv",
+      "identical": true,
+      "v1.0_sha256": "606e5715cf2b5cfca2651f99daa28e915c42067736701499af7bcc70ed090a0c",
+      "v1.01_sha256": "606e5715cf2b5cfca2651f99daa28e915c42067736701499af7bcc70ed090a0c"
+    },
+    {
+      "file": "level0_rotate_ccw.csv",
+      "identical": true,
+      "v1.0_sha256": "e5dd6187f196a471050d37b30f84897176fcfeb13f1cb40c1029d1f274a3f405",
+      "v1.01_sha256": "e5dd6187f196a471050d37b30f84897176fcfeb13f1cb40c1029d1f274a3f405"
+    },
+    {
+      "file": "level12_blackholes.csv",
+      "identical": true,
+      "v1.0_sha256": "6b34a3b22807d61ca48df91de11cf7e7275a4d66865ac027e0e16639180d8ec2",
+      "v1.01_sha256": "6b34a3b22807d61ca48df91de11cf7e7275a4d66865ac027e0e16639180d8ec2"
+    },
+    {
+      "file": "level1_rotate_mix.csv",
+      "identical": true,
+      "v1.0_sha256": "efec1aef381667f919ba1ef1e2e80d9f5fce0e05eb28173f7f3e6ff02544b4d7",
+      "v1.01_sha256": "efec1aef381667f919ba1ef1e2e80d9f5fce0e05eb28173f7f3e6ff02544b4d7"
+    },
+    {
+      "file": "level3_rotate_mix.csv",
+      "identical": true,
+      "v1.0_sha256": "6eb07a0b8ff2b39b2ea43a29b50dbef3710171aa869224d22b2d4a110c3009cf",
+      "v1.01_sha256": "6eb07a0b8ff2b39b2ea43a29b50dbef3710171aa869224d22b2d4a110c3009cf"
+    },
+    {
+      "file": "level6_dodge_seeded.csv",
+      "identical": true,
+      "v1.0_sha256": "81cc9e5715d5cb6c0f856f7c4b67be75de34d00def4497fc12d53cc7e1ef60ec",
+      "v1.01_sha256": "81cc9e5715d5cb6c0f856f7c4b67be75de34d00def4497fc12d53cc7e1ef60ec"
+    },
+    {
+      "file": "level8_holes.csv",
+      "identical": true,
+      "v1.0_sha256": "7f5ef44ead7f5d11374141a48c5d194f1689701eb4a671787b2f3a11a72560e3",
+      "v1.01_sha256": "7f5ef44ead7f5d11374141a48c5d194f1689701eb4a671787b2f3a11a72560e3"
+    }
+  ]
+}

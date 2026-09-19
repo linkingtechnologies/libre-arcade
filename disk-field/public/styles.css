@@ -1,0 +1,24 @@
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#090909;color:#eee;--panel:#141414;--line:#303030;--ground:#cccc00}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#090909}body{display:flex;justify-content:center;padding:10px;overscroll-behavior:none}.shell{width:min(1060px,100%);display:grid;gap:9px}.topbar,footer{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}.identity{display:flex;flex-direction:column;min-width:180px}.identity strong{font-size:1.08rem}.identity span{font-size:.82rem;color:#bdbdbd}.toolbar{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}button,select{font:inherit;color:#eee;background:#222;border:1px solid #444;border-radius:7px;padding:6px 9px}button{cursor:pointer}button:hover{background:#2d2d2d}button:active{transform:translateY(1px)}select{max-width:220px}.stage{position:relative;width:100%;aspect-ratio:4/3;max-height:calc(100vh - 128px);margin:auto;background:var(--ground)}canvas{display:block;width:100%;height:100%;border:1px solid #222;box-shadow:0 8px 32px #0008;touch-action:none;image-rendering:auto;outline:none}.touchControls{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:space-between;padding:0 16px;pointer-events:none}.turn{pointer-events:auto;width:74px;height:74px;border-radius:50%;font-size:2.25rem;line-height:1;background:#080808c9;border-color:#ffffff88;backdrop-filter:blur(3px);touch-action:none;user-select:none}footer{font-size:.84rem;color:#bbb}#status{color:#e4d85a;text-align:right}.turn:focus-visible,button:focus-visible,select:focus-visible,canvas:focus-visible{outline:3px solid #fff;outline-offset:2px}
+body[data-screen="menu"] .topbar,body[data-screen="menu"] footer,body[data-screen="select"] .topbar,body[data-screen="select"] footer,body[data-screen="options"] .topbar,body[data-screen="options"] footer,body[data-screen="credits"] .topbar,body[data-screen="credits"] footer,body[data-screen="end"] .topbar,body[data-screen="end"] footer{display:none}
+body:not([data-screen="play"]) .touchControls{display:none}
+body:not([data-screen="play"]) .shell{width:min(800px,100%)}
+body:not([data-screen="play"]){padding:0;background:#050505;align-items:center;min-height:100vh}
+body:not([data-screen="play"]) .stage{max-height:100vh}
+@media (pointer:fine) and (min-width:850px){.touchControls{opacity:.28}.touchControls:hover{opacity:1}}
+@media(max-width:760px){body{padding:5px}.topbar{align-items:flex-start;flex-direction:column}.toolbar{width:100%;justify-content:flex-start}.toolbar select{flex:1;min-width:150px}.stage{max-height:none}footer{flex-direction:column;align-items:flex-start}.turn{width:66px;height:66px}body:not([data-screen="play"]){padding:0}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* M3 viewport/touch hardening */
+body[data-screen="play"]{padding:max(6px,env(safe-area-inset-top)) max(6px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left))}
+body[data-screen="play"] .shell{min-height:calc(100dvh - 12px);grid-template-rows:auto minmax(0,1fr) auto;align-items:center}
+body[data-screen="play"] .stage{width:min(100%,calc((100dvh - 138px)*4/3));max-height:calc(100dvh - 138px)}
+.turn{-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+@media (pointer:coarse){.turn{width:80px;height:80px;font-size:2.45rem}.touchControls{bottom:max(12px,env(safe-area-inset-bottom));padding:0 max(14px,env(safe-area-inset-left))}}
+@media (orientation:landscape) and (max-height:520px){body[data-screen="play"]{padding:3px}.identity{display:none}.topbar{padding:3px 5px}.toolbar{gap:3px;flex-wrap:nowrap}.toolbar button,.toolbar select{padding:4px 6px;font-size:.78rem}.toolbar select{min-width:120px}body[data-screen="play"] footer{display:none}body[data-screen="play"] .shell{min-height:calc(100dvh - 6px);grid-template-rows:auto minmax(0,1fr)}body[data-screen="play"] .stage{width:min(100%,calc((100dvh - 48px)*4/3));max-height:calc(100dvh - 48px)}.turn{width:56px;height:56px;font-size:1.8rem}.touchControls{bottom:6px}}
+
+
+/* M5 audio/typography polish */
+.identity strong{letter-spacing:.04em;text-transform:uppercase}
+.toolbar button[aria-pressed="false"]{opacity:.72}
+@media (orientation:landscape) and (max-height:520px){.toolbar button{white-space:nowrap}}

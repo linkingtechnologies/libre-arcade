@@ -1,0 +1,4 @@
+# Historical text kept byte-for-byte: no line-ending normalization, so the
+# files still hash to the values recorded in archaeology/inventories/manifest.json.
+archaeology/upstream-text/* -text
+archaeology/stratigraphy/*.patch -text

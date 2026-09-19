@@ -1,0 +1,11 @@
+filename,kind,pyweek_upload_time,description,upstream_url,size_bytes,sha256,local_status
+DiskField.zip,source snapshot,2007-09-02 22:24,End of day one; arrow keys twist field,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField.zip,,,NOT_FETCHED_IN_THIS_SESSION
+DiskField v0.2b.zip,source snapshot,2007-09-03 20:35,Playable to level 4,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v0.2b.zip,,,NOT_FETCHED_IN_THIS_SESSION
+DiskField v0.3.zip,source snapshot,2007-09-04 19:32,3 more levels / new features,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v0.3.zip,,,NOT_FETCHED_IN_THIS_SESSION
+DiskField v0.5.zip,source snapshot,2007-09-05 22:31,"Title screen, sound, options",https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v0.5.zip,,,NOT_FETCHED_IN_THIS_SESSION
+DiskField v0.5b.zip,source snapshot,2007-09-06 18:26,Fix crash when mixer and Psyco unavailable,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v0.5b.zip,,,NOT_FETCHED_IN_THIS_SESSION
+DiskField v0.8b.zip,source snapshot,2007-09-07 22:50,Fix NPOT error on older graphics cards,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v0.8b.zip,,,NOT_FETCHED_IN_THIS_SESSION
+DiskField v1.0.zip,source final submission,2007-09-08 20:37,PyWeek final source,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v1.0.zip,2469251,d0e69dc0c4f07a886de8bd7be3fb474316b7c21af0c23a47e29fe519df4b141d,PRESERVED
+DiskField v1.0 - Bin.zip,Windows binary,2007-09-08 20:43,Final Windows executable,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v1.0%20-%20Bin.zip,,,NOT_FETCHED_IN_THIS_SESSION
+DiskField v1.01.zip,source post-contest,2007-09-25 21:37,Bug fixes & performance,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v1.01.zip,2439482,e12e14c9ba5a3e92635cb4d0510c245129a97b4576a82aadd8531dfba35ec26f,PRESERVED
+DiskField v1.01b - Bin.zip,Windows binary,2007-11-13 23:00,Bug fixes/performance; batch launcher,https://s3.eu-west-2.amazonaws.com/media.pyweek.org/5/TTTT/DiskField%20v1.01b%20-%20Bin.zip,,,NOT_FETCHED_IN_THIS_SESSION

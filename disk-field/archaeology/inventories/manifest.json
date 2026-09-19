@@ -1,0 +1,462 @@
+{
+  "archives": {
+    "DiskField v1.0.zip": {
+      "size": 2469251,
+      "sha256": "d0e69dc0c4f07a886de8bd7be3fb474316b7c21af0c23a47e29fe519df4b141d"
+    },
+    "DiskField v1.01.zip": {
+      "size": 2439482,
+      "sha256": "e12e14c9ba5a3e92635cb4d0510c245129a97b4576a82aadd8531dfba35ec26f"
+    }
+  },
+  "files": {
+    "CHANGES.txt": {
+      "v1.0": null,
+      "v1.01": {
+        "size": 331,
+        "sha256": "896c8796ec4c72e518bc81b7f76dd2083b183a66a3b647361d7b16cb627b503d"
+      },
+      "status": "added-1.01"
+    },
+    "README.txt": {
+      "v1.0": {
+        "size": 1126,
+        "sha256": "b5b2b89edefbd92dc66ade598c54f36ea7ce05b57cec58dcc5c637249bc33e0d"
+      },
+      "v1.01": {
+        "size": 1027,
+        "sha256": "44b4d28ce3bdb8300d5a4be76e4cfc34ea5095ba01adcb98f794f7415ca90f52"
+      },
+      "status": "changed"
+    },
+    "data/Applause-J_Fairba-1717.wav": {
+      "v1.0": {
+        "size": 133326,
+        "sha256": "150f106e77f7df565bf5775bb1828a477c328de226fc301720214907d88363ee"
+      },
+      "v1.01": {
+        "size": 133326,
+        "sha256": "150f106e77f7df565bf5775bb1828a477c328de226fc301720214907d88363ee"
+      },
+      "status": "identical"
+    },
+    "data/Arcade_S-wwwbeat-1889.wav": {
+      "v1.0": {
+        "size": 441044,
+        "sha256": "027a0696367dad79090a34a8f10d1f4cdadcd9a7f9e36049c05558d39014af62"
+      },
+      "v1.01": {
+        "size": 441044,
+        "sha256": "027a0696367dad79090a34a8f10d1f4cdadcd9a7f9e36049c05558d39014af62"
+      },
+      "status": "identical"
+    },
+    "data/Electron-wwwbeat-1897.wav": {
+      "v1.0": {
+        "size": 72074,
+        "sha256": "c2a3ce36117f36fabe31c5cb591125463eb8c797d339ad04b1eec4215912cff4"
+      },
+      "v1.01": {
+        "size": 72074,
+        "sha256": "c2a3ce36117f36fabe31c5cb591125463eb8c797d339ad04b1eec4215912cff4"
+      },
+      "status": "identical"
+    },
+    "data/MAKISUPA.TTF": {
+      "v1.0": {
+        "size": 61240,
+        "sha256": "cdd6d170b60ec598e35ec2878659a9833c07b33125be5ba48392bd9844602b65"
+      },
+      "v1.01": {
+        "size": 61240,
+        "sha256": "cdd6d170b60ec598e35ec2878659a9833c07b33125be5ba48392bd9844602b65"
+      },
+      "status": "identical"
+    },
+    "data/Makisupa.txt": {
+      "v1.0": {
+        "size": 2628,
+        "sha256": "6acfc690b958cb3ab28d94528c99463f15a656586006be2f1214152b2008dec3"
+      },
+      "v1.01": {
+        "size": 2628,
+        "sha256": "6acfc690b958cb3ab28d94528c99463f15a656586006be2f1214152b2008dec3"
+      },
+      "status": "identical"
+    },
+    "data/delay_me-dog-298.wav": {
+      "v1.0": {
+        "size": 789404,
+        "sha256": "aef8c1bd29ca9121d42a911fbbedee7afb5d0e741eaaa278b53b57cc364037dd"
+      },
+      "v1.01": {
+        "size": 789404,
+        "sha256": "aef8c1bd29ca9121d42a911fbbedee7afb5d0e741eaaa278b53b57cc364037dd"
+      },
+      "status": "identical"
+    },
+    "data/icon.ico": {
+      "v1.0": {
+        "size": 2686,
+        "sha256": "9267db28f3dd353119f4879cd53667c14e9b5f4b427ba08cf9f5dfe3e111e7c4"
+      },
+      "v1.01": {
+        "size": 2686,
+        "sha256": "9267db28f3dd353119f4879cd53667c14e9b5f4b427ba08cf9f5dfe3e111e7c4"
+      },
+      "status": "identical"
+    },
+    "data/icon_pygame.png": {
+      "v1.0": {
+        "size": 486,
+        "sha256": "27960d51adb80fe315713a110d169243d4abcdac99905deb55ec3d2323dbcdf8"
+      },
+      "v1.01": {
+        "size": 486,
+        "sha256": "27960d51adb80fe315713a110d169243d4abcdac99905deb55ec3d2323dbcdf8"
+      },
+      "status": "identical"
+    },
+    "data/music Attribution.txt": {
+      "v1.0": {
+        "size": 37,
+        "sha256": "4c61bd27f27a85ec1c5fe1d234e6473bade93655bab470f53c7491cd9562218d"
+      },
+      "v1.01": {
+        "size": 37,
+        "sha256": "4c61bd27f27a85ec1c5fe1d234e6473bade93655bab470f53c7491cd9562218d"
+      },
+      "status": "identical"
+    },
+    "data/pop-SodaBush-1015.wav": {
+      "v1.0": {
+        "size": 25584,
+        "sha256": "a6ed364fe75d901f27c0c593b794bd408ac3fc897b7729c94602b53df5716d42"
+      },
+      "v1.01": {
+        "size": 25584,
+        "sha256": "a6ed364fe75d901f27c0c593b794bd408ac3fc897b7729c94602b53df5716d42"
+      },
+      "status": "identical"
+    },
+    "data/sound.cfg": {
+      "v1.0": {
+        "size": 6,
+        "sha256": "2a93ef399846526811d56221542f541f9397cd39f0b6718c7fbb44c08d2735fc"
+      },
+      "v1.01": {
+        "size": 6,
+        "sha256": "2a93ef399846526811d56221542f541f9397cd39f0b6718c7fbb44c08d2735fc"
+      },
+      "status": "identical"
+    },
+    "data/thud.ogg": {
+      "v1.0": {
+        "size": 4293,
+        "sha256": "45e6ff08e5dfd484d78b96bb223aafa3b0085f3f03ebec7066ac5b55a807e02a"
+      },
+      "v1.01": {
+        "size": 4293,
+        "sha256": "45e6ff08e5dfd484d78b96bb223aafa3b0085f3f03ebec7066ac5b55a807e02a"
+      },
+      "status": "identical"
+    },
+    "data/thud2.ogg": {
+      "v1.0": {
+        "size": 4990,
+        "sha256": "25c6285e57d0074098a6a479163c39d3ed9704e1e44b70eac72144cd2fdb6fe1"
+      },
+      "v1.01": {
+        "size": 4990,
+        "sha256": "25c6285e57d0074098a6a479163c39d3ed9704e1e44b70eac72144cd2fdb6fe1"
+      },
+      "status": "identical"
+    },
+    "data/thud3.ogg": {
+      "v1.0": {
+        "size": 5011,
+        "sha256": "67a9b5208924d6c0637dc226b4786f16638d2c520edaf45d91d201d31069415e"
+      },
+      "v1.01": {
+        "size": 5011,
+        "sha256": "67a9b5208924d6c0637dc226b4786f16638d2c520edaf45d91d201d31069415e"
+      },
+      "status": "identical"
+    },
+    "data/tradeyourkid.ogg": {
+      "v1.0": {
+        "size": 1655290,
+        "sha256": "c09c45073a99420101cc0eb17171a87c211dd777daba98470806e39f43c7a2d2"
+      },
+      "v1.01": {
+        "size": 1655290,
+        "sha256": "c09c45073a99420101cc0eb17171a87c211dd777daba98470806e39f43c7a2d2"
+      },
+      "status": "identical"
+    },
+    "data/unlockedLevels.txt": {
+      "v1.0": {
+        "size": 1,
+        "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      },
+      "v1.01": {
+        "size": 1,
+        "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      },
+      "status": "identical"
+    },
+    "lib/DfArrow.py": {
+      "v1.0": {
+        "size": 2130,
+        "sha256": "b67bbc3b580f88ea8eae9f71ccd19a02f3ee7c5f613d1944aede45f45d521b7d"
+      },
+      "v1.01": {
+        "size": 2539,
+        "sha256": "65ed54a39822f8ff5d01ca28f0fb89335bd809d4d7c948bdaf2e072fabe24d52"
+      },
+      "status": "changed"
+    },
+    "lib/DfArrow.pyc": {
+      "v1.0": {
+        "size": 3734,
+        "sha256": "f362cb3ab52c36ff389a219d756b2565da50a881f49305d3b7eed6db388f95a8"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfConstants.py": {
+      "v1.0": {
+        "size": 1325,
+        "sha256": "c4862bd2f730128f0ae295b0ad821a0771c78edf22fe3250f1288c7d0bb005aa"
+      },
+      "v1.01": {
+        "size": 1325,
+        "sha256": "c4862bd2f730128f0ae295b0ad821a0771c78edf22fe3250f1288c7d0bb005aa"
+      },
+      "status": "identical"
+    },
+    "lib/DfConstants.pyc": {
+      "v1.0": {
+        "size": 2146,
+        "sha256": "fd8a68143662f92d1f9c91b88159e74738d5bb7db1b6975f29aa0aaae797fec3"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfData.py": {
+      "v1.0": {
+        "size": 653,
+        "sha256": "dfbd4046e435d89a96bb90dc332efb4642bc371cfa88cc5329f4cde786eefc98"
+      },
+      "v1.01": {
+        "size": 653,
+        "sha256": "dfbd4046e435d89a96bb90dc332efb4642bc371cfa88cc5329f4cde786eefc98"
+      },
+      "status": "identical"
+    },
+    "lib/DfDisk.py": {
+      "v1.0": {
+        "size": 15263,
+        "sha256": "04d81bfa77faf800aa4c0adfb0ca68c6c06e71cd02f16075116aabf3e671734c"
+      },
+      "v1.01": {
+        "size": 15263,
+        "sha256": "04d81bfa77faf800aa4c0adfb0ca68c6c06e71cd02f16075116aabf3e671734c"
+      },
+      "status": "identical"
+    },
+    "lib/DfDisk.pyc": {
+      "v1.0": {
+        "size": 11479,
+        "sha256": "035ffb308154bbc4177f6b70a13f96d311cf15998c2d321329558696a4ad66ca"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfHelpers.py": {
+      "v1.0": {
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "v1.01": {
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "status": "identical"
+    },
+    "lib/DfLevelData.py": {
+      "v1.0": {
+        "size": 68851,
+        "sha256": "6b33e6b83b5aa375c9465a73a784c40b9828d84b6c000c421dc3cdd3bf3b731f"
+      },
+      "v1.01": {
+        "size": 68851,
+        "sha256": "6b33e6b83b5aa375c9465a73a784c40b9828d84b6c000c421dc3cdd3bf3b731f"
+      },
+      "status": "identical"
+    },
+    "lib/DfLevelData.pyc": {
+      "v1.0": {
+        "size": 19009,
+        "sha256": "4d89c7ae9114d46857c954b3cb20790462e9fb0ea416131d84656c4f08505b4b"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfMain.py": {
+      "v1.0": {
+        "size": 3205,
+        "sha256": "7625397d66972722d81f3f4a4b2bf748c0e3907284e354c5fba4a12a11321ff9"
+      },
+      "v1.01": {
+        "size": 3305,
+        "sha256": "193cc28fc64f89081af3146d3fae9053437b7c7f72ce56f36816a59d2bbd8b42"
+      },
+      "status": "changed"
+    },
+    "lib/DfMain.pyc": {
+      "v1.0": {
+        "size": 4577,
+        "sha256": "211cdbd521e91ddf426c93def868cbcc689bb4c34f1349005f34ee8d4de334a1"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfObjects.py": {
+      "v1.0": {
+        "size": 12450,
+        "sha256": "d20123a959473953a9547ccc9d651c261895b0e0ebe3ffd9231cacc8166b8821"
+      },
+      "v1.01": {
+        "size": 12450,
+        "sha256": "d20123a959473953a9547ccc9d651c261895b0e0ebe3ffd9231cacc8166b8821"
+      },
+      "status": "identical"
+    },
+    "lib/DfObjects.pyc": {
+      "v1.0": {
+        "size": 18492,
+        "sha256": "e36982bddc7ba7e93f2d082484f3e6cd5dccfd1729ee8859ba52181b46f9500a"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfSoundManager.py": {
+      "v1.0": {
+        "size": 2688,
+        "sha256": "b7ee3b66304f4f62f68532758b3421a0e8bb78991200bf821641b3b8dba4d4d7"
+      },
+      "v1.01": {
+        "size": 2688,
+        "sha256": "b7ee3b66304f4f62f68532758b3421a0e8bb78991200bf821641b3b8dba4d4d7"
+      },
+      "status": "identical"
+    },
+    "lib/DfSoundManager.pyc": {
+      "v1.0": {
+        "size": 4800,
+        "sha256": "014c2bc67af334621eb5bf4a4acfe77c83d01ff7e05fbcfab2ba6d2fb330e6cd"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfSplash.py": {
+      "v1.0": {
+        "size": 29095,
+        "sha256": "e3f1f3e1c91f843b5508b75e8a1ea5b4cf5645ae7899862032c4572302b28c67"
+      },
+      "v1.01": {
+        "size": 29474,
+        "sha256": "101e78a29ac570bedfbca3fc28671df22292018926bd4e6f7a8c857af1ada625"
+      },
+      "status": "changed"
+    },
+    "lib/DfSplash.pyc": {
+      "v1.0": {
+        "size": 18774,
+        "sha256": "74e04f2b5eaa2efd21eb1a03e5468fda0fe7ee0489831727f91d0689b42978ba"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfVector.py": {
+      "v1.0": {
+        "size": 252,
+        "sha256": "160c5a042a51f3e07d3c874910d5a0f4491456a673a6101cb8525b1718c32a1a"
+      },
+      "v1.01": {
+        "size": 252,
+        "sha256": "160c5a042a51f3e07d3c874910d5a0f4491456a673a6101cb8525b1718c32a1a"
+      },
+      "status": "identical"
+    },
+    "lib/DfVector.pyc": {
+      "v1.0": {
+        "size": 546,
+        "sha256": "268bd8842d800dadb34a99ebaba4b008b197cf1dcd57d9ee195a68b39e39459e"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/DfWorld.py": {
+      "v1.0": {
+        "size": 8291,
+        "sha256": "80a21b72e7e0cebf1519f1dcf01a7969c96dbcd39508ddcff0a5aaadc357a03e"
+      },
+      "v1.01": {
+        "size": 7503,
+        "sha256": "b54168e2f26299b3faf6f466e5270eccdfbc584696f40b9920e9c2e8340c5878"
+      },
+      "status": "changed"
+    },
+    "lib/DfWorld.pyc": {
+      "v1.0": {
+        "size": 9432,
+        "sha256": "741c925a777e5473c041f92e4b5e8761f501c8d5584bbc463450f290074f2910"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "lib/data.py": {
+      "v1.0": {
+        "size": 653,
+        "sha256": "dfbd4046e435d89a96bb90dc332efb4642bc371cfa88cc5329f4cde786eefc98"
+      },
+      "v1.01": {
+        "size": 653,
+        "sha256": "dfbd4046e435d89a96bb90dc332efb4642bc371cfa88cc5329f4cde786eefc98"
+      },
+      "status": "identical"
+    },
+    "lib/data.pyc": {
+      "v1.0": {
+        "size": 960,
+        "sha256": "e502893fe9d0ef7dd76c0ce3f4c9bfa46d27393ee82a717fbc0fb5f095430221"
+      },
+      "v1.01": null,
+      "status": "removed-1.01"
+    },
+    "run_game.py": {
+      "v1.0": {
+        "size": 283,
+        "sha256": "6d0399a36ee5f28189aad34b5d23de3caa710ef4f7475aef23813ed17a0e35d1"
+      },
+      "v1.01": {
+        "size": 283,
+        "sha256": "6d0399a36ee5f28189aad34b5d23de3caa710ef4f7475aef23813ed17a0e35d1"
+      },
+      "status": "identical"
+    },
+    "run_game.pyw": {
+      "v1.0": {
+        "size": 283,
+        "sha256": "6d0399a36ee5f28189aad34b5d23de3caa710ef4f7475aef23813ed17a0e35d1"
+      },
+      "v1.01": {
+        "size": 283,
+        "sha256": "6d0399a36ee5f28189aad34b5d23de3caa710ef4f7475aef23813ed17a0e35d1"
+      },
+      "status": "identical"
+    }
+  }
+}
