@@ -168,6 +168,7 @@
     flex-direction: column;
     gap: 0.35rem;
     padding: 1.25rem;
+    overflow: hidden;
     background: var(--panel);
     border: 1px solid var(--panel-border);
     border-left: 3px solid var(--dot);
@@ -182,6 +183,17 @@
     background: var(--panel-hover);
     transform: translateY(-3px);
     box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.6);
+  }
+  a.card .shot {
+    display: block;
+    width: calc(100% + 2.5rem);
+    max-width: none;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin: -1.25rem -1.25rem 0.5rem;
+    background: #000;
+    border-bottom: 1px solid var(--panel-border);
   }
   a.card .top-row {
     display: flex;
@@ -273,88 +285,115 @@
 
     const GAMES = [
       { href: 'klondike/public/index.html', year: '2021', category: 'cards',
+        shot: 'klondike/screenshots/02-draw-pile.png',
         title: "Grugnetto's Klondike",
         desc: { it: 'Solitario classico. Ogni partita è garantita vincibile.', en: 'Classic solitaire. Every deal is guaranteed winnable.' } },
       { href: 'briscola/index.html', year: '2005–2026', category: 'cards',
+        shot: 'briscola/screenshots/04-mid-game.png',
         title: "Grugnetto's Briscola",
         desc: { it: 'Gioca contro IA sviluppate in due decenni.', en: 'Play against AI opponents spanning two decades.' } },
       { href: 'glparchis/public/index.html', year: '2018', category: 'cards',
+        shot: 'glparchis/screenshots/04-later.png',
         title: 'glParchis',
         desc: { it: 'Porta a casa quattro pedine contro rivali umani o CPU.', en: 'Race four pawns home against local human or CPU rivals.' } },
       { href: 'game-of-the-goose/public/index.html', year: '2021', category: 'cards',
+        shot: 'game-of-the-goose/screenshots/02-board.png',
         title: 'Game of the Goose',
         desc: { it: 'Il classico gioco dell’oca, tra ponti, pozzi e oche.', en: 'The classic dice race, with bridges, wells and geese.' } },
       { href: 'grugnettos-goose/public/index.html', year: '2026', category: 'cards',
+        shot: 'grugnettos-goose/screenshots/03-lithograph-board.png',
         title: "Grugnetto's Goose",
         desc: { it: 'Lo stesso classico, su due tabelloni storici autentici.', en: 'The same classic, on two genuine historical boards.' } },
 
       { href: 'netris/public/index.html', year: '1994', category: 'puzzle',
+        shot: 'netris/screenshots/03-autopilot.png',
         title: 'Netris',
         desc: { it: 'Uno dei primi giochi a blocchi in stile Tetris.', en: 'An early Tetris-style falling-block game.' } },
       { href: 'hextris/public/index.html', year: '2014', category: 'puzzle',
+        shot: 'hextris/screenshots/04-stacking.png',
         title: 'Hextris',
         desc: { it: 'Puzzle esagonale frenetico a blocchi.', en: 'Fast-paced hexagonal block puzzle.' } },
       { href: '54321/public/index.html', year: '2001', category: 'puzzle',
+        shot: '54321/screenshots/03-maze-runner.png',
         title: '54321',
         desc: { it: 'Cinque puzzle, un solo motore, fino a quattro dimensioni.', en: 'Five puzzles, one engine, up to four dimensions.' } },
       { href: 'donkey-bolonkey/public/index.html', year: '2001', category: 'puzzle',
+        shot: 'donkey-bolonkey/screenshots/03-game.png',
         title: 'Donkey Bolonkey',
         desc: { it: 'Abbina gli asinelli prima che li raggiunga il tritatutto.', en: 'Match donkeys before the crusher gets them.' } },
       { href: 'bubble-train/public/index.html', year: '2004', category: 'puzzle',
+        shot: 'bubble-train/screenshots/03-play.png',
         title: 'Bubble Train',
         desc: { it: 'Spara bolle nel treno in corsa prima che arrivi al capolinea.', en: 'Shoot bubbles into a moving train before it reaches the end.' } },
       { href: 'disk-field/public/index.html', year: '2007', category: 'puzzle',
+        shot: 'disk-field/screenshots/04-level-13-black-holes.png',
         title: 'Disk Field',
         desc: { it: 'Ruota il campo di forze per guidare il disco fino al bersaglio: 17 livelli di fisica.', en: 'Rotate the force field to steer the disk into the target: 17 physics levels.' } },
 
       { href: 'psypong3d/public/index.html', year: '2009', category: 'arcade',
+        shot: 'psypong3d/screenshots/03-later.png',
         title: 'PSY PONG 3D',
         desc: { it: 'Ping pong psichedelico in 3D, per uno o due giocatori.', en: 'Psychedelic 3D table tennis, one or two players.' } },
       { href: 'nova-pinball/public/index.html', year: '2015', category: 'arcade',
+        shot: 'nova-pinball/screenshots/02-table.png',
         title: 'Nova Pinball',
         desc: { it: 'Flipper storico: manda la stella in nova attraverso la catena di missioni.', en: 'Historical pinball: make the star go nova through the full mission chain.' } },
       { href: 'mechanical-night-pinball/public/index.html', year: '2018', category: 'arcade',
+        shot: 'mechanical-night-pinball/screenshots/03-in-play.png',
         title: 'Mechanical Night Pinball',
         desc: { it: 'Flipper ricostruito con archeologia del software e fisica calibrata su Box2D.', en: 'A pinball table rebuilt through software archaeology, physics calibrated against Box2D.' } },
       { href: 'wok/public/index.html', year: '2001', category: 'arcade',
+        shot: 'wok/screenshots/04-later.png',
         title: 'Wok',
         desc: { it: 'Cattura le palline che cadono e rilanciale per fare combo.', en: 'Catch falling balls, throw them back for combos.' } },
       { href: 'don-ceferino/public/index.html', year: '2004', category: 'arcade',
+        shot: 'don-ceferino/screenshots/04-level.png',
         title: 'Don Ceferino Hazaña',
         desc: { it: 'Fai scoppiare palline rimbalzanti in 30 livelli a tema gaucho.', en: 'Pop bouncing balls across 30 gaucho-themed levels.' } },
       { href: 'yanoid/public/index.html', year: '2001', category: 'arcade',
+        shot: 'yanoid/screenshots/02-play.png',
         title: 'Yanoid',
         desc: { it: 'Yet Another arkaNOID — undici livelli da contest.', en: 'Yet Another arkaNOID — eleven contest stages.' } },
       { href: 'njam/index.html', year: '2003', category: 'arcade',
+        shot: 'njam/screenshots/04-maze-later.png',
         title: 'Njam',
         desc: { it: 'Un gioco di inseguimento nel labirinto, con potenziamenti e duelli.', en: 'A maze chase game with power-ups and duels.' } },
       { href: 'html5-breakout/public/index.html', year: '2017', category: 'arcade',
+        shot: 'html5-breakout/screenshots/02-launch.png',
         title: 'Breakout',
         desc: { it: 'Distruggi tutti i mattoncini, da solo o in due.', en: 'Smash every brick, one or two players.' } },
       { href: 'html5-space-invaders/public/index.html', year: '2017', category: 'arcade',
+        shot: 'html5-space-invaders/screenshots/03-firing.png',
         title: 'Space Invaders',
         desc: { it: "Difenditi dall'invasione aliena.", en: 'Defend against the alien invasion.' } },
       { href: 'html5-snake/public/index.html', year: '2013', category: 'arcade',
+        shot: 'html5-snake/screenshots/03-turning.png',
         title: 'Snake',
         desc: { it: 'La versione spietata — una mossa sbagliata e hai finito.', en: 'The unforgiving version — one wrong move ends it.' } },
       { href: 'react-simple-snake/public/index.html', year: '2021', category: 'arcade',
+        shot: 'react-simple-snake/screenshots/01-start.png',
         title: 'Snake (No Walls)',
         desc: { it: 'Uno Snake più clemente, che riappare dal lato opposto.', en: 'A gentler Snake that wraps around the edges.' } },
 
       { href: 'netrok/index.html', year: '2004', category: 'platform',
+        shot: 'netrok/screenshots/04-level-birds.png',
         title: 'Netrok',
         desc: { it: 'Corri, salta ed esplora 20 livelli originali.', en: 'Run, jump and explore 20 original levels.' } },
       { href: 'grugnetto-go/public/index.html', year: '2026', category: 'platform',
+        shot: 'grugnetto-go/screenshots/04-gameplay.png',
         title: 'Grugnetto Go!',
         desc: { it: 'Un platform tutto nuovo con Grugnetto protagonista.', en: 'A brand-new platformer starring Grugnetto.' } },
 
       { href: 'naval-battle/index.html', year: '2009', category: 'strategy',
+        shot: 'naval-battle/screenshots/04-battle.png',
         title: "Grugnetto's Naval Battle",
         desc: { it: 'Affonda la flotta nemica prima che affondi la tua.', en: 'Sink the enemy fleet before it sinks yours.' } },
       { href: 'for-science/public/index.html', year: '2013', category: 'strategy',
+        shot: 'for-science/screenshots/04-demo-later.png',
         title: 'For Science!',
         desc: { it: 'Abbina le tessere, carica gli attacchi, distruggi il laboratorio rivale.', en: 'Match tiles, arm attacks, destroy the rival lab.' } },
       { href: 'terramancers/public/index.html', year: '2012', category: 'strategy',
+        shot: 'terramancers/screenshots/04-later.png',
         title: 'Terramancers',
         desc: { it: 'Conquista il territorio in tempo reale, in stile Reversi.', en: 'Claim territory in real time, Reversi-style.' } },
     ];
@@ -411,6 +450,18 @@
           a.href = game.href;
           a.dataset.category = cat.id;
           a.innerHTML = `<div class="top-row"><span class="year">${game.year}</span></div><h3 data-role="title"></h3><p data-role="desc"></p>`;
+          if (game.shot) {
+            const img = document.createElement('img');
+            img.className = 'shot';
+            img.src = game.shot;
+            img.alt = '';
+            img.width = 1920;
+            img.height = 1080;
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.addEventListener('error', () => img.remove(), { once: true });
+            a.prepend(img);
+          }
           a._game = game;
           section.querySelector('[data-role="grid"]').append(a);
         }

@@ -173,3 +173,30 @@ remote calls creeping in, not to forbid analytics.
 
 Add the snippet for every new game before considering it done, the same way
 "Play here" links are required above.
+
+## Writing STORY.md (per-game narrative)
+
+Every game's own `STORY.md` is a short, human-readable piece for someone who
+just found the collection, not another archaeology document, but it must
+still be grounded in that game's own `README.md`/`PROVENANCE.md`/
+`SOFTWARE_ARCHAEOLOGY.md`/`CHANGELOG.md`, never invented. A thin vendored
+game gets a shorter, honest post; padding it to match a deep restoration's
+length is worse than a short true one.
+
+- Line 1 is a plain `# ` heading with the game's real name, nothing clever
+  appended to it. Line 2 is a one-line subtitle on its own, not merged into
+  the title with a dash or colon.
+- No em dashes, anywhere. If a sentence wants one, split it into two
+  sentences, or use a comma, a colon, or parentheses instead: whichever the
+  sentence actually calls for.
+- Sentence case for every heading, not Title Case.
+- No stock rhetorical closers repeated as a formula ("That's the whole
+  point," "That's the story," and the like). End a paragraph on a strong
+  fact; it doesn't need an editorial tagline stapled to it.
+- Don't stack rule-of-three phrases as a crutch ("quick, colorful, and a
+  little frantic"). Fine once in a whole piece, tedious as a running tic.
+- Cut filler intensifiers ("genuinely," "actually," "honestly," "truly")
+  unless the sentence actually needs the emphasis.
+- Target well under a ten-minute read (roughly 800 to 1800 words depending
+  on how much real material that game has); see any existing `STORY.md` for
+  calibration.
