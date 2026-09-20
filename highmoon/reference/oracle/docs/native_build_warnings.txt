@@ -1,0 +1,164 @@
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp: In member function 'virtual bool Spaceobject::check_collision(double, double, double, bool)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:105:43: warning: unused parameter 'x' [-Wunused-parameter]
+  105 | bool Spaceobject::check_collision( double x, double y, double width, bool spacing ) { return false; }
+      |                                    ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:105:53: warning: unused parameter 'y' [-Wunused-parameter]
+  105 | bool Spaceobject::check_collision( double x, double y, double width, bool spacing ) { return false; }
+      |                                              ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:105:63: warning: unused parameter 'width' [-Wunused-parameter]
+  105 | bool Spaceobject::check_collision( double x, double y, double width, bool spacing ) { return false; }
+      |                                                        ~~~~~~~^~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:105:75: warning: unused parameter 'spacing' [-Wunused-parameter]
+  105 | bool Spaceobject::check_collision( double x, double y, double width, bool spacing ) { return false; }
+      |                                                                      ~~~~~^~~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp: In member function 'virtual void Spaceobject::hit(Spaceobject*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:109:37: warning: unused parameter 'object' [-Wunused-parameter]
+  109 | void Spaceobject::hit( Spaceobject *object ) {}
+      |                        ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp: In member function 'virtual void Extra::hit(Spaceobject*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp:126:31: warning: unused parameter 'object' [-Wunused-parameter]
+  126 | void Extra::hit( Spaceobject *object )
+      |                  ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp: In member function 'virtual bool Stone::check_collision(double, double, double, bool)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp:178:69: warning: unused parameter 'spacing' [-Wunused-parameter]
+  178 | bool Stone::check_collision( double x, double y, double width, bool spacing )
+      |                                                                ~~~~~^~~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp: In constructor 'Planet::Planet(double, double)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp:283:43: warning: operation on '((Planet*)this)->Planet::objects_of_planet' may be undefined [-Wsequence-point]
+  283 |                         objects_of_planet = objects_of_planet=(int)RANDOM(MAXSTONES,20);
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp: In member function 'virtual void Blackhole::hit(Spaceobject*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp:455:35: warning: unused parameter 'object' [-Wunused-parameter]
+  455 | void Blackhole::hit( Spaceobject *object ) {}
+      |                      ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function 'virtual bool Explosion::check_collision(double, double, double, bool)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:79:41: warning: unused parameter 'x' [-Wunused-parameter]
+   79 | bool Explosion::check_collision( double x, double y, double width, bool spacing )
+      |                                  ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:79:51: warning: unused parameter 'y' [-Wunused-parameter]
+   79 | bool Explosion::check_collision( double x, double y, double width, bool spacing )
+      |                                            ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:79:61: warning: unused parameter 'width' [-Wunused-parameter]
+   79 | bool Explosion::check_collision( double x, double y, double width, bool spacing )
+      |                                                      ~~~~~~~^~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:79:73: warning: unused parameter 'spacing' [-Wunused-parameter]
+   79 | bool Explosion::check_collision( double x, double y, double width, bool spacing )
+      |                                                                    ~~~~~^~~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function 'virtual void Explosion::hit(Spaceobject*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:92:35: warning: unused parameter 'object' [-Wunused-parameter]
+   92 | void Explosion::hit( Spaceobject *object ) {}
+      |                      ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function 'virtual bool Shoot::move(Galaxy*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:155:27: warning: unused parameter 'galaxy' [-Wunused-parameter]
+  155 | bool Shoot::move( Galaxy *galaxy ) { return false; }
+      |                   ~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function 'virtual bool Shoot::has_Extra_collision(Extra*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:157:41: warning: unused parameter 'extra' [-Wunused-parameter]
+  157 | bool Shoot::has_Extra_collision( Extra *extra )
+      |                                  ~~~~~~~^~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function 'virtual bool Shoot::check_collision(double, double, double, bool)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:162:37: warning: unused parameter 'x' [-Wunused-parameter]
+  162 | bool Shoot::check_collision( double x, double y, double width, bool spacing )
+      |                              ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:162:47: warning: unused parameter 'y' [-Wunused-parameter]
+  162 | bool Shoot::check_collision( double x, double y, double width, bool spacing )
+      |                                        ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:162:57: warning: unused parameter 'width' [-Wunused-parameter]
+  162 | bool Shoot::check_collision( double x, double y, double width, bool spacing )
+      |                                                  ~~~~~~~^~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:162:69: warning: unused parameter 'spacing' [-Wunused-parameter]
+  162 | bool Shoot::check_collision( double x, double y, double width, bool spacing )
+      |                                                                ~~~~~^~~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function 'virtual void Shoot::hit(Spaceobject*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:193:31: warning: unused parameter 'object' [-Wunused-parameter]
+  193 | void Shoot::hit( Spaceobject *object ) {}
+      |                  ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function 'virtual void Laser::hit(Spaceobject*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:343:31: warning: unused parameter 'object' [-Wunused-parameter]
+  343 | void Laser::hit( Spaceobject *object )
+      |                  ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function 'virtual void Heavy::hit(Spaceobject*)':
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:468:31: warning: unused parameter 'object' [-Wunused-parameter]
+  468 | void Heavy::hit( Spaceobject *object )
+      |                  ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp: In member function ‘virtual bool Spaceobject::check_collision(double, double, double, bool)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:105:43: warning: unused parameter ‘x’ [-Wunused-parameter]
+  105 | bool Spaceobject::check_collision( double x, double y, double width, bool spacing ) { return false; }
+      |                                    ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:105:53: warning: unused parameter ‘y’ [-Wunused-parameter]
+  105 | bool Spaceobject::check_collision( double x, double y, double width, bool spacing ) { return false; }
+      |                                              ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:105:63: warning: unused parameter ‘width’ [-Wunused-parameter]
+  105 | bool Spaceobject::check_collision( double x, double y, double width, bool spacing ) { return false; }
+      |                                                        ~~~~~~~^~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:105:75: warning: unused parameter ‘spacing’ [-Wunused-parameter]
+  105 | bool Spaceobject::check_collision( double x, double y, double width, bool spacing ) { return false; }
+      |                                                                      ~~~~~^~~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp: In member function ‘virtual void Spaceobject::hit(Spaceobject*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/object.cpp:109:37: warning: unused parameter ‘object’ [-Wunused-parameter]
+  109 | void Spaceobject::hit( Spaceobject *object ) {}
+      |                        ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp: In member function ‘virtual void Extra::hit(Spaceobject*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp:126:31: warning: unused parameter ‘object’ [-Wunused-parameter]
+  126 | void Extra::hit( Spaceobject *object )
+      |                  ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp: In member function ‘virtual bool Stone::check_collision(double, double, double, bool)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp:178:69: warning: unused parameter ‘spacing’ [-Wunused-parameter]
+  178 | bool Stone::check_collision( double x, double y, double width, bool spacing )
+      |                                                                ~~~~~^~~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp: In constructor ‘Planet::Planet(double, double)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp:283:43: warning: operation on ‘((Planet*)this)->Planet::objects_of_planet’ may be undefined [-Wsequence-point]
+  283 |                         objects_of_planet = objects_of_planet=(int)RANDOM(MAXSTONES,20);
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp: In member function ‘virtual void Blackhole::hit(Spaceobject*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/galaxy.cpp:455:35: warning: unused parameter ‘object’ [-Wunused-parameter]
+  455 | void Blackhole::hit( Spaceobject *object ) {}
+      |                      ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function ‘virtual bool Explosion::check_collision(double, double, double, bool)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:79:41: warning: unused parameter ‘x’ [-Wunused-parameter]
+   79 | bool Explosion::check_collision( double x, double y, double width, bool spacing )
+      |                                  ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:79:51: warning: unused parameter ‘y’ [-Wunused-parameter]
+   79 | bool Explosion::check_collision( double x, double y, double width, bool spacing )
+      |                                            ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:79:61: warning: unused parameter ‘width’ [-Wunused-parameter]
+   79 | bool Explosion::check_collision( double x, double y, double width, bool spacing )
+      |                                                      ~~~~~~~^~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:79:73: warning: unused parameter ‘spacing’ [-Wunused-parameter]
+   79 | bool Explosion::check_collision( double x, double y, double width, bool spacing )
+      |                                                                    ~~~~~^~~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function ‘virtual void Explosion::hit(Spaceobject*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:92:35: warning: unused parameter ‘object’ [-Wunused-parameter]
+   92 | void Explosion::hit( Spaceobject *object ) {}
+      |                      ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function ‘virtual bool Shoot::move(Galaxy*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:155:27: warning: unused parameter ‘galaxy’ [-Wunused-parameter]
+  155 | bool Shoot::move( Galaxy *galaxy ) { return false; }
+      |                   ~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function ‘virtual bool Shoot::has_Extra_collision(Extra*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:157:41: warning: unused parameter ‘extra’ [-Wunused-parameter]
+  157 | bool Shoot::has_Extra_collision( Extra *extra )
+      |                                  ~~~~~~~^~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function ‘virtual bool Shoot::check_collision(double, double, double, bool)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:162:37: warning: unused parameter ‘x’ [-Wunused-parameter]
+  162 | bool Shoot::check_collision( double x, double y, double width, bool spacing )
+      |                              ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:162:47: warning: unused parameter ‘y’ [-Wunused-parameter]
+  162 | bool Shoot::check_collision( double x, double y, double width, bool spacing )
+      |                                        ~~~~~~~^
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:162:57: warning: unused parameter ‘width’ [-Wunused-parameter]
+  162 | bool Shoot::check_collision( double x, double y, double width, bool spacing )
+      |                                                  ~~~~~~~^~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:162:69: warning: unused parameter ‘spacing’ [-Wunused-parameter]
+  162 | bool Shoot::check_collision( double x, double y, double width, bool spacing )
+      |                                                                ~~~~~^~~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function ‘virtual void Shoot::hit(Spaceobject*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:193:31: warning: unused parameter ‘object’ [-Wunused-parameter]
+  193 | void Shoot::hit( Spaceobject *object ) {}
+      |                  ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function ‘virtual void Laser::hit(Spaceobject*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:343:31: warning: unused parameter ‘object’ [-Wunused-parameter]
+  343 | void Laser::hit( Spaceobject *object )
+      |                  ~~~~~~~~~~~~~^~~~~~
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp: In member function ‘virtual void Heavy::hit(Spaceobject*)’:
+/mnt/data/highmoon_oracle_work/instrumented/HighMoon/src/shoot.cpp:468:31: warning: unused parameter ‘object’ [-Wunused-parameter]
+  468 | void Heavy::hit( Spaceobject *object )
+      |                  ~~~~~~~~~~~~~^~~~~~

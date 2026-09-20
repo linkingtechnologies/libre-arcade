@@ -1,0 +1,26 @@
+{
+  "highmoon_upstream": {
+    "url": "https://highmoon.gerdsmeier.net/",
+    "finding": "Project page states HighMoon is licensed under the GNU GPL, but provides no per-asset attribution."
+  },
+  "openoffice_historical_license": {
+    "url": "https://www.openoffice.org/FAQs/license-change.html",
+    "finding": "OpenOffice.org source code and binaries up to and including 2 Beta 2 were dual licensed LGPL/SISSL; from 2 Sep 2005 the 2.0 codeline moved to LGPL only."
+  },
+  "openoffice_licensing_faq": {
+    "url": "https://www.openoffice.org/FAQs/faq-licensing.html",
+    "finding": "Prior OpenOffice versions used LGPL 2.1; 1.x also SISSL. This is product-level evidence, not a per-WAV provenance certificate."
+  },
+  "qnetwalk": {
+    "url": "https://github.com/AMDmi3/qnetwalk",
+    "finding": "QNetWalk is GPL-2.0 and its README says current sounds were taken from LBreakout2. This does not prove the ultimate origin/license of the 2002 connect.wav sample."
+  },
+  "os4depot_qnetwalk": {
+    "url": "https://os4depot.net/?file=game/puzzle/qnetwalk.lha&function=showcontent",
+    "finding": "QNetWalk connect.wav: 3056 bytes, LHA CRC d93d, timestamp 24 Feb 2002."
+  },
+  "os4depot_highmoon": {
+    "url": "https://www.os4depot.net/index.php?file=game/action/highmoon.lha&function=showfile",
+    "finding": "HighMoon package is labeled GPL/distributable; archived asset listing carries original HighMoon file sizes."
+  }
+}

@@ -1,0 +1,23 @@
+OK   shoot interval
+OK   gravity distance
+OK   gravity law
+OK   sum gravity
+OK   velocity update
+OK   position update
+calculate_nextPos_sha256=5386e7b806b3f6802d4ea25963b4900ba517528826d33107cab4e09b677cee12
+vector_2.cpp_sha256=b8ad58981effd44fa1dc6c764d86d6030dd62bcce8262cc2d79275135f6b6313
+/mnt/data/highmoon_oracle_work/oracle/bin/highmoon-physics-oracle
+/mnt/data/highmoon_oracle_work/oracle/native_headless/bin/highmoon-native-headless
+PASS 816 physics events match exactly
+PASS 816 physics events match exactly
++ /opt/pyvenv/bin/python3 /mnt/data/highmoon_oracle_work/oracle/tools/source_guard.py
++ /mnt/data/highmoon_oracle_work/oracle/tools/build_headless.sh
++ /mnt/data/highmoon_oracle_work/oracle/native_headless/build.sh
++ /mnt/data/highmoon_oracle_work/oracle/native_headless/bin/highmoon-native-headless --root /mnt/data/highmoon_oracle_work/reference/HighMoon --startup-seed 12345 --galaxy-seed 54321 --objects 6 --mode laser --ticks 700 --power 70 --angle-deg 0 --settle
++ /mnt/data/highmoon_oracle_work/oracle/bin/highmoon-physics-oracle --start 130,384 --velocity 210,0 --ticks 102 --projectile-roundtrip --scenario native-seed54321 --out /tmp/highmoon-oracle-hlea1rev/mirror-laser.jsonl --body body0,418.59730875492096,54.738983631134033,350 --body body1,768.14242963865399,88.798478722572327,50 --body body2,768.27729373797774,279.48814058303833,300 --body body3,488.08641652017832,715.87579751014709,250 --body body4,454.98812480643392,555.54049372673035,180 --body body5,584.01647695526481,254.98464453220367,-100
++ /opt/pyvenv/bin/python3 /mnt/data/highmoon_oracle_work/oracle/tools/compare_jsonl.py /tmp/highmoon-oracle-hlea1rev/native-laser.jsonl /tmp/highmoon-oracle-hlea1rev/mirror-laser.jsonl
++ /mnt/data/highmoon_oracle_work/oracle/native_headless/bin/highmoon-native-headless --root /mnt/data/highmoon_oracle_work/reference/HighMoon --startup-seed 12345 --galaxy-seed 54321 --objects 6 --mode heavy --ticks 700 --power 70 --angle-deg 0 --settle
++ /opt/pyvenv/bin/python3 /mnt/data/highmoon_oracle_work/oracle/tools/compare_jsonl.py /tmp/highmoon-oracle-hlea1rev/native-laser.jsonl /tmp/highmoon-oracle-hlea1rev/native-heavy.jsonl
+PASS native-vs-mirror regression suite
+PASS stored native Laser trace reproduces byte-for-byte in this build
+PASS stored native AI trace reproduces byte-for-byte in this build

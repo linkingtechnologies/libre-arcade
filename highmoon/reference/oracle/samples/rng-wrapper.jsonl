@@ -1,0 +1,17 @@
+{"event":"srand","seed":1234,"rng_index":0,"file":"test","line":1}
+{"event":"rng","index":0,"raw":479142414,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":1,"raw":465566339,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":2,"raw":961126155,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":3,"raw":1057886067,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":4,"raw":1222702060,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":5,"raw":1017450741,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":6,"raw":1019879755,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":7,"raw":72282698,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":8,"raw":2048787572,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":9,"raw":2058368053,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":10,"raw":330534375,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":11,"raw":560672241,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":12,"raw":407464966,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":13,"raw":774759233,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":14,"raw":1336980168,"rand_max":2147483647,"file":"test","line":2}
+{"event":"rng","index":15,"raw":358347371,"rand_max":2147483647,"file":"test","line":2}

@@ -1,0 +1,8 @@
+OK   shoot interval
+OK   gravity distance
+OK   gravity law
+OK   sum gravity
+OK   velocity update
+OK   position update
+calculate_nextPos_sha256=5386e7b806b3f6802d4ea25963b4900ba517528826d33107cab4e09b677cee12
+vector_2.cpp_sha256=b8ad58981effd44fa1dc6c764d86d6030dd62bcce8262cc2d79275135f6b6313

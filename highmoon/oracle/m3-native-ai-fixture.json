@@ -1,0 +1,88 @@
+{
+  "source": "HighMoon 1.2.4 Phase 3 native-headless oracle",
+  "startup_seed": 12345,
+  "galaxy_seed": 54321,
+  "objects": 6,
+  "factor": 3,
+  "galaxy_rng_calls": 408,
+  "settle_frames": 48,
+  "settle_render_rng_calls": 858,
+  "rng_index_after_settle": 1266,
+  "rng_index_after_seventh_candidate": 1397,
+  "candidates": [
+    {
+      "searches_remaining": 150,
+      "y": 281,
+      "power": 71,
+      "angle": 4.606248110368424,
+      "found": false
+    },
+    {
+      "searches_remaining": 149,
+      "y": 270,
+      "power": 73,
+      "angle": 1.4946193464640602,
+      "found": false
+    },
+    {
+      "searches_remaining": 148,
+      "y": 348,
+      "power": 37,
+      "angle": 2.9895102514288427,
+      "found": false
+    },
+    {
+      "searches_remaining": 147,
+      "y": 109,
+      "power": 92,
+      "angle": 3.1206472540730834,
+      "found": false
+    },
+    {
+      "searches_remaining": 146,
+      "y": 140,
+      "power": 39,
+      "angle": 2.4731104207554537,
+      "found": false
+    },
+    {
+      "searches_remaining": 145,
+      "y": 200,
+      "power": 33,
+      "angle": 2.466651240865566,
+      "found": false
+    },
+    {
+      "searches_remaining": 144,
+      "y": 186,
+      "power": 49,
+      "angle": 5.007250780876458,
+      "found": true
+    }
+  ],
+  "fire": {
+    "frame_zero_based": 342,
+    "power": 49,
+    "angle": 5.007250780876458,
+    "start": {
+      "x": 87.43645706572505,
+      "y": 128.5894612027101
+    },
+    "velocity": {
+      "x": 42.71931981102637,
+      "y": -140.6558200533602
+    }
+  },
+  "actual_shot": {
+    "physics_steps": 225,
+    "shield_before": 100,
+    "shield_after": 80,
+    "impact_speed": 200.8445389673785,
+    "impact": {
+      "x": 930.8644434626513,
+      "y": 365.8369248309918
+    }
+  },
+  "total_frames_after_settle": 567,
+  "rng_calls_after_galaxy_seed_through_final_render": 12585
+}

@@ -1,0 +1,64 @@
+
+..      ..  ..    ......    ..      ..    ....  ....      ......      ......      ......
+..      ..  ..  ..          ..      ..  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..........  ..  ..      ..  ..........  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..      ..  ..  ..      ..  ..      ..  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..      ..  ..    ........  ..      ..  ..    ..    ..    ......      ......    ..      ..
+
+HighMoon - Duel in Space.
+Copyright (c) 2005, 2006 Patrick Gerdsmeier <patrick@gerdsmeier.net>
+
+The game needs the SDL library. If it's not installed on your
+computer, you can download it at http://www.libsdl.org.
+
+To compile the sources you need a C++ Compiler. I used latest GNU
+g++ which you can get at http://www.gnu.org/software/gcc.
+
+Move to the sources Path and type:
+	
+	make
+
+The game will now compile. If no errors occour, you can 
+start it by typing
+	
+	./ufo
+
+To clean object and backup Files, type:
+
+	make clean
+	
+If you want to install the game, edit the Makefile to
+set the prefered Paths. Then type make install.
+Type make uninstall to remove all installed files.
+
+
+
+HighMoon - Duell im All.
+Copyright (c) 2005, 2006 Patrick Gerdsmeier <patrick@gerdsmeier.net>
+
+Das Spiel benoetigt die SDL-Bibliothek. Falls die nicht
+installiert ist, kann man sie bei http://www.libsdl.org
+downloaden.
+
+Zum Kompilieren der Quellen braucht man einen C++-Compiler.
+Ich habe den neusten GNU g++, den man unter
+http://www.gnu.org/software/gcc bekommen kann.
+
+Im Verzeichnis der Quellen reicht ein einfaches:
+
+	make
+
+um die Uebersetzung zu starten. Wenn kein Fehler aufgetreten
+ist, laesst sich das Spiel danach mit:
+
+	./ufo
+	
+starten. Um alle Objekt- und Backup-Dateien zu loeschen
+reicht ein:
+	
+	make clean
+	
+Zum Installieren des Spiels, muss man die Pfade im Makefile
+anpassen. mit make install bzw. make uninstall wird das
+Programm danach installiert bzw. deinstalliert.
+

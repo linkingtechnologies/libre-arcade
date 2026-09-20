@@ -1,0 +1,20 @@
+# TODO/FIXME/XXX search
+src/graphics.cpp:287:	int xxx = (int)x * bpp;
+src/graphics.cpp:289:	Uint8 index = *( (Uint8 *)surface->pixels + xxx + yyy );
+
+# disabled/experimental macros
+src/constants.hpp:36://#define __TRAINERMODE__	// Show Shootpath, toggle Weapon
+src/constants.hpp:37://#define __THREADS__		// Tested Threads... didn't work faster =( 
+src/constants.hpp:98:	WEAPON_FUNGHI  = 3
+src/constants.hpp:110:const int WEIGHT_WORMHOLE 	= 100;
+src/galaxy.cpp:758:		case WEAPON_FUNGHI:
+src/galaxy.cpp:838:			case WEAPON_FUNGHI:
+src/main.cpp:54:#ifdef __THREADS__
+src/main.cpp:151:	#ifdef __THREADS__
+src/main.cpp:214:		#ifdef __THREADS__
+src/main.cpp:294:				#ifdef __TRAINERMODE__
+src/main.cpp:347:						#ifdef __TRAINERMODE__
+src/main.cpp:407:			#ifndef __THREADS__
+src/main.cpp:429:		#ifdef __THREADS__
+src/main.cpp:757:				#ifdef __TRAINERMODE__
+src/main.cpp:791:	#ifdef __THREADS__

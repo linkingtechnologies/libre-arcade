@@ -1,0 +1,6 @@
+# Oracle build overlay for HighMoon 1.2.4.
+# Keeps the historical Makefile byte-for-byte untouched.
+include Makefile
+
+CXXFLAGS += -D__ORACLE_TRACE__
+OBJS += $(SRCDIR)/oracle_trace.o

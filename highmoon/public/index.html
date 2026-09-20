@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050713">
+  <meta name="color-scheme" content="dark">
+  <title>HighMoon — Duel in Space</title>
+  <meta name="description" content="HighMoon: duello d'artiglieria spaziale con gravità multi-corpo, restaurato per il browser.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <h1>HighMoon</h1>
+        <p class="subtitle" data-i18n="subtitle">Duello nello spazio</p>
+      </div>
+      <div class="top-actions" aria-label="Azioni rapide">
+        <button id="pause" class="quiet" type="button" aria-keyshortcuts="P Escape" data-i18n="pause" disabled>Pausa</button>
+        <button id="menuOpen" class="menu-button" type="button" aria-haspopup="dialog" aria-controls="gameMenu"><span aria-hidden="true">☰</span><span data-i18n="menu">Menu</span></button>
+      </div>
+    </header>
+
+    <section class="game-card" aria-label="HighMoon">
+      <div class="hud" aria-live="polite">
+        <article id="hudP1" class="player-card p1"></article>
+        <div class="match-info">
+          <strong id="turnLabel"></strong>
+          <span id="modeLabel"></span>
+        </div>
+        <article id="hudP2" class="player-card p2"></article>
+      </div>
+
+      <div class="stage-wrap">
+        <canvas id="game" width="1024" height="768" tabindex="0" aria-label="Campo di gioco HighMoon"></canvas>
+        <div id="overlay" class="overlay" hidden aria-live="assertive"></div>
+        <p id="message" class="message" aria-live="polite"></p>
+      </div>
+
+      <div class="telemetry" aria-live="off">
+        <span id="angleLabel">0°</span>
+        <span id="powerLabel">0%</span>
+        <span id="stateLabel"></span>
+      </div>
+
+      <div class="touch-controls" aria-label="Controlli di gioco">
+        <div class="control-cluster">
+          <button class="hold" data-hold="up" type="button" aria-label="Su">▲<span data-i18n="up">Su</span></button>
+          <button class="hold" data-hold="down" type="button" aria-label="Giù">▼<span data-i18n="down">Giù</span></button>
+        </div>
+        <div class="control-cluster">
+          <button class="hold" data-hold="left" type="button" aria-label="Mira a sinistra">↶<span data-i18n="aimLeft">Mira −</span></button>
+          <button class="hold" data-hold="right" type="button" aria-label="Mira a destra">↷<span data-i18n="aimRight">Mira +</span></button>
+        </div>
+        <button id="bonus" class="action" type="button"><span class="action-icon" aria-hidden="true">◆</span><span data-i18n="bonus">Usa bonus</span></button>
+        <button id="fire" class="fire" type="button"><span class="action-icon" aria-hidden="true">●</span><span data-i18n="fire">TIENI / RILASCIA</span></button>
+      </div>
+    </section>
+  </main>
+
+  <div id="menuBackdrop" class="menu-backdrop" hidden>
+    <section id="gameMenu" class="game-menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle" tabindex="-1">
+      <header class="menu-head">
+        <div>
+          <h2 id="menuTitle" data-i18n="menu">Menu</h2>
+          <p data-i18n="menuSubtitle">Scegli come giocare</p>
+        </div>
+        <button id="menuClose" class="quiet close-button" type="button" aria-label="Chiudi menu" hidden>×</button>
+      </header>
+
+      <div class="menu-content">
+      <div class="menu-section">
+        <h3 data-i18n="gameMode">Modalità</h3>
+        <div class="modes">
+          <button data-mode="one-player" type="button"><span data-i18n="pvc">Giocatore vs CPU</span></button>
+          <button data-mode="two-player" type="button"><span data-i18n="pvp">Giocatore vs Giocatore</span></button>
+          <button data-mode="demo" type="button"><span data-i18n="demo">CPU vs CPU</span></button>
+        </div>
+      </div>
+
+      <div class="menu-section menu-grid">
+        <button id="difficulty" type="button"><span data-i18n="difficulty">Difficoltà CPU</span><strong id="difficultyName">Soldier</strong></button>
+        <button id="warp" type="button" hidden><span data-i18n="warp">Nuova galassia</span></button>
+        <button id="audioToggle" type="button" aria-pressed="true"><span data-i18n="audio">Audio</span><strong id="audioState">On</strong></button>
+
+        <button id="lang" type="button"><span data-i18n="language">Lingua</span><strong id="langState">Italiano</strong></button>
+        <button id="fullscreen" type="button" aria-keyshortcuts="F"><span data-i18n="fullscreen">Schermo intero</span></button>
+        <button id="restart" type="button" hidden aria-keyshortcuts="R"><span data-i18n="restart">Ricomincia</span></button>
+      </div>
+      <p id="audioHint" class="audio-hint" role="status" aria-live="polite"></p>
+
+      <details class="help" id="howToPlay">
+        <summary data-i18n="instructions">Come si gioca</summary>
+        <p data-i18n="howGoal">Due navicelle si sfidano a turni: colpisci l'avversario fino ad azzerare il suo scudo. La gravità dei pianeti devia i tuoi colpi: attenzione, possono anche tornare indietro!</p>
+        <p data-i18n="howAim">Durante il tuo turno, sposta la navicella su o giù, regola la mira e tieni premuto il tiro per caricare la potenza; rilascia per sparare.</p>
+        <p data-i18n="howWorld">Gli Storm respingono i proiettili; i Wormhole li teletrasportano. Raccogli i bonus colpendoli mentre attraversi la galassia.</p>
+        <p data-i18n="howWeapons">Laser: colpo normale. Heavy: colpo più potente. Cluster: si divide in cinque proiettili all'impatto. Usa bonus: 1 o 4 per rinforzare lo scudo, 2 per Heavy, 3 per Cluster.</p>
+        <p data-i18n="howKeyboard">Tastiera: ↑/↓ muovi · ←/→ mira · Spazio tieni premuto/rilascia per sparare · Invio usa bonus · P/Esc pausa. Su smartphone usa i pulsanti sotto il campo.</p>
+      </details>
+      <details class="help" id="creditsPanel">
+        <summary data-i18n="credits">Credits</summary>
+        <p><span data-i18n="originalGame">Gioco originale (2005–2006):</span> <strong>Patrick Gerdsmeier</strong> · <a href="http://highmoon.gerdsmeier.net/" target="_blank" rel="noopener noreferrer" data-i18n="originalSite">Sito originale</a></p>
+        <p><span data-i18n="restoration">Restauro HTML5, grafica e audio nuovi:</span> <a href="https://linkingtechnologies.github.io/libre-arcade/" target="_blank" rel="noopener noreferrer">Libre Arcade</a></p>
+        <p><span data-i18n="licenses">Codice originale GPL-2.0-or-later; port HTML5 GPLv3.</span> <a href="LICENSE" target="_blank" rel="noopener noreferrer" data-i18n="viewLicense">Licenza del port</a></p>
+      </details>
+      </div>
+
+      <button id="menuPlay" class="primary" type="button" data-i18n="play">Gioca</button>
+    </section>
+  </div>
+
+  <script type="module" src="src/game-app.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

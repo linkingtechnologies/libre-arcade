@@ -1,0 +1,47 @@
+[
+  {
+    "path": "PHASE4_FINAL_AUDIT.md",
+    "size": 2699,
+    "sha256": "69145f35692cead693e7dee84d2611b9d98c02c4139bc4a8b12ea20f7f05ccce"
+  },
+  {
+    "path": "README.md",
+    "size": 499,
+    "sha256": "3f5cde1b3094591cc425c0edd17c793b13fc44df402e70d926243ab82c9daf04"
+  },
+  {
+    "path": "audit/AUDIO_PROVENANCE.md",
+    "size": 3129,
+    "sha256": "0510a6e8f1a505cf4debdb9a72c35d4b41b8d7886da869e693781ef86cf70578"
+  },
+  {
+    "path": "audit/GRAPHICS_PROVENANCE.md",
+    "size": 2953,
+    "sha256": "11b01d9ba5c903748211dc21d51339dcbfb46c0f1df964d8402b17baa4deac64"
+  },
+  {
+    "path": "audit/asset_decision.csv",
+    "size": 12524,
+    "sha256": "994608e3c5fb327173525f2dff24503b2413cac425e585876755feaed01d3eed"
+  },
+  {
+    "path": "evidence/audio_lineage.csv",
+    "size": 3066,
+    "sha256": "ecdac8d12c5e0dc806b4983f1c56a2235644ac6cc0c26788a8c64ef4f28dcbd5"
+  },
+  {
+    "path": "evidence/external_sources.json",
+    "size": 1426,
+    "sha256": "d8b9972f4a096a4ba0f3c1709b5988a57d9b706b79b94fad0e75566b7ecf525a"
+  },
+  {
+    "path": "evidence/graphics_metadata.csv",
+    "size": 3308,
+    "sha256": "67b3225b60c1f4355e0e9dc27acd1b5ef62068153072ab352f1dd023bfcd70c3"
+  },
+  {
+    "path": "policy/PORT_ASSET_POLICY.md",
+    "size": 1248,
+    "sha256": "1d225c2e6d0e4c5939ed22d9e82f2b1834d555a29c2995ed547f7d3cc568db3f"
+  }
+]

@@ -1,0 +1,12 @@
+# Changelog
+
+## Unreleased
+
+- Joined the Libre Arcade collection as release candidate `1.0.0-rc.5` (the delivered package deliberately had no changelog for the port before its first commit; the upstream `NEWS` is preserved unmodified in `reference/reference/HighMoon/NEWS`).
+- Restructured the delivered package, which had put the runtime, tests, docs and fixtures under one deployable folder (`public/highmoon/`), to the collection layout: runtime in `public/` (`index.html`, `styles.css`, `src/`), tests in `tests/`, the JavaScript oracle fixtures in `oracle/`, the C++ oracle bundle in `reference/` (previously `reference/highmoon/`), the audits in `specs/` (previously `specs/highmoon/`), QA notes in `docs/`. The two package-level notes were kept under `docs/first-import/` with their original wording and paths.
+- Repointed the tests at `public/src/` (path changes only). `tests/production-safety.mjs` now scans `public/` and allows the collection's GoatCounter beacon (`grugnetto.goatcounter.com`, `gc.zgo.at`) as its one remote reference.
+- Replaced `scripts/verify_commit.py` with `tests/reference-integrity.mjs`, which keeps its checks that the 24 preserved upstream files still match `reference/ORIGINAL_FILE_MANIFEST.json`, that the 39 withheld files stay absent and that no historical media appears anywhere in the folder. The old whole-package manifest gate was not carried over; `MANIFEST.sha256` is regenerated for the new layout instead and lists every file except `node_modules/` and `game/`. Added `screenshots/` for the arcade index.
+- Added `package.json` (`dev`, `build`, `start`, `test`, `lint`, `check`; `test` still runs `tests/run-all.mjs`), `scripts/serve.mjs`, `scripts/build.mjs`, an ESLint config, `.gitignore` rules for `.claude/` and `/game/`, the GoatCounter snippet in `public/index.html` and a "Play here" link in `README.md`. Removed one unused import from `tests/world-collisions.mjs` so the suite passes lint.
+- Added `PROVENANCE.md`, `specs/port-map.md`, `SOFTWARE_ARCHAEOLOGY.md`, `STORY.md`, `AGENTS.md` and `reference/README.md`. Checked the "or later" grant directly in the preserved source headers (16 of 17 files under `src/`).
+- Recorded the archived upstream site as evidence (`PROVENANCE.md`): last change 2007-08-06, newest release 1.2.4, news text identical to the preserved `NEWS` apart from the obfuscated e-mail. Corrected `specs/port-map.md`: the original's release notes name nine languages, not four.
+- No change to the simulation, the AI, the presentation code or the historical reference files.

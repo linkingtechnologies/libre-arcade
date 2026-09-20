@@ -1,0 +1,104 @@
+
+..      ..  ..    ......    ..      ..    ....  ....      ......      ......      ......
+..      ..  ..  ..          ..      ..  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..........  ..  ..      ..  ..........  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..      ..  ..  ..      ..  ..      ..  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..      ..  ..    ........  ..      ..  ..    ..    ..    ......      ......    ..      ..
+
+HighMoon - Duel in Space.
+Copyright (c) 2005, 2006 Patrick Gerdsmeier <patrick@gerdsmeier.net>
+
+http://highmoon.gerdsmeier.net/
+
+HighMoon is an Artillery/Worms like game - which takes place in
+the Galaxy.
+
+In that game two Spaceships must shoot at each other to destroy
+the shields and the enemy. There are Planets, Blackholes and 
+Wormholes between the opponents. Those objects which will deflect 
+any player's shot.
+
+If you collect Bonus, you can increase Shieldpower or you can
+choose a Heavy and a Clusterlaser.
+
+Try to kill the enemy - but be aware of the Shots coming back...
+
+COMMAND LINE OPTIONS:
+-v  --version     Display the Game's version.
+-vi --videoinfo   Display the Videostatus of your Computer.
+    --verbose     Start Game in verbose Mode.
+-f  --fullscreen  Start Game in Fullscreen mode.
+-h  --help        Show Help.
+
+KEYBOARD DURING GAME:
+"1"      Player versus Computer.
+"2"      Player versus Player.
+"3"      Title with Demo (Computer versus Computer).
+"UP"     Move Flying Saucer Up.
+"DOWN"   Move Flying Saucer Down.
+"LEFT"   Decrease Shootangle.
+"RIGHT"  Increase Shootangle.
+"RETURN" If you have collected some Extras, you
+         can choose Shield-Up, a Heavy-Shot or a
+         Cluster-Shoot.
+"SPACE"  Activate a shot. The longer Spacekey is pressed,
+         the stronger the power of the Shoot.
+"TAB"    Changes the Galaxy.
+"F1"     Toggles Helpscroller.
+"F2"     Toggles Language.
+"C"      Toggles the Computerstrength.
+"F"      Toggles window/fullscreen mode. 
+"S"      Toggles Sound. 
+
+Read the INSTALL for compile and install instructions.
+
+January 2005 - Patrick Gerdsmeier <patrick@gerdsmeier.net>
+
+
+
+HighMoon ist ein Spiel in der Art von Artillery wobei
+die Aktionsflaeche von HighMoon in verschiedenen 
+Planetensystemen spielt.
+
+In dem Spiel versuchen zwei Ufos sich durch beschiessen
+zu vernichten. Zwischen den Streithaehnen befindet sich 
+eine Ansammlung von Planeten, schwarzen Loechern sowie
+Wurmloechern. Jeder Schuss wird jedoch von deren 
+Anziehungskraeften abgelenkt.
+
+Man kann Boni sammeln, um die Schildstaerke aufzufrischen
+oder einen Heavy- bzw. Clusterlaser abzufeuern.
+
+Versuche den Feind zu treffen - aber Vorsicht wenn
+die Schuesse umkehren.
+
+PARAMETER BEIM AUFRUF
+-v  --version     Zeigt die aktuelle Versionsnummer an.
+-vi --videoinfo   Zeigt den Video-Status des Computers an.
+    --verbose     Startet das Spiel im gespraechigen Modus.
+-f  --fullscreen  Startet das Spiel im Vollbild-Modus.
+-h  --help        Zeigt eine Hilfeseite.
+
+TASTATURKOMMANDOS SIND:
+"1"      Spieler gegen Computer
+"2"      Spieler gegen Spieler
+"3"      Titel mit Demo (Computer gegen Computer).
+"UP"     Bewegt das Ufo nach oben.
+"DOWN"   Bewegt das Ufo nach unten.
+"LEFT"   Vermindert den Schusswinkel.
+"RIGHT"  Erhoeht den Schusswinkel.
+"RETURN" Fall man genug Extras aufgesammelt hat, kann
+         man sich Schildstaerke, einen staerkeren Schuss,
+         oder einen Streuschuss auswaehlen.
+"SPACE"  Erhoeht die Schussstaerke. Der Schuss startet
+         beim loslassen.
+"TAB"    Wechselt die Galaxie.
+"F1"     Schaltet Hilfescroller an/aus.
+"F2"     Wechselt die Sprache.
+"C"      Aendert die Computerstaerke.
+"F"      Wechselt zwischen Fenster-/Vollbild-Modus. 
+"S"      Schaltet Sound an/aus. 
+
+Installations- und Compileanleitung stehen in der INSTALL-Datei.
+
+Januar 2005 - Patrick Gerdsmeier <patrick@gerdsmeier.net>

@@ -1,0 +1,87 @@
+[
+  {
+    "file": "oracle/native_headless/samples/native-ai-seed54321.jsonl",
+    "size": 14837402,
+    "sha256": "cb5a5d8690e97932ca058a57cecd79ca56798e36ca9be1a8fa91aa5ac1daa577",
+    "events": {
+      "srand": 2,
+      "rng": 13889,
+      "galaxy_create": 1,
+      "shoot_path_begin": 7,
+      "step_begin": 4350,
+      "gravity": 26100,
+      "step_end": 4350,
+      "shoot_path_end": 7,
+      "ai_candidate": 7,
+      "fire_command": 1,
+      "shot_activate": 1,
+      "ufo_damage": 1,
+      "collision": 1
+    }
+  },
+  {
+    "file": "oracle/native_headless/samples/native-cluster.jsonl",
+    "size": 7269003,
+    "sha256": "e414160e234c8e44fddd5df86505a550004fa618b5126eb6ab678654ab69f720",
+    "events": {
+      "srand": 2,
+      "rng": 19864,
+      "galaxy_create": 1,
+      "shot_activate": 6,
+      "step_begin": 1436,
+      "gravity": 8616,
+      "step_end": 1436,
+      "ufo_damage": 1,
+      "cluster_split": 1,
+      "collision": 5
+    }
+  },
+  {
+    "file": "oracle/native_headless/samples/native-heavy.jsonl",
+    "size": 1029872,
+    "sha256": "2f15ff02e446e19b21f8b773491b95f1e451d114718db44a97ea72fbaa6fe525",
+    "events": {
+      "srand": 2,
+      "rng": 4710,
+      "galaxy_create": 1,
+      "shot_activate": 1,
+      "step_begin": 102,
+      "gravity": 612,
+      "step_end": 102,
+      "ufo_damage": 1,
+      "collision": 1
+    }
+  },
+  {
+    "file": "oracle/native_headless/samples/native-laser-seed54321.jsonl",
+    "size": 1029872,
+    "sha256": "1674bf0d16c9adffc7b4384ec8f388f6bc162cc009fe8426a8c61e2ab26b7783",
+    "events": {
+      "srand": 2,
+      "rng": 4710,
+      "galaxy_create": 1,
+      "shot_activate": 1,
+      "step_begin": 102,
+      "gravity": 612,
+      "step_end": 102,
+      "ufo_damage": 1,
+      "collision": 1
+    }
+  },
+  {
+    "file": "oracle/native_headless/samples/native-wormhole.jsonl",
+    "size": 1640640,
+    "sha256": "134eebd5fa58f70a301e091d24b2888d5629642e7e076da77db8eddac4979a5f",
+    "events": {
+      "srand": 2,
+      "rng": 6806,
+      "galaxy_create": 1,
+      "shot_activate": 1,
+      "step_begin": 200,
+      "gravity": 1200,
+      "step_end": 200,
+      "wormhole_teleport": 1,
+      "collision": 1
+    }
+  }
+]

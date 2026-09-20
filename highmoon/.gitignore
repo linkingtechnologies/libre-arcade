@@ -1,0 +1,24 @@
+# Original media and the full archive are kept outside the public Git tree.
+/reference/reference/release/
+/reference/reference/HighMoon/gfx/
+/reference/reference/HighMoon/snd/
+/reference/reference/HighMoon/icon.png
+/reference/instrumented/HighMoon/gfx/
+/reference/instrumented/HighMoon/snd/
+/reference/instrumented/HighMoon/icon.png
+*.tar
+*.tar.gz
+*.o
+**/bin/highmoon-physics-oracle
+**/bin/highmoon-native-headless
+
+# Dependencies
+node_modules/
+
+# Generated build output (npm run build)
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+.DS_Store

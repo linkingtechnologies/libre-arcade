@@ -1,0 +1,25 @@
+{
+  "source": "HighMoon 1.2.4 Phase 3 native-headless oracle",
+  "galaxy_seed": 54321,
+  "objects": 6,
+  "galaxy_create_rng_calls": 408,
+  "first_post_create_rand": 65782240,
+  "settle_frames": 48,
+  "bodies": [
+    {"kind":"planet","name":"jupiter","weight":350,"x":418.59730875492096,"y":54.738983631134033},
+    {"kind":"wormhole","weight":50,"x":768.14242963865399,"y":88.798478722572327,"exit_x":349.1742874495685,"exit_y":-332.1765512228012},
+    {"kind":"planet","name":"earth","weight":300,"x":768.27729373797774,"y":279.48814058303833},
+    {"kind":"planet","name":"saturn","weight":250,"x":488.08641652017832,"y":715.87579751014709},
+    {"kind":"planet","name":"venus","weight":180,"x":454.98812480643392,"y":555.54049372673035},
+    {"kind":"storm","weight":-100,"x":584.01647695526481,"y":254.98464453220367}
+  ],
+  "wormhole_targeted_shot": {
+    "start":{"x":730,"y":88.8},
+    "speed":60,
+    "direction":0,
+    "collision":{"x":749.20988009927601,"y":91.571150279038619},
+    "destination":{"x":1117.3167170882225,"y":-243.37807250022888},
+    "speed_after":70.861511241808969,
+    "direction_after":0.23576558163013847
+  }
+}

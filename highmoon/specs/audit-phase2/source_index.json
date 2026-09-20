@@ -1,0 +1,23 @@
+{
+  "license": "src/constants.hpp:13-15",
+  "gravity": "src/galaxy.cpp:1217-1230",
+  "collision_order": "src/galaxy.cpp:1134-1147",
+  "world_generation": "src/galaxy.cpp:1158-1207",
+  "ai": "src/galaxy.cpp:852-956",
+  "damage": "src/galaxy.cpp:972-985",
+  "bonus": "src/galaxy.cpp:698-740",
+  "weapons": "src/galaxy.cpp:807-846",
+  "moon_motion_in_draw": "src/galaxy.cpp:190-227",
+  "planet_motion_in_draw": "src/galaxy.cpp:324-350",
+  "wormhole": "src/galaxy.cpp:462-585",
+  "storm": "src/galaxy.cpp:359-455",
+  "precalc": "src/shoot.cpp:192-214",
+  "laser_move": "src/shoot.cpp:255-277",
+  "heavy": "src/shoot.cpp:344-461",
+  "cluster": "src/shoot.cpp:526-649",
+  "explosion_no_damage": "src/shoot.cpp:44-92",
+  "input_fire_keyup": "src/main.cpp:220-238",
+  "difficulty": "src/main.cpp:338-343",
+  "draw_order": "src/galaxy.cpp:1233-1264",
+  "modes": "src/main.cpp:240-264"
+}

@@ -1,0 +1,10 @@
+oracle/native_headless/samples/native-ai-seed54321.jsonl: VALID 48717 JSONL records
+oracle/native_headless/samples/native-cluster.jsonl: VALID 31368 JSONL records
+oracle/native_headless/samples/native-heavy.jsonl: VALID 5532 JSONL records
+oracle/native_headless/samples/native-laser-seed54321.jsonl: VALID 5532 JSONL records
+oracle/native_headless/samples/native-wormhole.jsonl: VALID 8412 JSONL records
+oracle/samples/multibody.jsonl: VALID 201 JSONL records
+oracle/samples/replay-native-laser.jsonl: VALID 817 JSONL records
+oracle/samples/rng-wrapper.jsonl: VALID 17 JSONL records
+oracle/samples/single-earth.jsonl: VALID 61 JSONL records
+oracle/samples/storm-repulsion.jsonl: VALID 61 JSONL records

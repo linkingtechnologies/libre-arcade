@@ -1,0 +1,138 @@
+[
+  {
+    "case": "desktop-1366x768",
+    "metrics": {
+      "vw": 1366,
+      "vh": 768,
+      "scrollX": 0,
+      "scrollY": 0,
+      "canvas": [
+        787,
+        590
+      ],
+      "fire": [
+        0,
+        0
+      ],
+      "touchControls": "none",
+      "visibleText": "HighMoon\n\nDuello nello spazio\n\nPausa\n☰\nMenu\nGiocatore 1\nLaser\n100\nTurno: Giocatore 1\n1P vs CPU\nCPU 2\nLaser\n100\nNuova galassia\n∠ 0°\n⚡ 0%\nPronto"
+    },
+    "menu": {
+      "visible": true,
+      "rect": [
+        373,
+        132.5,
+        620,
+        503
+      ],
+      "scroll": 0,
+      "paused": "Riprendi"
+    },
+    "errors": [],
+    "requestfailed": []
+  },
+  {
+    "case": "desktop-1440x900",
+    "metrics": {
+      "vw": 1440,
+      "vh": 900,
+      "scrollX": 0,
+      "scrollY": 0,
+      "canvas": [
+        963,
+        722
+      ],
+      "fire": [
+        0,
+        0
+      ],
+      "touchControls": "none",
+      "visibleText": "HighMoon\n\nDuello nello spazio\n\nPausa\n☰\nMenu\nGiocatore 1\nLaser\n100\nTurno: Giocatore 1\n1P vs CPU\nCPU 2\nLaser\n100\nNuova galassia\n∠ 0°\n⚡ 0%\nPronto"
+    },
+    "menu": {
+      "visible": true,
+      "rect": [
+        410,
+        198.5,
+        620,
+        503
+      ],
+      "scroll": 0,
+      "paused": "Riprendi"
+    },
+    "errors": [],
+    "requestfailed": []
+  },
+  {
+    "case": "desktop-1366x600",
+    "metrics": {
+      "vw": 1366,
+      "vh": 600,
+      "scrollX": 0,
+      "scrollY": 0,
+      "canvas": [
+        601,
+        450
+      ],
+      "fire": [
+        0,
+        0
+      ],
+      "touchControls": "none",
+      "visibleText": "HighMoon\n\nDuello nello spazio\n\nPausa\n☰\nMenu\nGiocatore 1\nLaser\n100\nTurno: Giocatore 1\n1P vs CPU\nCPU 2\nLaser\n100\nNuova galassia\n∠ 0°\n⚡ 0%\nPronto"
+    },
+    "menu": {
+      "visible": true,
+      "rect": [
+        373,
+        48.5,
+        620,
+        503
+      ],
+      "scroll": 0,
+      "paused": "Riprendi"
+    },
+    "errors": [],
+    "requestfailed": []
+  },
+  {
+    "case": "landscape-844x390",
+    "metrics": {
+      "vw": 844,
+      "vh": 390,
+      "scrollX": 0,
+      "scrollY": 0,
+      "canvas": [
+        455,
+        341
+      ],
+      "fire": [
+        123,
+        40
+      ],
+      "touchControls": "grid",
+      "visibleText": "HighMoon\nPausa\n☰\nMenu\nGiocatore 1\nLaser\n100\nTurno: Giocatore 1\n1P vs CPU\nCPU 2\nLaser\n100\nNuova galassia\n∠ 0°\n⚡ 0%\nPronto\n▲\n▼\n↶\n↷\n◆\n●"
+    },
+    "menu": {
+      "visible": true,
+      "rect": [
+        112,
+        14,
+        620,
+        362
+      ],
+      "scroll": 141,
+      "paused": "Riprendi"
+    },
+    "errors": [],
+    "requestfailed": []
+  },
+  {
+    "case": "browser-real-pvp-shot",
+    "turnBefore": "Turno: Giocatore 1",
+    "postShotState": "Tiro in volo",
+    "postShotMessage": "Tiro in volo",
+    "switchedToP2": true,
+    "errors": []
+  }
+]

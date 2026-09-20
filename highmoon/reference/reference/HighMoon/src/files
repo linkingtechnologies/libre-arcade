@@ -1,0 +1,60 @@
+This directory contains the c++ Sources.
+
+"constants.hpp"
+Global Definitions for the Game.
+
+"main.cpp"
+Contains the main-function. Defines and Creates a Playfield that
+is responsible for the logic of HighMoon.
+
+"object.cpp"
+"object.hpp"
+Defines an abstract Spaceobject that has information about Position,
+Speed, Weight... and can detect a collision. Each object in HighMoon
+is a Spacobject.
+
+"galaxy.cpp"
+"galaxy.hpp"
+Defines a class Galaxy that contains all objects within a Galaxy
+(Planets, Shots, Extras...) except the Flying-Saucers. A Galaxy 
+is able to init itself and to detect collisions and react on them.
+Further on, classes for Extras, Stones (Rings and Moons), Planets,
+Storms (actually called Blackholes), Wormholes and the Ufo are
+defined.
+Ufo contains HighMoon's "ai". Actually it is pretty simple =) but
+as it works...
+
+"graphics.cpp"
+"graphics.hpp"
+These files define all classes that depends on local Graphics.
+Sprite, Font, Goldrain, Stars and Shootingstar =). Sprite 
+also contains a static function for drawing pixels.
+
+"language.cpp"
+"language.hpp"
+Actually my native language is German - which is not the most 
+know in the world. Depending an the main download-regions and
+surely people giving support for translations, these files
+contain a class Language that returns all Gametexts in a
+selected Language. Thanks to Marek, Melissa and Andy, Victor
+and Marco for their translations! 
+Language supports English, German, French, Polish, Portuguese,
+Spanish and Russian Language.	 
+
+"shoot.cpp"
+"shoot.hpp"
+Shoot is surely the most important Object of HighMoon =). It is
+an abstract class that defines Shot-Parameters and is able to 
+detect collisions, calculate next step or a complete flightpath of
+itself.
+Laser, Heavy and Cluster are types of Shots. Explosion defines
+a small animation of an explosion.
+
+"sound.cpp"
+"sound.hpp"
+Defines a Soundset. Sounds can be played via index.
+
+"vector_2.cpp"
+"vector_2.hpp"
+These files define a class for using Vectors easily.  
+

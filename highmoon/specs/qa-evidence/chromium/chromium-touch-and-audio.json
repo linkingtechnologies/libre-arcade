@@ -1,0 +1,74 @@
+[
+  {
+    "case": "phone-390x844",
+    "difficulty_before": "Soldier",
+    "difficulty_after": "Officer",
+    "audio_muted": "Off",
+    "audio_unmuted": "On",
+    "english_warp": "New galaxy",
+    "menu_inner_scroll": 0,
+    "post_touch_shot_message": "Tiro in volo",
+    "post_touch_shot_state": "Tiro in volo",
+    "audio_contexts": [
+      {
+        "state": "running",
+        "sampleRate": 44100,
+        "currentTime": 1.4425396825396826
+      }
+    ],
+    "metrics": {
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyScrollY": 0
+    },
+    "js_errors": []
+  },
+  {
+    "case": "phone-375x667",
+    "difficulty_before": "Soldier",
+    "difficulty_after": "Officer",
+    "audio_muted": "Off",
+    "audio_unmuted": "On",
+    "english_warp": "New galaxy",
+    "menu_inner_scroll": 109,
+    "post_touch_shot_message": "Tiro in volo",
+    "post_touch_shot_state": "Tiro in volo",
+    "audio_contexts": [
+      {
+        "state": "running",
+        "sampleRate": 44100,
+        "currentTime": 1.3815873015873017
+      }
+    ],
+    "metrics": {
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyScrollY": 0
+    },
+    "js_errors": []
+  },
+  {
+    "case": "landscape-844x390",
+    "difficulty_before": "Soldier",
+    "difficulty_after": "Officer",
+    "audio_muted": "Off",
+    "audio_unmuted": "On",
+    "english_warp": "New galaxy",
+    "menu_inner_scroll": 141,
+    "post_touch_shot_message": "Tiro in volo",
+    "post_touch_shot_state": "Tiro in volo",
+    "audio_contexts": [
+      {
+        "state": "running",
+        "sampleRate": 44100,
+        "currentTime": 1.401904761904762
+      }
+    ],
+    "metrics": {
+      "scrollX": 0,
+      "scrollY": 0,
+      "bodyScrollY": 0
+    },
+    "js_errors": []
+  }
+]

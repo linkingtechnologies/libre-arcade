@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HighMoon historical shot oracle JSONL record",
+  "type": "object",
+  "required": ["record_type", "run_id"],
+  "properties": {
+    "record_type": {"enum": ["run_meta", "shot_start", "tick", "collision", "damage", "shot_end"]},
+    "run_id": {"type": "string"},
+    "shot_id": {"type": ["integer", "null"]},
+    "tick": {"type": ["integer", "null"]},
+    "scenario": {"type": ["string", "integer", "null"]},
+    "seed": {"type": ["integer", "string", "null"]},
+    "weapon": {"type": ["string", "integer", "null"]},
+    "angle": {"type": ["number", "null"]},
+    "power": {"type": ["number", "null"]},
+    "position": {"$ref": "#/$defs/vec2"},
+    "velocity": {"$ref": "#/$defs/vec2"},
+    "acceleration": {"$ref": "#/$defs/vec2"},
+    "gravity_contributions": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "properties": {
+          "body_id": {"type": ["string", "integer"]},
+          "delta": {"$ref": "#/$defs/vec2"},
+          "distance": {"type": "number"},
+          "contribution": {"$ref": "#/$defs/vec2"}
+        }
+      }
+    },
+    "collision_target": {"type": ["string", "integer", "null"]},
+    "damage": {"type": ["number", "integer", "null"]},
+    "native_float_hex": {"type": ["object", "null"]},
+    "build_sha256": {"type": ["string", "null"]},
+    "compiler": {"type": ["string", "null"]},
+    "platform": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "vec2": {
+      "type": ["object", "null"],
+      "properties": {"x": {"type": "number"}, "y": {"type": "number"}},
+      "required": ["x", "y"]
+    }
+  }
+}

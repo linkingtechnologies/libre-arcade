@@ -1,0 +1,123 @@
+
+..      ..  ..    ......    ..      ..    ....  ....      ......      ......      ......
+..      ..  ..  ..          ..      ..  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..........  ..  ..      ..  ..........  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..      ..  ..  ..      ..  ..      ..  ..    ..    ..  ..      ..  ..      ..  ..      ..
+..      ..  ..    ........  ..      ..  ..    ..    ..    ......      ......    ..      ..
+
+HighMoon - Duell im All.
+Copyright (c) 2005, Patrick Gerdsmeier <patrick@gerdsmeier.net>
+
+2006 March 25
+----------------
+HighMoon v1.2.4 - Added Support for Netherland Language (Thanks to
+L. Scheelings).
+
+HighMoon v1.2.4 - Niederlaendische Uebersetzung hinzugefuegt (Danke
+an L. Scheelings).
+
+2005 July 27
+----------------
+HighMoon v1.2.3 - Added Support for Italian Language (Thanks to
+Elio Blanka).
+
+HighMoon v1.2.3 - Italienische Uebersetzung hinzugefuegt (Danke
+an Elio Blanka).
+
+2005 March 19
+----------------
+HighMoon v1.2.2 - Fixed Segfault-Bug in Language support.
+
+HighMoon v1.2.2 - Fehler in der Sprachunterstuetzung behoben.
+
+2005 March 11
+----------------
+HighMoon v1.2.1 - Fixed Bug in Language support, Redeclared 
+Blackholes as Storms. Now they reject Shots. Changed Constants
+for better Gameplay.
+
+HighMoon v1.2.1 - Fehler in der Sprachunterstuetzung behoben.
+Schwarze Loecher sind nun Stuerme; sie stossen Schuesse ab.
+Konstanten fuer runderes Gameplay geandert.
+
+2005 February 19
+----------------
+HighMoon v1.2 - Added Extras to buy Shield-Power or new Weapons:
+Added Heavy, Cluster and Exploding Shots. Auto-detecting and 
+setting prefered Language. Window-Icon will be shown again.
+Added Spanish and Russian Language. Disabled Galaxy-Warp 
+while shooting.
+
+HighMoon v1.2 - Extras zum Kaufen von Schildstaerke oder
+neuen Waffen: Schwerer Schuss und Streuschuss. Bevorzugte
+Sprache wird automatisch eingestellt. Fenster-Icon wird
+wieder gezeigt. Spanisch und Russisch hinzugefuegt. Galaxie 
+wird nicht mehr gewarpt, falls ein Schuss aktiv ist.
+
+2005 February 04
+----------------
+HighMoon v1.1.2 - Some changes in Graphics (Wormholes, Blackholes,
+Planettextures, Background etc.) Adjustment of some Constants.
+Added French, Polish and Portuguese Language.
+
+HighMoon v1.1.2 - Kleinere Aenderungen an der Grafik (Wurmloecher,
+Schwarze Loecher, Background etc.). Kleine Aenderung an den 
+Konstanten. Franzoesisch, Polnisch und Portugiesisch hinzugefuegt.
+
+2005 January 30:
+----------------
+HighMoon v1.1.1 - Planets got Moons and Rings. Fixed a little
+Bug with French Keyboard Layout. 
+
+HighMoon v1.1.1 - Planeten haben jetzt Monde und Ringe. Kleinen 
+Bug mit franzoesischem Tastaturlayout behoben. 
+
+2005 January 26:
+----------------
+HighMoon v1.1 - Restructured Galaxy-Objects. It is much easier now
+to add new Weapons and Spaceobjects. Changed the look of Wormholes.
+Removed Bug in AI - now Computermoves will be calculated much faster.
+Shielddamage now depends on the Shoot. Added commandline Options 
+-h (--help), -v (--version), -f (--fullscreen) and -vi (--videoinfo).
+Score will fade down if the Flying Saucer is behind it. Added some
+letters in Font. You can toggle Computerstrength (TRAINEE, ROOKIE,
+HOTSHOT, ACE, INSANE ) by pressing +. Added Window-Icon. 
+
+HighMoon v1.1 - Galaxy-Objekte umstrukturiert. Es ist jetzt leichter
+neue Objekte zu erstellen. Mal sehen was da kommt - fuer Ideen
+habe ich eimen Blog auf der Homepage eingebaut. Aussehen der 
+Wurmloecher geaendert.  Bug in der AI behoben - der Computer 
+rechnet seinen Zug jetzt viel schneller aus. Die Beschaedigung 
+des Schildes ist nun vom Schuss abhaengig. Command-Line Optionen
+-h (--help), -v (--version), -f (--fullscreen) und -vi (--videoinfo)
+hinzugefuegt. Wenn das Ufo hinter dem Score steht, wird dieser 
+transparent geschaltet. Font um einige Zeichen erweitert. Die 
+Staerke des Computergegners ist mit + einstellbar (TRAINEE, ROOKIE, 
+HOTSHOT,ACE, INSANE ). Window Icon ergaenzt. 
+
+2005 January 19:
+----------------
+HighMoon v1.0.2 - Fixed some small bugs and graphics.
+Toggle Sound on/off. Code cleanup.
+
+HighMoon v1.0.2 - Kleinere Bugs behoben und Grafiken
+geandert. Sound an/aus. Quellcodes aufgeraeumt.
+
+2005 January 18:
+----------------
+HighMoon v1.0.1 - New structure for sourcecode, speed-improvements, new
+spaceship-animations, multilinguality (english/german). Translation of the
+README etc. Added some blackholes that have gravity but cannot destroy shoot.
+Added some wormholes that can warp the shoot.
+
+HighMoon v1.0.1 - Neustrukturierung der Quellen, Geschwindigkeitsverbesserungen,
+neue Ufo-Animation, Mehrsprachigkeit (Englisch/Deutsch). Uebersetzung 
+der README etc. Einbau von schwarzen Loechern, die ein Gravitationsfeld haben,
+den Schuss aber nicht zerstoeren koennen. Wurmloecher warpen den Schuss an
+eine andere Stelle.
+
+2005 January 14:
+----------------
+HighMoon v1.0 - First Release. With computeropponents and sound.
+
+HighMoon v1.0 - Erstes Release. Mit Computergegner und Sound.

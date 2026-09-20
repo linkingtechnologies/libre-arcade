@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HighMoon 1.2.4 physical oracle JSONL event",
+  "type": "object",
+  "required": [
+    "event",
+    "run_id",
+    "seq"
+  ],
+  "properties": {
+    "event": {
+      "enum": [
+        "run_meta",
+        "world_state",
+        "rng",
+        "shot_start",
+        "tick",
+        "gravity_body",
+        "collision",
+        "teleport",
+        "cluster_spawn",
+        "damage",
+        "turn_end"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "tick": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "scenario_seed": {
+      "type": "integer"
+    },
+    "weapon": {
+      "type": "string"
+    },
+    "player": {
+      "type": "integer"
+    },
+    "position": {
+      "$ref": "#/$defs/vec2"
+    },
+    "velocity": {
+      "$ref": "#/$defs/vec2"
+    },
+    "delta_v": {
+      "$ref": "#/$defs/vec2"
+    },
+    "body": {
+      "type": "object"
+    },
+    "rng_raw": {
+      "type": "integer"
+    },
+    "rand_max": {
+      "type": "integer"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "vec2": {
+      "type": "object",
+      "required": [
+        "x",
+        "y"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "x_bits": {
+          "type": "string"
+        },
+        "y_bits": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
