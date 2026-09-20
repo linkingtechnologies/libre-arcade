@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.join(__dirname,'..');
+const Visuals=require('../public/js/visuals.js');
+const calls=[];
+const ctx=new Proxy({}, {get(o,k){return k in o?o[k]:(...a)=>{calls.push([k,...a]);};},set(o,k,v){o[k]=v;return true;}});
+const v={scaleX:600,scaleY:600,sx:n=>n*600,sy:n=>(1.4-n)*600};
+Visuals.drawArt(ctx,v,.76,1.4);
+assert.equal(calls.length,0,'graphic refinement must not reintroduce fake planets, ramps or orbit art');
+const visualsSrc=fs.readFileSync(path.join(root,'public/js/visuals.js'),'utf8');
+assert(visualsSrc.includes("'#87ffb5'"),'bumper ring should be brighter and more readable at rest');
+const src=fs.readFileSync(path.join(root,'public/js/comet.js'),'utf8');
+assert(src.includes("'#07142a'"),'playfield keeps a dark historical base with a subtle lower-blue gradient');
+assert(src.includes("'#7cf6a8'"),'fixture outlines should be brighter than M13.5/M13.6 for readability');
+assert(src.includes("'#85c9ff'"),'lower lanes/slings should remain clearly separable from green fixtures');
+assert(src.includes("'#ffffff'"),'flipper outline should stay bright for quick readability');
+console.log('PASS M13.7: readability refinement without changing the historically sparse table');

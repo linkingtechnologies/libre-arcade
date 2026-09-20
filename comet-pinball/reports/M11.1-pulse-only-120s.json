@@ -1,0 +1,2900 @@
+{
+  "mode": "pulse-only",
+  "seedCount": 100,
+  "framesPerRun": 7200,
+  "completionAt60": 91,
+  "completionAt120": 94,
+  "startedIncomplete": 9,
+  "completedInSecondMinute": 3,
+  "stillUnfinishedAt120": 6,
+  "stalled": [],
+  "secondMinuteActiveUnfinished": 6,
+  "rows": [
+    {
+      "seed": 0,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 1,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 2,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 3,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 4,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 5,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 6,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 7,
+      "frames": 1421,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 290,
+      "scoreAt120": 290,
+      "launches": 3,
+      "drainFrames": [
+        897,
+        1158,
+        1419
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 8,
+      "frames": 998,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 155,
+      "scoreAt120": 155,
+      "launches": 3,
+      "drainFrames": [
+        474,
+        735,
+        996
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 9,
+      "frames": 1174,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 155,
+      "scoreAt120": 155,
+      "launches": 3,
+      "drainFrames": [
+        265,
+        686,
+        1172
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.37113525492701843,
+        "y": 0.0528491076418313,
+        "vx": 0.27363914622721136,
+        "vy": -0.5666911621827194
+      }
+    },
+    {
+      "seed": 10,
+      "frames": 1421,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 290,
+      "scoreAt120": 290,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        1158,
+        1419
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 11,
+      "frames": 998,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 155,
+      "scoreAt120": 155,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        735,
+        996
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 12,
+      "frames": 949,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        526,
+        947
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.355121725425674,
+        "y": 0.05247084751766828,
+        "vx": -0.2180242312892383,
+        "vy": -0.41028183360530995
+      }
+    },
+    {
+      "seed": 13,
+      "frames": 1421,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 290,
+      "scoreAt120": 290,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        1419
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3654501473214766,
+        "y": 0.05250604208228012,
+        "vx": 0.22226112101975704,
+        "vy": -0.41502424549051364
+      }
+    },
+    {
+      "seed": 14,
+      "frames": 998,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 155,
+      "scoreAt120": 155,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        996
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.37113525492701843,
+        "y": 0.0528491076418313,
+        "vx": 0.27363914622721136,
+        "vy": -0.5666911621827194
+      }
+    },
+    {
+      "seed": 15,
+      "frames": 789,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        787
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.36464609229651856,
+        "y": 0.053086985455805424,
+        "vx": 0.34159334214008275,
+        "vy": -0.5437265797375209
+      }
+    },
+    {
+      "seed": 16,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785935085627628,
+        "y": 0.05240780496396098,
+        "vx": 0.8013736779386376,
+        "vy": -0.8547860517543963
+      }
+    },
+    {
+      "seed": 17,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.37859539761231276,
+        "y": 0.052415095660312994,
+        "vx": 0.8013642296681102,
+        "vy": -0.8547455715232182
+      }
+    },
+    {
+      "seed": 18,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 19,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 20,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 21,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 22,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 23,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 24,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 25,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 26,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 27,
+      "frames": 874,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        350,
+        611,
+        872
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 28,
+      "frames": 834,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        310,
+        571,
+        832
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.378595386036722,
+        "y": 0.05241505990043338,
+        "vx": 0.8013642951143375,
+        "vy": -0.8547457280824828
+      }
+    },
+    {
+      "seed": 29,
+      "frames": 3140,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 185,
+      "scoreAt120": 185,
+      "launches": 25,
+      "drainFrames": [
+        2616,
+        2877,
+        3138
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 30,
+      "frames": 874,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        611,
+        872
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 31,
+      "frames": 834,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        571,
+        832
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 32,
+      "frames": 3140,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 185,
+      "scoreAt120": 185,
+      "launches": 25,
+      "drainFrames": [
+        249,
+        2877,
+        3138
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 33,
+      "frames": 874,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        872
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3340751083812859,
+        "y": 0.053202668274506634,
+        "vx": -0.25938115381959415,
+        "vy": -1.1242039875170546
+      }
+    },
+    {
+      "seed": 34,
+      "frames": 834,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        832
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.38143092884622903,
+        "y": 0.052844532475807796,
+        "vx": 0.46309543755054783,
+        "vy": -1.550741321153078
+      }
+    },
+    {
+      "seed": 35,
+      "frames": 3140,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 185,
+      "scoreAt120": 185,
+      "launches": 25,
+      "drainFrames": [
+        249,
+        510,
+        3138
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.33353477605679016,
+        "y": 0.05269822446872955,
+        "vx": -0.08702869931113635,
+        "vy": -1.400290645281703
+      }
+    },
+    {
+      "seed": 36,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.37756071271765873,
+        "y": 0.053483163035443426,
+        "vx": 0.8014004874436401,
+        "vy": -0.8549008910932825
+      }
+    },
+    {
+      "seed": 37,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.37859539732205616,
+        "y": 0.05241509534134639,
+        "vx": 0.8013642296673547,
+        "vy": -0.8547455715200802
+      }
+    },
+    {
+      "seed": 38,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 39,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 40,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 41,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 42,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 43,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 44,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 45,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 46,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 47,
+      "frames": 7200,
+      "ballAt60": 0,
+      "ballAt120": 0,
+      "scoreAt60": 40,
+      "scoreAt120": 40,
+      "launches": 71,
+      "drainFrames": [],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 3596,
+        "travelMeters": 29.734953348557156,
+        "lowFrames": 2583,
+        "upperFrames": 0,
+        "maxSpeed": 1.1301040474826611,
+        "minSpeed": 0.0000880285118888477
+      },
+      "final": {
+        "x": 0.7359999999979874,
+        "y": 0.294652166829484,
+        "vx": -2.2208580138351562e-14,
+        "vy": -0.23901962324901044
+      }
+    },
+    {
+      "seed": 48,
+      "frames": 1285,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 130,
+      "scoreAt120": 130,
+      "launches": 5,
+      "drainFrames": [
+        761,
+        1022,
+        1283
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 49,
+      "frames": 1038,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 135,
+      "scoreAt120": 135,
+      "launches": 3,
+      "drainFrames": [
+        281,
+        542,
+        1036
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.32325545517545956,
+        "y": 0.05345990947406498,
+        "vx": -0.37597774519265353,
+        "vy": -0.45348364551552545
+      }
+    },
+    {
+      "seed": 50,
+      "frames": 7200,
+      "ballAt60": 1,
+      "ballAt120": 1,
+      "scoreAt60": 80,
+      "scoreAt120": 80,
+      "launches": 69,
+      "drainFrames": [
+        249
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 3597,
+        "travelMeters": 29.747771279474797,
+        "lowFrames": 2563,
+        "upperFrames": 0,
+        "maxSpeed": 1.1301040474826611,
+        "minSpeed": 0.0002548327492303479
+      },
+      "final": {
+        "x": 0.7359999999980662,
+        "y": 0.19772844262301634,
+        "vx": -2.2208580138351562e-14,
+        "vy": -0.9244281974494533
+      }
+    },
+    {
+      "seed": 51,
+      "frames": 1285,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 130,
+      "scoreAt120": 130,
+      "launches": 5,
+      "drainFrames": [
+        249,
+        1022,
+        1283
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 52,
+      "frames": 805,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        542,
+        803
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.378595270224336,
+        "y": 0.05241460551111178,
+        "vx": 0.8013648889135558,
+        "vy": -0.8547482614754673
+      }
+    },
+    {
+      "seed": 53,
+      "frames": 7200,
+      "ballAt60": 2,
+      "ballAt120": 2,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 68,
+      "drainFrames": [
+        249,
+        510
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 3597,
+        "travelMeters": 29.983416541640345,
+        "lowFrames": 2617,
+        "upperFrames": 0,
+        "maxSpeed": 1.1301040474826611,
+        "minSpeed": 0.0002548327492303479
+      },
+      "final": {
+        "x": 0.7359999999981466,
+        "y": 0.49878950002595734,
+        "vx": -2.2208580138351562e-14,
+        "vy": 0.3521632283501044
+      }
+    },
+    {
+      "seed": 54,
+      "frames": 1285,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 130,
+      "scoreAt120": 130,
+      "launches": 5,
+      "drainFrames": [
+        249,
+        510,
+        1283
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.36597378077838427,
+        "y": 0.05331110110057369,
+        "vx": 0.15491001818016992,
+        "vy": -0.42107526054965366
+      }
+    },
+    {
+      "seed": 55,
+      "frames": 805,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        803
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.35766008765003365,
+        "y": 0.052898118439111394,
+        "vx": 0.2825692039339558,
+        "vy": -0.6337948258929404
+      }
+    },
+    {
+      "seed": 56,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3775472044952895,
+        "y": 0.05341155796404984,
+        "vx": 0.8015085408876496,
+        "vy": -0.8553419380744728
+      }
+    },
+    {
+      "seed": 57,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.37859539335619713,
+        "y": 0.052415084315375574,
+        "vx": 0.8013642622983067,
+        "vy": -0.8547456024994385
+      }
+    },
+    {
+      "seed": 58,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 59,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 60,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 61,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 62,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 63,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 64,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 65,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 66,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 67,
+      "frames": 1296,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 155,
+      "scoreAt120": 155,
+      "launches": 3,
+      "drainFrames": [
+        772,
+        1033,
+        1294
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 68,
+      "frames": 1122,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 145,
+      "scoreAt120": 145,
+      "launches": 3,
+      "drainFrames": [
+        598,
+        859,
+        1120
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 69,
+      "frames": 1138,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 130,
+      "scoreAt120": 130,
+      "launches": 3,
+      "drainFrames": [
+        614,
+        875,
+        1136
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 70,
+      "frames": 1296,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 155,
+      "scoreAt120": 155,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        1033,
+        1294
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 71,
+      "frames": 1122,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 145,
+      "scoreAt120": 145,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        859,
+        1120
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 72,
+      "frames": 1138,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 130,
+      "scoreAt120": 130,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        875,
+        1136
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 73,
+      "frames": 1296,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 155,
+      "scoreAt120": 155,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        1294
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.35171804761745096,
+        "y": 0.05256813770744896,
+        "vx": -0.019189926543536556,
+        "vy": -1.2216313990886258
+      }
+    },
+    {
+      "seed": 74,
+      "frames": 1122,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 145,
+      "scoreAt120": 145,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        1120
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.388507707468575,
+        "y": 0.052420060474947905,
+        "vx": 0.5715178622950119,
+        "vy": -0.5888748847839214
+      }
+    },
+    {
+      "seed": 75,
+      "frames": 1138,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 130,
+      "scoreAt120": 130,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        1136
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3448789962821891,
+        "y": 0.05287953325227354,
+        "vx": -0.2994767744177421,
+        "vy": -0.4277242748003106
+      }
+    },
+    {
+      "seed": 76,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3775532163507721,
+        "y": 0.05318851641600511,
+        "vx": 0.8019575049067962,
+        "vy": -0.8570920416637163
+      }
+    },
+    {
+      "seed": 77,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.378595386036722,
+        "y": 0.05241505990043338,
+        "vx": 0.8013642951143375,
+        "vy": -0.8547457280824828
+      }
+    },
+    {
+      "seed": 78,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 79,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 80,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 81,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 82,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 83,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 84,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 85,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 86,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 87,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 88,
+      "frames": 7200,
+      "ballAt60": 0,
+      "ballAt120": 0,
+      "scoreAt60": 55,
+      "scoreAt120": 55,
+      "launches": 68,
+      "drainFrames": [],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 3597,
+        "travelMeters": 29.62109472320526,
+        "lowFrames": 2808,
+        "upperFrames": 0,
+        "maxSpeed": 1.0804562129763768,
+        "minSpeed": 0.0002531265907038463
+      },
+      "final": {
+        "x": 0.7359999999980421,
+        "y": 0.33451936084912615,
+        "vx": -2.4294824680625036e-14,
+        "vy": 0.10444391880070111
+      }
+    },
+    {
+      "seed": 89,
+      "frames": 3789,
+      "ballAt60": 2,
+      "ballAt120": 3,
+      "scoreAt60": 225,
+      "scoreAt120": 265,
+      "launches": 16,
+      "drainFrames": [
+        3265,
+        3526,
+        3787
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 188,
+        "travelMeters": 2.721223760715732,
+        "lowFrames": 24,
+        "upperFrames": 64,
+        "maxSpeed": 1.6447089953387406,
+        "minSpeed": 0.2950013311139872
+      },
+      "final": {
+        "x": 0.378595270224336,
+        "y": 0.05241460551111178,
+        "vx": 0.8013648889135558,
+        "vy": -0.8547482614754673
+      }
+    },
+    {
+      "seed": 90,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 91,
+      "frames": 7200,
+      "ballAt60": 1,
+      "ballAt120": 1,
+      "scoreAt60": 95,
+      "scoreAt120": 95,
+      "launches": 66,
+      "drainFrames": [
+        249
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 3596,
+        "travelMeters": 29.29683184532283,
+        "lowFrames": 2789,
+        "upperFrames": 0,
+        "maxSpeed": 1.0782657349121911,
+        "minSpeed": 0.00008632235336301225
+      },
+      "final": {
+        "x": 0.7359999999981343,
+        "y": 0.34599075832957,
+        "vx": -2.4294824680625036e-14,
+        "vy": -0.5809646553997418
+      }
+    },
+    {
+      "seed": 92,
+      "frames": 3789,
+      "ballAt60": 2,
+      "ballAt120": 3,
+      "scoreAt60": 225,
+      "scoreAt120": 265,
+      "launches": 16,
+      "drainFrames": [
+        249,
+        3526,
+        3787
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 188,
+        "travelMeters": 2.721223423715518,
+        "lowFrames": 24,
+        "upperFrames": 64,
+        "maxSpeed": 1.6447089953387406,
+        "minSpeed": 0.2950013311139872
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 93,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 94,
+      "frames": 7200,
+      "ballAt60": 2,
+      "ballAt120": 2,
+      "scoreAt60": 135,
+      "scoreAt120": 135,
+      "launches": 65,
+      "drainFrames": [
+        249,
+        510
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 3596,
+        "travelMeters": 29.62691790879831,
+        "lowFrames": 2839,
+        "upperFrames": 0,
+        "maxSpeed": 1.0782657349121911,
+        "minSpeed": 0.00008632235336301225
+      },
+      "final": {
+        "x": 0.7359999999982416,
+        "y": 0.2990779503186555,
+        "vx": -2.4294824680625036e-14,
+        "vy": 0.6956267703998158
+      }
+    },
+    {
+      "seed": 95,
+      "frames": 3789,
+      "ballAt60": 2,
+      "ballAt120": 3,
+      "scoreAt60": 200,
+      "scoreAt120": 265,
+      "launches": 16,
+      "drainFrames": [
+        249,
+        510,
+        3787
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 188,
+        "travelMeters": 3.4274732631901617,
+        "lowFrames": 43,
+        "upperFrames": 14,
+        "maxSpeed": 3.536784887821182,
+        "minSpeed": 0.08197216765354137
+      },
+      "final": {
+        "x": 0.3883849283289576,
+        "y": 0.052480613370284,
+        "vx": 0.715896337140472,
+        "vy": -0.7730390425717724
+      }
+    },
+    {
+      "seed": 96,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.37844365414580866,
+        "y": 0.05345176117907218,
+        "vx": 0.8157019834688491,
+        "vy": -0.8427185807631646
+      }
+    },
+    {
+      "seed": 97,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953661091846,
+        "y": 0.05241497117255625,
+        "vx": 0.8013644267984171,
+        "vy": -0.8547462287560088
+      }
+    },
+    {
+      "seed": 98,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 99,
+      "frames": 773,
+      "ballAt60": 3,
+      "ballAt120": 3,
+      "scoreAt60": 120,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        249,
+        510,
+        771
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 0,
+        "maxSpeed": 0,
+        "minSpeed": 0
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    }
+  ]
+}

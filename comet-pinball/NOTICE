@@ -1,0 +1,16 @@
+Comet Pinball HTML5 — preservation project.
+
+Based on Comet Pinball 1.1.0 (2013), by Patrick Haring and Christian Bürgi;
+original upstream: https://github.com/boskoop/comet-pinball .
+The original release was distributed under the Apache License, Version 2.0.
+The original table XML, manual and native measurements are preserved in
+the source repository's reference/ folder (not deployed with the public game).
+The historical JAR is NOT included in this public-repository package; its
+upstream link, digest and license review are documented in the project.
+Third-party components and assets within the shaded JAR have distinct terms
+and incompletely verified redistribution rights.
+
+The HTML5 implementation and replacement visuals / synthesized effects are
+distributed under the included Apache License 2.0. The separate background
+music recording used here is CC0-1.0; see MUSIC-CREDITS.md and ASSETS_LICENSE.
+For provenance/copyright limitations, see THIRD_PARTY_NOTICES.md.

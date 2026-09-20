@@ -1,0 +1,12 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.join(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'public/index.html'),'utf8');
+const css=fs.readFileSync(path.join(root,'public/style.css'),'utf8');
+assert(html.includes('class="footer-section help-row"'),'footer should expose a dedicated help row');
+assert(html.includes('class="footer-section toggle-row"'),'footer should group audio/music controls together');
+assert(html.includes('class="footer-section action-row"'),'footer should group pause/reset/menu actions together');
+assert(css.includes('.footer-section{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 10px}'),'footer sections should have explicit grouped layout');
+assert(css.includes('.footer{grid-column:2;grid-row:2;width:auto;align-self:start;'),'desktop footer should sit directly under the header rather than leave a dead gap');
+assert(css.includes('.hud>div{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:90px;padding:7px 10px;'),'HUD cards should remain legible as production UI');
+console.log('PASS M13.8: grouped footer controls, denser desktop sidebar, clearer HUD cards');

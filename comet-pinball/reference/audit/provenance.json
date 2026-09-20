@@ -1,0 +1,28 @@
+{
+  "project": "Comet Pinball",
+  "release": "1.1.0",
+  "audit_date": "2026-09-14",
+  "upstream": {
+    "sourceforge": "https://sourceforge.net/projects/comet-pinball/",
+    "github": "https://github.com/boskoop/comet-pinball"
+  },
+  "artifacts": [
+    {
+      "path": "releases/comet-pinball-1.1.0-b480.jar",
+      "original_name": "comet-pinball-1.1.0-b480.jar",
+      "source": "SourceForge 1.1.0 release folder",
+      "sha256": "84aa5e48c962439113d7e444881e3891c5a179b2306d49db42da9740d580a05f",
+      "size_bytes": 7816773,
+      "notes": "Unmodified original downloaded by the user. Manifest reports Build-Jdk 1.7.0_21 and Main-Class ch.m02.comet.pinball.desktop.Main."
+    },
+    {
+      "path": "docs/manual.pdf",
+      "original_name": "manual.pdf",
+      "source": "SourceForge project files",
+      "sha256": "17f3a5a249a5cd4a392ab1392da1619edb2d9a42d5252e1fa80c8f2684a0225e",
+      "size_bytes": 412200,
+      "git_blob_sha1": "cc8e01e3276800ac777811b958ebf50004056732",
+      "notes": "Byte-for-byte identical to upstream GitHub doc/game_manual.pdf as verified by Git blob SHA-1."
+    }
+  ]
+}

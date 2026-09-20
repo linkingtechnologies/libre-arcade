@@ -1,0 +1,102 @@
+{
+  "total": 9,
+  "frames": 405,
+  "nativeEscapeScenarios": 0,
+  "jsEscapeScenarios": 0,
+  "nativeEscapeFrames": 0,
+  "jsEscapeFrames": 0,
+  "jsCurveEvents": 9,
+  "jsBumperHitScenarios": 8,
+  "details": [
+    {
+      "bumperId": 1,
+      "initialVX": -1,
+      "nativeHitCount": 3,
+      "jsHitCount": 2,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 2,
+      "maxPositionDifference": 0.25884304885856063
+    },
+    {
+      "bumperId": 1,
+      "initialVX": 0,
+      "nativeHitCount": 2,
+      "jsHitCount": 2,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 1,
+      "maxPositionDifference": 0.3344920152858011
+    },
+    {
+      "bumperId": 1,
+      "initialVX": 1,
+      "nativeHitCount": 5,
+      "jsHitCount": 2,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 1,
+      "maxPositionDifference": 0.3651387869038058
+    },
+    {
+      "bumperId": 2,
+      "initialVX": -1,
+      "nativeHitCount": 6,
+      "jsHitCount": 1,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 1,
+      "maxPositionDifference": 0.4027306170660324
+    },
+    {
+      "bumperId": 2,
+      "initialVX": 0,
+      "nativeHitCount": 3,
+      "jsHitCount": 2,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 0,
+      "maxPositionDifference": 0.09775671728542752
+    },
+    {
+      "bumperId": 2,
+      "initialVX": 1,
+      "nativeHitCount": 2,
+      "jsHitCount": 2,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 2,
+      "maxPositionDifference": 0.8122690307071857
+    },
+    {
+      "bumperId": 3,
+      "initialVX": -1,
+      "nativeHitCount": 2,
+      "jsHitCount": 2,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 2,
+      "maxPositionDifference": 0.4321735888143293
+    },
+    {
+      "bumperId": 3,
+      "initialVX": 0,
+      "nativeHitCount": 3,
+      "jsHitCount": 2,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 0,
+      "maxPositionDifference": 0.13550563836902196
+    },
+    {
+      "bumperId": 3,
+      "initialVX": 1,
+      "nativeHitCount": 1,
+      "jsHitCount": 0,
+      "nativeEscapeFrames": 0,
+      "jsEscapeFrames": 0,
+      "jsCurveEvents": 0,
+      "maxPositionDifference": 0.6457032707557906
+    }
+  ]
+}

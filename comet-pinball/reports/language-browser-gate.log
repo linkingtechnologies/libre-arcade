@@ -1,0 +1,4 @@
+LANGUAGE BROWSER PASS: en-US default en menu/credits/game/pause toggles, no overflow
+LANGUAGE BROWSER PASS: it-IT default it menu/credits/game/pause toggles, no overflow
+LANGUAGE BROWSER PASS: de-DE default en menu/credits/game/pause toggles, no overflow
+PASS EN/IT browser gate: 3 browser locales, 0 page errors, exact shipped payloads inline

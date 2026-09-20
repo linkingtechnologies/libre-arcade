@@ -1,0 +1,10 @@
+served HTTP unavailable: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:8879/index.html
+direct file unavailable: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/work-m13-11/comet-pinball-html5-m13.11/index.html
+BROWSER MODE: same script/CSS payloads inline in Chromium (NOT hosted or file navigation)
+MUSIC STATE after GIOCA: {'paused': False, 'time': 1.137123, 'ready': 4, 'volume': 0.65}
+VIEWPORT PASS: 1280 960 overflow {'w': 0, 'h': 0}
+VIEWPORT PASS: 390 844 overflow {'w': 0, 'h': 0}
+VIEWPORT PASS: 390 667 overflow {'w': 0, 'h': 0}
+VIEWPORT PASS: 320 568 overflow {'w': 0, 'h': 0}
+TOUCH-EMULATED PASS: launch, left/right, simultaneous two-finger flipper touch, pause/resume
+PASS M13.11 CHROMIUM browser gate; pageerrors: 0 screenshots: /mnt/data/work-m13-11/comet-pinball-html5-m13.11/reports/M13.11-browser

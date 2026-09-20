@@ -1,0 +1,63 @@
+{
+  "generatedBy": "tests/differential.js",
+  "units": {
+    "position": "m",
+    "velocity": "m/s",
+    "angle": "rad",
+    "omega": "rad/s"
+  },
+  "launch90": {
+    "frames": 90,
+    "maxPosition": 0.0013163446775203977,
+    "maxVelocity": 0.020974924328341686,
+    "maxAngle": 0,
+    "maxOmega": 0,
+    "positionFrame": 89,
+    "velocityFrame": 70
+  },
+  "launch146": {
+    "frames": 146,
+    "maxPosition": 0.00851223375982985,
+    "maxVelocity": 0.020974924328341686,
+    "maxAngle": 0,
+    "maxOmega": 0,
+    "positionFrame": 145,
+    "velocityFrame": 70
+  },
+  "launch150": {
+    "frames": 150,
+    "maxPosition": 0.009012605236074021,
+    "maxVelocity": 0.020974924328341686,
+    "maxAngle": 0,
+    "maxOmega": 0,
+    "positionFrame": 149,
+    "velocityFrame": 70
+  },
+  "flipper8": {
+    "frames": 8,
+    "maxPosition": 0.0002935191803135779,
+    "maxVelocity": 0.0007279725037969912,
+    "maxAngle": 0.0022948984464721267,
+    "maxOmega": 0.003517150935547164,
+    "positionFrame": 0,
+    "velocityFrame": 3
+  },
+  "flipper45": {
+    "frames": 45,
+    "maxPosition": 0.0004966912424789172,
+    "maxVelocity": 0.0007282325533721244,
+    "maxAngle": 0.0022948984464721267,
+    "maxOmega": 0.003517150935547164,
+    "positionFrame": 44,
+    "velocityFrame": 44
+  },
+  "revoluteJoint60": {
+    "frames": 60,
+    "maxPosition": 2.5900115804865272e-8,
+    "maxVelocity": 2.0783127727723145e-7,
+    "maxAngle": 3.575300904223866e-7,
+    "maxOmega": 0.0000019077949211521172,
+    "positionFrame": 29,
+    "velocityFrame": 27
+  }
+}

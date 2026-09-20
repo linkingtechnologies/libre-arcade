@@ -1,0 +1,602 @@
+{
+  "mode": "reactive-to-pulse",
+  "seedCount": 20,
+  "framesPerRun": 7200,
+  "completionAt60": 0,
+  "completionAt120": 18,
+  "startedIncomplete": 20,
+  "completedInSecondMinute": 18,
+  "stillUnfinishedAt120": 2,
+  "stalled": [
+    {
+      "seed": 34,
+      "frame": 2609,
+      "x": 0.02399999999999165,
+      "y": 1.2511168522116354,
+      "speed": 1.399987165398163e-19
+    }
+  ],
+  "secondMinuteActiveUnfinished": 1,
+  "rows": [
+    {
+      "seed": 0,
+      "frames": 4163,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 105,
+      "scoreAt120": 185,
+      "launches": 3,
+      "drainFrames": [
+        3639,
+        3900,
+        4161
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 540,
+        "travelMeters": 8.066806744823465,
+        "lowFrames": 126,
+        "upperFrames": 146,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 1,
+      "frames": 3686,
+      "ballAt60": 2,
+      "ballAt120": 3,
+      "scoreAt60": 165,
+      "scoreAt120": 165,
+      "launches": 3,
+      "drainFrames": [
+        455,
+        2801,
+        3684
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 85,
+        "travelMeters": 0.3660011427682334,
+        "lowFrames": 85,
+        "upperFrames": 0,
+        "maxSpeed": 0.5364303431741276,
+        "minSpeed": 0.04104611245464745
+      },
+      "final": {
+        "x": 0.36313295537468065,
+        "y": 0.053260684387520345,
+        "vx": -0.1494263977510869,
+        "vy": -0.38445424654768406
+      }
+    },
+    {
+      "seed": 2,
+      "frames": 3944,
+      "ballAt60": 1,
+      "ballAt120": 3,
+      "scoreAt60": 110,
+      "scoreAt120": 150,
+      "launches": 3,
+      "drainFrames": [
+        488,
+        3681,
+        3942
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 332,
+        "travelMeters": 4.271765925069662,
+        "lowFrames": 125,
+        "upperFrames": 73,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 3,
+      "frames": 7200,
+      "ballAt60": 1,
+      "ballAt120": 2,
+      "scoreAt60": 140,
+      "scoreAt120": 180,
+      "launches": 36,
+      "drainFrames": [
+        1909,
+        3680
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 3585,
+        "travelMeters": 31.285552169950815,
+        "lowFrames": 2704,
+        "upperFrames": 73,
+        "maxSpeed": 2.693535210477395,
+        "minSpeed": 0.0005884412239133482
+      },
+      "final": {
+        "x": 0.7359999999990899,
+        "y": 0.2781062271021424,
+        "vx": -2.2208580138351562e-14,
+        "vy": 0.7324345685209728
+      }
+    },
+    {
+      "seed": 4,
+      "frames": 4469,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 130,
+      "launches": 3,
+      "drainFrames": [
+        3683,
+        4206,
+        4467
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 846,
+        "travelMeters": 12.308904268812034,
+        "lowFrames": 238,
+        "upperFrames": 146,
+        "maxSpeed": 2.780765148147585,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 5,
+      "frames": 4175,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        3651,
+        3912,
+        4173
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 552,
+        "travelMeters": 8.093851992315194,
+        "lowFrames": 138,
+        "upperFrames": 146,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 6,
+      "frames": 4186,
+      "ballAt60": 1,
+      "ballAt120": 3,
+      "scoreAt60": 155,
+      "scoreAt120": 205,
+      "launches": 3,
+      "drainFrames": [
+        2493,
+        3923,
+        4184
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 574,
+        "travelMeters": 7.659775522458149,
+        "lowFrames": 285,
+        "upperFrames": 73,
+        "maxSpeed": 3.325147671299093,
+        "minSpeed": 0.003139030032060681
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 7,
+      "frames": 5139,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 150,
+      "launches": 3,
+      "drainFrames": [
+        4382,
+        4643,
+        5137
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 1516,
+        "travelMeters": 20.799542296437885,
+        "lowFrames": 474,
+        "upperFrames": 194,
+        "maxSpeed": 3.777839511636783,
+        "minSpeed": 0.002338963634516581
+      },
+      "final": {
+        "x": 0.32325545517545956,
+        "y": 0.05345990947406498,
+        "vx": -0.37597774519265353,
+        "vy": -0.45348364551552545
+      }
+    },
+    {
+      "seed": 8,
+      "frames": 4248,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        3724,
+        3985,
+        4246
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 625,
+        "travelMeters": 8.250581157408838,
+        "lowFrames": 211,
+        "upperFrames": 146,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.003018366798158601
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 9,
+      "frames": 4820,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 125,
+      "launches": 3,
+      "drainFrames": [
+        3938,
+        4557,
+        4818
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 1197,
+        "travelMeters": 14.790927198957059,
+        "lowFrames": 546,
+        "upperFrames": 208,
+        "maxSpeed": 2.7638980387437404,
+        "minSpeed": 0.00288327779958716
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 10,
+      "frames": 4210,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        3686,
+        3947,
+        4208
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 587,
+        "travelMeters": 9.683162779445224,
+        "lowFrames": 116,
+        "upperFrames": 146,
+        "maxSpeed": 2.6405136388033217,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 11,
+      "frames": 4209,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        3685,
+        3946,
+        4207
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 578,
+        "travelMeters": 8.159207578394803,
+        "lowFrames": 172,
+        "upperFrames": 146,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 7.533958283358716e-20
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 12,
+      "frames": 4210,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        3625,
+        3947,
+        4208
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 587,
+        "travelMeters": 9.658301191616852,
+        "lowFrames": 121,
+        "upperFrames": 146,
+        "maxSpeed": 3.0232534176448773,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 13,
+      "frames": 6516,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 185,
+      "launches": 25,
+      "drainFrames": [
+        3625,
+        6253,
+        6514
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 2892,
+        "travelMeters": 31.428719773033666,
+        "lowFrames": 1434,
+        "upperFrames": 248,
+        "maxSpeed": 4.127224717577846,
+        "minSpeed": 0.0003011509895233036
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 14,
+      "frames": 3942,
+      "ballAt60": 1,
+      "ballAt120": 3,
+      "scoreAt60": 350,
+      "scoreAt120": 390,
+      "launches": 3,
+      "drainFrames": [
+        2398,
+        3679,
+        3940
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 330,
+        "travelMeters": 4.221566592098354,
+        "lowFrames": 123,
+        "upperFrames": 73,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.005342532441689779
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 15,
+      "frames": 4207,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        3683,
+        3944,
+        4205
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 584,
+        "travelMeters": 8.195206244440639,
+        "lowFrames": 170,
+        "upperFrames": 146,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 16,
+      "frames": 4199,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 45,
+      "scoreAt120": 125,
+      "launches": 3,
+      "drainFrames": [
+        3675,
+        3936,
+        4197
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 576,
+        "travelMeters": 8.193675661350913,
+        "lowFrames": 162,
+        "upperFrames": 146,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 17,
+      "frames": 4202,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        3678,
+        3939,
+        4200
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 579,
+        "travelMeters": 8.110122793213842,
+        "lowFrames": 165,
+        "upperFrames": 146,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.0022169317938083377
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.8013642296683609,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 18,
+      "frames": 4208,
+      "ballAt60": 0,
+      "ballAt120": 3,
+      "scoreAt60": 40,
+      "scoreAt120": 120,
+      "launches": 3,
+      "drainFrames": [
+        3684,
+        3945,
+        4206
+      ],
+      "firstPhysicalStall": null,
+      "secondMinute": {
+        "activeFrames": 585,
+        "travelMeters": 8.207855382751005,
+        "lowFrames": 171,
+        "upperFrames": 146,
+        "maxSpeed": 1.8225205364728092,
+        "minSpeed": 0.01992563764674161
+      },
+      "final": {
+        "x": 0.3785953977090645,
+        "y": 0.052415095766634806,
+        "vx": 0.801364229668361,
+        "vy": -0.8547455715242669
+      }
+    },
+    {
+      "seed": 34,
+      "frames": 7200,
+      "ballAt60": 0,
+      "ballAt120": 0,
+      "scoreAt60": 150,
+      "scoreAt120": 150,
+      "launches": 1,
+      "drainFrames": [],
+      "firstPhysicalStall": {
+        "frame": 2609,
+        "x": 0.02399999999999165,
+        "y": 1.2511168522116354,
+        "speed": 1.399987165398163e-19
+      },
+      "secondMinute": {
+        "activeFrames": 0,
+        "travelMeters": 0,
+        "lowFrames": 0,
+        "upperFrames": 3600,
+        "maxSpeed": 1.74568731042355e-19,
+        "minSpeed": 4.820128812879329e-20
+      },
+      "final": {
+        "x": 0.023999999999999088,
+        "y": 1.25111685221166,
+        "vx": -8.703796243433539e-20,
+        "vy": -1.5132294919481746e-19
+      }
+    }
+  ]
+}

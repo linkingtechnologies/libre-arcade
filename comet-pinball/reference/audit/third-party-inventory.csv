@@ -1,0 +1,12 @@
+component,version,evidence,license,notes
+libGDX,0.9.9,"binary Version class; source POM 0.9.9-SNAPSHOT",Apache-2.0,"Box2D integration included through libGDX"
+LWJGL,2.9.0,"org.lwjgl.Sys binary constants",BSD-style,"native libraries bundled"
+Universal Tween Engine,6.3.3,"source POM",Apache-2.0,"classes shaded into JAR"
+PicoContainer,2.13.6,"embedded Maven metadata",BSD,"causes javax.annotation.PreDestroy failure on JDK 21"
+Commons Lang,3.1,"embedded Maven metadata",Apache-2.0,"NOTICE present"
+Commons IO,2.4,"embedded Maven metadata",Apache-2.0,""
+Paranamer,2.5.2,"embedded Maven metadata",BSD,""
+Mockito,1.9.5,"embedded Maven metadata",MIT,"test dependency appears accidentally bundled"
+sysout-over-slf4j,1.0.2,"embedded Maven metadata",Apache-2.0,""
+SLF4J,1.7.2,"embedded Maven metadata",MIT,""
+Logback classic/core,1.0.9,"embedded Maven metadata","EPL-1.0 OR LGPL-2.1","complete corresponding license texts not observed in shaded release"

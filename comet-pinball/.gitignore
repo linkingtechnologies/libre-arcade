@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+node_modules/
+__pycache__/
+*.pyc
+# The browser gate creates these locally; two baseline previews are committed separately.
+reports/browser-generated/
+# Oracles are immutable: generate only in a throwaway copy.
+
+# Historical shaded JAR contains unverified third-party assets; not for public repo.
+reference/releases/*.jar
+
+# Generated build output (npm run build)
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/

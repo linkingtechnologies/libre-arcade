@@ -1,0 +1,1895 @@
+{
+  "method": "reactive-hold; 100 seeded control scripts, 3600-frame ceiling (60 s) each; real M10.1 physics; reset deferred by 12 frames; manual relaunch simulated whenever physical ball is in launcher, with 68-frame cooldown; no synthetic drains or forced score",
+  "seedCount": 100,
+  "maxFrames": 3600,
+  "complete": 3,
+  "partial": 97,
+  "byBalls": {
+    "0": 67,
+    "1": 24,
+    "2": 6,
+    "3": 3
+  },
+  "longestIdle": 1329,
+  "maxLaunches": 3,
+  "rows": [
+    {
+      "seed": 0,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 105,
+      "launches": 1,
+      "hits": 16,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.492609,
+        "y": 0.233622,
+        "vx": -0.006486,
+        "vy": -0.122943
+      }
+    },
+    {
+      "seed": 1,
+      "frames": 3600,
+      "completed": false,
+      "balls": 2,
+      "score": 165,
+      "launches": 3,
+      "hits": 18,
+      "drainFrames": [
+        455,
+        2801
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.209246,
+        "y": 0.211148,
+        "vx": 0.026466,
+        "vy": -0.01985
+      }
+    },
+    {
+      "seed": 2,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 110,
+      "launches": 2,
+      "hits": 11,
+      "drainFrames": [
+        488
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.216043,
+        "y": 0.205646,
+        "vx": 0.063924,
+        "vy": -0.047943
+      }
+    },
+    {
+      "seed": 3,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 140,
+      "launches": 2,
+      "hits": 18,
+      "drainFrames": [
+        1909
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.214237,
+        "y": 0.207243,
+        "vx": 0.082328,
+        "vy": -0.061746
+      }
+    },
+    {
+      "seed": 4,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.207023,
+        "y": 0.212636,
+        "vx": 0.057634,
+        "vy": -0.026712
+      }
+    },
+    {
+      "seed": 5,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.212738,
+        "y": 0.20849,
+        "vx": 0.104433,
+        "vy": -0.078325
+      }
+    },
+    {
+      "seed": 6,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 155,
+      "launches": 2,
+      "hits": 18,
+      "drainFrames": [
+        2493
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.214832,
+        "y": 0.206917,
+        "vx": -0.115139,
+        "vy": 0.086354
+      }
+    },
+    {
+      "seed": 7,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.213944,
+        "y": 0.208834,
+        "vx": -0.02368,
+        "vy": -0.135677
+      }
+    },
+    {
+      "seed": 8,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.143384,
+        "y": 0.260269,
+        "vx": -0.073615,
+        "vy": 0.055211
+      }
+    },
+    {
+      "seed": 9,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.214664,
+        "y": 0.206673,
+        "vx": 0.009094,
+        "vy": -0.00682
+      }
+    },
+    {
+      "seed": 10,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.212197,
+        "y": 0.209147,
+        "vx": 0.301461,
+        "vy": -0.178409
+      }
+    },
+    {
+      "seed": 11,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 4,
+      "final": {
+        "x": 0.220495,
+        "y": 0.202526,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "seed": 12,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.197285,
+        "y": 0.220053,
+        "vx": 0.328948,
+        "vy": -0.246711
+      }
+    },
+    {
+      "seed": 13,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.200969,
+        "y": 0.216773,
+        "vx": 0.338577,
+        "vy": -0.253933
+      }
+    },
+    {
+      "seed": 14,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 350,
+      "launches": 2,
+      "hits": 25,
+      "drainFrames": [
+        2398
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.216084,
+        "y": 0.205286,
+        "vx": -0.221205,
+        "vy": 0.099378
+      }
+    },
+    {
+      "seed": 15,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.206769,
+        "y": 0.212832,
+        "vx": 0.048374,
+        "vy": -0.021856
+      }
+    },
+    {
+      "seed": 16,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 45,
+      "launches": 1,
+      "hits": 4,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220619,
+        "y": 0.202323,
+        "vx": 0.100614,
+        "vy": -0.075461
+      }
+    },
+    {
+      "seed": 17,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.214405,
+        "y": 0.206684,
+        "vx": -0.230764,
+        "vy": 0.078943
+      }
+    },
+    {
+      "seed": 18,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.209846,
+        "y": 0.210485,
+        "vx": 0.026508,
+        "vy": -0.019881
+      }
+    },
+    {
+      "seed": 19,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.200282,
+        "y": 0.217839,
+        "vx": -0.049244,
+        "vy": 0.036933
+      }
+    },
+    {
+      "seed": 20,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220607,
+        "y": 0.205761,
+        "vx": -0.004923,
+        "vy": 0.01341
+      }
+    },
+    {
+      "seed": 21,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.080659,
+        "y": 0.307006,
+        "vx": 0.23334,
+        "vy": -0.175005
+      }
+    },
+    {
+      "seed": 22,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.209836,
+        "y": 0.210519,
+        "vx": 0.000545,
+        "vy": -0.000409
+      }
+    },
+    {
+      "seed": 23,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.192356,
+        "y": 0.223727,
+        "vx": 0.053268,
+        "vy": -0.039951
+      }
+    },
+    {
+      "seed": 24,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220764,
+        "y": 0.20225,
+        "vx": -0.010642,
+        "vy": -0.012627
+      }
+    },
+    {
+      "seed": 25,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 100,
+      "launches": 2,
+      "hits": 12,
+      "drainFrames": [
+        3116
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.209717,
+        "y": 0.210784,
+        "vx": 0.122725,
+        "vy": -0.07792
+      }
+    },
+    {
+      "seed": 26,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 105,
+      "launches": 2,
+      "hits": 12,
+      "drainFrames": [
+        447
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.196969,
+        "y": 0.220095,
+        "vx": 0.013015,
+        "vy": -0.009761
+      }
+    },
+    {
+      "seed": 27,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220448,
+        "y": 0.202257,
+        "vx": 0.00012,
+        "vy": 0.000102
+      }
+    },
+    {
+      "seed": 28,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.195727,
+        "y": 0.221135,
+        "vx": 0.065879,
+        "vy": -0.049409
+      }
+    },
+    {
+      "seed": 29,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.211961,
+        "y": 0.209097,
+        "vx": 0.081335,
+        "vy": -0.061001
+      }
+    },
+    {
+      "seed": 30,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 185,
+      "launches": 2,
+      "hits": 18,
+      "drainFrames": [
+        2262
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.222237,
+        "y": 0.203965,
+        "vx": 0.020143,
+        "vy": 0.023938
+      }
+    },
+    {
+      "seed": 31,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.177522,
+        "y": 0.234806,
+        "vx": 0.072738,
+        "vy": -0.054554
+      }
+    },
+    {
+      "seed": 32,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220746,
+        "y": 0.204452,
+        "vx": -0.003939,
+        "vy": 0.014374
+      }
+    },
+    {
+      "seed": 33,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.218504,
+        "y": 0.204928,
+        "vx": -0.187136,
+        "vy": 0.052006
+      }
+    },
+    {
+      "seed": 34,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 150,
+      "launches": 1,
+      "hits": 20,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 1329,
+      "final": {
+        "x": 0.024,
+        "y": 1.251117,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "seed": 35,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 45,
+      "launches": 1,
+      "hits": 5,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.208433,
+        "y": 0.211846,
+        "vx": -0.065397,
+        "vy": 0.050733
+      }
+    },
+    {
+      "seed": 36,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.218767,
+        "y": 0.206862,
+        "vx": 0.106434,
+        "vy": -0.070654
+      }
+    },
+    {
+      "seed": 37,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.159147,
+        "y": 0.250926,
+        "vx": -0.160667,
+        "vy": 0.107959
+      }
+    },
+    {
+      "seed": 38,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 145,
+      "launches": 1,
+      "hits": 12,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220974,
+        "y": 0.202536,
+        "vx": -0.003425,
+        "vy": 0.063477
+      }
+    },
+    {
+      "seed": 39,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.221778,
+        "y": 0.203494,
+        "vx": 0.028232,
+        "vy": 0.033559
+      }
+    },
+    {
+      "seed": 40,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 100,
+      "launches": 2,
+      "hits": 10,
+      "drainFrames": [
+        3272
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.21385,
+        "y": 0.207498,
+        "vx": 0.064774,
+        "vy": -0.04858
+      }
+    },
+    {
+      "seed": 41,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 110,
+      "launches": 2,
+      "hits": 9,
+      "drainFrames": [
+        1226
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.20784,
+        "y": 0.212423,
+        "vx": -0.089536,
+        "vy": 0.084633
+      }
+    },
+    {
+      "seed": 42,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 45,
+      "launches": 1,
+      "hits": 4,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.107072,
+        "y": 0.28664,
+        "vx": -0.609918,
+        "vy": 0.346033
+      }
+    },
+    {
+      "seed": 43,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 145,
+      "launches": 1,
+      "hits": 9,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.160331,
+        "y": 0.247384,
+        "vx": 0.300487,
+        "vy": -0.225365
+      }
+    },
+    {
+      "seed": 44,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 90,
+      "launches": 2,
+      "hits": 8,
+      "drainFrames": [
+        2990
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 2,
+      "final": {
+        "x": 0.220347,
+        "y": 0.202329,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "seed": 45,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.170343,
+        "y": 0.239739,
+        "vx": -0.010669,
+        "vy": 0.008002
+      }
+    },
+    {
+      "seed": 46,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 45,
+      "launches": 1,
+      "hits": 4,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.203638,
+        "y": 0.215567,
+        "vx": -0.106813,
+        "vy": 0.061573
+      }
+    },
+    {
+      "seed": 47,
+      "frames": 3600,
+      "completed": false,
+      "balls": 2,
+      "score": 135,
+      "launches": 3,
+      "hits": 13,
+      "drainFrames": [
+        2756,
+        3077
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220928,
+        "y": 0.201821,
+        "vx": 0.077177,
+        "vy": -0.057883
+      }
+    },
+    {
+      "seed": 48,
+      "frames": 3600,
+      "completed": false,
+      "balls": 2,
+      "score": 195,
+      "launches": 2,
+      "hits": 25,
+      "drainFrames": [
+        1519,
+        3582
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.735,
+        "y": 0.026526,
+        "vx": 0,
+        "vy": -0.119554
+      }
+    },
+    {
+      "seed": 49,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 90,
+      "launches": 2,
+      "hits": 8,
+      "drainFrames": [
+        1538
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.199581,
+        "y": 0.218365,
+        "vx": -0.035809,
+        "vy": 0.026857
+      }
+    },
+    {
+      "seed": 50,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 45,
+      "launches": 1,
+      "hits": 4,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.195225,
+        "y": 0.221528,
+        "vx": -0.030915,
+        "vy": 0.023186
+      }
+    },
+    {
+      "seed": 51,
+      "frames": 3600,
+      "completed": false,
+      "balls": 2,
+      "score": 180,
+      "launches": 3,
+      "hits": 19,
+      "drainFrames": [
+        1358,
+        2835
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.216757,
+        "y": 0.205078,
+        "vx": -0.115746,
+        "vy": 0.086809
+      }
+    },
+    {
+      "seed": 52,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.195233,
+        "y": 0.221042,
+        "vx": 0.129119,
+        "vy": -0.096839
+      }
+    },
+    {
+      "seed": 53,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.196194,
+        "y": 0.220342,
+        "vx": 0.0097,
+        "vy": -0.007275
+      }
+    },
+    {
+      "seed": 54,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 125,
+      "launches": 1,
+      "hits": 8,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.161007,
+        "y": 0.614281,
+        "vx": -0.592615,
+        "vy": -1.79396
+      }
+    },
+    {
+      "seed": 55,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 95,
+      "launches": 2,
+      "hits": 9,
+      "drainFrames": [
+        2934
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.22051,
+        "y": 0.20696,
+        "vx": -0.273631,
+        "vy": 0.129673
+      }
+    },
+    {
+      "seed": 56,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 140,
+      "launches": 2,
+      "hits": 19,
+      "drainFrames": [
+        372
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.203086,
+        "y": 0.215198,
+        "vx": 0.034946,
+        "vy": -0.026209
+      }
+    },
+    {
+      "seed": 57,
+      "frames": 2134,
+      "completed": true,
+      "balls": 3,
+      "score": 175,
+      "launches": 3,
+      "hits": 29,
+      "drainFrames": [
+        563,
+        1704,
+        2132
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 1,
+      "final": {
+        "x": 0.435428,
+        "y": 0.052203,
+        "vx": 0.475892,
+        "vy": -1.477055
+      }
+    },
+    {
+      "seed": 58,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 205,
+      "launches": 2,
+      "hits": 32,
+      "drainFrames": [
+        2132
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.201451,
+        "y": 0.21758,
+        "vx": -0.165966,
+        "vy": 0.072126
+      }
+    },
+    {
+      "seed": 59,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 100,
+      "launches": 2,
+      "hits": 10,
+      "drainFrames": [
+        477
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.214052,
+        "y": 0.207294,
+        "vx": -0.066759,
+        "vy": 0.050069
+      }
+    },
+    {
+      "seed": 60,
+      "frames": 3600,
+      "completed": false,
+      "balls": 2,
+      "score": 145,
+      "launches": 3,
+      "hits": 14,
+      "drainFrames": [
+        352,
+        716
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.454285,
+        "y": 0.368834,
+        "vx": -0.694619,
+        "vy": 1.08308
+      }
+    },
+    {
+      "seed": 61,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220429,
+        "y": 0.204178,
+        "vx": -0.004875,
+        "vy": -0.020432
+      }
+    },
+    {
+      "seed": 62,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.138213,
+        "y": 0.26384,
+        "vx": 0.105103,
+        "vy": -0.078827
+      }
+    },
+    {
+      "seed": 63,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 105,
+      "launches": 2,
+      "hits": 16,
+      "drainFrames": [
+        381
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.154026,
+        "y": 0.777452,
+        "vx": 0.602255,
+        "vy": 0.213397
+      }
+    },
+    {
+      "seed": 64,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 90,
+      "launches": 1,
+      "hits": 14,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 13,
+      "final": {
+        "x": 0.499119,
+        "y": 0.202437,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "seed": 65,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.147157,
+        "y": 0.257377,
+        "vx": 0.256393,
+        "vy": -0.259797
+      }
+    },
+    {
+      "seed": 66,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 50,
+      "launches": 1,
+      "hits": 5,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.526108,
+        "y": 0.22208,
+        "vx": -0.048495,
+        "vy": -0.036371
+      }
+    },
+    {
+      "seed": 67,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 85,
+      "launches": 2,
+      "hits": 7,
+      "drainFrames": [
+        453
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.220322,
+        "y": 0.206882,
+        "vx": -0.007125,
+        "vy": 0.001985
+      }
+    },
+    {
+      "seed": 68,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 50,
+      "launches": 1,
+      "hits": 5,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.166282,
+        "y": 0.248917,
+        "vx": 0.3123,
+        "vy": -0.231037
+      }
+    },
+    {
+      "seed": 69,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.035687,
+        "y": 0.358929,
+        "vx": 0.138827,
+        "vy": 0.059671
+      }
+    },
+    {
+      "seed": 70,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 180,
+      "launches": 2,
+      "hits": 20,
+      "drainFrames": [
+        2654
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.208958,
+        "y": 0.211259,
+        "vx": 0.00582,
+        "vy": -0.004365
+      }
+    },
+    {
+      "seed": 71,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 55,
+      "launches": 1,
+      "hits": 11,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.140081,
+        "y": 0.911346,
+        "vx": 0.323278,
+        "vy": 0.524312
+      }
+    },
+    {
+      "seed": 72,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.212994,
+        "y": 0.207742,
+        "vx": 0.013252,
+        "vy": -0.009939
+      }
+    },
+    {
+      "seed": 73,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.110292,
+        "y": 0.286788,
+        "vx": 0.197967,
+        "vy": -0.243043
+      }
+    },
+    {
+      "seed": 74,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 45,
+      "launches": 1,
+      "hits": 5,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.514253,
+        "y": 0.213497,
+        "vx": -0.043958,
+        "vy": -0.032969
+      }
+    },
+    {
+      "seed": 75,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.027645,
+        "y": 0.353501,
+        "vx": 0.152157,
+        "vy": 0.109928
+      }
+    },
+    {
+      "seed": 76,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 55,
+      "launches": 1,
+      "hits": 6,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.197706,
+        "y": 0.219307,
+        "vx": -0.061054,
+        "vy": 0.045791
+      }
+    },
+    {
+      "seed": 77,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.202292,
+        "y": 0.216076,
+        "vx": -0.06607,
+        "vy": 0.049553
+      }
+    },
+    {
+      "seed": 78,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.212942,
+        "y": 0.20828,
+        "vx": 0.108644,
+        "vy": -0.081483
+      }
+    },
+    {
+      "seed": 79,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.21445,
+        "y": 0.206782,
+        "vx": 0.008654,
+        "vy": -0.006491
+      }
+    },
+    {
+      "seed": 80,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.213962,
+        "y": 0.207245,
+        "vx": -0.004429,
+        "vy": 0.003322
+      }
+    },
+    {
+      "seed": 81,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.219321,
+        "y": 0.224768,
+        "vx": 0.070977,
+        "vy": 0.085512
+      }
+    },
+    {
+      "seed": 82,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 125,
+      "launches": 2,
+      "hits": 15,
+      "drainFrames": [
+        2524
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.578603,
+        "y": 0.89248,
+        "vx": -0.033716,
+        "vy": 1.471638
+      }
+    },
+    {
+      "seed": 83,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.218783,
+        "y": 0.203657,
+        "vx": 0.079519,
+        "vy": -0.059639
+      }
+    },
+    {
+      "seed": 84,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.19143,
+        "y": 0.224177,
+        "vx": -0.013083,
+        "vy": 0.009812
+      }
+    },
+    {
+      "seed": 85,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.210967,
+        "y": 0.209674,
+        "vx": 0.089504,
+        "vy": -0.084825
+      }
+    },
+    {
+      "seed": 86,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.192283,
+        "y": 0.223613,
+        "vx": -0.159711,
+        "vy": 0.119783
+      }
+    },
+    {
+      "seed": 87,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.197269,
+        "y": 0.219912,
+        "vx": 0.082396,
+        "vy": -0.061797
+      }
+    },
+    {
+      "seed": 88,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 65,
+      "launches": 1,
+      "hits": 8,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.279324,
+        "y": 0.480311,
+        "vx": -0.403337,
+        "vy": -0.595129
+      }
+    },
+    {
+      "seed": 89,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 75,
+      "launches": 1,
+      "hits": 7,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.203972,
+        "y": 0.214932,
+        "vx": 0.004422,
+        "vy": -0.003317
+      }
+    },
+    {
+      "seed": 90,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 215,
+      "launches": 2,
+      "hits": 34,
+      "drainFrames": [
+        1353
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.202038,
+        "y": 0.216508,
+        "vx": -0.04282,
+        "vy": 0.032115
+      }
+    },
+    {
+      "seed": 91,
+      "frames": 3334,
+      "completed": true,
+      "balls": 3,
+      "score": 200,
+      "launches": 3,
+      "hits": 19,
+      "drainFrames": [
+        2294,
+        2847,
+        3332
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 1,
+      "final": {
+        "x": 0.380749,
+        "y": 0.0527,
+        "vx": 0.103348,
+        "vy": -0.763578
+      }
+    },
+    {
+      "seed": 92,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 85,
+      "launches": 2,
+      "hits": 9,
+      "drainFrames": [
+        3517
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.672349,
+        "y": 1.275655,
+        "vx": -0.294561,
+        "vy": 0.367563
+      }
+    },
+    {
+      "seed": 93,
+      "frames": 2006,
+      "completed": true,
+      "balls": 3,
+      "score": 175,
+      "launches": 3,
+      "hits": 24,
+      "drainFrames": [
+        829,
+        1363,
+        2004
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 1,
+      "final": {
+        "x": 0.471239,
+        "y": 0.052517,
+        "vx": 0.242275,
+        "vy": -0.753321
+      }
+    },
+    {
+      "seed": 94,
+      "frames": 3600,
+      "completed": false,
+      "balls": 2,
+      "score": 245,
+      "launches": 3,
+      "hits": 32,
+      "drainFrames": [
+        1729,
+        2395
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.212267,
+        "y": 0.208161,
+        "vx": -0.079853,
+        "vy": 0.05989
+      }
+    },
+    {
+      "seed": 95,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.221098,
+        "y": 0.201609,
+        "vx": 0.043041,
+        "vy": -0.032281
+      }
+    },
+    {
+      "seed": 96,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 125,
+      "launches": 2,
+      "hits": 15,
+      "drainFrames": [
+        2119
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.210624,
+        "y": 0.209443,
+        "vx": -0.106863,
+        "vy": 0.080147
+      }
+    },
+    {
+      "seed": 97,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 95,
+      "launches": 2,
+      "hits": 12,
+      "drainFrames": [
+        1889
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.209349,
+        "y": 0.210897,
+        "vx": -0.074909,
+        "vy": 0.083514
+      }
+    },
+    {
+      "seed": 98,
+      "frames": 3600,
+      "completed": false,
+      "balls": 0,
+      "score": 40,
+      "launches": 1,
+      "hits": 3,
+      "drainFrames": [],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.128031,
+        "y": 0.271477,
+        "vx": 0.130837,
+        "vy": -0.098128
+      }
+    },
+    {
+      "seed": 99,
+      "frames": 3600,
+      "completed": false,
+      "balls": 1,
+      "score": 90,
+      "launches": 2,
+      "hits": 13,
+      "drainFrames": [
+        2229
+      ],
+      "maxLaneStreak": 6,
+      "idleFrames": 0,
+      "final": {
+        "x": 0.195958,
+        "y": 0.220531,
+        "vx": 0.058742,
+        "vy": -0.044057
+      }
+    }
+  ]
+}

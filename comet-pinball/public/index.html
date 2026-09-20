@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080f26">
+<title>Comet Pinball — Play</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+  <header class="heading">
+    <div class="identity"><span class="brand-star" aria-hidden="true">✦</span><div><strong>COMET <em>PINBALL</em></strong><small id="tagline">The space pinball game</small></div></div>
+    <div class="hud" aria-live="off"><div><span id="scoreLabel">SCORE</span><strong id="scoreText">000000</strong></div><div><span id="ballLabel">BALL</span><strong id="ballText">1 / 3</strong></div></div>
+    <div class="heading-actions"><button id="languageBtn" class="language-btn" type="button" aria-label="Language: English. Switch to Italian" title="Switch to Italian">EN / IT</button><button id="viewBtn" class="view-btn" type="button" aria-pressed="true" title="Switch between following the ball and viewing the full table">◉ Follow ball</button></div>
+  </header>
+  <section class="game-wrap" aria-label="Comet Pinball: playable pinball table">
+    <canvas id="game" width="456" height="840" tabindex="0" aria-label="Playing field"></canvas>
+    <div class="top-shine" aria-hidden="true"></div>
+    <div id="overlay" class="overlay" aria-live="polite"></div>
+    <button id="launchHint" class="launch-hint" type="button" hidden>🚀 LAUNCH <span>Space</span></button>
+    <button id="stuckHint" class="stuck-hint" type="button" hidden>Ball stuck? <strong>Choose what to do</strong></button>
+    <div id="impact" class="impact" aria-hidden="true"></div>
+    <div id="turnToast" class="turn-toast" hidden aria-live="polite"></div>
+  </section>
+  <nav class="mobile-controls" aria-label="Game controls">
+    <button id="leftBtn" class="flipper-btn left-btn" type="button"><span>◀</span> FLIPPER</button>
+    <button id="plungeBtn" class="plunge-btn" type="button">🚀 LAUNCH</button>
+    <button id="rightBtn" class="flipper-btn right-btn" type="button">FLIPPER <span>▶</span></button>
+  </nav>
+  <footer class="footer"><div class="footer-section help-row"><span class="desktop-help">← / A / Z: left &nbsp;·&nbsp; → / D / L / M: right &nbsp;·&nbsp; Space / ↓: launch &nbsp;·&nbsp; P: pause</span><span class="touch-help">Hold the flippers · Tap Launch</span></div><div class="footer-section toggle-row"><button id="soundBtn" type="button" aria-pressed="true" title="Turn sound effects on or off">🔊 Audio</button><button id="musicBtn" type="button" aria-pressed="true" title="Turn music on or off">♫ Musica</button><label class="music-volume" for="musicVolume">Music volume <input id="musicVolume" type="range" min="0" max="100" step="5" value="65" aria-label="Music volume"><output id="musicVolumeText" for="musicVolume">65%</output></label></div><div class="footer-section action-row"><button id="pauseBtn" type="button">Pause Ⅱ</button><button id="resetBtn" type="button">Restart ↻</button><button id="menuBtn" type="button">Menu ☰</button></div></footer>
+</main>
+<script src="data/playfield.js"></script>
+<script src="js/physics.js"></script>
+<script src="js/camera.js"></script>
+<audio id="musicTrack" preload="auto" loop aria-hidden="true"><source src="assets/music/comet-loop.ogg" type="audio/ogg"><source src="assets/music/comet-loop.mp3" type="audio/mpeg"></audio>
+<script src="js/audio.js"></script>
+<script src="js/visuals.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/comet.js"></script>
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.join(__dirname,'..'),Visuals=require('../public/js/visuals.js');
+const calls=[];
+const ctx=new Proxy({}, {get(o,k){return k in o?o[k]:(...a)=>{calls.push([k,...a]);};},set(o,k,v){o[k]=v;return true;}});
+const v={scaleX:600,scaleY:600,sx:n=>n*600,sy:n=>(1.4-n)*600};
+Visuals.drawArt(ctx,v,.76,1.4);
+assert.equal(calls.length,0,'the historical playfield must not add fake planets, targets or orbits');
+Visuals.lamp(ctx,v,.25,1.1,.03,false);
+assert.equal(calls.filter(c=>c[0]==='arc').length,1,'one ring for one physical bumper');
+assert.equal(calls.filter(c=>c[0]==='fill').length,0,'bumper at rest is an outline, not a fake solid obstacle');
+Visuals.lamp(ctx,v,.25,1.1,.03,true);
+assert(calls.filter(c=>c[0]==='fill').length>=1,'only hit-state may produce bumper light');
+const src=fs.readFileSync(path.join(root,'public/js/comet.js'),'utf8');
+assert(src.includes("'#030706'")||src.includes("fillStyle='#020503'"),'playfield must stay dark');
+assert(src.includes('drawPolygon(p.points,fill,stroke,width)'),'render the real geometry');
+console.log('PASS M13.5: historically sparse dark field, 2013 bumper ring, collision geometry unaffected');

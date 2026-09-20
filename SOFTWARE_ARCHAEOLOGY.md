@@ -80,6 +80,7 @@ original with an executable oracle or a benchmark:
 - [`nova-pinball/SOFTWARE_ARCHAEOLOGY.md`](nova-pinball/SOFTWARE_ARCHAEOLOGY.md)
 - [`mechanical-night-pinball/SOFTWARE_ARCHAEOLOGY.md`](mechanical-night-pinball/SOFTWARE_ARCHAEOLOGY.md)
 - [`disk-field/SOFTWARE_ARCHAEOLOGY.md`](disk-field/SOFTWARE_ARCHAEOLOGY.md)
+- [`comet-pinball/SOFTWARE_ARCHAEOLOGY.md`](comet-pinball/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already

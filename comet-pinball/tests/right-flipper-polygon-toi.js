@@ -1,0 +1,33 @@
+'use strict';
+const assert=require('assert');
+const fs=require('fs');
+const path=require('path');
+const P=require('../public/js/physics.js'), H=P.helpers, dt=1/60;
+const oracle=fs.readFileSync(path.join(__dirname,'../reports/oracle-m10/right-flipper-polygon.txt'),'utf8');
+function line(prefix){const record=oracle.split(/\r?\n/).find(s=>s.startsWith(prefix+','));assert(record,`native M10 oracle missing ${prefix}`);return record.split(',');}
+const nativePre=line('PRE'),nativePost=line('POST'),nativeFinal=line('STATE,after');
+assert.strictEqual(nativePre[2],'flipper-right:poly');assert.strictEqual(nativePost[2],'flipper-right:poly');
+const b=P.makeBall(),f=P.makeFlippers().right;
+Object.assign(b,{x:.462830603,y:.174509019,vx:-.033199094,vy:-.321397036,omega:3.805425406});
+f.bodyAngle=.678407848;
+const rc=H.rot({x:f.localCenter,y:0},f.bodyAngle);
+f.comX=f.pivot.x+rc.x;f.comY=f.pivot.y+rc.y;f.comVx=0;f.comVy=0;f.omega=0;f.jointState='inactive';f.jointImpulse={x:0,y:0,z:0};
+const bs={c0x:b.x,c0y:b.y},s={c0x:f.comX,c0y:f.comY,a0:f.bodyAngle};
+b.vy+=P.constants.G*dt;
+P.beginFlipperStep(f,false,dt);for(let i=0;i<P.constants.VELOCITY_ITERATIONS;i++)P.solveFlipperVelocityConstraint(f);
+P.integrateFlipper(f,dt);b.x+=b.vx*dt;b.y+=b.vy*dt;P.correctFlipperLimit(f);
+bs.c1x=b.x;bs.c1y=b.y;s.c1x=f.comX;s.c1y=f.comY;s.a1=f.bodyAngle;
+const toi=H.solveBallFlipperTOI(b,f,bs,s,dt);
+assert(toi,'frame 434 polygon impact missing');assert.strictEqual(toi.seed,'flipper-right:poly');
+assert(Math.abs(toi.alpha-.5561125973)<1e-6,`polygon alpha ${toi.alpha}`);
+const p=toi.pre.find(x=>x.label==='flipper-right:poly'),q=toi.post.find(x=>x.label==='flipper-right:poly');
+assert(p&&q,'polygon manifold absent from TOI island');
+function near(actual,expected,tolerance,label){const err=Math.abs(actual-expected);assert(err<tolerance,`${label}: error ${err} >= ${tolerance}`);return err;}
+for(const [j,k] of [['x',4],['y',5]])near(p.normal[j],+nativePre[k],3e-6,`pre normal ${j}`);
+for(const [j,k] of [['x',6],['y',7]])near(p.point[j],+nativePre[k],2e-7,`pre contact ${j}`);
+for(const [j,k] of [['x',4],['y',5]])near(q.normal[j],+nativePost[k],3e-6,`post normal ${j}`);
+for(const [j,k] of [['x',6],['y',7]])near(q.point[j],+nativePost[k],2e-7,`post contact ${j}`);
+near(q.normalImpulse,+nativePost[8],3e-6,'normal impulse');near(q.tangentImpulse,+nativePost[9],3e-6,'tangent impulse');
+const metrics={alpha:toi.alpha,positionError:Math.hypot(b.x-nativeFinal[3],b.y-nativeFinal[4]),velocityError:Math.hypot(b.vx-nativeFinal[5],b.vy-nativeFinal[6]),omegaError:Math.abs(b.omega-nativeFinal[7]),flipperAngleError:Math.abs(f.bodyAngle-nativeFinal[9]),flipperOmegaError:Math.abs(f.omega-nativeFinal[10])};
+assert(metrics.positionError<1e-7,'frame 434 ball position');assert(metrics.velocityError<2e-6,'frame 434 ball velocity');assert(metrics.omegaError<1e-4,'frame 434 ball spin');assert(metrics.flipperAngleError<3e-7,'frame 434 flipper angle');assert(metrics.flipperOmegaError<1e-5,'frame 434 flipper angular velocity');
+console.log('PASS M10 frame-434 polygon-seeded native-JAR oracle; frame 402 remains covered by tests/right-flipper-toi.js');console.log(JSON.stringify(metrics,null,2));

@@ -1,0 +1,227 @@
+M10 full-table differential gates passed (no claim of full-game parity)
+{
+  "generatedBy": "tests/fullgame.js",
+  "oracle": {
+    "frames": 1842,
+    "seconds": 30.7,
+    "events": 532,
+    "highLevelEvents": 23,
+    "finalScore": 45,
+    "drainFrames": [
+      602,
+      1216,
+      1830
+    ]
+  },
+  "js": {
+    "frames": 1977,
+    "seconds": 32.95,
+    "highLevelEvents": 23,
+    "finalScore": 60,
+    "ballsPlayed": 3,
+    "drainFrames": [
+      647,
+      1306,
+      1965
+    ],
+    "horizontalBounds": {
+      "minX": 0.027517799399775313,
+      "maxX": 0.735
+    },
+    "manualRelaunchAvailableAtFrame": 1323
+  },
+  "metrics": {
+    "first90": {
+      "frames": 90,
+      "maxPosition": 5.451199728655745e-7,
+      "maxVelocity": 0.000001345216994603628,
+      "maxLeftAngle": 0.000002384041137615256,
+      "maxLeftOmega": 0.000007629259762609308,
+      "first1mm": -1,
+      "first5mm": -1,
+      "first10mm": -1,
+      "firstVelocitySignificant": -1,
+      "significantVelocityThreshold": 0.05
+    },
+    "first150": {
+      "frames": 150,
+      "maxPosition": 0.0000011772312043645668,
+      "maxVelocity": 0.000002538380520202905,
+      "maxLeftAngle": 0.000002384041137615256,
+      "maxLeftOmega": 0.000007629259762609308,
+      "first1mm": -1,
+      "first5mm": -1,
+      "first10mm": -1,
+      "firstVelocitySignificant": -1,
+      "significantVelocityThreshold": 0.05
+    },
+    "overlap": {
+      "frames": 1842,
+      "maxPosition": 1.372847789725918,
+      "maxVelocity": 3.3878618176186484,
+      "maxLeftAngle": 2.3632899521605224,
+      "maxLeftOmega": 66.00964832279931,
+      "first1mm": 407,
+      "first5mm": 433,
+      "first10mm": 437,
+      "firstVelocitySignificant": 434,
+      "significantVelocityThreshold": 0.05
+    },
+    "frame133": {
+      "frame": 133,
+      "position": 7.088733573406387e-7,
+      "velocity": 0.000002538380520202905,
+      "leftAngle": 2.9814190671828555e-7,
+      "leftOmega": 0
+    },
+    "frame182": {
+      "frame": 182,
+      "position": 0.0000014560116368644206,
+      "velocity": 0.0000381056406803132,
+      "leftAngle": 3.5728781122568165e-7,
+      "leftOmega": 0.000003814492188780605
+    },
+    "frame305": {
+      "frame": 305,
+      "position": 0.00004517432071590178,
+      "velocity": 0.0005601907413611332,
+      "leftAngle": 2.9814190671828555e-7,
+      "leftOmega": 0
+    },
+    "frame380": {
+      "frame": 380,
+      "position": 0.0001869365341222562,
+      "velocity": 0.00014182117111153093,
+      "leftAngle": 0.000001191723144500223,
+      "leftOmega": 1.645510394610028e-10
+    },
+    "frame402": {
+      "frame": 402,
+      "position": 0.00027176368758946427,
+      "velocity": 0.00935096444957611,
+      "leftAngle": 2.9814190671828555e-7,
+      "leftOmega": 0
+    },
+    "frame434": {
+      "frame": 434,
+      "position": 0.005363733141295124,
+      "velocity": 0.28792821667633217,
+      "leftAngle": 2.9814190671828555e-7,
+      "leftOmega": 0
+    }
+  },
+  "firstHighLevelEventMismatch": {
+    "index": 4,
+    "oracle": {
+      "frame": 458,
+      "seq": 1,
+      "event": "HIT",
+      "label": "sling-reactive:4",
+      "id": 4,
+      "value": 5,
+      "score": 15
+    },
+    "js": {
+      "frame": 478,
+      "event": "HIT",
+      "id": 5,
+      "value": 5,
+      "score": 15
+    }
+  },
+  "firstScoringEventMismatch": {
+    "index": 3,
+    "oracle": {
+      "frame": 458,
+      "seq": 1,
+      "event": "HIT",
+      "label": "sling-reactive:4",
+      "id": 4,
+      "value": 5,
+      "score": 15
+    },
+    "js": {
+      "frame": 478,
+      "event": "HIT",
+      "id": 5,
+      "value": 5,
+      "score": 15
+    }
+  },
+  "contacts": {
+    "rawFirstFrameMismatch": {
+      "frame": 6,
+      "oracle": [],
+      "js": [
+        "CONTACT_BEGIN|ground"
+      ]
+    },
+    "firstFrameMismatchAfterM9Targets": {
+      "frame": 434,
+      "oracle": [
+        "CONTACT_BEGIN|flipper-right:poly"
+      ],
+      "js": []
+    },
+    "jsDiagnosticEvents": 264
+  },
+  "m7Baseline": {
+    "first1mm": 87,
+    "first5mm": 118,
+    "first10mm": 153,
+    "firstVelocitySignificant": 133,
+    "significantVelocityThreshold": 0.05,
+    "jsDrainFrames": [
+      889,
+      1790,
+      2691
+    ],
+    "jsFinalScore": 60
+  },
+  "m8Baseline": {
+    "first1mm": 87,
+    "first5mm": 118,
+    "first10mm": 169,
+    "firstVelocitySignificant": 182,
+    "firstScoringMismatch": 183,
+    "significantVelocityThreshold": 0.05
+  },
+  "boundaries": {
+    "flipperCorner": {
+      "frame": 57,
+      "status": "isolated parity achieved"
+    },
+    "obstacle7": {
+      "frame": 133,
+      "status": "full-world TOI regression protected"
+    },
+    "sling5": {
+      "frame": 182,
+      "status": "multi-contact TOI island reconstructed"
+    },
+    "sling9": {
+      "frame": 305,
+      "status": "reactive-seeded multi-contact TOI reconstructed"
+    },
+    "leftWall": {
+      "frame": 317,
+      "status": "sweep-born TOI path reconstructed"
+    },
+    "obstacle8": {
+      "frame": 380,
+      "status": "float32 x10 TOI position branch reconstructed"
+    },
+    "rightFlipperTOI": {
+      "frame": 402,
+      "status": "dynamic ball/flipper TOI island reconstructed"
+    },
+    "nextMaterialBoundary": {
+      "frame": 434,
+      "label": "flipper-right:poly",
+      "note": "M10 matches isolated native pre-impact state, but upstream full-world drift prevents the JS replay from reaching the same collision in this frame; complete game-level parity is not claimed"
+    },
+    "rightWall": {
+      "status": "swept CCD restored and independently checked against native JAR; maintains ball within horizontal board bounds"
+    }
+  }
+}

@@ -1,0 +1,444 @@
+PASS camera: follows ball horizontally/vertically; ball remains visible; overview covers entire original table
+contact solver archaeology tests passed
+{
+  "linearSlop": 0.0005,
+  "polygonRadius": 0.001,
+  "velocityIterations": 6,
+  "positionIterations": 2,
+  "frame56NormalImpulse": 0.123155251,
+  "wallReboundFrame": 147
+}
+PASS credits: source attribution, music/license, back/Escape, freeze and start game
+{
+  "generatedBy": "tests/differential.js",
+  "units": {
+    "position": "m",
+    "velocity": "m/s",
+    "angle": "rad",
+    "omega": "rad/s"
+  },
+  "launch90": {
+    "frames": 90,
+    "maxPosition": 5.451199728655745e-7,
+    "maxVelocity": 0.000001379750018006713,
+    "maxAngle": 0,
+    "maxOmega": 0,
+    "positionFrame": 88,
+    "velocityFrame": 68
+  },
+  "launch146": {
+    "frames": 146,
+    "maxPosition": 0.000001497113573908762,
+    "maxVelocity": 0.0000015385382956237844,
+    "maxAngle": 0,
+    "maxOmega": 0,
+    "positionFrame": 145,
+    "velocityFrame": 145
+  },
+  "launch150": {
+    "frames": 150,
+    "maxPosition": 0.0000017148114491137133,
+    "maxVelocity": 0.0000018524894474498382,
+    "maxAngle": 0,
+    "maxOmega": 0,
+    "positionFrame": 149,
+    "velocityFrame": 149
+  },
+  "flipper8": {
+    "frames": 8,
+    "maxPosition": 0.0002935191803135779,
+    "maxVelocity": 0.0007279725037969912,
+    "maxAngle": 0.0022948984464721267,
+    "maxOmega": 0.003517150935547164,
+    "positionFrame": 0,
+    "velocityFrame": 3
+  },
+  "flipper45": {
+    "frames": 45,
+    "maxPosition": 0.0004966912424789172,
+    "maxVelocity": 0.0007282325533721244,
+    "maxAngle": 0.0022948984464721267,
+    "maxOmega": 0.003517150935547164,
+    "positionFrame": 44,
+    "velocityFrame": 44
+  },
+  "revoluteJoint60": {
+    "frames": 60,
+    "maxPosition": 2.5900115804865272e-8,
+    "maxVelocity": 2.0783127727723145e-7,
+    "maxAngle": 3.575300904223866e-7,
+    "maxOmega": 0.0000019077949211521172,
+    "positionFrame": 29,
+    "velocityFrame": 27
+  }
+}
+M8 flipper-corner JS/native parity passed
+{
+  "frame57": {
+    "normalImpulse": 3.5757412154447556,
+    "tangentImpulse": -0.7151482244033379,
+    "frame": 57,
+    "posError": 3.1437499680965463e-8,
+    "velocityError": 0.000002632020412064419,
+    "angleError": 1.1911761466087967e-7,
+    "omegaError": 0.000007629259762609308
+  },
+  "maxima": {
+    "pos": 3.1437499680965463e-8,
+    "vel": 0.000002632020412064419,
+    "angle": 0.0000014300411377288214,
+    "omega": 0.000007629259762609308
+  },
+  "postSolveCounts": {
+    "57": 1,
+    "58": 1,
+    "59": 2,
+    "60": 1,
+    "61": 2
+  }
+}
+M10 full-table differential gates passed (no claim of full-game parity)
+{
+  "generatedBy": "tests/fullgame.js",
+  "oracle": {
+    "frames": 1842,
+    "seconds": 30.7,
+    "events": 532,
+    "highLevelEvents": 23,
+    "finalScore": 45,
+    "drainFrames": [
+      602,
+      1216,
+      1830
+    ]
+  },
+  "js": {
+    "frames": 1977,
+    "seconds": 32.95,
+    "highLevelEvents": 23,
+    "finalScore": 60,
+    "ballsPlayed": 3,
+    "drainFrames": [
+      647,
+      1306,
+      1965
+    ],
+    "horizontalBounds": {
+      "minX": 0.027517799399775313,
+      "maxX": 0.735
+    },
+    "manualRelaunchAvailableAtFrame": 1323
+  },
+  "metrics": {
+    "first90": {
+      "frames": 90,
+      "maxPosition": 5.451199728655745e-7,
+      "maxVelocity": 0.000001345216994603628,
+      "maxLeftAngle": 0.000002384041137615256,
+      "maxLeftOmega": 0.000007629259762609308,
+      "first1mm": -1,
+      "first5mm": -1,
+      "first10mm": -1,
+      "firstVelocitySignificant": -1,
+      "significantVelocityThreshold": 0.05
+    },
+    "first150": {
+      "frames": 150,
+      "maxPosition": 0.0000011772312043645668,
+      "maxVelocity": 0.000002538380520202905,
+      "maxLeftAngle": 0.000002384041137615256,
+      "maxLeftOmega": 0.000007629259762609308,
+      "first1mm": -1,
+      "first5mm": -1,
+      "first10mm": -1,
+      "firstVelocitySignificant": -1,
+      "significantVelocityThreshold": 0.05
+    },
+    "overlap": {
+      "frames": 1842,
+      "maxPosition": 1.372847789725918,
+      "maxVelocity": 3.3878618176186484,
+      "maxLeftAngle": 2.3632899521605224,
+      "maxLeftOmega": 66.00964832279931,
+      "first1mm": 407,
+      "first5mm": 433,
+      "first10mm": 437,
+      "firstVelocitySignificant": 434,
+      "significantVelocityThreshold": 0.05
+    },
+    "frame133": {
+      "frame": 133,
+      "position": 7.088733573406387e-7,
+      "velocity": 0.000002538380520202905,
+      "leftAngle": 2.9814190671828555e-7,
+      "leftOmega": 0
+    },
+    "frame182": {
+      "frame": 182,
+      "position": 0.0000014560116368644206,
+      "velocity": 0.0000381056406803132,
+      "leftAngle": 3.5728781122568165e-7,
+      "leftOmega": 0.000003814492188780605
+    },
+    "frame305": {
+      "frame": 305,
+      "position": 0.00004517432071590178,
+      "velocity": 0.0005601907413611332,
+      "leftAngle": 2.9814190671828555e-7,
+      "leftOmega": 0
+    },
+    "frame380": {
+      "frame": 380,
+      "position": 0.0001869365341222562,
+      "velocity": 0.00014182117111153093,
+      "leftAngle": 0.000001191723144500223,
+      "leftOmega": 1.645510394610028e-10
+    },
+    "frame402": {
+      "frame": 402,
+      "position": 0.00027176368758946427,
+      "velocity": 0.00935096444957611,
+      "leftAngle": 2.9814190671828555e-7,
+      "leftOmega": 0
+    },
+    "frame434": {
+      "frame": 434,
+      "position": 0.005363733141295124,
+      "velocity": 0.28792821667633217,
+      "leftAngle": 2.9814190671828555e-7,
+      "leftOmega": 0
+    }
+  },
+  "firstHighLevelEventMismatch": {
+    "index": 4,
+    "oracle": {
+      "frame": 458,
+      "seq": 1,
+      "event": "HIT",
+      "label": "sling-reactive:4",
+      "id": 4,
+      "value": 5,
+      "score": 15
+    },
+    "js": {
+      "frame": 478,
+      "event": "HIT",
+      "id": 5,
+      "value": 5,
+      "score": 15
+    }
+  },
+  "firstScoringEventMismatch": {
+    "index": 3,
+    "oracle": {
+      "frame": 458,
+      "seq": 1,
+      "event": "HIT",
+      "label": "sling-reactive:4",
+      "id": 4,
+      "value": 5,
+      "score": 15
+    },
+    "js": {
+      "frame": 478,
+      "event": "HIT",
+      "id": 5,
+      "value": 5,
+      "score": 15
+    }
+  },
+  "contacts": {
+    "rawFirstFrameMismatch": {
+      "frame": 6,
+      "oracle": [],
+      "js": [
+        "CONTACT_BEGIN|ground"
+      ]
+    },
+    "firstFrameMismatchAfterM9Targets": {
+      "frame": 434,
+      "oracle": [
+        "CONTACT_BEGIN|flipper-right:poly"
+      ],
+      "js": []
+    },
+    "jsDiagnosticEvents": 264
+  },
+  "m7Baseline": {
+    "first1mm": 87,
+    "first5mm": 118,
+    "first10mm": 153,
+    "firstVelocitySignificant": 133,
+    "significantVelocityThreshold": 0.05,
+    "jsDrainFrames": [
+      889,
+      1790,
+      2691
+    ],
+    "jsFinalScore": 60
+  },
+  "m8Baseline": {
+    "first1mm": 87,
+    "first5mm": 118,
+    "first10mm": 169,
+    "firstVelocitySignificant": 182,
+    "firstScoringMismatch": 183,
+    "significantVelocityThreshold": 0.05
+  },
+  "boundaries": {
+    "flipperCorner": {
+      "frame": 57,
+      "status": "isolated parity achieved"
+    },
+    "obstacle7": {
+      "frame": 133,
+      "status": "full-world TOI regression protected"
+    },
+    "sling5": {
+      "frame": 182,
+      "status": "multi-contact TOI island reconstructed"
+    },
+    "sling9": {
+      "frame": 305,
+      "status": "reactive-seeded multi-contact TOI reconstructed"
+    },
+    "leftWall": {
+      "frame": 317,
+      "status": "sweep-born TOI path reconstructed"
+    },
+    "obstacle8": {
+      "frame": 380,
+      "status": "float32 x10 TOI position branch reconstructed"
+    },
+    "rightFlipperTOI": {
+      "frame": 402,
+      "status": "dynamic ball/flipper TOI island reconstructed"
+    },
+    "nextMaterialBoundary": {
+      "frame": 434,
+      "label": "flipper-right:poly",
+      "note": "M10 matches isolated native pre-impact state, but upstream full-world drift prevents the JS replay from reaching the same collision in this frame; complete game-level parity is not claimed"
+    },
+    "rightWall": {
+      "status": "swept CCD restored and independently checked against native JAR; maintains ball within horizontal board bounds"
+    }
+  }
+}
+coupled island + narrow TOI parity passed
+{
+  "maxPos": 0.0004966912424789172,
+  "maxVel": 0.0007282325533721244,
+  "maxAngle": 0.0022948984464721267,
+  "maxOmega": 0.003517150935547164,
+  "frame0NativePostSolves": 2,
+  "toiPositionIterations": 20,
+  "toiBaumgarte": 0.75
+}
+revolute joint oracle parity passed
+{
+  "maxOrigin": 2.5900115804865272e-8,
+  "maxVelocity": 2.0783127727723145e-7,
+  "maxAngle": 3.575300904223866e-7,
+  "maxOmega": 0.0000019077949211521172
+}
+M11 reactive-hold 100 seeded gameplay scripts: 31/100 ended naturally within 60s; 69/100 did not; balls {"0":28,"1":26,"2":15,"3":31}; longest idle 19 frames; max launches 3
+PASS M11 UI game flow: menu > launch > pause/visibility/resume > natural drain > second ball opt-in recovery > third drain > high scores; safe corrupt storage
+PASS M11.1 native/JS upper-left corner: physical resting equilibrium reproduced, no drain, no movement after 600 frames
+{"native":{"x":0.023999663,"y":1.251115561,"vx":0,"vy":0},"js":{"x":0.023999999999999088,"y":1.25111685221166,"vx":9.77118203211271e-20,"vy":1.6928568190361085e-19},"difference":0.0000013344648929067935}
+M11.1 pulse-only: complete by 60s=100/100; by 120s=100/100; newly completed=0; physical stillness >=5s=0 (); unfinished with >2s active movement in second minute=0
+PASS M11.1 corner hint: 5 seconds native-compatible resting ball; no automatic drain; optional confirmation/cancel; next ball only on confirmation
+PASS M12 synth audio: unlock, event throttling, mute, music pause; visuals paint without engine mutations; UI scripts wired
+PASS M13: menu/restart confirmation, cancel/resume, paused restart does not forfeit, no simulation during dialogs
+PASS historical flipper behavior: up 50 rad/s / return 15 rad/s; no input-strength change
+PASS M13.1 input: aliases L/M, arrows, Tab/Enter compatibility, independent per-key/per-pointer holds, both flippers, Space/Down launch, pause/blur/repeat/text safety
+PASS M13.10: five native single-impact comparisons; 9 post-bumper sequences / 405 frames, no gross upper escapes; 9 curved-wall TOIs; bumper hit in 8 sequences
+PASS M13.11: 20 native isolated lane seeds, 80 polygon TOIs, max position 0.0000731m / velocity 0.0000248m/s; 14 long runs / 1680 frames no corridor escape, up to 8 impacts per frame
+PASS M13.12: two real bumper escape regressions (formerly frames 11/19), 567 initial states, 487 bumper-hit scenarios, 478 curved-wall scenarios: zero gross upper escapes
+PASS M13.2 layout: desktop defaults to full-table, mobile defaults to follow-ball, manual toggle preserved
+PASS M13.3: real CC0 media loop, play/pause/resume, independent effects mute, music level and audio formats
+PASS M13.5: historically sparse dark field, 2013 bumper ring, collision geometry unaffected
+PASS M13.6 turn flow: balls 1 and 2 auto-advance with a toast; game over remains only after ball 3
+PASS M13.7: readability refinement without changing the historically sparse table
+PASS M13.8: grouped footer controls, denser desktop sidebar, clearer HUD cards
+PASS M13.9 native oracle: 35 playfield-side divider + 15 central ceiling seeds match; legal above-tip passage remains open; narrow-lane limitations documented
+M9 obstacle:7 full-world TOI regression passed
+{
+  "normalImpulse": 0.5870201295603241,
+  "tangentImpulse": -0.03415895594998135,
+  "positionError": 7.088733573406387e-7,
+  "velocityError": 0.000002538380520202905,
+  "omegaError": 0.00021915583377563053
+}
+M9 obstacle:8 float32 TOI parity passed
+{
+  "alpha": 0.7759181975786951,
+  "positionIterations": 3,
+  "normalImpulse": 0.7405166070598556,
+  "tangentImpulse": -0.15045383543642973,
+  "positionError": 8.025975978902433e-9,
+  "velocityError": 1.4105470106270287e-7,
+  "omegaError": 0.0000026844944542858684
+}
+physics parity tests passed
+PASS M10 frame-434 polygon-seeded native-JAR oracle; frame 402 remains covered by tests/right-flipper-toi.js
+{
+  "alpha": 0.5561126004797003,
+  "positionError": 3.3370606637190976e-9,
+  "velocityError": 3.5708092008083005e-7,
+  "omegaError": 0.000017547045960242258,
+  "flipperAngleError": 6.579502009884663e-8,
+  "flipperOmegaError": 8.644464447593592e-7
+}
+M9 right-flipper dynamic TOI island parity passed
+{
+  "alpha": 0.8859133367639437,
+  "positionError": 3.4524016476592806e-8,
+  "velocityError": 0.000001167529825009011,
+  "omegaError": 0.00005283225054864005,
+  "angleError": 1.2717506825410396e-7,
+  "flipperOmegaError": 0.0000048474437246426305,
+  "pivotImpulses": [
+    0.3700728040546212,
+    0.023450185080063093
+  ],
+  "polyImpulses": [
+    0.29107967130276563,
+    0.07315781261899046
+  ]
+}
+PASS M10 right-wall standalone native-JAR CCD oracle
+{
+  "alpha": 0.18692892063131514,
+  "positionError": 0.00004678921803103031,
+  "velocityError": 0.000007910248588716917,
+  "spinError": 0.00027492754128738417
+}
+playfield smoke tests passed
+trajectory parity tests passed
+{
+  "freefall": {
+    "maxPos": 1.554782876147667e-7,
+    "maxVel": 6.918044963555303e-7,
+    "maxAngle": 0,
+    "maxOmega": 0
+  },
+  "launch": {
+    "maxPos": 5.451199728655745e-7,
+    "maxVel": 0.000001379750018006713,
+    "maxAngle": 0,
+    "maxOmega": 0
+  },
+  "bumper": {
+    "maxPos": 0.0007559396039117384,
+    "maxVel": 3.534668362448201e-7,
+    "maxAngle": 0,
+    "maxOmega": 0
+  },
+  "flipper": {
+    "maxPos": 0.0002935191803135779,
+    "maxVel": 0.0007279725037969912,
+    "maxAngle": 0.0022948984464721267,
+    "maxOmega": 0.003517150935547164
+  }
+}
+PASS DOM/Canvas smoke: game/menu, 60 Hz render, short-tap launch, follow toggle and HUD
