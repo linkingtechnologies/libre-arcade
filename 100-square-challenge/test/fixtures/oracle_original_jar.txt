@@ -1,0 +1,19 @@
+T01 startup              used=0 max=0 cursor=(0,0) highlighted=1 (0,0) gended=false undoEnabled=true
+screenshot=/mnt/data/audit_squarechallenge/evidence/TAJJAVA_original_start.png size=443x380
+T02 first valid click    used=1 max=1 cursor=(0,0) highlighted=2 (2,1)(1,2) gended=false undoEnabled=true
+T03 non knight click     used=1 max=1 cursor=(0,0) highlighted=2 (2,1)(1,2) gended=false undoEnabled=true
+T04 knight click         used=2 max=2 cursor=(1,2) highlighted=5 (2,0)(3,1)(3,3)(0,4)(2,4) gended=false undoEnabled=true
+T05 reused cell          used=2 max=2 cursor=(1,2) highlighted=5 (2,0)(3,1)(3,3)(0,4)(2,4) gended=false undoEnabled=true
+T06 far cell             used=2 max=2 cursor=(1,2) highlighted=5 (2,0)(3,1)(3,3)(0,4)(2,4) gended=false undoEnabled=true
+T07 undo once            used=1 max=1 cursor=(0,0) highlighted=2 (2,1)(1,2) gended=false undoEnabled=false
+T08 restart              used=0 max=0 cursor=(0,0) highlighted=1 (0,0) gended=false undoEnabled=false
+T09 undo first move      used=0 max=0 cursor=(0,0) highlighted=2 (2,1)(1,2) gended=false undoEnabled=false
+T10 restart after undo   used=0 max=0 cursor=(0,0) highlighted=1 (0,0) gended=false undoEnabled=false
+T11 full solution        used=100 max=100 cursor=(6,7) highlighted=0  gended=true undoEnabled=true
+screenshot=/mnt/data/audit_squarechallenge/evidence/TAJJAVA_original_completed.png size=443x380
+T12 restart after win    used=0 max=0 cursor=(0,0) highlighted=1 (0,0) gended=true undoEnabled=true
+T13 dead end             used=24 max=24 cursor=(0,9) highlighted=0  gended=true undoEnabled=true
+screenshot=/mnt/data/audit_squarechallenge/evidence/TAJJAVA_original_blocked.png size=443x380
+T14 click after dead end used=0 max=0 cursor=(0,0) highlighted=1 (0,0) gended=true undoEnabled=true
+T15 first after auto reset used=1 max=1 cursor=(0,0) highlighted=2 (2,1)(1,2) gended=false undoEnabled=true
+TESTS_PASS=15 scenarios on ORIGINAL JAR; witness steps=100

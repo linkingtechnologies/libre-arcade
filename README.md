@@ -53,6 +53,7 @@ safe embedding, but otherwise left exactly as its authors built it.
 | [`disk-field/`](disk-field/) | [Disk Field](https://linkingtechnologies.github.io/libre-arcade/disk-field/public/index.html) | *Ported.* Disk Field 1.01 (Jeremy Appleyard "Tigga", PyWeek 5, 2007, custom permissive grant) — a physics puzzle where you rotate a vector field to steer a disk into its target, with all 17 original levels, ported from Python/Pygame/OpenGL to Canvas 2D. The simulation is checked against the original Python modules with a headless oracle (2,238 ticks, 85 field samples) and every level is replayed to completion; the historical font, music and samples are not redistributed (unverified or restricted terms), the browser runtime uses procedural Canvas lettering and synthesized Web Audio instead. |
 | [`comet-pinball/`](comet-pinball/) | [Comet Pinball](https://linkingtechnologies.github.io/libre-arcade/comet-pinball/public/index.html) | *Ported.* [Comet Pinball](https://github.com/boskoop/comet-pinball) 1.1.0 (Patrick Haring and Christian Bürgi, 2013, Apache-2.0) — the original three-ball table (3 bumpers, 4 slingshots, 3 obstacles) reimplemented from Java/libGDX/Box2D in Canvas 2D, with isolated contacts compared against traces recorded from the original release (full three-ball parity is not claimed). The original shaded JAR, its bundled libraries and its Nueva Std Cond font atlases are not redistributed; the browser build uses new artwork, synthesized effects and a CC0 loop reused from Mechanical Night Pinball. The port itself is Apache-2.0, like the upstream. |
 | [`highmoon/`](highmoon/) | [HighMoon](https://linkingtechnologies.github.io/libre-arcade/highmoon/public/index.html) | *Ported.* HighMoon 1.2.4 (Patrick Gerdsmeier, 2005-2006, GPL-2.0-or-later) — a solo or two-player space-artillery duel, ported from C++/SDL. Physics, galaxy generation and the CPU opponent are compared with traces from a headless native build of the original code, including the original's habit of letting drawing code consume the shared random stream. The original's 30 bitmaps, icon and 8 sounds have unresolved provenance and are not redistributed; the browser build draws and synthesizes its own. |
+| [`100-square-challenge/`](100-square-challenge/) | [100-Square Challenge](https://linkingtechnologies.github.io/libre-arcade/100-square-challenge/public/index.html) | *Ported.* [100-Square Challenge](https://sourceforge.net/projects/tajjava/) from TAJJAVA v0.1 (Jasen Borisov, March 2011, AGPL-3.0-or-later) — the knight-move number-filling puzzle on a 10 by 10 grid, reimplemented from Java Swing. Its 15 recorded scenarios were reproduced by running the original JAR classes headless, and four documented interface and state defects of the Java version are corrected. The original archives and a later incomplete snapshot are preserved unchanged; the port itself is AGPL-3.0-or-later, like the original. |
 
 Each project's own `README.md` covers how to run it, test it, and where its
 sources came from; `CREDITS.md` inside each restored game's own folder has
@@ -107,6 +108,7 @@ the full authorship and third-party library/font breakdown.
 | Disk Field 1.0 / 1.01 (PyWeek 5, 2007) | Jeremy Appleyard "Tigga" | Custom informal permissive grant (upstream README: "Do whatever you like. Would like it if you gave me some sort of credit."), not an SPDX license | `disk-field/` — selected original Python modules and the 1.0→1.01 source diff kept under that grant, not relicensed; the font MAKISUPA.TTF, music, WAV/OGG samples and icons are not redistributed (restricted or unverified terms); the JS port itself is GPL-3.0-or-later |
 | [Comet Pinball](https://github.com/boskoop/comet-pinball) 1.1.0 (2013) | Patrick Haring, Christian Bürgi (Comet Engineering) | Apache-2.0 | `comet-pinball/` — license text read directly from upstream; the original shaded JAR (bundled libraries, bitmap font atlases) is not redistributed, its identity is only recorded; the JS port itself is Apache-2.0 |
 | HighMoon 1.2.4 (2006) | Patrick Gerdsmeier | GPL-2.0-or-later | `highmoon/` — the "or later" grant confirmed in the preserved source headers (16 of 17 files); original graphics and sounds not redistributed (unresolved provenance); the JS port itself is GPL-3.0-or-later |
+| [TAJJAVA](https://sourceforge.net/projects/tajjava/) v0.1 (2011) | Jasen Borisov | AGPL-3.0-or-later | `100-square-challenge/` — the "or later" grant confirmed in the six Java source headers; the later `squarechallenge` snapshot (GPL-3.0-or-later headers, no game engine) is kept for comparison only; the JS port itself is AGPL-3.0-or-later |
 
 `grugnetto-go/` is built for this collection, not a restoration; the
 third-party libraries and CC0/CC-licensed art it uses are itemized in its own
@@ -137,11 +139,13 @@ This collection's own code and documentation — everything at this root level
 `package.json`, `scripts/`) plus every game's own new/ported code — is
 licensed **GNU GPL v3** (see [`LICENSE`](LICENSE); a few individual game
 folders declare `GPL-3.0-or-later` or `GPL-3.0-only` specifically — check
-that folder's own `LICENSE`/`package.json`). The one exception is
+that folder's own `LICENSE`/`package.json`). Two folders are exceptions.
 `comet-pinball/`: its port code, artwork and synthesized effects are
 **Apache-2.0**, the license of the upstream project it reimplements, and it
-ships its own `LICENSE` and `NOTICE`. Apache-2.0 code can be distributed
-inside a GPL v3 collection.
+ships its own `LICENSE` and `NOTICE`. `100-square-challenge/`: its browser
+adaptation is **AGPL-3.0-or-later**, the license of the original it adapts,
+and it ships the full AGPL text and a source note with the page. Apache-2.0
+and AGPL-3.0 code can be distributed inside a GPL v3 collection.
 
 Vendored third-party files keep their original license: MIT for Hextris,
 HTML5 Breakout, HTML5 Snake, HTML5 Space Invaders, and react-simple-snake;

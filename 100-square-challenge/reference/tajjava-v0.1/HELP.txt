@@ -1,0 +1,17 @@
+Русский:
+
+ПОМОЩЬ
+
+  100-квадратная задачка
+
+    Эта игра - головоломка для одного игрока. Ваша цель - заполнить как можно большую часть игровой сети числами. Вы будете вставлять числа по порядку, начиная с 1 и пытаясь достигнуть 100. Вы начнёте игру с верхнего левого уголка игровой сети. Вы можете передвигаться только по букве "Г", как конь в шахматах. Игра будет вам показывать все возможные ходы. Щёлкните мышью по одному из выделенных квадратов, чтобы заполнить его следующим числом. Удачи!
+
+================================================================================================================================
+
+English:
+
+HELP
+
+  100-SQUARE CHALLENGE
+
+    This is a single-player puzzle game. Your goal is to fill as much as possible of the game grid with numbers. You will put the numbers in order - starting from 1 and trying to, hopefully, reach 100. You will start from the top left corner of the game grid. You may only move in an L-shaped manner. The game will highlight valid moves. Click on a highlighted square to fill it with the next number. Good Luck!

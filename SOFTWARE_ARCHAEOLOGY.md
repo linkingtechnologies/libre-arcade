@@ -82,6 +82,7 @@ original with an executable oracle or a benchmark:
 - [`disk-field/SOFTWARE_ARCHAEOLOGY.md`](disk-field/SOFTWARE_ARCHAEOLOGY.md)
 - [`comet-pinball/SOFTWARE_ARCHAEOLOGY.md`](comet-pinball/SOFTWARE_ARCHAEOLOGY.md)
 - [`highmoon/SOFTWARE_ARCHAEOLOGY.md`](highmoon/SOFTWARE_ARCHAEOLOGY.md)
+- [`100-square-challenge/SOFTWARE_ARCHAEOLOGY.md`](100-square-challenge/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already

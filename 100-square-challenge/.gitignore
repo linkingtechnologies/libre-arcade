@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Generated build output (npm run build)
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+# Compiled output of the optional headless oracle re-run (tools/oracle/README.md)
+/tools/oracle/out/
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
