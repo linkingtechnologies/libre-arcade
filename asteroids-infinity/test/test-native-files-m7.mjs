@@ -1,0 +1,21 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {parseNativeControls,formatNativeControls,parseNativeScores,formatNativeScores,portableName} from '../public/src/native-files.js';
+import {CONTROL_ORDER} from '../public/src/menu.js';
+import {DEFAULT_BINDINGS,ORIGINAL_HIGHSCORES,loadScores,saveScores,loadBindings,saveBindings,insertScore} from '../public/src/storage.js';
+const originalScores=ORIGINAL_HIGHSCORES.map(x=>({...x}));
+const defaultControls='273\n274\n276\n275\n32\n306\n';
+function store(){const m=new Map();return {getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,v),entries:m};}
+test('original native action order and canonical default keycodes',()=>{assert.deepEqual(CONTROL_ORDER,['up','down','left','right','shoot','shield']);assert.equal(formatNativeControls(DEFAULT_BINDINGS),defaultControls);assert.deepEqual(parseNativeControls(defaultControls),DEFAULT_BINDINGS);});
+test('native control import supports CRLF and exact six values',()=>{assert.deepEqual(parseNativeControls(defaultControls.replaceAll('\n','\r\n')),DEFAULT_BINDINGS);assert.throws(()=>parseNativeControls('273\n274\n276\n275\n32\n'),/six lines/);});
+test('native control import rejects unknown pygame key without silent fallback',()=>assert.throws(()=>parseNativeControls('273\n274\n276\n275\n32\n99999\n'),/Unsupported/));
+test('native control export does not falsely map browser-only key',()=>assert.throws(()=>formatNativeControls({...DEFAULT_BINDINGS,shoot:'NumpadAdd'}),/Cannot export/));
+test('native control key letters digits and right ctrl round-trip',()=>{const b={up:'KeyW',down:'KeyS',left:'KeyA',right:'KeyD',shoot:'Digit4',shield:'ControlRight'};assert.deepEqual(parseNativeControls(formatNativeControls(b)),b);});
+test('native controls require final newline because original parser slices last byte',()=>assert.throws(()=>parseNativeControls(defaultControls.trimEnd()),/final newline/));
+test('malformed native control records are rejected',()=>{for(const value of ['-1','nan','273x',' 273','273.0','9007199254740992'])assert.throws(()=>parseNativeControls(value+'\n274\n276\n275\n32\n306\n'));});
+test('native scores export matches score:name line protocol, round trips canonical original',()=>{const content=formatNativeScores(originalScores);assert.equal(content.split('\n').length,11);assert.ok(content.startsWith('8128:PERFECT\n'));assert.deepEqual(parseNativeScores(content),originalScores);});
+test('native scores import CRLF and pads missing records like the original',()=>{const result=parseNativeScores('9000:AAA\r\n50:BBB\r\n');assert.equal(result.length,10);assert.deepEqual(result[0],{score:9000,name:'AAA'});assert.deepEqual(result[9],{score:0,name:''});});
+test('native scores reject malformed values, unsorted ranks, colons in names, missing final LF',()=>{const bad=['10:FOO\n20:BAR\n','10:FOO:BAR\n','10:É\n','-1:A\n','10:A','10:A\n'.repeat(11),'0:A\nnotascore:B\n'];for(const s of bad)assert.throws(()=>parseNativeScores(s),s);});
+test('ASCII names with colon or newline disallowed to avoid native parser data loss',()=>{assert.equal(portableName('A:B'),false);assert.equal(portableName('A\nB'),false);assert.equal(portableName('ALPHA'),true);assert.throws(()=>insertScore(originalScores,9000,'A:B'));});
+test('safe migration from M6 browser JSON survives native transfer',()=>{const s=store();assert.equal(saveScores(s,originalScores),true);assert.equal(saveBindings(s,DEFAULT_BINDINGS),true);assert.deepEqual(parseNativeScores(formatNativeScores(loadScores(s))),originalScores);assert.deepEqual(parseNativeControls(formatNativeControls(loadBindings(s))),DEFAULT_BINDINGS);});
+test('native import parser does not mutate browser storage on failed file',()=>{const s=store();saveScores(s,originalScores);const before=[...s.entries];assert.throws(()=>parseNativeScores('oops'));assert.deepEqual([...s.entries],before);});

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070d16"><title>Asteroids Infinity</title>
+<link rel="stylesheet" href="./style.css"></head>
+<body><main class="shell"><header><div><h1>ASTEROIDS INFINITY</h1><p id="subtitle">Fly, shoot and survive</p></div><div class="actions"><button id="lang" type="button">Italiano</button><button id="sound" type="button" aria-pressed="true">Sound on</button><button id="pause" type="button">Pause</button><button id="reset" type="button">New game</button><button id="menu-toggle" type="button">Menu</button></div></header>
+<section class="viewport" aria-label="Asteroids Infinity game and menu"><canvas id="game" width="640" height="480" aria-label="Asteroids Infinity game"></canvas>
+<div id="menu-overlay" class="menu-overlay" role="dialog" aria-label="Game menu" aria-modal="true"><div class="menu-panel"><h2 id="menu-title">ASTEROIDS INFINITY</h2><p id="menu-description" class="menu-description"></p><nav id="menu-items" aria-label="Menu choices"></nav><div id="menu-extra"></div><p class="menu-tip" id="menu-tip"></p></div></div>
+<div class="touch" aria-label="Touch flight controls"><div class="turn"><button data-control="left" aria-label="Rotate left">↶</button><button data-control="right" aria-label="Rotate right">↷</button></div><div class="thrust"><button data-control="up" aria-label="Accelerate">▲</button><button data-control="down" aria-label="Reverse thrust">▼</button></div><div class="actions-touch"><button data-control="shoot" aria-label="Shoot">✦</button><button data-control="shield" aria-label="Shield">◉</button></div></div>
+<output id="fps-meter" hidden aria-label="Frames per second"></output></section>
+<footer><p id="help">Arrows / WASD: fly · Space: fire · Ctrl: shield · P: pause</p></footer></main><script type="module" src="./src/app.js"></script>
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body></html>

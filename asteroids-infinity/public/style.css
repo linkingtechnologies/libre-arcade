@@ -1,0 +1,47 @@
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#070d16;color:#e9f3fb}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}button{cursor:pointer;touch-action:none;user-select:none;font:inherit;border-radius:10px;background:#14283a;color:#edf5fa;border:1px solid #42637a;min-height:38px;padding:5px 11px}button:focus-visible,a:focus-visible{outline:2px solid #9ce3fa;outline-offset:2px}button:active,button.held{background:#3a6a83}.shell{height:100dvh;display:flex;flex-direction:column;gap:6px;padding:8px max(9px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(9px,env(safe-area-inset-left));max-width:1220px;margin:auto}header,footer{display:flex;gap:9px;align-items:center;justify-content:space-between;flex-shrink:0}h1{font-size:clamp(15px,2vw,25px);letter-spacing:.1em;margin:0;font-weight:750}.flag{letter-spacing:0;background:#294861;border-radius:5px;font-size:12px;padding:3px 7px}header p{margin:2px 0;font-size:12px;color:#a9c6d7}.actions{display:flex;gap:5px;flex-shrink:0}.actions button{font-size:12px}.viewport{position:relative;min-height:0;flex:1;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#070d16;border:1px solid #274457;border-radius:12px}canvas{display:block;max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:4 / 3;object-fit:contain}.touch{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;padding:12px;pointer-events:none}.touch>div{display:flex;gap:6px}.actions-touch{align-self:center;flex-direction:column;position:absolute;right:12px;bottom:80px}.touch button{pointer-events:auto;opacity:.88;width:54px;height:54px;font-size:25px;padding:0;background:#17334abb}.touch button.held{background:#4e92aabb}footer{align-items:start;font-size:11px;color:#bacbd7}footer p{margin:2px 0}.credits{text-align:right}a{color:#9ce3fa}
+@media(hover:hover) and (pointer:fine){.touch{display:none}}@media(max-width:650px){.shell{gap:4px;padding:5px}header{align-items:flex-start}h1{font-size:13px;letter-spacing:.02em}header p{font-size:10px}.actions{gap:3px}.actions button{padding:3px 5px;min-height:29px;font-size:10px}footer{display:block;font-size:9px;line-height:1.15}.credits{text-align:left}.touch{padding:8px}.actions-touch{right:8px;bottom:61px}.touch button{width:46px;height:46px}#note{display:none}}@media(max-height:490px){header p,#note,.credits{display:none}.shell{padding:3px}.touch button{height:36px;width:42px;font-size:18px}}@media(prefers-reduced-motion:reduce){button{transition:none}}
+/* M6 HTML menu layer: only visible outside gameplay; never adds page scrolling. */
+.menu-overlay{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;background:rgba(3,9,17,.92);padding:clamp(5px,2vw,20px);overflow:hidden}
+.menu-overlay[hidden],#fps-meter[hidden]{display:none!important}
+.menu-panel{width:min(100%,500px);max-height:100%;overflow:auto;overscroll-behavior:contain;text-align:center;padding:clamp(6px,2vh,16px);border:1px solid #557891;border-radius:12px;background:#081626ed}
+.menu-panel h2{font-size:clamp(14px,2.8vh,27px);margin:2px 0 10px;letter-spacing:.07em}
+.menu-panel nav{display:flex;flex-direction:column;align-items:stretch;gap:4px;margin:6px auto;max-width:390px}
+.menu-item{font-size:clamp(12px,2vh,19px);line-height:1.2;min-height:clamp(26px,5vh,40px);border:1px solid transparent;background:transparent;border-radius:5px;text-align:center;white-space:normal}
+.menu-item[aria-current="true"]{border-color:#88d8ff;color:#f4fcff;background:#1b4054}
+.menu-item:disabled{opacity:.55;cursor:not-allowed}.menu-description,.menu-tip{color:#b6d0df;font-size:clamp(10px,1.65vh,13px);margin:5px 0}
+.menu-description:empty{display:none}#menu-extra{max-height:45vh;overflow:auto}#menu-extra:empty{display:none}
+.score-table{border-collapse:collapse;margin:0 auto;width:min(100%,350px);font-size:clamp(10px,1.7vh,13px)}.score-table td{padding:1px 5px;text-align:right}.score-table td:nth-child(2){text-align:left}
+#name-input{width:12ch;font-size:18px;text-transform:uppercase;text-align:center;min-height:37px;color:#edf5fa;background:#102638;border:1px solid #88d8ff;border-radius:5px}
+#fps-meter{z-index:2;position:absolute;left:8px;top:7px;background:#102b40;padding:3px 5px;color:#e9f3fb;font-size:12px}
+.viewport:has(.menu-overlay:not([hidden])) .touch{display:none}
+@media(max-height:440px){.menu-panel{padding:4px}.menu-panel h2{font-size:14px;margin:0 0 3px}.menu-panel nav{gap:1px}.menu-item{min-height:24px;font-size:11px}.menu-tip,.menu-description{font-size:10px;margin:2px 0}.score-table{font-size:10px}}
+
+/* M7: secondary import/export actions do not alter the historic menu topology. */
+.transfer-button{min-height:28px;margin:2px 3px;font-size:clamp(10px,1.6vh,12px);padding:3px 7px}.transfer-note{font-size:clamp(9px,1.4vh,11px);line-height:1.25;color:#bad3df;margin:3px auto;max-width:360px}
+
+/* M12: optional transfer tools are available without crowding ordinary play. */
+.advanced-tools{max-width:390px;margin:5px auto;border:1px solid #36536b;border-radius:8px;padding:3px 7px}
+.advanced-tools summary{cursor:pointer;font-size:clamp(11px,1.7vh,13px);color:#d4e9f7;padding:4px}
+.advanced-tools:focus-within{border-color:#9ce3fa}
+.advanced-content{padding:3px 0 5px}
+#sound[aria-pressed="false"]{opacity:.83}
+@media(max-width:650px){#help{display:none}footer{display:flex;justify-content:center}.credits{font-size:9px;text-align:center}#subtitle{display:none}}
+@media(max-height:490px){footer{display:none}#sound{min-width:43px}}
+
+/* M12: clear on-screen help and credits, with scrolling contained inside the menu. */
+.secondary-menu{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding-top:7px;margin-top:7px;border-top:1px solid #274457}
+.secondary-menu-item{font-size:clamp(11px,1.9vh,14px);min-height:32px;background:#173447}
+.player-help,.player-credits{font-size:clamp(11px,1.8vh,14px);line-height:1.43;max-width:420px;margin:0 auto;text-align:left}
+.player-help p,.player-credits p{margin:0 0 9px}
+.player-help p:first-child{font-weight:650;color:#f0fbff}
+.player-credits a{display:block;margin:7px 0;min-height:30px;padding:6px 0}
+.menu-panel{scrollbar-width:thin}
+#menu-extra:has(.player-help),#menu-extra:has(.player-credits){max-height:min(64vh,460px);overflow-y:auto;overscroll-behavior:contain}
+@media(max-height:490px){.secondary-menu{padding-top:2px;margin-top:2px;gap:4px}.secondary-menu-item{min-height:25px;font-size:10px}.player-help,.player-credits{line-height:1.23}.player-help p,.player-credits p{margin-bottom:5px}}
+
+/* Optional story in Credits only; the opening menu stays focused on play. */
+.porting-story{margin-top:10px;border-top:1px solid #274457;padding-top:8px}
+.porting-story summary{cursor:pointer;color:#bde9fb;font-weight:600;min-height:36px;padding:7px 2px}
+.porting-story summary:focus-visible{outline:2px solid #9ce3fa;outline-offset:2px}
+.porting-story p{margin:7px 0 9px}

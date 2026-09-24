@@ -1,0 +1,2 @@
+HISTORICAL FILE ORACLE: canonical controls.txt and highscores.txt byte-for-byte JS round-trip PASS
+HISTORICAL FILE ORACLE: direct original Python get/save controls and highscores PASS (Python 3 compatible normal-path snippet)

@@ -1,0 +1,334 @@
+{
+  "method": "Source routines directly executed under Python 3 compatibility edits and minimal pygame sprite-group shim; NOT full historical Python 2/Pygame game",
+  "source_zip_sha256": "b0adc1fe656722e23142b9ee6a3cf51b2b3c743827e45356a50d4580dfbc2b20",
+  "source_py_sha256": "1a806d89fa02ba599fed3c735a9c442fe5355128bbc66c0039e50eb160949e22",
+  "source_transform": {
+    "<>": "!=",
+    "print statements": "print(...)",
+    "400 / 3 / fps": "UNCHANGED; math.cos/sin float makes division real in Python 2",
+    "800 / 3 / fps": "UNCHANGED; math.cos/sin float makes division real in Python 2",
+    "trailing main()/pygame.quit()": "not invoked"
+  },
+  "extracted_main_lines": {
+    "camera": [
+      943,
+      955,
+      992,
+      993
+    ],
+    "collision": [
+      829,
+      847
+    ],
+    "respawn": [
+      960,
+      969
+    ]
+  },
+  "tests": [
+    {
+      "id": "01",
+      "name": "Ship stationary",
+      "scope": "original Ship.control + Obj.update under shim",
+      "result": "PASS",
+      "observed": {
+        "pos": [
+          350.0,
+          270.0
+        ],
+        "vel": [
+          0.0,
+          0.0
+        ],
+        "ticks": 100,
+        "dt": 0.01
+      }
+    },
+    {
+      "id": "02",
+      "name": "Straight forward thrust: Python 2 float-operand division",
+      "scope": "original Ship.control + Obj.update under shim",
+      "result": "PASS",
+      "observed": {
+        "pos": [
+          350.0,
+          234.66666666666654
+        ],
+        "vel": [
+          0.0,
+          266.66666666666634
+        ],
+        "ticks": 100,
+        "dt": 0.01,
+        "py2_forward_accel": 266.6666666666667
+      }
+    },
+    {
+      "id": "03",
+      "name": "Thrust release: inertia",
+      "scope": "original Ship.control + Obj.update under shim",
+      "result": "PASS",
+      "observed": {
+        "pos_after_thrust": [
+          350.0,
+          234.66666666666654
+        ],
+        "pos_after_release": [
+          350.0,
+          501.33333333333485
+        ],
+        "vel_after_release": [
+          0.0,
+          266.66666666666634
+        ]
+      }
+    },
+    {
+      "id": "04",
+      "name": "Turn in place",
+      "scope": "original Ship.control + Obj.update under shim",
+      "result": "PASS",
+      "observed": {
+        "angle": 3.1415926535897887,
+        "vel": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "id": "05",
+      "name": "Turning with thrust and input-before-angle-update",
+      "scope": "original Ship.control + Obj.update under shim",
+      "result": "PASS",
+      "observed": {
+        "first_tick_vy": 2.666666666666667,
+        "first_tick_angle": 0.031415926535897934,
+        "after_100_pos": [
+          434.87565488382876,
+          155.37574260635782
+        ],
+        "after_100_vel": [
+          169.75130976765766,
+          2.6666666666665733
+        ],
+        "after_100_angle": 3.1415926535897887
+      }
+    },
+    {
+      "id": "06",
+      "name": "Reverse thrust, not velocity-relative brake",
+      "scope": "original Ship.control + Obj.update under shim",
+      "result": "PASS",
+      "observed": {
+        "vel": [
+          0.0,
+          -133.33333333333317
+        ],
+        "pos": [
+          350.0,
+          232.66666666666677
+        ],
+        "py2_reverse_accel": 133.33333333333334
+      }
+    },
+    {
+      "id": "07",
+      "name": "Toroidal border, exact equality retained",
+      "scope": "original Obj.update under shim",
+      "result": "PASS",
+      "observed": {
+        "wrapped_pos": [
+          1,
+          1
+        ],
+        "exact_boundary_pos": [
+          700.0,
+          540.0
+        ],
+        "dt": 0.01
+      }
+    },
+    {
+      "id": "08",
+      "name": "Elastic camera source expressions",
+      "scope": "original main camera source extracted, pygame shim",
+      "result": "PASS",
+      "observed": {
+        "start_camera": [
+          30.0,
+          30.0
+        ],
+        "start_ship": [
+          400,
+          300
+        ],
+        "camera": [
+          31.147899300317416,
+          30.686337123607164
+        ],
+        "camera_speed": [
+          0.9760348107949457,
+          0.34537522814820365
+        ],
+        "expected": [
+          31.147899300317416,
+          30.686337123607164
+        ]
+      }
+    },
+    {
+      "id": "09",
+      "name": "Camera response to abrupt velocity reversal",
+      "scope": "original camera + ship methods under shim",
+      "result": "PASS",
+      "observed": {
+        "cam_speed_pre_reversal": 49.886122298945004,
+        "cam_speed_first_reversal_tick": 49.21159815589015,
+        "cam_speed_after_100_ticks": -7.396193517493411,
+        "trace_rows": 200,
+        "trace": "docs/traces/camera_reversal.json"
+      }
+    },
+    {
+      "id": "10",
+      "name": "Projectile inherits ship velocity",
+      "scope": "original Ship.control and Bullet constructor under shim",
+      "result": "PASS",
+      "observed": {
+        "bullet_pos": [
+          350,
+          270
+        ],
+        "bullet_vel": [
+          25.0,
+          400.0
+        ],
+        "lifetime": 1,
+        "gunheat": 9.8,
+        "reloading": 0.8
+      }
+    },
+    {
+      "id": "11",
+      "name": "Collision across seam and strict threshold",
+      "scope": "original main collision source extracted, group shim",
+      "result": "PASS",
+      "observed": {
+        "across_boundary": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "A"
+          ]
+        ],
+        "exact_radius_sum_events": []
+      }
+    },
+    {
+      "id": "12",
+      "name": "Asteroid destruction and fragmentation",
+      "scope": "original collision + Asteroid/Bullet collide under shim",
+      "result": "PASS",
+      "observed": {
+        "score": 25,
+        "child_sizes": [
+          2,
+          2
+        ],
+        "child_speeds": [
+          [
+            43.750364383094364,
+            33.65810024020397
+          ],
+          [
+            -34.73880916186633,
+            24.22663733238889
+          ]
+        ],
+        "asteroid_removed": true,
+        "bullet_removed": true
+      }
+    },
+    {
+      "id": "13",
+      "name": "Ship death via original collision callback",
+      "scope": "original Ship.collide under shim, no main loop",
+      "result": "PASS",
+      "observed": {
+        "ship_deleted": true,
+        "particle_count": 32,
+        "time_to_respawn": "main loop, not exercised here"
+      }
+    },
+    {
+      "id": "14",
+      "name": "Respawn source branch (no ship)",
+      "scope": "original main 960-969 elif->if, pygame shim",
+      "result": "PASS",
+      "observed": {
+        "new_lives": 3,
+        "respawn_time": 2,
+        "mode": "play",
+        "new_pos": [
+          534,
+          424
+        ],
+        "new_shield_time": 2,
+        "lives_text": "Lives : 3"
+      }
+    },
+    {
+      "id": "15",
+      "name": "Game over decision branch",
+      "scope": "original main 960-969 elif->if, no UI/game execution",
+      "result": "PASS",
+      "observed": {
+        "mode": "gameoverstart",
+        "ship_exists": false,
+        "full_gameover_UI_unverified": true
+      }
+    },
+    {
+      "id": "16",
+      "name": "Frame-step sensitivity for equal physical duration",
+      "scope": "original Ship.control + Obj.update under shim",
+      "result": "PASS",
+      "observed": {
+        "same_duration_seconds": 1,
+        "end_y_by_fps": {
+          "50": 236.00000000000003,
+          "100": 234.66666666666654,
+          "200": 234.00000000000017
+        },
+        "expected_ideal_end_y": 233.33333333333334,
+        "result": "frame-step-dependent drift"
+      }
+    },
+    {
+      "id": "17",
+      "name": "Single-wrap high-speed boundary behavior",
+      "scope": "original Obj.update under shim, synthetic extreme",
+      "result": "PASS",
+      "observed": {
+        "initial_pos": [
+          600,
+          100
+        ],
+        "v": [
+          150000,
+          0
+        ],
+        "dt": 0.01,
+        "final_pos": [
+          1400.0,
+          100.0
+        ],
+        "note": "single-wrap only; pathological speed, not regular play"
+      }
+    }
+  ]
+}

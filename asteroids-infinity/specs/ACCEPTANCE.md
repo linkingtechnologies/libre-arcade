@@ -1,0 +1,9 @@
+# Asteroids Infinity M12 — quick acceptance on your browser
+
+Run the game from an HTTP(S) static server. Visit the initial menu in Italian and English: confirm the page title is Asteroids Infinity, the four historical game choices appear, and there are separate **Come si gioca / How to play** and **Riconoscimenti / Credits** choices. The start screen, top bar and play HUD must not mention Libre Arcade; the original-author attribution, original project and Libre Arcade URL should appear in Credits only.
+
+Open How to play on desktop and on your phone, in portrait and landscape. Read all six paragraphs, scroll *inside the help panel* when needed, and return without changing the game's state. Switch the language while How to play is open. On phone verify that the play surface does not create vertical or horizontal page scrolling and that touch controls can be held in combination.
+
+Start a game using Play. Try keyboard (movement, space for shooting, Ctrl shield), touch controls, pause and resume. Sound is on by default unless muted in an earlier session: after a user gesture, the newly synthesized sound cues should be audible for firing, propulsion and impacts. Toggle sound off and verify it remains off after page reload; toggle it back on. If browser audio is unavailable the game must remain playable, silently. The historical WAV and font are deliberately not used.
+
+Play to the end of a run, save a record if eligible, reload the real site URL, and check the scores and customized controls persist. Test import/export only if you need the original `highscores.txt` / `controls.txt` formats. Before publishing publicly, check that all modules load over ordinary HTTP without JavaScript console errors. The headless diagnostic Chromium runner cannot establish those live acceptance results in this environment.

@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Generated build output (npm run build)
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
