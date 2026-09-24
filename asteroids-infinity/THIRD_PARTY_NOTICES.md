@@ -1,0 +1,8 @@
+# Third-party notices — Asteroids Infinity web adaptation (M12 beta)
+
+- Original game and preserved source: **Ben Whittaker**, Asteroids Infinity, copyright 2009, GNU GPL version 3 or later. Source: https://sourceforge.net/projects/asteroidsinf/ . The original Python source remains unchanged in `reference/AsteroidsInfinity-1.2.py` with its copyright/license header.
+- HTML5/JavaScript/CSS adaptation, explanatory UI and newly synthesized Web Audio effects: **Libre Arcade contributors**, copyright 2026, GPL-3.0-or-later. No historical WAV samples are used or embedded by the Web Audio synthesis.
+- Historical `Vectorb.ttf` (Vector Battle), original WAV audio, and original ZIP packages containing them are excluded from the public distribution pending separate rights verification. The modern synthetic sounds are not a claim to reproduce the original audio.
+- The original menu choices and gameplay rules were used as reference. The additional help/credits screens, local storage, transfer/reset tools and responsive controls are modern browser adaptations.
+- The one remote script is the collection's **GoatCounter** page-view snippet (`gc.zgo.at`, counts sent to `grugnetto.goatcounter.com`) in `public/index.html`, added when the game joined the collection. It is not part of the game, is not covered by this project's license, and is the page's only network request; removing that single `<script>` tag leaves the game with no remote dependency.
+- Whole-game parity with the native Python 2/Pygame original and audiovisual equivalence remain unverified. No affiliation with the commercial *Asteroids* title is claimed.
