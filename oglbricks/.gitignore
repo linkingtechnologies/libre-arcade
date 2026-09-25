@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Generated build output (npm run build)
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+# Output of the optional headless browser smoke tools
+/tools/out/
+
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db

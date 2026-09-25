@@ -1,0 +1,86 @@
+import {Game,DEFAULT_SETTINGS,pieceCells,normalizeSettings} from './engine.js';
+import {SHAPES} from './shapes.js';
+import {SoundPlayer} from './audio.js';
+const $=id=>document.getElementById(id);
+const STRINGS={
+ en:{soundOn:'Sounds on. Select to mute',soundOff:'Sounds off. Select to turn on',muteSounds:'Mute sounds',unmuteSounds:'Turn on sounds',soundHelp:'Use the speaker button at the top to switch sounds on or off.',soundCredit:'New synthesized sound effects for the web adaptation: Libre Arcade.',new:'New game',menu:'Menu',settings:'Settings',pause:'Pause',resume:'Resume',help:'How to play',credits:'Credits',switchLanguage:'Italiano',languageLabel:'Switch to Italian',next:'Next',score:'Score',speed:'Speed',lines:'Lines',save:'Save',load:'Load',width:'Field width',height:'Field height',initialSpeed:'Starting speed',immediateFall:'Automatic fall',increaseSpeed:'Increase speed',pieceGroups:'Piece sizes',settingsNote:'Choose a field size and which pieces can appear. Changing settings starts a new game.',cancel:'Cancel',apply:'Apply and restart',rules:'Move and turn the falling pieces to fill horizontal rows. A complete row disappears and earns points. Keep the pieces from stacking up to the top.',controlsTitle:'Controls',keys:'← → move · ↓ drop faster · ↑ rotate · P pause or resume. On a phone, use the four buttons below the board.',optionsTitle:'Make it your game',customHelp:'Choose a larger or smaller field, which pieces can appear and how quickly they fall. Changing settings starts a new game.',savingTitle:'Continue later',saveInfo:'Your game is kept on this device when possible. Save downloads a copy; Load opens a saved file.',originalCredit:'Original OGLBricks: Alexey Markarov (2012). Original game code: MIT license.',portCredit:'Web adaptation: Libre Arcade contributors. Adaptation code: GPLv3 or later.',resetData:'Start fresh',close:'Close',paused:'Paused',gameOver:'Game over',ready:'Ready',saved:'Game downloaded',storageUnavailable:'Could not save on this device. Use Save to download a copy.',loaded:'Game loaded',badFile:'Sorry, this saved game cannot be opened.',choose:'Select at least one piece size.',reset:'Ready for a fresh start',resetConfirm:'Start fresh? Your saved game and settings on this device will be erased.',single:'Only one kind of piece is selected.',newGame:'New game started',loadWin:'Sorry, this saved game belongs to another version.',boardLabel:'Falling-block game board',previewLabel:'Next falling piece',touchLabel:'Game controls',left:'Move left',right:'Move right',down:'Move down',rotate:'Rotate clockwise'},
+ it:{soundOn:'Suoni attivi. Premi per disattivarli',soundOff:'Suoni disattivati. Premi per attivarli',muteSounds:'Disattiva suoni',unmuteSounds:'Attiva suoni',soundHelp:'Usa il pulsante con l’altoparlante in alto per attivare o disattivare i suoni.',soundCredit:'Nuovi effetti sonori sintetizzati per la versione web: Libre Arcade.',new:'Nuova partita',menu:'Menu',settings:'Impostazioni',pause:'Pausa',resume:'Riprendi',help:'Come si gioca',credits:'Riconoscimenti',switchLanguage:'English',languageLabel:'Passa all’inglese',next:'Prossimo',score:'Punti',speed:'Velocità',lines:'Righe',save:'Salva',load:'Carica',width:'Larghezza campo',height:'Altezza campo',initialSpeed:'Velocità iniziale',immediateFall:'Caduta automatica',increaseSpeed:'Aumento velocità',pieceGroups:'Dimensioni dei pezzi',settingsNote:'Scegli le dimensioni del campo e quali pezzi possono comparire. Le modifiche avviano una nuova partita.',cancel:'Annulla',apply:'Applica e ricomincia',rules:'Sposta e ruota i pezzi in caduta per completare le righe orizzontali. Ogni riga completa scompare e dà punti. Evita che i pezzi raggiungano la cima del campo.',controlsTitle:'Comandi',keys:'← → sposta · ↓ accelera la caduta · ↑ ruota · P mette in pausa o riprende. Sul telefono usa i quattro pulsanti sotto il campo.',optionsTitle:'Personalizza la partita',customHelp:'Scegli un campo più grande o più piccolo, quali pezzi possono comparire e quanto velocemente cadono. Le modifiche avviano una nuova partita.',savingTitle:'Continua più tardi',saveInfo:'La partita viene conservata su questo dispositivo quando possibile. Salva ne scarica una copia; Carica apre un file salvato.',originalCredit:'OGLBricks originale: Alexey Markarov (2012). Codice originale: licenza MIT.',portCredit:'Adattamento web: collaboratori di Libre Arcade. Codice dell’adattamento: GPLv3 o successiva.',resetData:'Ricomincia da zero',close:'Chiudi',paused:'In pausa',gameOver:'Partita finita',ready:'Pronto',saved:'Partita scaricata',storageUnavailable:'Impossibile salvare su questo dispositivo. Usa Salva per scaricare una copia.',loaded:'Partita caricata',badFile:'Impossibile aprire questa partita salvata.',choose:'Seleziona almeno una dimensione dei pezzi.',reset:'Pronto per ricominciare',resetConfirm:'Vuoi ricominciare da zero? La partita e le impostazioni salvate su questo dispositivo verranno eliminate.',single:'Hai selezionato un solo tipo di pezzo.',newGame:'Nuova partita avviata',loadWin:'Questa partita salvata appartiene a un’altra versione del gioco.',boardLabel:'Campo del gioco a blocchi',previewLabel:'Anteprima del pezzo successivo',touchLabel:'Comandi di gioco',left:'Sposta a sinistra',right:'Sposta a destra',down:'Sposta in basso',rotate:'Ruota in senso orario'}
+};
+const CONFIG_KEY='libre-arcade-oglbricks-settings-m2', SAVE_KEY='libre-arcade-oglbricks-save-m2', LANGUAGE_KEY='libre-arcade-oglbricks-language', SOUND_KEY='libre-arcade-oglbricks-sound';
+const safeRead=(key)=>{try{return JSON.parse(localStorage.getItem(key))}catch{return null}};
+const safeWrite=(key,data)=>{try{localStorage.setItem(key,JSON.stringify(data));return true;}catch{return false;}};
+let lang=safeRead(LANGUAGE_KEY);if(lang!=='it'&&lang!=='en')lang=(navigator.language||'en').toLowerCase().startsWith('it')?'it':'en';
+const sound=new SoundPlayer({enabled:safeRead(SOUND_KEY)!==false});
+let savedSettings=safeRead(CONFIG_KEY)||DEFAULT_SETTINGS;
+let game=new Game(savedSettings),previous=performance.now(),modalPause=null;
+const remembered=safeRead(SAVE_KEY);if(remembered){try{game.restore(remembered);}catch{ /* keep new game when a stale/corrupt local save is encountered */ }}
+const held={left:false,right:false,down:false}, repeat={left:0,right:0}, touchPointers=new Map();
+function t(key){return STRINGS[lang][key]||key;}
+let statusTimer=null,statusKey=null;
+function msg(key){statusKey=key;$('status').textContent=t(key);$('statusBar').hidden=false;clearTimeout(statusTimer);statusTimer=setTimeout(()=>{$('statusBar').hidden=true;$('status').textContent='';statusKey=null;},2600);}
+function updateSoundButton(){const button=$('sound');button.textContent=sound.enabled?'🔊':'🔇';button.setAttribute('aria-pressed',String(sound.enabled));button.setAttribute('aria-label',t(sound.enabled?'soundOn':'soundOff'));button.title=t(sound.enabled?'muteSounds':'unmuteSounds');}
+function updateLocale(){document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=t(el.dataset.i18n));$('language').setAttribute('aria-label',t('languageLabel'));if(statusKey)$('status').textContent=t(statusKey);document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.i18nAria))); 
+ $('board').setAttribute('aria-label',t('boardLabel'));$('preview').setAttribute('aria-label',t('previewLabel'));document.querySelectorAll('[data-control]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.control)));updateSoundButton();updateHud();}
+let saveTimer=null, storageWarned=false;
+function persistProgress(){clearTimeout(saveTimer);saveTimer=null;if(!safeWrite(SAVE_KEY,game.snapshot())&&!storageWarned){storageWarned=true;msg('storageUnavailable');}}
+function scheduleProgress(){if(saveTimer===null)saveTimer=setTimeout(persistProgress,1300);}
+function updateHud(){ scheduleProgress();$('score').textContent=game.score.toLocaleString(lang==='it'?'it-IT':'en-US');$('speed').textContent=game.speed;$('lines').textContent=game.totalLines;
+ $('pause').textContent=t(game.paused?'resume':'pause');$('pause').disabled=game.gameOver;
+ const overlay=game.gameOver?'gameOver':game.paused?'paused':null;$('boardOverlay').hidden=!overlay;$('boardOverlayLabel').textContent=overlay?t(overlay):'';}
+game.onChange=updateHud;game.onEvent=event=>sound.play(event); updateLocale();
+function drawCanvas(canvas,fn){const rect=canvas.getBoundingClientRect();if(rect.width<1||rect.height<1)return;const dpr=Math.min(2,window.devicePixelRatio||1);const w=Math.max(1,Math.round(rect.width*dpr)),h=Math.max(1,Math.round(rect.height*dpr));if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,rect.width,rect.height);fn(ctx,rect.width,rect.height);}
+function tile(ctx,x,y,cell,color,ghost=false){const px=x*cell,py=y*cell,pad=Math.max(.3,cell*.07);ctx.globalAlpha=ghost?.24:1;ctx.fillStyle=color;ctx.fillRect(px+pad,py+pad,Math.max(1,cell-2*pad),Math.max(1,cell-2*pad));if(cell>6){ctx.fillStyle='rgba(255,255,255,.28)';ctx.fillRect(px+pad,py+pad,Math.max(1,cell-2*pad),Math.max(1,cell*.13));ctx.fillStyle='rgba(6,16,29,.25)';ctx.fillRect(px+pad,py+cell-Math.max(2,cell*.2),Math.max(1,cell-2*pad),Math.max(1,cell*.12));}ctx.globalAlpha=1;}
+function pieceColor(id){const hue=(id*43+246)%360;return `hsl(${hue} 72% 72%)`;}
+function drawBoard(){drawCanvas($('board'),(ctx,w,h)=>{const bw=game.settings.width,bh=game.settings.height,unit=Math.min((w-12)/bw,(h-12)/bh);if(unit<=0)return;const ox=(w-unit*bw)/2,oy=(h-unit*bh)/2;ctx.save();ctx.translate(ox,oy);ctx.fillStyle='#181b2b';ctx.fillRect(0,0,bw*unit,bh*unit);
+ if(unit>=6){ctx.strokeStyle='rgba(175,204,227,.065)';ctx.lineWidth=1;ctx.beginPath();for(let x=1;x<bw;x++){ctx.moveTo(x*unit,0);ctx.lineTo(x*unit,bh*unit);}for(let y=1;y<bh;y++){ctx.moveTo(0,y*unit);ctx.lineTo(bw*unit,y*unit);}ctx.stroke();}
+ for(let y=0;y<bh;y++)for(let x=0;x<bw;x++){let id=game.board[y][x];if(id)tile(ctx,x,bh-1-y,unit,pieceColor(id));}
+ if(game.current){const cells=pieceCells(game.current);for(const [x,y] of cells)tile(ctx,x,bh-1-y,unit,pieceColor(game.current.id));}
+ ctx.strokeStyle='#9ab4cc';ctx.lineWidth=Math.max(1,Math.min(2,unit*.08));ctx.strokeRect(0,0,bw*unit,bh*unit);ctx.restore();});}
+function drawPreview(){drawCanvas($('preview'),(ctx,w,h)=>{if(!game.next)return;const cells=SHAPES[game.next-1].cells[0];const xs=cells.map(p=>p[0]),ys=cells.map(p=>p[1]);const minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);const cell=Math.max(1,Math.min(w/(maxX-minX+3),h/(maxY-minY+3),34));const ox=(w-cell*(maxX-minX+1))/2,oy=(h-cell*(maxY-minY+1))/2;ctx.save();ctx.translate(ox,oy);for(const [x,y] of cells)tile(ctx,x-minX,maxY-y,cell,pieceColor(game.next));ctx.restore();});}
+function startNew(){sound.unlock();game.newGame(savedSettings);releaseAll();sound.play('start');}
+$('new').addEventListener('click',startNew);
+$('pause').addEventListener('click',()=>{sound.unlock();game.togglePause();});
+$('sound').addEventListener('click',()=>{sound.setEnabled(!sound.enabled);safeWrite(SOUND_KEY,sound.enabled);updateSoundButton();if(sound.enabled)sound.play('toggle');});
+$('language').addEventListener('click',()=>{lang=lang==='en'?'it':'en';safeWrite(LANGUAGE_KEY,lang);updateLocale();});
+function releaseAll(){for(const k of Object.keys(held))held[k]=false;repeat.left=repeat.right=0;touchPointers.clear();}
+function action(name,down){if(down)sound.unlock();if(name==='rotate'){if(down)game.rotate();return;}if(!(name in held))return;if(down&&!held[name]){held[name]=true;if(name==='left'||name==='right'){game.move(name==='left'?-1:1,0);repeat[name]=0;}else game.move(0,-1);}else if(!down)held[name]=false;}
+const MAP={ArrowLeft:'left',ArrowRight:'right',ArrowDown:'down',ArrowUp:'rotate'};
+window.addEventListener('keydown',e=>{const control=MAP[e.key]||(e.key.toLowerCase()==='p'?'pause':null);if(!control)return;if(['INPUT','TEXTAREA'].includes(document.activeElement?.tagName)||$('settingsDialog').open||$('helpDialog').open||$('menuDialog').open||$('creditsDialog').open)return;e.preventDefault();sound.unlock();if(control==='pause'){if(!e.repeat)game.togglePause();return;}if(control==='rotate'&&e.repeat)return;action(control,true);});
+window.addEventListener('keyup',e=>{const key=MAP[e.key];if(key){e.preventDefault();action(key,false);}});
+window.addEventListener('pagehide',persistProgress);
+window.addEventListener('blur',()=>{releaseAll();if(!game.paused&&!game.gameOver)game.togglePause();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){releaseAll();if(!game.paused&&!game.gameOver)game.togglePause();}});
+for(const btn of document.querySelectorAll('[data-control]')){const control=btn.dataset.control;
+ btn.addEventListener('pointerdown',e=>{e.preventDefault();btn.setPointerCapture?.(e.pointerId);touchPointers.set(e.pointerId,control);action(control,true);});
+ for(const event of ['pointerup','pointercancel','lostpointercapture'])btn.addEventListener(event,e=>{if(touchPointers.get(e.pointerId)===control){touchPointers.delete(e.pointerId);action(control,false);}});
+ btn.addEventListener('contextmenu',e=>e.preventDefault());}
+function frame(now){const ms=Math.max(0,Math.min(100,now-previous));previous=now;if(!game.paused&&!game.gameOver){for(const k of ['left','right'])if(held[k]&&!held[k==='left'?'right':'left']){repeat[k]+=ms;if(repeat[k]>165){repeat[k]-=85;game.move(k==='left'?-1:1,0);}}else repeat[k]=0;game.tick(ms,held);}drawBoard();drawPreview();requestAnimationFrame(frame);}requestAnimationFrame(frame);
+function modalOpen(dialog){
+ if(modalPause===null)modalPause=game.paused;
+ if(!game.paused&&!game.gameOver)game.togglePause();
+ releaseAll();dialog.showModal();
+}
+function modalClose(dialog){
+ dialog.close();
+ if(modalPause===false&&game.paused&&!game.gameOver)game.togglePause();
+ modalPause=null;
+}
+function fromMenu(dialog){$('menuDialog').close();modalOpen(dialog);}
+$('menu').addEventListener('click',()=>modalOpen($('menuDialog')));
+$('closeMenu').addEventListener('click',()=>modalClose($('menuDialog')));
+$('menuDialog').addEventListener('cancel',e=>{e.preventDefault();modalClose($('menuDialog'));});
+function populateSettings(){const s=savedSettings;$('fieldWidth').value=s.width;$('fieldHeight').value=s.height;$('initialSpeed').value=s.initialSpeed;$('immediateFall').checked=s.immediateFall;$('increaseSpeed').checked=s.increaseSpeed;document.querySelectorAll('[name=pieces]').forEach(el=>el.checked=s.enabled.includes(Number(el.value)));$('settingsError').textContent='';}
+$('settings').addEventListener('click',()=>{populateSettings();fromMenu($('settingsDialog'));});
+$('cancelSettings').addEventListener('click',()=>modalClose($('settingsDialog')));
+$('settingsDialog').addEventListener('cancel',e=>{e.preventDefault();modalClose($('settingsDialog'));});
+$('settingsForm').addEventListener('submit',e=>{e.preventDefault();const enabled=[...document.querySelectorAll('[name=pieces]:checked')].map(n=>Number(n.value));if(!enabled.length){$('settingsError').textContent=t('choose');return;}savedSettings=normalizeSettings({width:$('fieldWidth').value,height:$('fieldHeight').value,initialSpeed:$('initialSpeed').value,enabled,immediateFall:$('immediateFall').checked,increaseSpeed:$('increaseSpeed').checked});safeWrite(CONFIG_KEY,savedSettings);$('settingsDialog').close();modalPause=null;startNew();});
+$('help').addEventListener('click',()=>fromMenu($('helpDialog')));
+$('closeHelp').addEventListener('click',()=>modalClose($('helpDialog')));
+$('helpDialog').addEventListener('cancel',e=>{e.preventDefault();modalClose($('helpDialog'));});
+$('credits').addEventListener('click',()=>fromMenu($('creditsDialog')));
+$('closeCredits').addEventListener('click',()=>modalClose($('creditsDialog')));
+$('creditsDialog').addEventListener('cancel',e=>{e.preventDefault();modalClose($('creditsDialog'));});
+$('resetData').addEventListener('click',()=>{if(!confirm(t('resetConfirm')))return;clearTimeout(saveTimer);saveTimer=null;try{localStorage.removeItem(CONFIG_KEY);localStorage.removeItem(SAVE_KEY);localStorage.removeItem(LANGUAGE_KEY);localStorage.removeItem(SOUND_KEY)}catch{} sound.setEnabled(true);updateSoundButton(); savedSettings=normalizeSettings(DEFAULT_SETTINGS);$('menuDialog').close();modalPause=null;startNew();msg('reset');});
+$('save').addEventListener('click',()=>{const data=game.snapshot();data.savedAt=new Date().toISOString();persistProgress();const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'});const url=URL.createObjectURL(blob);const anchor=document.createElement('a');anchor.href=url;anchor.download='OGLBricks-save.json';document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);msg('saved');});
+$('load').addEventListener('click',()=>{$('loadFile').value='';$('loadFile').click();});
+$('loadFile').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;if(file.name.toLowerCase().endsWith('.sg')){msg('loadWin');return;}try{if(file.size>2e6)throw Error('SIZE');const data=JSON.parse(await file.text());game.restore(data);releaseAll();msg('loaded');persistProgress();}catch{msg('badFile');}});

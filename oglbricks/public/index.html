@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>OGLBricks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="toolbar">
+    <div class="brand"><span class="brand-icon" aria-hidden="true">▦</span><span>OGLBricks</span></div>
+    <div class="toolbar-actions">
+      <button type="button" id="new" data-i18n="new">New game</button>
+      <button type="button" id="pause" data-i18n="pause">Pause</button>
+      <button type="button" id="sound" class="sound-toggle" aria-label="Sounds on, select to mute" aria-pressed="true" title="Mute sounds">🔊</button>
+      <button type="button" id="menu" data-i18n="menu" aria-haspopup="dialog" aria-controls="menuDialog">Menu</button>
+    </div>
+  </header>
+  <main class="playfield">
+    <div class="board-wrap">
+      <canvas id="board" role="img" aria-label="Falling-block game board"></canvas>
+      <div class="board-overlay" id="boardOverlay" hidden><span id="boardOverlayLabel"></span></div>
+    </div>
+    <aside class="sidebar">
+      <section class="preview"><div class="panel-caption" data-i18n="next">Next</div><canvas id="preview" role="img" aria-label="Next falling piece"></canvas></section>
+      <section class="stat"><span data-i18n="score">Score</span><strong id="score">0</strong></section>
+      <section class="stat"><span data-i18n="speed">Speed</span><strong id="speed">1</strong></section>
+      <section class="stat"><span data-i18n="lines">Lines</span><strong id="lines">0</strong></section>
+      <div class="save-actions"><button type="button" id="save" data-i18n="save">Save</button><button type="button" id="load" data-i18n="load">Load</button><input id="loadFile" type="file" accept=".json,application/json" hidden></div>
+    </aside>
+  </main>
+  <nav class="touch" aria-label="Game controls" data-i18n-aria="touchLabel">
+    <button type="button" class="touch-button" data-control="left" aria-label="Move left">◀</button>
+    <button type="button" class="touch-button" data-control="down" aria-label="Move down">▼</button>
+    <button type="button" class="touch-button" data-control="rotate" aria-label="Rotate clockwise">↻</button>
+    <button type="button" class="touch-button" data-control="right" aria-label="Move right">▶</button>
+  </nav>
+  <footer id="statusBar" hidden><span id="status" role="status" aria-live="polite"></span></footer>
+</div>
+<dialog id="menuDialog" aria-labelledby="menuTitle">
+  <h2 id="menuTitle" data-i18n="menu">Menu</h2>
+  <div class="menu-actions">
+    <button type="button" id="settings" data-i18n="settings">Settings</button>
+    <button type="button" id="help" data-i18n="help">How to play</button>
+    <button type="button" id="credits" data-i18n="credits">Credits</button>
+    <button type="button" id="language" data-i18n="switchLanguage" aria-label="Switch language">Italiano</button>
+    <button type="button" id="resetData" data-i18n="resetData">Start fresh</button>
+  </div>
+  <div class="dialog-actions"><button type="button" id="closeMenu" data-i18n="close">Close</button></div>
+</dialog>
+<dialog id="settingsDialog" aria-labelledby="settingsTitle">
+  <form method="dialog" id="settingsForm">
+    <h2 id="settingsTitle" data-i18n="settings">Settings</h2>
+    <div class="settings-grid">
+      <label><span data-i18n="width">Field width</span><input id="fieldWidth" type="number" min="10" max="50" step="1" required></label>
+      <label><span data-i18n="height">Field height</span><input id="fieldHeight" type="number" min="10" max="50" step="1" required></label>
+      <label><span data-i18n="initialSpeed">Starting speed</span><input id="initialSpeed" type="number" min="1" max="10" step="1" required></label>
+      <label class="check"><input type="checkbox" id="immediateFall"><span data-i18n="immediateFall">Automatic fall</span></label>
+      <label class="check"><input type="checkbox" id="increaseSpeed"><span data-i18n="increaseSpeed">Increase speed</span></label>
+    </div>
+    <fieldset id="shapeChoices"><legend data-i18n="pieceGroups">Piece sizes</legend>
+      <label><input type="checkbox" name="pieces" value="1">1</label><label><input type="checkbox" name="pieces" value="2">2</label><label><input type="checkbox" name="pieces" value="3">3</label><label><input type="checkbox" name="pieces" value="4">4</label><label><input type="checkbox" name="pieces" value="5">5</label>
+    </fieldset>
+    <p class="dialog-note" data-i18n="settingsNote">Choose a field size and which pieces can appear. Changing settings starts a new game.</p>
+    <p class="dialog-error" id="settingsError" role="alert"></p>
+    <div class="dialog-actions"><button id="cancelSettings" type="button" data-i18n="cancel">Cancel</button><button id="applySettings" type="submit" data-i18n="apply">Apply and restart</button></div>
+  </form>
+</dialog>
+<dialog id="helpDialog" aria-labelledby="helpTitle">
+  <h2 id="helpTitle" data-i18n="help">How to play</h2>
+  <p data-i18n="rules">Move and turn the falling pieces to fill horizontal rows. A complete row disappears and earns points. Keep the pieces from stacking up to the top.</p>
+  <h3 data-i18n="controlsTitle">Controls</h3>
+  <p data-i18n="soundHelp">Use the speaker button at the top to switch sounds on or off.</p>
+  <p data-i18n="keys">← → move · ↓ drop faster · ↑ rotate · P pause or resume. On a phone, use the four buttons below the board.</p>
+  <h3 data-i18n="optionsTitle">Make it your game</h3>
+  <p data-i18n="customHelp">Choose a larger or smaller field, which pieces can appear and how quickly they fall. Changing settings starts a new game.</p>
+  <h3 data-i18n="savingTitle">Continue later</h3>
+  <p data-i18n="saveInfo">Save downloads your game to a file; Load opens it again.</p>
+  <div class="dialog-actions"><button id="closeHelp" type="button" data-i18n="close">Close</button></div>
+</dialog>
+<dialog id="creditsDialog" aria-labelledby="creditsTitle">
+  <h2 id="creditsTitle" data-i18n="credits">Credits</h2>
+  <p data-i18n="originalCredit">Original OGLBricks: Alexey Markarov (2012). Original game code: MIT license.</p>
+  <p data-i18n="portCredit">Web adaptation: Libre Arcade contributors. Adaptation code: GPLv3 or later.</p>
+  <p data-i18n="soundCredit">New synthesized sound effects for the web adaptation: Libre Arcade.</p>
+  <p><a href="https://linkingtechnologies.github.io/libre-arcade/" target="_blank" rel="noopener noreferrer">Libre Arcade ↗</a></p>
+  <div class="dialog-actions"><button id="closeCredits" type="button" data-i18n="close">Close</button></div>
+</dialog>
+<script type="module" src="js/app.js"></script>
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body></html>
