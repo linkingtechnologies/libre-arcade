@@ -1,0 +1,17 @@
+{
+  "source": "java.awt.Color.RGBtoHSB()/getHSBColor(), driven by test/PrintBackgroundColors.java, run on Java 1.8.0_503",
+  "generated": "2026-09-28",
+  "scenarios": [
+    { "rgb": [98, 114, 72], "hex": "#3a0098" },
+    { "rgb": [104, 103, 100], "hex": "#00248e" },
+    { "rgb": [78, 102, 68], "hex": "#63008c" },
+    { "rgb": [84, 95, 4], "hex": "#100085" },
+    { "rgb": [77, 68, 38], "hex": "#001d80" },
+    { "rgb": [82, 46, 47], "hex": "#00807c" },
+    { "rgb": [46, 64, 9], "hex": "#2a0080" },
+    { "rgb": [102, 116, 137], "hex": "#af6900" },
+    { "rgb": [70, 67, 67], "hex": "#008080" },
+    { "rgb": [87, 97, 109], "hex": "#935000" },
+    { "rgb": [128, 128, 128], "hex": "#00a6a6" }
+  ]
+}

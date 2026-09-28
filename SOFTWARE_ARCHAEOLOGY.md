@@ -86,6 +86,7 @@ original with an executable oracle or a benchmark:
 - [`asteroids-infinity/SOFTWARE_ARCHAEOLOGY.md`](asteroids-infinity/SOFTWARE_ARCHAEOLOGY.md)
 - [`oglbricks/SOFTWARE_ARCHAEOLOGY.md`](oglbricks/SOFTWARE_ARCHAEOLOGY.md)
 - [`libre-jigsaw/SOFTWARE_ARCHAEOLOGY.md`](libre-jigsaw/SOFTWARE_ARCHAEOLOGY.md)
+- [`sliding-tile-puzzle/SOFTWARE_ARCHAEOLOGY.md`](sliding-tile-puzzle/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already
