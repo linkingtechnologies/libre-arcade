@@ -1,0 +1,27 @@
+{
+  "files": {
+    "public/assets/icons/ccwcursor.png": "12740d09898e9c13fc6e65f9f9779497c0d06bc8273bfd1744e1933f676211c2",
+    "public/assets/icons/cwcursor.png": "0c4b0c409ff5284c1debd65fbcc653c2b11f217c2f74ad4533f1f9ab2a6753c5",
+    "public/assets/photos/Full-202-Tiger-Swallowtail.jpg": "7ed63dc67bd34ba42096cd5b39cba8e5c8396f1604aa93868d2c4b1a706d2501",
+    "public/assets/photos/Full-237-Hanging-Lake.jpg": "7563ace224265cb9f4c74c1901604749717a2744336a3d9634d541bf47bee1da",
+    "public/assets/photos/Full-24-The-Maroon-Bells.jpg": "123886d5204976e9c682874e23ac0986b350a4f4ae3cb954d88699c7a2337470",
+    "public/assets/photos/Full-261-Yellow-Flower.jpg": "bcbd87a48e46c777509ff2f40a98f8c850064c3b833f8c20fdeab7eb20dae113",
+    "public/assets/photos/Full-266-Cascading-Falls.jpg": "30c9ba22fe0030f2b369e89f9b7c843ba61227bd9f71cd35baeb5a9be06639aa",
+    "public/assets/photos/Full-288-Tennessee-Sunset.jpg": "e3870733ed472879efb6ad2d5a42fed6a623571882ff4e7c0338eeaa1ecffca8",
+    "public/assets/photos/Full-333-Ladybug-in-the-Field.jpg": "ec704b8680acf37dc4d23887148e9cbd62438367387480edb1fdc0f41b0f9dd9",
+    "public/assets/photos/Full-334-Light-of-the-Sky.jpg": "2b99eed4064e953cfc315e1c8affd38035b7ccaefdaaa50673e6a5cbdcf314ff",
+    "public/assets/photos/Full-446-Along-the-Banks.jpg": "19403244c522342b8fdaac9a1ec25682cb1776edfb7a5b7a0899963d9c610b2c",
+    "public/assets/photos/Full-454-ONeil-Bridge-in-the-Morning.jpg": "1f3ec09dd1c4d7f940e19060d97012239ced376cc059f15a03f86d1efcfb6086",
+    "public/assets/photos/thumbs/Full-202-Tiger-Swallowtail.jpg": "e6a210bb83f978a3d279d524f55a69890f0d81533661af6c51fe7c951ad70ead",
+    "public/assets/photos/thumbs/Full-237-Hanging-Lake.jpg": "e486ec5f9e0e1fd206ce3cb2708e2dc9c3951638929ecfda7aa7cefa665223bc",
+    "public/assets/photos/thumbs/Full-24-The-Maroon-Bells.jpg": "b7062679e00b3a0f0e3c1bbf114e4b7327e1dc4589064294ac5a69d9a83c82c1",
+    "public/assets/photos/thumbs/Full-261-Yellow-Flower.jpg": "b6826d9f7766789e6295421cd2d13bbf4ca736c6b57c58b7420a2fd532694139",
+    "public/assets/photos/thumbs/Full-266-Cascading-Falls.jpg": "35e36872a9a062eed6fb7a527abed0869e8dafb0f7bb0a8926a97b135ab406f1",
+    "public/assets/photos/thumbs/Full-288-Tennessee-Sunset.jpg": "9be0a80eaf1a4eae8fb9c25f12b5446d465a26d72eb1095256438183224111d5",
+    "public/assets/photos/thumbs/Full-333-Ladybug-in-the-Field.jpg": "18e9e1f08a91f7b7f556ae0d9a5054291a22bf74d7a8e3930b1eb1df00ad8b7e",
+    "public/assets/photos/thumbs/Full-334-Light-of-the-Sky.jpg": "29a699560c6c49a8148b24f1db8dc5c41be6ec5321838b10c0be294402eba27a",
+    "public/assets/photos/thumbs/Full-446-Along-the-Banks.jpg": "997d449ea0d680e552f8b1932be07ee934838dd3d8f52c95c0e1816e07d5df7d",
+    "public/assets/photos/thumbs/Full-454-ONeil-Bridge-in-the-Morning.jpg": "e5cf6d51db71ca8f8dbfbed7632e2f96f23cbda3251d2d3f5229a36643042b0b"
+  },
+  "source": "sha256 of the bundled photo and cursor icon files, verified byte-identical to reference/puzzlegames.jar pics/ and images/ during integration (2026-09-28)"
+}

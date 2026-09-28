@@ -1,0 +1,9 @@
+{
+  "source": "SpinnerHandler.mix(), driven via reflection by test/PrintSpinnerOracle.java (mode mix), run on Java 1.8.0_503 against reference/puzzlegames.jar. mix() has no dependency on board size, confirmed by running it at 4 board sizes per seed and getting the same result each time; one board size per seed is recorded here.",
+  "generated": "2026-09-28",
+  "scenarios": [
+    { "seed": 1, "state": [[1,0],[4,0],[0,4],[2,2],[6,2],[3,0],[5,4]] },
+    { "seed": 42, "state": [[6,0],[1,0],[3,2],[2,4],[5,0],[0,0],[4,0]] },
+    { "seed": 20100811, "state": [[1,4],[2,0],[6,2],[5,0],[3,4],[0,2],[4,0]] }
+  ]
+}
