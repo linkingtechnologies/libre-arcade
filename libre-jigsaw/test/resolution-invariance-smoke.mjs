@@ -1,0 +1,14 @@
+import fs from'node:fs';
+import assert from'node:assert/strict';
+const app=fs.readFileSync('src/app.js','utf8');
+const save=fs.readFileSync('src/savegame.js','utf8');
+assert.ok(app.includes('computeViewport('),'viewport transform missing');
+assert.ok(app.includes('canvasToPlayfield('),'pointer inverse transform missing');
+assert.ok(app.includes('playfield={width:Math.max(1,canvas.clientWidth),height:Math.max(1,canvas.clientHeight)}'),'new game must freeze a logical playfield');
+assert.ok(!app.includes('relayoutGame'),'resize must not rebuild puzzle geometry');
+const resizeBody=app.match(/function resize\(\)\{([^}]|\}(?!\nfunction))*\}/)?.[0]||'';
+assert.ok(!resizeBody.includes('createGeometryForPlayfield'),'resize must not regenerate geometry');
+assert.ok(!resizeBody.includes('geom.tiles'),'resize must not replace tiles');
+assert.ok(app.includes('playfield,currentLayer'),'save must include logical playfield');
+assert.ok(save.includes('SAVE_VERSION=2'),'save format must be v2');
+console.log('resolution invariance smoke: OK');

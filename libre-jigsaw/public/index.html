@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#20242a">
+  <title>Libre Jigsaw</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="toolbar" aria-label="Game controls" data-i18n-aria="gameControls">
+    <div class="brand">Libre Jigsaw</div>
+
+    <details class="toolbarMenu">
+      <summary data-i18n="gameMenu">Game</summary>
+      <div class="menuPanel" role="group" aria-label="Game" data-i18n-aria="gameMenu">
+        <button id="newBtn" type="button" data-i18n="new">New puzzle</button>
+        <button id="saveBtn" type="button" data-i18n="save">Save</button>
+        <label class="fileBtn"><span data-i18n="open">Open</span><input id="saveInput" type="file" accept=".ljf,application/json,text/plain"></label>
+      </div>
+    </details>
+
+    <details class="toolbarMenu puzzleMenu">
+      <summary data-i18n="puzzleMenu">Puzzle</summary>
+      <div class="menuPanel settingsPanel" role="group" aria-label="Puzzle" data-i18n-aria="puzzleMenu">
+        <button id="galleryBtn" type="button" data-i18n="gallery">Gallery</button>
+        <label class="fileBtn"><span data-i18n="myImage">My image</span><input id="imageInput" type="file" accept="image/jpeg,image/png,image/gif,image/webp"></label>
+        <label class="compactControl"><span data-i18n="shape">Shape</span>
+          <select id="shapeSelect">
+            <option value="square" data-i18n="square">Classic</option>
+            <option value="hex" data-i18n="hex">Hexagonal</option>
+          </select>
+        </label>
+        <label class="compactControl"><span data-i18n="pieces">Pieces</span>
+          <select id="pieceCount">
+            <option value="12">12</option><option value="24" selected>24</option><option value="48">48</option><option value="96">96</option>
+          </select>
+        </label>
+        <label class="compactControl"><span data-i18n="area">Area</span>
+          <select id="layerSelect" aria-label="Area" data-i18n-aria="area">
+            <option value="0">1</option><option value="1">2</option><option value="2">3</option>
+          </select>
+        </label>
+      </div>
+    </details>
+
+    <details class="toolbarMenu infoMenu">
+      <summary data-i18n="helpMenu">Help</summary>
+      <div class="menuPanel" role="group" aria-label="Help" data-i18n-aria="helpMenu">
+        <button id="helpBtn" type="button" data-i18n="help">Instructions</button>
+        <button id="creditsBtn" type="button" data-i18n="credits">Credits</button>
+      </div>
+    </details>
+
+    <span id="loadStatus" class="loadStatus hidden" role="status" aria-live="polite"></span>
+    <span class="spacer"></span>
+    <button id="langBtn" type="button" aria-label="Change language" data-i18n-aria="changeLanguage">IT</button>
+  </header>
+  <main>
+    <canvas id="game" tabindex="0" aria-label="Jigsaw puzzle board" data-i18n-aria="boardLabel"></canvas>
+    <div id="complete" class="complete hidden" role="status" aria-live="polite"><span data-i18n="complete">Puzzle complete!</span></div>
+  </main>
+
+  <dialog id="galleryDialog" class="galleryDialog">
+    <button class="close" type="button" aria-label="Close" data-i18n-aria="closeLabel">×</button>
+    <h2 data-i18n="choosePicture">Choose a picture</h2>
+    <p class="dialogIntro" data-i18n="galleryIntro">The original collection included these ten photographs.</p>
+    <div id="galleryGrid" class="galleryGrid"></div>
+  </dialog>
+
+  <dialog id="helpDialog">
+    <button class="close" type="button" aria-label="Close" data-i18n-aria="closeLabel">×</button>
+    <h2 data-i18n="helpTitle">How to play</h2>
+    <p data-i18n="help1">Drag pieces close to their correct neighbours: they snap together and then move as a group.</p>
+    <p data-i18n="help2">Click a piece to rotate it counter-clockwise. Right-click rotates clockwise. While dragging, the left and right arrow keys also rotate the group.</p>
+    <p data-i18n="help3">Drag across an empty area to select several pieces or groups and move them together.</p>
+    <p data-i18n="help4">Use areas 1, 2 and 3 to organise the table. Keys 1, 2 and 3 switch area quickly.</p>
+    <p data-i18n="help5">Choose Gallery for one of the original photographs, or My image for a picture from your device. Your own image stays in the browser.</p>
+    <p data-i18n="help6">Save downloads your current puzzle. Open restores a saved puzzle, including a personal image when one was used.</p>
+  </dialog>
+
+  <dialog id="creditsDialog">
+    <button class="close" type="button" aria-label="Close" data-i18n-aria="closeLabel">×</button>
+    <h2 data-i18n="credits">Credits</h2>
+    <p>Original Virtual Toybox Puzzle Collection / Libre Jigsaw © 2008–2012 Jonathan Hulka. GNU GPL v3 or later.</p>
+    <p>Photographs © <a href="http://photos.jstechs.com/" target="_blank" rel="noopener">JS Nature Photos</a>, licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/us/" target="_blank" rel="noopener">CC BY-SA 3.0 US</a>.</p>
+    <p><span data-i18n="restorationCredit">HTML5 restoration and preservation by</span> <a href="https://linkingtechnologies.github.io/libre-arcade/" target="_blank" rel="noopener">Libre Arcade</a>.</p>
+  </dialog>
+  <script src="app.bundle.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

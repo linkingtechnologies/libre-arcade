@@ -1,0 +1,15 @@
+import assert from'node:assert/strict';
+import{computeViewport,canvasToPlayfield,playfieldToCanvas}from'../src/viewport.js';
+const landscape=computeViewport(390,700,1200,800);
+assert.equal(landscape.scale,0.325);
+assert.equal(landscape.offsetX,0);
+assert.equal(landscape.offsetY,220);
+const p={x:432.25,y:211.5};
+const c=playfieldToCanvas(p.x,p.y,landscape);
+const back=canvasToPlayfield(c.x,c.y,landscape);
+assert.ok(Math.abs(back.x-p.x)<1e-9&&Math.abs(back.y-p.y)<1e-9);
+const wide=computeViewport(1600,500,800,1000);
+assert.equal(wide.scale,0.5);
+assert.equal(wide.offsetX,600);
+assert.equal(wide.offsetY,0);
+console.log('viewport smoke: OK');

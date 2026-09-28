@@ -1,0 +1,9 @@
+# Changelog
+
+## Unreleased
+
+- First public version, joined to the Libre Arcade collection.
+- Added the collection's scaffolding: `package.json` (scripts `dev`, `build`, `start`, `test`, `lint`, `check`, plus `bundle` to regenerate `public/app.bundle.js` from `src/`), `scripts/serve.mjs`, `scripts/build.mjs`, an ESLint config, `.gitignore`, the GoatCounter snippet and a "Play here" link. `COPYING` became `LICENSE`. Combined the 12 delivered smoke checks into `test/run-all.mjs` and added `test/reference-integrity.mjs`, which keeps the three preserved archives' SHA-256 verified as part of `npm test`.
+- Fixed two real bugs found during integration, both in the 2026 browser code, not in anything ported from Java. `scripts/build-bundle.py` (moved from `test/`, since it is a build step) wrote the regenerated bundle without naming an encoding, corrupting its one em dash on Windows. `updateViewport()` in `src/app.js` could throw during the page's very first draw if the canvas had not yet been laid out when its image finished loading, an ordinary race rather than a rare one, leaving the canvas blank until an unrelated resize happened to redraw it; found by loading the real page in a browser, which none of the delivered checks do. Both are fixed; regenerating the bundle from `src/` reproduces the delivered file byte for byte.
+- Verified independently and recorded in `PROVENANCE.md` and `SOFTWARE_ARCHAEOLOGY.md`: the historical Java layout oracle re-run against the live `reference/puzzlegames.jar`, all 20 bundled photographs byte-identical to that same archive, and a Launchpad PPA for the original project that the delivered documents did not mention.
+- No change to the game rules, either cutter generation, either snap policy, the save format, the strings or the bundled photographs.

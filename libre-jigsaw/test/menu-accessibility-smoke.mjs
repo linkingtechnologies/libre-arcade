@@ -1,0 +1,11 @@
+import fs from'node:fs';
+const html=fs.readFileSync('public/index.html','utf8');
+const css=fs.readFileSync('public/styles.css','utf8');
+const i18n=fs.readFileSync('src/i18n.js','utf8');
+for(const required of ['class="toolbarMenu"','data-i18n="gameMenu"','data-i18n="puzzleMenu"','data-i18n="helpMenu"','data-i18n-aria="area"','aria-live="polite"','tabindex="0"'])if(!html.includes(required))throw new Error(`missing ${required}`);
+for(const id of ['newBtn','saveBtn','saveInput','galleryBtn','imageInput','shapeSelect','pieceCount','layerSelect','langBtn','helpBtn','creditsBtn'])if(!html.includes(`id="${id}"`))throw new Error(`missing control ${id}`);
+if(!css.includes('@media(max-width:640px)')||!css.includes('.menuPanel{position:fixed'))throw new Error('mobile menu layout missing');
+if(!css.includes('prefers-reduced-motion'))throw new Error('reduced-motion handling missing');
+for(const key of ['gameMenu:"Game"','helpMenu:"Help"','gameMenu:"Partita"','helpMenu:"Aiuto"'])if(!i18n.includes(key))throw new Error(`i18n missing ${key}`);
+if(!html.includes('https://linkingtechnologies.github.io/libre-arcade/')||!html.includes('Libre Arcade'))throw new Error('Libre Arcade credit/link missing');
+console.log('menu-accessibility-smoke: OK');
