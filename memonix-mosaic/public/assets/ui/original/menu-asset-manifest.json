@@ -1,0 +1,28 @@
+{
+  "source_package": "reference/memonix_1.6_src.tar.bz2",
+  "source_package_sha256": "c5bd236c5cff2ffc07d98aff698368f32149c2428229fcde913e93bced250eab",
+  "gamedata_vfs_sha256": "883cc09707ff645f264199eadbe5f22a0309699b8ac3716fd2ada69abae299f3",
+  "assets": [
+    {
+      "historical_vfs_path": "DATA/mainmenu.jpg",
+      "distributed_path": "assets/ui/original/mainmenu.jpg",
+      "transformation": "none; byte-identical recovered JPEG, browser uses original 800x600 viewport from 800x685 sprite sheet",
+      "source_sha256": "b80923760684034f5551d208c19464b9f94350c913d69ee1d40dc1da266f4ee9",
+      "distributed_sha256": "b80923760684034f5551d208c19464b9f94350c913d69ee1d40dc1da266f4ee9"
+    },
+    {
+      "historical_vfs_path": "DATA/pr_m.bmp",
+      "distributed_path": "assets/ui/original/mosaic-preview.png",
+      "transformation": "lossless BMP to PNG conversion",
+      "source_sha256": "1650ab0e849027d82fd07492b143a5c18ae86a42235b0b32b143ed49f12ef5b8",
+      "distributed_sha256": "8f9f0360415d1c237e48c81d5048665bcb486725babd83ef740d55476864af32"
+    },
+    {
+      "historical_vfs_path": "DATA/main_game.bmp",
+      "distributed_path": "assets/ui/original/mode-hover-frame.png",
+      "transformation": "BMP to RGBA PNG; black colour-key converted to alpha transparency to reproduce original renderer semantics",
+      "source_sha256": "20439a7ad548e5d23c18f39800586ada1631011cb1728f1c0c49a2b44a475e55",
+      "distributed_sha256": "ed29511591ff08a35fdb4e3412054c42e279795d1dd0332c5063a6550d11fa5b"
+    }
+  ]
+}

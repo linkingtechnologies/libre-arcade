@@ -1,0 +1,15 @@
+Memonix Source Code ver 1.6
+Copyright (c) 2003-2006 Michael Kurinnoy, Viewizard Games
+All Rights Reserved.
+
+Memonix game source code available under "dual licensing" model.
+The licensing options available are:
+
+* Commercial Licensing. This is the appropriate option if you are creating proprietary
+applications and you are not prepared to distribute and share the source code of your application.
+Contact us for pricing at viewizard@viewizard.com
+
+* Open Source Licensing. This is the appropriate option if you want to share the source code of
+your application with everyone you distribute it to, and you also want to give them the right to share who uses it.
+You should have received a copy of the GNU General Public License version 3 with this artwork pack. If not, see <http://www.gnu.org/licenses/>.
+

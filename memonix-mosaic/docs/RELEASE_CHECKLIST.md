@@ -1,0 +1,35 @@
+# Release checklist
+
+- [x] Client-side HTML5 + vanilla JavaScript only
+- [x] No framework or runtime dependency
+- [x] 800×600 historical coordinate model preserved
+- [x] Responsive 4:3 canvas
+- [x] No page scrolling
+- [x] Pointer, mouse and touch placement supported
+- [x] EN/IT interface
+- [x] Instructions included
+- [x] Credits included
+- [x] Libre Arcade attribution kept in Credits/documentation, not the main menu
+- [x] Sound can be muted
+- [x] Local settings persisted
+- [x] Local best times persisted
+- [x] Complete local-data reset available
+- [x] Historical gameplay parity tests included
+- [x] Original `mainmenu.jpg` recovered and used byte-identically
+- [x] Historical four mode-window coordinates preserved
+- [x] Original Mosaic menu preview recovered and used
+- [x] Menu asset provenance/hash manifest included
+- [x] Menu geometry regression test included
+- [x] Storage/reset tests included
+- [x] Original source/runtime package preserved under `/reference`
+- [x] Recovered artwork license notice preserved under `/reference`
+- [x] All 50 original Mosaic tiles recovered
+- [x] Exact suffix-to-shape mapping certified
+- [x] Exact five family colours certified
+- [x] Lossless BMP→PNG pixel conversion verified
+- [x] Per-asset provenance/hash manifest included
+- [x] Third-party/provenance notices included
+- [x] GPLv3 license text included
+- [x] Reference URLs and SHA-256 values documented
+- [x] Standalone menu adaptation explicitly distinguished from original suite behavior
+- [ ] `MemonixSourceArt_1.6_070717.zip` recovered — desirable archival source-material target, no longer required for tile parity

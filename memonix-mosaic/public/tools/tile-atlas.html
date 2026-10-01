@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memonix: Mosaic — tile atlas</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#171922;color:#f3f3f6;font-family:Arial,sans-serif}main{max-width:1060px;margin:auto;padding:24px}h1{margin:0 0 8px}.note{color:#c9cbd6;line-height:1.45;margin:0 0 20px}.grid{display:grid;grid-template-columns:repeat(10,minmax(74px,1fr));gap:10px}.tile{background:#242735;border:1px solid #3d4257;border-radius:8px;padding:7px;text-align:center}.tile canvas,.tile img{display:block;width:64px;height:64px;margin:0 auto 6px;image-rendering:auto}.id{font:12px/1.25 ui-monospace,SFMono-Regular,Consolas,monospace}.family{grid-column:1/-1;margin-top:10px;font-weight:bold;color:#ffd96f}@media(max-width:800px){.grid{grid-template-columns:repeat(5,1fr)}}@media(max-width:460px){.grid{grid-template-columns:repeat(2,1fr)}}</style>
+</head>
+<body><main>
+<h1>Memonix: Mosaic — tile atlas</h1>
+<p class="note">Developer/reference page only. The identifiers below reproduce the historical source load order exactly. The images are the recovered original 64×64 Mosaic tiles, losslessly converted from BMP to PNG.</p>
+<div id="grid" class="grid"></div>
+<script type="module" src="tile-atlas.js"></script>
+</main></body></html>

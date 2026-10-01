@@ -1,0 +1,902 @@
+[
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 0,
+    "suffix": 1,
+    "shape": "triangle-up",
+    "original_path": "DATA/MOSAIC/1_1.bmp",
+    "asset_path": "assets/mosaic/1_1.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "269c4c45e47ee8dda8733fbbb6310681036e3f5f4d1888c5a1e32a1765c93a19",
+    "png_sha256": "621938f7824f2c3b6b5bdab8464f8a2f8cad4ff60490319e000fdd3de0c0d278"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 1,
+    "suffix": 2,
+    "shape": "square",
+    "original_path": "DATA/MOSAIC/1_2.bmp",
+    "asset_path": "assets/mosaic/1_2.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "11d8b93717b1c6909da0a19d700110efc25b25deb21c000c3ec19aaf6ed907fb",
+    "png_sha256": "7cd6fd1c73c7afbf292a337e6dafe7ffc75ebe321cdb901fe0a22d2a5bb2a523"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 2,
+    "suffix": 3,
+    "shape": "circle",
+    "original_path": "DATA/MOSAIC/1_3.bmp",
+    "asset_path": "assets/mosaic/1_3.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "32f6cdbd9f370163612f75e49105da01c0a7066931ee26533855771ebf68e855",
+    "png_sha256": "d135111c2b62a20761b608a5940d5bebfa28baea86feee67f870ed4435cd257e"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 3,
+    "suffix": 4,
+    "shape": "diamond",
+    "original_path": "DATA/MOSAIC/1_4.bmp",
+    "asset_path": "assets/mosaic/1_4.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "b3b4655863fd2159155f95cb949cef3334d7dfc34a6bcc0ee004a6655532531a",
+    "png_sha256": "25751bf3ca9eb43c3fdd4de21c61610a79928f60c1a1fb0cbfb01bfa080c7dbe"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 4,
+    "suffix": 5,
+    "shape": "trapezoid",
+    "original_path": "DATA/MOSAIC/1_5.bmp",
+    "asset_path": "assets/mosaic/1_5.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "2df182349e15b7e6727b0998bf9635f8f7059efe0fbb0499947316c7b26052bf",
+    "png_sha256": "8c576abd1282dbf44e04c27c6728cb6cbc2583e5d9b4f0bc8cd53e93014b20f3"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 5,
+    "suffix": 6,
+    "shape": "vertical-oval",
+    "original_path": "DATA/MOSAIC/1_6.bmp",
+    "asset_path": "assets/mosaic/1_6.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "676625c5fe30abb96571c265d66050c172175165b436a5e239d6d8538e8ba7f7",
+    "png_sha256": "3c7bfe7ad532593a79db077bdcef2ccd95f9e4ef0308b58bcb0c4016d9545308"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 6,
+    "suffix": 7,
+    "shape": "triangle-down",
+    "original_path": "DATA/MOSAIC/1_7.bmp",
+    "asset_path": "assets/mosaic/1_7.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "6b4140a4441d3a68facd40464d5d1b065a8943550c9abfafdd990208c2ceec53",
+    "png_sha256": "0b159c6a292f0c7900bbdd144759b12bb44676f0ca70362e92412f1899a4f3ce"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 7,
+    "suffix": 8,
+    "shape": "stepped-cross",
+    "original_path": "DATA/MOSAIC/1_8.bmp",
+    "asset_path": "assets/mosaic/1_8.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "b9a215e2ec5bcd4d8d4c497a84d83448608b3047b259abf7351a04fd98e69e34",
+    "png_sha256": "882c6f74db984564dc0358b6972c44c97596f980d104c92a616625f1dbf9dbe0"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 8,
+    "suffix": 9,
+    "shape": "right-semicircle",
+    "original_path": "DATA/MOSAIC/1_9.bmp",
+    "asset_path": "assets/mosaic/1_9.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "37d6d06ab946d9bb833c8463bc6bbf39c8a906e09421af63b83c83daf60b3cb5",
+    "png_sha256": "0b0c04271df78183929b849377d379ba2bb22109ee31847fcdbfecf263be0b12"
+  },
+  {
+    "family": 1,
+    "family_name": "red",
+    "family_rgb": [
+      223,
+      0,
+      0
+    ],
+    "slot": 9,
+    "suffix": 0,
+    "shape": "bottom-semicircle",
+    "original_path": "DATA/MOSAIC/1_0.bmp",
+    "asset_path": "assets/mosaic/1_0.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "5b5da3809ecb82b43ca41623b92330b46966bc4b2b95ee286dbab324a3fa4d6d",
+    "png_sha256": "dffbbeb2e0cb33821d54424c2ca541d7190b8ed9f98ebc0c47ec315feab4fca7"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 0,
+    "suffix": 1,
+    "shape": "triangle-up",
+    "original_path": "DATA/MOSAIC/2_1.bmp",
+    "asset_path": "assets/mosaic/2_1.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "f8c9ecb035d4bb4dd98ced5aec11f518e535c1f90b715cd3516d1e26662a8909",
+    "png_sha256": "244b24a331a6df5a7116aecf7155d53518cd33abfcc0401b210cceb78cbb787d"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 1,
+    "suffix": 2,
+    "shape": "square",
+    "original_path": "DATA/MOSAIC/2_2.bmp",
+    "asset_path": "assets/mosaic/2_2.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "08051f4554a325dde1700373f59d82d697c41c4adc84d5dfa698a6ccf36919b3",
+    "png_sha256": "ef4938e39ec8683e41ab0e1158b1aabb52b7c8960bb2d59f0649898b6457ce24"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 2,
+    "suffix": 3,
+    "shape": "circle",
+    "original_path": "DATA/MOSAIC/2_3.bmp",
+    "asset_path": "assets/mosaic/2_3.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "b3e979ba985c1058cc3283b4ada8a08cc208c0d609ded23706218e85b60d869c",
+    "png_sha256": "f7fb8c2314cc3db73438cbdd869ff5e8692df7ff18c0d2e6dedc717788d1b82e"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 3,
+    "suffix": 4,
+    "shape": "diamond",
+    "original_path": "DATA/MOSAIC/2_4.bmp",
+    "asset_path": "assets/mosaic/2_4.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "5bb71cda6a222637823cfaa9bd50a99e6a7d22b707e0f56214c485a917057fba",
+    "png_sha256": "a8832b3f13d40855acdc329dd81a8507f158dfeabe142071d469c4fed0be09e1"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 4,
+    "suffix": 5,
+    "shape": "trapezoid",
+    "original_path": "DATA/MOSAIC/2_5.bmp",
+    "asset_path": "assets/mosaic/2_5.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "b782681ca292d496f18e097485b4c28e6be0cdfb5acecce1c3f4dbab941c428c",
+    "png_sha256": "709e153ba0e0844d11f68db03d04c6e12f44896d7dea2599126a09d5b4d3abb8"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 5,
+    "suffix": 6,
+    "shape": "vertical-oval",
+    "original_path": "DATA/MOSAIC/2_6.bmp",
+    "asset_path": "assets/mosaic/2_6.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "74d0e5a85447c72e75876a822646b13e40a34313a8f3bc73960ed4586d700037",
+    "png_sha256": "727e07aceeccafbd6da01f941600247eb8d65bfea1206fe897963beac30ba5ad"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 6,
+    "suffix": 7,
+    "shape": "triangle-down",
+    "original_path": "DATA/MOSAIC/2_7.bmp",
+    "asset_path": "assets/mosaic/2_7.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "132446bd7716e28ab2adae0d15c340fa4dd12e9390ab535162dda43367c947e8",
+    "png_sha256": "f913bb6d590fd98a690f92c055904e87bb423b53abae39eecb2fc136ee0722fc"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 7,
+    "suffix": 8,
+    "shape": "stepped-cross",
+    "original_path": "DATA/MOSAIC/2_8.bmp",
+    "asset_path": "assets/mosaic/2_8.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "4da2f9cf36252f80753ca3ac93bfd4ab151ef0ca697fb3cc7e45e487b68ab2c2",
+    "png_sha256": "4a10f436d8b050b3ffd57eeaaf612d5871c8f858b62c1d1425e717ff59398355"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 8,
+    "suffix": 9,
+    "shape": "right-semicircle",
+    "original_path": "DATA/MOSAIC/2_9.bmp",
+    "asset_path": "assets/mosaic/2_9.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "f410ad49966e36201f1a7dcfc00b87b06c32a4a2b3e499d833fac7713fe212dc",
+    "png_sha256": "e2b7e02e03f397ed79c257e6b833a1ca01d55c61766f42072457e52b83bd11b7"
+  },
+  {
+    "family": 2,
+    "family_name": "cyan",
+    "family_rgb": [
+      0,
+      223,
+      223
+    ],
+    "slot": 9,
+    "suffix": 0,
+    "shape": "bottom-semicircle",
+    "original_path": "DATA/MOSAIC/2_0.bmp",
+    "asset_path": "assets/mosaic/2_0.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "737c97ce09929f6be5525fab42f1efd80fb67139a2eb158ac20c62e39535f6ac",
+    "png_sha256": "4340738e15c92ab36e9eb808e12e7488a0ae3b4fdc7e6e852af402f0999b9567"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 0,
+    "suffix": 1,
+    "shape": "triangle-up",
+    "original_path": "DATA/MOSAIC/3_1.bmp",
+    "asset_path": "assets/mosaic/3_1.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "049a8ef199407e6f515a93c56cdafc5f88c0bc925f450cc23e1a942b88bad376",
+    "png_sha256": "a615c9120538715388da55c3ced457dc5aa896014ace04f42357a3d66f476f77"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 1,
+    "suffix": 2,
+    "shape": "square",
+    "original_path": "DATA/MOSAIC/3_2.bmp",
+    "asset_path": "assets/mosaic/3_2.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "9d0780d3db8bd4973934c6dd48d491c6875e57d642e05ce6eeb24e8f50cb13f8",
+    "png_sha256": "f006e183cd53fe7c6e1d0d0c85d759f8f35cedc109900e52993aadbddb7ef89a"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 2,
+    "suffix": 3,
+    "shape": "circle",
+    "original_path": "DATA/MOSAIC/3_3.bmp",
+    "asset_path": "assets/mosaic/3_3.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "7f806fe79f873255d3781ff5aa225ebe99eab6f3b6a68e5f70a6f6526f949e27",
+    "png_sha256": "f4f592c12240356b98440a28bedc0ffffb2b1a96157ed62c9ba8a0587eb1dc1a"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 3,
+    "suffix": 4,
+    "shape": "diamond",
+    "original_path": "DATA/MOSAIC/3_4.bmp",
+    "asset_path": "assets/mosaic/3_4.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "171f7c1a121ee0c8fda8306652d90a7d03f7e53ac2c66a37934f731bcf7ca725",
+    "png_sha256": "dfd3ecc771e844a41f65dbf5f202c37bd1151f49f9ee137d3bf2722dbd94a8bf"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 4,
+    "suffix": 5,
+    "shape": "trapezoid",
+    "original_path": "DATA/MOSAIC/3_5.bmp",
+    "asset_path": "assets/mosaic/3_5.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "6b58aaf6c8b275d08a2afa0d960390eb9141817857ef1fe6c71bb036849469e1",
+    "png_sha256": "5a874029da78af9660273eebb3e0abc4525a6a6ab94fba2591113911f7db2d73"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 5,
+    "suffix": 6,
+    "shape": "vertical-oval",
+    "original_path": "DATA/MOSAIC/3_6.bmp",
+    "asset_path": "assets/mosaic/3_6.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "c845b4144f8102b552d952d0b9cad12e69ca5aa5d9e14a590662e5e53444144c",
+    "png_sha256": "915d2bc77e4af597e134675045e335798fe9a5e6539b61faa253eab804dc5d5a"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 6,
+    "suffix": 7,
+    "shape": "triangle-down",
+    "original_path": "DATA/MOSAIC/3_7.bmp",
+    "asset_path": "assets/mosaic/3_7.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "16bf4c8c18890da968193024cb11e27e241bad8b8f643ef241c4392e47537964",
+    "png_sha256": "73bdd67acf9dde2d3fa5d0058d1523567a608e9ed3bc5dc9b32d0c8af3492ffe"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 7,
+    "suffix": 8,
+    "shape": "stepped-cross",
+    "original_path": "DATA/MOSAIC/3_8.bmp",
+    "asset_path": "assets/mosaic/3_8.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "26b49c0613775efcde791ee82294308f6b2416cba016b9764b84c75dce65b374",
+    "png_sha256": "8d9832750dfc9572b9a8d455288d5530420ae71baac79fed2f916125bb12f3a5"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 8,
+    "suffix": 9,
+    "shape": "right-semicircle",
+    "original_path": "DATA/MOSAIC/3_9.bmp",
+    "asset_path": "assets/mosaic/3_9.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "83cf706e989825179bb47505bcf2e6b67a5d131ebb33eaa4663687b097103576",
+    "png_sha256": "bae6d4b8be5a37572dfb250c6dbf6e8bf4c39a229e9888fb66f1cdd632369c3f"
+  },
+  {
+    "family": 3,
+    "family_name": "green",
+    "family_rgb": [
+      0,
+      223,
+      0
+    ],
+    "slot": 9,
+    "suffix": 0,
+    "shape": "bottom-semicircle",
+    "original_path": "DATA/MOSAIC/3_0.bmp",
+    "asset_path": "assets/mosaic/3_0.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "53191aa05c86fd9e5873f96bae0ad959133fd3bbc8642a9d377ff2e193d1b8b2",
+    "png_sha256": "122fc1e448d687b9864c9e072ed96a7519d50cc89d337fe81638cd6ba6f523bc"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 0,
+    "suffix": 1,
+    "shape": "triangle-up",
+    "original_path": "DATA/MOSAIC/4_1.bmp",
+    "asset_path": "assets/mosaic/4_1.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "d5614e8ee55b612b4f8287efe550d888aa51a8e8f2de4713b38d5127486f996a",
+    "png_sha256": "5026ef6cbe3fb1ea341a56dc76352f42cd740544b92a97eb0f3b6c2664c604d4"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 1,
+    "suffix": 2,
+    "shape": "square",
+    "original_path": "DATA/MOSAIC/4_2.bmp",
+    "asset_path": "assets/mosaic/4_2.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "431a4bbfeb2eca69f5c4d2fa80e89eab45e99fb2d44186d128ee4aa7af602dee",
+    "png_sha256": "8a7927eb0cd8dba4be23a8c99d7efe95c840cdb1c0d0309d558067c57fe3504c"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 2,
+    "suffix": 3,
+    "shape": "circle",
+    "original_path": "DATA/MOSAIC/4_3.bmp",
+    "asset_path": "assets/mosaic/4_3.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "88b9946cb13c631fa7369b55739d14f63e6aec2cd2c7d78456775057206470ef",
+    "png_sha256": "9162c278009d125d0e70294dd44968bd60cfd49ad6b2f4f356720f34cf42eb9e"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 3,
+    "suffix": 4,
+    "shape": "diamond",
+    "original_path": "DATA/MOSAIC/4_4.bmp",
+    "asset_path": "assets/mosaic/4_4.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "2ed62463db40d60e9b12ccf7621e01fd5780c12c2fd647c26d3a06348fe7e8b1",
+    "png_sha256": "921f7a0c4f4de93443facb905ea986f06bd67fdcd3561880ccefceca0c39ec8e"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 4,
+    "suffix": 5,
+    "shape": "trapezoid",
+    "original_path": "DATA/MOSAIC/4_5.bmp",
+    "asset_path": "assets/mosaic/4_5.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "50fc71c07819e72ab89ec2ac7040b5af9c2de536169e53d42451a3bd988611b0",
+    "png_sha256": "cdc6253dbf268d7bf7b88b51fb15705e73cd0ec0b40040fa0baaf88fa3f8bf3c"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 5,
+    "suffix": 6,
+    "shape": "vertical-oval",
+    "original_path": "DATA/MOSAIC/4_6.bmp",
+    "asset_path": "assets/mosaic/4_6.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "62c0129041ae9636375c3bc443a81f38beed8970feca6b34cccf880c95129f4c",
+    "png_sha256": "3db2352284d965e0cc30a718494d47b4525842bd2c1cfc5085eb369347df3430"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 6,
+    "suffix": 7,
+    "shape": "triangle-down",
+    "original_path": "DATA/MOSAIC/4_7.bmp",
+    "asset_path": "assets/mosaic/4_7.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "6a9cb9886209b7587985a2834333b269a07f42b81f91dd6ed73c4dc800e4bdd4",
+    "png_sha256": "330105ff6ae10322e6f699b5b01c19e729bcf606dd6f8ba6115b064ced368120"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 7,
+    "suffix": 8,
+    "shape": "stepped-cross",
+    "original_path": "DATA/MOSAIC/4_8.bmp",
+    "asset_path": "assets/mosaic/4_8.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "2e2c401749f47d079e39abd4d473005f7685a96ee8eec53eb3202d5ded5d8dcd",
+    "png_sha256": "1338df5b7e2ca8db0f00878d13f5df4cf70c970088e98795905cafc37d5afca7"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 8,
+    "suffix": 9,
+    "shape": "right-semicircle",
+    "original_path": "DATA/MOSAIC/4_9.bmp",
+    "asset_path": "assets/mosaic/4_9.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "1b8d55a79e251d0bdd8afe37d2e6f2bdf8f472d9655d9a53148bc8f7a7b14d9e",
+    "png_sha256": "5f9c386855f5374ad19f9619aa18c362a5274debf7b33b8676eb4e0343090b7c"
+  },
+  {
+    "family": 4,
+    "family_name": "lilac",
+    "family_rgb": [
+      223,
+      0,
+      223
+    ],
+    "slot": 9,
+    "suffix": 0,
+    "shape": "bottom-semicircle",
+    "original_path": "DATA/MOSAIC/4_0.bmp",
+    "asset_path": "assets/mosaic/4_0.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "b309f6654e9d3d38c85b58a740c66eeb68431c74913064df38a5c332eb7a1657",
+    "png_sha256": "0e8f12b77e4339a13bfbb34a5659c519c308a013d4a718278b9b7cc1c6840269"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 0,
+    "suffix": 1,
+    "shape": "triangle-up",
+    "original_path": "DATA/MOSAIC/5_1.bmp",
+    "asset_path": "assets/mosaic/5_1.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "d8d931d6cc609aaf6f27fe59acdcc1a166bd3fdb7a3f2153b3a024b351fdde56",
+    "png_sha256": "6c753838548780875725c8f0ea7731f98a71466e1e82a84dbce6844026e34733"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 1,
+    "suffix": 2,
+    "shape": "square",
+    "original_path": "DATA/MOSAIC/5_2.bmp",
+    "asset_path": "assets/mosaic/5_2.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "6776cfa11fef113871218538fdd0588351ba301b85d07b1d072a6d3413d6a57f",
+    "png_sha256": "cba413d5a63e16741681c7d1b4903afd2e03b172e55691d1a0e1aa98d5c39ff8"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 2,
+    "suffix": 3,
+    "shape": "circle",
+    "original_path": "DATA/MOSAIC/5_3.bmp",
+    "asset_path": "assets/mosaic/5_3.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "d0f16eeeabf832136da9924bc71e4959f8c4ef4befbcce6942277eb3ad0b35f9",
+    "png_sha256": "5e009d2d6a2b1b8b7d976560cfaba6408bdc71330d17d4502b1d7b223f01996e"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 3,
+    "suffix": 4,
+    "shape": "diamond",
+    "original_path": "DATA/MOSAIC/5_4.bmp",
+    "asset_path": "assets/mosaic/5_4.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "3282f93aaa0d76f97a4ea3e48371a3e637c7ee100214eef8082c03d70eba736a",
+    "png_sha256": "31e366ed6ddfeef51e82d8ffa101c9fd0bd9f4ec78fafbefe33c6711329d0656"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 4,
+    "suffix": 5,
+    "shape": "trapezoid",
+    "original_path": "DATA/MOSAIC/5_5.bmp",
+    "asset_path": "assets/mosaic/5_5.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "5abf43c554f57a3c8cb54c7af213fdb0b639389259763753010e00cafc20688a",
+    "png_sha256": "1de24bea21943242cab0ab40832a201524a23fd458dd2a762aa97656833fe15d"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 5,
+    "suffix": 6,
+    "shape": "vertical-oval",
+    "original_path": "DATA/MOSAIC/5_6.bmp",
+    "asset_path": "assets/mosaic/5_6.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "9b4dfd2380e6557a59f47366e4c86b3e4e40e5f3adb9f2bdb7fce727bd328077",
+    "png_sha256": "becea44ef2f892333fb3ac205bce97868f88730050df2d5787b04a354b67f464"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 6,
+    "suffix": 7,
+    "shape": "triangle-down",
+    "original_path": "DATA/MOSAIC/5_7.bmp",
+    "asset_path": "assets/mosaic/5_7.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "765aaf261b79c3b066789dd3710a81605c5c07672f3db326a8d1c95debbf77af",
+    "png_sha256": "b3878e657db5753c8c6fac64883c84523b0eb0718a9d9ea3c46fffbb8fcc9d2b"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 7,
+    "suffix": 8,
+    "shape": "stepped-cross",
+    "original_path": "DATA/MOSAIC/5_8.bmp",
+    "asset_path": "assets/mosaic/5_8.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "660e7943effa9b64d5696ba3399c3db30eb25292476e83ce5220eade7f569d8b",
+    "png_sha256": "897bcd031c5e413c2de72814e16d1d066902f054472aef007b57dd96e3938d12"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 8,
+    "suffix": 9,
+    "shape": "right-semicircle",
+    "original_path": "DATA/MOSAIC/5_9.bmp",
+    "asset_path": "assets/mosaic/5_9.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "ffa9dc6a819a291ec2b9fd33c2c2f50d0b9a137f5d9391c1e0c52e1d85034c11",
+    "png_sha256": "da4b5775e2928d29d25876750678f84ddf2d6d4f1138cd10e5975db850ec52b0"
+  },
+  {
+    "family": 5,
+    "family_name": "blue",
+    "family_rgb": [
+      0,
+      0,
+      223
+    ],
+    "slot": 9,
+    "suffix": 0,
+    "shape": "bottom-semicircle",
+    "original_path": "DATA/MOSAIC/5_0.bmp",
+    "asset_path": "assets/mosaic/5_0.png",
+    "width": 64,
+    "height": 64,
+    "bmp_sha256": "f44579471703b812d4d753edfc18b88d62dd697117023a15ba25ee35fe4e7d98",
+    "png_sha256": "1585e76fd36b8021879819293edf19e2a082bf5dff8fdedd8853808e722050c8"
+  }
+]
