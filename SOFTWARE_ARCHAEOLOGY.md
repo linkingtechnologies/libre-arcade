@@ -89,6 +89,7 @@ original with an executable oracle or a benchmark:
 - [`sliding-tile-puzzle/SOFTWARE_ARCHAEOLOGY.md`](sliding-tile-puzzle/SOFTWARE_ARCHAEOLOGY.md)
 - [`spinning-tile-puzzle/SOFTWARE_ARCHAEOLOGY.md`](spinning-tile-puzzle/SOFTWARE_ARCHAEOLOGY.md)
 - [`memonix-mosaic/SOFTWARE_ARCHAEOLOGY.md`](memonix-mosaic/SOFTWARE_ARCHAEOLOGY.md)
+- [`memonix-builder/SOFTWARE_ARCHAEOLOGY.md`](memonix-builder/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already

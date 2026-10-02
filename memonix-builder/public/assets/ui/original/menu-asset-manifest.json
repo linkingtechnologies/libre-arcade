@@ -1,0 +1,29 @@
+{
+  "description": "Historical Memonix title/menu assets used by the standalone Builder restoration.",
+  "assets": [
+    {
+      "historical_vfs_path": "DATA/mainmenu.jpg",
+      "source_format": "JPEG",
+      "distributed_path": "assets/ui/original/mainmenu.jpg",
+      "source_sha256": "b80923760684034f5551d208c19464b9f94350c913d69ee1d40dc1da266f4ee9",
+      "distributed_sha256": "b80923760684034f5551d208c19464b9f94350c913d69ee1d40dc1da266f4ee9",
+      "transformation": "none; byte-identical"
+    },
+    {
+      "historical_vfs_path": "DATA/pr_b.bmp",
+      "source_format": "BMP",
+      "distributed_path": "assets/ui/original/builder-preview.png",
+      "source_sha256": "e55ff386c91dc657ea59b1804537850143f5449a6a5a1e162dca68bcedcea370",
+      "distributed_sha256": "1230716bbde36475d3a9019f5d7f7a11b25f369bdf43f5a682f5615f6a1a87b9",
+      "transformation": "lossless BMP to PNG"
+    },
+    {
+      "historical_vfs_path": "DATA/main_game.bmp",
+      "source_format": "BMP",
+      "distributed_path": "assets/ui/original/mode-hover-frame.png",
+      "source_sha256": "20439a7ad548e5d23c18f39800586ada1631011cb1728f1c0c49a2b44a475e55",
+      "distributed_sha256": "ed29511591ff08a35fdb4e3412054c42e279795d1dd0332c5063a6550d11fa5b",
+      "transformation": "BMP to PNG; original black color-key made transparent"
+    }
+  ]
+}
