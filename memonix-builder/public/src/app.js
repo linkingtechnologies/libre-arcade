@@ -85,7 +85,7 @@ function text(s,x,y,size=18,color='#17376f',align='left',weight='normal'){ctx.fi
 
 function tone(kind='click'){
  if(!settings.sound)return;
- try{audioCtx||=new(window.AudioContext||window.webkitAudioContext)();const now=audioCtx.currentTime,o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=kind==='error'?'square':'sine';o.frequency.setValueAtTime(kind==='win'?523:kind==='error'?145:360,now);if(kind==='win')o.frequency.linearRampToValueAtTime(784,now+.28);g.gain.setValueAtTime(.035,now);g.gain.exponentialRampToValueAtTime(.001,now+(kind==='win'?.35:.1));o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(now+(kind==='win'?.36:.11));}catch{}
+ try{audioCtx||=new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();const now=audioCtx.currentTime,o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=kind==='error'?'square':'sine';o.frequency.setValueAtTime(kind==='win'?523:kind==='error'?145:360,now);if(kind==='win')o.frequency.linearRampToValueAtTime(784,now+.28);g.gain.setValueAtTime(kind==='error'?.12:.09,now);g.gain.exponentialRampToValueAtTime(.001,now+(kind==='win'?.35:.15));o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(now+(kind==='win'?.36:.17));}catch{}
 }
 
 function goldButton(x,y,w,h,label,opts={}){
