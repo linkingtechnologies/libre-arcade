@@ -1,0 +1,654 @@
+{
+  "count": 72,
+  "all_pixel_identical_rgb": true,
+  "assets": [
+    {
+      "bmp": "0.bmp",
+      "png": "back.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-001.bmp",
+      "png": "toys-001.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-002.bmp",
+      "png": "toys-002.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-003.bmp",
+      "png": "toys-003.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-004.bmp",
+      "png": "toys-004.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-005.bmp",
+      "png": "toys-005.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-006.bmp",
+      "png": "toys-006.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-007.bmp",
+      "png": "toys-007.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-008.bmp",
+      "png": "toys-008.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-009.bmp",
+      "png": "toys-009.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-010.bmp",
+      "png": "toys-010.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-011.bmp",
+      "png": "toys-011.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-012.bmp",
+      "png": "toys-012.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-013.bmp",
+      "png": "toys-013.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-014.bmp",
+      "png": "toys-014.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-016.bmp",
+      "png": "toys-016.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-017.bmp",
+      "png": "toys-017.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-018.bmp",
+      "png": "toys-018.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-019.bmp",
+      "png": "toys-019.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-020.bmp",
+      "png": "toys-020.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-021.bmp",
+      "png": "toys-021.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-022.bmp",
+      "png": "toys-022.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-023.bmp",
+      "png": "toys-023.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-024.bmp",
+      "png": "toys-024.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-025.bmp",
+      "png": "toys-025.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-026.bmp",
+      "png": "toys-026.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-027.bmp",
+      "png": "toys-027.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-028.bmp",
+      "png": "toys-028.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-029.bmp",
+      "png": "toys-029.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-030.bmp",
+      "png": "toys-030.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-031.bmp",
+      "png": "toys-031.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-032.bmp",
+      "png": "toys-032.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-033.bmp",
+      "png": "toys-033.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-034.bmp",
+      "png": "toys-034.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-035.bmp",
+      "png": "toys-035.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-036.bmp",
+      "png": "toys-036.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-037.bmp",
+      "png": "toys-037.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-038.bmp",
+      "png": "toys-038.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-039.bmp",
+      "png": "toys-039.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-040.bmp",
+      "png": "toys-040.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-041.bmp",
+      "png": "toys-041.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-042.bmp",
+      "png": "toys-042.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-043.bmp",
+      "png": "toys-043.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-044.bmp",
+      "png": "toys-044.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-045.bmp",
+      "png": "toys-045.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-046.bmp",
+      "png": "toys-046.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-047.bmp",
+      "png": "toys-047.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-048.bmp",
+      "png": "toys-048.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-049.bmp",
+      "png": "toys-049.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-050.bmp",
+      "png": "toys-050.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-051.bmp",
+      "png": "toys-051.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-052.bmp",
+      "png": "toys-052.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-053.bmp",
+      "png": "toys-053.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-054.bmp",
+      "png": "toys-054.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-055.bmp",
+      "png": "toys-055.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-056.bmp",
+      "png": "toys-056.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-057.bmp",
+      "png": "toys-057.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-058.bmp",
+      "png": "toys-058.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-059.bmp",
+      "png": "toys-059.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-060.bmp",
+      "png": "toys-060.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-061.bmp",
+      "png": "toys-061.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-062.bmp",
+      "png": "toys-062.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-063.bmp",
+      "png": "toys-063.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-064.bmp",
+      "png": "toys-064.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-065.bmp",
+      "png": "toys-065.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-066.bmp",
+      "png": "toys-066.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-067.bmp",
+      "png": "toys-067.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-068.bmp",
+      "png": "toys-068.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-069.bmp",
+      "png": "toys-069.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-070.bmp",
+      "png": "toys-070.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-071.bmp",
+      "png": "toys-071.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    },
+    {
+      "bmp": "toys-072.bmp",
+      "png": "toys-072.png",
+      "size": [
+        64,
+        64
+      ],
+      "pixel_identical_rgb": true
+    }
+  ]
+}

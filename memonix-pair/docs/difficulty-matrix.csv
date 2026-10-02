@@ -1,0 +1,13 @@
+size,difficulty,distinct_symbols,copies_per_symbol,total_cards,mismatch_effect
+2x2,0,2,2,4,close current unmatched cards
+2x2,1,2,2,4,close current unmatched cards
+2x2,2,2,2,4,restore entire original board; all prior matches return
+4x4,0,4,4,16,close current unmatched cards
+4x4,1,8,2,16,close current unmatched cards
+4x4,2,8,2,16,restore entire original board; all prior matches return
+6x6,0,9,4,36,close current unmatched cards
+6x6,1,18,2,36,close current unmatched cards
+6x6,2,18,2,36,restore entire original board; all prior matches return
+8x8,0,16,4,64,close current unmatched cards
+8x8,1,32,2,64,close current unmatched cards
+8x8,2,32,2,64,restore entire original board; all prior matches return

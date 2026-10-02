@@ -1,0 +1,23 @@
+{
+  "mode": "Pair",
+  "assets": [
+    {
+      "historical_vfs_path": "DATA/mainmenu.jpg",
+      "distributed_path": "assets/ui/original/mainmenu.jpg",
+      "distributed_sha256": "b80923760684034f5551d208c19464b9f94350c913d69ee1d40dc1da266f4ee9",
+      "conversion": "byte-identical"
+    },
+    {
+      "historical_vfs_path": "DATA/pr_p.bmp",
+      "distributed_path": "assets/ui/original/pair-preview.png",
+      "distributed_sha256": "4b269c76cb84d542734fe30bb26432cc2ce98cad810f594542a75049eedb1bee",
+      "conversion": "lossless RGB conversion audited against recovered source"
+    },
+    {
+      "historical_vfs_path": "DATA/main_game.bmp",
+      "distributed_path": "assets/ui/original/mode-hover-frame.png",
+      "distributed_sha256": "ed29511591ff08a35fdb4e3412054c42e279795d1dd0332c5063a6550d11fa5b",
+      "conversion": "black colour-key converted to transparency"
+    }
+  ]
+}
