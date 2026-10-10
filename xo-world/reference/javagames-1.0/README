@@ -1,0 +1,41 @@
+JavaGames
+
+This is a collection of simple games written in Java programming language. The
+games are compiled into Java applets and are meant to be player on-line in web
+browser. Games are free and released under GPL license - see file COPYING for
+details.
+
+Currently the collection contains four games:
+
+1. XO World
+
+Game similar to tic-tac-toe. You play against computer on 10x10 board. Both you
+and opponent place signs (yours is X, and computer's is O) on the board - one
+at a time. The goal is to make a line of 5 signs before your opponent. Lines
+can be horizontal, vertical or diagonal.
+
+
+2. 100 Mack
+
+Computer makes random combination of 4 images out of set of six and you need to
+guess that combination. Set the desired combination and computer will compare
+it with combination that you need to guess and show you two types of marks:
+either a hit, or correct image, but at wrong position.
+
+
+3. Memory
+
+In this simple memory game, there are 36 plates with 18 diferrent pictures on
+them. You can flip 2 plates at a time, and need to find two that match. When
+you match the plates, they vanish from the screen. The goal of the game is to
+clear all fields, making the least possible number of flips. There is also a
+two-player mode, where you need to match more pairs than your opponent.
+
+
+4. Tetris
+
+This is plain old tetris game. Various shapes fall from the top and you need to
+move and rotate them to fit them at the bottom as best as you can. When you
+fill up a horizontal line, it gets removed from the heap. The game advances to
+next level when you remove enough lines.
+

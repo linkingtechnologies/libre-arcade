@@ -1,0 +1,4 @@
+# The preserved upstream files are CRLF text kept byte for byte: no line-ending
+# normalization, so they still hash to the values in
+# reference/javagames-1.0/CHECKSUMS.txt on every platform.
+reference/javagames-1.0/* -text

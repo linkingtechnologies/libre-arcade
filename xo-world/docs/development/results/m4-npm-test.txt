@@ -1,0 +1,30 @@
+
+> xoworld-m4-browser@0.4.0 test
+> node tools/build-browser.js && node qa/oracle.test.js && node qa/model.test.js && node qa/browser-smoke.test.js
+
+Built web/xoworld-bundle.js from M3 sources
+O-01 opening upper          p= 1 got= 35 exp= 35 depth=-1 PASS
+O-02 opening lower          p= 1 got= 63 exp= 63 depth=-1 PASS
+O-03 cpu immediate horiz    p= 6 got= 41 exp= 41 depth=-1 PASS
+O-04 block human horiz      p= 6 got= 41 exp= 41 depth=-1 PASS
+O-05 cpu immediate vert     p= 6 got=  4 exp=  4 depth=-1 PASS
+O-06 block human diag       p= 6 got= 11 exp= 11 depth=-1 PASS
+O-07 X_X bridge             p= 2 got= 33 exp= 33 depth=-1 PASS
+O-08 cross block            p= 4 got= 33 exp= 33 depth=0 PASS
+O-09 human open4            p= 8 got= 41 exp= 41 depth=-1 PASS
+O-10 cpu open4              p= 8 got= 24 exp= 24 depth=-1 PASS
+O-11 cpu make o4c           p= 7 got= 73 exp= 73 depth=0 PASS
+O-12 human box              p= 6 got= 44 exp= 44 depth=0 PASS
+O-13 cpu c4+o3              p= 9 got=  4 exp=  4 depth=-1 PASS
+O-14 human c4+o3            p=10 got= 24 exp= 24 depth=-1 PASS
+O-15 close human c4         p= 6 got= 27 exp= 27 depth=1 PASS
+O-16 human double-o3        p=10 got= 55 exp= 55 depth=0 PASS
+O-17 cpu double-o3          p= 8 got= 25 exp= 25 depth=0 PASS
+O-18 human serie            p=10 got= 45 exp= 45 depth=3 PASS
+O-19 human double-c4        p=10 got= 57 exp= 57 depth=-1 PASS
+O-20 cpu serie              p= 8 got= 44 exp= 44 depth=4 PASS
+O-21 cpu double-c4          p=10 got= 86 exp= 86 depth=-1 PASS
+O-22 serie depth cap        p=11 got= 65 exp= 65 depth=7 PASS
+TOTAL pass=22 fail=0
+MODEL FLOW PASS
+BROWSER BUNDLE SMOKE PASS

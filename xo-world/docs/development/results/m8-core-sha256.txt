@@ -1,0 +1,2 @@
+43f4f0a3add1a4584ba632ca45e1f66a3e124ab6acc1049947ede8a66b61226a  src/xoworld-engine.js
+27992dcdc410b59bb844e3138c9d6cd2978ca5eeb4806ee582503558b627fa40  src/game-model.js

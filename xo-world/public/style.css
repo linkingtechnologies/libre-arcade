@@ -1,0 +1,44 @@
+:root{
+  color-scheme:dark;
+  --bg:#171411;
+  --panel:#28221c;
+  --text:#f6f0e6;
+  --muted:#c8bcae;
+  --accent:#ead5a8;
+  --line:#55493d;
+}
+*{box-sizing:border-box}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+html,body{margin:0;width:100%;height:100%;background:radial-gradient(circle at top,#2d261f 0,#171411 58%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+body{min-height:100dvh;display:grid;place-items:center;padding:max(6px,env(safe-area-inset-top)) max(6px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left));overflow:hidden}
+.shell{width:min(96vw,660px);height:min(98dvh,720px);min-height:0;display:flex;flex-direction:column;gap:8px}
+.game-header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:stretch;gap:7px;min-height:42px}
+.header-actions{display:flex;gap:5px}
+button{border:1px solid #9f876a;background:linear-gradient(#80694f,#5d4a37);color:#fff8eb;border-radius:7px;padding:.62em .85em;font-weight:800;cursor:pointer;box-shadow:0 2px 0 #241d17;white-space:nowrap}
+button:hover{filter:brightness(1.08)}
+button:active{transform:translateY(1px);box-shadow:0 1px 0 #241d17}
+button.secondary{background:#342c24;color:var(--accent);min-width:44px}
+button.icon-button{width:44px;padding:.55em .35em;font-size:1rem}
+.status{min-width:0;display:grid;place-items:center;text-align:center;padding:4px 8px;border:1px solid #745e43;border-radius:7px;background:linear-gradient(#fff9e9,#e9d8b9);color:#1e1712;font-family:Georgia,serif;font-size:clamp(.92rem,3vw,1.28rem);font-weight:900;line-height:1.05;box-shadow:inset 0 0 0 1px #fff8,0 2px 0 #241d17;overflow:hidden}
+.status.result{font-size:clamp(1.05rem,3.7vw,1.55rem);letter-spacing:.02em}
+.game-card{min-height:0;flex:1;display:grid;place-items:center;background:linear-gradient(180deg,var(--panel),#211c17);border:1px solid var(--line);border-radius:10px;padding:7px;box-shadow:0 10px 32px #0007}
+canvas{display:block;touch-action:manipulation;max-width:100%;max-height:100%;aspect-ratio:1/1;border-radius:3px;border:1px solid #201b16;background:#6d604e;box-shadow:inset 0 0 0 1px #a08c70,0 3px 12px #0008;cursor:pointer;outline:none}
+canvas:focus-visible{box-shadow:inset 0 0 0 1px #a08c70,0 0 0 3px #e6d3ad,0 3px 12px #0008}
+canvas.game-over{cursor:default}
+.info-dialog{width:min(92vw,560px);max-height:min(88dvh,650px);overflow:auto;border:1px solid #705d49;border-radius:12px;background:#211c17;color:var(--text);padding:0;box-shadow:0 18px 70px #000b}
+.info-dialog::backdrop{background:#0009;backdrop-filter:blur(2px)}
+.dialog-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:#2b241e;border-bottom:1px solid #4a3e33}
+.dialog-head h1{font-family:Georgia,serif;font-size:1.35rem;margin:0;color:#f5e3bd}
+.info-dialog section{padding:12px 16px;border-bottom:1px solid #40362d}
+.info-dialog section:last-child{border-bottom:0}
+.info-dialog h2{margin:0 0 7px;font-size:1rem;color:#f0d9aa}
+.info-dialog p{margin:0 0 8px;line-height:1.45}
+.info-dialog .muted{color:var(--muted);font-size:.9rem}
+.info-dialog a{color:#f2d08f;text-underline-offset:2px}
+.info-dialog a:focus-visible{outline:2px solid #f2d08f;outline-offset:3px;border-radius:2px}
+@media(max-height:620px){.shell{height:99dvh;gap:5px}.game-header{min-height:34px}button{padding:.45em .65em}.icon-button{width:38px}.game-card{padding:4px}.status{font-size:.88rem}.status.result{font-size:1rem}}
+@media(max-width:430px){.shell{width:100%}.game-header{gap:4px}.header-actions{gap:3px}button{padding:.5em .6em;font-size:.82rem}button.icon-button{width:34px;padding:.45em .2em}.status{padding:3px 4px;font-size:.8rem}.status.result{font-size:.9rem}.game-card{padding:4px}}
+@media(max-width:340px){.game-header{grid-template-columns:auto minmax(0,1fr)}.header-actions{grid-column:1/-1;justify-content:flex-end}.shell{height:99dvh}.status{font-size:.76rem}}
+
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media (hover:none){button:hover{filter:none}}

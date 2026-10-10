@@ -1,0 +1,3 @@
+<!doctype html><meta charset="utf-8"><iframe id="f" src="../public/index.html" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe><pre id="qa"></pre><script>
+f.onload=()=>setTimeout(()=>{const w=f.contentWindow,d=f.contentDocument,c=d.getElementById('board').getBoundingClientRect();qa.textContent=JSON.stringify({inner:[w.innerWidth,w.innerHeight],scroll:[d.documentElement.scrollWidth,d.documentElement.scrollHeight],body:[d.body.scrollWidth,d.body.scrollHeight],canvas:[Math.round(c.width),Math.round(c.height)],status:d.getElementById('status').textContent});},150);
+</script>

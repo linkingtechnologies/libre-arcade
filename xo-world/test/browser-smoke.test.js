@@ -1,0 +1,13 @@
+'use strict';
+const fs=require('fs');
+const path=require('path');
+const vm=require('vm');
+const root=path.resolve(__dirname,'..');
+const bundle=fs.readFileSync(path.join(root,'public','xoworld-bundle.js'),'utf8');
+const sandbox={window:{},Math,console};
+vm.createContext(sandbox);vm.runInContext(bundle,sandbox);
+if(typeof sandbox.window.XOWorldGame!=='function')throw new Error('Browser bundle did not expose XOWorldGame');
+const g=new sandbox.window.XOWorldGame({randomFn:()=>0.44});
+const r=g.playHuman(44);
+if(!r.ok||r.board[44]!==1||r.cpuMove!==55)throw new Error(`Browser smoke mismatch: ${JSON.stringify({ok:r.ok,cpu:r.cpuMove,x:r.board[44]})}`);
+console.log('BROWSER BUNDLE SMOKE PASS');

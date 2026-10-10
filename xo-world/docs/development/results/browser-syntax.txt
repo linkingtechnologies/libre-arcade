@@ -1,0 +1,1 @@
+Browser JS syntax checks: PASS

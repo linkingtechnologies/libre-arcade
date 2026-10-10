@@ -1,0 +1,1 @@
+Real headless Chromium screenshot execution was attempted in M7, but Chromium could not initialize the container DBus environment. No screenshot evidence is claimed. Responsive behavior is covered by qa/viewport-contract.test.js plus the existing UI contract.
