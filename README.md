@@ -62,6 +62,7 @@ safe embedding, but otherwise left exactly as its authors built it.
 | [`memonix-mosaic/`](memonix-mosaic/) | [Memonix: Mosaic](https://linkingtechnologies.github.io/libre-arcade/memonix-mosaic/public/index.html) | *Ported.* Memonix 1.6 / Mosaic mode (Michael Kurinnoy, Viewizard Games, 2006, GPL-3.0-only) — a memorize-then-rebuild tile game, one of four suite modes on a shared title screen, reimplemented in Canvas 2D. All 50 original tile bitmaps and the title/menu artwork were recovered from the proprietary `.vfs` archive format via a from-scratch VFS/RLE decoder written against the preserved source, then independently pixel-verified against the distributed PNGs. The recovered license notice names GPL version 3 with no "or later" grant, so the port stays GPL-3.0-only rather than this collection's usual GPL-3.0-or-later. |
 | [`memonix-builder/`](memonix-builder/) | [Memonix: Builder](https://linkingtechnologies.github.io/libre-arcade/memonix-builder/public/index.html) | *Ported.* Memonix 1.6 / Builder mode (Michael Kurinnoy, Viewizard Games, 2006, GPL-3.0-only) — a memorize-then-rebuild house-construction game, sharing Mosaic's title screen, recovered archive and GPL-3.0-only license. All 19 cases of the original structural-code generation algorithm and all 704 cells of its 11 house templates were checked line-by-line and diffed programmatically against the preserved C++ source, including a correctly-preserved source quirk (one piece type's difficulty-1 cache pool is narrower than its siblings') and the historical left/right drainpipe dependency between pieces. All 88 recovered component bitmaps were independently pixel-verified. |
 | [`memonix-pair/`](memonix-pair/) | [Memonix: Pair](https://linkingtechnologies.github.io/libre-arcade/memonix-pair/public/index.html) | *Ported.* Memonix 1.6 / Pair mode (Michael Kurinnoy, Viewizard Games, 2006, GPL-3.0-only) — a classic card-matching memory game, the third of this collection's Memonix restorations sharing the same title screen, archive and GPL-3.0-only license. Its 71-face deck (with the historical `toys-015` naming gap preserved rather than filled in), reject-and-retry placement algorithm (not a shuffle), and the Hard-difficulty mechanic that restores the entire board, including already-completed pairs, after any single mismatch, were all confirmed by reading `game_start.cpp`/`game.cpp` directly rather than trusting the delivered documentation. All 72 recovered card bitmaps were independently pixel-verified, reusing the archive extraction already done for Builder. |
+| [`grugnettos-four/`](grugnettos-four/) | [Grugnetto's Four](https://linkingtechnologies.github.io/libre-arcade/grugnettos-four/public/index.html) | *Ported.* 23 historical Four-in-a-Row intelligences from 16 sources (1988-2020: Velena, KFourInLine, GCompris, Pascal Pons's solver, Markus Thill's n-tuple network, an AlphaZero clone and more) behind six measured difficulty levels with a hidden challenger, plus an Advanced Laboratory and Arena. GPL-3.0-only overall, with the Pascal Pons module under AGPL-3.0-or-later (source offered through the Credits dialog). Verification level per player in `grugnettos-four/specs/port-map.md`. |
 
 Each project's own `README.md` covers how to run it, test it, and where its
 sources came from; `CREDITS.md` inside each restored game's own folder has
@@ -123,6 +124,22 @@ the full authorship and third-party library/font breakdown.
 | Virtual Toybox Puzzle Collection / Sliding Tile Puzzle (2010) | Jonathan Hulka | GPL-3.0-or-later | `sliding-tile-puzzle/` — the "or later" grant confirmed directly in `SliderHandler.java`'s header; the ten bundled photographs are separately CC BY-SA 3.0 US (JS Nature Photos), verified byte-identical to the historical archive; the JS port itself is GPL-3.0-or-later |
 | Virtual Toybox Puzzle Collection / Spinning Tile Puzzle (2010) | Jonathan Hulka | GPL-3.0-or-later | `spinning-tile-puzzle/` — the "or later" grant confirmed directly in `SpinnerHandler.java`'s header; the ten bundled photographs are separately CC BY-SA 3.0 US (JS Nature Photos), and the two rotation-cursor icons are GPL-3.0-or-later, both verified byte-identical to the historical archive; the JS port itself is GPL-3.0-or-later |
 | Memonix 1.6 (2003–2006) | Michael Kurinnoy, Viewizard Games | GPL-3.0-only | `memonix-mosaic/`, `memonix-builder/` and `memonix-pair/` — the license notice and every per-file source header name GPL version 3 with **no** "or later" clause, checked directly rather than assumed in each; the JS ports are derivatives of that source and are therefore also GPL-3.0-only, this collection's first such exception; the 50 Mosaic tile bitmaps, 88 Builder component bitmaps and 72 Pair card bitmaps, plus the shared title/menu artwork, were all recovered from the same proprietary `.vfs` archive and independently pixel-verified in each game |
+| Childsplay 3.3 `fourrow` (2011) | Stas Zytkiewicz | GPL version 3 ("or later" not checked) | `grugnettos-four/` — source record only, the module is not redistributed |
+| Four-In-A-Row (2011) | Al Sweigart | Simplified BSD | `grugnettos-four/` — attribution record only; it is Childsplay's declared origin |
+| [four-in-a-row-js-minimax](https://github.com/marcomelilli/four-in-a-row-js-minimax) (2017) | Marco Melilli | MIT | `grugnettos-four/` |
+| [stratzilla/connect-four](https://github.com/stratzilla/connect-four) | Stratzilla | GPL-3.0-only | `grugnettos-four/` — the repository carries the GPLv3 text and no "or later" grant, which is why the whole game stays GPL-3.0-only |
+| [PetterS/monte-carlo-tree-search](https://github.com/PetterS/monte-carlo-tree-search) (2015) | Petter Strandmark | MIT | `grugnettos-four/` |
+| [PascalPons/connect4](https://github.com/PascalPons/connect4) (2017-2019) | Pascal Pons | AGPL-3.0-or-later | `grugnettos-four/` — headers read directly; the browser port stays AGPL, node-limited and marked not exact |
+| [Markus Thill Connect-Four](https://github.com/MarkusThill/Connect-Four) (2014) | Markus Thill and contributors | MIT | `grugnettos-four/` — the bundled n-tuple weight export, an alpha-beta adapter and an MCTS adapter; the optional opening databases are not shipped |
+| [mrbell/connectfour](https://github.com/mrbell/connectfour) (2012) | Michael Bell | GPL-3.0-or-later | `grugnettos-four/` — upstream ships no trained database, so a 10,000-game retraining snapshot is generated and labelled as such |
+| [jacobjdowning/genetic-connect-four](https://github.com/jacobjdowning/genetic-connect-four) (2019) | Jacob Downing | MIT | `grugnettos-four/` — upstream ships no trained population, so a 100-generation snapshot is generated and labelled as such |
+| [Zeta36/connect4-alpha-zero](https://github.com/Zeta36/connect4-alpha-zero) (2017) | Samuel Gravan (portions credited upstream to Ken Morishita) | MIT | `grugnettos-four/` — the original Keras weights, repacked losslessly |
+| [AmanVirmani/Connect4-AI](https://github.com/AmanVirmani/Connect4-AI) (2020) | Aman Virmani | BSD-3-Clause | `grugnettos-four/` — upstream references but does not ship its Q-table, so a 10,000-episode table is generated and labelled as such |
+| GCompris Connect4 / 4st Attack 2 (2005, 2008) | Laurent Lacheny; AI from Jeroen Vloothuis | GPL-3.0-or-later | `grugnettos-four/` — "or later" read in the preserved Python headers |
+| *A Knowledge-based Approach of Connect-Four* (1988) | Victor Allis | thesis not redistributed | `grugnettos-four/` — clean-room player written from the published method; no VICTOR code |
+| [Connect-4 dataset](https://doi.org/10.24432/C59P43) (1995) | John Tromp (UCI Machine Learning Repository) | CC BY 4.0 | `grugnettos-four/` — data kept unmodified; the derived count table keeps the attribution |
+| GNOME Gnect / Velena (1996-97) | Giuliano Bertoletti and GNOME Gnect contributors | GNU GPL, no version number | `grugnettos-four/` — the retained headers name no version and no "or later", so the five adapters are GPL-3.0-only by the recipient's choice (GPLv2 section 9); the standalone Velena archive (fee-prohibiting licence) is not redistributed |
+| KDE KFourInLine 4.0.0 (2008) | Martin Heni and KDE contributors | LGPL-2.0-or-later (AI files), GPL-2.0-or-later (application) | `grugnettos-four/` — "or later" read in `aiboard.cpp`; no KDE media redistributed |
 
 `grugnetto-go/` is built for this collection, not a restoration; the
 third-party libraries and CC0/CC-licensed art it uses are itemized in its own
@@ -153,13 +170,15 @@ This collection's own code and documentation — everything at this root level
 `package.json`, `scripts/`) plus every game's own new/ported code — is
 licensed **GNU GPL v3** (see [`LICENSE`](LICENSE); a few individual game
 folders declare `GPL-3.0-or-later` or `GPL-3.0-only` specifically — check
-that folder's own `LICENSE`/`package.json`). Two folders are exceptions.
+that folder's own `LICENSE`/`package.json`). Three folders are exceptions.
 `comet-pinball/`: its port code, artwork and synthesized effects are
 **Apache-2.0**, the license of the upstream project it reimplements, and it
 ships its own `LICENSE` and `NOTICE`. `100-square-challenge/`: its browser
 adaptation is **AGPL-3.0-or-later**, the license of the original it adapts,
-and it ships the full AGPL text and a source note with the page. Apache-2.0
-and AGPL-3.0 code can be distributed inside a GPL v3 collection.
+and it ships the full AGPL text and a source note with the page. `grugnettos-four/`: the game is **GPL-3.0-only**, with one module (the
+Pascal Pons solver port) that remains **AGPL-3.0-or-later**; its Credits dialog
+links to the source for that reason. Apache-2.0 and AGPL-3.0 code can be
+distributed inside a GPL v3 collection.
 
 Vendored third-party files keep their original license: MIT for Hextris,
 HTML5 Breakout, HTML5 Snake, HTML5 Space Invaders, and react-simple-snake;

@@ -1,0 +1,14 @@
+Upstream: https://github.com/jacobjdowning/genetic-connect-four
+Commit: 0b0f78f20c807f25fcfa027a02e407bd0b96b64c
+Revision date: 2019-04-15T16:48:26-04:00
+
+SHA-256:
+64c4e54df59cc6516ddffd512abb053e7cee2e064d2af53ce5ada164be4a67fa  original/LICENSE
+9da468b737303a7a08ecfdfabce5ebdb98d17ba281c477a9c310c1f9bab894d1  original/README.md
+a4f159e695dab66f8bba58248a1bddaef40ba489cb64138fbb450e4212c31ffc  original/train.py
+162a6810c5d282291ca968d989ab4e96b95bd7595f5fd50740662c9cbea74435  original/modules/simple_gen_neural_net.py
+2b68f14c062af837e652bd30edbce5cd3a9adab0dee8674bdd496a9c22062954  original/modules/league.py
+54e5924147c89d8116e7d8f8af5fef154e39dc60a14c6b1c345f6c4f72e37002  original/modules/game.py
+
+Generated ConnectLab snapshot:
+2c2b8e334ab5ee3de32578c8b5ce09973cf5450e09844dfe77605ec2dddb7a01  ../../src/players/jacob-downing-genetic-weights.js

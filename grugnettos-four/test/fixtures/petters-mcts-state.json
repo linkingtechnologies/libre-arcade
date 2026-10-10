@@ -1,0 +1,11 @@
+{
+  "oracle": "petters-mcts-state",
+  "inputSha256": "fb7bfa7b61a4d6ab7894f5a109019fdfb4f7cac07a13b35031956ae3c8862673",
+  "recordedWith": {
+    "platform": "linux",
+    "arch": "x64",
+    "node": "v18.20.4",
+    "tool": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0"
+  },
+  "stdout": "player 1 winner . moves 0 1 2 3 4 5 6\nplayer 2 winner X moves result1 0 result2 1\nplayer 2 winner X moves result1 0 result2 1\n"
+}

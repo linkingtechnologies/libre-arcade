@@ -1,0 +1,4 @@
+09adaa111b827df53fc370a75a3cba7f4dceba3b
+2020-08-29T14:50:18+02:00
+Andre Klapper <a9016009@gmx.de>
+Fix invalid characters in Croatian UI translation

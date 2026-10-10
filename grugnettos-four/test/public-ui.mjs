@@ -1,0 +1,28 @@
+import assert from 'node:assert/strict';
+import {readFileSync,readdirSync} from 'node:fs';
+
+const html=readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
+const app=readFileSync(new URL('../public/src/ui/app.js',import.meta.url),'utf8');
+const css=readFileSync(new URL('../public/src/ui/app.css',import.meta.url),'utf8');
+const viewportCss=readFileSync(new URL('../public/src/ui/viewport.css',import.meta.url),'utf8');
+const changelog=readFileSync(new URL('../CHANGELOG.md',import.meta.url),'utf8');
+for(const id of['menuPanel','quickPlay','technicalBtn','technicalMenu','laboratoryBtn','arenaBtn','guideBtn','creditsBtn','langBtn'])assert(html.includes(`id="${id}"`));
+for(const id of['difficultyInfoBtn','difficultyInfo','difficultyBody','levelBadge'])assert(html.includes(`id="${id}"`));
+for(const id of['gameOver','resultIcon','resultTitle','resultMeta','rematch','changeLevel'])assert(html.includes(`id="${id}"`));
+for(const key of['welcomeText','levelRule','creditText','levelAlgorithms','technicalArea','technicalIntro','poweredBy'])assert(app.includes(`${key}:`));
+assert(html.includes("<title>Grugnetto's Four</title>"));assert(html.includes('github.com/linkingtechnologies/libre-arcade'));
+assert(!html.includes('ConnectLab'));assert(app.includes('publicPlayerName'));
+assert(app.includes("mode==='play'&&newOpponent"));assert(app.includes('selectStrengthMember'));
+assert.match(changelog,/^# Changelog\n\n## 1\.0\.0/m);assert.equal((changelog.match(/^## /gm)??[]).length,1);assert(!/M(?:ilestone)?\s?\d+/i.test(changelog));
+assert(css.includes('.hidden{display:none!important}'));assert(css.includes('@keyframes chip-drop'));assert(css.includes('prefers-reduced-motion'));
+assert(app.includes("lastDrop=playMove"));assert(app.includes("mode==='play'?'':publicPlayerName"));
+assert(app.includes('document.body.dataset.screen=next'));
+assert(css.includes('body[data-screen="play"]{height:100dvh'));assert(css.includes('overflow:hidden'));assert(css.includes('calc((100dvh - 150px)*7/6)'));
+assert(html.includes('src/ui/viewport.css'));assert(viewportCss.includes('body[data-screen="menu"]'));assert(viewportCss.includes('height: 100dvh'));assert(viewportCss.includes('max-height: 720px'));assert(viewportCss.includes('max-height: 540px'));
+assert.match(viewportCss,/\.status\s*\{[^}]*min-height:\s*2\.5em/);assert.match(viewportCss,/\.status small\s*\{[^}]*min-height:\s*1\.25em/);
+assert(!/Connect Four|Forza 4/i.test(html));assert(html.includes('Four-in-a-row board'));assert(!/hasbro|independenceNotice/i.test(html+app));assert(readFileSync(new URL('../README.md',import.meta.url),'utf8').includes('not affiliated with or endorsed by Hasbro. CONNECT 4 is a trademark of Hasbro.'));
+assert(html.includes('github.com/linkingtechnologies/libre-arcade'));assert(!html.match(/id="laboratoryBtn"[^>]*>[\s\S]*id="guideBtn"/));assert(app.includes("$('technicalBtn').onclick"));
+for(const color of['#5b45aa','#e9488b','#38c6bd'])assert(viewportCss.includes(color));
+assert(app.includes('findWinningLine'));assert(app.includes('queueGameOver'));assert(app.includes("$('rematch').onclick"));assert(css.includes('.cell.winner'));assert(css.includes('.result-dialog'));
+assert.equal(readdirSync(new URL('../docs/development/',import.meta.url)).filter(name=>/^M\d+_REPORT\.md$/.test(name)).length,0);
+console.log('Public 1.0 UI: clean menu, Advanced area, stable geometry and result overlay passed.');

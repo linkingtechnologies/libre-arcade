@@ -1,0 +1,11 @@
+{
+  "oracle": "stratzilla",
+  "inputSha256": "16d7150edb5f706fb4b5fd9113837bb9bbd6f66bcefb0981ab9a5782c3ab159a",
+  "recordedWith": {
+    "platform": "linux",
+    "arch": "x64",
+    "node": "v18.20.4",
+    "tool": "g++ (Debian 12.2.0-14+deb12u1) 12.2.0"
+  },
+  "stdout": "0 score 0 win1 0 win2 0\n0 depth 1 value 0 column 0\n0 depth 2 value 0 column 0\n0 depth 3 value 500 column 0\n0 depth 4 value -3 column 2\n0 depth 5 value 1000 column 2\n1 score -4501 win1 0 win2 0\n1 depth 1 value 5000 column 3\n1 depth 2 value 0 column 3\n1 depth 3 value 1500 column 3\n1 depth 4 value -2 column 3\n1 depth 5 value 2999 column 3\n2 score 1500 win1 0 win2 0\n2 depth 1 value 8000 column 3\n2 depth 2 value 5499 column 4\n2 depth 3 value 11500 column 3\n2 depth 4 value 9498 column 3\n2 depth 5 value 14997 column 3\n3 score -4502 win1 0 win2 0\n3 depth 1 value 998 column 4\n3 depth 2 value -5002 column 5\n3 depth 3 value -3 column 4\n3 depth 4 value -5504 column 2\n3 depth 5 value 997 column 2\n"
+}

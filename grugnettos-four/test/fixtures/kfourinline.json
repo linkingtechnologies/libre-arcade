@@ -1,0 +1,11 @@
+{
+  "oracle": "kfourinline",
+  "inputSha256": "cc80f302c110763ca15923c3c1f729133849ea2cd9cee1800446ea510c60f95f",
+  "recordedWith": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.20.0",
+    "tool": "gcc (MinGW.org GCC-6.3.0-1) 6.3.0"
+  },
+  "stdout": "0 0\r\n33450 -33450\r\n340045 -340045\r\n146250 -146250\r\n340045 -340045\r\n-205075 205075\r\n0 0\r\n223295 -223295\r\n"
+}

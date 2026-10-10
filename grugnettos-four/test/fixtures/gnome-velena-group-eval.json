@@ -1,0 +1,11 @@
+{
+  "oracle": "gnome-velena-group-eval",
+  "inputSha256": "cc80f302c110763ca15923c3c1f729133849ea2cd9cee1800446ea510c60f95f",
+  "recordedWith": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.20.0",
+    "tool": "gcc (MinGW.org GCC-6.3.0-1) 6.3.0"
+  },
+  "stdout": "0\r\n0\r\n0\r\n90\r\n0\r\n-100\r\n0\r\n100\r\n"
+}

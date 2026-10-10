@@ -1,0 +1,14 @@
+Upstream: https://github.com/Zeta36/connect4-alpha-zero
+Commit: 511150874845335c8687a1a4a8e6bcbc43207fe3
+Revision date: 2018-04-22T17:20:40+02:00
+
+SHA-256:
+7e18e92a7e44c22dbab81335f4206acadb12c7747e053e9605e879805f511164  original/LICENSE.txt
+29e3a86bf901f3351108473bb8b5d0ad0ebd7a055fd5a6e112e8ffea3ad5dd24  original/readme.md
+e580334e8c399189fdd19872b3f5abcf04bb5c12c03e1d4444701c27a48cf29c  original/data/model/model_best_config.json
+1e11d471bbb65d5e6189317dadb0a8c8750c7803b7709391d3f35496c40a9f27  original/data/model/model_best_weight.h5
+df1b6c40094f35b03de47009986130f8e419cb914d8b8a87baa6ae2231c3723a  original/src/connect4_zero/agent/model_connect4.py
+fc8d0c54cd736b11c846f77c9be1656a10dee969feaa9bdb9dd91272c516a0e4  original/src/connect4_zero/agent/player_connect4.py
+
+Lossless browser payload:
+a4d54979aa320a6167e61f309618ae2c0e2348863ad5d29841b2ebf05fbb1d28  ../../src/players/zeta36-alpha-zero-weights.js

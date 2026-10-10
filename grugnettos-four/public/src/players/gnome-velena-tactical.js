@@ -1,0 +1,25 @@
+/* GPL-3.0-only port of GNOME Gnect's Velena tactical fallback. */
+/* Licence basis: the retained Velena headers grant the GNU GPL with no version number; version 3 is chosen under GPLv2 section 9. */
+const WIDTH=7,HEIGHT=6,GOOD=16384,BAD=-16384,NO_COMMENT=0,RAND_VARIANCE=35;
+const groups=[];
+for(let x=0;x<WIDTH;x++)for(let y=0;y<HEIGHT;y++)for(const [dx,dy] of [[1,0],[0,1],[1,1],[1,-1]]){
+  const cells=Array.from({length:4},(_,i)=>[x+dx*i,y+dy*i]);
+  if(cells.every(([cx,cy])=>cx>=0&&cx<WIDTH&&cy>=0&&cy<HEIGHT))groups.push(cells);
+}
+const legal=s=>Array.from({length:WIDTH},(_,x)=>x).filter(x=>s.stack[x]<HEIGHT);
+function makeState(board,player){const cells=Array.from({length:WIDTH},()=>Array(HEIGHT).fill(0)),stack=Array(WIDTH).fill(0);for(let x=0;x<WIDTH;x++)for(let top=0;top<HEIGHT;top++){const v=board[x][top];if(v){cells[x][HEIGHT-1-top]=v;stack[x]++;}}return {cells,stack,turn:player,nodes:0};}
+function drop(s,x){const y=s.stack[x]++;s.cells[x][y]=s.turn;s.turn=3-s.turn;return y;}
+function undo(s,x){s.turn=3-s.turn;const y=--s.stack[x];s.cells[x][y]=0;}
+function connected(s,x,player=s.turn){const y=s.stack[x];if(y>=HEIGHT)return 0;s.cells[x][y]=player;let best=1;for(const [dx,dy] of [[1,0],[0,1],[1,1],[1,-1]]){let n=1;for(const sign of [-1,1])for(let i=1;;i++){const xx=x+dx*i*sign,yy=y+dy*i*sign;if(s.cells[xx]?.[yy]!==player)break;n++;}best=Math.max(best,n);}s.cells[x][y]=0;return best;}
+function immediate(s,player){const old=s.turn;s.turn=player;let result=-1;for(let x=0;x<WIDTH;x++)if(s.stack[x]<HEIGHT&&connected(s,x,player)>=4)result=x;s.turn=old;return result;}
+function oddThreat(s,index,side){let empty=0,fill=0,last=null;for(const [x,y] of groups[index]){const v=s.cells[x][y];if(v===0){empty++;last=[x,y];}else if(v===side)fill++;}if(empty===1&&fill===3&&(last[1]&1)===0&&s.stack[last[0]]<last[1])return last[0]+8*last[1];return -1;}
+function hasLaterDouble(s,index,pos,side){for(let i=index+1;i<groups.length;i++)if(oddThreat(s,i,side)===pos)return true;return false;}
+function pentas(s,x,y,side){return s.stack[x]<y&&s.stack[x+2]<y&&s.stack[x+4]<y&&s.cells[x+1][y]===side&&s.cells[x+3][y]===side;}
+function checkPentas(s,side){for(let x=0;x<3;x++)for(const y of [2,4])if(pentas(s,x,y,side))return true;return false;}
+export function groupEval(s){const t1=s.turn,t2=3-t1;let score=0;for(let i=0;i<groups.length;i++){let p1=0,p2=0;for(const [x,y] of groups[i]){if(s.cells[x][y]===t1)p1++;else if(s.cells[x][y]===t2)p2++;}if(p1===4)return GOOD;if(p2===4)return BAD;if(p1===3&&p2===0){score+=100;const z=oddThreat(s,i,t1);if(z!==-1)score+=hasLaterDouble(s,i,z,t1)?(t1===1?750:500):(t1===1?200:150);}if(p2===3&&p1===0){score-=100;const z=oddThreat(s,i,t2);if(z!==-1)score-=hasLaterDouble(s,i,z,t2)?(t1===2?750:500):(t1===2?200:150);}if(p1===2&&p2===0)score+=10;if(p2===2&&p1===0)score-=10;}if(checkPentas(s,1))score+=t1===1?800:-800;return score;}
+function explore(s,side,depth){s.nodes++;if(depth===0){const value=groupEval(s);return s.turn===side?value:-value;}const moves=legal(s);if(!moves.length)return NO_COMMENT;if(s.turn!==side){let answer=GOOD-depth;for(const x of moves){if(connected(s,x)>=4)return BAD;drop(s,x);answer=Math.min(answer,explore(s,side,depth-1));undo(s,x);}return answer;}let answer=BAD+depth;for(const x of moves){if(connected(s,x)>=4)answer=GOOD;else{drop(s,x);answer=Math.max(answer,explore(s,side,depth-1));undo(s,x);}}return answer;}
+function randomInt(rng,n){return Math.floor(rng()*n);}
+function choose(position,depth,rng){const s=makeState(position.board,position.player),filled=position.moves?.length??s.stack.reduce((a,b)=>a+b,0);if(filled===0)return {column:3,kind:'opening',nodes:0};if(filled===1){let column=3;if(position.moves?.[0]===1)column=2;else if(position.moves?.[0]===5)column=4;return {column,kind:'opening',nodes:0};}let move=immediate(s,s.turn);if(move>=0)return {column:move,kind:'immediate-win',nodes:0};move=immediate(s,3-s.turn);if(move>=0)return {column:move,kind:'forced-block',nodes:0};const scores=Array(WIDTH).fill(-30000),side=s.turn;for(const x of legal(s)){drop(s,x);scores[x]=explore(s,side,depth-1)+randomInt(rng,RAND_VARIANCE);undo(s,x);}const best=Math.max(...scores);do{move=randomInt(rng,WIDTH);}while(scores[move]!==best);return {column:move,value:best,scores,nodes:s.nodes,kind:'gnect-lookahead'};}
+
+export const gnomeVelenaTacticalPlayer={id:'gnome-gnect-velena-tactical',name:'GNOME Velena Tactical',source:'GNOME Games 2.8.3 Gnect / Giuliano Bertoletti Velena engine',license:'GPL-3.0-only',family:'knowledge-weighted-stochastic-lookahead',settings:{key:'depth',label:'Lookahead',values:[2,3,4],default:4},capabilities:{deterministic:false,supportsSeed:true,supportsDifficulty:true,reportsNodes:true,learnedWeights:false},create(options={}){const depth=Number(options.depth??4);if(![2,3,4].includes(depth))throw new RangeError('Lookahead must be 2, 3 or 4');return{id:`gnome-velena-d${depth}`,reset(){},chooseMove(position,context={}){return choose(position,depth,context.rng??Math.random);}};}};
+export const _test={groups,makeState,connected,oddThreat,checkPentas,explore,choose};

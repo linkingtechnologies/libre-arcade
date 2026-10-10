@@ -1,0 +1,11 @@
+{
+  "oracle": "gnome-velena-rule-engine",
+  "inputSha256": "9b7cd69a9f0dba44d7790de57a407f46c35fcf232e9d1b46d24f0afd11ce32ee",
+  "recordedWith": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.20.0",
+    "tool": "gcc (MinGW.org GCC-6.3.0-1) 6.3.0"
+  },
+  "stdout": "69 21 15 14\r\n69 20 11 14\r\n69 18 6 11\r\n69 15 13 14\r\n69 15 5 12\r\n"
+}

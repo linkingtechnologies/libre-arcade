@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1559c4">
+  <meta name="description" content="Play four-in-a-row against a different historical game intelligence every match.">
+  <title>Grugnetto's Four</title>
+  <link rel="stylesheet" href="src/ui/app.css">
+  <link rel="stylesheet" href="src/ui/m3.css">
+  <link rel="stylesheet" href="src/ui/viewport.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div><p class="eyebrow">LIBRE ARCADE</p><h1><span aria-hidden="true">🐽’s</span> Four</h1></div>
+      <nav><button id="menuBtn" data-i18n="menu">Menu</button><button id="langBtn">IT</button><button id="soundBtn" aria-label="Sound">♪</button></nav>
+    </header>
+
+    <section id="menuPanel" class="menu-panel setup-screen">
+      <div class="setup-card">
+        <div class="setup-mark" aria-hidden="true">🐽’s</div>
+        <h2>Four</h2><p data-i18n="welcomeText">Challenge a different intelligence every game.</p>
+        <div class="setup-form">
+          <div class="setup-label"><label for="strength" data-i18n="strength">Difficulty</label><button id="difficultyInfoBtn" class="info-button" type="button" aria-label="Difficulty information">ⓘ</button></div>
+          <select id="strength"></select>
+          <label for="first" data-i18n="first">First player</label><select id="first"><option value="human" data-i18n="you">You</option><option value="cpu">CPU</option></select>
+          <button id="quickPlay" class="primary play-button"><span aria-hidden="true">▶</span> <span data-i18n="play">Play</span></button>
+        </div>
+        <div class="secondary-menu">
+          <button id="technicalBtn" data-i18n="technicalArea">Advanced</button><button id="guideBtn" data-i18n="guide">How to play</button><button id="creditsBtn" data-i18n="credits">Credits</button>
+        </div>
+      </div>
+      <footer class="app-footer"><span data-i18n="poweredBy">A game by</span> <a href="https://github.com/linkingtechnologies/libre-arcade" target="_blank" rel="noreferrer">Libre Arcade</a></footer>
+    </section>
+
+    <section id="playPanel" class="panel hidden">
+      <div class="game-area">
+        <div class="status"><strong id="status">Your turn</strong><small id="substatus">Choose a column</small></div>
+        <div id="board" class="board" role="grid" aria-label="Four-in-a-row board"></div>
+      </div>
+      <aside>
+        <h2 id="playTitle" data-i18n="play">Play</h2>
+        <div id="levelBadge" class="level-badge"></div>
+        <div id="labControls" class="hidden">
+          <label data-i18n="collection">Collection</label><select id="aiFilter"><option value="all" data-i18n="allPlayers">All players</option><option value="historical" data-i18n="historicalPlayers">Historical / source-based</option><option value="derived" data-i18n="derivedPlayers">Project-derived</option><option value="control" data-i18n="controlPlayers">Control</option></select>
+          <label data-i18n="opponent">Opponent</label><select id="ai"></select>
+          <label data-i18n="profile">Profile</label><select id="level"></select>
+          <label>Seed</label><div class="seed"><input id="seed" inputmode="numeric"><button id="newSeed" aria-label="New seed">↻</button></div>
+        </div>
+        <button id="newGame" class="primary" data-i18n="newGame">New game</button>
+        <p id="aiNote" class="note"></p>
+      </aside>
+    </section>
+
+    <section id="arenaPanel" class="panel hidden">
+      <div class="arena-card">
+        <h2 data-i18n="arena">Arena</h2><p data-i18n="arenaIntro">Compare the intelligences in reproducible matches.</p>
+        <details class="strength-ranking"><summary data-i18n="calibratedRanking">Calibrated ranking · 3 seeds / 1,518 games</summary><div class="table-scroll"><table><thead><tr><th>#</th><th data-i18n="player">Player</th><th>Rating</th><th>95%</th><th>W</th><th>D</th><th>L</th></tr></thead><tbody id="strengthBody"></tbody></table></div></details>
+        <div class="versus"><select id="arenaA"></select><b>VS</b><select id="arenaB"></select><b>VS</b><select id="arenaC"></select><b>VS</b><select id="arenaD"></select><b>VS</b><select id="arenaE"></select><b>VS</b><select id="arenaF"></select><b>VS</b><select id="arenaG"></select><b>VS</b><select id="arenaH"></select><b>VS</b><select id="arenaI"></select><b>VS</b><select id="arenaJ"></select><b>VS</b><select id="arenaK"></select><b>VS</b><select id="arenaL"></select><b>VS</b><select id="arenaM"></select><b>VS</b><select id="arenaN"></select><b>VS</b><select id="arenaO"></select><b>VS</b><select id="arenaP"></select><b>VS</b><select id="arenaQ"></select><b>VS</b><select id="arenaR"></select><b>VS</b><select id="arenaS"></select><b>VS</b><select id="arenaT"></select><b>VS</b><select id="arenaU"></select><b>VS</b><select id="arenaV"></select><b>VS</b><select id="arenaW"></select></div>
+        <button id="runArena" class="primary" data-i18n="run">Run tournament</button>
+        <div id="arenaOutput" class="arena-output hidden">
+          <div class="arena-summary"><strong id="arenaMeta"></strong><label><span data-i18n="show">Show</span> <select id="standingFilter"><option value="all" data-i18n="allPlayers">All players</option><option value="historical" data-i18n="historicalPlayers">Historical / source-based</option><option value="derived" data-i18n="derivedPlayers">Project-derived</option><option value="control" data-i18n="controlPlayers">Control</option></select></label></div>
+          <div class="table-scroll"><table><thead><tr><th>#</th><th data-i18n="player">Player</th><th data-i18n="type">Type</th><th>P</th><th>W</th><th>D</th><th>L</th><th>Pts</th></tr></thead><tbody id="standingBody"></tbody></table></div>
+          <details><summary data-i18n="replayData">Replay data (JSON)</summary><pre id="arenaResult">—</pre></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="help"><button class="close-dialog">×</button><h2 data-i18n="guide">How to play</h2><p data-i18n="rules">Drop a disc into a column. Align four horizontally, vertically or diagonally before your opponent.</p><p data-i18n="levelRule">Each level draws one of the similarly skilled intelligences. The exact opponent remains hidden during normal play.</p></dialog>
+  <dialog id="difficultyInfo"><button class="close-dialog">×</button><h2 data-i18n="levelAlgorithms">About difficulty levels</h2><p data-i18n="levelAlgorithmsText">Each level includes several opponents of similar skill. A different one is chosen for every game.</p><div id="difficultyBody" class="difficulty-body"></div></dialog>
+  <dialog id="technicalMenu"><button class="close-dialog">×</button><h2 data-i18n="technicalArea">Advanced</h2><p data-i18n="technicalIntro">Explore individual opponents or compare them in automatic tournaments.</p><div class="technical-actions"><button id="laboratoryBtn" data-i18n="laboratory">Laboratory</button><button id="arenaBtn" data-i18n="arena">Arena</button></div></dialog>
+  <dialog id="credits"><button class="close-dialog">×</button><h2 data-i18n="credits">Credits</h2><p data-i18n="creditText">Grugnetto’s Four brings together historical game-playing intelligences preserved by Libre Arcade.</p><p><a href="https://github.com/linkingtechnologies/libre-arcade" target="_blank" rel="noreferrer">Libre Arcade</a></p><p data-i18n="licenseText">Details about authors, sources and licenses are included with the game.</p><p><a href="https://github.com/linkingtechnologies/libre-arcade/tree/main/grugnettos-four" target="_blank" rel="noreferrer" data-i18n="sourceLink">Source code, authors and licenses</a></p></dialog>
+  <dialog id="gameOver" class="result-dialog" aria-labelledby="resultTitle">
+    <div id="resultIcon" class="result-icon" aria-hidden="true">🎉</div><h2 id="resultTitle">You win!</h2><p id="resultMeta"></p>
+    <div class="result-actions"><button id="rematch" class="primary" data-i18n="rematch">Rematch</button><button id="changeLevel" data-i18n="changeLevel">Change level</button></div>
+  </dialog>
+  <script type="module" src="src/ui/app.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

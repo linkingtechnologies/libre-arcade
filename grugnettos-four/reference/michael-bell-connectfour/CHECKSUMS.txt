@@ -1,0 +1,13 @@
+Upstream: https://github.com/mrbell/connectfour
+Commit: cb92ebe7350eb590ad4de783b860cc5e612c1943
+Revision date: 2012-12-24T14:52:09+01:00
+
+SHA-256:
+8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903  original/COPYING
+9ab3e692123986af4ee928b482a9162b937873a88d1cb7fc771fec0d9961ad6c  original/board.py
+5bdc922959600b4025fd180a01895ddfd48bdaf80881f50883b1a7d16bbfdf6b  original/c4bot.py
+7faacd1e7e11b9df1004d623e9ebde7693290356dbd0823b5dbb7c954bfcacf4  original/trainer.py
+2d75ecf4ebeb4a7346a7cf02756c0fa3beb12f368471d97c1122f78d7c5be898  original/init_db.py
+
+Generated ConnectLab snapshot:
+f997dd8d232b047a05619390a1ceaea72cde7b6433a8fc422f600756e2ed3138  ../../src/players/michael-bell-bota-knowledge.js

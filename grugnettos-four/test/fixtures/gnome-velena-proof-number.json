@@ -1,0 +1,11 @@
+{
+  "oracle": "gnome-velena-proof-number",
+  "inputSha256": "9b7cd69a9f0dba44d7790de57a407f46c35fcf232e9d1b46d24f0afd11ce32ee",
+  "recordedWith": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.20.0",
+    "tool": "gcc (MinGW.org GCC-6.3.0-1) 6.3.0"
+  },
+  "stdout": "5 19 49 253\r\n5 19 49 253\r\n4 0 200000000 8\r\n6 49 19 253\r\n6 0 200000000 8\r\n"
+}

@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Generated build output (npm run build)
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db
+
+# Native oracle binaries built next to the tests by live runs
+test/.*-oracle
+test/.*-oracle.exe

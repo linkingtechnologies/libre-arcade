@@ -1,0 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+typedef struct{int x[4],y[4];} Group;static Group g[69];static int gn;
+static void init(void){const int d[4][2]={{1,0},{0,1},{1,1},{1,-1}};for(int x=0;x<7;x++)for(int y=0;y<6;y++)for(int k=0;k<4;k++){Group q;int ok=1;for(int i=0;i<4;i++){q.x[i]=x+d[k][0]*i;q.y[i]=y+d[k][1]*i;if(q.x[i]<0||q.x[i]>6||q.y[i]<0||q.y[i]>5)ok=0;}if(ok)g[gn++]=q;}}
+static int has(Group*q,int x,int y){for(int i=0;i<4;i++)if(q->x[i]==x&&q->y[i]==y)return 1;return 0;}
+int main(int ac,char**av){init();for(int a=1;a<ac;a++){int b[7][6]={{0}},h[7]={0},p=1,t[69]={0};for(char*s=av[a];*s;s++){int x=*s-'1';b[x][h[x]++]=p;p=3-p;}for(int i=0;i<69;i++){t[i]=1;for(int z=0;z<4;z++)if(b[g[i].x[z]][g[i].y[z]]==p)t[i]=0;}int ce=0,bi=0,ve=0;for(int y=1;y<6;y+=2)for(int x=0;x<7;x++)if(!b[x][y]&&!b[x][y-1]){int useful=0;for(int i=0;i<69;i++)useful|=t[i]&&has(&g[i],x,y);ce+=useful;}for(int x=0;x<7;x++)for(int z=x+1;z<7;z++)if(h[x]<6&&h[z]<6){int useful=0;for(int i=0;i<69;i++)useful|=t[i]&&has(&g[i],x,h[x])&&has(&g[i],z,h[z]);bi+=useful;}for(int x=0;x<7;x++)for(int y=2;y<6;y+=2)if(!b[x][y]&&!b[x][y-1]){int useful=0;for(int i=0;i<69;i++)useful|=t[i]&&has(&g[i],x,y)&&has(&g[i],x,y-1);ve+=useful;}printf("%d %d %d %d\n",gn,ce,bi,ve);}return 0;}
