@@ -52,7 +52,6 @@ body[data-screen="menu"] .setup-card { max-height: 100%; }
 @media (max-height: 720px) {
   body[data-screen="menu"] .shell { padding: 12px 20px; }
   body[data-screen="menu"] header { padding-bottom: 8px; }
-  body[data-screen="menu"] header .eyebrow { display: none; }
   body[data-screen="menu"] header h1 { font-size: 1.5rem; }
   body[data-screen="menu"] nav button { padding: .48rem .62rem; }
   body[data-screen="menu"] .setup-screen { padding: 8px 0 0; }
@@ -89,3 +88,36 @@ body[data-screen="menu"] .setup-card { max-height: 100%; }
   body[data-screen="menu"] .shell { padding-left: 12px; padding-right: 12px; }
   body[data-screen="menu"] .secondary-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* The status text above the board has a fixed height of two lines (see .status
+   above), so it can never be overlapped as long as the board is sized from the
+   space its own container really has. The fixed "100dvh - 150px" budget in
+   app.css guessed the header, padding and status heights and was off by about
+   10px at 1070x632. Engines without container query units keep that sizing. */
+.status strong,
+.status small {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@supports (width: 1cqw) {
+  body[data-screen="play"] .game-area { container-type: size; }
+  body[data-screen="play"] .board {
+    width: min(560px, 100cqw, calc((100cqh - 3.5rem) * 7 / 6));
+    max-width: 100%;
+    max-height: none;
+  }
+}
+
+@media (max-width: 760px) {
+  @supports (width: 1cqw) {
+    body[data-screen="play"] .board { width: min(560px, 100cqw, calc((100cqh - 2.75rem) * 7 / 6)); }
+  }
+}
+
+/* The possessive after the pig is set like the one in the header (smaller,
+   bold, blue) so it reads as a lowercase "s", not as a capital next to the
+   large emoji. */
+.setup-mark span { font-size: .72em; font-weight: 800; color: var(--blue, #1559c4); }
