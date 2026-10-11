@@ -1,0 +1,14 @@
+# The preserved original text files are CRLF (and some LF) text kept byte for byte: no
+# line-ending normalization, so they still hash to the values in
+# reference/5ud0ku-1.8/CHECKSUMS.txt on every platform.
+reference/5ud0ku-1.8/source/** -text
+reference/5ud0ku-1.8/release/** -text
+
+# The oracle harness is hashed into the recorded fixture (test/fixtures/java-oracle.json),
+# so it must be LF on every checkout whatever core.autocrlf says.
+test/java-oracle/** text eol=lf
+
+# Also hashed into the recorded fixture: the delivered oracle records and the real save of the
+# original application.
+test/oracles.json text eol=lf
+test/fixtures/** text eol=lf

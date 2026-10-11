@@ -94,6 +94,7 @@ original with an executable oracle or a benchmark:
 - [`grugnettos-four/SOFTWARE_ARCHAEOLOGY.md`](grugnettos-four/SOFTWARE_ARCHAEOLOGY.md)
 - [`xo-world/SOFTWARE_ARCHAEOLOGY.md`](xo-world/SOFTWARE_ARCHAEOLOGY.md)
 - [`bomber/SOFTWARE_ARCHAEOLOGY.md`](bomber/SOFTWARE_ARCHAEOLOGY.md)
+- [`5ud0ku/SOFTWARE_ARCHAEOLOGY.md`](5ud0ku/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already

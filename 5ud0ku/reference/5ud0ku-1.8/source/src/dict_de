@@ -1,0 +1,135 @@
+// UTF-8 german
+// common
+back=Zurück
+save=Speichern
+// SudokuStateControl
+// ->Commands
+exit=Beenden
+dispSol=Zeige Lösung
+file=Datei
+prefs=Einstellungen
+solve=Lösen
+solvePlay=Lösen&Spielen
+dispPuzzle=Zeige Puzzle
+newGame=Neues Spiel
+rstGame=Spiel zurücksetzen
+dispDgt=Zahl verraten
+undomode=Rückgängig/Wiederh.
+calcMrks=Marker berechnen
+showMrks=Marker zeigen
+hideMrks=Marker verstecken
+clearMrks=Marker löschen
+help=Hilfe
+pencil=Marker
+pen=Stift
+options=Weitere...
+check=Prüfen
+// ->Help
+about=Über 5ud0ku
+rules=Regeln
+keys=Tastatur
+pntr=Stifteingabe
+//
+aboutvrs=5ud0ku 
+abouttxt=von case&ive.\nDas Spiel ist Email-ware. Bitte sende eine kurze Email an midlet@wintermute.de, wenn Dir das Spiel gefällt. Lizenzbedingungen und eine Anleitung findest Du unter:\nhttp://wintermute.de/wap/5ud0kuman.html.
+rulestxt=Soduko Regeln\n\nDas Puzzle ist ein 9×9 Gitter, bestehend aus neun 3×3 Blöcken. Einige Felder sind mit Ziffern vorbelegt. Ziel des Spiels ist es, die leeren Felder so zu füllen, dass in jeder Reihe, jeder Spalte und jedem Block die Ziffern 1-9 jeweils genau einmal enthalten sind.
+keystxt=[1-9] im Stift-Modus: Zahl eingeben oder löschen.\n[1-9] im Marker-Modus: Marker setzen oder löschen.\n[0] wechseln zwischen Stift- und Marker-Modus.\n[Steuertasten] bewege Cursor.\n[Steuertasten rechts/links] im Rückgängig-Modus: Eingabe rückgängig/wiederherstellen.\n[#] umschalten Zahleingabe/Navigation (bei fehlenden Steuertasten).\n[*] Status anzeigen.
+pntrtxt=[klick auf Ziffern in Seitenleiste] Ziffer zur Eingabe auswählen.\n[klick auf Zelle] ausgewählte Ziffer setzen oder löschen.\n[klick auf Stift/Marker Symbol] umschalten zwischen Stift/Marker.\n[klick auf Eck-Symbol] Status anzeigen.
+// CreatorTask
+grid=Gitter 
+generating= generieren...
+generated= generiert
+// FileMenu
+load=Laden
+del=Löschen
+selAct=Bitte Laden, Speichern oder Löschen auswählen.
+ok=Ok
+err=Fehler
+defFile=Default
+filename=Dateiname
+saveFailedEmptyName=Speichern nicht möglich. Name fehlt.
+info=Info
+gameDeleted=Spiel gelöscht.
+gameDeleteFailed=Spiel konnte nicht gelöscht werden.
+gameSaved=Spiel gespeichert.
+gameSaveFailed=Spiel konnte nicht gespeichert werden.
+gameLoadFailed=Spiel konnte nicht geladen werden.
+noGame=Keine Spiel-Datei ausgewählt.
+// GridCreator
+hard=schwer
+normal=normal
+easy=leicht
+// PreferencesScreen
+rst=Alle zurücksetzen
+def=Standard
+clrPrefs=Farben
+specials=Spezial
+quickSavePref=Spiele-Abbruch Workaround
+quickSaveText=Mit der Schnell-Speichern-Taste kann das Spiel regelmäßig gesichert werden
+[]quickSaveKey=Wähle|Taste für|Schnell|Speichern
+layoutPrefs=Ansicht
+gamePrefs=Spiel
+dispDgts=Zahlen
+colored=Farbig
+dispMrks=Marker
+beginnerMode=Trainingsmodus (Marker werden automatisch gesetzt)
+dispCnflcts=Konflikte zeigen
+dispGvns=Vorgegebene Ziffern hervorheben
+dispBlcks=Wechselnder Hintergrund
+on=An
+settingsHardTitle=Einstellungen für Generierung der Puzzle:
+settingsHardText=Das Erhöhen der Werte verlängert die Generierungszeit.
+iterations=Anzahl der Versuche ein 'schweres Spiel' zu generieren (0-50)
+timeout=Timeout für das Generieren eines neues Spiels in Sekunden (0-90)
+sidebarUsage=Zahlenleiste zeigt
+showPossible=Mögliche Ziffern
+showCompleted=Nicht komplett vergebene Ziffern
+pntrInput=Nur Stifteingabe
+none=Ausblenden
+sidebarLoc=Anzeige des Infobereichs
+right=Rechte Seite
+bottom=Unterhalb
+backlight=Hintergrundlicht (0=aus)
+fullscreen=Vollbild-Modus
+// ColorPrefs
+clrBack=Hintergrund
+clrBackOrig=HG vorgegebene
+clrFocus=Focus
+clrFocusPencil=Focus Marker
+clrFocusNav=Focus Navi
+clrCorrect=Farbe Richtig
+clrWrong=Farbe Fehler
+clrBlock=Alternativer HG
+clrR=Rot 
+clrG=Grün 
+clrB=Blau 
+// ProgressScreen
+genNewGame=Generiere neues Spiel
+abort=Abbrechen
+// SolverTask
+prepareSolver=Spiellöser wird gestartet...
+checkSimpleRules=Einfach Regeln prüfen...
+searchSol=Suche Lösung (Abbrechen beendet Suche)...
+checkCompleted1=Suche beendet. 
+checkCompleted2= Lösungen gefunden
+// SudokuCanvas
+type=Typ: 
+solved=Gelöst
+running=
+time=Zeit: 
+[]givenCannotChanged=Vorgegebene|Zahl kann nicht|geändert werden
+[]activateMrks=Bitte zuerst|'Marker anzeigen'|einstellen
+[]redoNotPossible=Wiederherstellen|nicht möglich
+[]undoNotPossible=Rückgängig|nicht möglich
+[]pointerUndo=links: Rückg.|rechts: Wiederh.
+// SudokuMidlet
+[]levels=leicht|normal|schwer|eigenes Puzzle|bearbeite Puzzle
+createGame=Spiel erzeugen
+level=Stufe
+[]notSolvable=Spiel nicht|lösbar
+[]multiSol=Mehrere Lösungen.|Die erste wird|genommen
+[]uniqueSol=Eindeutig lösbar
+emptyType=Eigenes
+solveTitle=Lösen
+solveText=Versuche Puzzle zu lösen
+language=Sprache (Neustart)

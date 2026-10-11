@@ -1,0 +1,39 @@
+
+> test:uniqueness
+> node tests/uniqueness-300.test.js
+
+easy: failures=0 givens=35-40 avgAttempts=2.02 time=99.8ms
+normal: failures=0 givens=30-34 avgAttempts=2.16 time=182.8ms
+hard: failures=0 givens=24-35 avgAttempts=1.97 time=758.5ms
+[
+  {
+    "level": "easy",
+    "count": 100,
+    "unique": 100,
+    "minGiven": 35,
+    "maxGiven": 40,
+    "avgAttempts": 2.02,
+    "ms": 99.76363699999999,
+    "failures": 0
+  },
+  {
+    "level": "normal",
+    "count": 100,
+    "unique": 100,
+    "minGiven": 30,
+    "maxGiven": 34,
+    "avgAttempts": 2.16,
+    "ms": 182.83206,
+    "failures": 0
+  },
+  {
+    "level": "hard",
+    "count": 100,
+    "unique": 100,
+    "minGiven": 24,
+    "maxGiven": 35,
+    "avgAttempts": 1.97,
+    "ms": 758.500796,
+    "failures": 0
+  }
+]

@@ -1,0 +1,102 @@
+readme.txt for compiling and building 5ud0ku
+
+During dev, 5ud0ku is mainly build using eclipse 3.1 and eclipseME plugin.
+Additionally nokiaapi.jar is added from the J2ME Polish.
+5ud0ku is build with settings for MIDP2-0 and CLDC1.1 from J2ME properties internally.
+
+For external build, the build is based on (altered!) generated antenna build files from EclipseME.
+This was neccessary to include the nokiaapi (corrected path setting in wtkobuscate, added classpath in wtkpreverify).
+
+The external build is done using MIDP2.0 and CLDC1.0 
+The jad and manifest will still state MIDP1.0 as the program will determine during runtime how to behave.
+
+-----------------
+Buildfile: C:\java\workspace31\5ud0ku\build.xml
+-initialize:
+     [echo] Initializing build environment...
+-eclipseme-initialize:
+     [echo] Initializing EclipseME Antenna build environment...
+-eclipseme-build:
+     [echo] Building source files...
+ [wtkbuild] **************************************************************
+ [wtkbuild] * Antenna 0.9.13 initialized for project "5ud0ku"            *
+ [wtkbuild] * Using Sun Wireless Toolkit 2.2 (CLDC-1.0; MIDP-2.0)        *
+ [wtkbuild] **************************************************************
+ [wtkbuild] Compiling 28 source files to C:\java\workspace31\5ud0ku\58a55112.tmp\tmpclasses
+ [wtkbuild] Preverifying C:\java\workspace31\5ud0ku\58a55112.tmp\tmpclasses
+build:
+-eclipseme-deployable:
+     [echo] Generating obfuscated jar file...
+-eclipseme-clean:
+   [delete] Deleting 44 files from C:\java\workspace31\5ud0ku\build\classes
+   [delete] Deleted 6 directories from C:\java\workspace31\5ud0ku\build\classes
+   [delete] Deleting 2 files from C:\java\workspace31\5ud0ku\deployed
+-eclipseme-initialize:
+     [echo] Initializing EclipseME Antenna build environment...
+    [mkdir] Created dir: C:\java\workspace31\5ud0ku\build\classes\_no_export
+-eclipseme-build:
+     [echo] Building source files...
+ [wtkbuild] **************************************************************
+ [wtkbuild] * Antenna 0.9.13 initialized for project "5ud0ku"            *
+ [wtkbuild] * Using Sun Wireless Toolkit 2.2 (CLDC-1.0; MIDP-2.0)        *
+ [wtkbuild] **************************************************************
+ [wtkbuild] Compiling 28 source files to C:\java\workspace31\5ud0ku\249f109b.tmp\tmpclasses
+ [wtkbuild] Preverifying C:\java\workspace31\5ud0ku\249f109b.tmp\tmpclasses
+-eclipseme-internal-package:
+     [copy] Copying 1 file to C:\java\workspace31\5ud0ku\deployed
+[wtkpackage] Building jar: C:\java\workspace31\5ud0ku\deployed\5ud0ku.jar
+[wtkpackage] Preverifying C:\java\workspace31\5ud0ku\deployed\5ud0ku.jar
+[wtkpackage] Updating JAD file C:\java\workspace31\5ud0ku\deployed\5ud0ku.jad
+-eclipseme-obfuscate:
+[wtkobfuscate] **************************************************************
+[wtkobfuscate] * Antenna 0.9.13 initialized for project "5ud0ku"            *
+[wtkobfuscate] * Using Sun Wireless Toolkit 2.2 (CLDC-1.0; MIDP-2.0)        *
+[wtkobfuscate] **************************************************************
+[wtkobfuscate] Obfuscating C:\java\workspace31\5ud0ku\deployed\5ud0ku.jar with ProGuard
+[wtkobfuscate] ProGuard, version 3.4
+[wtkobfuscate] Reading jars...
+[wtkobfuscate] Reading program jar [C:\java\workspace31\5ud0ku\deployed\5ud0ku.jar]
+[wtkobfuscate] Reading library jar [C:\java\wtk22\lib\midpapi20.jar]
+[wtkobfuscate] Reading library jar [C:\java\wtk22\lib\cldcapi10.jar]
+[wtkobfuscate] Reading library jar [C:\java\workspace31\5ud0ku\lib\nokiaapi.jar]
+[wtkobfuscate] Initializing...
+[wtkobfuscate] Removed unused library classes...
+[wtkobfuscate] Original number of library classes: 453
+[wtkobfuscate] Final number of library classes:    59
+[wtkobfuscate] Shrinking...
+[wtkobfuscate] Removed unused program classes and class elements...
+[wtkobfuscate] Original number of program classes: 44
+[wtkobfuscate] Final number of program classes:    44
+[wtkobfuscate] Optimizing...
+[wtkobfuscate] Number of inlined interfaces:             1
+[wtkobfuscate] Number of finalized classes:              34
+[wtkobfuscate] Number of removed write-only fields:      1
+[wtkobfuscate] Number of finalized methods:              186
+[wtkobfuscate] Number of privatized methods:             5
+[wtkobfuscate] Number of staticized methods:             6
+[wtkobfuscate] Number of simplified method declarations: 1
+[wtkobfuscate] Number of inlined getters/setter calls:   239
+[wtkobfuscate] Number of merged code blocks:             156
+[wtkobfuscate] Number of simplified push instructions:   2
+[wtkobfuscate] Number of simplified branches:            0
+[wtkobfuscate] Number of removed instructions:           29
+[wtkobfuscate] Number of removed push/pop pairs:         0
+[wtkobfuscate] Number of removed load/store pairs:       0
+[wtkobfuscate] Number of simplified store/load pairs:    216
+[wtkobfuscate] Number of simplified goto/goto pairs:     21
+[wtkobfuscate] Number of simplified goto/return pairs:   57
+[wtkobfuscate] Shrinking...
+[wtkobfuscate] Removed unused program classes and class elements...
+[wtkobfuscate] Original number of program classes: 44
+[wtkobfuscate] Final number of program classes:    43
+[wtkobfuscate] Obfuscating...
+[wtkobfuscate] Writing jars...
+[wtkobfuscate] Preparing output jar [C:\java\workspace31\5ud0ku\bee7a63e.tmp\output.jar]
+[wtkobfuscate] Copying resources from program jar [C:\java\workspace31\5ud0ku\deployed\5ud0ku.jar]
+[wtkobfuscate] Updating JAD file C:\java\workspace31\5ud0ku\deployed\5ud0ku.jad
+[wtkpreverify] Preverifying C:\java\workspace31\5ud0ku\deployed\5ud0ku.jar
+[wtkpreverify] Updating JAD file C:\java\workspace31\5ud0ku\deployed\5ud0ku.jad
+deployable:
+deployedSuite:
+BUILD SUCCESSFUL
+Total time: 9 seconds

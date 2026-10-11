@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f1e8">
+  <meta name="color-scheme" content="light">
+  <title>5ud0ku</title>
+  <link rel="stylesheet" href="src/browser/styles.css">
+</head>
+<body>
+  <main class="app-shell" id="app" aria-busy="true">
+    <header class="topbar">
+      <div class="brand">
+        <h1>5ud0ku</h1>
+        <span id="difficultyBadge" class="badge">Normal</span>
+      </div>
+      <div class="top-actions">
+        <button class="icon-button" id="languageButton" type="button" data-i18n-aria="changeLanguage">IT</button>
+        <button class="icon-button menu-button" id="menuButton" type="button" data-i18n-aria="menu">☰</button>
+      </div>
+    </header>
+
+    <section class="statusbar" aria-live="polite">
+      <span id="statusText">Loading…</span>
+      <time id="timer" data-i18n-aria="elapsedTime">00:00</time>
+    </section>
+
+    <section class="game-layout">
+      <div class="board-wrap">
+        <div id="board" class="sudoku-board" role="grid" aria-rowcount="9" aria-colcount="9" data-i18n-aria="boardLabel"></div>
+      </div>
+
+      <aside class="controls" data-i18n-aria="controlsLabel">
+        <div id="digits" class="digit-pad" role="group" data-i18n-aria="digitsLabel"></div>
+        <div id="toolGrid" class="tool-grid">
+          <button id="pencilButton" type="button" class="tool-button" aria-pressed="false"><span class="tool-icon">✎</span><span data-i18n="pencil">Pencil</span></button>
+          <button id="eraseButton" type="button" class="tool-button"><span class="tool-icon">⌫</span><span data-i18n="erase">Erase</span></button>
+          <button id="undoButton" type="button" class="tool-button"><span class="tool-icon">↶</span><span data-i18n="undo">Undo</span></button>
+          <button id="redoButton" type="button" class="tool-button"><span class="tool-icon">↷</span><span data-i18n="redo">Redo</span></button>
+          <button id="hintButton" type="button" class="tool-button"><span class="tool-icon">💡</span><span data-i18n="hint">Hint</span></button>
+          <button id="checkButton" type="button" class="tool-button"><span class="tool-icon">✓</span><span data-i18n="check">Check</span></button>
+        </div>
+        <div id="customActions" class="custom-actions hidden">
+          <button id="customPlayButton" type="button" class="primary-button" data-i18n="solvePlay">Solve &amp; Play</button>
+          <button id="customSolveButton" type="button" class="secondary-button" data-i18n="solve">Solve</button>
+          <button id="customCancelButton" type="button" class="secondary-button" data-i18n="cancel">Cancel</button>
+        </div>
+        <button id="newGameButton" type="button" class="primary-button" data-i18n="newGame">New game</button>
+      </aside>
+    </section>
+  </main>
+
+  <div id="loadingOverlay" class="loading-overlay" role="status" aria-live="polite" aria-atomic="true">
+    <div class="spinner" aria-hidden="true"></div>
+    <p id="loadingText">Creating puzzle…</p>
+  </div>
+
+  <dialog id="newGameDialog" class="modal" aria-labelledby="newGameTitle">
+    <form method="dialog">
+      <h2 id="newGameTitle" data-i18n="newGame">New game</h2>
+      <p data-i18n="chooseDifficulty">Choose difficulty</p>
+      <div class="difficulty-grid">
+        <button value="easy" class="difficulty-button" type="submit" data-level="easy" data-i18n="easy">Easy</button>
+        <button value="normal" class="difficulty-button" type="submit" data-level="normal" data-i18n="normal">Normal</button>
+        <button value="hard" class="difficulty-button" type="submit" data-level="hard" data-i18n="hard">Hard</button>
+      </div>
+      <button value="custom" class="secondary-button" type="button" data-custom="true" data-i18n="customPuzzle">Custom puzzle</button>
+      <button value="cancel" type="submit" class="secondary-button" data-i18n="cancel">Cancel</button>
+    </form>
+  </dialog>
+
+  <dialog id="menuDialog" class="modal menu-modal" aria-labelledby="menuTitle">
+    <form method="dialog">
+      <h2 id="menuTitle" data-i18n="menu">Menu</h2>
+      <div class="menu-list">
+        <button id="saveMenuButton" type="button" class="menu-item" data-i18n="saveGame">Save game</button>
+        <button id="savedGamesMenuButton" type="button" class="menu-item" data-i18n="savedGames">Saved games</button>
+        <button id="solutionMenuButton" type="button" class="menu-item" data-i18n="showSolution">Show solution</button>
+        <button id="resetGameMenuButton" type="button" class="menu-item" data-i18n="resetGame">Reset game</button>
+        <button id="editPuzzleMenuButton" type="button" class="menu-item" data-i18n="editPuzzle">Edit this puzzle</button>
+        <button id="settingsMenuButton" type="button" class="menu-item" data-i18n="settings">Settings</button>
+        <button id="helpMenuButton" type="button" class="menu-item" data-i18n="help">Help</button>
+        <button id="creditsMenuButton" type="button" class="menu-item" data-i18n="creditsTitle">Credits</button>
+      </div>
+      <button value="close" type="submit" class="secondary-button" data-i18n="close">Close</button>
+    </form>
+  </dialog>
+
+  <dialog id="saveDialog" class="modal" aria-labelledby="saveTitle">
+    <form method="dialog" onsubmit="return false">
+      <h2 id="saveTitle" data-i18n="saveGame">Save game</h2>
+      <label class="field-label"><span data-i18n="filename">Filename</span>
+        <input id="saveName" class="text-input" type="text" maxlength="32" autocomplete="off" value="Default">
+      </label>
+      <p class="modal-note" data-i18n="autosaveInfo">Autosave is always active while playing.</p>
+      <div class="dialog-actions">
+        <button id="saveConfirmButton" type="button" class="primary-button" data-i18n="save">Save</button>
+        <button value="cancel" type="submit" class="secondary-button" data-i18n="cancel">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="savedGamesDialog" class="modal saved-modal" aria-labelledby="savedGamesTitle">
+    <form method="dialog">
+      <h2 id="savedGamesTitle" data-i18n="savedGames">Saved games</h2>
+      <div id="savedGamesList" class="saved-list"></div>
+      <button value="close" type="submit" class="secondary-button" data-i18n="close">Close</button>
+    </form>
+  </dialog>
+
+  <dialog id="settingsDialog" class="modal" aria-labelledby="settingsTitle">
+    <form method="dialog">
+      <h2 id="settingsTitle" data-i18n="settings">Settings</h2>
+      <label class="setting-row"><input id="beginnerToggle" type="checkbox"> <span data-i18n="beginner">Beginner mode: update pencil marks automatically</span></label>
+      <label class="setting-row"><input id="conflictToggle" type="checkbox"> <span data-i18n="immediateConflicts">Highlight conflicts while entering digits</span></label>
+      <div class="settings-divider" aria-hidden="true"></div>
+      <button id="resetDataButton" type="button" class="secondary-button danger-button" data-i18n="resetData">Reset local data</button>
+      <p class="modal-note" data-i18n="resetDataHelp">Deletes autosave, named saves and local preferences from this browser.</p>
+      <button value="close" type="submit" class="primary-button" data-i18n="close">Close</button>
+    </form>
+  </dialog>
+
+  <dialog id="helpDialog" class="modal help-modal" aria-labelledby="helpTitle">
+    <form method="dialog">
+      <h2 id="helpTitle" data-i18n="help">Help</h2>
+      <p data-i18n="helpText">Select a cell, then enter a digit. Pencil mode adds candidate marks. Undo, redo, hint and conflict checking follow the original 5ud0ku behaviour.</p>
+      <p data-i18n="customHelp">Custom Puzzle lets you enter any Sudoku. “Solve” displays the first solution; “Solve &amp; Play” keeps your givens and starts a playable game. As in the original, a puzzle may have more than one solution.</p>
+      <p data-i18n="keyboardHelp">Keyboard: arrows move, 1–9 enter a digit, Delete clears, P toggles Pencil, Ctrl/Cmd+Z undoes and Ctrl/Cmd+Y redoes.</p>
+      <button value="close" type="submit" class="primary-button" data-i18n="close">Close</button>
+    </form>
+  </dialog>
+
+  <dialog id="creditsDialog" class="modal" aria-labelledby="creditsTitleHeading">
+    <form method="dialog">
+      <h2 id="creditsTitleHeading" data-i18n="creditsTitle">Credits</h2>
+      <p class="credits"><strong data-i18n="originalCredits">Original 5ud0ku 1.8</strong><br>Ivonne Engemann &amp; Marcus Wagner (Ive&amp;Case), 2006<br><span data-i18n="sourceLicense">Original source: LGPL 2.1 or later</span></p>
+      <p class="credits" data-i18n="portCredits">HTML5 port for Libre Arcade.</p>
+      <p class="credits"><a href="http://wintermute.de/wap/5ud0kuman.html" target="_blank" rel="noopener" data-i18n="originalPage">Original project page</a><br><a href="https://linkingtechnologies.github.io/libre-arcade/" target="_blank" rel="noopener">Libre Arcade</a></p>
+      <button value="close" type="submit" class="primary-button" data-i18n="close">Close</button>
+    </form>
+  </dialog>
+
+  <dialog id="winDialog" class="modal win-modal" aria-labelledby="winTitle">
+    <form method="dialog">
+      <div class="win-mark">✓</div>
+      <h2 id="winTitle" data-i18n="completed">Puzzle completed!</h2>
+      <p id="winTime"></p>
+      <button value="close" type="submit" class="primary-button" data-i18n="continue">Continue</button>
+    </form>
+  </dialog>
+
+  <noscript><p class="noscript">5ud0ku requires JavaScript.</p></noscript>
+  <script type="module" src="src/browser/app.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

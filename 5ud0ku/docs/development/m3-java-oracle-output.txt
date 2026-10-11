@@ -1,0 +1,38 @@
+PASS | auto pencil candidates at r1c3 include 1,2,4
+PASS | manual pencil mark can be added
+PASS | manual pencil mark can be removed
+PASS | setupPossibleDigits returns positive complexity
+PASS | Display Digit promotes answer
+PASS | hint is undoable
+PASS | hint is redoable
+PASS | pen undo restores previous value
+PASS | pen redo restores new value
+PASS | pencil undo toggles mark off
+PASS | pencil redo toggles mark on
+PASS | new move after undo invalidates redo
+PASS | local conflict checker finds row duplicate
+PASS | clearing a cell reports no conflicts
+PASS | manual save succeeds
+PASS | manual load returns grid
+PASS | save/load roundtrip byte-identical
+PASS | elapsed time persists
+PASS | game type persists
+PASS | pencil marks persist
+PASS | autosave succeeds
+PASS | autosave load byte-identical
+PASS | missing load returns null
+PASS | reserved SETTINGS filename rejected
+PASS | reserved PREF_LANG filename rejected
+PASS | custom unique puzzle passes basic rules
+PASS | custom unique puzzle -> one solution
+PASS | empty custom puzzle passes basic rule precheck
+PASS | multi-solution custom puzzle stops at two
+PASS | impossible custom puzzle passes basic rule precheck
+PASS | impossible custom puzzle -> zero solutions
+PASS | contradictory custom puzzle fails basic rule precheck
+PASS | beginner candidates initially allow 4 in row peer
+PASS | beginner recalculation removes newly used digit from peer
+PASS | 100-entry ring exposes 99 undoable moves (historical sentinel behavior)
+PASS | serialized grid stays compact (<400 bytes)
+INFO | serialized_bytes=288
+SUMMARY | pass=36 fail=0

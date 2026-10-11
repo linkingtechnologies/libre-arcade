@@ -1,0 +1,31 @@
+
+> test
+> node tests/m2-oracle.test.js
+
+PASS generator:easy
+  8.1 ms
+PASS generator:normal
+  5.5 ms
+PASS generator:hard
+  33.0 ms
+PASS solver:very_easy
+  0.8 ms
+PASS solver:easy
+  0.7 ms
+PASS solver:medium
+  0.1 ms
+PASS solver:hard
+  5927.2 ms
+PASS solver:almost_complete
+  0.2 ms
+PASS solver:unique
+  2.2 ms
+PASS solver:multiple
+  0.3 ms
+PASS solver:impossible
+  0.5 ms
+PASS solver:contradictory
+  0.4 ms
+PASS solver:empty
+  0.3 ms
+SUMMARY pass=13 fail=0

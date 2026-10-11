@@ -1,0 +1,230 @@
+
+> 5ud0ku-libre-arcade@1.0.0 test:all
+> npm run test && npm run test:uniqueness && npm run test:m3 && npm run test:m7 && npm run test:storage && npm run test:m8 && npm run test:m9 && npm run test:m10 && npm run test:m11
+
+
+> 5ud0ku-libre-arcade@1.0.0 test
+> node tests/m2-oracle.test.js
+
+PASS generator:easy
+  7.5 ms
+PASS generator:normal
+  5.4 ms
+PASS generator:hard
+  33.9 ms
+PASS solver:very_easy
+  0.4 ms
+PASS solver:easy
+  0.6 ms
+PASS solver:medium
+  0.1 ms
+PASS solver:hard
+  5587.0 ms
+PASS solver:almost_complete
+  0.2 ms
+PASS solver:unique
+  2.1 ms
+PASS solver:multiple
+  0.3 ms
+PASS solver:impossible
+  0.4 ms
+PASS solver:contradictory
+  0.0 ms
+PASS solver:empty
+  0.2 ms
+SUMMARY pass=13 fail=0
+
+> 5ud0ku-libre-arcade@1.0.0 test:uniqueness
+> node tests/uniqueness-300.test.js
+
+easy: failures=0 givens=35-40 avgAttempts=2.02 time=113.3ms
+normal: failures=0 givens=30-34 avgAttempts=2.16 time=182.3ms
+hard: failures=0 givens=24-35 avgAttempts=1.97 time=769.8ms
+[
+  {
+    "level": "easy",
+    "count": 100,
+    "unique": 100,
+    "minGiven": 35,
+    "maxGiven": 40,
+    "avgAttempts": 2.02,
+    "ms": 113.27897899999999,
+    "failures": 0
+  },
+  {
+    "level": "normal",
+    "count": 100,
+    "unique": 100,
+    "minGiven": 30,
+    "maxGiven": 34,
+    "avgAttempts": 2.16,
+    "ms": 182.280362,
+    "failures": 0
+  },
+  {
+    "level": "hard",
+    "count": 100,
+    "unique": 100,
+    "minGiven": 24,
+    "maxGiven": 35,
+    "avgAttempts": 1.97,
+    "ms": 769.7733489999999,
+    "failures": 0
+  }
+]
+
+> 5ud0ku-libre-arcade@1.0.0 test:m3
+> node tests/m3-parity.test.js
+
+PASS | auto pencil candidates at r1c3 include 1,2,4
+PASS | manual pencil mark can be added
+PASS | manual pencil mark can be removed
+PASS | setupPossibleDigits returns positive complexity
+PASS | Display Digit promotes answer
+PASS | hint is undoable
+PASS | hint is redoable
+PASS | pen undo restores previous value
+PASS | pen redo restores new value
+PASS | pencil undo toggles mark off
+PASS | pencil redo toggles mark on
+PASS | new move after undo invalidates redo
+PASS | local conflict checker finds row duplicate
+PASS | clearing a cell reports no conflicts
+PASS | manual save succeeds
+PASS | manual load returns grid
+PASS | save/load roundtrip byte-identical
+PASS | elapsed time persists
+PASS | game type persists
+PASS | pencil marks persist
+PASS | autosave succeeds
+PASS | autosave load byte-identical
+PASS | missing load returns null
+PASS | reserved SETTINGS filename rejected
+PASS | reserved PREF_LANG filename rejected
+PASS | custom unique puzzle passes basic rules
+PASS | custom unique puzzle -> one solution
+PASS | empty custom puzzle passes basic rule precheck
+PASS | multi-solution custom puzzle stops at two
+PASS | impossible custom puzzle passes basic rule precheck
+PASS | impossible custom puzzle -> zero solutions
+PASS | contradictory custom puzzle fails basic rule precheck
+PASS | beginner candidates initially allow 4 in row peer
+PASS | beginner recalculation removes newly used digit from peer
+PASS | 100-entry ring exposes 99 undoable moves (historical sentinel behavior)
+PASS | serialized grid stays compact (<400 bytes)
+INFO | serialized_bytes=288
+PASS | session Display Digit promotes answer
+PASS | session hint undo works
+PASS | session hint redo works
+PASS | session pencil input toggles mark
+PASS | new grid resets pencil mode and move history
+SUMMARY | pass=41 fail=0
+
+> 5ud0ku-libre-arcade@1.0.0 test:m7
+> node tests/m7-lifecycle.test.js
+
+PASS | startup creates new game when AUTO_SAVE absent
+PASS | pause autosaves current game
+PASS | startup restores AUTO_SAVE before creating new game
+PASS | edit/custom-entry mode is excluded from autosave
+PASS | destroy autosaves current game
+PASS | quick-save writes AUTO_SAVE
+PASS | loading a game resets move history
+PASS | loading/new grid resets pencil mode
+SUMMARY | pass=8 fail=0
+
+> 5ud0ku-libre-arcade@1.0.0 test:storage
+> node tests/storage-compat.test.js
+
+PASS | JS save is byte-for-byte identical to Java 1.8 fixture
+PASS | Java 1.8 save fixture loads and re-saves identically
+
+> 5ud0ku-libre-arcade@1.0.0 test:m8
+> node tests/m8-worker.test.js
+
+PASS | worker handshake/protocol
+PASS | worker generator oracle easy
+PASS | worker generated easy clears transient pencil marks
+PASS | worker generator oracle normal
+PASS | worker generated normal clears transient pencil marks
+PASS | worker generator oracle hard
+PASS | worker generated hard clears transient pencil marks
+PASS | worker solver oracle very_easy | 0.6ms
+PASS | worker solver oracle easy | 0.5ms
+PASS | worker solver oracle medium | 0.2ms
+PASS | worker solver oracle hard | 5616.8ms
+PASS | main event loop remains responsive during hard solver | ticks=278 elapsed=5616.8ms
+PASS | worker solver oracle almost_complete | 0.5ms
+PASS | worker solver oracle unique | 2.2ms
+PASS | worker solver oracle multiple | 0.2ms
+PASS | worker solver oracle impossible | 0.6ms
+PASS | worker solver oracle contradictory | 0.2ms
+PASS | worker solver oracle empty | 0.3ms
+PASS | unknown operation is structured error | code=UNKNOWN_OPERATION
+PASS | application timeout terminates long solver | code=WORKER_TIMEOUT
+PASS | client restarts clean worker after timeout
+PASS | AbortSignal cancellation terminates worker | code=WORKER_CANCELLED
+PASS | client restarts clean worker after cancellation
+PASS | concurrent request rejected as busy | code=WORKER_BUSY
+SUMMARY | pass=24 fail=0
+
+> 5ud0ku-libre-arcade@1.0.0 test:m9
+> python3 tests/m9_browser_smoke.py
+
+M9 browser layout smoke: PASS desktop=630px mobile=344px compact=275px
+
+> 5ud0ku-libre-arcade@1.0.0 test:m10
+> node tests/m10-beta.test.js
+
+PASS | custom editor starts with empty 81-cell puzzle
+PASS | custom editor accepts direct givens without original-lock flag
+PASS | custom puzzle normalization accepts dots
+PASS | custom unique puzzle solves once
+PASS | Solve & Play keeps givens visible
+PASS | Solve & Play stores complete answer
+PASS | Solve & Play preserves original-given flags
+PASS | Solve & Play starts unsolved
+PASS | Solve displays the first full solution
+PASS | multiple custom puzzle reports two solutions and stops
+PASS | locally-valid impossible puzzle reports zero solutions
+PASS | contradictory custom puzzle fails simple-rule check
+PASS | named save succeeds
+PASS | named save supports 32-character historical RMS limit name
+PASS | named load round-trips puzzle and answer
+PASS | named load preserves user game type
+PASS | store retains AUTO_SAVE plus explicit names as historical storage does
+PASS | manual UI can filter AUTO_SAVE without deleting it
+PASS | delete named save leaves autosave intact
+SUMMARY | pass=19 fail=0
+
+> 5ud0ku-libre-arcade@1.0.0 test:m11
+> node tests/m11-production.test.js && python3 tests/m11_browser_smoke.py
+
+PASS | GridStore.clearAll removes autosave and named saves
+PASS | history starts with undo disabled
+PASS | history starts with redo disabled
+PASS | history exposes undo after a move
+PASS | production package version is 1.0.0
+PASS | settings exposes local-data reset
+PASS | Sudoku board exposes 9x9 ARIA grid metadata
+PASS | all dialogs have accessible labelled-by metadata
+PASS | page has a noscript fallback
+PASS | player HTML has no duplicate element ids
+PASS | external new-tab links use noopener
+PASS | reduced-motion preference is respected
+PASS | forced-colors mode has explicit selected/conflict treatment
+PASS | app uses roving cell tabindex
+PASS | cells expose localized row/column labels
+PASS | conflicts are reflected via aria-invalid
+PASS | undo/redo buttons mirror history availability
+PASS | worker timeout/crash/busy/cancel have user-facing handling
+PASS | busy engine makes app inert and keyboard ignores input
+PASS | failed new-game generation restores previous timer state
+PASS | preference localStorage access is wrapped in safe helpers
+PASS | every static UI translation key exists in EN and IT
+PASS | player-facing HTML contains no laboratory/debug terminology
+PASS | reference/5ud0ku.src.zip remains byte-identical to frozen reference
+PASS | reference/5ud0ku.jar remains byte-identical to frozen reference
+PASS | reference/5ud0ku.jad remains byte-identical to frozen reference
+SUMMARY | pass=26 fail=0
+M11 browser hardening smoke: PASS desktop=630px mobile=344px compact=275px

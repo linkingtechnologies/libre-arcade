@@ -1,0 +1,15 @@
+PASS | startup restores AUTO_SAVE before creating a new game
+PASS | pause autosaves current game
+PASS | destroy autosaves current game
+PASS | edit/custom-entry mode is excluded from autosave
+PASS | quick-save key writes AUTO_SAVE
+PASS | numeric 0 toggles pencil mode outside puzzle edit
+PASS | touch grid click enters previously selected sidebar digit
+PASS | touch sidebar chooses digits 1..9
+PASS | touch pen/pencil control toggles input mode
+PASS | touch undo mode maps left/right halves to undo/redo
+PASS | Display Digit is recorded in undo stack before promote
+PASS | beginner mode recalculates marks after pen entry
+PASS | loading a game resets move history
+PASS | new/edit grid resets move history and pencil input mode
+SUMMARY | pass=14 fail=0

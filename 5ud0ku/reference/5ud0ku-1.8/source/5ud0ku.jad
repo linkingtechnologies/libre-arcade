@@ -1,0 +1,11 @@
+MIDlet-1: 5ud0ku,/5ud0ku-icon.png,de.wintermute.sudoku.SudokuMidlet
+MIDlet-Jar-URL: 5ud0ku.jar
+MIDlet-Icon: /5ud0ku-icon.png
+MicroEdition-Configuration: CLDC-1.0
+MIDlet-Version: 1.8
+MIDlet-Info-URL: http://wintermute.de/wap/5ud0kuman.html
+MIDlet-Description: A Su Doku game.
+MIDlet-Name: 5ud0ku
+MIDlet-Vendor: midlet@wintermute.de
+MicroEdition-Profile: MIDP-1.0
+Nokia-MIDlet-Category: Game

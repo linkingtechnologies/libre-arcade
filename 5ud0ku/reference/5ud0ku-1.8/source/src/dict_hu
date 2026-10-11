@@ -1,0 +1,137 @@
+// UTF-8 hungarian by SLaCa <sooslaca@gmail.com>
+// common
+back=Vissza
+save=Mentés
+// SudokuStateControl
+// ->Commands
+exit=Kilépés
+dispSol=Megoldás
+file=Fájl
+prefs=Beállítások
+solve=Megold
+solvePlay=Megold és játszik
+dispPuzzle=Játék mutatása
+newGame=Új játék
+rstGame=Újraindít
+dispDgt=Szám megjelenítése
+undomode=Visszavonó mód.
+calcMrks=Ceruzajelek számítása
+showMrks=Ceruzajelek mutatása
+hideMrks=Ceruzajelek rejtése
+clearMrks=Ceruzajelek törlése
+help=Segítség
+pencil=Ceruza
+pen=Toll
+options=Lehetõségek...
+check=Ell.
+// ->Help
+about=About 5ud0ku
+rules=Szabályok
+keys=Billentyûk
+pntr=Mutató
+//
+aboutvrs=5ud0ku 
+abouttxt=Szerzõk: case&ive.\nA program emailware. Küldjön üzenetet a midlet@wintermute.de -re, ha használja. Liszensz és kezelési leírás a \nhttp://wintermute.de/wap/5ud0kuman.html címen található. Magyar fordítás: SLaCa <sooslaca@gmail.com>.
+rulestxt=Játékszabály\n\nA játék egy 9×9-es mezõben található, amely 3×3-as almezõkre (blokkokra) bomlik. Nehány mezõ tartalmaz elõre megadott számokat. A cél, hogy kitöltsük a teljes játékmezõt úgy, hogy egy szám csak egyszer szerepeljen minden sorban, oszlopban és blokkban. A számok 1-9-ig terjednek.
+keystxt=[1-9] Toll-mód: Beír vagy töröl számot.\n[1-9] Ceruza-mód: beír vagy töröl ceruzajelet.\n[0] átkapcsolás Toll- és Ceruza-mód között.\n[Joypad] mozgások.\n[Joypad bal/jobb] Vissza/Elõre mód: visszavonása/ismétlése a beírásnak.\n[#] váltás számos és kurzoros mozgatás között.\n[*] Állapot kijelzése.
+pntrtxt=[oldalsávi számon kattintás] beirandó szám kiválasztása.\n[cellán kattintás] beírja vagy törli a kiválasztott számot.\n[toll/ceruza ikonon kattintás] váltás toll/ceruza mód között.\n[jobb felsõ ikonon kattintás] állapot kijelzése.
+// CreatorTask
+grid=Háló 
+generating= generálás...
+generated= generálva
+// FileMenu
+load=Betöltés
+del=Törlés
+selAct=Válassza a Betöltést, Mentést vagy Törlést.
+ok=Ok
+err=Hiba
+defFile=Default
+filename=Fájlnév
+saveFailedEmptyName=Mentés sikertelen, üres név.
+info=Infó
+gameDeleted=Játék törölve.
+gameDeleteFailed=Játék törlés sikertelen.
+gameSaved=Játék mentve.
+gameSaveFailed=Játék mentése sikertelen.
+gameLoadFailed=Játék betöltése sikertelen.
+noGame=Nincs kiválasztva játék.
+// GridCreator
+hard=nehéz
+normal=normál
+easy=könnyû
+// PreferencesScreen
+rst=Minden törlése
+def=Alap
+clrPrefs=Színek
+specials=Különlegességek
+quickSavePref=Játék-megszakítási lehetõség
+quickSaveText=Gyorsmentés lehetõvé teszi a játék idõnként való mentését
+[]quickSaveKey=Adjon meg|egy billentyût|a|Gyorsmentésnek
+layoutPrefs=Elrendezés
+gamePrefs=Játék
+dispDgts=Számok
+colored=Színes
+dispMrks=Ceruzajelek
+beginnerMode=Kezdõ mód (Ceruzajelek automatikus megjelenítése)
+dispCnflcts=Ütközések jelzése
+dispGvns=Adott számok kiemelése
+dispBlcks=Blokkok kiemelése
+on=Be
+settingsHardTitle=Játékgenerálás beállításai:
+settingsHardText=A számok növelése növeli a generálási idõt.
+iterations=Generálási próbálkozások száma (0-50)
+timeout=Idõtúllépés generáláskor (0-90sec)
+sidebarUsage=Számcsík megjelenítés
+showPossible=Lehetséges számok mutatása
+showCompleted=Nem elhasznált számok mutatása
+pntrInput=Csak mutató bevitel
+none=Elrejt
+sidebarLoc=Oldalcsík helye
+right=Jobboldalt
+bottom=Alul
+###
+backlight=Háttérvilágítás (0=ki)
+fullscreen=Teljesképernyõ
+// ColorPrefs
+clrBack=Háttér
+clrBackOrig=Adott számok h.
+clrFocus=Fókusz
+clrFocusPencil=Fókusz ceruza
+clrFocusNav=Fókusz navigálás
+clrCorrect=Helyes szín
+clrWrong=Rossz szín
+clrBlock=Blokkszín
+clrR=Piros
+clrG=Zöld 
+clrB=Kék  
+// ProgressScreen
+genNewGame=Új játék készítése
+abort=Leállít
+// SolverTask
+prepareSolver=Megoldó indítása...
+checkSimpleRules=Alap szabályok ellenõrzése...
+searchSol=Megoldás keresése (Leállítható)...
+checkCompleted1=Ellenõrzés befejezve. 
+checkCompleted2= megoldás van
+// SudokuCanvas
+type=Típus: 
+solved=Megoldva
+running=
+time=Idõ: 
+[]givenCannotChanged=Adott szám|nem|megváltoztatható.
+[]activateMrks=Elõször|válassza a|ceruzajelek|megjelenítését.
+[]redoNotPossible=Nem|ismételhetõ|meg.
+[]undoNotPossible=Nem vonható|vissza.
+[]pointerUndo=balra: vissza|jobbra: ismét
+// SudokuMidlet
+[]levels=Könnyû|Normál|Nehéz|Játék bevitel|Játék szerkesztés
+// back=back
+createGame=Játék bevitel
+level=Pálya
+[]notSolvable=Ez a játék|nem megoldható.
+[]multiSol=Több megoldás van.|Az elsõt használom.
+[]uniqueSol=Egy megoldás van.
+emptyType=üres
+solveTitle=Megold
+solveText=Megoldás keresése
+language=Nyelv(Újraindítást igényel)

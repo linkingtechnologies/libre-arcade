@@ -1,0 +1,40 @@
+# Provenance
+
+5ud0ku is a **ported** game: the generator, the solvers, the move history and the save layout are a JavaScript port of the Java ME classes of 5ud0ku 1.8, and everything the player sees (board, controls, dialogs, languages, saving in the browser) is new code. The original source is preserved unmodified in [`reference/5ud0ku-1.8/`](reference/5ud0ku-1.8/SOURCE.md); the class-level mapping and the evidence for each part are in [`specs/port-map.md`](specs/port-map.md).
+
+| Layer | Source | Exact revision | Licence | Treatment |
+|---|---|---|---|---|
+| Puzzle generator, solvers, grid model, move history, save layout | 5ud0ku 1.8, Ivonne Engemann and Marcus Wagner (Ive&Case), "Copyright (c) 2006" | `5ud0ku.src.zip`, SHA-256 `41c57fb55c323530d09c1a0cf039e5e2ca39e675fa6a7f5de176beb742c42ddf`, 108,189 bytes; files dated January to 19 November 2006 | LGPL-2.1-or-later | The 46 text files preserved unmodified in `reference/5ud0ku-1.8/source/`; ported to `public/src/core/` |
+| The release jar and its descriptor | the "all devices" build, 63,862 bytes, SHA-256 `b7189ced0699cfe278b1d9d94b4675a29b85951f527f69329a10225bfad0d414` | same | same | Hashes recorded; the descriptor is kept (`reference/5ud0ku-1.8/release/`), the jar is not redistributed |
+| The nine PNG images (icon and digit sheets) | same archive | same | not established | Not redistributed; each is listed with its SHA-256 in `reference/5ud0ku-1.8/ARCHIVE_SHA256.txt`. The browser game draws its own |
+| Browser interface (board, number pad, dialogs, English and Italian text, Web Worker, saving in `localStorage`), build tool, tests | the restoration package delivered for Libre Arcade, integrated here | package 1.0.0 (its own milestone label M11) | GPL-3.0-or-later | New code, with the corrections of this integration listed in `CHANGELOG.md` |
+| Java oracle (harness, driver, recorded transcript) | this repository | | GPL-3.0-or-later | New code, see below |
+
+## Licence: LGPL-2.1-or-later, from the licence file and the authors' page
+
+The original archive's `LICENSE.txt` says that "this library" may be redistributed and modified "under the terms of the GNU Lesser General Public License ... either version 2.1 of the License, or (at your option) any later version", and `lgp-license.txt` is the text of the LGPL 2.1. The authors' manual page (<http://wintermute.de/wap/5ud0kuman.html>, read through the Internet Archive's snapshot of 13 June 2026) says the same: "The 5ud0ku Midlet sources and binaries are licensed under the GNU Lesser General Public License", with that notice.
+
+That is the evidence: a licence file inside a SHA-256-listed archive and an independent page by the authors. **It is not a header read in each source file**: the 32 Java files carry only a banner ("Java Tools for common purposes. ... Copyright (c) 2006 Ivonne Engemann and Marcus Wagner ... Enjoy."), with no licence text. The collection's practice for GPL ports is to read the "or later" wording in a header, and this game cannot offer that; what it has is the grant in the licence file, which is explicit about "any later version".
+
+The restoration package declared its licence as "GNU General Public License, version 3". This integration states **GPL-3.0-or-later** (as `package.json` and the notices do), which the LGPL 2.1-or-later grant permits (the recipient may choose a later version of the LGPL, and the LGPL allows conveying under the ordinary GPL). If you would rather offer the port under the LGPL it came from, the grant allows that too; change `package.json`, `README.md` and `THIRD_PARTY_NOTICES.md` together.
+
+The same page calls the Midlet "Emailware (Freeware with a request)" and asks users to send the authors a short note. That is a request on a web page, not a term of the licence file; it is recorded and not enforced.
+
+## Where the files come from
+
+- **The source archive.** It was supplied inside the restoration package as `reference/5ud0ku.src.zip`, with the SHA-256 above, and it is **byte for byte the file the authors served** from their own download address, <http://startofentry.de/files/5ud0ku.src.zip>: the Internet Archive's snapshot of 7 December 2013, downloaded on 11 October 2026, is 108,189 bytes with the same SHA-256. `reference/5ud0ku-1.8/SOURCE.md` gives the command to fetch it again.
+- **The jar.** 63,862 bytes, the "all devices, 63K" build of the authors' page, whose descriptor (`MIDlet-Jar-Size: 63862`) matches. No snapshot of the jar's own address was found.
+- **What the archive is.** 32 Java files (about 10,500 lines), five dictionaries (German, English, Hungarian, Polish, Slovak) and a `lang` file, the build files (Ant, EclipseME, `building.txt` naming Eclipse 3.1, EclipseME, Antenna 0.9.13, Sun Wireless Toolkit 2.2 and ProGuard 3.4), the two licence files, a descriptor and the nine images: 55 files in all, listed with their hashes in `reference/5ud0ku-1.8/ARCHIVE_SHA256.txt`.
+
+## What was checked independently
+
+- **The original source was run, not only read.** The ten classes of the model, the solvers and the generator (`AbortableTask`, `BruteForceSolver`, `CreatorTask`, `Grid`, `GridCreator`, `GridSlot`, `GridSolver`, `MoveStack`, `Position`, `Solver`) are compiled unmodified, next to three stand-ins for the classes that only exist on a phone (`Dict`, `SudokuMidlet`, `SudokuStateControl`), and driven by `tools/java-oracle.mjs`. The generator runs through the original `CreatorTask` itself, so the choice of the best Hard puzzle is the original's code. The port and the original answer the same 83,744 command lines: 500 Easy, 500 Normal and 300 Hard games, 514 solver puzzles, 600 sequences of moves (81,910 commands) and 10 random-number streams. The same run agrees on Java 8 and on Java 21. The details and the limits are in [`specs/port-map.md`](specs/port-map.md).
+- **The package's own fixtures are the original's output.** The three generated games and ten solver puzzles of `test/oracles.json` (the package's "M2" records) are exactly what the Java classes produce for those seeds.
+- **A save written by the original classes.** `test/fixtures/m3-java-save-normal.hex` is a 291-byte save from the package's Java run of the original `Grid`. The original `Grid(byte[])` reads it and `toByteArray()` writes the same bytes back, and the port does the same.
+- **The oracle notices a fault.** A set of 26 deliberate faults was put one at a time into a copy of the port (a wrong constant, a changed tie rule, a swapped order, a ring of 101 slots, a wrong byte in the save). 23 were caught. The 3 that were not change no result the harness can see: one lets the uniqueness search run on to a third solution before stopping (the verdict is the same), one revisits a cell after a removal (the same position is reached), one clears a candidate that the row and column rules had already cleared. This was done once during the integration; the script is not kept.
+
+## What the package claimed that could not be checked
+
+- Its `docs/development/archaeology.md` says the 63 KB jar "was exercised through a minimal compatibility runtime and successfully booted/rendered at both 240×320 and 128×128", that pointer input and autosave restoration were verified on it, and that a 128×128 hit-box overlap was found. Its own M3 note (`m3-end-to-end.md`) says the emulator test "remains open in the current environment because no Java ME emulator binary is installed". The two documents disagree, and no log of such a run is in the package, so the jar's behaviour is not part of the evidence here. The 128×128 limitation is not reproduced either way.
+- The same summary says the source archive holds "28 Java source files"; it holds 32.
+- The captured logs in `docs/development/` come from the packaging environment and are kept unmodified as history, not as evidence for this integration. The package's Python Playwright smoke tests (`docs/development/legacy-tests/`) need a browser driver that was not available; they are kept for reference and were replaced by the checks recorded in `CHANGELOG.md`.

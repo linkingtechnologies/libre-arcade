@@ -1,0 +1,25 @@
+PASS | worker handshake/protocol
+PASS | worker generator oracle easy
+PASS | worker generated easy clears transient pencil marks
+PASS | worker generator oracle normal
+PASS | worker generated normal clears transient pencil marks
+PASS | worker generator oracle hard
+PASS | worker generated hard clears transient pencil marks
+PASS | worker solver oracle very_easy | 0.6ms
+PASS | worker solver oracle easy | 0.4ms
+PASS | worker solver oracle medium | 0.2ms
+PASS | worker solver oracle hard | 5478.7ms
+PASS | main event loop remains responsive during hard solver | ticks=272 elapsed=5478.7ms
+PASS | worker solver oracle almost_complete | 0.3ms
+PASS | worker solver oracle unique | 2.1ms
+PASS | worker solver oracle multiple | 0.2ms
+PASS | worker solver oracle impossible | 0.5ms
+PASS | worker solver oracle contradictory | 0.2ms
+PASS | worker solver oracle empty | 0.2ms
+PASS | unknown operation is structured error | code=UNKNOWN_OPERATION
+PASS | application timeout terminates long solver | code=WORKER_TIMEOUT
+PASS | client restarts clean worker after timeout
+PASS | AbortSignal cancellation terminates worker | code=WORKER_CANCELLED
+PASS | client restarts clean worker after cancellation
+PASS | concurrent request rejected as busy | code=WORKER_BUSY
+SUMMARY | pass=24 fail=0
