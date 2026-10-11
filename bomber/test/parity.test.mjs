@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {BomberGame, BUILDING_COUNT, TICK_MS, SCREEN_WIDTH, SCREEN_HEIGHT} from '../public/src/game-state.js';
+const a=new BomberGame({seed:12345}); assert.equal(a.state,'startup'); a.completeStartup(); a.newGame();
+const b=new BomberGame({seed:12345}); b.completeStartup(); b.newGame();
+assert.equal(SCREEN_WIDTH,240); assert.equal(SCREEN_HEIGHT,320); assert.equal(TICK_MS,141);
+assert.equal(a.buildingHeights.length,BUILDING_COUNT);
+assert.deepEqual(a.buildingHeights,b.buildingHeights);
+assert.ok(a.buildingHeights.every(h=>h>=1&&h<=8));
+a.state='playing'; a.buildingHeights.fill(0); a.planeY=29; a.planeX=5; a.tick(false); assert.equal(a.planeY,0); assert.equal(a.planeX,4);
+a.planeY=29; a.planeX=0; assert.equal(a.tick(false).event,'success');
+const c=new BomberGame({seed:1}); c.completeStartup(); c.newGame(); c.state='playing'; c.buildingHeights.fill(0); c.planeX=10;c.planeY=2; c.tick(true); assert.equal(c.bombStatus,1); assert.equal(c.bombY,3);
+const d=new BomberGame({seed:2}); d.completeStartup(); d.newGame(); d.state='playing'; d.buildingHeights.fill(0); d.buildingHeights[0]=10; d.planeX=8; d.planeY=25; d.bombStatus=1; d.bombX=8; d.bombY=3;
+const hit=d.tick(false); assert.equal(hit.event,'impact'); assert.equal(hit.destroyed,3); assert.equal(hit.blockingMs,75); assert.equal(d.score,3); assert.equal(d.buildingHeights[0],7);
+const e=new BomberGame({seed:3}); const f=e.randomCrashFrame(); assert.ok(f>=1&&f<=3);
+console.log('Bomber behavioral parity tests: OK');

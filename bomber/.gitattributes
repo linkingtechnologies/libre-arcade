@@ -1,0 +1,9 @@
+# The two Java sources are CRLF text kept byte for byte: no line-ending
+# normalization, so they still hash to the values in CHECKSUMS.txt on every platform.
+reference/bomber-1.0/src/*.java -text
+reference/bomber-1.0/bin/* -text
+
+# The oracle harness is hashed into the recorded fixture (test/fixtures/java-oracle.json),
+# so it must be LF on every checkout whatever core.autocrlf says.
+test/java-oracle/*.java text eol=lf
+test/java-oracle/**/*.java text eol=lf

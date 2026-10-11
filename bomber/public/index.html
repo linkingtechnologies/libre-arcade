@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <title>Bomber</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="toolbar" id="toolbar">
+      <div class="brand">Bomber</div>
+      <div class="actions">
+        <button id="langBtn" type="button">IT</button>
+        <button id="audioBtn" type="button" aria-pressed="true">🔊</button>
+        <button id="creditsBtn" type="button" data-i18n="credits">Credits</button>
+      </div>
+    </header>
+
+    <section class="stage" id="stage">
+      <canvas id="game" width="240" height="320"></canvas>
+      <button id="tapButton" class="tap" type="button" data-i18n="drop">DROP</button>
+    </section>
+
+    <footer class="hint" data-i18n="hint">Space / click / tap to drop a bomb</footer>
+  </main>
+
+  <dialog id="creditsDialog">
+    <div class="dialog-inner">
+      <h2 data-i18n="credits">Credits</h2>
+      <p><strong>Bomber</strong> — Juan José Luna Espinosa / yomboprime.</p>
+      <p data-i18n="genealogy">Based on the original game by Joseph Duffy, as credited by the J2ME version.</p>
+      <p data-i18n="restoration">Restored for Libre Arcade.</p>
+      <p><a href="https://linkingtechnologies.github.io/libre-arcade/" target="_blank" rel="noopener">Libre Arcade</a></p>
+      <button id="closeCredits" type="button" data-i18n="close">Close</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="src/app.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

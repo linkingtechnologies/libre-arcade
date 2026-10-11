@@ -1,0 +1,25 @@
+{
+  "name": "bomber",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Bomber: the one-button plane-and-city game, from Juan Jose Luna Espinosa's 2007 J2ME adaptation of an original game credited to Joseph Duffy.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test test/*.test.mjs",
+    "test:live": "node tools/java-oracle.mjs check",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "GPL-3.0-only",
+  "displayName": "Bomber"
+}

@@ -2,3 +2,12 @@
 # normalization, so they still hash to the values in
 # reference/javagames-1.0/CHECKSUMS.txt on every platform.
 reference/javagames-1.0/* -text
+
+# The oracle harness is hashed into the recorded fixture (test/fixtures/java-oracle.json),
+# so it must be LF on every checkout whatever core.autocrlf says.
+test/java-oracle/*.java text eol=lf
+
+# The certified engine sources are hashed by test/bundle.test.js and the bundle is
+# built from them byte for byte: LF on every checkout whatever core.autocrlf says.
+src/*.js text eol=lf
+public/xoworld-bundle.js text eol=lf

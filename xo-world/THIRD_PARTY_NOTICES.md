@@ -4,7 +4,7 @@
 
 - Author: Milan Babuskov (the restoration package spells the name Babuškov). The file headers read "Copyright 2000-2007 Milan Babuskov".
 - Project named in the headers: JavaGames, <http://javagames.sourceforge.net>.
-- Historical release: `javagames-1.0.tgz`, SHA-256 `259893181e230ce3cb006ea9dcd629cc16ba501d85e1a251ebb547a91056835d`, archive dated 7 February 2007.
+- Historical release: `javagames-1.0.tgz`, SHA-256 `259893181e230ce3cb006ea9dcd629cc16ba501d85e1a251ebb547a91056835d`, archive dated 7 February 2007, identical to the file offered by the SourceForge project "On-Line Java Games" (<https://sourceforge.net/projects/javagames/>).
 - Component ported: `xoworld.java`, 1,180 lines, preserved unmodified in `reference/javagames-1.0/` together with its `README`, `COPYING` and the HTML page that embeds it.
 - Historical licence: GNU General Public License, version 2 or, at the recipient's option, any later version. The "or later" grant is read in the header of the preserved source file, not assumed.
 - Licence of this port: GNU General Public License, version 3 or later, which the grant above permits.
