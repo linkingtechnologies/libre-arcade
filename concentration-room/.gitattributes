@@ -1,0 +1,8 @@
+# The preserved original files are kept byte for byte (the sources are LF, the ROM and the packed tables are binary):
+# no line-ending normalisation, so they still hash to the values in reference/ConcentrationRoom-0.02/CHECKSUMS.txt
+# on every platform.
+reference/ConcentrationRoom-0.02/source/** -text
+reference/ConcentrationRoom-0.02/release/** -text
+
+# Pictures are binary.
+*.png binary

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#151515">
+<title>Concentration Room</title>
+<style>
+  :root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; margin: 0; }
+  body { display: grid; place-items: center; background: #151515; color: #eee; overflow: hidden; overscroll-behavior: none; }
+  main {
+    position: relative;
+    width: min(96vw, 900px);
+    height: min(96dvh, 760px);
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: .55rem;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .bar { display: flex; gap: .45rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+  button, select, a.action {
+    min-height: 2.35rem;
+    font: inherit;
+    font-size: clamp(.78rem, 2.7vw, 1rem);
+    padding: .38rem .62rem;
+    border-radius: .5rem;
+    border: 1px solid #666;
+    background: #252525;
+    color: #eee;
+    text-decoration: none;
+  }
+  button, a.action { cursor: pointer; }
+  button:hover, a.action:hover { background: #303030; }
+  button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  button[hidden], [hidden] { display: none !important; }
+  #wrap { min-height: 0; min-width: 0; display: grid; place-items: center; }
+  #screenStack { min-width: 0; min-height: 0; width: 100%; height: 100%; display: grid; place-items: center; }
+  #screenStack > canvas { grid-area: 1 / 1; }
+  canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 256 / 240;
+    touch-action: manipulation;
+    background: #000;
+    border: 1px solid #444;
+  }
+  #game, #titleCanvas {
+    flex: none;
+    transform: translateZ(0);
+  }
+  #status { min-height: 1.35em; text-align: center; font-weight: 650; font-size: clamp(.86rem, 2.8vw, 1rem); }
+  #controls { min-height: 1.15em; text-align: center; opacity: .72; font-size: clamp(.68rem, 2.2vw, .8rem); }
+  #footerArea { min-height: 2.7rem; }
+
+  #scene, #infoPanel {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    background: rgb(0 0 0 / .82);
+    padding: .5rem;
+  }
+  .scene-shell { width: min(96%, 720px); height: min(94%, 680px); display: grid; grid-template-rows: minmax(0,1fr) auto; gap: .5rem; place-items: center; }
+  #storyCanvas { max-width: 100%; max-height: 100%; border-color: #666; }
+  .scene-actions { display: flex; gap: .45rem; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .scene-hint { opacity: .72; font-size: .8rem; }
+
+  .panel-card {
+    width: min(94%, 620px);
+    max-height: min(90%, 650px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    background: #202020;
+    border: 1px solid #666;
+    border-radius: .75rem;
+    --pad: clamp(.8rem, 3vw, 1.25rem);
+    padding: var(--pad);
+    box-shadow: 0 .7rem 2rem rgb(0 0 0 / .45);
+  }
+  .panel-card h2 { margin: 0 0 .65rem; font-size: 1.25rem; }
+  .panel-card h3 { margin: 1rem 0 .35rem; font-size: 1rem; }
+  .panel-card p { margin: .45rem 0; line-height: 1.45; }
+  .panel-card ul { margin: .45rem 0 .65rem; padding-left: 1.25rem; line-height: 1.45; }
+  .panel-card a { color: inherit; }
+  /* the buttons stay in view when the card is taller than the window and scrolls */
+  .panel-actions { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: flex-end; margin-top: 1rem; position: sticky; bottom: calc(-1 * var(--pad)); padding: .6rem 0 var(--pad); margin-bottom: calc(-1 * var(--pad)); background: #202020; box-shadow: 0 -.6rem .6rem #202020; }
+  #panelMessage { min-height: 1.2em; margin-top: .5rem; opacity: .8; }
+
+  @media (max-width: 420px) {
+    main { width: 98vw; height: 98dvh; gap: .35rem; }
+    .bar { gap: .3rem; }
+    button, select, a.action { min-height: 2.15rem; padding: .28rem .48rem; }
+    #controls { font-size: .66rem; }
+  }
+  @media (max-height: 560px) {
+    main { height: 98dvh; gap: .25rem; }
+    button, select, a.action { min-height: 2rem; padding: .22rem .45rem; }
+    .scene-shell { height: 98%; gap: .2rem; }
+    .scene-hint, #controls { display: none; }
+    #footerArea { min-height: 2.1rem; }
+  }
+  @media (max-height: 430px) {
+    #status { min-height: 1em; font-size: .75rem; }
+    #footerArea { min-height: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="bar" id="topBar">
+    <button id="menuButton" type="button" hidden>Menu</button>
+    <button id="help" class="top-secondary" type="button">Help</button>
+    <button id="credits" class="top-secondary" type="button">Credits</button>
+    <button id="audio" type="button" aria-pressed="false">Audio: off</button>
+    <select id="language" aria-label="Language">
+      <option value="en">EN</option>
+      <option value="it">IT</option>
+    </select>
+  </div>
+
+  <div id="wrap">
+    <div id="screenStack">
+      <canvas id="game" aria-label="Concentration Room game board" hidden></canvas>
+      <canvas id="titleCanvas" aria-label="Concentration Room title menu"></canvas>
+    </div>
+  </div>
+
+  <div id="footerArea">
+    <div id="status" aria-live="polite"></div>
+    <div id="controls"></div>
+    <div class="bar"><button id="continue" type="button" hidden>Continue</button></div>
+  </div>
+
+  <section id="scene" hidden aria-live="polite">
+    <div class="scene-shell">
+      <canvas id="storyCanvas" width="256" height="240" aria-label="Concentration Room story scene"></canvas>
+      <div class="scene-actions">
+        <button id="sceneContinue" type="button">Continue</button>
+        <span id="sceneHint" class="scene-hint">Enter / Space · ↑ pause · ↓ faster</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="infoPanel" hidden role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+    <div class="panel-card">
+      <h2 id="panelTitle"></h2>
+      <div id="panelBody"></div>
+      <div id="panelMessage" aria-live="polite"></div>
+      <div class="panel-actions">
+        <button id="panelReset" type="button" hidden>Reset preferences</button>
+        <button id="panelClose" type="button">Close</button>
+      </div>
+    </div>
+  </section>
+</main>
+<script type="module" src="./src/app.js"></script>
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

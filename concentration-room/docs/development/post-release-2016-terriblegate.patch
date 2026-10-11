@@ -1,0 +1,19 @@
+# Reconstructed minimal source delta: Concentration Room 0.02 -> first GitHub import
+# Commit: 8cad6d65a0ddff7f9ec9b1fc38a89bcfe3ff43f6
+# Purpose: reset PPUCTRL before OAM/palette upload (Terriblegate fix).
+--- ConcentrationRoom-0.02/src/drawcards.s
++++ git-import-2016/src/drawcards.s
+@@
+ .proc blitCardSprites
++  lda #VBLANK_NMI
++  sta PPUCTRL
+ .shuffle --parts--
+   ldx #0
+   stx $2003
+   lda #>OAM
+   sta $4014
+ --parts--
+-  lda #VBLANK_NMI
+-  sta PPUCTRL
+   lda #$3F
+   sta PPUADDR

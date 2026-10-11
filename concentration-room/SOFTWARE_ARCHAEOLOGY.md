@@ -1,0 +1,56 @@
+# The software archaeology behind Concentration Room
+
+This is the recovery story of this one game. The philosophy shared by every game in the collection (preserve the reasoning and not just the artifact, verify by execution rather than resemblance, record provenance instead of erasing it) is in [`../SOFTWARE_ARCHAEOLOGY.md`](../SOFTWARE_ARCHAEOLOGY.md).
+
+## A game that lives in 24 KiB
+
+Concentration Room 0.02 is a game for the Nintendo Entertainment System, written in 6502 assembly by Damian Yerrick in 2009 and 2010 and released on 18 July 2010. The cartridge is a plain NROM board: 16 KiB of program, 8 KiB of graphics, no mapper, 2 KiB of RAM. Everything the game does fits there: four modes, five table sizes from 10 to 72 cards, a computer player that forgets on purpose, a story with five opponents, sound effects and two tunes.
+
+The author published the sources, the build files, the tile atlases and the release ROM in one archive of 39 files. Its sources are small enough to read in an afternoon (about 5,000 lines of assembly), and the author's diary and to-do list, in the same archive, say what each day's work was. That made the game a good subject for a port, and a good one to check by execution: the archive holds the ROM that the sources were built into.
+
+## What the cartridge does
+
+The table is a grid of 9 columns and 8 rows; five layouts, stored one byte per column, mark which of the 72 places hold a card. A 32-bit generator of the CRC kind, seeded from the menu choice and the frame counter when a game starts, drives the deal, which is not a Fisher-Yates shuffle: the pairs are laid out first and each position, from the last, is swapped with one picked by the generator.
+
+Everything else is counted in frames. One pass of the main loop waits for the vertical blank, so the loop is the clock: five frames to turn a card, 90 to look at a miss, 30 before the computer picks its second card, 180 on a cleared table. The computer player keeps a table of the cards it has seen and, a few frames at a time, forgets some of them; the noise level that sets how many is a parameter of the opponent. The pads are read by the original's own routine, with an initial delay of 15 frames and then a repeat every third.
+
+## What the restoration package could and could not show
+
+The package that brought the port to the collection records its own "behavioral oracle": a list of facts (card counts, miss budgets, timings), the reset seed and five dealt boards. Its parity checklist marks about forty rows PASS, and its tests check the rules against the frame counts and tables that were read from the source. It could not run the ROM, so it never compared the port with the thing the sources were built into. The five boards come with no statement of where the numbers were taken from.
+
+The source archive was inside the package, with the hash its notes give; its 39 files were extracted and hashed and agree with the package's own list. It is byte for byte the file the author serves: the zip downloaded from the author's own address on 11 October 2026 has 100,162 bytes and the same SHA-256 (the Internet Archive's snapshot of that address reports the same size).
+
+## What running the original showed
+
+There was no compiler for the 6502 and no emulator in this environment, so one was written: a core with cycle counts for the 151 documented opcodes (its arithmetic tested against the definitions for every operand), and a minimal NES that has the memory, the controller ports and the vertical blank that the game uses and draws nothing. The preserved release ROM boots on it. A scripted player takes it through the title menu and plays; the port plays the same game, fed the same buttons once per iteration of the original's main loop.
+
+The ROM keeps its variables where the author's build tool put them, and nothing says where. The few addresses the harness needs are found by their code (the frame counter, the generator, the routine that reads the pads, the two places where the program mixes the time into its seed), and the rest by elimination: an address is the home of one of the port's fields only if it held the same value as that field at every iteration of every game. A field with no such address would be a difference. In the final recording 173 of the 174 compared fields were pinned down by the data, and one (the CPU's memory of a card that exists only on the 72-card table, which the CPU never remembered in these games) is placed by the layout of its array.
+
+The first runs found about half a dozen differences between the port and the ROM:
+
+- **Two things that the build had reversed.** The release was built with the author's `shuffle.py -r`, which runs the blocks that the source marks as reorderable in the reverse of their written order. The four direction handlers run Right, Down, Left, Up, and while a controller is being handed over only the first of them is skipped.
+- **Things that the original does and the text does not say.** The human pad keeps moving the cursor, and B keeps working, while the computer plays; the computer's turn discards pad 1's new presses; against the computer, a miss hands the turn over at once without waiting for A and B; a cleared table runs the Still handler on its last frame; and a few variables are left as they were when a game starts (the state timer at 255 after a game over, the second score in Solitaire, the velocities of the collecting animation), so they are compared only where they mean something.
+
+All are fixed. The final recording has 64 scenarios, 128 games and 310,756 iterations (59,207 in the waiting state, 25,830 turning cards, 108,468 collecting a pair, 95,305 turning a miss back, 19,260 on a cleared table, 1,143 handing over a controller, 1,547 in game over), with 1,179 matches, 973 misses, 448 Solitaire misses, 525 hand-overs, 353 turns passed to the computer, 3,068 frames spent forgetting and the computer's four ways of choosing a card all exercised. No difference remains. The harness runs its scenarios on worker threads, and the recording takes about twenty minutes on four cores. To see whether the harness can notice a fault, 30 were put into the port one at a time (a flip of 4 frames, a wrong bit of the generator's polynomial, a CPU that waits 29 frames, the package's old direction handling, and so on): 28 were caught, 25 by the six quick scenarios. The two that were not are a repeat interval of 4 frames instead of 3 and a tie that wins a Vs. CPU stage; the harness's players almost never hold a direction long enough for the first, and no Story game ended in a tie for the second.
+
+The limits: the Story is played to its fourth stage (its ten-stage table is compared with the ROM's bytes instead); four games of the largest tables were still going at the harness's iteration limit and are compared up to that point; nothing here plays sound; the title menu is driven by taps, and the port begins at the deal, taking from the ROM the generator and the frame counter that the program had at that moment.
+
+## What the pictures showed
+
+A screenshot taken during the integration showed the emblem of an open card sticking out above its card. The ROM oracle could not have seen it: it compares the state, and it draws nothing. But the picture the ROM would put on the screen can be composed from the memory of the machine that runs it (the nametable, the attributes, the palettes, the scroll and the sprite memory), and the page's own renderers can be run in Node over a software canvas, so the oracle's scenarios were played again with the two pictures compared pixel by pixel.
+
+The first comparison differed on every frame, by millions of pixels. The causes, found one at a time: the original scrolls its background up by 12 pixels (`PPUSCROLL = 0, 12`, written every frame) and the page had ignored it; the lower two tiles of a card's back, and of every emblem, were swapped; the colours of the arrow and of the card that turns were one place off; the corners of the table, rounded in the original by a rule in the code that finds a card's neighbours, were square; and a handful of smaller things (the order in which two sprites overlap, sprites drawn under the score boxes, a score box that updates a frame late, an arrow that is parked under the new player's box during a hand-over). After the fixes, 119,426 frames of the 64 scenarios agree with the ROM's, pixel for pixel.
+
+The same comparison covered the title's menus, the opponent scenes and the three opening and instruction texts, by calling the ROM's own routines, which the code lets one find (`doOpponentScene` and `scrollOpeningText`, by their first instructions, in the order that the reversed build left them). It found the double spacing of the opponents' text, the characters and the logo one line too high in the pictures the package had made, and an opening text that was white, single spaced and twice as short in the page (it is black, double spaced and scrolls for 62 rows, with a fade in three steps). The pictures are now made from the ROM. One thing the ROM does that the page does not: the last opponent's lost text has no terminator, so after a few seconds the original types past the end of the screen into the attribute table, and the colours of the picture break up. The page keeps the text, not the breakage.
+
+## What reading the data showed
+
+Everything in the port that is a table is a transcription, and a table is easy to compare. `test/rom-data.test.js` looks for each of them in the ROM's program, byte for byte: 90 lines of English text, the ten-stage story table, the eleven sound effects, the five music patterns, the two conductors, the instrument table, the five layouts of the table and the palettes of the cards and the table. All are found. The check found one error in the package's copy of the sound data: the last two notes of the intro's bass line had the length of a quarter note, and the ROM, like the source, has dotted quarters. It is fixed.
+
+## What a real browser found
+
+One fault in the page, none in the game: on a window lower than the Help dialog, the dialog opened already scrolled to its end, because the focus went to the Close button at its foot. It now opens at the top. The layout was otherwise measured at 14 window sizes in English and in Italian (320 by 568 to 1920 by 1080, and landscape from 568 by 320), and games were played with real mouse and keyboard events, which are listed in `CHANGELOG.md`.
+
+## The rest of the archive
+
+Besides the sources, the archive holds the two tile atlases the game draws from (kept here, byte for byte), three images of the author's documentation (not redistributed, identified by hash in `reference/ConcentrationRoom-0.02/ARCHIVE_SHA256.txt`), the build files (a makefile for `ca65` and `ld65`, a linker script, a Windows batch file), four Python tools including the one that shuffles, the author's diary and to-do list, and `README.html` with the licence. The ROM cannot be rebuilt here: there is no `ca65` or `ld65`, and at least one of the Python tools uses calls from Python 2. The licence says GPL version 3 or later, with an exception for exact copies of the ROM; and the lettering of the menus follows two designs that the archive gives no separate licence for, a question this repository records and does not settle.
