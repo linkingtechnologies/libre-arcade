@@ -1,0 +1,19 @@
+# The preserved original files are kept byte for byte (the sources are the author's, with his line endings; the ROM, the character
+# memory and the packed screens are binary): no line-ending normalisation, so they still hash to the values in the CHECKSUMS.txt
+# of each folder on every platform.
+reference/competition/Lawn_Mower.nes -text
+reference/competition/blurb.txt -text
+reference/competition/notes.txt -text
+reference/release-v1.12/Lawn_Mower.nes -text
+reference/source-v1.12/** -text
+reference/source-v1.12/SOURCE.md text
+reference/source-v1.12/CHECKSUMS.txt text eol=lf
+reference/source-v1.12/ARCHIVE_SHA256.txt text eol=lf
+reference/competition/CHECKSUMS.txt text eol=lf
+reference/competition/ARCHIVE_SHA256.txt text eol=lf
+reference/release-v1.12/CHECKSUMS.txt text eol=lf
+reference/release-v1.12/ARCHIVE_SHA256.txt text eol=lf
+
+# The page's data files and the pictures are binary.
+public/assets/* binary
+*.png binary

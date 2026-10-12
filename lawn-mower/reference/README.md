@@ -1,0 +1,10 @@
+# reference/
+
+The historical material behind this game is kept light and reproducible, not as a copy of the archives it came from.
+
+- `competition/` is the entry the author sent to the 2011 competition. `Lawn_Mower.nes` (v1.1, 24,592 bytes) is the author's own executable, kept because it is what the executable oracle (`tools/rom-oracle.mjs`) runs and because the author put the game in the Public Domain. With it are his entry form (`blurb.txt`) and development notes (`notes.txt`). `SOURCE.md` says where it comes from and what is known and not known about that, `ARCHIVE_SHA256.txt` lists the 5 files of the archive and `CHECKSUMS.txt` the 3 that are kept.
+- `release-v1.12/` is the author's own build of the later revision: `Lawn_Mower.nes` (v1.12, 24,592 bytes) from the Internet Archive's `lawn_mower.zip`, kept for the same reason as the competition ROM, because the oracle runs it. It is the executable of the version the page follows. `SOURCE.md` says where it comes from (the zip was downloaded on 12 October 2026 and checked against the item's metadata), how it differs from the competition ROM and from the source assembled here, and what running it showed; `ARCHIVE_SHA256.txt` lists the zip's 5 files and `CHECKSUMS.txt` the one that is kept.
+- `source-v1.12/` is the author's source, a later revision (1 July 2011): every assembler file, the three binary inputs of the assembly (the character memory that holds the ten levels and the two packed screens), the level file of the editor and the text sources of the editor. `SOURCE.md` has the origin (the archive is byte for byte the Internet Archive's `lawn_mower_src.zip`, checked against that item's metadata), the licence and the evidence for it, and what is not kept.
+- The zips, the editor program, the tracker projects, the manual and the label are not redistributed; `SOURCE.md` of each folder says why and what they are.
+
+The source can be assembled here with `tools/assemble.mjs` (see `source-v1.12/SOURCE.md`). That is a check of the source and a third program for the oracle to run; it is not the author's binary (his own is in `release-v1.12/`, and the two differ in layout).

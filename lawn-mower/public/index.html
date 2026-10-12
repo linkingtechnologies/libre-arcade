@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#000000">
+<title>Lawn Mower — Libre Arcade</title>
+<style>
+:root{color-scheme:dark;--panel:rgba(10,10,10,.94);--line:rgba(255,255,255,.28);--text:#fff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+body{overscroll-behavior:none;touch-action:none;display:grid;place-items:center}
+#app{width:100%;height:100dvh;display:grid;place-items:center;overflow:hidden}
+.game-layout{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;min-height:0}
+.game-shell{position:relative;flex:none;width:min(100vw,calc(100dvh * 256 / 240));aspect-ratio:256/240;max-height:100dvh;container-type:inline-size}
+canvas{display:block;width:100%;height:100%;image-rendering:pixelated;image-rendering:crisp-edges;outline:none;background:#000}
+.toolbar{position:absolute;z-index:20;top:6px;right:6px;display:flex;gap:5px}
+.ui-btn{appearance:none;border:1px solid var(--line);background:rgba(0,0,0,.58);color:#fff;border-radius:8px;min-width:34px;height:32px;padding:0 8px;font:600 13px/1 system-ui;display:grid;place-items:center;backdrop-filter:blur(3px);cursor:pointer}
+.ui-btn:focus-visible,.touch-btn:focus-visible,.panel button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.touch-deck{display:none;position:relative;width:min(100vw,520px);height:146px;flex:none;user-select:none;-webkit-user-select:none}
+.dpad{position:absolute;left:max(10px,env(safe-area-inset-left));top:8px;width:128px;height:128px}
+.touch-btn{position:absolute;appearance:none;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25);font:700 18px/1 system-ui;touch-action:none;user-select:none}
+.touch-btn.active{background:rgba(255,255,255,.32);transform:scale(.96)}
+.dpad .touch-btn{width:42px;height:42px;border-radius:9px}
+.dpad [data-control="up"]{left:43px;top:0}.dpad [data-control="down"]{left:43px;bottom:0}.dpad [data-control="left"]{left:0;top:43px}.dpad [data-control="right"]{right:0;top:43px}
+.actions{position:absolute;right:max(12px,env(safe-area-inset-right));top:24px;width:132px;height:96px}
+.actions .touch-btn{width:58px;height:58px;border-radius:50%}.actions [data-control="a"]{right:0;top:0}.actions [data-control="b"]{left:0;bottom:0}
+.start-touch{left:50%;bottom:16px;transform:translateX(-50%);width:66px;height:30px;border-radius:15px;font-size:11px}
+.start-touch.active{transform:translateX(-50%) scale(.96)}
+.panel-backdrop{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.72);touch-action:auto}
+.panel-backdrop.open{display:flex}
+.panel{width:min(92vw,440px);max-height:min(88dvh,560px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px;line-height:1.45;box-shadow:0 16px 60px #000}
+.panel h1{font-size:20px;margin:0 40px 14px 0}.panel h2{font-size:15px;margin:18px 0 7px}.panel p,.panel li{font-size:14px}.panel ul{padding-left:20px;margin:7px 0}.panel-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.panel button{appearance:none;border:1px solid var(--line);background:#1c1c1c;color:#fff;border-radius:8px;padding:9px 12px;font-weight:600;cursor:pointer}.panel .close{position:absolute;right:24px;top:20px;width:34px;height:34px;padding:0}.panel-wrap{position:relative}.credits-link{color:#fff;text-underline-offset:3px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (pointer:coarse){
+  .touch-deck{display:block}
+  .game-shell{width:min(100vw,calc((100dvh - 146px) * 256 / 240));max-height:calc(100dvh - 146px)}
+}
+@media (pointer:coarse) and (orientation:landscape){
+  .touch-deck{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .game-shell{width:min(100vw,calc(100dvh * 256 / 240));max-height:100dvh}
+  .dpad,.actions,.start-touch{pointer-events:auto;opacity:.68}
+  .dpad{left:max(8px,env(safe-area-inset-left));top:auto;bottom:max(8px,env(safe-area-inset-bottom));transform:scale(.82);transform-origin:left bottom}
+  .actions{right:max(8px,env(safe-area-inset-right));top:auto;bottom:max(16px,env(safe-area-inset-bottom));transform:scale(.88);transform-origin:right bottom}
+  .start-touch{bottom:max(8px,env(safe-area-inset-bottom));opacity:.72}
+}
+/* The three buttons sit over the picture's top corner when the window is nearly square, and shrink with it so that they stay clear of the
+   status bar (which starts 16 lines down); in a tall window they go above the picture, in a wide one beside it, at full size. */
+@supports (width:1cqw){
+  .toolbar{top:.4cqw;right:.8cqw;gap:clamp(3px,.8cqw,5px)}
+  .ui-btn{height:clamp(20px,4.6cqw,32px);min-width:clamp(22px,5cqw,34px);padding:0 clamp(4px,1cqw,8px);font-size:clamp(10px,2.3cqw,13px);border-radius:clamp(6px,1.2cqw,8px)}
+}
+@media (max-aspect-ratio:4/5){.toolbar{top:auto;bottom:100%;right:0;margin-bottom:6px}.ui-btn{height:32px;min-width:34px}}
+@media (min-aspect-ratio:13/10){.toolbar{top:0;right:auto;left:100%;margin-left:8px;flex-direction:column}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="game-layout">
+    <div class="game-shell">
+      <canvas width="256" height="240" tabindex="0" aria-label="Lawn Mower game"></canvas>
+      <div class="toolbar" aria-label="Game options">
+        <button class="ui-btn" id="audioToggle" type="button" aria-label="Mute audio" title="Mute audio">🔊</button>
+        <button class="ui-btn" id="languageToggle" type="button" aria-label="Switch language" title="Switch language">IT</button>
+        <button class="ui-btn" id="infoButton" type="button" aria-label="Instructions and credits" title="Instructions and credits">ⓘ</button>
+      </div>
+    </div>
+    <div class="touch-deck" id="touchDeck" aria-label="Touch controls">
+      <div class="dpad">
+        <button class="touch-btn" data-control="up" type="button" aria-label="Up">▲</button>
+        <button class="touch-btn" data-control="left" type="button" aria-label="Left">◀</button>
+        <button class="touch-btn" data-control="right" type="button" aria-label="Right">▶</button>
+        <button class="touch-btn" data-control="down" type="button" aria-label="Down">▼</button>
+      </div>
+      <div class="actions">
+        <button class="touch-btn" data-control="b" type="button" aria-label="B boost">B</button>
+        <button class="touch-btn" data-control="a" type="button" aria-label="A boost">A</button>
+      </div>
+      <button class="touch-btn start-touch" data-control="start" type="button" aria-label="Start or pause">START</button>
+    </div>
+  </div>
+</div>
+<div class="panel-backdrop" id="panelBackdrop" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+  <div class="panel-wrap">
+    <div class="panel" id="infoPanel"></div>
+  </div>
+</div>
+<script type="module" src="./app.js"></script>
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

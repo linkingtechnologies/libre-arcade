@@ -1,0 +1,22 @@
+Name: 			Lawn Mower
+
+Submitted By: 	Shiru
+
+Category:		NROM Minigame
+
+Description:  	An arcade game, you control a lawn mower and cut lawns
+
+Controls:		D-pad: Change direction of movement
+				Start: Starts the game, pauses while in game
+				B, A: Speed up the movement
+
+Rom info:		Mapper 0
+				Filesize 24K
+				Special peripherals not needed
+				Don't work in jnes and UberNES, works on the hardware and in other emulators
+
+
+Credits:		Everything made by Shiru
+				Tested by Alone Coder, B00daW, Pinball Wizzard
+
+Other:			The game is sort of remake of classic lawn mower game (from 1980s)

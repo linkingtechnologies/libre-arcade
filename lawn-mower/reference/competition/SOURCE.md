@@ -1,0 +1,19 @@
+# Lawn Mower competition entry record
+
+- Archive: `competition-original.zip`, 353,308 bytes, 5 files, SHA-256 `de7346d23e34130e84f0dafdc71be39a36e5e986034a8b35625194b9bed45a1d`, MD5 `7146c273e0dbd142bf5c45d06969c913`, supplied inside the restoration package this game was integrated from as `reference/competition/competition-original.zip`. Its 5 files were extracted and hashed (`ARCHIVE_SHA256.txt`); every file kept here is byte for byte a file of the archive (`CHECKSUMS.txt` against `ARCHIVE_SHA256.txt`).
+- ROM: `Lawn_Mower.nes`, 24,592 bytes, SHA-256 `942f36376246dbdff99a0b94aad930b2cccf1f534e5390468ac9c0d50752d7dd`. An iNES file: 16 KiB of program and 8 KiB of graphics, mapper 0 (NROM-128), vertical mirroring. It carries the string `Lawn Mower v1.1 30.05.11`, and its file in the zip is dated 30 May 2011. It is the executable the oracle runs, and the strongest evidence in this repository: it is the author's own program.
+- Entry form: `blurb.txt` is the form the author sent in: "Submitted By: Shiru", "Category: NROM Minigame", "Rom info: Mapper 0, Filesize 24K", "Credits: Everything made by Shiru. Tested by Alone Coder, B00daW, Pinball Wizzard", and that "Don't work in jnes and UberNES, works on the hardware and in other emulators". `notes.txt` is his development notes: the game was made in the three weeks before the deadline of the "NES Coding Competition 2011", after Lan Master, as a clone of a lawn mower game of 1986 for the BK-0010 and the ZX Spectrum; the levels are kept in the character memory and about 180 bytes of program are free.
+- Origin: the competition was the NintendoAge NES Coding Competition 2011 (<https://nesdevcompo.nintendoage.com/contest/>, "NANESCC 2011"). The PDRoms page <https://pdroms.de/nintendo-nintendoentertainmentsystem-nes-famicom-fc/lawn-mower-nanescc-2011-nes-game> says "Lawn Mower by Shiru is an entry to the recently held NintendoAge NES Coding Competition 2011" and was added on 8 June 2011. **This archive was not compared with a copy of the competition's own file**: none was read. The Internet Archive item <https://archive.org/details/lawn_mower> has a `lawn_mower.zip` of 751,619 bytes in 5 files (MD5 `cbff8bb3935a963c087db4d4071d5c69`) that is not this archive (the size differs). It was downloaded on 12 October 2026, with the integrator's permission, and compared: its ROM is the author's v1.12, not this v1.1 (`../release-v1.12/SOURCE.md`); only its `notes.txt` and `label_nes.png` are byte for byte this archive's `notes.txt` and `label.png`, and its manual is a different file. So no upstream copy of this v1.1 ROM was found. What ties this ROM to the game is its content: the oracle shows that the port, written from the v1.12 source, agrees with it in all but one place that is documented.
+
+## Licence
+
+`../source-v1.12/SOURCE.md` has the evidence: "The game and its source code are released into Public Domain" in `game.asm`, the same for FamiTone in `famitone.asm`, the Internet Archive item's CC0 URL and the NESdev forum's list. The ROM is the game. `blurb.txt` and `notes.txt` are the author's own texts and are kept as historical evidence of the origin. The manual and the label of the archive carry their own wording, which could not be read here (the manual's text is in embedded fonts), so **neither is redistributed**.
+
+## Preserved here, unmodified
+
+`Lawn_Mower.nes`, `blurb.txt`, `notes.txt`. `CHECKSUMS.txt` lists their SHA-256 (`sha256sum -c CHECKSUMS.txt` from inside this folder), and each matches `ARCHIVE_SHA256.txt`, which lists all 5 files. `.gitattributes` turns line-ending normalisation off for them.
+
+## Not preserved
+
+- `competition-original.zip` itself, 353 KB.
+- `manual.pdf` (91,571 bytes, SHA-256 `b93de682d951270adaaed11d4cb273031af6a9a1a5a29db098b4c669f5bf74cc`) and `label.png` (255,237 bytes, SHA-256 `7684a9508251287ce3305116e35fadb281a727fef59ba05982c7061e24c843ac`), for the reason above.
