@@ -1,0 +1,13 @@
+# The original Java sources and documents are kept byte for byte (CRLF for most, LF for a few, some with Latin-1 characters): no
+# line-ending normalisation and no text conversion, so they still hash to the values in CHECKSUMS.txt on every platform.
+reference/milcity-blue-1.0.5/** -text
+reference/milcity-blue-1.0.5/CHECKSUMS.txt text eol=lf
+reference/SOURCE.md text eol=lf
+
+# The oracle harness is hashed into the recorded fixture (test/fixtures/java-oracle.json), so it must be LF on every checkout
+# whatever core.autocrlf says.
+test/java-oracle/**/*.java text eol=lf
+test/java-oracle/*.java text eol=lf
+test/fixtures/*.json text eol=lf
+
+*.png binary

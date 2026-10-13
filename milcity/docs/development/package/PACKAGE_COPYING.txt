@@ -1,0 +1,5 @@
+MilCity Blue upstream source is distributed under GNU GPL version 3.
+
+This browser restoration is distributed under GPL-3.0-only to stay conservative with the upstream grant identified in the preserved source. See the canonical upstream archive and its original COPYING file under reference/.
+
+Original graphical assets preserved under reference/original-assets/ are archaeological reference material only. Their file-specific provenance/licensing was not independently established, so the browser runtime does not load or redistribute them as part of the playable renderer.

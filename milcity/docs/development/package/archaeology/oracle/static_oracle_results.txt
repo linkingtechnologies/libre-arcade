@@ -1,0 +1,18 @@
+PASS four_levels
+PASS easy_missile
+PASS medium_factory
+PASS hard_airfield
+PASS madness_nuke
+PASS no_ai_spy_fire
+PASS no_ai_shield_fire
+PASS fresh_random
+PASS target_retry_10
+PASS ai_tick_1s
+PASS grid_30x30
+PASS score_1000
+PASS money_100
+PASS water_50
+PASS blackout_120
+PASS render_sleep
+
+16/16 checks passed

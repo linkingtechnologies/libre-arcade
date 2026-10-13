@@ -1,0 +1,16 @@
+cell,role,m13,m14
+1,Water,CLOSE,CLOSE+
+2,Ground,CLOSE,MATCH
+3,Construction,CLOSE,CLOSE+
+4,Missile Silo,CLOSE,CLOSE+
+5,Shield Generator,CLOSE,CLOSE+
+6-7,Power Plant,DIFFERENT,CLOSE
+8-10,Air Field,CLOSE,CLOSE+
+11-12,Laboratory,DIFFERENT,CLOSE
+13-16,Factory,DIFFERENT,CLOSE
+17,House,CLOSE,CLOSE+
+18-26,Nuke Silo,DIFFERENT,CLOSE
+27,Commercial,CLOSE,CLOSE+
+28,Destroyed,CLOSE,CLOSE+
+29,Burning,CLOSE,CLOSE+
+30-34,Explosion frames,CLOSE,CLOSE+

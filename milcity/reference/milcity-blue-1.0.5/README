@@ -1,0 +1,82 @@
+////	LICENSE    ////
+
+MilCity - Blue
+
+Copyright (C) 2010, 2011, Jérémy WALTHER (milcityblue@gmail.com)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see http://www.gnu.org/licenses/gpl-3.0.html.
+
+
+//// WHAT IS IT    ////
+
+MilCity is a Real Time Strategy based game. Build your own city, earn money
+and produce energy ... and construct weapons ! And, like in a Battleship game, 
+you can use these weapons against your opponents. 
+Available on all J2ME capable mobile phones !
+
+
+////	DOWNLOAD    ////
+
+MilCity Blue is FREE. You can download it from SourceForge here :
+https://sourceforge.net/projects/milcity/
+Check for last update ^^
+
+
+////	INSTALL    ////
+
+To install MilCity Blue on your cellphone, you need to download lastest JAR file
+from SourceForge. Then, simply put it on your cellphone memory, and browse files
+in aim to find it with your cellphone file manager, and click on "INSTALL" (or
+something like that). 
+Your cellphone needs to have at least 300ko of free memory, and must be compatible 
+with CLDC 1.0 and MIDP 2.0, and have a screen resolution of 320 x 240 pixels.
+(now, I think every cellphone sold must be OK...)
+
+
+////	CONTACT    ////
+
+If you need support (bug, troubleshooting, help ...), use this link please :
+https://sourceforge.net/projects/milcity/support
+
+If for some reason you need to contact me, then you can mail me at this email :
+milcityblue@gmail.com
+
+
+////	CHANGELOG    ////
+
+####	VERSION 1.0.5
+			Fixed : Shielded cells are now wellfully displayed by Spy Satellites (Bluetooth game).
+			Fixed : Maximum Score and Starting Money are now synchronized with Bluetooth Server 
+				in Multiplayers mode.
+			Fixed : Spy satellites now work (they show buildings, and shielded cells).
+			Fixed : Firing on a shielded cell is now displayed as firing on the ground (nothing hit).
+			Changed : Cost of Nuke Silo and Laboratory.
+			
+####	VERSION 1.0.4
+			Fixed : Players win when they reach their Maximum Score
+			Added : Possibility to change starting amount of Money in Options menu.
+			Added : Possibility to change Maximum Score to reach in Options menu.
+			
+####	VERSION 1.0.3
+			Fixed : Playing multiple Bluetooth parties without restarting the game is possible.
+			Changed : Balance of building costs.
+			
+####	VERSION 1.0.2
+			Fixed : Determination of winner and loser players improved.
+			
+####	VERSION 1.0.1
+			Added : Support of Bluetooth.
+			
+####	VERSION 1.0.0
+			Bug : Cannot play with Bluetooth.
+			First public release, but mainly based on solo gaming mode.

@@ -1,0 +1,8 @@
+MIDlet-Version: 1.0.5
+MIDlet-Icon: /MilCityLogo_Shiro_icon.png
+MIDlet-Vendor: jeremy.walther@gmail.com
+MIDlet-Jar-URL: MilCity-Blue.jar
+MicroEdition-Configuration: CLDC-1.0
+MIDlet-1: MilCityBlue,,fr.uha.ensisa.ir.walther.milcityblue.MilCityBlue
+MicroEdition-Profile: MIDP-2.0
+MIDlet-Name: MilCity Blue
