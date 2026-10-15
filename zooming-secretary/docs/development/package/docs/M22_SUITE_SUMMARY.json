@@ -1,0 +1,20 @@
+{
+  "milestone": "M22",
+  "campaign": [
+    "Day 1",
+    "Day 2",
+    "Day 3",
+    "Day 4",
+    "Dream",
+    "Day 5",
+    "Day 6",
+    "Day 7",
+    "Ending"
+  ],
+  "m22_tests": 20,
+  "full_suite_passed": 213,
+  "full_suite_failed": 0,
+  "js_syntax_passed": 42,
+  "http_smoke_status": 200,
+  "forbidden_historical_matches": 0
+}

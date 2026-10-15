@@ -1,0 +1,62 @@
+{
+  "milestone": "M17",
+  "passed": 116,
+  "total": 116,
+  "failed": 0,
+  "suites": [
+    {
+      "suite": "M9/M8",
+      "passed": 15,
+      "total": 15,
+      "failed": 0
+    },
+    {
+      "suite": "M10",
+      "passed": 15,
+      "total": 15,
+      "failed": 0
+    },
+    {
+      "suite": "M11",
+      "passed": 10,
+      "total": 10,
+      "failed": 0
+    },
+    {
+      "suite": "M12",
+      "passed": 12,
+      "total": 12,
+      "failed": 0
+    },
+    {
+      "suite": "M13",
+      "passed": 8,
+      "total": 8,
+      "failed": 0
+    },
+    {
+      "suite": "M14",
+      "passed": 12,
+      "total": 12,
+      "failed": 0
+    },
+    {
+      "suite": "M15",
+      "passed": 14,
+      "total": 14,
+      "failed": 0
+    },
+    {
+      "suite": "M16",
+      "passed": 14,
+      "total": 14,
+      "failed": 0
+    },
+    {
+      "suite": "M17",
+      "passed": 16,
+      "total": 16,
+      "failed": 0
+    }
+  ]
+}

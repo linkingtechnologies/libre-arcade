@@ -1,0 +1,68 @@
+{
+  "baseline": "Zooming Secretary M14 HTML5 shell",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M14-001",
+      "name": "training stage is synthetic and valid",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-002",
+      "name": "browser shell instantiates simulation",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-003",
+      "name": "50 Hz fixed-step clock",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-004",
+      "name": "fixed-step accumulation is partition invariant",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-005",
+      "name": "shell files exist",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-006",
+      "name": "canvas virtual size is 256x240",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-007",
+      "name": "viewport is no-scroll",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-008",
+      "name": "keyboard and touch controls are wired",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-009",
+      "name": "IT EN strings are present",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-010",
+      "name": "no original media in web shell",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-011",
+      "name": "training simulation advances deterministically",
+      "ok": true
+    },
+    {
+      "id": "ZS-M14-012",
+      "name": "UI core does not depend on original level topology",
+      "ok": true
+    }
+  ]
+}

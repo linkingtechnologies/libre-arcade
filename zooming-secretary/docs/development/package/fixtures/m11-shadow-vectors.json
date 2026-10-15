@@ -1,0 +1,911 @@
+{
+  "baseline": "Zooming Secretary NES v1.02 (30.12.11)",
+  "rom_sha256": "315adee10052367298959d55256e9f2621381da9f7c839f50832e13516b61770",
+  "prg_sha256": "bc8c88b58bad14f17c642e9f7cad32e2aa3d8cd2a07b23100d3974c2cd400b5e",
+  "note": "No original nametable/collision bytes included. Values are fingerprints and behavioural metadata derived in M11 shadow run. M12 supersedes source-logical factoid indices with binary-real cc65 stale-X results.",
+  "m7_corrections": [
+    {
+      "stage": "Day 2",
+      "entity": 0,
+      "type": "coffee",
+      "field": "runtime_y",
+      "m7": 64,
+      "m11": 65
+    },
+    {
+      "stage": "Day 3",
+      "entity": 0,
+      "type": "coffee",
+      "field": "runtime_y",
+      "m7": 64,
+      "m11": 65
+    },
+    {
+      "stage": "Day 4",
+      "entity": 3,
+      "type": "coffee",
+      "field": "runtime_y",
+      "m7": 128,
+      "m11": 129
+    },
+    {
+      "stage": "Day 5",
+      "entity": 8,
+      "type": "coffee",
+      "field": "runtime_y",
+      "m7": 192,
+      "m11": 193
+    },
+    {
+      "stage": "Day 6",
+      "entity": 0,
+      "type": "coffee",
+      "field": "runtime_y",
+      "m7": 72,
+      "m11": 73
+    },
+    {
+      "stage": "Day 7",
+      "entity": 8,
+      "type": "coffee",
+      "field": "runtime_y",
+      "m7": 192,
+      "m11": 193
+    }
+  ],
+  "stages": [
+    {
+      "stage": "Day 1",
+      "prg_offset": 20161,
+      "cpu_address": 52929,
+      "compressed_len": 424,
+      "nametable_sha256": "dec6cea10f432aa84d01703051bba1008c4502ce844e1a93d8e4344a744b7557",
+      "gameplay_raw_sha256": "4a7e4c9e10c2db757579e2f342484304a4d087da9fe815ae50022c592a86ea21",
+      "collision_sha256": "67cbe336548cd2b4f2928ace7afa86b1a9171f5fccb89fb09a874bb857cbf4b6",
+      "targetCalls": 10,
+      "callDelay": 250,
+      "topicsActive": 2,
+      "bonus": false,
+      "spawn": {
+        "x": 120,
+        "y": 152,
+        "scanIndex": 495
+      },
+      "phones": [
+        {
+          "x": 56,
+          "y": 96,
+          "scanIndex": 199,
+          "counter": 252,
+          "topic": 0,
+          "delayRawRand": 2,
+          "topicRawRand": 4
+        },
+        {
+          "x": 192,
+          "y": 96,
+          "scanIndex": 216,
+          "counter": 504,
+          "topic": 0,
+          "delayRawRand": 8,
+          "topicRawRand": 16
+        }
+      ],
+      "topics": [
+        {
+          "x": 46,
+          "y": 160,
+          "id": 0,
+          "scanIndex": 358,
+          "messageIndex": 2,
+          "messageRawRand": 32
+        },
+        {
+          "x": 190,
+          "y": 160,
+          "id": 1,
+          "scanIndex": 376,
+          "messageIndex": 7,
+          "messageRawRand": 64
+        }
+      ],
+      "coffee": null,
+      "npc": null,
+      "tables": [],
+      "sideFloors": {
+        "left": [
+          152
+        ],
+        "right": [
+          152
+        ]
+      },
+      "rng_after_init": 64,
+      "call_delay_after_init": 230,
+      "first_ring_ticks": [
+        252,
+        504
+      ],
+      "first_miss_ticks": [
+        855,
+        1107
+      ]
+    },
+    {
+      "stage": "Day 2",
+      "prg_offset": 20585,
+      "cpu_address": 53353,
+      "compressed_len": 475,
+      "nametable_sha256": "7d246b98c6d233488ad2a700246192e2896da5e56840901b5fd2df43ea8f1773",
+      "gameplay_raw_sha256": "a15c74ec92e9dadd97a4ae26baafe4186a6a91e326b4df4ebb010e8f1fd8d7b4",
+      "collision_sha256": "81b5e842798c17735f3962ccab79789d9b2cba0fa230549aa9e2d01d97fab777",
+      "targetCalls": 15,
+      "callDelay": 250,
+      "topicsActive": 2,
+      "bonus": false,
+      "spawn": {
+        "x": 16,
+        "y": 120,
+        "scanIndex": 354
+      },
+      "phones": [
+        {
+          "x": 192,
+          "y": 64,
+          "scanIndex": 88,
+          "counter": 252,
+          "topic": 0,
+          "delayRawRand": 2,
+          "topicRawRand": 4
+        },
+        {
+          "x": 56,
+          "y": 128,
+          "scanIndex": 327,
+          "counter": 504,
+          "topic": 0,
+          "delayRawRand": 8,
+          "topicRawRand": 16
+        },
+        {
+          "x": 192,
+          "y": 128,
+          "scanIndex": 344,
+          "counter": 774,
+          "topic": 0,
+          "delayRawRand": 32,
+          "topicRawRand": 64
+        }
+      ],
+      "topics": [
+        {
+          "x": 62,
+          "y": 192,
+          "id": 0,
+          "scanIndex": 488,
+          "messageIndex": 6,
+          "messageRawRand": 207
+        },
+        {
+          "x": 174,
+          "y": 192,
+          "id": 1,
+          "scanIndex": 502,
+          "messageIndex": 6,
+          "messageRawRand": 81
+        }
+      ],
+      "coffee": {
+        "x": 56,
+        "y": 65,
+        "scanIndex": 71
+      },
+      "npc": {
+        "type": "chief",
+        "x": 224,
+        "y": 120,
+        "scanIndex": 380,
+        "dirRawRand": 128,
+        "effectiveDir": 0
+      },
+      "tables": [],
+      "sideFloors": {
+        "left": [
+          56,
+          120,
+          184
+        ],
+        "right": [
+          56,
+          120,
+          184
+        ]
+      },
+      "rng_after_init": 81,
+      "call_delay_after_init": 220,
+      "first_ring_ticks": [
+        252,
+        504,
+        774
+      ],
+      "first_miss_ticks": [
+        855,
+        1107,
+        1377
+      ]
+    },
+    {
+      "stage": "Day 3",
+      "prg_offset": 21060,
+      "cpu_address": 53828,
+      "compressed_len": 515,
+      "nametable_sha256": "8b2129fe0bd1005dbaa2c2996d7290f2d4114d606822490540b945fa6f93c13f",
+      "gameplay_raw_sha256": "e782e2afd304d5b3304e82c62fd32f775b66954a42cd3c10663c9e751373c75e",
+      "collision_sha256": "846def0c8a5bfc2d6a67579351d5d50b3645b2b78e632da374d770124286ea87",
+      "targetCalls": 20,
+      "callDelay": 250,
+      "topicsActive": 3,
+      "bonus": false,
+      "spawn": {
+        "x": 40,
+        "y": 56,
+        "scanIndex": 101
+      },
+      "phones": [
+        {
+          "x": 120,
+          "y": 128,
+          "scanIndex": 335,
+          "counter": 266,
+          "topic": 2,
+          "delayRawRand": 16,
+          "topicRawRand": 32
+        },
+        {
+          "x": 32,
+          "y": 192,
+          "scanIndex": 580,
+          "counter": 496,
+          "topic": 0,
+          "delayRawRand": 128,
+          "topicRawRand": 207
+        },
+        {
+          "x": 216,
+          "y": 192,
+          "scanIndex": 603,
+          "counter": 759,
+          "topic": 0,
+          "delayRawRand": 81,
+          "topicRawRand": 162
+        }
+      ],
+      "topics": [
+        {
+          "x": 38,
+          "y": 128,
+          "id": 0,
+          "scanIndex": 229,
+          "messageIndex": 1,
+          "messageRawRand": 4
+        },
+        {
+          "x": 198,
+          "y": 128,
+          "id": 1,
+          "scanIndex": 249,
+          "messageIndex": 5,
+          "messageRawRand": 8
+        },
+        {
+          "x": 118,
+          "y": 192,
+          "id": 2,
+          "scanIndex": 495,
+          "messageIndex": 0,
+          "messageRawRand": 64
+        }
+      ],
+      "coffee": {
+        "x": 120,
+        "y": 65,
+        "scanIndex": 79
+      },
+      "npc": {
+        "type": "bouncer",
+        "x": 200,
+        "y": 56,
+        "scanIndex": 121,
+        "dirRawRand": 2,
+        "effectiveDir": 1
+      },
+      "tables": [],
+      "sideFloors": {
+        "left": [
+          56,
+          120,
+          184
+        ],
+        "right": [
+          56,
+          120,
+          184
+        ]
+      },
+      "rng_after_init": 162,
+      "call_delay_after_init": 220,
+      "first_ring_ticks": [
+        266,
+        496,
+        759
+      ],
+      "first_miss_ticks": [
+        869,
+        1099,
+        1362
+      ]
+    },
+    {
+      "stage": "Day 4",
+      "prg_offset": 21575,
+      "cpu_address": 54343,
+      "compressed_len": 454,
+      "nametable_sha256": "7c86a7b4d0b055b6ab6c0b40155dd78c4508590434d103c73360dbd9f53db67d",
+      "gameplay_raw_sha256": "422e07ec93f79ab48f0737276ea668f2d21682daeafebf32090b974834be5e25",
+      "collision_sha256": "2f475cb2a4c87ca8f0695a2fb9667b1e93eefaea6c1ed0dac9255bf6f775691f",
+      "targetCalls": 25,
+      "callDelay": 250,
+      "topicsActive": 3,
+      "bonus": false,
+      "spawn": {
+        "x": 24,
+        "y": 56,
+        "scanIndex": 99
+      },
+      "phones": [
+        {
+          "x": 56,
+          "y": 64,
+          "scanIndex": 71,
+          "counter": 252,
+          "topic": 1,
+          "delayRawRand": 2,
+          "topicRawRand": 4
+        },
+        {
+          "x": 192,
+          "y": 64,
+          "scanIndex": 88,
+          "counter": 504,
+          "topic": 1,
+          "delayRawRand": 8,
+          "topicRawRand": 16
+        }
+      ],
+      "topics": [
+        {
+          "x": 22,
+          "y": 192,
+          "id": 0,
+          "scanIndex": 483,
+          "messageIndex": 7,
+          "messageRawRand": 64
+        },
+        {
+          "x": 118,
+          "y": 192,
+          "id": 1,
+          "scanIndex": 495,
+          "messageIndex": 8,
+          "messageRawRand": 128
+        },
+        {
+          "x": 214,
+          "y": 192,
+          "id": 2,
+          "scanIndex": 507,
+          "messageIndex": 3,
+          "messageRawRand": 207
+        }
+      ],
+      "coffee": {
+        "x": 120,
+        "y": 129,
+        "scanIndex": 335
+      },
+      "npc": {
+        "type": "chatter",
+        "x": 152,
+        "y": 120,
+        "scanIndex": 371,
+        "dirRawRand": 32,
+        "effectiveDir": 0
+      },
+      "tables": [],
+      "sideFloors": {
+        "left": [
+          56,
+          120,
+          184
+        ],
+        "right": [
+          56,
+          120,
+          184
+        ]
+      },
+      "rng_after_init": 207,
+      "call_delay_after_init": 230,
+      "first_ring_ticks": [
+        252,
+        504
+      ],
+      "first_miss_ticks": [
+        855,
+        1107
+      ]
+    },
+    {
+      "stage": "Dream",
+      "prg_offset": 23732,
+      "cpu_address": 56500,
+      "compressed_len": 558,
+      "nametable_sha256": "4aaa15dfb257db9f9275ed0f9191db4c5cefda31510b31e606ab224d3a86f7ee",
+      "gameplay_raw_sha256": "dea7b85bf858786aacfbb8f6e0411ceacc1de811e5990b0bfa43a3c634113d0c",
+      "collision_sha256": "cebe42ab657f4ff557a3f2a27cc6d8988f138c42fcee3253100e1c5155a3a5f0",
+      "targetCalls": 1,
+      "callDelay": 0,
+      "topicsActive": 0,
+      "bonus": true,
+      "spawn": {
+        "x": 120,
+        "y": 120,
+        "scanIndex": 367
+      },
+      "phones": [
+        {
+          "x": 176,
+          "y": 192,
+          "scanIndex": 9999,
+          "counter": 29,
+          "topic": null,
+          "delayRawRand": 4,
+          "topicRawRand": 8
+        }
+      ],
+      "topics": [],
+      "coffee": null,
+      "npc": {
+        "type": "ghost",
+        "x": 16,
+        "y": 240,
+        "scanIndex": 256,
+        "dirRawRand": 2,
+        "effectiveDir": 1
+      },
+      "tables": [
+        {
+          "x": 72,
+          "y": 64,
+          "scanIndex": 73
+        },
+        {
+          "x": 176,
+          "y": 64,
+          "scanIndex": 86
+        },
+        {
+          "x": 72,
+          "y": 128,
+          "scanIndex": 329
+        },
+        {
+          "x": 176,
+          "y": 128,
+          "scanIndex": 342
+        },
+        {
+          "x": 72,
+          "y": 192,
+          "scanIndex": 585
+        },
+        {
+          "x": 176,
+          "y": 192,
+          "scanIndex": 598
+        }
+      ],
+      "sideFloors": {
+        "left": [
+          184
+        ],
+        "right": [
+          184
+        ]
+      },
+      "rng_after_init": 8,
+      "call_delay_after_init": 0,
+      "first_ring_ticks": [
+        29
+      ],
+      "first_miss_ticks": null
+    },
+    {
+      "stage": "Day 5",
+      "prg_offset": 22029,
+      "cpu_address": 54797,
+      "compressed_len": 496,
+      "nametable_sha256": "138928fdf24445c630e169aa8ffeebd591b3a427d9dc9fc58fdfb72ee8e6a87b",
+      "gameplay_raw_sha256": "4af28f839b1f84741ca9495f0efc7ffd218e451f149fbaab1ed53cead791d339",
+      "collision_sha256": "2a0f5e2a1d2a6bc066cd9fb6b842c282ddb0f78018cf85c8093acf6e6d890dfd",
+      "targetCalls": 30,
+      "callDelay": 275,
+      "topicsActive": 4,
+      "bonus": false,
+      "spawn": {
+        "x": 24,
+        "y": 120,
+        "scanIndex": 355
+      },
+      "phones": [
+        {
+          "x": 80,
+          "y": 128,
+          "scanIndex": 330,
+          "counter": 283,
+          "topic": 0,
+          "delayRawRand": 8,
+          "topicRawRand": 16
+        },
+        {
+          "x": 168,
+          "y": 128,
+          "scanIndex": 341,
+          "counter": 553,
+          "topic": 0,
+          "delayRawRand": 32,
+          "topicRawRand": 64
+        },
+        {
+          "x": 160,
+          "y": 192,
+          "scanIndex": 596,
+          "counter": 801,
+          "topic": 3,
+          "delayRawRand": 162,
+          "topicRawRand": 139
+        }
+      ],
+      "topics": [
+        {
+          "x": 46,
+          "y": 80,
+          "id": 1,
+          "scanIndex": 38,
+          "messageIndex": 8,
+          "messageRawRand": 2
+        },
+        {
+          "x": 190,
+          "y": 80,
+          "id": 3,
+          "scanIndex": 56,
+          "messageIndex": 0,
+          "messageRawRand": 4
+        },
+        {
+          "x": 14,
+          "y": 192,
+          "id": 0,
+          "scanIndex": 482,
+          "messageIndex": 6,
+          "messageRawRand": 207
+        },
+        {
+          "x": 222,
+          "y": 192,
+          "id": 2,
+          "scanIndex": 508,
+          "messageIndex": 7,
+          "messageRawRand": 81
+        }
+      ],
+      "coffee": {
+        "x": 88,
+        "y": 193,
+        "scanIndex": 587
+      },
+      "npc": {
+        "type": "geek",
+        "x": 216,
+        "y": 120,
+        "scanIndex": 379,
+        "dirRawRand": 128,
+        "effectiveDir": 2
+      },
+      "tables": [],
+      "sideFloors": {
+        "left": [
+          120,
+          184
+        ],
+        "right": [
+          120,
+          184
+        ]
+      },
+      "rng_after_init": 139,
+      "call_delay_after_init": 245,
+      "first_ring_ticks": [
+        283,
+        553,
+        801
+      ],
+      "first_miss_ticks": [
+        886,
+        1156,
+        1404
+      ]
+    },
+    {
+      "stage": "Day 6",
+      "prg_offset": 22525,
+      "cpu_address": 55293,
+      "compressed_len": 610,
+      "nametable_sha256": "437869e655b9eed09428b44ef556606665e17bb433578081ad6c941968b76a6e",
+      "gameplay_raw_sha256": "d0ec21b7fee27ddada164887662ebe392d7e246c8d2b836d33996f2af16ee8fd",
+      "collision_sha256": "0b35b5cab87744bc99e7871af7d2245fdfde103a9f7056ebb490d7978c1eb185",
+      "targetCalls": 35,
+      "callDelay": 400,
+      "topicsActive": 4,
+      "bonus": false,
+      "spawn": {
+        "x": 56,
+        "y": 120,
+        "scanIndex": 359
+      },
+      "phones": [
+        {
+          "x": 32,
+          "y": 128,
+          "scanIndex": 324,
+          "counter": 408,
+          "topic": 0,
+          "delayRawRand": 8,
+          "topicRawRand": 16
+        },
+        {
+          "x": 216,
+          "y": 128,
+          "scanIndex": 347,
+          "counter": 678,
+          "topic": 0,
+          "delayRawRand": 32,
+          "topicRawRand": 64
+        },
+        {
+          "x": 96,
+          "y": 192,
+          "scanIndex": 588,
+          "counter": 926,
+          "topic": 3,
+          "delayRawRand": 162,
+          "topicRawRand": 139
+        },
+        {
+          "x": 152,
+          "y": 192,
+          "scanIndex": 595,
+          "counter": 1163,
+          "topic": 1,
+          "delayRawRand": 217,
+          "topicRawRand": 125
+        }
+      ],
+      "topics": [
+        {
+          "x": 86,
+          "y": 128,
+          "id": 0,
+          "scanIndex": 235,
+          "messageIndex": 8,
+          "messageRawRand": 2
+        },
+        {
+          "x": 150,
+          "y": 128,
+          "id": 2,
+          "scanIndex": 243,
+          "messageIndex": 0,
+          "messageRawRand": 4
+        },
+        {
+          "x": 14,
+          "y": 192,
+          "id": 1,
+          "scanIndex": 482,
+          "messageIndex": 6,
+          "messageRawRand": 207
+        },
+        {
+          "x": 222,
+          "y": 192,
+          "id": 3,
+          "scanIndex": 508,
+          "messageIndex": 17,
+          "messageRawRand": 81
+        }
+      ],
+      "coffee": {
+        "x": 104,
+        "y": 73,
+        "scanIndex": 109
+      },
+      "npc": {
+        "type": "manbox",
+        "x": 184,
+        "y": 120,
+        "scanIndex": 375,
+        "dirRawRand": 128,
+        "effectiveDir": 2
+      },
+      "tables": [],
+      "sideFloors": {
+        "left": [
+          56,
+          120,
+          184
+        ],
+        "right": [
+          56,
+          120,
+          184
+        ]
+      },
+      "rng_after_init": 125,
+      "call_delay_after_init": 360,
+      "first_ring_ticks": [
+        408,
+        678,
+        926,
+        1163
+      ],
+      "first_miss_ticks": [
+        1011,
+        1281,
+        1529,
+        1766
+      ]
+    },
+    {
+      "stage": "Day 7",
+      "prg_offset": 23135,
+      "cpu_address": 55903,
+      "compressed_len": 597,
+      "nametable_sha256": "7ca9b60c7325a5f1dc442bf9992e05e64f8f30d3c77828805b9822eccd1b8ab9",
+      "gameplay_raw_sha256": "7ec26bdf79149857e07d03c7301a7df75bb85ac2df8bc460c8db78cfe8de3d3e",
+      "collision_sha256": "001540386831a1bea579ef090bcba039aecdec2314de09a54deef6149bfcc326",
+      "targetCalls": 40,
+      "callDelay": 450,
+      "topicsActive": 4,
+      "bonus": false,
+      "spawn": {
+        "x": 112,
+        "y": 120,
+        "scanIndex": 366
+      },
+      "phones": [
+        {
+          "x": 64,
+          "y": 64,
+          "scanIndex": 72,
+          "counter": 452,
+          "topic": 0,
+          "delayRawRand": 2,
+          "topicRawRand": 4
+        },
+        {
+          "x": 176,
+          "y": 64,
+          "scanIndex": 86,
+          "counter": 704,
+          "topic": 0,
+          "delayRawRand": 8,
+          "topicRawRand": 16
+        },
+        {
+          "x": 24,
+          "y": 192,
+          "scanIndex": 579,
+          "counter": 959,
+          "topic": 2,
+          "delayRawRand": 81,
+          "topicRawRand": 162
+        },
+        {
+          "x": 224,
+          "y": 192,
+          "scanIndex": 604,
+          "counter": 1199,
+          "topic": 1,
+          "delayRawRand": 139,
+          "topicRawRand": 217
+        }
+      ],
+      "topics": [
+        {
+          "x": 70,
+          "y": 128,
+          "id": 0,
+          "scanIndex": 233,
+          "messageIndex": 2,
+          "messageRawRand": 32
+        },
+        {
+          "x": 166,
+          "y": 128,
+          "id": 2,
+          "scanIndex": 245,
+          "messageIndex": 0,
+          "messageRawRand": 64
+        },
+        {
+          "x": 70,
+          "y": 192,
+          "id": 1,
+          "scanIndex": 489,
+          "messageIndex": 8,
+          "messageRawRand": 128
+        },
+        {
+          "x": 166,
+          "y": 192,
+          "id": 3,
+          "scanIndex": 501,
+          "messageIndex": 3,
+          "messageRawRand": 207
+        }
+      ],
+      "coffee": {
+        "x": 136,
+        "y": 193,
+        "scanIndex": 593
+      },
+      "npc": {
+        "type": "dibrov",
+        "x": 248,
+        "y": 184,
+        "scanIndex": 639,
+        "dirRawRand": 125,
+        "effectiveDir": 1
+      },
+      "tables": [],
+      "sideFloors": {
+        "left": [
+          56,
+          120,
+          184
+        ],
+        "right": [
+          56,
+          120,
+          184
+        ]
+      },
+      "rng_after_init": 125,
+      "call_delay_after_init": 410,
+      "first_ring_ticks": [
+        452,
+        704,
+        959,
+        1199
+      ],
+      "first_miss_ticks": [
+        1055,
+        1307,
+        1562,
+        1802
+      ]
+    }
+  ]
+}

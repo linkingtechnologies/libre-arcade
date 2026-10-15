@@ -1,0 +1,32 @@
+{
+  "baseline": "Zooming Secretary M24 final release audit",
+  "version": "1.0.0-rc.1",
+  "date": "2026-10-12",
+  "regression": {
+    "passed": 251,
+    "total": 251,
+    "status": "GREEN"
+  },
+  "m24": {
+    "passed": 20,
+    "total": 20,
+    "status": "GREEN"
+  },
+  "syntax": {
+    "passed": 45,
+    "total": 45,
+    "status": "GREEN"
+  },
+  "http": {
+    "status_code": 200,
+    "status": "GREEN"
+  },
+  "forbidden_media_files": 0,
+  "technical_gate": "GREEN",
+  "manual_visual_smoke": "REQUIRED_EXTERNAL",
+  "public_release_gate": "YELLOW",
+  "public_release_blockers": [
+    "final redistribution review for exact semantic topology",
+    "final archival title/naming review"
+  ]
+}

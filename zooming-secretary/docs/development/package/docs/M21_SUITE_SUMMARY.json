@@ -1,0 +1,14 @@
+{
+  "milestone": "M21",
+  "stage": "Day 6",
+  "status": "GREEN",
+  "new_tests": 20,
+  "total_tests": 193,
+  "passed": 193,
+  "failed": 0,
+  "js_syntax_files": 42,
+  "http_smoke_status": 200,
+  "chromium_visual_certification": false,
+  "forbidden_historical_file_hits": 0,
+  "collision_sha256": "0b35b5cab87744bc99e7871af7d2245fdfde103a9f7056ebb490d7978c1eb185"
+}

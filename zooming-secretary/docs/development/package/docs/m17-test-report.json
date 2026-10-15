@@ -1,0 +1,88 @@
+{
+  "baseline": "Zooming Secretary M17 Day 3 playable",
+  "total": 16,
+  "passed": 16,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M17-001",
+      "name": "Day 3 semantic collision topology matches certified oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-002",
+      "name": "Day 3 configuration matches v1.02 oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-003",
+      "name": "Day 3 phones and three cabinets preserve binary scan order",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-004",
+      "name": "binary-real Day 3 initialization matches M12",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-005",
+      "name": "Day 3 side floors preserve certified three-floor topology",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-006",
+      "name": "first three Day 3 rings occur at certified binary ticks",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-007",
+      "name": "Bouncer moves one pixel every fourth frame and starts left",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-008",
+      "name": "Bouncer is a physical obstacle, not decorative",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-009",
+      "name": "descending ladder entry uses source y+24 sample",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-010",
+      "name": "real movement can descend two floors and memorize Books",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-011",
+      "name": "Day 3 coffee remains active before the Bouncer",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-012",
+      "name": "20 valid answers win Day 3 and three misses lose it",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-013",
+      "name": "browser campaign wires Day 1 to Day 2 to Day 3 bilingually",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-014",
+      "name": "renderer distinguishes Books and Bouncer using new placeholder drawing",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-015",
+      "name": "Day 3 distributable is semantic reconstruction only",
+      "ok": true
+    },
+    {
+      "id": "ZS-M17-016",
+      "name": "package is M17 and full archaeology policy regression remains enabled",
+      "ok": true
+    }
+  ]
+}

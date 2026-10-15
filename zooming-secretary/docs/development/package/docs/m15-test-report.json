@@ -1,0 +1,78 @@
+{
+  "baseline": "Zooming Secretary M15 Day 1 playable",
+  "total": 14,
+  "passed": 14,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M15-001",
+      "name": "Day 1 semantic collision topology matches certified oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-002",
+      "name": "Day 1 gameplay configuration matches v1.02 oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-003",
+      "name": "Day 1 entity positions and scan order are certified",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-004",
+      "name": "binary-real Day 1 initialization matches M12",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-005",
+      "name": "Day 1 side floor discovery matches oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-006",
+      "name": "Day 1 natural 900-tick phone lifecycle matches M12",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-007",
+      "name": "first ring tick is preserved on the playable stage",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-008",
+      "name": "forced valid answers can complete Day 1 at exactly 10 calls",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-009",
+      "name": "three forced missed calls lose Day 1",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-010",
+      "name": "browser shell uses Day 1 rather than synthetic training as main stage",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-011",
+      "name": "Day 1 distributable contains semantic reconstruction, not original map/media files",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-012",
+      "name": "package is M15 and keeps original-media policy tests enabled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-013",
+      "name": "real movement reaches Earth cabinet on the lower floor",
+      "ok": true
+    },
+    {
+      "id": "ZS-M15-014",
+      "name": "real movement climbs the left ladder and can reach the upper phone",
+      "ok": true
+    }
+  ]
+}

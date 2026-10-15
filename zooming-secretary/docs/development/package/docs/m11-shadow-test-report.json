@@ -1,0 +1,69 @@
+{
+  "milestone": "M11",
+  "baseline": "certified ROM v1.02",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M11-001",
+      "name": "Eight ROM maps located and collision hashes present",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-002",
+      "name": "M7 entity differences are only coffee +1px Y corrections",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-003",
+      "name": "Source-order initialization matches ROM-derived oracle for all stages",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-004",
+      "name": "StageMap side-floor discovery matches source transform",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-005",
+      "name": "Coffee runtime Y uses source py+1",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-006",
+      "name": "Initial phone ring tick equals source counter for every stage",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-007",
+      "name": "First miss tick is initial ring +603 on normal stages",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-008",
+      "name": "Dream phone rings but never misses under bonus state machine",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-009",
+      "name": "Frame counter increments before core processing",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-010",
+      "name": "Chief slowdown is a one-frame latch from NPC phase",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-011",
+      "name": "Same true stage + seed + input stream yields identical shadow trace",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-012",
+      "name": "Different seed changes source-order stage initialization",
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "baseline": "Zooming Secretary M20 Day 5 playable",
+  "total": 20,
+  "passed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M20-001",
+      "name": "Day 5 semantic collision topology matches certified oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-002",
+      "name": "Day 5 stage configuration has 30 calls, four topics, three phones, coffee and Geek",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-003",
+      "name": "binary-real Day 5 initialization matches M12/M11 oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-004",
+      "name": "Day 5 side-floor discovery matches certified two accessible floors",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-005",
+      "name": "Day 5 phone initial ring ticks preserve source ordering",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-006",
+      "name": "all four cabinet topics and certified coordinates are present",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-007",
+      "name": "coffee uses corrected source Y and is initially unavailable for 150 ticks",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-008",
+      "name": "real movement reaches Day 5 coffee and activates the full boost",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-009",
+      "name": "real movement uses lower central wrap route to reach Space cabinet on upper floor",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-010",
+      "name": "Geek moves one pixel every two gameplay ticks",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-011",
+      "name": "Geek physically blocks an approaching player and backs away on odd frame",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-012",
+      "name": "Geek decorative hearts preserve two shared RNG consumptions every 32 frames",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-013",
+      "name": "Day 5 factory accepts Dream failure miss allowance 3",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-014",
+      "name": "Day 5 factory accepts Dream success miss allowance 5",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-015",
+      "name": "dynamic Day 5 loss threshold is enforced at 3 or 5 misses",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-016",
+      "name": "Day 5 wins at 30 answered calls",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-017",
+      "name": "browser campaign connects both Dream outcomes to Day 5",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-018",
+      "name": "browser passes the Dream-derived miss allowance into Day 5 and exposes it in the intro",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-019",
+      "name": "renderer contains a new placeholder-only Geek treatment and four-topic HUD support",
+      "ok": true
+    },
+    {
+      "id": "ZS-M20-020",
+      "name": "package is M20+ and Day 5 remains semantic-only",
+      "ok": true
+    }
+  ]
+}

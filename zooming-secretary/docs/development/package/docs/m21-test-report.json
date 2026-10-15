@@ -1,0 +1,108 @@
+{
+  "baseline": "Zooming Secretary M21 Day 6 playable",
+  "total": 20,
+  "passed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M21-001",
+      "name": "Day 6 semantic collision topology matches certified oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-002",
+      "name": "Day 6 stage configuration has 35 calls, four topics, four phones, coffee and ManBox",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-003",
+      "name": "binary-real Day 6 initialization matches M12/M11 oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-004",
+      "name": "Day 6 side-floor discovery matches three certified ManBox re-entry floors",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-005",
+      "name": "Day 6 phone initial ring ticks preserve source ordering",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-006",
+      "name": "all four Day 6 cabinet topics and certified coordinates are present",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-007",
+      "name": "coffee uses corrected source Y and is initially unavailable for 150 ticks",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-008",
+      "name": "real movement reaches Day 6 coffee through lower central vertical wrap",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-009",
+      "name": "ManBox moves one pixel every two gameplay ticks",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-010",
+      "name": "ManBox collision knocks for 48 ticks and reverses direction",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-011",
+      "name": "sustained ManBox overlap extends knock as in source order",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-012",
+      "name": "ManBox reverses at a platform edge after its even-frame move",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-013",
+      "name": "ManBox right-edge exit re-enters inward with 50-tick wait and shared RNG floor choice",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-014",
+      "name": "ManBox left-edge exit selects one of the certified left floors and turns inward",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-015",
+      "name": "Day 6 accepts and preserves Dream-derived miss allowance 3 or 5",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-016",
+      "name": "dynamic Day 6 loss threshold is enforced at 3 or 5 misses",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-017",
+      "name": "Day 6 wins at 35 answered calls",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-018",
+      "name": "browser campaign connects Day 5 victory to Day 6 with inherited miss allowance",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-019",
+      "name": "browser exposes ManBox feedback, Day 6 debug start and clean placeholder rendering",
+      "ok": true
+    },
+    {
+      "id": "ZS-M21-020",
+      "name": "package is M21+ and Day 6 remains semantic-only",
+      "ok": true
+    }
+  ]
+}

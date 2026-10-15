@@ -1,0 +1,69 @@
+{
+  "baseline": "Zooming Secretary M27 message fitting and player readability",
+  "version": "1.0.0-rc.4",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M27-001",
+      "name": "package remains on 1.0.0 release-candidate line (rc.4 or later) and M27 suite is enabled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-002",
+      "name": "transient feedback uses bounded bitmap text rather than system-font fillText",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-003",
+      "name": "Missed call pixels remain vertically and horizontally inside their feedback box",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-004",
+      "name": "long English and Italian gameplay messages fit within at most two lines",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-005",
+      "name": "accented Italian text is normalized by the bitmap renderer instead of requiring an external font",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-006",
+      "name": "player is rendered from multiple body parts instead of the old 10×17 rectangle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-007",
+      "name": "walk animation changes limbs without changing the 16×24 logical player footprint",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-008",
+      "name": "left/right facing changes face and hair details",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-009",
+      "name": "gameplay collision/motion core is byte-identical to M26",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-010",
+      "name": "M26 procedural audio engine is unchanged",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-011",
+      "name": "new player remains clean-room procedural rendering with no image asset dependency",
+      "ok": true
+    },
+    {
+      "id": "ZS-M27-012",
+      "name": "release still bundles no sampled audio or raster player assets",
+      "ok": true
+    }
+  ]
+}

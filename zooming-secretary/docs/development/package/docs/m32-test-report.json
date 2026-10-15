@@ -1,0 +1,69 @@
+{
+  "baseline": "Zooming Secretary M32 ladder-input reliability and wrap guidance",
+  "version": "1.0.0-rc.9",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M32-001",
+      "name": "package advances to 1.0.0-rc.9 and enables the M32 suite",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-002",
+      "name": "browser direction adapter makes the latest vertical direction win",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-003",
+      "name": "horizontal opposite directions remain independent for source-faithful core semantics",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-004",
+      "name": "release and clear cannot leave a stale vertical key latched",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-005",
+      "name": "the reported stuck-ladder path is reproduced and fixed at the browser adapter boundary",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-006",
+      "name": "every ordinary upward ladder shaft remains climbable at normal and coffee-boost speeds",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-007",
+      "name": "historical edge-ladder wrap remains directional rather than being changed into generic stairs",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-008",
+      "name": "UI explicitly explains the original top/bottom ladder wrap in EN and IT",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-009",
+      "name": "keyboard uses de-stick adapter and ignores direction auto-repeat as a new intent",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-010",
+      "name": "touch, blur, visibility and pause/stage transitions clear or normalize held directions",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-011",
+      "name": "certified deterministic core, M28 renderer and M26 audio remain byte-identical",
+      "ok": true
+    },
+    {
+      "id": "ZS-M32-012",
+      "name": "M32 adds no historical/sample media files",
+      "ok": true
+    }
+  ]
+}

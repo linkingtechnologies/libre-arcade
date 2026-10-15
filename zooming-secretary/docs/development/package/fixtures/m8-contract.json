@@ -1,0 +1,344 @@
+{
+  "project": "Zooming Secretary",
+  "baseline": "NES v1.02 (30.12.11)",
+  "milestone": "M8 Restoration Contract",
+  "status": "IMPLEMENTATION CONTRACT READY; HTML5 implementation still blocked by M6 media-license decision",
+  "scope": {
+    "in_scope": [
+      "simulation clock",
+      "coordinate model",
+      "campaign state machine",
+      "phone state machine",
+      "RNG",
+      "player motion",
+      "coffee",
+      "topics",
+      "NPC behavior",
+      "Dream behavior",
+      "save/test observability",
+      "parity test contract"
+    ],
+    "out_of_scope": [
+      "final artwork",
+      "music licensing decision",
+      "production UI",
+      "HTML5 gameplay implementation"
+    ]
+  },
+  "architecture": {
+    "layers": [
+      {
+        "name": "core",
+        "rule": "pure deterministic state transition logic; no DOM, Canvas, WebAudio, Date, Math.random, setTimeout or requestAnimationFrame"
+      },
+      {
+        "name": "scheduler",
+        "rule": "converts browser time into integer logical ticks; may render at any refresh rate without changing core tick order"
+      },
+      {
+        "name": "renderer",
+        "rule": "read-only consumer of core state; changing assets or interpolation must not alter simulation"
+      },
+      {
+        "name": "audio",
+        "rule": "event consumer only; missed/late audio callbacks must not alter core state"
+      },
+      {
+        "name": "input",
+        "rule": "samples logical button state once per tick and produces held + trigger edges matching NES semantics"
+      }
+    ],
+    "forbidden_core_dependencies": [
+      "Math.random",
+      "performance.now",
+      "Date",
+      "DOM",
+      "CanvasRenderingContext2D",
+      "AudioContext",
+      "localStorage"
+    ]
+  },
+  "timing": {
+    "unit": "logical_tick",
+    "definition": "one original gameplay-loop iteration synchronized to one PPU NMI",
+    "profiles": {
+      "PAL_50": 50,
+      "NTSC_60": 60
+    },
+    "default_profile": "UNDECIDED_UNTIL_PARITY_RUN",
+    "rule": "all gameplay constants remain integer tick counts from M7; do not convert to rounded seconds inside the core",
+    "browser_scheduler": {
+      "accumulator_required": true,
+      "max_catchup_policy": "UI-level choice only; dropped render frames must never imply dropped logical ticks in deterministic tests",
+      "render_interpolation": "allowed, but visual only"
+    }
+  },
+  "coordinates": {
+    "virtual_screen": {
+      "width": 256,
+      "height": 240
+    },
+    "tile": {
+      "width": 8,
+      "height": 8
+    },
+    "map": {
+      "width_tiles": 32,
+      "height_tiles": 22,
+      "nametable_start_row": 6
+    },
+    "fixed_point_fraction_bits": 4,
+    "player_sprite_box": {
+      "width": 16,
+      "height": 24
+    },
+    "horizontal_wrap": {
+      "left_if_x_lt": 0,
+      "left_result": 240,
+      "right_if_x_gt": 240,
+      "right_result": 0
+    },
+    "ladder_vertical_wrap": {
+      "up_if_y_lt": 32,
+      "up_add_pixels": 160,
+      "down_if_y_gt": 192,
+      "down_subtract_pixels": 160
+    },
+    "collision_rule": "use integer/fixed-point comparisons matching source order; do not replace with generic physics engine"
+  },
+  "input": {
+    "buttons": [
+      "UP",
+      "DOWN",
+      "LEFT",
+      "RIGHT",
+      "A",
+      "B",
+      "SELECT",
+      "START"
+    ],
+    "held": "state for current logical tick",
+    "trigger": "buttons down now but not on previous logical tick",
+    "rule": "opposite vertical inputs cancel ladder direction checks exactly as source; title hidden codes use trigger equality semantics"
+  },
+  "rng": {
+    "state_bits": 8,
+    "boot_seed": 1,
+    "zero_seed_policy": "do not introduce zero in normal flow",
+    "step_formula": "old=s; s=(s<<1)&0xFF; if(old&0x80) s^=0xCF",
+    "rand8_return": "new state",
+    "rand16": "consume rand8 twice, preserving call order",
+    "title_rule": "one rand16() per idle title tick before Start",
+    "serialization_required": true,
+    "math_random_forbidden": true
+  },
+  "campaign": {
+    "stage_indices": [
+      {
+        "index": 0,
+        "name": "Day 1"
+      },
+      {
+        "index": 1,
+        "name": "Day 2"
+      },
+      {
+        "index": 2,
+        "name": "Day 3"
+      },
+      {
+        "index": 3,
+        "name": "Day 4"
+      },
+      {
+        "index": 4,
+        "name": "Dream"
+      },
+      {
+        "index": 5,
+        "name": "Day 5"
+      },
+      {
+        "index": 6,
+        "name": "Day 6"
+      },
+      {
+        "index": 7,
+        "name": "Day 7"
+      },
+      {
+        "index": 8,
+        "name": "Ending"
+      }
+    ],
+    "stage_targets": [
+      10,
+      15,
+      20,
+      25,
+      1,
+      30,
+      35,
+      40
+    ],
+    "topic_counts": [
+      2,
+      2,
+      3,
+      3,
+      0,
+      4,
+      4,
+      4
+    ],
+    "miss_limit_initial": 3,
+    "dream_success_miss_limit": 5,
+    "normal_failure": "show game over, then retry same stage",
+    "dream_failure": "advance to Day 5 with miss limit unchanged",
+    "day7_success": "advance to Ending"
+  },
+  "phone": {
+    "states": {
+      "IDLE": 0,
+      "HEAT_1": 1,
+      "HEAT_2": 2,
+      "HEAT_3": 3,
+      "ANSWERED": 255
+    },
+    "heat_counter": 200,
+    "effective_answerable_ticks_per_heat_state": 201,
+    "approx_ring_to_miss_ticks": 603,
+    "answered_counter": 25,
+    "idle_formula": "call_delay + delay_arg + (rand8() & 63)",
+    "initial_delay_arg_per_phone": "phone_index << 8",
+    "call_delay_decay": {
+      "step": 10,
+      "condition": "if call_delay > 125",
+      "floor": 125
+    },
+    "topic_formula": "rand8() % topics_active (original quirk retained in Dream test mode)",
+    "answer_condition": "overlap && (player_topic == phone_topic || player_wisdom > 0)",
+    "wrong_topic": "no answer",
+    "miss": "after HEAT_3 expiry: reset phone, increment calls_missed"
+  },
+  "player": {
+    "initial_speed_fp": 16,
+    "normal_target_speed_fp": 24,
+    "speed_ramp_fp_per_tick": 1,
+    "fall_pixels_per_tick": 4,
+    "topic_none": 255,
+    "topic_memory_slots": 1,
+    "answer_animation_ticks": 25
+  },
+  "coffee": {
+    "initial_wait_ticks": 150,
+    "ready_sfx_at": 16,
+    "pickup_strength": 20,
+    "machine_cooldown_ticks": 1000,
+    "strength_decay": "decrement when (frame_cnt & 63) == 0",
+    "target_speed_formula_fp": "24 + (player_coffee >> 1)",
+    "max_target_speed_fp": 34,
+    "chief_slowdown_formula": "target = target * 4 / 6 using integer arithmetic"
+  },
+  "messages": {
+    "visible_chars": 30,
+    "type_ticks": 30,
+    "hold_ticks": 100,
+    "clear": "one cell per tick"
+  },
+  "npc_contract": {
+    "Chief": {
+      "effect": "proximity slowdown + talk",
+      "random_pause_ticks": "64..95"
+    },
+    "Bouncer": {
+      "effect": "solid horizontal blocker",
+      "movement": "1 px every 4 ticks"
+    },
+    "Chatter": {
+      "effect": "replace remembered topic with random active topic",
+      "talk_ticks": 50,
+      "cooldown_ticks": 100
+    },
+    "Geek": {
+      "effect": "retreat/block approaching player on same floor",
+      "movement": "1 px every 2 ticks",
+      "heart_period_ticks": 32
+    },
+    "ManBox": {
+      "effect": "knock player and reverse",
+      "knock_ticks": 48,
+      "reentry_wait_ticks": 50,
+      "movement": "1 px every 2 ticks"
+    },
+    "Dibrov": {
+      "effect": "grant wisdom wildcard",
+      "wisdom_ticks": 500,
+      "speed_same_floor": "2 px/tick",
+      "speed_other_floor": "1 px every 2 ticks"
+    },
+    "Ghost": {
+      "effect": "Dream pursuit; contact ends Dream without bonus",
+      "initial_wait_ticks": 150,
+      "dx_cap_fp": 16,
+      "dy_cap_fp": 12
+    }
+  },
+  "dream": {
+    "stage_index": 4,
+    "forced_wisdom": true,
+    "table_count": 6,
+    "initial_table_index": 5,
+    "runaway_cooldown_initial": 5,
+    "runaway_increment": 10,
+    "runaway_max_effective": 255,
+    "success": "answer one phone; advance; miss allowance +2",
+    "caught": "advance; no +2 miss allowance"
+  },
+  "observability": {
+    "required_snapshot_fields": [
+      "tick",
+      "mode",
+      "stage",
+      "rng",
+      "frame_cnt",
+      "calls_count",
+      "calls_missed",
+      "calls_missed_max",
+      "call_delay",
+      "player_x_fp",
+      "player_y_fp",
+      "player_topic",
+      "player_wisdom",
+      "player_coffee",
+      "phone_states",
+      "phone_counters",
+      "phone_topics",
+      "npc_type",
+      "npc_state"
+    ],
+    "snapshot_rule": "debug/test snapshots are development-only and must not appear as nerd UI in production"
+  },
+  "parity": {
+    "definition": "same stage layout + same initial RNG state + same per-tick input sequence must yield the same gameplay-relevant state/event sequence",
+    "non_required": [
+      "same browser render timestamp",
+      "same subpixel interpolation",
+      "same licensed artwork if replacement media is chosen",
+      "same WebAudio waveform implementation"
+    ],
+    "required": [
+      "same calls/misses",
+      "same phone scheduling and requested topics",
+      "same movement/wrap/collision outcome",
+      "same NPC effects",
+      "same Dream success/failure semantics",
+      "same campaign progression"
+    ]
+  },
+  "quirks": [
+    "Dream has topics_active=0 but phone_reset still executes rand8()%topics_active; output is irrelevant because Dream wisdom is always active.",
+    "When wisdom is active, answering uses topicMessages[player_topic]; if player_topic is still 255 this is an unsafe edge case in the original C and must be tested before deciding whether a port should preserve or guard it.",
+    "Gameplay timing is not region-normalized even though audio detects NTSC/PAL."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "baseline": "Zooming Secretary M31 title-screen and persistent-ringing fidelity pass",
+  "version": "1.0.0-rc.8",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M31-001",
+      "name": "package is 1.0.0-rc.8 and M31 suite is enabled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-002",
+      "name": "initial browser surface contains a dedicated accessible clean-room title screen",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-003",
+      "name": "title screen is bilingual and supports keyboard or tap start",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-004",
+      "name": "title idle consumes the historical two-RNG-step rand16 cadence",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-005",
+      "name": "pressing Start freezes the title-derived seed and runs a 72-tick transition",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-006",
+      "name": "Day 1 receives title-derived seed while certified core code stays untouched",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-007",
+      "name": "ringing policy repeats audibly while any phone remains in a heat state",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-008",
+      "name": "ring repeat policy stops whenever there is no actively ringing phone",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-009",
+      "name": "ring scheduling remains an app/audio concern and does not alter the audio synthesizer",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-010",
+      "name": "M28 gameplay renderer remains byte-identical; title artwork is DOM/CSS clean-room UI",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-011",
+      "name": "title transition ends at the existing Day 1 tutorial rather than bypassing onboarding",
+      "ok": true
+    },
+    {
+      "id": "ZS-M31-012",
+      "name": "M31 adds no historical/sample media files",
+      "ok": true
+    }
+  ]
+}

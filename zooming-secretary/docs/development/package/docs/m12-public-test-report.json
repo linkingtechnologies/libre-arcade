@@ -1,0 +1,69 @@
+{
+  "baseline": "Zooming Secretary NES v1.02 (30.12.11)",
+  "milestone": "M12-public",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M12-001",
+      "name": "Binary factoid modulo preserves stale-X cc65 behavior",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-002",
+      "name": "Binary-real initial factoid vectors are locked for all stages",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-003",
+      "name": "Phone answer consumes reset RNG then factoid-advance RNG in source order",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-004",
+      "name": "Ring counter resets on RING_START exactly as ROM",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-005",
+      "name": "Chief speech bubble consumes two shared RNG values",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-006",
+      "name": "Chief and Chatter visual-only choices still advance gameplay RNG",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-007",
+      "name": "ManBox reverses on a missing post-step platform sample",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-008",
+      "name": "Dibrov first wisdom contact consumes four RNG calls for two hearts",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-009",
+      "name": "Non-bonus wisdom heart cadence consumes two RNG calls every eighth frame",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-010",
+      "name": "Dream teleport raises runaway max before reloading cooldown",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-011",
+      "name": "Eight ROM-vs-JS natural runtime trace hashes are certified",
+      "ok": true
+    },
+    {
+      "id": "ZS-M12-012",
+      "name": "Runtime micro-suite and long phone lifecycle certificates are locked",
+      "ok": true
+    }
+  ]
+}

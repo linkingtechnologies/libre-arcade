@@ -1,0 +1,15 @@
+{
+  "milestone": "M31",
+  "version": "1.0.0-rc.8",
+  "full_regression": {"passed": 337, "total": 337, "failed": 0},
+  "m31_tests": {"passed": 12, "total": 12, "failed": 0},
+  "syntax": {"passed": 62, "total": 62, "failed": 0},
+  "http_smoke": 200,
+  "title_screen": "GREEN clean-room",
+  "title_rng": "GREEN rand16 per logical title tick",
+  "title_transition_ticks": 72,
+  "ring_repeat_ticks": 50,
+  "audio_engine_changed": false,
+  "gameplay_core_changed": false,
+  "manual_physical_audio": "required externally"
+}

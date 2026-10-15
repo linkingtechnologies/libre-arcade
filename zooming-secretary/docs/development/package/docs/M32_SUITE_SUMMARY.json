@@ -1,0 +1,33 @@
+{
+  "milestone": "M32",
+  "version": "1.0.0-rc.9",
+  "full_regression": {
+    "passed": 349,
+    "total": 349,
+    "failed": 0
+  },
+  "m32_tests": {
+    "passed": 12,
+    "total": 12,
+    "failed": 0
+  },
+  "syntax": {
+    "passed": 64,
+    "total": 64,
+    "failed": 0
+  },
+  "reported_ladder_lockup": "REPRODUCED",
+  "root_cause_layer": "browser held-direction adapter",
+  "vertical_policy": "latest vertical press wins at browser boundary",
+  "ordinary_ladder_stress": "GREEN at speedFp 16/24/34",
+  "edge_vertical_wrap": "PRESERVED",
+  "gameplay_core_changed": false,
+  "renderer_changed": false,
+  "audio_engine_changed": false,
+  "manual_browser_check": "recommended externally",
+  "http_smoke": 200,
+  "local_module_imports": {
+    "checked": 83,
+    "missing": 0
+  }
+}

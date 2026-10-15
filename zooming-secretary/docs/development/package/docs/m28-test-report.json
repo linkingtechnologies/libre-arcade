@@ -1,0 +1,69 @@
+{
+  "baseline": "Zooming Secretary M28 NES visual fidelity pass",
+  "version": "1.0.0-rc.5",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M28-001",
+      "name": "package is RC5-or-later and M28 suite remains enabled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-002",
+      "name": "playfield uses sparse black NES-like backdrop instead of the modern grid wallpaper",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-003",
+      "name": "platform tile is a new cyan-magenta-white pixel pattern",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-004",
+      "name": "ladder is pixel-only with white rails and cyan rungs",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-005",
+      "name": "cabinet topics use new filing-cabinet geometry and icon glyphs without external art",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-006",
+      "name": "phones use pixel handset/body and ring rays; urgent phase turns white",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-007",
+      "name": "heroine now uses orange hair and red skirt suit while remaining inside 16x24 footprint",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-008",
+      "name": "NPC rendering is prop-based pixel art with no debug G M D lettering",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-009",
+      "name": "renderer is still procedural clean-room media with no image or historical tile dependency",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-010",
+      "name": "gameplay movement and simulation are byte-identical to M27",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-011",
+      "name": "M26/M27 procedural audio engine remains byte-identical",
+      "ok": true
+    },
+    {
+      "id": "ZS-M28-012",
+      "name": "release still contains no raster/sampled historical media",
+      "ok": true
+    }
+  ]
+}

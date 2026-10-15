@@ -1,0 +1,103 @@
+{
+  "baseline": "Zooming Secretary M19 Dream playable",
+  "total": 19,
+  "passed": 19,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M19-001",
+      "name": "Dream semantic collision topology matches certified oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-002",
+      "name": "Dream configuration preserves six tables, spawn and Ghost oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-003",
+      "name": "binary-real Dream initialization matches M12/M11 oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-004",
+      "name": "Dream keeps the intentional modulo-zero safety divergence explicit",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-005",
+      "name": "Dream side-floor discovery matches certified lower floor",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-006",
+      "name": "Dream phone starts ringing at certified tick 29 and never enters normal miss lifecycle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-007",
+      "name": "Dream forces wisdom continuously without cabinet interaction",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-008",
+      "name": "Ghost waits 150 ticks and then begins fixed-point pursuit",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-009",
+      "name": "200-tick natural Dream state matches the M12-certified evolution",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-010",
+      "name": "Dream runaway cooldown starts at five and counts down source-order",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-011",
+      "name": "approaching the phone after cooldown emits teleport and raises cooldown 5→15",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-012",
+      "name": "real movement reaches the lower floor and triggers the runaway phone",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-013",
+      "name": "answering the ringing Dream phone wins immediately via forced wisdom",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-014",
+      "name": "Ghost contact ends Dream but is not a normal stage loss",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-015",
+      "name": "campaign semantics grant 5 misses on Dream success and keep 3 on catch",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-016",
+      "name": "browser campaign wires Day 4 → Dream bilingually and exposes both outcomes",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-017",
+      "name": "renderer has new placeholder-only tables and Ghost treatment",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-018",
+      "name": "package is M19 and Dream remains semantic-only",
+      "ok": true
+    },
+    {
+      "id": "ZS-M19-019",
+      "name": "teleport event survives Simulation.tick event plumbing",
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+Zooming Secretary historical semantic stage data
+LicenseRef: Zooming-Secretary-CC-BY-Unspecified
+
+Historical grant recorded by the original 2011 distribution:
+Creative Commons Attribution / “CC BY 2011 Alexei Bespalko and Shiru”.
+
+The exact Creative Commons Attribution version was not specified in the historical package.
+This project preserves that ambiguity instead of assigning a version that was not stated.
+
+This notice applies only to the semantic historical stage-data component in this directory.
+New Libre Arcade implementation code remains GPL-3.0-or-later under the root LICENSE file.
+
+Attribution and modification details are in data/README.md and THIRD_PARTY_NOTICES.md.

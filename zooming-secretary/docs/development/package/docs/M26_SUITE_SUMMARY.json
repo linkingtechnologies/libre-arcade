@@ -1,0 +1,17 @@
+{
+  "milestone": "M26",
+  "version": "1.0.0-rc.3",
+  "date": "2026-10-12",
+  "full_regression": {"passed": 281, "total": 281},
+  "m26_tests": {"passed": 12, "total": 12},
+  "syntax": {"passed": 55, "total": 55},
+  "http_smoke": 200,
+  "web_audio_scheduling": "green",
+  "runtime_sound_cues_tested": 16,
+  "sampled_audio_files": 0,
+  "hud_bitmap_renderer": "green",
+  "pause_ui_deduplication": "green",
+  "headless_chromium_dom": "environment-timeout",
+  "manual_visual_and_audible_smoke": "external-required",
+  "public_version_status": "release-candidate"
+}

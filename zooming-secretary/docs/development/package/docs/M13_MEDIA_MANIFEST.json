@@ -1,0 +1,80 @@
+{
+  "project": "Zooming Secretary — Libre Arcade restoration",
+  "milestone": "M13",
+  "policy_version": 1,
+  "implementation_gate": "GREEN",
+  "public_release_gate": "YELLOW_FOR_EXACT_ORIGINAL_LEVEL_DATA_AND_TITLE_TRADEMARK_CHECK",
+  "components": [
+    {
+      "component": "JavaScript simulation/core/UI code",
+      "distribution": "included/new work",
+      "license": "GPL-3.0-or-later",
+      "status": "GREEN",
+      "rule": "No original game-specific C/assembly is copied into distributable source."
+    },
+    {
+      "component": "Sound effects",
+      "distribution": "planned replacement",
+      "license": "CC0-1.0",
+      "status": "GREEN",
+      "source": "Shiru 2019 NES 8-bit sound effects collection",
+      "rule": "Use only SFX selected from the explicitly CC0-capable 2019 collection; document per-file mapping/checksum."
+    },
+    {
+      "component": "Graphics / sprites / backgrounds / logo",
+      "distribution": "new human-authored replacement required",
+      "license": "GPL-3.0-or-later or CC0-1.0",
+      "status": "GREEN_STRATEGY",
+      "rule": "Do not copy, trace, recolor, upscale or pixel-redraw PinWizz original media. No AI-generated assets."
+    },
+    {
+      "component": "Music",
+      "distribution": "new human-composed replacement required (or no music initially)",
+      "license": "GPL-3.0-or-later or CC0-1.0",
+      "status": "GREEN_STRATEGY",
+      "rule": "Do not reuse or transcribe the original melody unless a separate explicit relicence is obtained."
+    },
+    {
+      "component": "Factoid text / messages",
+      "distribution": "new replacement text required",
+      "license": "GPL-3.0-or-later or CC0-1.0",
+      "status": "GREEN_STRATEGY",
+      "rule": "Preserve category/count/timing behavior, not the original sentences."
+    },
+    {
+      "component": "Exact NES nametable/map bytes and tile art",
+      "distribution": "reference-only; never included",
+      "license": "historical CC BY grant, version unspecified",
+      "status": "YELLOW",
+      "rule": "ROM/nametable/map header bytes stay outside distributable; only hashes and behavioral metadata may be retained."
+    },
+    {
+      "component": "Level topology / collision geometry / object positions",
+      "distribution": "separate semantic data layer",
+      "license": "provenance attributed to original; do not claim GPL relicensing",
+      "status": "YELLOW_FOR_FINAL_PUBLICATION",
+      "rule": "Implementation may load synthetic/private oracle data now. Before public release of exact topology, retain explicit attribution and complete final legal review or redesign levels."
+    },
+    {
+      "component": "Manual, cartridge labels, original screenshots",
+      "distribution": "reference-only",
+      "license": "historical CC BY grant, version unspecified",
+      "status": "YELLOW",
+      "rule": "Do not include in public distributable without a resolved licence basis."
+    },
+    {
+      "component": "Title text “Zooming Secretary”",
+      "distribution": "historical identifier; new logo only",
+      "license": "not treated as an art asset",
+      "status": "YELLOW_FOR_RELEASE_NAMING_REVIEW",
+      "rule": "May be used internally/archivally as the project identity. Do not reuse the original logo; perform final trademark/naming review before public launch."
+    }
+  ],
+  "project_rules": [
+    "No AI-generated assets.",
+    "Original bytes are never committed to the distributable repo merely because they exist in the archaeology workspace.",
+    "Credits are shown on the Credits page, not the main gameplay screen.",
+    "New assets must carry a source, author, licence and SHA-256 entry before release.",
+    "A component cannot inherit a licence from a related port unless the relevant rights holder explicitly granted it."
+  ]
+}

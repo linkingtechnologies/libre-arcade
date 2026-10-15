@@ -1,0 +1,69 @@
+{
+  "baseline": "Zooming Secretary M26 UI polish and Web Audio verification",
+  "version": "1.0.0-rc.3",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M26-001",
+      "name": "package remains on the 1.0.0 release-candidate line (rc.3 or later) and M26 suite is enabled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-002",
+      "name": "pause card uses a dedicated concise bilingual resume hint",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-003",
+      "name": "top pause action is hidden while paused or otherwise inactive",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-004",
+      "name": "permanent footer help remains the full control reference",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-005",
+      "name": "HUD uses bitmap pixels rather than antialiased system font text",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-006",
+      "name": "bitmap HUD covers alphabet, digits and required punctuation",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-007",
+      "name": "Web Audio unlock creates master gain and resumes a suspended context",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-008",
+      "name": "every declared runtime sound effect schedules audible Web Audio nodes",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-009",
+      "name": "knock effect schedules both noise and tonal components",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-010",
+      "name": "mute silences master gain and prevents new sources from being scheduled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-011",
+      "name": "gameplay/UI event routing references the complete sound vocabulary",
+      "ok": true
+    },
+    {
+      "id": "ZS-M26-012",
+      "name": "release still bundles no historical or sampled audio files",
+      "ok": true
+    }
+  ]
+}

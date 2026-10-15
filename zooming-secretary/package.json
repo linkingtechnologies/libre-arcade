@@ -1,0 +1,26 @@
+{
+  "name": "zooming-secretary",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zooming Secretary (Shiru and PinWizz, 2011, NES), a clean-room browser restoration, checked against the original ROM.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test test/*.test.mjs",
+    "test:live": "node tools/rom-oracle.mjs check",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "GPL-3.0-or-later",
+  "licenseNotes": "The code (public/src, public/web, tools, test) is GPL-3.0-or-later. public/data holds the historical stage data, redistributed under the original release's Creative Commons Attribution grant, version unspecified (public/data/LICENSE.txt); it is not relicensed.",
+  "displayName": "Zooming Secretary"
+}

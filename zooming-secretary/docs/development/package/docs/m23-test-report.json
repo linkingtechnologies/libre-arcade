@@ -1,0 +1,98 @@
+{
+  "baseline": "Zooming Secretary M23 production readiness",
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M23-001",
+      "name": "package is M23 and production-readiness suite is enabled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-002",
+      "name": "production shell exposes audio, credits and reset preferences",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-003",
+      "name": "Libre Arcade project link appears only inside Credits, not the gameplay footer",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-004",
+      "name": "audio engine is runtime synthesis with no fetched or bundled sound media",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-005",
+      "name": "audio engine is inert when Web Audio is unavailable and does not affect gameplay core",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-006",
+      "name": "gameplay events are wired to distinct production SFX",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-007",
+      "name": "audio preference persists and M is a mute shortcut",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-008",
+      "name": "Credits are bilingual and preserve historical attribution without putting it on the main screen",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-009",
+      "name": "renderer has graduated from the old shell class and contains no historical image dependency",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-010",
+      "name": "main UI contains no public debug globals or archaeology controls",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-011",
+      "name": "ending copy is player-facing rather than archaeology-facing",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-012",
+      "name": "Credits automatically pause and resume an active game",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-013",
+      "name": "language and audio preferences can be reset from Credits",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-014",
+      "name": "responsive layout remains no-scroll with touch and landscape handling",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-015",
+      "name": "Credits dialog is accessible and externally linked safely",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-016",
+      "name": "no binary media was added in the production pass",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-017",
+      "name": "no AI assets rule and procedural-audio decision are explicit in notices",
+      "ok": true
+    },
+    {
+      "id": "ZS-M23-018",
+      "name": "historical Shiru CC0 SFX option is documented but not bundled",
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "baseline": "Zooming Secretary M16 Day 2 playable",
+  "total": 14,
+  "passed": 14,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M16-001",
+      "name": "Day 2 semantic collision topology matches certified oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-002",
+      "name": "Day 2 configuration matches v1.02 oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-003",
+      "name": "Day 2 three phones and two cabinets preserve scan order",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-004",
+      "name": "binary-real Day 2 initialization matches M12",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-005",
+      "name": "Day 2 side floors match certified three-floor topology",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-006",
+      "name": "first three phone rings occur at certified ticks",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-007",
+      "name": "coffee ready timing and pickup boost are active in Day 2",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-008",
+      "name": "Chief slowdown follows v1.02 one-frame source ordering",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-009",
+      "name": "real movement can climb to and collect Day 2 coffee",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-010",
+      "name": "15 valid answers win Day 2 and three misses lose it",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-011",
+      "name": "browser campaign wires Day 1 to Day 2 and surfaces coffee events",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-012",
+      "name": "renderer exposes Chief proximity and coffee boost without original art",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-013",
+      "name": "Day 2 distributable is semantic reconstruction only",
+      "ok": true
+    },
+    {
+      "id": "ZS-M16-014",
+      "name": "package is M16 and full archaeology policy regression remains enabled",
+      "ok": true
+    }
+  ]
+}

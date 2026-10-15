@@ -1,0 +1,108 @@
+{
+  "baseline": "Zooming Secretary M22 Day 7 + ending playable",
+  "total": 20,
+  "passed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M22-001",
+      "name": "Day 7 semantic collision topology matches certified oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-002",
+      "name": "Day 7 stage has 40 calls, four topics, four phones, coffee and Dibrov",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-003",
+      "name": "binary-real Day 7 initialization matches M12/M11 oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-004",
+      "name": "Day 7 side-floor discovery matches certified Dibrov re-entry floors",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-005",
+      "name": "Day 7 phone initial ring ticks preserve source ordering",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-006",
+      "name": "all four Day 7 cabinet topics and certified coordinates are present",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-007",
+      "name": "coffee uses corrected source Y and initial 150-tick wait",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-008",
+      "name": "real movement reaches Day 7 coffee through the left descent",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-009",
+      "name": "Dibrov same-floor movement is 1px on odd frame then 2px on even frame",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-010",
+      "name": "first Dibrov contact grants 500 wisdom and consumes four RNG calls for two hearts",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-011",
+      "name": "wisdom lets Day 7 answer a ringing phone with the wrong remembered topic",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-012",
+      "name": "non-bonus wisdom decays and periodic decorative hearts advance shared RNG",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-013",
+      "name": "Dibrov moves away from the player on the same floor",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-014",
+      "name": "Dibrov edge exit without wisdom re-enters inward after 25 ticks on a certified floor",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-015",
+      "name": "Dibrov edge exit while wisdom is active waits wisdom+25 ticks",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-016",
+      "name": "Day 7 accepts Dream-derived miss allowance 3 or 5",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-017",
+      "name": "dynamic Day 7 loss threshold is enforced at 3 or 5 misses",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-018",
+      "name": "Day 7 wins at 40 answered calls",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-019",
+      "name": "browser campaign connects Day 6 to Day 7 and Day 7 victory to a clean ending/restart",
+      "ok": true
+    },
+    {
+      "id": "ZS-M22-020",
+      "name": "browser exposes wisdom feedback, Dibrov placeholder, Day 7 debug start and semantic-only packaging",
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,401 @@
+{
+  "baseline": "Zooming Secretary NES v1.02 (30.12.11)",
+  "rom_sha256": "315adee10052367298959d55256e9f2621381da9f7c839f50832e13516b61770",
+  "milestone": "M12 differential runtime certification",
+  "scope": "gameplay-state parity; no pixel/APU waveform certification",
+  "normalization": [
+    {
+      "stage": "Dream",
+      "field": "phone_topic[0]",
+      "rom_raw": 8,
+      "js_safe": null,
+      "reason": "original modulo-zero artifact is behaviorally unused because Dream forces wisdom"
+    }
+  ],
+  "binary_factoid_init": [
+    {
+      "stage": "Day 1",
+      "messageIndexByTopicId": [
+        2,
+        7,
+        0,
+        0
+      ]
+    },
+    {
+      "stage": "Day 2",
+      "messageIndexByTopicId": [
+        6,
+        6,
+        0,
+        0
+      ]
+    },
+    {
+      "stage": "Day 3",
+      "messageIndexByTopicId": [
+        1,
+        5,
+        0,
+        0
+      ]
+    },
+    {
+      "stage": "Day 4",
+      "messageIndexByTopicId": [
+        7,
+        8,
+        3,
+        0
+      ]
+    },
+    {
+      "stage": "Dream",
+      "messageIndexByTopicId": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "stage": "Day 5",
+      "messageIndexByTopicId": [
+        6,
+        8,
+        7,
+        0
+      ]
+    },
+    {
+      "stage": "Day 6",
+      "messageIndexByTopicId": [
+        8,
+        6,
+        0,
+        17
+      ]
+    },
+    {
+      "stage": "Day 7",
+      "messageIndexByTopicId": [
+        2,
+        8,
+        0,
+        3
+      ]
+    }
+  ],
+  "natural_traces": [
+    {
+      "id": "natural_day_1",
+      "level": 0,
+      "ticks": 64,
+      "traceSha256": "c5702f545dd2ff15ace53516ffa4f89886b2771e79697c9b15795689332f3bae"
+    },
+    {
+      "id": "natural_day_2",
+      "level": 1,
+      "ticks": 64,
+      "traceSha256": "9ddd9e40640739edaf0013f8990f44612e5849b89c26c0b956b12d295b4e2b5d"
+    },
+    {
+      "id": "natural_day_3",
+      "level": 2,
+      "ticks": 64,
+      "traceSha256": "988e1a9c7b4f6da0fe411c3c50ec54330a4d3803aae28ee85bb07ad91fd8459b"
+    },
+    {
+      "id": "natural_day_4",
+      "level": 3,
+      "ticks": 64,
+      "traceSha256": "585f676405362b2bb89f2f8027fa95f5d5b0d824957083d488bb85db67de2eba"
+    },
+    {
+      "id": "natural_dream",
+      "level": 4,
+      "ticks": 200,
+      "traceSha256": "ad6099eae2336dcc6f3506c793b12d3b8376a77cf10cc402f464fde91254a598"
+    },
+    {
+      "id": "natural_day_5",
+      "level": 5,
+      "ticks": 64,
+      "traceSha256": "155426a19e583a19cfae8e4a202f408e25a259c855f2c243b157912c79eae120"
+    },
+    {
+      "id": "natural_day_6",
+      "level": 6,
+      "ticks": 64,
+      "traceSha256": "93431e59ce4759805dbfae0c42ad9f7ffac464340c0c881252c21cc0e498f6aa"
+    },
+    {
+      "id": "natural_day_7",
+      "level": 7,
+      "ticks": 64,
+      "traceSha256": "f18c172aa0462223cf8a5efe82d4614cb3e8d2853221029999c5de8a890c3218"
+    }
+  ],
+  "micro_scenarios": [
+    {
+      "id": "right_wrap",
+      "level": 0,
+      "ticks": 2,
+      "inputs": [
+        128,
+        128
+      ],
+      "finalStateSha256": "7fe8180655fb3c03125e7c1a1f02f3a840286d3be43004b4975889fea2261818",
+      "key": {
+        "rng": 64,
+        "frameCnt": 2,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 2
+      }
+    },
+    {
+      "id": "ladder_up_wrap",
+      "level": 3,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "ffe75dc80f8397808d3db0a4524f5c9048672cfc2efda4fb7dd762174d75fd1e",
+      "key": {
+        "rng": 207,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "ladder_down_wrap",
+      "level": 3,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "b621eb7c3612696539c7e4d8b35258ef9db3fe4f7b7bdd8de913110adbeefc3e",
+      "key": {
+        "rng": 207,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "cabinet_pickup",
+      "level": 0,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "f1e470940df67d08e26ab24f5e0e334794d4f54d1389b5a92c21c0c3928fb4e2",
+      "key": {
+        "rng": 64,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "phone_answer",
+      "level": 0,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "26ac7f9ef9393a9374239bf46dbc394afe2920a25f15fe5ed3e91e95c4ee302e",
+      "key": {
+        "rng": 207,
+        "frameCnt": 1,
+        "callsCount": 1,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "chief_close",
+      "level": 1,
+      "ticks": 2,
+      "inputs": [
+        0,
+        0
+      ],
+      "finalStateSha256": "f05c1e5c8da66d32e2d896470532457ffe5cacf820fff5d514515ce7422a7f21",
+      "key": {
+        "rng": 81,
+        "frameCnt": 2,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 2
+      }
+    },
+    {
+      "id": "bouncer_collision",
+      "level": 2,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "1146706f4e7b221425709d24ef7aa57b16e02e12841a38458e7b8bdd8ca102a3",
+      "key": {
+        "rng": 162,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "chatter_contact",
+      "level": 3,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "18b984c63aa96b88431282119c662dc56c19d1029f5849a3fc38718e9abdb099",
+      "key": {
+        "rng": 81,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "geek_push",
+      "level": 5,
+      "ticks": 1,
+      "inputs": [
+        64
+      ],
+      "finalStateSha256": "add31d84fa35cd1f60d8cc181c891f58349c82bf46b96d26e5035f0bdd48eff0",
+      "key": {
+        "rng": 139,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "manbox_knock",
+      "level": 6,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "c1fcc1f6fe159ffcd93eb9cab1efc21272cab7a63e9e3b53d88d6c92762aa0a3",
+      "key": {
+        "rng": 125,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "manbox_platform_turn",
+      "level": 6,
+      "ticks": 2,
+      "inputs": [
+        0,
+        0
+      ],
+      "finalStateSha256": "3f4449b06f7a037ffccde376bd6a5c07d05b8049611694b69e98b0e2306cef4e",
+      "key": {
+        "rng": 125,
+        "frameCnt": 2,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 2
+      }
+    },
+    {
+      "id": "dibrov_wisdom",
+      "level": 7,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "829edc9745017226040aa38ce972274c843853d05caa8ed6c7315825bcf724a9",
+      "key": {
+        "rng": 236,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    },
+    {
+      "id": "ghost_pursuit",
+      "level": 4,
+      "ticks": 5,
+      "inputs": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "finalStateSha256": "d6f34b730637ba7539effd239e99d179c9772e6ba6162909ed1e806eda62493a",
+      "key": {
+        "rng": 8,
+        "frameCnt": 5,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 5
+      }
+    },
+    {
+      "id": "dream_teleport",
+      "level": 4,
+      "ticks": 1,
+      "inputs": [
+        0
+      ],
+      "finalStateSha256": "9167ac3c0f5ce3e4dce9a3eebedfa1ba286698ea287a604aba8bd07aaf644669",
+      "key": {
+        "rng": 16,
+        "frameCnt": 1,
+        "callsCount": 0,
+        "callsMissed": 0,
+        "ringCnt": 1
+      }
+    }
+  ],
+  "long_phone_lifecycle": {
+    "stage": "Day 1",
+    "ticks": 900,
+    "finalStateSha256": "5b5457441509bda29d2cd9f22e1dda17b1f7b82f0d3d48954b7be24bcbd4c9f3",
+    "callsMissed": 1,
+    "rng": 207,
+    "callDelay": 220,
+    "phoneCounters": [
+      186,
+      6
+    ],
+    "phoneLevels": [
+      0,
+      2
+    ],
+    "phoneTopics": [
+      1,
+      0
+    ],
+    "ringCnt": 395
+  },
+  "binary_quirks": {
+    "factoid_stale_x": "cc65 v1.02 machine code promotes rand8() with stale X=$06 for topic_msg modulo; effective dividend is 0x0600|rand8()",
+    "chief_visual_rng": "speech bubble position and idle-facing choices consume shared RNG",
+    "chatter_visual_rng": "idle-facing choice can consume shared RNG",
+    "dibrov_hearts_rng": "initial wisdom spawns two hearts; each hearts_add consumes two rand8 calls",
+    "wisdom_hearts_rng": "non-bonus wisdom spawns a heart every 8 game frames; each consumes two rand8 calls",
+    "manbox_platform_edge": "movement reverses if post-step support sample is empty"
+  }
+}

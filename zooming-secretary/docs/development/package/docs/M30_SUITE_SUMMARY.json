@@ -1,0 +1,29 @@
+{
+  "baseline": "Zooming Secretary M30 answer-mechanic onboarding and instruction clarity",
+  "version": "1.0.0-rc.7",
+  "date": "2026-10-13",
+  "regression": {
+    "passed": 325,
+    "total": 325,
+    "status": "GREEN"
+  },
+  "m30": {
+    "passed": 10,
+    "total": 10,
+    "status": "GREEN"
+  },
+  "syntax": {
+    "passed": 60,
+    "total": 60,
+    "status": "GREEN"
+  },
+  "http": {
+    "status_code": 200,
+    "answer_rule_served": true,
+    "status": "GREEN"
+  },
+  "forbidden_media_files": 0,
+  "gameplay_renderer_audio": "BYTE_IDENTICAL_TO_CERTIFIED_BASELINES",
+  "manual_browser_smoke": "REQUIRED_EXTERNAL",
+  "release_gate": "RC7"
+}

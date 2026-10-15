@@ -1,0 +1,30 @@
+{
+  "baseline": "Zooming Secretary M28 NES visual fidelity pass",
+  "version": "1.0.0-rc.5",
+  "date": "2026-10-12",
+  "regression": {
+    "passed": 305,
+    "total": 305,
+    "status": "GREEN"
+  },
+  "m28": {
+    "passed": 12,
+    "total": 12,
+    "status": "GREEN"
+  },
+  "syntax": {
+    "passed": 57,
+    "total": 57,
+    "status": "GREEN"
+  },
+  "http": {
+    "status_code": 200,
+    "status": "GREEN"
+  },
+  "forbidden_historical_or_sampled_media_files": 0,
+  "gameplay_core_changed": false,
+  "audio_engine_changed": false,
+  "visual_renderer_changed": true,
+  "manual_visual_audio_smoke": "REQUIRED_EXTERNAL",
+  "public_release_gate": "YELLOW"
+}

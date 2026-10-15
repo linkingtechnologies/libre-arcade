@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0c1319">
+  <meta name="description" content="Unofficial Libre Arcade browser restoration of the 2011 NES homebrew Zooming Secretary.">
+  <title>Zooming Secretary — Libre Arcade Restoration</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./web/style.css">
+</head>
+<body>
+  <main id="app">
+    <header class="topbar">
+      <h1 id="title">Zooming Secretary</h1>
+      <div class="actions" aria-label="Game options">
+        <button id="pause" type="button">Pause</button>
+        <button id="audio" type="button" aria-label="Sound on" title="Sound on">♪</button>
+        <button id="credits" type="button" aria-label="Credits" title="Credits">ⓘ</button>
+        <button id="lang" type="button" aria-label="Change language">IT</button>
+      </div>
+    </header>
+
+    <section class="stage" aria-label="Game">
+      <div class="canvas-wrap">
+        <canvas id="game" width="256" height="240" tabindex="0" aria-label="Zooming Secretary game canvas"></canvas>
+        <div id="title-screen" class="title-screen" aria-label="Zooming Secretary title screen">
+          <div class="title-logo" aria-hidden="true"><span>ZOOMING</span><span>SECRETARY</span></div>
+          <div class="title-office" aria-hidden="true"><span class="title-phone"></span><span class="title-desk"></span><span class="title-worker"></span></div>
+          <button id="title-start" class="title-start" type="button">PRESS START</button>
+          <p id="title-hint" class="title-hint">Enter / Space or tap</p>
+          <p id="title-restoration" class="title-restoration">LIBRE ARCADE RESTORATION</p>
+        </div>
+        <div id="overlay" class="overlay" aria-live="polite">
+          <div class="card">
+            <h2 id="overlay-title">Day 1</h2>
+            <p id="overlay-text"></p>
+            <p id="overlay-rule" class="answer-rule">How to answer: a ringing phone shows a topic symbol. Touch the filing cabinet with the same symbol, then touch the phone. There is no Answer button.</p>
+            <button id="primary" type="button">Start</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="controls">
+      <p id="hint">Move: arrows / WASD · P or Esc: pause · M: sound</p>
+      <div class="touch" aria-label="Touch movement controls">
+        <button type="button" data-dir="UP" aria-label="Up">▲</button>
+        <button type="button" data-dir="LEFT" aria-label="Left">◀</button>
+        <button type="button" data-dir="DOWN" aria-label="Down">▼</button>
+        <button type="button" data-dir="RIGHT" aria-label="Right">▶</button>
+      </div>
+    </footer>
+  </main>
+
+  <dialog id="credits-dialog" class="credits-dialog" aria-labelledby="credits-title">
+    <div class="credits-card">
+      <div class="credits-heading">
+        <h2 id="credits-title">Credits</h2>
+        <button id="credits-close" type="button" class="icon-button" aria-label="Close credits">×</button>
+      </div>
+      <p id="credits-original"></p>
+      <p id="credits-restoration"></p>
+      <p id="credits-license"></p>
+      <p id="credits-audio"></p>
+      <p><a id="libre-arcade-link" href="https://linkingtechnologies.github.io/libre-arcade/" target="_blank" rel="noopener noreferrer">Libre Arcade</a></p>
+      <button id="reset-preferences" type="button" class="secondary-button">Reset preferences</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="./web/app.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

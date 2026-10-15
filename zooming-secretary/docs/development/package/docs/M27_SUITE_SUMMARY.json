@@ -1,0 +1,19 @@
+{
+  "milestone": "M27",
+  "version": "1.0.0-rc.4",
+  "date": "2026-10-12",
+  "full_regression": {"passed": 293, "total": 293},
+  "m27_tests": {"passed": 12, "total": 12},
+  "syntax": {"passed": 56, "total": 56},
+  "http_smoke": 200,
+  "message_bitmap_fit": "green",
+  "missed_call_containment": "green",
+  "player_clean_room_sprite": "green",
+  "player_walk_frames": 2,
+  "gameplay_core_changed": false,
+  "audio_engine_changed": false,
+  "sampled_audio_files": 0,
+  "raster_player_assets": 0,
+  "manual_visual_and_audible_smoke": "external-required",
+  "public_version_status": "release-candidate"
+}

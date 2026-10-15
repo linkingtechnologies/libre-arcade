@@ -1,0 +1,20 @@
+{
+  "milestone": "M20",
+  "status": "GREEN",
+  "total": 173,
+  "passed": 173,
+  "failed": 0,
+  "day5_collision_sha256": "2a0f5e2a1d2a6bc066cd9fb6b842c282ddb0f78018cf85c8093acf6e6d890dfd",
+  "day5_init": {
+    "rng": 139,
+    "call_delay": 245,
+    "phone_counters": [283, 553, 801],
+    "phone_topics": [0, 0, 3],
+    "message_indices_stage_order": [8, 0, 6, 7],
+    "geek_direction": 2
+  },
+  "dream_to_day5_miss_allowance": {
+    "dream_success": 5,
+    "dream_caught": 3
+  }
+}

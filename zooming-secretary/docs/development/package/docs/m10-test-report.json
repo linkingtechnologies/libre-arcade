@@ -1,0 +1,84 @@
+{
+  "baseline": "Zooming Secretary NES v1.02",
+  "milestone": "M10",
+  "total": 15,
+  "passed": 15,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M10-001",
+      "name": "Map origin and tile lookup",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-002",
+      "name": "Player fall and landing",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-003",
+      "name": "Horizontal movement and wrap",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-004",
+      "name": "Ladder acquisition and vertical motion",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-005",
+      "name": "Cabinet replaces single remembered topic",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-006",
+      "name": "Wisdom blocks cabinet overwrite",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-007",
+      "name": "Coffee ready and pickup in integrated core",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-008",
+      "name": "Correct-topic phone answer completes stage",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-009",
+      "name": "Wrong topic does not answer",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-010",
+      "name": "Miss limit drives stage loss",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-011",
+      "name": "Chief slowdown is latched for the following frame",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-012",
+      "name": "Dream forced wisdom answers phone",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-013",
+      "name": "Dream ghost catch ends as DREAM_CAUGHT",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-014",
+      "name": "Behavior fixture adapter keeps original entity coordinates external",
+      "ok": true
+    },
+    {
+      "id": "ZS-M10-015",
+      "name": "Full simulation deterministic replay",
+      "ok": true
+    }
+  ]
+}

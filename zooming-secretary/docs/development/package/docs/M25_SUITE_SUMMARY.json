@@ -1,0 +1,15 @@
+{
+  "milestone": "M25",
+  "version": "1.0.0-rc.2",
+  "date": "2026-10-12",
+  "full_regression": {"passed": 269, "total": 269},
+  "m25_tests": {"passed": 18, "total": 18},
+  "syntax": {"passed": 54, "total": 54},
+  "http_smoke": 200,
+  "forbidden_historical_media_files": 0,
+  "historical_source_filenames": 0,
+  "topology_policy": "accepted-preservation-route",
+  "naming_policy": "accepted-archival-descriptive-use",
+  "manual_visual_smoke": "external-required",
+  "public_version_status": "release-candidate"
+}

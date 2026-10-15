@@ -1,0 +1,59 @@
+{
+  "baseline": "Zooming Secretary M30 answer-mechanic onboarding and instruction clarity",
+  "version": "1.0.0-rc.7",
+  "total": 10,
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M30-001",
+      "name": "package is RC7-or-later and M30 suite remains enabled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-002",
+      "name": "Day 1 instructions explicitly explain automatic phone answering in English and Italian",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-003",
+      "name": "ambiguous old Read-the-phone wording is removed and Day 1 says answer is automatic",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-004",
+      "name": "instruction rule has its own overlay element instead of overloading the stage prose",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-005",
+      "name": "normal stage intros show the reusable answer rule while Dream shows its special exception",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-006",
+      "name": "answer-rule help is hidden during gameplay results and pause so it does not become UI clutter",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-007",
+      "name": "answer-rule panel remains compact in the short-landscape responsive profile",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-008",
+      "name": "README documents the same no-button mechanic and Dream exception",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-009",
+      "name": "M29-certified gameplay and M28 renderer/M26 audio remain byte-identical",
+      "ok": true
+    },
+    {
+      "id": "ZS-M30-010",
+      "name": "M30 adds no media assets or new gameplay control",
+      "ok": true
+    }
+  ]
+}

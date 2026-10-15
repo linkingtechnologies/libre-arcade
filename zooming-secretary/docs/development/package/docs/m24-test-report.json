@@ -1,0 +1,109 @@
+{
+  "baseline": "Zooming Secretary M24 final release audit",
+  "version": "1.0.0-rc.1",
+  "total": 20,
+  "passed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M24-001",
+      "name": "release package is 1.0 RC and final-audit suite is enabled",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-002",
+      "name": "full success campaign reaches Ending with Dream bonus preserved",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-003",
+      "name": "Ghost-catch branch still reaches Day 7 and Ending with allowance 3",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-004",
+      "name": "all eight playable stages can terminate through their production Simulation path",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-005",
+      "name": "late-game stage factories preserve Dream-derived 3 or 5 miss allowance",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-006",
+      "name": "ending route resets the next campaign allowance to three",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-007",
+      "name": "English and Italian final campaign copy covers every stage and ending",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-008",
+      "name": "small-screen overlays are bounded and scroll safely instead of escaping the canvas",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-009",
+      "name": "touch controls remain available in short landscape orientation",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-010",
+      "name": "game overlay announces stage/status changes accessibly",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-011",
+      "name": "release root has no obsolete standalone demo harnesses",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-012",
+      "name": "production app does not import synthetic training stage or expose debug globals",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-013",
+      "name": "runtime has no external network dependency",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-014",
+      "name": "Libre Arcade link remains confined to Credits",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-015",
+      "name": "no historical binary or expressive media is present anywhere in release source",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-016",
+      "name": "historical fact-message prose is not present in production runtime",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-017",
+      "name": "audio remains procedural and user-mutable without affecting core state",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-018",
+      "name": "Credits contain attribution, licensing, procedural-audio note and project link",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-019",
+      "name": "release documentation states technical readiness separately from unresolved public-release gate",
+      "ok": true
+    },
+    {
+      "id": "ZS-M24-020",
+      "name": "M24 final checklist exists and requires external visual smoke before public tag",
+      "ok": true
+    }
+  ]
+}

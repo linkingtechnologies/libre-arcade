@@ -1,0 +1,15 @@
+# The restoration package's own documents, tests and fixtures are kept byte for byte (some of its tests hash files), so no line-ending
+# normalisation and no text conversion whatever core.autocrlf says.
+docs/development/package/** -text
+
+# The oracle's tools are hashed into the recorded fixture (test/fixtures/rom-oracle.json), so they must be LF on every checkout.
+tools/ram-map.mjs text eol=lf
+tools/rom-run.mjs text eol=lf
+tools/oracle-state.mjs text eol=lf
+tools/oracle-front.mjs text eol=lf
+tools/nes-machine.mjs text eol=lf
+tools/mos6502.mjs text eol=lf
+test/fixtures/*.json text eol=lf
+reference/ORIGINAL_SHA256.txt text eol=lf
+
+*.png binary

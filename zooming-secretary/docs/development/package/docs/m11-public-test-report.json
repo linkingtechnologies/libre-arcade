@@ -1,0 +1,59 @@
+{
+  "baseline": "Zooming Secretary NES v1.02 (30.12.11)",
+  "milestone": "M11-public",
+  "total": 10,
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M11-P01",
+      "name": "Certified ROM fingerprint is locked",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P02",
+      "name": "Eight redacted map fingerprints are present",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P03",
+      "name": "Coffee corrections are exactly six +1px Y changes",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P04",
+      "name": "Source-order initialization vectors reproduce for all stages",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P05",
+      "name": "ROM offsets and compressed lengths are stable",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P06",
+      "name": "Initial ring ticks equal initialized counters",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P07",
+      "name": "Normal first-miss ticks preserve +603 lifecycle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P08",
+      "name": "Dream remains a non-miss bonus phone",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P09",
+      "name": "Side-floor metadata captures edge-accessible floors",
+      "ok": true
+    },
+    {
+      "id": "ZS-M11-P10",
+      "name": "Source-order initialization is seed-sensitive and deterministic",
+      "ok": true
+    }
+  ]
+}

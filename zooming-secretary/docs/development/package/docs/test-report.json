@@ -1,0 +1,84 @@
+{
+  "baseline": "Zooming Secretary NES v1.02",
+  "milestone": "M9",
+  "total": 15,
+  "passed": 15,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M8-001",
+      "name": "RNG vector",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-002",
+      "name": "Title seed advancement",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-003",
+      "name": "Eight map fingerprints locked",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-004",
+      "name": "Horizontal wrap",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-005",
+      "name": "Vertical ladder wrap",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-006",
+      "name": "Phone initial scheduling",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-007",
+      "name": "Phone heat lifecycle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-008",
+      "name": "Topic and wisdom gating",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-009",
+      "name": "Coffee timing",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-010",
+      "name": "NPC effect timings",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-011",
+      "name": "Dream caught path",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-012",
+      "name": "Dream success path",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-013",
+      "name": "Normal failure retries same stage",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-014",
+      "name": "Full campaign progression",
+      "ok": true
+    },
+    {
+      "id": "ZS-M8-015",
+      "name": "Deterministic replay",
+      "ok": true
+    }
+  ]
+}

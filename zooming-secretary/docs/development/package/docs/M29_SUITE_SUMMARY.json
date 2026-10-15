@@ -1,0 +1,19 @@
+{
+  "baseline": "Zooming Secretary M29 real playability certification",
+  "version": "1.0.0-rc.6",
+  "date": "2026-10-12",
+  "regression": {"passed": 315, "total": 315, "status": "GREEN"},
+  "m29": {"passed": 10, "total": 10, "status": "GREEN"},
+  "syntax": {"passed": 59, "total": 59, "status": "GREEN"},
+  "http": {"status_code": 200, "status": "GREEN"},
+  "input_only_playthroughs": {
+    "day1": {"status": "WON", "answered": 10, "missed": 0, "ticks": 2172},
+    "day2": {"status": "WON", "answered": 15, "missed": 2, "miss_limit": 3}
+  },
+  "movement_reachability": {"reachable": 56, "total": 56, "status": "GREEN"},
+  "gameplay_code_changed": false,
+  "renderer_changed": false,
+  "audio_changed": false,
+  "manual_browser_feel_and_physical_audio": "REQUIRED_EXTERNAL",
+  "release_gate": "YELLOW_EXTERNAL_SMOKE_ONLY"
+}

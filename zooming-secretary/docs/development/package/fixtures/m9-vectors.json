@@ -1,0 +1,742 @@
+{
+  "baseline": "Zooming Secretary NES v1.02",
+  "generated_independently_for_m9": true,
+  "rng": {
+    "boot_seed": 1,
+    "first_32_rand8_outputs": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      207,
+      81,
+      162,
+      139,
+      217,
+      125,
+      250,
+      59,
+      118,
+      236,
+      23,
+      46,
+      92,
+      184,
+      191,
+      177,
+      173,
+      149,
+      229,
+      5,
+      10,
+      20,
+      40,
+      80,
+      160
+    ],
+    "seed_after_title_idle_frames": {
+      "0": 1,
+      "1": 4,
+      "2": 16,
+      "3": 64,
+      "4": 207,
+      "5": 162,
+      "10": 92,
+      "25": 36,
+      "50": 178,
+      "60": 133,
+      "100": 147,
+      "127": 231,
+      "255": 1
+    }
+  },
+  "phoneInitialExact": {
+    "Day 1": {
+      "seed": 1,
+      "phones": [
+        {
+          "counter": 252,
+          "topicRawRand": 4,
+          "topic": 0,
+          "delayRawRand": 2
+        },
+        {
+          "counter": 504,
+          "topicRawRand": 16,
+          "topic": 0,
+          "delayRawRand": 8
+        }
+      ],
+      "callDelayAfterSetup": 230,
+      "rngAfterSetup": 16
+    },
+    "Day 2": {
+      "seed": 1,
+      "phones": [
+        {
+          "counter": 252,
+          "topicRawRand": 4,
+          "topic": 0,
+          "delayRawRand": 2
+        },
+        {
+          "counter": 504,
+          "topicRawRand": 16,
+          "topic": 0,
+          "delayRawRand": 8
+        },
+        {
+          "counter": 774,
+          "topicRawRand": 64,
+          "topic": 0,
+          "delayRawRand": 32
+        }
+      ],
+      "callDelayAfterSetup": 220,
+      "rngAfterSetup": 64
+    },
+    "Day 3": {
+      "seed": 1,
+      "phones": [
+        {
+          "counter": 252,
+          "topicRawRand": 4,
+          "topic": 1,
+          "delayRawRand": 2
+        },
+        {
+          "counter": 504,
+          "topicRawRand": 16,
+          "topic": 1,
+          "delayRawRand": 8
+        },
+        {
+          "counter": 774,
+          "topicRawRand": 64,
+          "topic": 1,
+          "delayRawRand": 32
+        }
+      ],
+      "callDelayAfterSetup": 220,
+      "rngAfterSetup": 64
+    },
+    "Day 4": {
+      "seed": 1,
+      "phones": [
+        {
+          "counter": 252,
+          "topicRawRand": 4,
+          "topic": 1,
+          "delayRawRand": 2
+        },
+        {
+          "counter": 504,
+          "topicRawRand": 16,
+          "topic": 1,
+          "delayRawRand": 8
+        }
+      ],
+      "callDelayAfterSetup": 230,
+      "rngAfterSetup": 16
+    },
+    "Dream": {
+      "seed": 1,
+      "phones": [
+        {
+          "counter": 27,
+          "topicRawRand": 4,
+          "topic": null
+        }
+      ],
+      "callDelayAfterSetup": 0,
+      "rngAfterSetup": 4
+    },
+    "Day 5": {
+      "seed": 1,
+      "phones": [
+        {
+          "counter": 277,
+          "topicRawRand": 4,
+          "topic": 0,
+          "delayRawRand": 2
+        },
+        {
+          "counter": 529,
+          "topicRawRand": 16,
+          "topic": 0,
+          "delayRawRand": 8
+        },
+        {
+          "counter": 799,
+          "topicRawRand": 64,
+          "topic": 0,
+          "delayRawRand": 32
+        }
+      ],
+      "callDelayAfterSetup": 245,
+      "rngAfterSetup": 64
+    },
+    "Day 6": {
+      "seed": 1,
+      "phones": [
+        {
+          "counter": 402,
+          "topicRawRand": 4,
+          "topic": 0,
+          "delayRawRand": 2
+        },
+        {
+          "counter": 654,
+          "topicRawRand": 16,
+          "topic": 0,
+          "delayRawRand": 8
+        },
+        {
+          "counter": 924,
+          "topicRawRand": 64,
+          "topic": 0,
+          "delayRawRand": 32
+        },
+        {
+          "counter": 1138,
+          "topicRawRand": 207,
+          "topic": 3,
+          "delayRawRand": 128
+        }
+      ],
+      "callDelayAfterSetup": 360,
+      "rngAfterSetup": 207
+    },
+    "Day 7": {
+      "seed": 1,
+      "phones": [
+        {
+          "counter": 452,
+          "topicRawRand": 4,
+          "topic": 0,
+          "delayRawRand": 2
+        },
+        {
+          "counter": 704,
+          "topicRawRand": 16,
+          "topic": 0,
+          "delayRawRand": 8
+        },
+        {
+          "counter": 974,
+          "topicRawRand": 64,
+          "topic": 0,
+          "delayRawRand": 32
+        },
+        {
+          "counter": 1188,
+          "topicRawRand": 207,
+          "topic": 3,
+          "delayRawRand": 128
+        }
+      ],
+      "callDelayAfterSetup": 410,
+      "rngAfterSetup": 207
+    }
+  },
+  "maps": {
+    "Day 1": {
+      "gameplay_704_sha256": "4a7e4c9e10c2db757579e2f342484304a4d087da9fe815ae50022c592a86ea21",
+      "nametable_1024_sha256": "dec6cea10f432aa84d01703051bba1008c4502ce844e1a93d8e4344a744b7557",
+      "entities": [
+        {
+          "type": "phone",
+          "runtime_x": 56,
+          "runtime_y": 96
+        },
+        {
+          "type": "phone",
+          "runtime_x": 192,
+          "runtime_y": 96
+        },
+        {
+          "type": "topic_earth",
+          "runtime_x": 46,
+          "runtime_y": 160
+        },
+        {
+          "type": "topic_history",
+          "runtime_x": 190,
+          "runtime_y": 160
+        },
+        {
+          "type": "player",
+          "runtime_x": 120,
+          "runtime_y": 152
+        }
+      ]
+    },
+    "Day 2": {
+      "gameplay_704_sha256": "a15c74ec92e9dadd97a4ae26baafe4186a6a91e326b4df4ebb010e8f1fd8d7b4",
+      "nametable_1024_sha256": "7d246b98c6d233488ad2a700246192e2896da5e56840901b5fd2df43ea8f1773",
+      "entities": [
+        {
+          "type": "coffee",
+          "runtime_x": 56,
+          "runtime_y": 64
+        },
+        {
+          "type": "phone",
+          "runtime_x": 192,
+          "runtime_y": 64
+        },
+        {
+          "type": "phone",
+          "runtime_x": 56,
+          "runtime_y": 128
+        },
+        {
+          "type": "phone",
+          "runtime_x": 192,
+          "runtime_y": 128
+        },
+        {
+          "type": "player",
+          "runtime_x": 16,
+          "runtime_y": 120
+        },
+        {
+          "type": "chief",
+          "runtime_x": 224,
+          "runtime_y": 120
+        },
+        {
+          "type": "topic_earth",
+          "runtime_x": 62,
+          "runtime_y": 192
+        },
+        {
+          "type": "topic_history",
+          "runtime_x": 174,
+          "runtime_y": 192
+        }
+      ]
+    },
+    "Day 3": {
+      "gameplay_704_sha256": "e782e2afd304d5b3304e82c62fd32f775b66954a42cd3c10663c9e751373c75e",
+      "nametable_1024_sha256": "8b2129fe0bd1005dbaa2c2996d7290f2d4114d606822490540b945fa6f93c13f",
+      "entities": [
+        {
+          "type": "coffee",
+          "runtime_x": 120,
+          "runtime_y": 64
+        },
+        {
+          "type": "player",
+          "runtime_x": 40,
+          "runtime_y": 56
+        },
+        {
+          "type": "bouncer",
+          "runtime_x": 200,
+          "runtime_y": 56
+        },
+        {
+          "type": "topic_earth",
+          "runtime_x": 38,
+          "runtime_y": 128
+        },
+        {
+          "type": "topic_history",
+          "runtime_x": 198,
+          "runtime_y": 128
+        },
+        {
+          "type": "phone",
+          "runtime_x": 120,
+          "runtime_y": 128
+        },
+        {
+          "type": "topic_books",
+          "runtime_x": 118,
+          "runtime_y": 192
+        },
+        {
+          "type": "phone",
+          "runtime_x": 32,
+          "runtime_y": 192
+        },
+        {
+          "type": "phone",
+          "runtime_x": 216,
+          "runtime_y": 192
+        }
+      ]
+    },
+    "Day 4": {
+      "gameplay_704_sha256": "422e07ec93f79ab48f0737276ea668f2d21682daeafebf32090b974834be5e25",
+      "nametable_1024_sha256": "7c86a7b4d0b055b6ab6c0b40155dd78c4508590434d103c73360dbd9f53db67d",
+      "entities": [
+        {
+          "type": "phone",
+          "runtime_x": 56,
+          "runtime_y": 64
+        },
+        {
+          "type": "phone",
+          "runtime_x": 192,
+          "runtime_y": 64
+        },
+        {
+          "type": "player",
+          "runtime_x": 24,
+          "runtime_y": 56
+        },
+        {
+          "type": "coffee",
+          "runtime_x": 120,
+          "runtime_y": 128
+        },
+        {
+          "type": "chatter",
+          "runtime_x": 152,
+          "runtime_y": 120
+        },
+        {
+          "type": "topic_earth",
+          "runtime_x": 22,
+          "runtime_y": 192
+        },
+        {
+          "type": "topic_history",
+          "runtime_x": 118,
+          "runtime_y": 192
+        },
+        {
+          "type": "topic_books",
+          "runtime_x": 214,
+          "runtime_y": 192
+        }
+      ]
+    },
+    "Dream": {
+      "gameplay_704_sha256": "dea7b85bf858786aacfbb8f6e0411ceacc1de811e5990b0bfa43a3c634113d0c",
+      "nametable_1024_sha256": "4aaa15dfb257db9f9275ed0f9191db4c5cefda31510b31e606ab224d3a86f7ee",
+      "entities": [
+        {
+          "type": "table",
+          "runtime_x": 72,
+          "runtime_y": 64
+        },
+        {
+          "type": "table",
+          "runtime_x": 176,
+          "runtime_y": 64
+        },
+        {
+          "type": "ghost",
+          "runtime_x": 16,
+          "runtime_y": 240
+        },
+        {
+          "type": "table",
+          "runtime_x": 72,
+          "runtime_y": 128
+        },
+        {
+          "type": "table",
+          "runtime_x": 176,
+          "runtime_y": 128
+        },
+        {
+          "type": "player",
+          "runtime_x": 120,
+          "runtime_y": 120
+        },
+        {
+          "type": "table",
+          "runtime_x": 72,
+          "runtime_y": 192
+        },
+        {
+          "type": "table",
+          "runtime_x": 176,
+          "runtime_y": 192
+        }
+      ]
+    },
+    "Day 5": {
+      "gameplay_704_sha256": "4af28f839b1f84741ca9495f0efc7ffd218e451f149fbaab1ed53cead791d339",
+      "nametable_1024_sha256": "138928fdf24445c630e169aa8ffeebd591b3a427d9dc9fc58fdfb72ee8e6a87b",
+      "entities": [
+        {
+          "type": "topic_history",
+          "runtime_x": 46,
+          "runtime_y": 80
+        },
+        {
+          "type": "topic_space",
+          "runtime_x": 190,
+          "runtime_y": 80
+        },
+        {
+          "type": "phone",
+          "runtime_x": 80,
+          "runtime_y": 128
+        },
+        {
+          "type": "phone",
+          "runtime_x": 168,
+          "runtime_y": 128
+        },
+        {
+          "type": "player",
+          "runtime_x": 24,
+          "runtime_y": 120
+        },
+        {
+          "type": "geek",
+          "runtime_x": 216,
+          "runtime_y": 120
+        },
+        {
+          "type": "topic_earth",
+          "runtime_x": 14,
+          "runtime_y": 192
+        },
+        {
+          "type": "topic_books",
+          "runtime_x": 222,
+          "runtime_y": 192
+        },
+        {
+          "type": "coffee",
+          "runtime_x": 88,
+          "runtime_y": 192
+        },
+        {
+          "type": "phone",
+          "runtime_x": 160,
+          "runtime_y": 192
+        }
+      ]
+    },
+    "Day 6": {
+      "gameplay_704_sha256": "d0ec21b7fee27ddada164887662ebe392d7e246c8d2b836d33996f2af16ee8fd",
+      "nametable_1024_sha256": "437869e655b9eed09428b44ef556606665e17bb433578081ad6c941968b76a6e",
+      "entities": [
+        {
+          "type": "coffee",
+          "runtime_x": 104,
+          "runtime_y": 72
+        },
+        {
+          "type": "topic_earth",
+          "runtime_x": 86,
+          "runtime_y": 128
+        },
+        {
+          "type": "topic_books",
+          "runtime_x": 150,
+          "runtime_y": 128
+        },
+        {
+          "type": "phone",
+          "runtime_x": 32,
+          "runtime_y": 128
+        },
+        {
+          "type": "phone",
+          "runtime_x": 216,
+          "runtime_y": 128
+        },
+        {
+          "type": "player",
+          "runtime_x": 56,
+          "runtime_y": 120
+        },
+        {
+          "type": "manbox",
+          "runtime_x": 184,
+          "runtime_y": 120
+        },
+        {
+          "type": "topic_history",
+          "runtime_x": 14,
+          "runtime_y": 192
+        },
+        {
+          "type": "topic_space",
+          "runtime_x": 222,
+          "runtime_y": 192
+        },
+        {
+          "type": "phone",
+          "runtime_x": 96,
+          "runtime_y": 192
+        },
+        {
+          "type": "phone",
+          "runtime_x": 152,
+          "runtime_y": 192
+        }
+      ]
+    },
+    "Day 7": {
+      "gameplay_704_sha256": "7ec26bdf79149857e07d03c7301a7df75bb85ac2df8bc460c8db78cfe8de3d3e",
+      "nametable_1024_sha256": "7ca9b60c7325a5f1dc442bf9992e05e64f8f30d3c77828805b9822eccd1b8ab9",
+      "entities": [
+        {
+          "type": "phone",
+          "runtime_x": 64,
+          "runtime_y": 64
+        },
+        {
+          "type": "phone",
+          "runtime_x": 176,
+          "runtime_y": 64
+        },
+        {
+          "type": "topic_earth",
+          "runtime_x": 70,
+          "runtime_y": 128
+        },
+        {
+          "type": "topic_books",
+          "runtime_x": 166,
+          "runtime_y": 128
+        },
+        {
+          "type": "player",
+          "runtime_x": 112,
+          "runtime_y": 120
+        },
+        {
+          "type": "topic_history",
+          "runtime_x": 70,
+          "runtime_y": 192
+        },
+        {
+          "type": "topic_space",
+          "runtime_x": 166,
+          "runtime_y": 192
+        },
+        {
+          "type": "phone",
+          "runtime_x": 24,
+          "runtime_y": 192
+        },
+        {
+          "type": "coffee",
+          "runtime_x": 136,
+          "runtime_y": 192
+        },
+        {
+          "type": "phone",
+          "runtime_x": 224,
+          "runtime_y": 192
+        },
+        {
+          "type": "dibrov",
+          "runtime_x": 248,
+          "runtime_y": 184
+        }
+      ]
+    }
+  },
+  "campaign": {
+    "stage_targets": [
+      10,
+      15,
+      20,
+      25,
+      1,
+      30,
+      35,
+      40
+    ],
+    "miss_limit_before_dream": 3,
+    "miss_limit_after_dream_win": 5,
+    "miss_limit_after_dream_catch": 3,
+    "dream_catch_next_stage": "Day 5",
+    "dream_win_next_stage": "Day 5"
+  },
+  "movement": {
+    "horizontal_wrap_cases": [
+      {
+        "input_x_fp": -1,
+        "expected_x_fp": 3840
+      },
+      {
+        "input_x_fp": 3841,
+        "expected_x_fp": 0
+      }
+    ],
+    "vertical_wrap_cases": [
+      {
+        "direction": "UP",
+        "input_y_fp": 511,
+        "expected_operation": "add 160<<4"
+      },
+      {
+        "direction": "DOWN",
+        "input_y_fp": 3073,
+        "expected_operation": "subtract 160<<4"
+      }
+    ]
+  },
+  "coffee": {
+    "initial_wait": 150,
+    "pickup_strength": 20,
+    "cooldown": 1000,
+    "max_target_speed_fp": 34,
+    "normal_target_speed_fp": 24
+  },
+  "npc": {
+    "chatter_talk_ticks": 50,
+    "chatter_cooldown_ticks": 100,
+    "manbox_knock_ticks": 48,
+    "dibrov_wisdom_ticks": 500,
+    "ghost_initial_wait_ticks": 150
+  },
+  "stageConfig": {
+    "Day 1": {
+      "callDelay": 250,
+      "topicsActive": 2,
+      "phoneCount": 2
+    },
+    "Day 2": {
+      "callDelay": 250,
+      "topicsActive": 2,
+      "phoneCount": 3
+    },
+    "Day 3": {
+      "callDelay": 250,
+      "topicsActive": 3,
+      "phoneCount": 3
+    },
+    "Day 4": {
+      "callDelay": 250,
+      "topicsActive": 3,
+      "phoneCount": 2
+    },
+    "Dream": {
+      "callDelay": 0,
+      "topicsActive": 0,
+      "phoneCount": 1
+    },
+    "Day 5": {
+      "callDelay": 275,
+      "topicsActive": 4,
+      "phoneCount": 3
+    },
+    "Day 6": {
+      "callDelay": 400,
+      "topicsActive": 4,
+      "phoneCount": 4
+    },
+    "Day 7": {
+      "callDelay": 450,
+      "topicsActive": 4,
+      "phoneCount": 4
+    }
+  }
+}

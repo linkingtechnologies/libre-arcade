@@ -1,0 +1,22 @@
+{
+  "policy": "metadata-only public reference; historical bytes remain private/local",
+  "baseline": {
+    "release": "Zooming Secretary v1.02, 30.12.11",
+    "rom_sha256": "315adee10052367298959d55256e9f2621381da9f7c839f50832e13516b61770",
+    "release_zip_sha256": "c61863bed7961dbba4ee02c20a5c2d3fa96ad0c746a638618f5132b58ab9eea9",
+    "source_mirror": "OpenEmu/OpenEmu-Update/Homebrew/NES/Zooming Secretary/zooming_secretary_src/",
+    "historical_source_filename": "zooming_secretary_src.zip",
+    "historical_source_archive_sha256": null
+  },
+  "public_repository_must_not_contain": [
+    "*.nes",
+    "*.chr",
+    "*.ftm",
+    "original map/nametable byte arrays",
+    "original PNG/GIF/BMP labels or sprites",
+    "manual.pdf",
+    "original music/SFX source modules",
+    "game.c",
+    "npc.h"
+  ]
+}

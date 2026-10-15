@@ -1,0 +1,48 @@
+{
+  "milestone": "M13",
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M13-001",
+      "name": "Media strategy and manifest exist",
+      "ok": true
+    },
+    {
+      "id": "ZS-M13-002",
+      "name": "Public reference is metadata-only",
+      "ok": true
+    },
+    {
+      "id": "ZS-M13-003",
+      "name": "No forbidden historical binary/media extensions",
+      "ok": true
+    },
+    {
+      "id": "ZS-M13-004",
+      "name": "No original source/map filenames",
+      "ok": true
+    },
+    {
+      "id": "ZS-M13-005",
+      "name": "Code package remains GPL-3.0-or-later",
+      "ok": true
+    },
+    {
+      "id": "ZS-M13-006",
+      "name": "Manifest keeps unresolved original media out of GREEN reuse",
+      "ok": true
+    },
+    {
+      "id": "ZS-M13-007",
+      "name": "No AI assets policy is explicit",
+      "ok": true
+    },
+    {
+      "id": "ZS-M13-008",
+      "name": "Reference baseline hashes remain locked",
+      "ok": true
+    }
+  ]
+}

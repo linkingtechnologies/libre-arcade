@@ -1,0 +1,98 @@
+{
+  "baseline": "Zooming Secretary M18 Day 4 playable",
+  "total": 18,
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "id": "ZS-M18-001",
+      "name": "Day 4 semantic collision topology matches certified oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-002",
+      "name": "Day 4 configuration matches v1.02 oracle",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-003",
+      "name": "Day 4 phones and cabinets preserve binary scan order",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-004",
+      "name": "binary-real Day 4 initialization matches M12",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-005",
+      "name": "Day 4 preserves three side-accessible floors",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-006",
+      "name": "first two Day 4 rings occur at certified ticks",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-007",
+      "name": "Chatter overwrites the memorized topic on close same-floor contact",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-008",
+      "name": "Chatter holds 50 talk ticks then 100 cooldown ticks without retrigger",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-009",
+      "name": "Chatter can immediately disrupt a route decision after a cabinet pickup",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-010",
+      "name": "real movement can descend from spawn to the middle floor",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-011",
+      "name": "real movement can continue to the lower cabinet floor",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-012",
+      "name": "Day 4 coffee is active on the Chatter floor",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-013",
+      "name": "25 answers win Day 4 and three misses lose it",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-014",
+      "name": "browser campaign wires Day 1 through Day 4 bilingually and surfaces Chatter event",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-015",
+      "name": "renderer gives Chatter a distinct placeholder-only treatment",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-016",
+      "name": "package is M18 and Day 4 remains semantic-only",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-017",
+      "name": "real movement reaches Chatter and triggers a topic overwrite",
+      "ok": true
+    },
+    {
+      "id": "ZS-M18-018",
+      "name": "Day 4 lower ladder tail performs the certified vertical wrap to the upper floor",
+      "ok": true
+    }
+  ]
+}
