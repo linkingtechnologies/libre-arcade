@@ -35,7 +35,7 @@ const I18N={
     answer:'Answered!',topic:'Topic memorized',chatter:'Chatter changed it',missed:'Missed call',teleport:'The phone moved!',ghost:'The Ghost caught you!',knock:'ManBox knocked you!',wisdom:'Wisdom: any topic works!',
     won1:'Day 1 complete!',won2:'Day 2 complete!',won3:'Day 3 complete!',won4:'Day 4 complete!',won5:'Day 5 complete!',won6:'Day 6 complete!',won7:'Day 7 complete!',dreamWon:'Dream cleared!',dreamCaught:'Dream ended',lost:'Trial failed',
     keys:'Move: arrows / WASD · P or Esc: pause · M: sound',pauseHint:'Press P or Esc to resume.',
-    soundTest:'Sound test',soundWord:'Sound',soundHelp:'Up and down: choose · X: play · Enter: leave',soundDone:'Done',
+    soundTest:'Sound test',soundWord:'Sound',soundHelp:'Up and down: choose · X or B: play · Enter: leave',soundDone:'Done',
     answerRule:'How to answer: a ringing phone shows a topic symbol. Touch the filing cabinet with the same symbol to memorize it, then touch the phone. There is no Answer button.',
     dreamRule:'Dream exception: no topic is needed. Just reach and touch the ringing phone before the Ghost catches you.',
     wrapRule:'Edge ladders wrap vertically: if a ladder continues off the bottom, keep moving DOWN; if it continues off the top, keep moving UP.',
@@ -70,7 +70,7 @@ const I18N={
     answer:'Risposta corretta!',topic:'Argomento memorizzato',chatter:'Chatter lo ha cambiato',missed:'Chiamata persa',teleport:'Il telefono è scappato!',ghost:'Il Fantasma ti ha preso!',knock:'ManBox ti ha colpito!',wisdom:'Wisdom: ora va bene qualsiasi argomento!',
     won1:'Giorno 1 completato!',won2:'Giorno 2 completato!',won3:'Giorno 3 completato!',won4:'Giorno 4 completato!',won5:'Giorno 5 completato!',won6:'Giorno 6 completato!',won7:'Giorno 7 completato!',dreamWon:'Sogno superato!',dreamCaught:'Sogno terminato',lost:'Prova fallita',
     keys:'Muovi: frecce / WASD · P o Esc: pausa · M: audio',pauseHint:'Premi P o Esc per riprendere.',
-    soundTest:'Prova dei suoni',soundWord:'Suono',soundHelp:'Su e giù: scegli · X: ascolta · Invio: esci',soundDone:'Fatto',
+    soundTest:'Prova dei suoni',soundWord:'Suono',soundHelp:'Su e giù: scegli · X o B: ascolta · Invio: esci',soundDone:'Fatto',
     answerRule:'Come rispondere: il telefono che squilla mostra il simbolo di un argomento. Tocca lo schedario con lo stesso simbolo per memorizzarlo, poi tocca il telefono. Non esiste un tasto Rispondi.',
     dreamRule:'Eccezione Sogno: non serve alcun argomento. Raggiungi e tocca il telefono che squilla prima che il Fantasma ti prenda.',
     wrapRule:'Le scale ai bordi continuano verticalmente: se escono in basso, continua con GIÙ; se escono in alto, continua con SU.',
@@ -132,6 +132,7 @@ let testMode=false;
 const KEY_BUTTON={KeyZ:'A',KeyX:'B',ShiftLeft:'SELECT',ShiftRight:'SELECT',Backspace:'SELECT',Enter:'START',Space:'START'};
 const keysDown=new Set();
 let startPulse=false;      // a START that came from a click or a tap (or a key that went up before the next step), for the title screen
+let touchPad=0;            // the buttons of the touch pad that are down (A, B and SELECT; the directions are in `held`)
 let latchedPad=0;          // buttons pressed since the last step of a screen, even if they were let go again before it (a busy page can miss a short press)
 let startTap=0;            // iterations during which START is held for the game, after the Pause button or a key
 let levelPad=null;
@@ -156,12 +157,13 @@ function syncTouchPressed(){
   for(const button of document.querySelectorAll('[data-dir]')) button.classList.toggle('pressed',!!held[button.dataset.dir]);
 }
 function clearHeldDirections(){ clearDirections(held); syncTouchPressed(); }
+function clearTouchPad(){ touchPad=0; for(const button of document.querySelectorAll('[data-btn]')) button.classList.remove('pressed'); }
 // The pad as the program would read it now: the directions (keys and the touch pad) and the other buttons (keys only).
 function padMask(){
   let mask=0;
   for(const dir of ['UP','DOWN','LEFT','RIGHT']) if(held[dir]) mask|=BUTTON[dir];
   for(const code of keysDown) if(KEY_BUTTON[code]) mask|=BUTTON[KEY_BUTTON[code]];
-  return mask;
+  return mask|touchPad;
 }
 // What a screen's step (the title, the sound test, the choice of the level) reads: the pad, and what was pressed since the last step.
 function stepMask(){ const mask=padMask()|latchedPad; latchedPad=0; return mask; }
@@ -479,8 +481,8 @@ window.addEventListener('keydown',e=>{
   }
 });
 window.addEventListener('keyup',e=>{keysDown.delete(e.code);const dir=keyDirection(e.code);if(dir){releaseDirection(held,dir);syncTouchPressed();e.preventDefault();}});
-window.addEventListener('blur',()=>{clearHeldDirections();keysDown.clear();if(running&&!paused)togglePause({silent:true});});
-document.addEventListener('visibilitychange',()=>{if(document.hidden){clearHeldDirections();keysDown.clear();if(running&&!paused)togglePause({silent:true});}});
+window.addEventListener('blur',()=>{clearHeldDirections();keysDown.clear();clearTouchPad();if(running&&!paused)togglePause({silent:true});});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){clearHeldDirections();keysDown.clear();clearTouchPad();if(running&&!paused)togglePause({silent:true});}});
 primary.addEventListener('click',()=>{
   audio.unlock();
   if(screenMode==='SOUND_TEST'){ startPulse=true; return; }
@@ -504,6 +506,15 @@ for(const button of document.querySelectorAll('[data-dir]')){
   const dir=button.dataset.dir;
   const set=v=>{v?pressDirection(held,dir):releaseDirection(held,dir);syncTouchPressed();};
   button.addEventListener('pointerdown',e=>{button.setPointerCapture(e.pointerId);set(true);latchedPad|=BUTTON[dir];audio.unlock();e.preventDefault();});
+  button.addEventListener('pointerup',e=>{set(false);e.preventDefault();});
+  button.addEventListener('pointercancel',()=>set(false)); button.addEventListener('lostpointercapture',()=>set(false));
+}
+// A, B and SELECT on the touch pad: what the hidden code, the sound test and the choice of the level read (the other buttons of the pad are START,
+// which is the Pause button and the cards' buttons, and the directions).
+for(const button of document.querySelectorAll('[data-btn]')){
+  const bit=BUTTON[button.dataset.btn];
+  const set=v=>{ if(v){touchPad|=bit;latchedPad|=bit;}else touchPad&=~bit; button.classList.toggle('pressed',v); };
+  button.addEventListener('pointerdown',e=>{button.setPointerCapture(e.pointerId);set(true);audio.unlock();e.preventDefault();});
   button.addEventListener('pointerup',e=>{set(false);e.preventDefault();});
   button.addEventListener('pointercancel',()=>set(false)); button.addEventListener('lostpointercapture',()=>set(false));
 }

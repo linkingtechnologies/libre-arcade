@@ -16,10 +16,10 @@ files. `public/data/` and the other files of `src/` and `web/` are the package's
 | `src/index.js` | `b128577027e62dc965442640a0e6d82450b3115d4645862eadad54004d9f0247` | `3d9cb3521cef70f1a4cbf42e52d52d7343fe5ef8a039761b6e67b91b2de2406f` | +1 -0 |
 | `src/hearts.js` | (new) | `484a953cc43016dca10c85b920df851eebdaebfa9082d6135f19ed5bf7b1ee77` | |
 | `src/frontend.js` | (new) | `4b19e243b9b7076ae40abfdd59ab7f1aa27f5f90a875354be1be7281acdf3b63` | |
-| `web/app.js` | `99ecaad4b03fb526ed3e126ac779189ec738462315c4ab6789d7928715228fc7` | `415fb38b6c91199265f95c7c7fa56be45c7810331c41c4715259b1ae8d425588` | +167 -38 |
-| `web/style.css` | `8ebcc43b204ff3e9413d97813b4e08e416abe138ce40f30b8f4c46609604a8f5` | `b9d3cbeed93ab7370a638bdbfa026a57ffd4ad7f8bb6c8f1e0528fd6612a4733` | +32 -2 |
+| `web/app.js` | `99ecaad4b03fb526ed3e126ac779189ec738462315c4ab6789d7928715228fc7` | `7c3e4b8e1de59de3b219dc6c9f6a6eebf67ab08f42745ec8546fb51bff7541a0` | +177 -37 |
+| `web/style.css` | `8ebcc43b204ff3e9413d97813b4e08e416abe138ce40f30b8f4c46609604a8f5` | `a342863fabc0fd23bf33ab2d70f32cedff77e20f0578e5bf1bf9ae3ad473c378` | +42 -2 |
 | `web/sounds.js` | (new) | `4eef23e6d664dc7f161f598f55aa43bbb5e474dc484347ce45dc6313c1a2ed97` | |
-| `index.html` | `52bf231f7af0aeb3acd6d8288fe46ef1d0f27382b660ddedc38542b49d1a12f9` | `263b0f78d10958df9bed743b532f5816e2e6cf3479e4eac322a278f14c1b192b` | +2 -0 |
+| `index.html` | `52bf231f7af0aeb3acd6d8288fe46ef1d0f27382b660ddedc38542b49d1a12f9` | `f29372c10b8eef6d306f8320b0053bee1712bfd4f2e462e0934e35e2eebb6b2b` | +7 -0 |
 
 By file:
 
@@ -48,12 +48,12 @@ By file:
   once the code has been entered; START (Enter, Space, and what the Pause button and P and Esc press) is the program's pause; the
   allowance of missed calls is the program's for every stage, and the Dream's reward is added to it each time it is won; the steps of
   the title, the sound test and the choice of the level see a press that ended before the page's next frame; Z, X, Shift and Backspace
-  are A, B and SELECT.
+  are A, B and SELECT, and so are the SELECT, B and A buttons of the touch pad.
 - `sounds.js` (new): the list of the page's sounds for the sound test (checked against `audio.js` by `test/production.test.mjs`).
 - `style.css`: the cards (the days' introductions, the results, the pause, the sound test) are sized by the height of the board with
   container queries, with the window's own media queries as the fallback, and their button stays in view, so that none of them scrolls
-  inside itself on a phone upright or in a short window.
-- `index.html`: the visit counter of the collection (before `</body>`) and an empty favicon link (the page asked the server for a
+  inside itself on a phone upright or in a short window; the buttons SELECT, B and A of the touch pad.
+- `index.html`: the SELECT, B and A buttons of the touch pad, the visit counter of the collection (before `</body>`) and an empty favicon link (the page asked the server for a
   `favicon.ico` and got a 404).
 
 Not taken from the package's `public/` side: its `package.json` (a new one with the collection's scripts), `README.md`, `LICENSE` (the

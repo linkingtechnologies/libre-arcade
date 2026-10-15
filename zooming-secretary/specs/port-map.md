@@ -153,7 +153,7 @@ Dream was lost), so each character is compared on the fields that the game reads
   half a second at least. Pauses that the page makes for itself (the window loses focus, the credits open) stop the clock instead, and are not
   the program's. The program's screen with the level number is a card, which waits for a click and does not count 150 passes or fade; the
   final screen (level 8) leads to Day 1 and not to the title. The sound test plays the page's own 16 sounds and has no music (the
-  original has 21 effects and 7 tunes), and the code, the sound test and the choice of the level need a keyboard.
+  original has 21 effects and 7 tunes), The code, the sound test and the choice of the level are reached from the keyboard or from the touch pad's SELECT, B and A buttons (START is a tap on the title screen, the Pause button, or a card's button).
 - **Time.** 50 iterations a second always; the original's frame skipping on 60 Hz consoles gives the same average.
 
 ## What the comparison does not cover

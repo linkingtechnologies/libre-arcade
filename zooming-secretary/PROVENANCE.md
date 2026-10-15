@@ -74,7 +74,7 @@ M11 and M12) are its own.
 temporary copy of the page, and pressed keys for the whole campaign in real time (805 seconds: Days 1 to 4, the Dream lost, Day 5 lost once and then won, Days 6 and 7, the
 ending), reading the page's own cards between stages; the credits, the pause, the language and the sound buttons, and the preferences kept in the browser were tried; keys were pressed
 for the hidden code, the choice of the level (including the limits and the final screen), the program's pause (with Enter, P, Escape and the Pause button) and the sound test, and for the case in
-which the four buttons of the sound test are not all down; the layout was
+which the four buttons of the sound test are not all down, and the same was done with the touch buttons in an emulated phone (390 by 844, with three touches held and a fourth on the title screen for the sound test); the layout was
 measured, in English and Italian, on the title, the intro, in play and in the credits, at 320 by 568, 360 by 640, 390 by 844, 568 by 320, 812 by 375, 1024 by 600, 1280 by 800, 700 by
 700, 900 by 700 and 1100 by 800, and at four short landscape sizes with touch emulation: no scroll and no control outside the window. Each of the eight days' cards, in both languages, was also checked for scrolling inside itself at 320 by 568, 360 by 640, 390 by 844,
 412 by 915, 568 by 320 (with and without touch), 480 by 300 (without touch), 568 by 300, 640 by 360, 700 by 400, 812 by 375, 1024 by 600, 1280 by 800 and 700 by 700, and none does; at 480 by 300 *with* touch emulation (smaller than any phone) a few cards
@@ -93,7 +93,7 @@ scroll inside themselves by 8 to 20 pixels and their button stays in view. No er
 3. **Pictures, sounds and music** are new. Nothing of the original's is used, but the page's layout of the screen (the status line, the bottom message, the floors, ladders and cabinets
    at the places the original has them) follows the original's, since the layouts do.
 4. **The page and the pictures are not compared with the original** (level 3), nor what the sound test plays: it lists the page's own 16 sounds, not the original's 21 effects and 7 tunes, and the page has no music. The program's screens other than the three that
-   were compared (the game over screen, the final screen) are cards that wait for a click, and the hidden code, the sound test and the choice of the level need a keyboard.
+   were compared (the game over screen, the final screen) are cards that wait for a click, and the touch buttons (SELECT, B and A) were driven in an emulated phone, not on a real one.
 5. **Answering a call by wisdom before any cabinet** is not covered (the source then indexes past an array; the port does not). The scenarios never answer in that state.
 6. **The title screen's seed** was compared for two times on the title screen (16 and 55 iterations of its loop) and in one exploratory run (32); the rule is the same for all, and the generator is.
 7. **Timing.** The port ticks at 50 a second, a fixed rate; a slow machine plays slower, not faster. How the original's pace feels on a console is not compared.

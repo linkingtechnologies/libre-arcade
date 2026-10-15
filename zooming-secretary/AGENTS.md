@@ -49,8 +49,9 @@
   (72, 1, 150, 1). `test_mode` stays until the program is switched off, the allowance of missed calls is the program's for every stage (3, and
   2 more each time the Dream is won, whichever stage is chosen next), and the final screen (level 8) leads back to the title in the program
   and to Day 1 in the page. The page uses the same functions (`stepCode`, `stepLevelSelect`, `stepSoundTest`, `Frontend`) but its screens are
-  cards, so the waits and the fade are not there. The code, the sound test and the choice of the level are for the keyboard (the touch pad has
-  no A, B or SELECT), and the page's strings do not mention them (`test/production.test.mjs`); `README.md` does.
+  cards, so the waits and the fade are not there. The code, the sound test and the choice of the level are reached from the keyboard and from the
+  touch pad (SELECT, B and A buttons beside the arrows, in `index.html`; START is a tap on the title, the Pause button or a card's button), and
+  the page's strings do not mention them (`test/production.test.mjs`); `README.md` does.
 - **The sound test lists the page's own sounds** (`web/sounds.js`, 16 effects and no music), not the original's 21 effects and 7 tunes, which are
   not here; `test/production.test.mjs` checks that the list is what `web/audio.js` can make. The oracle compares the sound test's selection
   with the ROM's (`effects: 21, tunes: 7`), which is the rule, not the sounds.

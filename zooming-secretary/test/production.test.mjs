@@ -103,3 +103,11 @@ test('the page reads the pad the way the program does: Z and X are A and B, Shif
   for (const needle of ['frontend.tick(mask)', 'stepLevelSelect', 'showSoundTest']) assert.ok(app.includes(needle), needle);
   assert.doesNotMatch(app.match(/I18N=\{[\s\S]*?\n\};/)[0], /B A B A|hidden code|\bcheat/i);
 });
+
+test('the touch pad has SELECT, B and A beside the arrows, and the page reads them as the pad\'s buttons', () => {
+  const html = text(join(PUBLIC, 'index.html'));
+  for (const name of ['SELECT', 'B', 'A']) assert.match(html, new RegExp(`<button type="button" data-btn="${name}"`), name);
+  const app = text(join(PUBLIC, 'web/app.js'));
+  assert.match(app, /querySelectorAll\('\[data-btn\]'\)/);
+  assert.match(app, /return mask\|touchPad;/);
+});
