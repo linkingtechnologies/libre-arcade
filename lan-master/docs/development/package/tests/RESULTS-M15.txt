@@ -1,0 +1,36 @@
+== tests/test-core.js ==
+M8 core regression: PASS (50/50 witnesses)
+== tests/test-gfx.js ==
+title-pixels-sha256 17b6362f21c8cb6a345d1e73d2a7d09fa35a07f7e72e40df25a1323628c5809d
+game-pixels-sha256  87fa346d0bd45376a9cdf1cd292984c78a69a534fa5be0d5f74fa3b03581bb24
+M9 graphics regression: PASS
+== tests/test-audio.js ==
+M10 audio regression: PASS (4 BGM modules, 12 SFX, DPCM, PCM synth)
+== tests/test-integration.js ==
+M10 integration regression: PASS
+== tests/test-transitions.js ==
+M11 transitions regression: PASS
+reveal-order-sha256 9e855b469e2a1a2bcdce565a865bf894f52e355c6965921a2362d4975ae2af18
+reveal-batches-total 1384
+ending-first-char-frame 51 first-fade-frame 300 second-line-frame 319
+== tests/test-m11-integration.js ==
+M11 integration regression: PASS
+== tests/test-production.js ==
+M12 production regression: PASS
+== tests/test-m13-ui.js ==
+M13 UI regression: PASS
+== tests/test-m14-release.js ==
+M14 release regression: PASS (M13 payload frozen, 49 unique passcodes + ending code)
+== tests/test-m15-release.js ==
+M15 final-release regression: PASS (1.0.0 metadata, frozen runtime/reference payload)
+
+== browser smoke ==
+M13 managed Chromium smoke: PASS (1280x960, 390x844, 320x568)
+
+== playability gate ==
+M14 playability gate: PASS
+passcodes: 49/49 + ending code
+campaign: 50/50 levels -> ending -> menu
+desktop real-control solved levels: L1 (5 rotations), L11 (10 rotations), L25 (44 rotations), L50 (95 rotations)
+mobile on-screen-control solved: L11 (11 rotations)
+settings/language/reset: PASS

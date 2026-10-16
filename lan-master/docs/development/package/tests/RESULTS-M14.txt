@@ -1,0 +1,24 @@
+Lan Master M14 / 1.0 RC1 - automated acceptance
+UTC 2026-10-14T12:21:18Z
+
+M8 core regression: PASS (50/50 witnesses)
+title-pixels-sha256 17b6362f21c8cb6a345d1e73d2a7d09fa35a07f7e72e40df25a1323628c5809d
+game-pixels-sha256  87fa346d0bd45376a9cdf1cd292984c78a69a534fa5be0d5f74fa3b03581bb24
+M9 graphics regression: PASS
+M10 audio regression: PASS (4 BGM modules, 12 SFX, DPCM, PCM synth)
+M10 integration regression: PASS
+M11 transitions regression: PASS
+reveal-order-sha256 9e855b469e2a1a2bcdce565a865bf894f52e355c6965921a2362d4975ae2af18
+reveal-batches-total 1384
+ending-first-char-frame 51 first-fade-frame 300 second-line-frame 319
+M11 integration regression: PASS
+M12 production regression: PASS
+M13 UI regression: PASS
+M14 release regression: PASS (M13 payload frozen, 49 unique passcodes + ending code)
+M13 managed Chromium smoke: PASS (1280x960, 390x844, 320x568)
+M14 playability gate: PASS
+passcodes: 49/49 + ending code
+campaign: 50/50 levels -> ending -> menu
+desktop real-control solved levels: L1 (5 rotations), L11 (10 rotations), L25 (44 rotations), L50 (95 rotations)
+mobile on-screen-control solved: L11 (11 rotations)
+settings/language/reset: PASS

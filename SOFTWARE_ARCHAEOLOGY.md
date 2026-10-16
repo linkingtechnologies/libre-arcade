@@ -99,6 +99,7 @@ original with an executable oracle or a benchmark:
 - [`lawn-mower/SOFTWARE_ARCHAEOLOGY.md`](lawn-mower/SOFTWARE_ARCHAEOLOGY.md)
 - [`milcity/SOFTWARE_ARCHAEOLOGY.md`](milcity/SOFTWARE_ARCHAEOLOGY.md)
 - [`zooming-secretary/SOFTWARE_ARCHAEOLOGY.md`](zooming-secretary/SOFTWARE_ARCHAEOLOGY.md)
+- [`lan-master/SOFTWARE_ARCHAEOLOGY.md`](lan-master/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already

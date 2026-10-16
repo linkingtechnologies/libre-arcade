@@ -1,0 +1,199 @@
+{
+  "source_rom_sha256": "becfeafb80479c330333c9e9385417f68f3c88e85443dfb37b05ae9283f3ea45",
+  "prg_sha256": "dfd148d5ca0d6324d6366e36426c7089253c5c927a228aa9b3db36a1ee1c563c",
+  "famitone_version": "1.24",
+  "music_modules": {
+    "menu": {
+      "address": "0xA000",
+      "channel_pointers": [
+        "0xA23D",
+        "0xA3ED",
+        "0xA622",
+        "0xA7EE",
+        "0xAAFC"
+      ],
+      "instrument_pointer": "0xA18D",
+      "speed": 6
+    },
+    "done": {
+      "address": "0xACAC",
+      "channel_pointers": [
+        "0xAEE9",
+        "0xB0A0",
+        "0xB266",
+        "0xB374",
+        "0xB59D"
+      ],
+      "instrument_pointer": "0xAE39",
+      "speed": 6
+    },
+    "timeout": {
+      "address": "0xB6C4",
+      "channel_pointers": [
+        "0xB901",
+        "0xB938",
+        "0xB96F",
+        "0xB98B",
+        "0xB9A1"
+      ],
+      "instrument_pointer": "0xB851",
+      "speed": 6
+    },
+    "game": {
+      "address": "0xC000",
+      "channel_pointers": [
+        "0xC23D",
+        "0xC52B",
+        "0xCAF4",
+        "0xCDD9",
+        "0xD193"
+      ],
+      "instrument_pointer": "0xC18D",
+      "speed": 6
+    }
+  },
+  "sfx_table_address": "0xE2B0",
+  "sfx_pointers": [
+    "0xE2C8",
+    "0xE2DC",
+    "0xE2EE",
+    "0xE304",
+    "0xE313",
+    "0xE336",
+    "0xE354",
+    "0xE36C",
+    "0xE394",
+    "0xE3BA",
+    "0xE47D",
+    "0xE493"
+  ],
+  "dpcm_table_address": "0xE280",
+  "dpcm_data_base": "0xE000",
+  "dpcm_samples": [
+    {
+      "sample": 0,
+      "start_reg": 128,
+      "length_reg": 5,
+      "pitch_reg": 15,
+      "cpu_address": "0xE000",
+      "bytes": 81,
+      "rate_index": 15,
+      "loop": false
+    },
+    {
+      "sample": 1,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    },
+    {
+      "sample": 2,
+      "start_reg": 130,
+      "length_reg": 10,
+      "pitch_reg": 15,
+      "cpu_address": "0xE080",
+      "bytes": 161,
+      "rate_index": 15,
+      "loop": false
+    },
+    {
+      "sample": 3,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    },
+    {
+      "sample": 4,
+      "start_reg": 133,
+      "length_reg": 19,
+      "pitch_reg": 15,
+      "cpu_address": "0xE140",
+      "bytes": 305,
+      "rate_index": 15,
+      "loop": false
+    },
+    {
+      "sample": 5,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    },
+    {
+      "sample": 6,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    },
+    {
+      "sample": 7,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    },
+    {
+      "sample": 8,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    },
+    {
+      "sample": 9,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    },
+    {
+      "sample": 10,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    },
+    {
+      "sample": 11,
+      "start_reg": 128,
+      "length_reg": 0,
+      "pitch_reg": 0,
+      "cpu_address": "0xE000",
+      "bytes": 1,
+      "rate_index": 0,
+      "loop": false
+    }
+  ],
+  "source_evidence": {
+    "famitone_asm_git_blob_sha1": "0b913ed974a0a95d90817d68cc710bba32efb604",
+    "sfx_asm_git_blob_sha1": "1f696d873cdb72b97dcc7bb1f76e81062b94ce68",
+    "bgm_game_dpcm_asm_git_blob_sha1": "d6f784cd28a67ed08578dcb2ba171b320e7ed162"
+  }
+}

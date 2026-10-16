@@ -1,0 +1,13 @@
+# The restoration package's own documents, tests and data are kept byte for byte (its checksum list names them), so no line-ending
+# normalisation and no text conversion whatever core.autocrlf says.
+docs/development/package/** -text
+
+# The author's release and his source are kept byte for byte: the ROM is compared with its SHA-256, and the source is assembled by the tests into
+# exactly that ROM (the assembler reads lines, but the .incbin files, the character sheet and the compressed pictures are binary).
+reference/** -text
+reference/release/Lan_Master.nes binary
+reference/source/*.rle binary
+reference/source/*.chr binary
+reference/source/*.bin binary
+
+*.png binary

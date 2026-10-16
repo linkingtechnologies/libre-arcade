@@ -1,0 +1,22 @@
+Lan Master M13 — UI / keyboard hardening
+
+Historical regressions:
+PASS test-core.js — 50/50 solver witnesses
+PASS test-gfx.js — title/game pixel hashes unchanged
+PASS test-audio.js — 4 BGM, 12 SFX, DPCM
+PASS test-integration.js
+PASS test-transitions.js — reveal/clear/timeout/ending timing unchanged
+PASS test-m11-integration.js
+PASS test-production.js — M12 production contract preserved
+
+M13 regressions:
+PASS test-m13-ui.js — focus/keyboard/static contract
+PASS managed Chromium smoke at 1280x960, 390x844, 320x568
+- no page JavaScript errors
+- no document overflow
+- Help Back works with keyboard Enter and restores focus
+- Credits Reset works with keyboard Enter
+- passcode field receives focus and valid code 0471 starts level 2
+
+Environment limitation:
+Direct file:// and arbitrary local/HTTP navigation are blocked by the managed Chromium policy in this environment. The smoke test therefore inlines the exact production CSS/JavaScript payload and uses a test-only lexical localStorage shim for the opaque test document. Static packaging tests continue to verify that all production runtime assets are local and complete.

@@ -1,0 +1,34 @@
+{
+  "logic_clock_hz": 50,
+  "palette_fade_ticks": 16,
+  "menu_start_flash_ticks": 20,
+  "restart": {
+    "scramble_passes": 3,
+    "frames_per_pass": 24,
+    "tiles_per_half_row": 6,
+    "total_frames": 72,
+    "rng_draws": 432
+  },
+  "level_clear": {
+    "pre_table_ticks": 50,
+    "terminals_updated_per_tick": 4,
+    "online_increment_per_tick": 2,
+    "table_rows": 8
+  },
+  "timeout": {
+    "pre_table_ticks": 50,
+    "table_rows": 8
+  },
+  "well_done": {
+    "split_y_px": 64,
+    "line_change_counter": 300,
+    "initial_cursor_delay": 50,
+    "next_line_cursor_delay": 25,
+    "text_fade_ticks": 20,
+    "first_character_test_frame": 51,
+    "first_fade_test_frame": 300,
+    "second_line_reset_test_frame": 319
+  },
+  "reveal_order_sha256": "9e855b469e2a1a2bcdce565a865bf894f52e355c6965921a2362d4975ae2af18",
+  "reveal_batches_total_test_fixture": 1384
+}

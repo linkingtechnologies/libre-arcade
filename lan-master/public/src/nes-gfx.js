@@ -1,0 +1,20 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+(function(root,factory){const api=factory();if(typeof module!=='undefined'&&module.exports)module.exports=api;root.LanMasterNESGfx=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+const NES_RGB=[
+[124,124,124],[0,0,252],[0,0,188],[68,40,188],[148,0,132],[168,0,32],[168,16,0],[136,20,0],[80,48,0],[0,120,0],[0,104,0],[0,88,0],[0,64,88],[0,0,0],[0,0,0],[0,0,0],
+[188,188,188],[0,120,248],[0,88,248],[104,68,252],[216,0,204],[228,0,88],[248,56,0],[228,92,16],[172,124,0],[0,184,0],[0,168,0],[0,168,68],[0,136,136],[0,0,0],[0,0,0],[0,0,0],
+[248,248,248],[60,188,252],[104,136,252],[152,120,248],[248,120,248],[248,88,152],[248,120,88],[252,160,68],[248,184,0],[184,248,24],[88,216,84],[88,248,152],[0,232,216],[120,120,120],[0,0,0],[0,0,0],
+[252,252,252],[164,228,252],[184,184,248],[216,184,248],[248,184,248],[248,164,192],[240,208,176],[252,224,168],[248,216,120],[216,248,120],[184,248,184],[184,248,216],[0,252,252],[248,216,248],[0,0,0],[0,0,0]];
+function b64(s){if(typeof Buffer!=='undefined')return Uint8Array.from(Buffer.from(s,'base64'));const raw=atob(s),a=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)a[i]=raw.charCodeAt(i);return a;}
+function unrle(data){let p=0;const tag=data[p++],out=[];let last=0;for(;;){const v=data[p++];if(v!==tag){out.push(v);last=v;continue}const count=data[p++];if(count===0)break;for(let i=0;i<count;i++)out.push(last)}return Uint8Array.from(out);}
+function decodeChr(chr){const out=new Uint8Array(2*256*64);for(let table=0;table<2;table++)for(let tile=0;tile<256;tile++){const base=table*4096+tile*16,o=(table*256+tile)*64;for(let y=0;y<8;y++){const p0=chr[base+y],p1=chr[base+8+y];for(let x=0;x<8;x++){const bit=7-x;out[o+y*8+x]=((p0>>bit)&1)|(((p1>>bit)&1)<<1)}}}return out;}
+function attrPalette(nt,tx,ty){const a=nt[960+((ty>>2)*8)+(tx>>2)],shift=((ty&2)?4:0)+((tx&2)?2:0);return(a>>shift)&3;}
+function renderPixels(nt,chrPixels,palette,table){const out=new Uint8ClampedArray(256*240*4);for(let ty=0;ty<30;ty++)for(let tx=0;tx<32;tx++){const tile=nt[ty*32+tx],pn=attrPalette(nt,tx,ty),to=((table*256+tile)*64);for(let y=0;y<8;y++)for(let x=0;x<8;x++){const c=chrPixels[to+y*8+x],pi=(c===0?palette[0]:palette[pn*4+c])&63,rgb=NES_RGB[pi],po=((ty*8+y)*256+(tx*8+x))*4;out[po]=rgb[0];out[po+1]=rgb[1];out[po+2]=rgb[2];out[po+3]=255}}return out;}
+function render(ctx,nt,chrPixels,palette,table){const img=ctx.createImageData(256,240);img.data.set(renderPixels(nt,chrPixels,palette,table));ctx.putImageData(img,0,0);}
+function spritePixels(chrPixels,tile,palette,table=0){const out=new Uint8ClampedArray(8*8*4),to=((table*256+tile)*64);for(let y=0;y<8;y++)for(let x=0;x<8;x++){const c=chrPixels[to+y*8+x],po=(y*8+x)*4;if(c===0){out[po+3]=0;continue}const rgb=NES_RGB[palette[c]&63];out[po]=rgb[0];out[po+1]=rgb[1];out[po+2]=rgb[2];out[po+3]=255}return out;}
+function drawSprite(ctx,chrPixels,tile,palette,x,y,table=0){const img=ctx.getImageData(x,y,8,8),sprite=spritePixels(chrPixels,tile,palette,table);for(let i=0;i<256;i+=4)if(sprite[i+3]){img.data[i]=sprite[i];img.data[i+1]=sprite[i+1];img.data[i+2]=sprite[i+2];img.data[i+3]=255}ctx.putImageData(img,x,y);}
+function patchTable(nt,start,width,height,data){for(let y=0;y<height;y++)for(let x=0;x<width;x++)nt[start+y*32+x]=data[y*width+x];}
+function renderScrolledSplit(ctx,nt0,nt1,chrPixels,palette,table,splitY,scrollX,pageSelect,tableBottom=table){const top=renderPixels(nt0,chrPixels,palette,table),p0=tableBottom===table?top:renderPixels(nt0,chrPixels,palette,tableBottom),p1=renderPixels(nt1,chrPixels,palette,tableBottom),img=ctx.createImageData(256,240),out=img.data;for(let y=0;y<240;y++)for(let x=0;x<256;x++){let src,so;if(y<splitY){src=top;so=(y*256+x)*4}else{const vx=((pageSelect?256:0)+scrollX+x)&511,pg=vx>>8,sx=vx&255;src=pg?p1:p0;so=(y*256+sx)*4}const d=(y*256+x)*4;out[d]=src[so];out[d+1]=src[so+1];out[d+2]=src[so+2];out[d+3]=255}ctx.putImageData(img,0,0);}
+return{NES_RGB,b64,unrle,decodeChr,attrPalette,renderPixels,render,spritePixels,drawSprite,patchTable,renderScrolledSplit};
+});

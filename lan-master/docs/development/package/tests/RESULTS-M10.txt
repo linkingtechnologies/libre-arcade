@@ -1,0 +1,6 @@
+M8 core regression: PASS (50/50 witnesses)
+title-pixels-sha256 17b6362f21c8cb6a345d1e73d2a7d09fa35a07f7e72e40df25a1323628c5809d
+game-pixels-sha256  87fa346d0bd45376a9cdf1cd292984c78a69a534fa5be0d5f74fa3b03581bb24
+M9 graphics regression: PASS
+M10 audio regression: PASS (4 BGM modules, 12 SFX, DPCM, PCM synth)
+M10 integration regression: PASS
