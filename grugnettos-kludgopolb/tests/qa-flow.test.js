@@ -222,5 +222,5 @@ test('QA: the only remote reference in the game page is the collection-wide Goat
   assert.doesNotMatch(html, /Content-Security-Policy/i, 'no CSP that would have to allow the beacon');
 
   const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
-  assert.equal(readme.split('\n')[2], '**[▶ Play here](https://linkingtechnologies.github.io/libre-arcade/grugnettos-kludgopolb/public/index.html)**');
+  assert.equal(readme.split(/\r?\n/)[2],'**[▶ Play here](https://linkingtechnologies.github.io/libre-arcade/grugnettos-kludgopolb/public/index.html)**');
 });

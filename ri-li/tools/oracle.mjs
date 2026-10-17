@@ -292,14 +292,15 @@ async function main() {
     return;
   }
   if (cmd === 'quiz-pictures') {
-    // node tools/oracle.mjs quiz-pictures [code ...]: the screen of the quiz (the question, the text of the article, the two answers) in some languages, original and page, pixel by pixel
+    // node tools/oracle.mjs quiz-pictures [code ...]: the screen of the quiz (the question, the text of the article, the two answers; then the result of the answer) in some languages, original and page, pixel by pixel
     const base = all.find((x) => x.name === 'quiz-left-L1');
     const first = runOriginal(base).records.findIndex((r) => r.k === 'q');
-    const frames = [first + 40, first + 140];
+    const answered = base.events.filter((e) => e.type === 'down' && e.key === 'return').at(-1).frame;   // the answer is given in this frame; the result stays on the screen for two seconds
+    const frames = [first + 40, first + 140, answered + 20, answered + 80];
     let bad = 0;
     for (const code of args.length ? args : ['ar', 'jp', 'de']) {
       const s = { ...base, language: code, name: `${base.name}-${code}` };
-      const original = runOriginal({ ...s, frames: frames[1] + 1 }, { dump: frames });
+      const original = runOriginal({ ...s, frames: Math.max(...frames) + 1 }, { dump: frames });
       const page = await runPagePixels(s, frames);
       for (const f of frames) {
         const result = comparePictures(original.pictures.get(f), page.get(f));

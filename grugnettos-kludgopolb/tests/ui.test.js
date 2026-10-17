@@ -758,7 +758,7 @@ test('every UI text key used by the browser shell exists in the UI dictionary', 
 test('browser storage is only touched through the guarded helper', () => {
   const js = fs.readFileSync(new URL('../public/src/ui/app.js', import.meta.url), 'utf8');
   assert.match(js, /const storage = \{/);
-  const outsideHelper = js.replace(/const storage = \{[\s\S]*?\n\};\n/, '');
+  const outsideHelper = js.replace(/const storage = \{[\s\S]*?\r?\n\};\r?\n/, '');
   assert.doesNotMatch(outsideHelper, /\blocalStorage\b/);
 });
 

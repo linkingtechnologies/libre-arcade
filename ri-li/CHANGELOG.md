@@ -14,6 +14,7 @@ First release in Libre Arcade, promoted from the restoration package `rili-m18.z
   - the end of the pause after a death or a clear and of the quiz's result, which the original tests after the frame is shown (a frame later than the page did);
   - the arithmetic of the position of a point, of a wagon's angle and of the cable, which is single precision in the original and put a sprite a pixel off in the page;
   - the table of scores, the options screen and the language menu, which were the package's own drawings and are the original's now, with its numbers;
+  - the pieces around the panel of the quiz, whose frame and offset take the two random numbers of a call in the order g++ computes them (the last argument first), found by comparing the picture of the quiz;
   - Escape: in a game it opens the menu of the game (Continue, Options, Exit game, with the original's background after Options), in the quiz it goes on without an answer, in the main menu it leaves;
   - the first key of a visit, which waited for the music to start (a second on a slow connection, for good in headless Chrome)
 - Changed the page where the way it is put together here called for it: the original's `levels.dat` moved from `reference/` into `public/data/` so that `public/` is complete by itself, an empty icon link, the collection's visit counter before `</body>`, and the guide, which mentions Escape

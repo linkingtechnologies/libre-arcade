@@ -1,0 +1,16 @@
+# Text is LF on every checkout, whatever core.autocrlf says: the shipped SHA-256 manifests (the board packages, the layout,
+# reference/) hash these files, and `sha256sum -c` reads an LF manifest, so a CRLF checkout would fail the release checks.
+* text=auto eol=lf
+
+# The upstream changelog is preserved byte for byte, with the author's own CRLF line endings: it still hashes to the
+# value recorded in reference/SHA256SUMS on every platform.
+reference/changelog.txt -text
+
+# Binary assets (git detects most of these anyway; listed so a checkout can never rewrite them).
+*.png binary
+*.webp binary
+*.jpg binary
+*.jpeg binary
+*.wav binary
+*.ogg binary
+*.woff2 binary

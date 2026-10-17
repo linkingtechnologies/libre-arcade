@@ -65,7 +65,8 @@ export class GameSession {
     let n2=this.rng.randMod(30,'quiz_decoy_article');while(n2===n1)n2=this.rng.randMod(30,'quiz_decoy_retry');
     const ordre=this.rng.randMod(2,'quiz_answer_order');
     const visual={locomotiveFrame:this.rng.randMod(320,'quiz_locomotive_frame'),decorations:[]};
-    for(const slot of ['left_top','left_bottom','right_top','right_bottom'])visual.decorations.push({slot,offset:this.rng.randMod(130,`quiz_deco_${slot}_offset`),frame:this.rng.randMod(18,`quiz_deco_${slot}_frame`)});
+    // Sprites[deco].Affiche(x,y+rand()%130,rand()%18,...): g++ evaluates the arguments of a call from the last to the first, so the frame takes the first number and the offset the second
+    for(const slot of ['left_top','left_bottom','right_top','right_bottom']){const frame=this.rng.randMod(18,`quiz_deco_${slot}_frame`);const offset=this.rng.randMod(130,`quiz_deco_${slot}_offset`);visual.decorations.push({slot,offset,frame});}
     this.quiz={correctArticle:n1+1,decoyArticle:n2+1,correctOnLeft:Boolean(ordre),pyE,visual,answered:false,correct:null,resultUntil:null};
     this.state=STATE_QUIZ;
     this.transitions.push({at_clock_ms:this.clockMs,event:'quiz_begin',level:this.levelNumber,...structuredClone(this.quiz),rng_calls:this.rng.callCount});

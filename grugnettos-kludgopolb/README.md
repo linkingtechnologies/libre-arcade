@@ -4,7 +4,7 @@
 
 Software-archaeology restoration of the Java property-trading game **KludgopolB**, preserving its configurable engine concepts and seven historical CPU personalities, plus the clean behavioural reimplementation **Pazifik**. The recovered regional board content is not used by the browser game: play takes place on the original Grugnetto board and the `grugnetto-islands` illustrated presentation layout.
 
-The game is a work in progress and is not yet linked from the arcade index.
+It is a release candidate and is linked from the arcade index: the automatic checks pass, and the manual browser and device checks in `specs/release-checklist.md` are still open.
 
 ## The game
 
