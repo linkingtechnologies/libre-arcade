@@ -305,6 +305,7 @@ async function main() {
         const result = comparePictures(original.pictures.get(f), page.get(f));
         if (result.differing) bad++;
         console.log(`${s.name} at frame ${f}: ${JSON.stringify(result)}`);
+        if (process.env.RILI_PNG) writeFileSync(join(process.env.RILI_PNG, `${s.name}-${f}.png`), sideBySide(original.pictures.get(f), page.get(f)));
       }
     }
     process.exitCode = bad ? 1 : 0;
