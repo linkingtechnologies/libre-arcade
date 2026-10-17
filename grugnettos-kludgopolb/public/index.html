@@ -14,6 +14,7 @@
         <div><h1 aria-label="Grugnetto's KludgopolB" title="Grugnetto's KludgopolB"><span class="brand-pig" aria-hidden="true">🐽's</span> <strong>KludgopolB</strong></h1></div>
       </div>
       <div class="top-actions">
+        <span class="rent-badge" id="rentBadge" hidden></span>
         <span class="turn-pill" id="turnPill">—</span>
         <button class="icon-button help-button" id="helpBtn" type="button" title="Come si gioca" aria-label="Come si gioca">?</button>
         <button class="icon-button" id="saveBtn" type="button" title="Salva" aria-label="Salva">💾</button>
@@ -95,6 +96,7 @@
       <div class="dialog-head"><img src="assets/grugnetto/grugnetto_idle.png" alt=""><div><h2 id="setupTitle">Nuova partita</h2><p id="setupSubtitle">Scegli chi sfiderà Grugnetto.</p></div></div>
       <label class="field"><span id="nameLabel">Il tuo nome</span><input id="humanName" maxlength="20" value="Grugnetto"></label>
       <fieldset class="cpu-fieldset"><legend id="cpuLegend">Avversari</legend><div id="cpuChoices" class="cpu-grid"></div></fieldset>
+      <label class="setup-option" for="rentEscalationOption"><input type="checkbox" id="rentEscalationOption" checked><span><strong id="rentEscalationLabel">Rendite crescenti</strong><small id="rentEscalationHint"></small></span></label>
       <p class="form-error" id="setupError"></p>
       <div class="dialog-actions"><button type="button" class="secondary" id="cancelSetup">Annulla</button><button class="primary" value="start" id="startGame">Gioca</button></div>
     </form>
@@ -112,5 +114,6 @@
   <dialog id="tradeResultDialog" class="game-dialog trade-result-dialog"><div id="tradeResultContent"></div></dialog>
 
   <script type="module" src="src/ui/app.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

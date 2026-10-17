@@ -164,7 +164,8 @@ test('QA: public reference tree contains no bundled archive blobs', () => {
 test('QA: public HTML references packaged local files only', () => {
   const html = fs.readFileSync(path.join(root, 'public', 'index.html'), 'utf8');
   const refs = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map(m => m[1]).filter(ref => !ref.startsWith('#'));
-  for (const ref of refs) {
+  // The collection-wide GoatCounter beacon is the one deliberate remote script (see the test below); anything else fails.
+  for (const ref of refs.filter(ref => ref !== '//gc.zgo.at/count.js')) {
     assert.doesNotMatch(ref, /^https?:\/\//, `external production dependency: ${ref}`);
     assert.equal(fs.existsSync(path.join(root, 'public', ref)), true, `missing packaged reference: ${ref}`);
   }
@@ -209,4 +210,17 @@ test('QA: every shipped SHA-256 manifest verifies', () => {
     });
     assert.equal(result.status, 0, `${manifest}\n${result.stdout}\n${result.stderr}`);
   }
+});
+
+test('QA: the only remote reference in the game page is the collection-wide GoatCounter beacon, and the README links to the played page', () => {
+  const html = fs.readFileSync(path.join(root, 'public', 'index.html'), 'utf8');
+  const beacon = '<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>';
+  assert.equal(html.split(beacon).length - 1, 1, 'the GoatCounter snippet appears exactly once');
+  assert.equal(html.replace(/\r\n/g, '\n').trimEnd().endsWith(`${beacon}\n</body>\n</html>`), true, 'and sits just before </body>');
+  const withoutBeacon = html.replace(beacon, '');
+  assert.deepEqual(withoutBeacon.match(/(?:https?:)?\/\/[\w.-]+\.[a-z]{2,}[^\s"'<>]*/gi) ?? [], [], 'no other remote URL in the page');
+  assert.doesNotMatch(html, /Content-Security-Policy/i, 'no CSP that would have to allow the beacon');
+
+  const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
+  assert.equal(readme.split('\n')[2], '**[▶ Play here](https://linkingtechnologies.github.io/libre-arcade/grugnettos-kludgopolb/public/index.html)**');
 });

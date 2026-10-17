@@ -1,0 +1,26 @@
+{
+  "name": "ri-li",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ri-li 2.0.1 (Dominique Roux-Serret, 2007, C++/SDL), a restoration for the browser, checked against the original program.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test test/*.test.mjs",
+    "test:live": "node tools/oracle.mjs check && node tools/oracle.mjs menus",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "GPL-3.0-only",
+  "licenseNotes": "The original is licensed by its author under the GPL version 2 or version 3 (his choice, not 'or later'); this restoration and its tools are GPL-3.0-only.",
+  "displayName": "Ri-li"
+}

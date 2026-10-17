@@ -21,6 +21,7 @@
       "paragraphs": [
         "Landest du auf einem freien Ort, kannst du ihn zum angegebenen Preis kaufen. Kaufst du ihn nicht, wird er versteigert.",
         "Landest du auf dem Ort eines anderen Spielers, zahlst du dessen Ertrag. Ein verpfändeter Ort bringt keinen Ertrag.",
+        "Mit „Steigende Mieten“ (die Voreinstellung im Fenster Neue Partie) steigen ab Runde {{rentEscalationStart}} alle Erträge alle {{rentEscalationEvery}} Runden um {{rentEscalationPercent}} %, damit lange Partien nicht ewig dauern. Eine Anzeige in der oberen Leiste zeigt den aktuellen Anstieg, und die Zahlen auf dem Spielplan enthalten ihn bereits.",
         "Auf dem Spielplan zeigt ein freier Ort seinen Preis, in Grün. Hat er einen Besitzer, zeigt er stattdessen den Ertrag, den du beim Betreten zahlst: braun, golden mit Verschönerungen und grau durchgestrichen, wenn er verpfändet ist (der Ertrag, den er nach dem Auslösen wieder bringen würde). Bei besonderen Orten ist der Ertrag ein Vielfaches des Würfelwurfs, zum Beispiel ×3."
       ]
     },

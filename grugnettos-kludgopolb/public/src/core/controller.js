@@ -1,4 +1,5 @@
 import { Game } from './game.js';
+import { nextRentRiseRound } from './escalation.js';
 import { canTradeIndexes, executeTrade, targetAcceptsCpuTrade } from './trading.js';
 
 function clone(value) {
@@ -83,6 +84,9 @@ export class GameController {
       seed: this.game.seed,
       turnNumber: this.game.turnNumber,
       roundNumber: this.game.roundNumber,
+      rentEscalation: this.game.rentEscalation ? { ...this.game.rentEscalation } : null,
+      rentMultiplier: this.game.rentMultiplier(),
+      nextRentRiseRound: nextRentRiseRound(this.game.rentEscalation, this.game.roundNumber),
       currentPlayerId: this.currentPlayer()?.id ?? null,
       status: this.status,
       players: this.game.players.map(p => ({

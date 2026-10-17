@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "levelsCompleted": 50,
+  "wagonsCollected": 1042,
+  "collisions": 0,
+  "decisions": 2154,
+  "gameplayTimeMs": 2157088,
+  "gameplayTimeSeconds": 2157.088,
+  "longestLevel": {
+    "level": 24,
+    "time_ms": 67120,
+    "time_s": 67.12,
+    "wagons": 20,
+    "decisions": 54,
+    "collisions": 0,
+    "score_before_quiz": 150
+  },
+  "mostDecisions": {
+    "level": 50,
+    "time_ms": 47184,
+    "time_s": 47.184,
+    "wagons": 32,
+    "decisions": 88,
+    "collisions": 0,
+    "score_before_quiz": 210
+  }
+}

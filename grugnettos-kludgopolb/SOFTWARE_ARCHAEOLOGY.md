@@ -6,7 +6,7 @@ artifacts, why verification runs by execution rather than resemblance, why an
 unresolved question is reported as *unknown* rather than *impossible*), see
 [`../SOFTWARE_ARCHAEOLOGY.md`](../SOFTWARE_ARCHAEOLOGY.md).
 
-## An abandoned Java game with a real AI in it
+## A Java game with a real AI in it
 
 KludgopolB is a property-trading board game written in Java and published on
 SourceForge as a Beta project. The release set recovered here is dated
@@ -31,7 +31,7 @@ a site cannot be traded while its group is developed is kept as well.
 
 ## What was changed on purpose, and what is not finished
 
-Two deviations are deliberate and documented rather than hidden.
+Three deviations are deliberate and documented rather than hidden.
 
 The original used several independent, unseeded `java.util.Random`
 instances, so no two games could ever be replayed. The restoration derives
@@ -46,6 +46,8 @@ files. None of that content is used. Play takes place on an original board
 built for the Grugnetto Go! world (four worlds of four places each on a
 32-space board), with an economy derived from two million simulated movement
 turns so that every world costs about the same to acquire in full.
+
+The third is not in the original at all. Simulating thousands of games showed that two players who each hold complete, fully embellished Worlds can pass the same money back and forth for hundreds of rounds, and that a table with a player who never trades often never ends. The restoration therefore adds an optional rule, ticked by default in the browser game, that raises every rent by 25% from round 40 and every 20 rounds after. The study and the rule are in [`specs/balance.md`](specs/balance.md) and [`specs/rent-escalation.md`](specs/rent-escalation.md); switched off, the engine plays exactly as before.
 
 Parity is not complete, and the ledger says so. Auction scheduling and
 timing, the automatic purchase policy, development decisions, debt

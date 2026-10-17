@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import {LevelSet} from '../src/levels.mjs';
+import {GameSession,STATE_QUIZ,STATE_QUIZ_RESULT,STATE_PLAYING} from '../src/session.mjs';
+const levels=new LevelSet(fs.readFileSync('reference/levels.dat'));
+let checks=0;const eq=(a,b,msg)=>{checks++;if(a!==b)throw Error(`${msg}: ${a} != ${b}`)};
+const s=new GameSession(levels,{seed:1,difficulty:'normal'});
+eq(s.levelNumber,1,'initial level');eq(s.rng.callCount,1,'load consumes life RNG');
+s.beginQuiz();eq(s.state,STATE_QUIZ,'quiz state');eq(s.quiz.correctArticle,28,'seed1 correct article after load RNG');eq(s.quiz.decoyArticle,26,'seed1 decoy article');eq(s.quiz.correctOnLeft,true,'seed1 order');eq(s.rng.callCount,14,'quiz consumes 13 RNG calls after initial load');
+const before=s.score;s.quiz.pyE=0;s.answerQuizSelected();eq(s.state,STATE_QUIZ_RESULT,'result state');eq(s.score,before+50,'correct +50');
+s.step(2000);eq(s.state,STATE_QUIZ_RESULT,'strict > 2s');s.step(1);eq(s.state,STATE_PLAYING,'level2 playing');eq(s.levelNumber,2,'advance level2');eq(s.maxUnlocked,2,'unlock level2');eq(s.rng.callCount,15,'level2 load consumes next RNG call');
+const w=new GameSession(levels,{seed:1});w.beginQuiz();w.quiz.pyE=1;const sb=w.score;w.answerQuizSelected();eq(w.score,sb,'wrong no bonus');
+console.log(JSON.stringify({status:'PASS',checks,seed1_quiz:{correct_article:28,decoy_article:26,correct_on_left:true},level2_rng_calls:s.rng.callCount},null,2));

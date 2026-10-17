@@ -68,8 +68,10 @@ export function propertyValue(game, player, index, profile, { randomUplift = fal
  * Returns null when nothing is collected (unowned, or pledged unless `ifRedeemed`), otherwise
  * { kind: 'fixed', amount, level, doubled } or { kind: 'dice', factor, level }, where `level` indexes the
  * rent (or factor) schedule of the space. `ifRedeemed` asks what a pledged place would collect once redeemed.
+ * `multiplier` is the Growing Revenue factor for a board that still carries its printed rents (the board display);
+ * the engine instead rescales its own board copy and leaves it at 1.
  */
-export function rentTerms(board, states, index, { ifRedeemed = false } = {}) {
+export function rentTerms(board, states, index, { ifRedeemed = false, multiplier = 1 } = {}) {
   const space = board.spaces[index];
   const st = states[index];
   if (!isProperty(space) || st.owner == null) return null;
@@ -85,14 +87,14 @@ export function rentTerms(board, states, index, { ifRedeemed = false } = {}) {
       const i = board.spaces.indexOf(s);
       return states[i].owner === st.owner && collecting(i);
     });
-    return { kind: 'fixed', amount: space.rents[level] * (doubled ? 2 : 1), level, doubled };
+    return { kind: 'fixed', amount: Math.round(space.rents[level] * multiplier) * (doubled ? 2 : 1), level, doubled };
   }
 
   const schedule = space.type === 'hub' ? space.rents : space.factors;
   const level = Math.min(Math.max(ownedCollecting(space.type) - 1, 0), schedule.length - 1);
   return space.type === 'hub'
-    ? { kind: 'fixed', amount: space.rents[level], level, doubled: false }
-    : { kind: 'dice', factor: space.factors[level], level };
+    ? { kind: 'fixed', amount: Math.round(space.rents[level] * multiplier), level, doubled: false }
+    : { kind: 'dice', factor: space.factors[level] * multiplier, level };
 }
 
 export function rentFor(game, index, diceTotal = 7) {
@@ -100,5 +102,5 @@ export function rentFor(game, index, diceTotal = 7) {
   if (!owner || owner.bankrupt) return 0;
   const terms = rentTerms(game.board, game.state, index);
   if (!terms) return 0;
-  return terms.kind === 'dice' ? terms.factor * diceTotal : terms.amount;
+  return terms.kind === 'dice' ? Math.round(terms.factor * diceTotal) : terms.amount;
 }

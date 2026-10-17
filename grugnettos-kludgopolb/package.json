@@ -16,6 +16,7 @@
     "serve": "node scripts/serve.mjs",
     "calibrate": "node scripts/calibrate-economy.js",
     "landing": "node scripts/landing-frequency.js",
+    "balance": "node scripts/balance.mjs",
     "qa": "node --test tests/qa-flow.test.js tests/rare-branches.test.js",
     "smoke": "node scripts/http-smoke.mjs",
     "release:check": "npm test && npm run qa && npm run smoke"

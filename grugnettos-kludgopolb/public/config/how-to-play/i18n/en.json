@@ -21,6 +21,7 @@
       "paragraphs": [
         "When you land on an unclaimed Place, you may buy it for the listed price. If you do not buy it, the Place goes to auction.",
         "When you land on another player’s Place, pay its Revenue. A pledged Place does not collect Revenue.",
+        "With “Growing rents” on (the default on the New game screen), from round {{rentEscalationStart}} every Revenue rises {{rentEscalationPercent}}% every {{rentEscalationEvery}} rounds, so long games do not drag on for ever. A label in the top bar shows the current rise and the figures on the board already include it.",
         "On the board, an unclaimed Place shows its price in green. Once it has an owner it shows the Revenue you pay when you land there instead: brown, gold if it has Embellishments, and struck-through grey if it is pledged (the Revenue it would collect again once redeemed). For special Places the Revenue is a multiple of the dice roll, such as ×3."
       ]
     },

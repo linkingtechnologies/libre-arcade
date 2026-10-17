@@ -1,6 +1,8 @@
 # Grugnetto's KludgopolB
 
-Software-archaeology restoration of the abandoned Java property-trading game **KludgopolB**, preserving its configurable engine concepts and seven historical CPU personalities, plus the clean behavioural reimplementation **Pazifik**. The recovered regional board content is not used by the browser game: play takes place on the original Grugnetto board and the `grugnetto-islands` illustrated presentation layout.
+**[▶ Play here](https://linkingtechnologies.github.io/libre-arcade/grugnettos-kludgopolb/public/index.html)**
+
+Software-archaeology restoration of the Java property-trading game **KludgopolB**, preserving its configurable engine concepts and seven historical CPU personalities, plus the clean behavioural reimplementation **Pazifik**. The recovered regional board content is not used by the browser game: play takes place on the original Grugnetto board and the `grugnetto-islands` illustrated presentation layout.
 
 The game is a work in progress and is not yet linked from the arcade index.
 
@@ -15,6 +17,7 @@ A static, client-side browser game built on the production `GameController`: one
 - four-language **How to play** manual, board zoom, active-player follow mode and normal/fast animation speed;
 - short **sound effects** for what happens between players (dice, purchases, rent, trades, cards, pledges, embellishments, Base Camp), on by default at a low volume, with an off/low/medium/high control in the toolbar (see `specs/sound.md`);
 - arcade-style floating amounts (green **+100**, red **−120**) whenever money moves, over the player's cash and their pawn (see `specs/money-pops.md`);
+- **Growing rents**, an optional rule ticked by default on the New game screen: from round 40, and every 20 rounds after, every rent rises 25%, so games between players who never run out of money still end (see `specs/rent-escalation.md` and `specs/balance.md`);
 - keyboard-accessible board spaces, live-region announcements and `prefers-reduced-motion` support;
 - a **Reset local data** command that deletes only this game's keys from the browser origin;
 - no visible deterministic seed and no internal AI-level labels in normal play.
@@ -40,6 +43,7 @@ npm run sim -- --seed 12345
 npm run arena -- --games 100 --seed 1000
 npm run landing -- --runs 500 --turns 4000
 npm run calibrate -- --games 100 --seed 40000
+npm run balance -- mixed --players 4 --games 400 --escalation   # who wins, by seat and by friend; see specs/balance.md
 ```
 
 ### Board number editor

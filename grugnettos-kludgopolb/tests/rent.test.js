@@ -141,10 +141,10 @@ test('the shared rent rule charges exactly what the engine charged before, acros
 test('board tiles and place details use the shared rule and label rents accessibly', () => {
   const js = fs.readFileSync(path.join(root, 'public', 'src', 'ui', 'app.js'), 'utf8');
   assert.match(js, /import \{[^}]*rentTerms[^}]*\} from '\.\.\/core\/index\.js'/);
-  assert.match(js, /rentTerms\(board, state\.spaces, index, \{ ifRedeemed: true \}\)/);
-  assert.match(js, /terms\.kind === 'dice' \? `×\$\{terms\.factor\}` : String\(terms\.amount\)/);
+  assert.match(js, /rentTerms\(board, state\.spaces, index, \{ ifRedeemed: true, multiplier: currentRentMultiplier\(\) \}\)/);
+  assert.match(js, /terms\.kind === 'dice' \? `×\$\{formatMultiplier\(terms\.factor\)\}` : String\(terms\.amount\)/);
   assert.match(js, /` · \$\{t\('rent'\)\}: /);
-  assert.match(js, /const terms = packet\?\.state\?\.spaces \? rentTerms\(board, packet\.state\.spaces, index\) : null;/);
+  assert.match(js, /const terms = packet\?\.state\?\.spaces \? rentTerms\(board, packet\.state\.spaces, index, \{ multiplier \}\) : null;/);
   // the details dialog no longer carries its own copy of the rent rule
   assert.doesNotMatch(js, /ownedCount/);
 });

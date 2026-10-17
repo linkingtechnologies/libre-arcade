@@ -1,0 +1,15 @@
+# The restoration package's own documents, tests and data are kept byte for byte (its checksum list names them), so no line-ending
+# normalisation and no text conversion whatever core.autocrlf says.
+docs/development/package/** -text
+
+# The original's source release is kept byte for byte (it is compared with its SHA-256).
+reference/** -text
+reference/*.bz2 binary
+
+# The page's data: the level file and the pictures are binary, and the sprite manifest is hashed by the package's tests.
+public/data/levels.dat binary
+public/data/sprites.json -text
+*.png binary
+*.ogg binary
+*.wav binary
+*.dat binary

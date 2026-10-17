@@ -1,4 +1,4 @@
-import { GameController, serializeSave, deserializeSave, rentTerms } from '../core/index.js';
+import { GameController, serializeSave, deserializeSave, rentTerms, DEFAULT_RENT_ESCALATION } from '../core/index.js';
 import { UI_TEXT } from './i18n.js';
 import { loadHowToPlay } from './how-to-play.js';
 import { loadAiProfiles } from './ai-profiles.js';
@@ -18,7 +18,8 @@ const ANIMATION_SPEED_KEY = 'grugnettos-kludgopolb.animationSpeed';
 const FOLLOW_TURN_KEY = 'grugnettos-kludgopolb.followTurn';
 const NUMBER_POSITIONS_KEY = 'grugnettos-kludgopolb.numberPositions.v6';
 const SOUND_LEVEL_KEY = 'grugnettos-kludgopolb.soundLevel';
-const LOCAL_STORAGE_KEYS = [SAVE_KEY, AUTOSAVE_KEY, LANGUAGE_KEY, BOARD_ZOOM_KEY, ANIMATION_SPEED_KEY, FOLLOW_TURN_KEY, NUMBER_POSITIONS_KEY, SOUND_LEVEL_KEY];
+const RENT_ESCALATION_KEY = 'grugnettos-kludgopolb.rentEscalation';
+const LOCAL_STORAGE_KEYS = [SAVE_KEY, AUTOSAVE_KEY, LANGUAGE_KEY, BOARD_ZOOM_KEY, ANIMATION_SPEED_KEY, FOLLOW_TURN_KEY, NUMBER_POSITIONS_KEY, SOUND_LEVEL_KEY, RENT_ESCALATION_KEY];
 const MANUAL_FOLLOW_PAUSE_MS = 6000;
 const DOUBLE_TAP_MS = 320;
 const CPU_NAMES = ['Zilla','Queen','Wallace','Hans','Mimrock','Lost Soul','Pazifik','Lemming'];
@@ -46,6 +47,7 @@ const mobileActions = el('mobileActions');
 const langSelect = el('lang');
 const statusLine = el('statusLine');
 const turnPill = el('turnPill');
+const rentBadge = el('rentBadge');
 const currentName = el('currentName');
 const currentCash = el('currentCash');
 const centerHint = el('centerHint');
@@ -90,6 +92,7 @@ let controller = null;
 let packet = null;
 let lastEvents = [];
 let lastRoll = null;
+let lastRentMultiplier = null;
 let latestCard = null;
 let toastTimer = null;
 let lastMovedPlayerId = null;
@@ -617,6 +620,26 @@ function finishBoardNumberDrag(event) {
 function speedMultiplier() { return animationSpeed === 'fast' ? 0.55 : 1; }
 function motionMs(ms) { return Math.max(35, Math.round(ms * speedMultiplier())); }
 function cpuPopupHoldMs() { return animationSpeed === 'fast' ? 1450 : 2700; }
+
+// Growing rents: the multiplier the board carries right now, formatted for the language ("1,56" or "1.56").
+function currentRentMultiplier() { return packet?.state?.rentMultiplier ?? 1; }
+function formatMultiplier(value) {
+  try { return new Intl.NumberFormat(language, { maximumFractionDigits: 2 }).format(value); } catch { return String(Math.round(value * 100) / 100); }
+}
+function rentEscalationValues(state) {
+  const rule = state?.rentEscalation;
+  return rule ? { start: rule.startRound, every: rule.everyRounds, percent: Math.round((rule.factor - 1) * 100), round: state.nextRentRiseRound, n: formatMultiplier(state.rentMultiplier ?? 1) } : null;
+}
+function renderRentBadge(state) {
+  const values = rentEscalationValues(state);
+  rentBadge.hidden = !values;
+  if (!values) return;
+  const active = (state.rentMultiplier ?? 1) > 1;
+  rentBadge.textContent = active ? tf('rentBadgeNow', values) : tf('rentBadgeSoon', values);
+  rentBadge.title = tf('rentBadgeTitle', values);
+  rentBadge.dataset.short = `×${values.n}`; // what a narrow screen shows instead of the words
+  rentBadge.classList.toggle('active', active);
+}
 
 const SOUND_LEVEL_LABEL_KEYS = { off: 'soundOff', low: 'soundLow', medium: 'soundMedium', high: 'soundHigh' };
 function updateSoundUi() {
@@ -1522,8 +1545,8 @@ function renderBoard() {
     if (owner) node.style.setProperty('--owner', playerColor(owner));
     const isOwnable = ['site','hub','service'].includes(space.type);
     // A free place shows its price; an owned one shows the rent it collects (what it would collect once redeemed while pledged, struck through by CSS).
-    const terms = isOwnable && state?.spaces ? rentTerms(board, state.spaces, index, { ifRedeemed: true }) : null;
-    const amountText = terms ? (terms.kind === 'dice' ? `×${terms.factor}` : String(terms.amount)) : (isOwnable && Number.isFinite(space.price) ? String(space.price) : null);
+    const terms = isOwnable && state?.spaces ? rentTerms(board, state.spaces, index, { ifRedeemed: true, multiplier: currentRentMultiplier() }) : null;
+    const amountText = terms ? (terms.kind === 'dice' ? `×${formatMultiplier(terms.factor)}` : String(terms.amount)) : (isOwnable && Number.isFinite(space.price) ? String(space.price) : null);
     const price = amountText != null ? `<span class="space-price"><img src="${board.currencyAsset}" alt="">${amountText}</span>` : '';
     const specialSymbol = isOwnable ? '' : (space.type === 'start' ? boardIconMask('flag_triangle') : iconFor(space,index));
     const worldSymbol = worldCellSymbol(space.world);
@@ -1531,7 +1554,7 @@ function renderBoard() {
     const spaceNumber = index + 1;
     node.innerHTML = `<span class="space-number" title="${escapeHtml(t('space'))} ${spaceNumber}">${spaceNumber}</span>${worldSymbol}${typeBadge}${specialSymbol}<strong class="space-title">${escapeHtml(spaceName(space))}</strong>${price}`;
     const ownerLabel = (owner ? ` · ${t('owner')}: ${owner.name}` : '') + (st.embellishments ? ` · ${t('embellishments')}: ${st.embellishments}` : '') + (st.pledged ? ` · ${t('pledged')}` : '');
-    const rentLabel = terms && !st.pledged ? ` · ${t('rent')}: ${terms.kind === 'dice' ? tf('diceMultiplier', { n: terms.factor }) : terms.amount}` : '';
+    const rentLabel = terms && !st.pledged ? ` · ${t('rent')}: ${terms.kind === 'dice' ? tf('diceMultiplier', { n: formatMultiplier(terms.factor) }) : terms.amount}` : '';
     const priceLabel = terms ? rentLabel : (Number.isFinite(space.price) ? ` · ${t('price')}: ${space.price}` : '');
     const worldLabel = space.world ? ` · ${t('world')}: ${worldName(space.world)}` : '';
     node.setAttribute('aria-label', `${t('space')} ${spaceNumber}: ${spaceName(space)}${worldLabel}${priceLabel}${ownerLabel}. ${t('accessibilitySpace')}`);
@@ -1753,12 +1776,13 @@ function renderPlayers() {
 function renderCenter() {
   const state = packet?.state;
   if (!state) {
-    currentName.textContent='Grugnetto'; currentCash.textContent='—'; centerHint.textContent=t('startHint'); turnPill.textContent='—'; return;
+    currentName.textContent='Grugnetto'; currentCash.textContent='—'; centerHint.textContent=t('startHint'); turnPill.textContent='—'; rentBadge.hidden=true; return;
   }
   const cur = state.players.find(p => p.id === state.currentPlayerId);
   currentName.textContent = cur?.name || '—';
   currentCash.innerHTML = cur ? `${t('cash')}: ${cur.cash}` : '';
   turnPill.textContent = `${t('turn')} ${state.turnNumber} · ${t('round')} ${state.roundNumber}`;
+  renderRentBadge(state);
   if (statusLine) statusLine.textContent = '';
   const pending = packet.pendingDecision;
   const reviewingTurn = pending?.type === 'TURN_REVIEW';
@@ -2003,8 +2027,19 @@ function describeEvent(e) {
   }
 }
 
+function announceRentRise(state) {
+  const multiplier = state.rentMultiplier ?? 1;
+  if (lastRentMultiplier !== null && multiplier > lastRentMultiplier) {
+    const message = tf('rentRaised', rentEscalationValues(state));
+    toast(message);
+    announce(message);
+  }
+  lastRentMultiplier = multiplier;
+}
+
 function processPacket(nextPacket,{showCards=true}={}) {
   packet=nextPacket;
+  announceRentRise(packet.state);
   const events = packet.events || [];
   lastEvents = [...lastEvents,...events].slice(-40);
   activeMoveAnimationPlayerId = null;
@@ -2159,23 +2194,25 @@ function showSpaceInfo(index) {
   let currentRent = null;
   let schedule = [];
   let scheduleNote = '';
-  const terms = packet?.state?.spaces ? rentTerms(board, packet.state.spaces, index) : null;
+  const multiplier = currentRentMultiplier();
+  const terms = packet?.state?.spaces ? rentTerms(board, packet.state.spaces, index, { multiplier }) : null;
   const isCurrent = level => terms !== null && terms.level === level;
   if (space.type === 'site' && Array.isArray(space.rents)) {
     currentRent = terms ? `${terms.amount} 🪙` : t('notCollecting');
     schedule = space.rents.map((amount, levelIndex) => ({
       label: levelIndex === 0 ? t('baseLevel') : tf(levelIndex === 1 ? 'embellishmentLevel' : 'embellishmentLevels', { n: levelIndex }),
-      value: `${amount} 🪙`,
+      value: `${Math.round(amount * multiplier)} 🪙`,
       active: isCurrent(levelIndex)
     }));
     scheduleNote = t('completeWorldBonus');
   } else if (space.type === 'hub' && Array.isArray(space.rents)) {
     currentRent = terms ? `${terms.amount} 🪙` : t('notCollecting');
-    schedule = space.rents.map((amount, i) => ({ label: tf(i === 0 ? 'portalOwnedLevel' : 'portalsOwnedLevel', { n: i + 1 }), value: `${amount} 🪙`, active: isCurrent(i) }));
+    schedule = space.rents.map((amount, i) => ({ label: tf(i === 0 ? 'portalOwnedLevel' : 'portalsOwnedLevel', { n: i + 1 }), value: `${Math.round(amount * multiplier)} 🪙`, active: isCurrent(i) }));
   } else if (space.type === 'service' && Array.isArray(space.factors)) {
-    currentRent = terms ? tf('diceMultiplier', { n: terms.factor }) : t('notCollecting');
-    schedule = space.factors.map((factor, i) => ({ label: tf(i === 0 ? 'specialOwnedLevel' : 'specialsOwnedLevel', { n: i + 1 }), value: tf('diceMultiplier', { n: factor }), active: isCurrent(i) }));
+    currentRent = terms ? tf('diceMultiplier', { n: formatMultiplier(terms.factor) }) : t('notCollecting');
+    schedule = space.factors.map((factor, i) => ({ label: tf(i === 0 ? 'specialOwnedLevel' : 'specialsOwnedLevel', { n: i + 1 }), value: tf('diceMultiplier', { n: formatMultiplier(factor * multiplier) }), active: isCurrent(i) }));
   }
+  if (multiplier > 1 && schedule.length) scheduleNote = [scheduleNote, tf('rentRaisedNote', { n: formatMultiplier(multiplier) })].filter(Boolean).join(' · ');
   if(currentRent!==null) rows.push([t('currentRent'), `<strong class="current-rent">${escapeHtml(currentRent)}</strong>`]);
 
   const details=rows.map(([k,v])=>`<dt>${escapeHtml(k)}</dt><dd>${v}</dd>`).join('');
@@ -2321,6 +2358,8 @@ function createInternalSeed() {
 
 function setupLabels() {
   el('setupTitle').textContent=t('setupTitle'); el('setupSubtitle').textContent=t('setupSubtitle'); el('nameLabel').textContent=t('yourName'); el('cpuLegend').textContent=t('opponents'); el('cancelSetup').textContent=t('cancel'); el('startGame').textContent=t('play');
+  el('rentEscalationLabel').textContent=t('rentEscalationLabel');
+  el('rentEscalationHint').textContent=tf('rentEscalationHint', { start: DEFAULT_RENT_ESCALATION.startRound, every: DEFAULT_RENT_ESCALATION.everyRounds, percent: Math.round((DEFAULT_RENT_ESCALATION.factor - 1) * 100) });
   for (const [id,key] of [['saveBtn','save'],['loadBtn','load'],['newBtn','newGame']]) { const b=el(id); b.title=t(key); b.setAttribute('aria-label',t(key)); }
 }
 function friendProfile(name) {
@@ -2350,7 +2389,7 @@ function renderCpuChoices() {
   el('cpuChoices').querySelectorAll('[data-friend]').forEach(button=>button.onclick=()=>openFriendProfile(button.dataset.friend));
 }
 function openSetup() {
-  el('setupError').textContent=''; renderCpuChoices(); setupLabels(); if(!setupDialog.open)setupDialog.showModal();
+  el('setupError').textContent=''; renderCpuChoices(); el('rentEscalationOption').checked = storage.get(RENT_ESCALATION_KEY) !== '0'; setupLabels(); if(!setupDialog.open)setupDialog.showModal();
 }
 function startGameFromSetup() {
   const cpus=[...el('cpuChoices').querySelectorAll('input:checked')].map(x=>x.value); if(!cpus.length){el('setupError').textContent=t('chooseOpponent');return;} if(cpus.length>7){el('setupError').textContent=t('tooManyOpponents');return;}
@@ -2359,7 +2398,8 @@ function startGameFromSetup() {
   resetCpuPopupQueue();
   tintedPlayerIds.clear();
   clearAutosave();
-  controller=GameController.create({board,participants,seed,maxTurns:6000}); lastEvents=[];lastRoll=null;latestCard=null; latestRollsByPlayer = new Map(); setupDialog.close(); processPacket(controller.advance());
+  lastRentMultiplier=null;
+  controller=GameController.create({board,participants,seed,maxTurns:6000,rentEscalation:el('rentEscalationOption').checked}); lastEvents=[];lastRoll=null;latestCard=null; latestRollsByPlayer = new Map(); setupDialog.close(); processPacket(controller.advance());
 }
 
 function clearAutosave() {
@@ -2407,6 +2447,7 @@ function restoreController(restored, { notify = true } = {}) {
     events:controller.game.drainEvents(),
     state:controller.getPublicState()
   };
+  lastRentMultiplier = packet.state.rentMultiplier ?? 1;
   renderAll();
   followCurrentTurn(true);
   autosaveGame();
@@ -2513,6 +2554,7 @@ manageDialog.addEventListener('close', () => {
     renderBoard();
   }
 });
+el('rentEscalationOption').addEventListener('change', event => storage.set(RENT_ESCALATION_KEY, event.target.checked ? '1' : '0'));
 if (numberEditBtn) numberEditBtn.addEventListener('click', () => setNumberEditMode(!boardNumberEditMode));
 if (numberExportBtn) numberExportBtn.addEventListener('click', exportBoardNumberPositions);
 if (numberResetBtn) numberResetBtn.addEventListener('click', resetBoardNumberPositions);

@@ -1,0 +1,118 @@
+/* Toolbar, menus and dialogs added around The Lost Path (not upstream).
+   Loaded after style.css; the game's own title, restart button and footer
+   are replaced by the toolbar below. */
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: .48rem;
+  padding: .52rem .68rem;
+  background: #272b31;
+  border-bottom: 1px solid #3b4048;
+  white-space: nowrap;
+  color: #f3f3f3;
+}
+
+.brand { font-weight: 750; margin-right: .28rem; letter-spacing: .12em; text-transform: uppercase; font-size: .95rem; }
+.spacer { flex: 1; }
+
+.toolbar button,
+.toolbarMenu > summary {
+  font: inherit;
+  border: 1px solid #555d68;
+  border-radius: .55rem;
+  background: #333841;
+  color: #fff;
+  padding: .42rem .65rem;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.toolbar button:hover,
+.toolbarMenu > summary:hover { background: #3b414b; }
+.toolbar button:focus-visible,
+.toolbarMenu > summary:focus-visible { outline: 2px solid #b9dfff; outline-offset: 2px; }
+
+.toolbarMenu { position: relative; }
+.toolbarMenu > summary { list-style: none; user-select: none; }
+.toolbarMenu > summary::-webkit-details-marker { display: none; }
+.toolbarMenu > summary::after { content: "\25be"; display: inline-block; margin-left: .4rem; font-size: .72em; opacity: .8; }
+.toolbarMenu[open] > summary::after { transform: rotate(180deg); }
+
+.menuPanel {
+  position: absolute;
+  top: calc(100% + .42rem);
+  left: 0;
+  z-index: 30;
+  display: grid;
+  gap: .45rem;
+  min-width: 10.5rem;
+  padding: .55rem;
+  border: 1px solid #505762;
+  border-radius: .72rem;
+  background: #272c33;
+  box-shadow: 0 14px 40px #0009;
+}
+.menuPanel button { width: 100%; text-align: left; }
+
+/* The first <button> in the page is the one script.js wires to "restart",
+   so the toolbar's "New maze" is it; upstream's own floating button, which
+   script.js still creates, is hidden. */
+#restartButton { display: none; }
+#timer { top: 3.8rem; left: .8rem; }
+
+dialog {
+  width: min(92vw, 38rem);
+  max-height: 86vh;
+  overflow: auto;
+  border: 1px solid #555d68;
+  border-radius: 1rem;
+  background: #252930;
+  color: #f5f5f5;
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 20px 70px #000a;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+dialog::backdrop { background: #000a; }
+dialog h2 { margin: .2rem 2rem .3rem 0; }
+dialog a { color: #b9dfff; }
+.close { float: right; border: 0; background: transparent; color: inherit; font-size: 1.8rem; line-height: 1; cursor: pointer; }
+
+@media (max-width: 640px) {
+  .toolbar { padding: .42rem; gap: .38rem; }
+  .toolbar button, .toolbarMenu > summary { padding: .38rem .52rem; }
+  .menuPanel { position: fixed; top: 3.35rem; left: .45rem; right: .45rem; width: auto; min-width: 0; }
+  #timer { top: 3.6rem; }
+}
+@media (max-width: 430px) { .brand { display: none; } }
+
+/* Difficulty dialog */
+.levels { display: grid; gap: .6rem; margin-top: .9rem; }
+.level {
+  display: grid;
+  gap: .15rem;
+  text-align: left;
+  font: inherit;
+  color: #fff;
+  background: #333841;
+  border: 1px solid #555d68;
+  border-radius: .7rem;
+  padding: .7rem .9rem;
+  cursor: pointer;
+}
+.level:hover { background: #3b414b; }
+.level:focus-visible { outline: 2px solid #b9dfff; outline-offset: 2px; }
+.level.current { border-color: #9fcfff; }
+.level span { font-size: .9rem; color: #c8ccd2; }
+
+/* torch.js: opaque layer that hides the finish dot on the hardest level. */
+#fogLayer {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}

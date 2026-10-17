@@ -48,6 +48,7 @@ Per the collection's verification hierarchy (`../../AGENTS.md`):
 | Auction scheduling and timing, automatic purchase policy, development decisions, debt liquidation order, event-card effects, detention exit strategy, pledge-interest effects in trades | `src/core/game.js` | Implemented, not parity-complete |
 | Detention-release cards in trades; pending-purchase permutations in the trade dialog; limited-embellishment inventory auctions; configurable rule presets; the original `.conf` parser | none | Not ported |
 | Several independent unseeded `java.util.Random` instances | `SeededRng` streams derived from one game seed (`src/core/rng.js`) | Deliberate deviation: no decision formula changed, games become replayable |
+| (nothing: the Java original has no rule that raises rents over time) | `src/core/escalation.js`, `rentTerms` in `src/core/valuation.js` | Restoration addition, optional and off in the engine by default: see [`rent-escalation.md`](rent-escalation.md) |
 | UK/US board definitions and card stacks | none | Not used; the game plays on an original Grugnetto board, see [`board-design.md`](board-design.md) |
 | Original Java GUI windows | `public/src/ui/` | Replaced, not ported; no original behaviour to be faithful to |
 | JAtlantik r36 `atlantik.ai.SimpleAI` | Pazifik branches selected by `profile.strategy === 'pazifik-simple-ai'` in `src/core/game.js` and `src/players/profiles.js` | Behavioural reimplementation from documented behaviour; no code ported |

@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';import fs from 'node:fs/promises';import path from 'node:path';import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');const html=await fs.readFile(path.join(root,'index.html'),'utf8'),css=await fs.readFile(path.join(root,'styles.css'),'utf8');let checks=0;const ok=(x,m)=>{assert.ok(x,m);checks++};
+for(const id of ['game','status','pause','help','lang','restart','instructions','credits','touchpad','info-panel','reset-data'])ok(html.includes(`id="${id}"`),`missing ${id}`);
+ok(html.includes('viewport-fit=cover'),'safe-area viewport missing');ok(html.includes('user-scalable=no'),'touch viewport not locked');
+ok(css.includes('overflow:hidden'),'page no-scroll missing');ok(css.includes('overscroll-behavior:none'),'overscroll guard missing');ok(css.includes('@media(pointer:coarse)'),'touch media rule missing');ok(css.includes('env(safe-area-inset-bottom)'),'safe area missing');ok(css.includes('touch-action:none'),'touch gesture protection missing');
+const app=await fs.readFile(path.join(root,'src/app.mjs'),'utf8');ok(app.includes("openInfo('instructions')"),'guide handler missing');ok(app.includes("openInfo('credits')"),'credits handler missing');ok(app.includes('store.reset()'),'reset handler missing');ok(app.includes("data-dir"),'touch D-pad binding missing');
+console.log(`release shell: ${checks} checks PASS`);

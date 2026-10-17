@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#151515">
+  <title>Ri-li</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen="menu">
+  <main class="shell">
+    <section class="gamewrap" aria-label="Ri-li">
+      <canvas id="game" width="800" height="600" aria-label="Ri-li" tabindex="0"></canvas>
+    </section>
+
+    <div class="bar">
+      <span id="status" role="status" aria-live="polite">Caricamento…</span>
+      <div class="actions">
+        <button id="pause" type="button" title="P / Spazio">Pausa</button>
+        <button id="help" type="button" title="H">Freccia</button>
+        <button id="lang" type="button">IT / EN</button>
+        <button id="restart" type="button" title="Esc">Menu</button>
+        <button id="instructions" type="button">Guida</button>
+        <button id="credits" type="button">Crediti</button>
+      </div>
+    </div>
+
+    <div class="touchpad" id="touchpad" aria-label="Controlli direzionali">
+      <button class="touch-up" data-dir="up" type="button" aria-label="Su">▲</button>
+      <button class="touch-left" data-dir="left" type="button" aria-label="Sinistra">◀</button>
+      <button class="touch-down" data-dir="down" type="button" aria-label="Giù">▼</button>
+      <button class="touch-right" data-dir="right" type="button" aria-label="Destra">▶</button>
+    </div>
+
+    <p class="keys" id="keys-help">← ↑ ↓ → percorso · Invio/Spazio conferma · P pausa · H freccia · Esc menu</p>
+  </main>
+
+  <aside id="info-panel" class="info-panel" hidden aria-modal="true" role="dialog" aria-labelledby="info-title">
+    <div class="info-card">
+      <button id="info-close" class="info-close" type="button" aria-label="Chiudi">×</button>
+      <h1 id="info-title"></h1>
+      <div id="info-body"></div>
+      <div id="reset-area" class="reset-area" hidden>
+        <button id="reset-data" type="button"></button>
+        <span id="reset-note" aria-live="polite"></span>
+      </div>
+    </div>
+  </aside>
+
+  <script type="module" src="src/app.mjs"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

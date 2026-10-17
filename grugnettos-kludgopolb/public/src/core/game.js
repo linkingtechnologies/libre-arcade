@@ -4,13 +4,22 @@ import { isProperty, validateBoard } from './board.js';
 import { getCpuProfile, isPazifikProfile, pazifikPurchaseDecision, pazifikAuctionCeiling, pazifikDetentionDecision } from '../players/profiles.js';
 import { propertiesOwnedBy, propertyValue, rentFor, sameGroup } from './valuation.js';
 import { proposeCpuTrade, targetAcceptsCpuTrade, executeTrade } from './trading.js';
+import { normalizeRentEscalation, rentLevelAt, rentMultiplierAt } from './escalation.js';
 
 export class Game {
-  constructor({ board, agents = ['Zilla', 'Queen', 'Wallace', 'Hans'], participants = null, seed = 1, maxTurns = 6000, trace = false }) {
+  constructor({ board, agents = ['Zilla', 'Queen', 'Wallace', 'Hans'], participants = null, seed = 1, maxTurns = 6000, trace = false, rentEscalation = null }) {
     validateBoard(board);
     const specs = participants ?? agents.map(name => ({ type: 'cpu', profile: name, name }));
     if (specs.length < 2 || specs.length > 8) throw new Error('KludgopolB supports 2-8 players');
     this.board = structuredClone(board);
+    // Optional Growing Revenue rule (see escalation.js). It rescales this game's own copy of the board, so the CPU
+    // valuations, the rent charged and the trade maths all see the same rents; `baseRents` keeps the printed ones.
+    this.rentEscalation = normalizeRentEscalation(rentEscalation);
+    this.baseRents = this.board.spaces.map(space => ({
+      rents: Array.isArray(space.rents) ? [...space.rents] : null,
+      factors: Array.isArray(space.factors) ? [...space.factors] : null
+    }));
+    this.rentLevel = 0;
     this.seed = Number(seed);
     this.rng = new SeededRng(this.seed);
     this.maxTurns = maxTurns;
@@ -19,7 +28,7 @@ export class Game {
     this.events = [];
     this.eventSequence = 0;
     this.turnNumber = 0;
-    this.roundNumber = 0;
+    this._roundNumber = 0;
     this.pendingExternalTrade = null;
     this.state = this.board.spaces.map(space => isProperty(space)
       ? { owner: null, pledged: false, embellishments: 0 }
@@ -39,6 +48,28 @@ export class Game {
     });
     this.players = this.rng.shuffle(this.players);
     this.startOrder = this.players.map(p => p.name);
+  }
+
+  // Every change of round goes through this setter, whichever loop advances it (run(), the controller, a restored save).
+  get roundNumber() { return this._roundNumber; }
+  set roundNumber(round) {
+    this._roundNumber = round;
+    this.syncRentEscalation();
+  }
+
+  /** What every rent is multiplied by right now (1 when the rule is off or has not started). */
+  rentMultiplier() { return rentMultiplierAt(this.rentEscalation, this._roundNumber); }
+
+  syncRentEscalation() {
+    const level = rentLevelAt(this.rentEscalation, this._roundNumber);
+    if (level === this.rentLevel) return;
+    this.rentLevel = level;
+    const multiplier = this.rentMultiplier();
+    this.board.spaces.forEach((space, index) => {
+      const base = this.baseRents[index];
+      if (base.rents) space.rents = base.rents.map(rent => Math.round(rent * multiplier));
+      if (base.factors) space.factors = base.factors.map(factor => factor * multiplier);
+    });
   }
 
   emit(type, data = {}) {
@@ -814,6 +845,7 @@ export class Game {
       boardContentVersion: this.board.contentVersion ?? null,
       seed: this.seed,
       maxTurns: this.maxTurns,
+      rentEscalation: this.rentEscalation ? { ...this.rentEscalation } : null,
       traceEnabled: this.traceEnabled,
       turnNumber: this.turnNumber,
       roundNumber: this.roundNumber,
@@ -845,7 +877,8 @@ export class Game {
     validateBoard(board);
     if ((snapshot.boardId ?? null) !== (board.id ?? null) || (snapshot.boardContentVersion ?? null) !== (board.contentVersion ?? null)) throw new Error('Snapshot board/version mismatch');
     const participants = [...snapshot.players].sort((a, b) => a.id - b.id).map(p => p.type === 'human' ? { type: 'human', name: p.name } : { type: 'cpu', profile: p.profileName, name: p.name });
-    const game = new Game({ board, participants, seed: snapshot.seed, maxTurns: snapshot.maxTurns, trace: snapshot.traceEnabled });
+    // Saves written before the rule existed have no rentEscalation: those games carry on without it.
+    const game = new Game({ board, participants, seed: snapshot.seed, maxTurns: snapshot.maxTurns, trace: snapshot.traceEnabled, rentEscalation: snapshot.rentEscalation ?? null });
     game.turnNumber = snapshot.turnNumber;
     game.roundNumber = snapshot.roundNumber;
     game.rng.restore(snapshot.rng);

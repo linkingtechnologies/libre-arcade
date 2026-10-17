@@ -27,7 +27,10 @@
     "worldCount": 4,
     "placesPerWorld": 4,
     "portalCount": 3,
-    "specialPlaceCount": 2
+    "specialPlaceCount": 2,
+    "rentEscalationStart": 40,
+    "rentEscalationEvery": 20,
+    "rentEscalationPercent": 25
   },
   "sections": [
     "objective",

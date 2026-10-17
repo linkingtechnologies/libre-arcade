@@ -1,0 +1,67 @@
+/* Ri-li 2.0.1 browser restoration styles. SPDX-License-Identifier: GPL-3.0-only */
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#151515;color:#f4f4f4;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;overscroll-behavior:none}
+body{touch-action:manipulation}
+.shell{height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))}
+.gamewrap{min-height:0;display:flex;align-items:center;justify-content:center;flex:1;width:100%}
+canvas{display:block;max-width:100%;max-height:calc(100dvh - 94px);width:auto;height:auto;aspect-ratio:4/3;image-rendering:auto;box-shadow:0 8px 32px #0008;touch-action:none;outline:none}
+canvas:focus-visible{outline:2px solid #fff8;outline-offset:2px}
+.bar{width:min(800px,100%);display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;min-height:36px}
+#status{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.actions{display:flex;gap:5px;flex-wrap:nowrap}
+button{font:inherit;color:#fff;background:#2c2c2c;border:1px solid #5a5a5a;border-radius:7px;min-height:36px;padding:5px 9px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:hover{background:#3a3a3a}
+button:active{transform:translateY(1px)}
+button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.keys{margin:0;color:#aaa;font-size:12px;text-align:center;line-height:1.2}
+.touchpad{display:none;position:relative;width:150px;height:106px;flex:0 0 106px;touch-action:none;user-select:none}
+.touchpad button{position:absolute;width:50px;height:50px;min-height:50px;padding:0;font-size:21px;background:#292929e8;border-color:#777}
+.touch-up{left:50px;top:0}.touch-left{left:0;top:54px}.touch-down{left:50px;top:54px}.touch-right{left:100px;top:54px}
+.info-panel{position:fixed;inset:0;z-index:20;background:#000b;display:grid;place-items:center;padding:max(14px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
+.info-panel[hidden]{display:none}
+.info-card{position:relative;width:min(680px,100%);max-height:min(560px,calc(100dvh - 28px));overflow:auto;background:#202020;border:1px solid #666;border-radius:12px;padding:22px 24px 20px;box-shadow:0 16px 70px #000b}
+.info-card h1{margin:0 44px 14px 0;font-size:clamp(22px,4vw,30px)}
+.info-card h2{font-size:1rem;margin:16px 0 6px}
+.info-card p{margin:8px 0;line-height:1.45;color:#e7e7e7}
+.info-card ul{margin:8px 0 10px;padding-left:22px;line-height:1.45;color:#e7e7e7}
+.info-card a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.info-close{position:absolute;right:12px;top:10px;width:42px;height:42px;min-height:42px;padding:0;font-size:28px;line-height:1}
+.reset-area{margin-top:18px;padding-top:14px;border-top:1px solid #555;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.reset-area[hidden]{display:none}
+#reset-note{font-size:13px;color:#ddd}
+body[data-screen="game"] #restart{display:inline-block}
+
+@media(max-width:760px){
+  .shell{gap:5px;padding:5px max(5px,env(safe-area-inset-right)) max(5px,env(safe-area-inset-bottom)) max(5px,env(safe-area-inset-left))}
+  .bar{gap:5px;flex-direction:column;min-height:0}
+  #status{width:100%;text-align:center;font-size:13px}
+  .actions{width:100%;justify-content:center;gap:4px}
+  button{min-height:40px;padding:5px 8px}
+  .keys{display:none}
+  canvas{max-height:calc(100dvh - 102px)}
+  .info-card{padding:18px 18px 16px;font-size:14px}
+}
+
+@media(pointer:coarse){
+  body[data-screen="game"] .touchpad{display:block}
+  body[data-screen="game"] canvas{max-height:calc(100dvh - 216px)}
+  body[data-screen="game"] .actions #instructions,body[data-screen="game"] .actions #credits{display:none}
+  .actions button{min-width:44px;min-height:44px}
+}
+
+@media(pointer:coarse) and (orientation:landscape){
+  body[data-screen="game"] .touchpad{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));z-index:8;opacity:.78}
+  body[data-screen="game"] canvas{max-height:calc(100dvh - 86px)}
+  body[data-screen="game"] .bar{position:fixed;right:max(8px,env(safe-area-inset-right));bottom:max(8px,env(safe-area-inset-bottom));z-index:9;width:auto;align-items:flex-end}
+  body[data-screen="game"] #status{display:none}
+  body[data-screen="game"] .actions{width:auto;background:#151515a8;border-radius:9px;padding:3px}
+}
+
+@media(max-height:580px) and (pointer:fine){
+  .keys{display:none}
+  canvas{max-height:calc(100dvh - 54px)}
+  .bar{min-height:32px}
+}
+body:not([data-screen="game"]) #pause,
+body:not([data-screen="game"]) #help,
+body:not([data-screen="game"]) #restart{display:none}

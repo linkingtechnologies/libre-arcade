@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "reason": "won",
+  "level": 5,
+  "frames": 2029,
+  "timeMs": 32464,
+  "pickups": 16,
+  "remaining": 0,
+  "collisions": 0,
+  "pathUsed": 26,
+  "score": 130
+}

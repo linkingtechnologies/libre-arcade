@@ -1,0 +1,9 @@
+{
+  "status": "RELEASE_CANDIDATE",
+  "behavioral_parity": {"comparisons": 16265, "mismatches": 0},
+  "campaign": {"levels": 50, "checks": 623, "quiz_count": 50, "level_transitions": 49},
+  "assets": {"sprite_frames": 2506, "missing_required": 0},
+  "soak": {"levels": 50, "simulated_frames": 175987, "pickups": 239, "crashes": 14, "deterministic_replay": true},
+  "audio": {"wav_original_identity": "9/9", "browser_files_decoded": "12/12"},
+  "manual_qa_remaining": ["desktop Chromium/Firefox visual+audio", "one touch device viewport+controls", "human gameplay sampling including late levels"]
+}

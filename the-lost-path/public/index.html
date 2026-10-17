@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lost Path</title>
+  <!-- Upstream's Google Analytics tag was removed: no Google tracking. See specs/design.md. -->
+  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="src/menu.css">
+  <link rel="icon" href="src/ico/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="src/app.webmanifest">
+</head>
+<body>
+  <!-- script.js wires the first <button> in the page to "restart": keep "New maze" first. -->
+  <header class="toolbar" role="banner" aria-label="Game controls" data-i18n-aria="gameControls">
+    <div class="brand">The Lost Path</div>
+    <details class="toolbarMenu">
+      <summary data-i18n="gameMenu">Game</summary>
+      <div class="menuPanel" role="group" aria-label="Game" data-i18n-aria="gameMenu">
+        <button id="newBtn" type="button" data-i18n="newGame">New maze</button>
+        <button id="difficultyBtn" type="button" data-i18n="difficulty">Difficulty…</button>
+      </div>
+    </details>
+    <details class="toolbarMenu">
+      <summary data-i18n="helpMenu">Help</summary>
+      <div class="menuPanel" role="group" aria-label="Help" data-i18n-aria="helpMenu">
+        <button id="helpBtn" type="button" data-i18n="help">Instructions</button>
+        <button id="creditsBtn" type="button" data-i18n="credits">Credits</button>
+      </div>
+    </details>
+    <span class="spacer"></span>
+    <button id="langBtn" type="button" aria-label="Change language" data-i18n-aria="changeLanguage">IT</button>
+  </header>
+  <canvas id="gameCanvas"></canvas>
+  <dialog id="difficultyDialog"><button class="close" type="button" aria-label="Close" data-i18n-aria="closeLabel">×</button><h2 data-i18n="chooseDifficulty">Choose a difficulty</h2>
+    <div class="levels">
+      <button type="button" class="level" data-level="easy"><strong data-i18n="easy">Easy</strong><span data-i18n="easyInfo"></span></button>
+      <button type="button" class="level" data-level="normal"><strong data-i18n="normal">Normal</strong><span data-i18n="normalInfo"></span></button>
+      <button type="button" class="level" data-level="hard"><strong data-i18n="hard">Hard</strong><span data-i18n="hardInfo"></span></button>
+    </div></dialog>
+  <dialog id="helpDialog"><button class="close" type="button" aria-label="Close" data-i18n-aria="closeLabel">×</button><h2 data-i18n="helpTitle">How to play</h2><p data-i18n="help1"></p><p data-i18n="help2"></p><p data-i18n="help3"></p><p data-i18n="help4"></p><p data-i18n="help5"></p></dialog>
+  <dialog id="creditsDialog"><button class="close" type="button" aria-label="Close" data-i18n-aria="closeLabel">×</button><h2 data-i18n="credits">Credits</h2><p data-i18n="originalCredit"></p><p><a href="https://github.com/wrksp8/TheLostPath" target="_blank" rel="noopener" data-i18n="sourceLink">Source repository</a></p><p data-i18n="additionsCredit"></p><p><span data-i18n="restorationCredit">HTML5 restoration and preservation by</span> <a href="https://linkingtechnologies.github.io/libre-arcade/" target="_blank" rel="noopener">Libre Arcade</a>.</p></dialog>
+  <script src="src/script.js"></script>
+  <script src="src/touch.js"></script>
+  <script src="src/difficulty.js"></script>
+  <script src="src/torch.js"></script>
+  <script src="src/i18n.js"></script>
+  <script src="src/menu.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

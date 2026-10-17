@@ -48,3 +48,4 @@ These have no counterpart in the Java original's decision logic and are covered 
 
 - The versioned save/resume contract (`src/core/save.js`) and the `GameController` state machine (`src/core/controller.js`).
 - The four-language browser UI (`src/ui/`) for human players, on the original Grugnetto board.
+- The optional **Growing rents** rule (`src/core/escalation.js`, see [`rent-escalation.md`](rent-escalation.md)): from round 40, every 20 rounds, every rent rises 25%. The Java original has nothing like it. The engine leaves it off unless asked, so simulations and the parity claims above are unaffected; the browser game turns it on by default, to end games that would otherwise never end ([`balance.md`](balance.md)).
