@@ -19,15 +19,15 @@ things within a frame, in how the keys are read, in the state that the original 
 |---|---|---|
 | `public/index.html` | `20cc62642323765db6128d11d9d623c78e5b32b95463b2ca60d72480d3263c2a` | `550c708af5e7f7662ffd94d3fae20e71a0707ebd28eac53c1f062c87326d9a67` |
 | `public/styles.css` | `3f0e96210ed9455899fac3fa373186d0978e7c18abc44dfd27a34a74ad454cfc` | unchanged |
-| `public/src/app.mjs` | `18ef260a01c49a99a4d5904e16113c5c922e8c987283a06e9ef7c2a9cbd9085f` | `3d820c992ea4468694d50f1960fe1faf67cfd5b487045e502295b275c2fb0b45` |
+| `public/src/app.mjs` | `18ef260a01c49a99a4d5904e16113c5c922e8c987283a06e9ef7c2a9cbd9085f` | `e692ff093bb4dc19d0f91ad4c41e9803270e78b1c81e710d886388319ab0084c` |
 | `public/src/audio.mjs` | `e7f4cdf2abddf9836fe7b978fc30c67fdb61848fa15997a1b3a2c78efd2b7066` | `166a795c137fad42de9b15bdeca9d7710184ef00e112a058fb0f118be458bf44` |
 | `public/src/core.mjs` | `2676b66a86ca056f53ea087ab4fe268c79d540415f4a315756e4b1cf2a0a5bff` | `c2fe1e07bf1fe27226c2c1910b84e4b4959d26bd7b9add9df3ffb59375fee1f7` |
 | `public/src/index.mjs` | `f9252a3ecc557f45d6e8d9dc0e9faa4f8343bca35483a5257d31dee189006259` | unchanged |
 | `public/src/levels.mjs` | `b2dbd72fb1fa188ef8cf500f67e41b4679437d7ceb66ab3dfcf498e6d28bf759` | unchanged |
-| `public/src/preferences.mjs` | `42446f58dadc3cec1afb24bb4ef47eb35a759fb30944efb604e8673e76f5cecc` | unchanged |
-| `public/src/renderer.mjs` | `6046f46b17b99e5c3650e728ab44cbe4687c07402d6e9f273ce84075ca84e8df` | `aa696f4db3482f727ab05db29faf07d7ed135f206a107e3e3b1fe86f29f1d2a4` |
+| `public/src/preferences.mjs` | `42446f58dadc3cec1afb24bb4ef47eb35a759fb30944efb604e8673e76f5cecc` | `50c17fa808a6eae5f63096d6ef32165088341476ff88b4e93a77baa84ec29b60` |
+| `public/src/renderer.mjs` | `6046f46b17b99e5c3650e728ab44cbe4687c07402d6e9f273ce84075ca84e8df` | `3faf46a04ee8292ad2b6df9bc1658af640036b8649464eac876a19ccc223d4cd` |
 | `public/src/rng.mjs` | `98ce153a56ba3cad5c9411057e208a895c1bc472eea398e742cd209d4819bf0c` | unchanged |
-| `public/src/session.mjs` | `39cc9b36f4d5004981e75b8bba314afdf549bbda2c7723be69c1c1f0ae2f5df5` | `2cd9d28bc94a285a34f02d2a4322d9af2cbeb07a962fa86efc84e299662e51b6` |
+| `public/src/session.mjs` | `39cc9b36f4d5004981e75b8bba314afdf549bbda2c7723be69c1c1f0ae2f5df5` | `5edbf6657c9ac23ab2e8c1aab775628cd812f76ba70f63e6a1bfcfdfe4c1c2ef` |
 | `public/data/sprites.json` | `6f55e22fee8f06fbaa88d3670e7761e36baa3408a232a10067d01ed525ce561e` | unchanged |
 <!--/HASHES-->
 

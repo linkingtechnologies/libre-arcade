@@ -27,7 +27,7 @@ compiled and run, that can be repeated, and the corrections it made necessary.
 | `docs/development/package/` | the package's documents, tests, reports and reference, unmodified | its `SHA256SUMS.txt`; `test/package.test.mjs` |
 | `reference/Ri-li-2.0.1.tar.bz2` | the original's source release, as the package kept it | SHA-256 in `reference/SOURCE.md`; the size agrees with SourceForge's listing; no checksum to compare with was found (open point 1) |
 | `tools/oracle/` (`harness.cc`, `audio_stub.cc`, `build.sh`, `build-sdl.sh`, `stubs/`) | new | the oracle runs the original with them (`specs/port-map.md`) |
-| `tools/oracle.mjs`, `js-run.mjs`, `scenarios.mjs`, `canvas-shim.mjs`, `canonical.mjs`, `png.mjs`, `check-assets.mjs`, `language-layout.mjs` | new | `npm test`, `npm run test:live` |
+| `tools/oracle.mjs`, `js-run.mjs`, `scenarios.mjs`, `canvas-shim.mjs`, `canonical.mjs`, `png.mjs`, `check-assets.mjs`, `extract-languages.mjs` | new | `npm test`, `npm run test:live` |
 | `test/fixtures/original-trace.json` | a recording of the original by `node tools/oracle.mjs record` | replayed by `test/oracle.test.mjs` |
 | `screenshots/` | headless Chrome, on a temporary copy of the page with a hook that fast-forwards a game and shows the quiz | looked at |
 

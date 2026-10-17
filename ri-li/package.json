@@ -9,7 +9,7 @@
     "build": "node scripts/build.mjs",
     "start": "npm run build && node scripts/serve.mjs game 8080",
     "test": "node --test test/*.test.mjs",
-    "test:live": "node tools/oracle.mjs check && node tools/oracle.mjs menus",
+    "test:live": "node tools/oracle.mjs check && node tools/oracle.mjs menus && node tools/oracle.mjs quiz-pictures",
     "lint": "eslint .",
     "check": "npm run lint && npm test"
   },

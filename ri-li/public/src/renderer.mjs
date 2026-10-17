@@ -15,7 +15,7 @@ const GROUP={
 const KEY=(g,n)=>`${g}:${n}`;
 
 export class Renderer {
-  constructor(canvas){this.canvas=canvas;this.ctx=canvas.getContext('2d',{alpha:false});this.ctx.imageSmoothingEnabled=false;this.meta=new Map();this.imgs=new Map();this.ui={};this.langLabel={};this.language='it';this.help=true;}
+  constructor(canvas){this.canvas=canvas;this.ctx=canvas.getContext('2d',{alpha:false});this.ctx.imageSmoothingEnabled=false;this.meta=new Map();this.imgs=new Map();this.ui={it:{},en:{}};this.loaded=new Set();this.langLabel={};this.language='it';this.help=true;}
   async load(language='it'){
     const manifest=await fetch('data/sprites.json').then(r=>{if(!r.ok)throw Error('sprites.json');return r.json()});
     await Promise.all(manifest.map(async m=>{const g=m.png.split('/')[1],n=Number(m.frame),im=new Image();im.src=m.png;await im.decode();this.meta.set(KEY(g,n),{...m,width:Number(m.width),height:Number(m.height),cx:Number(m.cx),cy:Number(m.cy)});this.imgs.set(KEY(g,n),im);}));
@@ -25,12 +25,12 @@ export class Renderer {
   }
   async loadLanguage(code){
     if(!LANGUAGES.includes(code))throw Error(`no language ${code}`);
-    if(this.ui[code])return;
-    const ui={};
+    if(this.loaded.has(code))return;
+    const ui=this.ui[code]??={};
     await Promise.all(LABEL_NAMES.map(async name=>{const im=new Image();im.src=`ui/${code}/${name}.png`;await im.decode();ui[name]=im;}));
-    this.ui[code]=ui;
+    this.loaded.add(code);
   }
-  setLanguage(lang){if(this.ui[lang]||LANGUAGES.includes(lang))this.language=lang;}
+  setLanguage(lang){if(LANGUAGES.includes(lang))this.language=lang;}
   sprite(g,n,x,y){const k=KEY(g,n),im=this.imgs.get(k),m=this.meta.get(k);if(!im||!m)throw Error(`missing sprite ${k}`);this.ctx.drawImage(im,Math.trunc(x-m.cx),Math.trunc(y-m.cy));}
   uiSprite(name,x,y){const im=this.ui[this.language][name];if(!im)throw Error(`missing UI ${this.language}/${name}`);this.ctx.drawImage(im,Math.trunc(x)-(im.width>>1),Math.trunc(y)-(im.height>>1));}
   railFrame(cells,i){let m=0,x=i%LT,y=Math.trunc(i/LT);const active=j=>cells[j]>=C_RAIL&&cells[j]<7;if(y>0&&active(i-LT))m+=8;if(y<HT-1&&active(i+LT))m+=4;if(x>0&&cells[i-1]>=C_RAIL&&cells[i-1]<=7)m+=2;if(x<LT-1&&cells[i+1]>=C_RAIL&&cells[i+1]<=7)m+=1;return NUM_RAIL[m];}
