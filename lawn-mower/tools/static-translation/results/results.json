@@ -1,0 +1,54 @@
+[
+  {
+    "variant": "competition_original",
+    "rom_sha256": "942f36376246dbdff99a0b94aad930b2cccf1f534e5390468ac9c0d50752d7dd",
+    "stone_cpu_address": "0x8B6B",
+    "fuel_sub_cpu_address": "0x8B93",
+    "stone_bytes_original": "a9 01 85 ba a9 4d 20 93 8b a9 0b 4c e8 8d",
+    "stone_bytes_effective": "a9 01 85 ba a9 4d 20 93 8b a9 0b 4c e8 8d",
+    "penalty_byte_used": 77,
+    "fuel_sub_bytes": "85 00 a5 cb 85 01 38 e5 00 b0 02 a9 00 85 cb a5 01 c9 3a 90 0b a5 cb c9 3a b0 05 a9 08 20 f2 8d 60",
+    "generated_c_bytes": 2218,
+    "compared_fuel_values": 233,
+    "mismatches": []
+  },
+  {
+    "variant": "competition_modified60",
+    "rom_sha256": "942f36376246dbdff99a0b94aad930b2cccf1f534e5390468ac9c0d50752d7dd",
+    "stone_cpu_address": "0x8B6B",
+    "fuel_sub_cpu_address": "0x8B93",
+    "stone_bytes_original": "a9 01 85 ba a9 4d 20 93 8b a9 0b 4c e8 8d",
+    "stone_bytes_effective": "a9 01 85 ba a9 3c 20 93 8b a9 0b 4c e8 8d",
+    "penalty_byte_used": 60,
+    "fuel_sub_bytes": "85 00 a5 cb 85 01 38 e5 00 b0 02 a9 00 85 cb a5 01 c9 3a 90 0b a5 cb c9 3a b0 05 a9 08 20 f2 8d 60",
+    "generated_c_bytes": 2218,
+    "compared_fuel_values": 233,
+    "mismatches": []
+  },
+  {
+    "variant": "release-v1.12_original",
+    "rom_sha256": "181ef3ff1769a85ae98736e02809e65e5d758b453ebb43ec4b9fe60c93ad224c",
+    "stone_cpu_address": "0xCB6E",
+    "fuel_sub_cpu_address": "0xCB96",
+    "stone_bytes_original": "a9 01 85 ba a9 4d 20 96 cb a9 0b 4c eb cd",
+    "stone_bytes_effective": "a9 01 85 ba a9 4d 20 96 cb a9 0b 4c eb cd",
+    "penalty_byte_used": 77,
+    "fuel_sub_bytes": "85 00 a5 cb 85 01 38 e5 00 b0 02 a9 00 85 cb a5 01 c9 3a 90 0b a5 cb c9 3a b0 05 a9 08 20 f5 cd 60",
+    "generated_c_bytes": 2218,
+    "compared_fuel_values": 233,
+    "mismatches": []
+  },
+  {
+    "variant": "release-v1.12_modified60",
+    "rom_sha256": "181ef3ff1769a85ae98736e02809e65e5d758b453ebb43ec4b9fe60c93ad224c",
+    "stone_cpu_address": "0xCB6E",
+    "fuel_sub_cpu_address": "0xCB96",
+    "stone_bytes_original": "a9 01 85 ba a9 4d 20 96 cb a9 0b 4c eb cd",
+    "stone_bytes_effective": "a9 01 85 ba a9 3c 20 96 cb a9 0b 4c eb cd",
+    "penalty_byte_used": 60,
+    "fuel_sub_bytes": "85 00 a5 cb 85 01 38 e5 00 b0 02 a9 00 85 cb a5 01 c9 3a 90 0b a5 cb c9 3a b0 05 a9 08 20 f5 cd 60",
+    "generated_c_bytes": 2218,
+    "compared_fuel_values": 233,
+    "mismatches": []
+  }
+]
