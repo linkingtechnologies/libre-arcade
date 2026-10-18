@@ -10,7 +10,8 @@
 // It is a port of the verification assembler that came with the restoration package this game was integrated from
 // (audit/build/mini_nesasm_verifier.py, in Python, which could not be run here), so the two can be compared: assembled
 // here, the v1.12 source gives the same bytes as the package's verification ROM. What it produces is NOT the author's
-// binary and is never offered as provenance: the exact output of NESASM 3.1 has not been reproduced.
+// binary and is never offered as provenance. (It lacks the rule of NESASM that an operand is zero page only when it is a plain number of one or two
+// digits or is written with `<`; lan-master/tools/assemble.mjs has it and builds this source into the author's v1.12 ROM byte for byte, see PROVENANCE.md.)
 //
 // Usage: node tools/assemble.mjs <source dir> [--org 0xC000=0x8000 ...] [--out file.nes] [--symbols file.json]
 

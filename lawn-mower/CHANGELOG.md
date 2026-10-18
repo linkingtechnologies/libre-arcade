@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 (documents only)
+
+- Recorded that the v1.12 source assembles into the author's own v1.12 ROM, byte for byte (SHA-256 `181ef3ff1769a85ae98736e02809e65e5d758b453ebb43ec4b9fe60c93ad224c`), with the assembler of Lan Master (`lan-master/tools/assemble.mjs`), which has the rule of NESASM that an operand is zero page only if it is a plain number of one or two digits or is written with `<`. Checked on 18 October 2026 (0 of 24,592 bytes differ). This closes the open point about the author's assembler in `PROVENANCE.md`; the 1.0.0 entry below says what was known then
+- Nothing in `public/` or `tools/` changed. This folder's assembler and the oracle's third program, "the v1.12 source assembled here", are still the older ones (7,013 bytes of program away from the author's build); moving them to the corrected rule means a new run of the oracle and is left open
+
 ## 1.0.0
 
 First release in Libre Arcade, promoted from the restoration package `Lawn_Mower_M9_RC6` after a check against the competition ROM, the author's own v1.12 ROM and the v1.12 source run on a small NES of our own, and in real browsers.
