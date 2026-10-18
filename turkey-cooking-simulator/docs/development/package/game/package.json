@@ -1,0 +1,7 @@
+{
+  "name": "turkey-cooking-simulator",
+  "version": "1.0.0-rc1",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-only"
+}

@@ -1,0 +1,476 @@
+{
+ "schemaVersion": 2,
+ "phase": "cooking",
+ "timingMode": "fixed-step",
+ "startTimeMs": 834.5999999046326,
+ "initialGameState": {
+  "wallet": 45,
+  "difficulty": "casual",
+  "hardcoreModifier": 1,
+  "frillsModifier": 1,
+  "stuffingTypeModifier": 1,
+  "turkeyTypeModifier": 1,
+  "turkeyBought": false,
+  "turkeyType": "",
+  "turkeyWeight": 8,
+  "alarmBought": false,
+  "boughtOvenLight": false,
+  "hasProbe": false,
+  "hasCookbook": false,
+  "purchasedItems": [],
+  "market": {
+   "Frills Box": {
+    "cost": 3,
+    "kind": "frills"
+   },
+   "Temperature Probe": {
+    "cost": 9,
+    "kind": "probe"
+   },
+   "Oven Light in a Box": {
+    "cost": 15,
+    "kind": "ovenLight"
+   },
+   "Alarm Clock": {
+    "cost": 6,
+    "kind": "alarm"
+   },
+   "Cookbook": {
+    "cost": 3,
+    "kind": "cookbook"
+   },
+   "Repurposed Stuffing": {
+    "cost": 2,
+    "kind": "stuffing",
+    "modifier": 1.05
+   },
+   "Exquisite Stuffing": {
+    "cost": 3,
+    "kind": "stuffing",
+    "modifier": 1.08
+   },
+   "Special Stuffing": {
+    "cost": 6,
+    "kind": "stuffing",
+    "modifier": 1.17
+   },
+   "Organic Turkey": {
+    "kind": "turkey",
+    "weightLb": 10.1,
+    "cost": 12.12
+   },
+   "Free Range Turkey": {
+    "kind": "turkey",
+    "weightLb": 12.2,
+    "cost": 12.2
+   },
+   "Sunny Farms Turkey": {
+    "kind": "turkey",
+    "weightLb": 14.3,
+    "cost": 8.58
+   },
+   "Pastured Turkey": {
+    "kind": "turkey",
+    "weightLb": 16.4,
+    "cost": 22.959999999999997
+   },
+   "General Turkey": {
+    "kind": "turkey",
+    "weightLb": 18.5,
+    "cost": 14.8
+   }
+  },
+  "storeVisits": 0,
+  "dialogueHeard": 0,
+  "ovenOpened": 0,
+  "peekRecords": [],
+  "turkeyCookCounter": 0
+ },
+ "game": {
+  "wallet": 17.799999999999997,
+  "difficulty": "casual",
+  "hardcoreModifier": 1,
+  "frillsModifier": 1,
+  "stuffingTypeModifier": 1,
+  "turkeyTypeModifier": 1.02,
+  "turkeyBought": true,
+  "turkeyType": "Free Range Turkey",
+  "turkeyWeight": 12.2,
+  "alarmBought": true,
+  "boughtOvenLight": false,
+  "hasProbe": true,
+  "hasCookbook": false,
+  "purchasedItems": [
+   "Free Range Turkey",
+   "Temperature Probe",
+   "Alarm Clock"
+  ],
+  "market": {
+   "Frills Box": {
+    "cost": 3,
+    "kind": "frills"
+   },
+   "Oven Light in a Box": {
+    "cost": 15,
+    "kind": "ovenLight"
+   },
+   "Cookbook": {
+    "cost": 3,
+    "kind": "cookbook"
+   },
+   "Repurposed Stuffing": {
+    "cost": 2,
+    "kind": "stuffing",
+    "modifier": 1.05
+   },
+   "Exquisite Stuffing": {
+    "cost": 3,
+    "kind": "stuffing",
+    "modifier": 1.08
+   },
+   "Special Stuffing": {
+    "cost": 6,
+    "kind": "stuffing",
+    "modifier": 1.17
+   },
+   "Organic Turkey": {
+    "kind": "turkey",
+    "weightLb": 10.1,
+    "cost": 12.12
+   },
+   "Sunny Farms Turkey": {
+    "kind": "turkey",
+    "weightLb": 14.3,
+    "cost": 8.58
+   },
+   "Pastured Turkey": {
+    "kind": "turkey",
+    "weightLb": 16.4,
+    "cost": 22.959999999999997
+   },
+   "General Turkey": {
+    "kind": "turkey",
+    "weightLb": 18.5,
+    "cost": 14.8
+   }
+  },
+  "storeVisits": 0,
+  "dialogueHeard": 0,
+  "ovenOpened": 1,
+  "peekRecords": [
+   {
+    "type": "open",
+    "atMs": 2405834.5999999046,
+    "appearance": "raw"
+   },
+   {
+    "type": "probe",
+    "atMs": 2412834.5999999046,
+    "coreTempF": 68.34881012221733
+   }
+  ],
+  "turkeyCookCounter": 6019
+ },
+ "ovenState": {
+  "schemaVersion": 3,
+  "weightLb": 12.2,
+  "tempInfini": 169.94161865030313,
+  "setTemp": 170,
+  "globalTime": 6019,
+  "globTemp": [
+   32.03022089535351,
+   30.47218156954312,
+   31.779003630036733,
+   31.871027022314298,
+   34.03997249806479,
+   34.99160841147747,
+   38.077167210701845,
+   39.83797316458418,
+   43.95909832362729,
+   46.579854237877285,
+   51.8234373497266,
+   55.35288355294148,
+   61.73848306743497,
+   66.18002028738022,
+   73.65380926893833,
+   78.9529969618832,
+   87.40285879636598,
+   93.45619950164372,
+   102.70256592352585,
+   109.34935406060788
+  ],
+  "layers": {
+   "skin": {
+    "waterLost": 39027.906063840564,
+    "finalTemperature": 109.34935406060788,
+    "highestTemp": 109.34935406060788,
+    "condition": [
+     "Undercooked",
+     0.7805581212768112,
+     "undercooked"
+    ]
+   },
+   "body": {
+    "waterLost": 2747.936608797545,
+    "finalTemperature": 51.8234373497266,
+    "highestTemp": 51.8234373497266,
+    "condition": [
+     "Raw",
+     1,
+     "raw"
+    ]
+   },
+   "core": {
+    "waterLost": 424.77842519672646,
+    "finalTemperature": 30.47218156954312,
+    "highestTemp": 30.47218156954312,
+    "condition": [
+     "Raw",
+     1,
+     "raw"
+    ]
+   }
+  }
+ },
+ "runtime": {
+  "timingMode": "fixed-step",
+  "currentTimeMs": 6019834.599999905,
+  "lastWallTimeMs": 21219.3,
+  "pendingMs": 296.7999999999993,
+  "thermalTicks": 6019,
+  "lastDiffMs": 0
+ },
+ "alarm": {
+  "remainingSeconds": 0,
+  "active": false,
+  "rang": false
+ },
+ "interaction": {
+  "doorState": "peek",
+  "ovenOpened": 1
+ },
+ "finalResult": null,
+ "actionLog": [
+  {
+   "index": 0,
+   "type": "purchase",
+   "name": "Free Range Turkey",
+   "ok": true,
+   "reason": null
+  },
+  {
+   "index": 1,
+   "type": "purchase",
+   "name": "Temperature Probe",
+   "ok": true,
+   "reason": null
+  },
+  {
+   "index": 2,
+   "type": "purchase",
+   "name": "Alarm Clock",
+   "ok": true,
+   "reason": null
+  },
+  {
+   "index": 3,
+   "type": "start-cooking",
+   "turkeyType": "Free Range Turkey",
+   "turkeyWeight": 12.2
+  },
+  {
+   "index": 4,
+   "type": "set-oven",
+   "tempF": 350
+  },
+  {
+   "index": 5,
+   "type": "advance-wall-clock",
+   "nowMs": 2937.2,
+   "thermalTicks": 1
+  },
+  {
+   "index": 6,
+   "type": "advance-wall-clock",
+   "nowMs": 3953.5,
+   "thermalTicks": 1
+  },
+  {
+   "index": 7,
+   "type": "skip-20m",
+   "thermalTicks": 1200,
+   "legacyAlarm": true
+  },
+  {
+   "index": 8,
+   "type": "advance-wall-clock",
+   "nowMs": 4968.7,
+   "thermalTicks": 1
+  },
+  {
+   "index": 9,
+   "type": "set-oven",
+   "tempF": 375
+  },
+  {
+   "index": 10,
+   "type": "set-oven",
+   "tempF": 400
+  },
+  {
+   "index": 11,
+   "type": "advance-wall-clock",
+   "nowMs": 5984.3,
+   "thermalTicks": 1
+  },
+  {
+   "index": 12,
+   "type": "advance-wall-clock",
+   "nowMs": 7000.9,
+   "thermalTicks": 1
+  },
+  {
+   "index": 13,
+   "type": "skip-20m",
+   "thermalTicks": 1200,
+   "legacyAlarm": true
+  },
+  {
+   "index": 14,
+   "type": "door-full",
+   "doorState": "open"
+  },
+  {
+   "index": 15,
+   "type": "advance-wall-clock",
+   "nowMs": 8015.9,
+   "thermalTicks": 1
+  },
+  {
+   "index": 16,
+   "type": "advance-wall-clock",
+   "nowMs": 9031.3,
+   "thermalTicks": 1
+  },
+  {
+   "index": 17,
+   "type": "advance-wall-clock",
+   "nowMs": 10047.8,
+   "thermalTicks": 1
+  },
+  {
+   "index": 18,
+   "type": "advance-wall-clock",
+   "nowMs": 11063,
+   "thermalTicks": 1
+  },
+  {
+   "index": 19,
+   "type": "advance-wall-clock",
+   "nowMs": 12078.3,
+   "thermalTicks": 1
+  },
+  {
+   "index": 20,
+   "type": "advance-wall-clock",
+   "nowMs": 13094,
+   "thermalTicks": 1
+  },
+  {
+   "index": 21,
+   "type": "advance-wall-clock",
+   "nowMs": 14109.7,
+   "thermalTicks": 1
+  },
+  {
+   "index": 22,
+   "type": "probe",
+   "coreTempF": 68.34881012221733
+  },
+  {
+   "index": 23,
+   "type": "advance-wall-clock",
+   "nowMs": 15125.3,
+   "thermalTicks": 1
+  },
+  {
+   "index": 24,
+   "type": "door-full",
+   "doorState": "peek"
+  },
+  {
+   "index": 25,
+   "type": "advance-wall-clock",
+   "nowMs": 16141,
+   "thermalTicks": 1
+  },
+  {
+   "index": 26,
+   "type": "set-oven",
+   "tempF": 375
+  },
+  {
+   "index": 27,
+   "type": "set-oven",
+   "tempF": 350
+  },
+  {
+   "index": 28,
+   "type": "advance-wall-clock",
+   "nowMs": 17156.9,
+   "thermalTicks": 1
+  },
+  {
+   "index": 29,
+   "type": "set-oven",
+   "tempF": 325
+  },
+  {
+   "index": 30,
+   "type": "skip-20m",
+   "thermalTicks": 1200,
+   "legacyAlarm": true
+  },
+  {
+   "index": 31,
+   "type": "advance-wall-clock",
+   "nowMs": 18172.4,
+   "thermalTicks": 1
+  },
+  {
+   "index": 32,
+   "type": "skip-20m",
+   "thermalTicks": 1200,
+   "legacyAlarm": true
+  },
+  {
+   "index": 33,
+   "type": "advance-wall-clock",
+   "nowMs": 19188.1,
+   "thermalTicks": 1
+  },
+  {
+   "index": 34,
+   "type": "set-oven",
+   "tempF": 338
+  },
+  {
+   "index": 35,
+   "type": "advance-wall-clock",
+   "nowMs": 20203.8,
+   "thermalTicks": 1
+  },
+  {
+   "index": 36,
+   "type": "skip-20m",
+   "thermalTicks": 1200,
+   "legacyAlarm": true
+  },
+  {
+   "index": 37,
+   "type": "advance-wall-clock",
+   "nowMs": 21219.3,
+   "thermalTicks": 1
+  }
+ ]
+}

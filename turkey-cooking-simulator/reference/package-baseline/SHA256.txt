@@ -1,0 +1,12 @@
+# Commit 56bcde6458af8957f8e439d98df8361a43d2f6e5 of https://github.com/fernjager/game-off-2013 (2013-12-01 06:50:15 -0800, "Missing image").
+# One line per file kept in reference/package-baseline/: SHA-256, git blob SHA-1 (what `git rev-parse <commit>:<path>` prints), size in bytes, path.
+# The first two columns are what the files must hash to; test/reference.test.mjs checks them.
+8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903  94a9ed024d3859793618152ea559a168bbcbb5e2   35147  LICENSE
+97c4e7d976d910e5496a9dd2ef0ed04d0eaa3e957a34dbec48d186df7f40e66c  d6b5029bdf89ae9036f39f822b2fa848ab7f7352    1716  README.md
+ceeafbc58a98fc9a57cacc0c4a946322dcebedf6c333ee55a5c43dbbfc464372  5e1e89df4553bf4c630a6c6cdec6f8180c3d620b     743  index.html
+773d83877419adad26390907f403e978a03c82a567d7faa33b511ce6686abb26  22f52befb0a3345602651afcbc6e28b2a0d63f55    7441  js/dialogue.js
+080555e3b626c4fd0e86fb1f7c196265d32d27b8d0eb80d9c21c0bdd6fee2c24  add98496ba36f410419cbdf3d8339e55ca0f0800   26390  js/main.js
+ec4ddf4dbe074a706ca19e3099433ec2d1960f1e4012f235b6be0490e258f40f  a31dd8d05f5ae3f3e28f685acc71c84257701a78   11303  js/model.js
+bba30747ca041096c01c900e80ff0f2cf8196d2b5f4268ea811d3936eb0a09f2  15fe448779ad2fcef4b6180160c340c03ef95662   21785  js/screens.js
+1480cb744292010e0eac0bc65f0b1e49b4260e96b1cfe69b5e4de560d7c1ceaa  afc9a392a67e28720dcbec926e66e46e13f89ee6    4382  js/soundmanager.js
+5b0461fdc8476bf15eb4e5dd6e67af6ebf76e5946c428e623857359161f1094f  56b1513f62ed0834130f74ca73dea9be57481066   35462  js/ui.js

@@ -102,6 +102,7 @@ original with an executable oracle or a benchmark:
 - [`lan-master/SOFTWARE_ARCHAEOLOGY.md`](lan-master/SOFTWARE_ARCHAEOLOGY.md)
 - [`ri-li/SOFTWARE_ARCHAEOLOGY.md`](ri-li/SOFTWARE_ARCHAEOLOGY.md)
 - [`grugnettos-kludgopolb/SOFTWARE_ARCHAEOLOGY.md`](grugnettos-kludgopolb/SOFTWARE_ARCHAEOLOGY.md)
+- [`turkey-cooking-simulator/SOFTWARE_ARCHAEOLOGY.md`](turkey-cooking-simulator/SOFTWARE_ARCHAEOLOGY.md)
 
 **Restored** — the original code itself, vendored and kept running; no
 separate archaeology essay, since the game's own `specs/design.md` already

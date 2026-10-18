@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import { temperatureBandF, scoreGrade, alarmUrgency } from '../src/js/ui-shell.js';
+let passed=0;function test(name,fn){fn();passed++;console.log(`PASS M10-${String(passed).padStart(2,'0')} ${name}`);}
+test('core below 150F is not marked safe',()=>assert.notEqual(temperatureBandF(149,'core').key,'safe'));
+test('core at 165F is marked safe',()=>assert.equal(temperatureBandF(165,'core').key,'safe'));
+test('core above 180F is marked over',()=>assert.equal(temperatureBandF(181,'core').key,'over'));
+test('skin uses a distinct visual band model',()=>assert.equal(temperatureBandF(200,'skin').key,'cooking'));
+test('excellent result starts at historical 2000 threshold',()=>assert.equal(scoreGrade(2000),'excellent'));
+test('good result starts at historical 1200 threshold',()=>assert.equal(scoreGrade(1200),'good'));
+test('fair result starts at historical 625 threshold',()=>assert.equal(scoreGrade(625),'fair'));
+test('lower scores are classified poor for presentation',()=>assert.equal(scoreGrade(624),'poor'));
+test('alarm enters urgent state within one minute',()=>assert.equal(alarmUrgency(60,true),'urgent'));
+test('alarm ringing state is explicit at zero',()=>assert.equal(alarmUrgency(0,true),'ring'));
+test('inactive alarm reports off',()=>assert.equal(alarmUrgency(300,false),'off'));
+test('app retains last probe reading in the HUD',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('lastProbeF'));assert.ok(s.includes("t(app.lang,'probeReading')"));});
+test('app draws explicit temperature meters',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('function drawTempMeter'));assert.ok(s.includes("temperatureBandF(tempF,layer)"));});
+test('core safe marker is drawn at 165F',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('(165-70)/250'));});
+test('interaction feedback has a transient border flash',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('function drawInteractionFlash'));assert.ok(s.includes("interaction('probe')"));});
+test('result screen includes a grade and legacy score breakdown',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('scoreGrade(r.score.roundedTotal)'));assert.ok(s.includes('r.score.components.coreConditionUsingSkinTable'));});
+test('M10 introduces no PNG/MP3 original assets',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(!/res\/screens|res\/sound|\.png|\.mp3/i.test(s));});
+test('core modules are byte-identical to M9',()=>{for(const f of ['thermal-model.js','runtime.js','gameplay-state.js','game-session.js']){const a=fs.readFileSync(new URL(`../src/js/${f}`,import.meta.url));const b=fs.readFileSync(new URL(`../../turkey-cooking-simulator-m9/src/js/${f}`,import.meta.url));assert.equal(crypto.createHash('sha256').update(a).digest('hex'),crypto.createHash('sha256').update(b).digest('hex'));}});
+console.log(`M10: ${passed}/18 PASS`);

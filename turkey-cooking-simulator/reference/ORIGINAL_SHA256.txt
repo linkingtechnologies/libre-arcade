@@ -1,0 +1,12 @@
+# Commit 13afa1230761fa24d13d9df4324ccafb504398bc of https://github.com/fernjager/game-off-2013 (2013-12-01 23:25:49 -0800, "Update README.md"): the last commit of 1 December 2013.
+# One line per file kept in reference/original/: SHA-256, git blob SHA-1 (what `git rev-parse <commit>:<path>` prints), size in bytes, path.
+# test/reference.test.mjs checks them. (reference/package-baseline/SHA256.txt is the same for the package's older baseline.)
+8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903  94a9ed024d3859793618152ea559a168bbcbb5e2   35147  LICENSE
+4bdb507998a1617884fb3def5f9798880dffa4657128c70fc9e9a97975a3bdf5  1a98f621314c0b93c0dd31b87935365df3cf3472    2103  README.md
+ceeafbc58a98fc9a57cacc0c4a946322dcebedf6c333ee55a5c43dbbfc464372  5e1e89df4553bf4c630a6c6cdec6f8180c3d620b     743  index.html
+773d83877419adad26390907f403e978a03c82a567d7faa33b511ce6686abb26  22f52befb0a3345602651afcbc6e28b2a0d63f55    7441  js/dialogue.js
+633f5031303d1ffba20556708c721bf3c1c18f045d048149540da3a4298b6da0  8970af94088fa239a5e6517aeaa2ec336f18b922   26483  js/main.js
+157d6b44d8a5a87f4c093fff82ec9ee3715c0b516bfb386cf93aa7ff0c0644fd  267058590ab103deb91be4d1ff4c57a5ca6a961d   10487  js/model.js
+fdc158a0037db89f2fa8a00237aea27806c87c01a556d8478d74aed28e30fbaf  3ed6a14a209d2e066e018ae8c5edbc851e4dfe6a   21780  js/screens.js
+1480cb744292010e0eac0bc65f0b1e49b4260e96b1cfe69b5e4de560d7c1ceaa  afc9a392a67e28720dcbec926e66e46e13f89ee6    4382  js/soundmanager.js
+f03efec8dd13c1f63e0e71202dbea408d6bda7829b26d24adbb8a828924da123  b506cd933ed366b3628fcfdb5ea6899b9250a216   35926  js/ui.js

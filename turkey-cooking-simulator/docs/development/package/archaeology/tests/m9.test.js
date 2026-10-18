@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import { itemVisualSpec, purchasedKitchenFeatures } from '../src/js/ui-shell.js';
+let passed=0;function test(name,fn){fn();passed++;console.log(`PASS M9-${String(passed).padStart(2,'0')} ${name}`);}
+test('probe gets a dedicated procedural visual',()=>assert.equal(itemVisualSpec('Temperature Probe','probe').glyph,'probe'));
+test('alarm gets a dedicated procedural visual',()=>assert.equal(itemVisualSpec('Alarm Clock','alarm').glyph,'alarm'));
+test('frills get a dedicated procedural visual',()=>assert.equal(itemVisualSpec('Frills Box','frills').glyph,'frills'));
+test('stuffing gets a dedicated procedural visual',()=>assert.equal(itemVisualSpec('Special Stuffing','stuffing').glyph,'stuffing'));
+test('purchased feature helper recognizes kitchen equipment',()=>{const f=purchasedKitchenFeatures(['Temperature Probe','Alarm Clock','Cookbook','Oven Light in a Box']);assert.equal(f.probe,true);assert.equal(f.alarm,true);assert.equal(f.cookbook,true);assert.equal(f.light,true);});
+test('purchased feature helper recognizes turkey decoration',()=>{const f=purchasedKitchenFeatures(['Frills Box','Repurposed Stuffing','Special Stuffing']);assert.equal(f.frills,true);assert.equal(f.stuffing.length,2);});
+test('application draws purchased items in the kitchen',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('drawOwnedKitchenItems'));assert.ok(s.includes('drawItemIcon'));});
+test('turkey rendering reflects stuffing',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('stuffingTypeModifier>1'));});
+test('turkey rendering reflects frills',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('frillsModifier>1'));});
+test('Web Audio has differentiated semantic cues',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');for(const k of ['buy:','probe:','door:','alarm:','save:','light:','serve:'])assert.ok(s.includes(k));});
+test('door interaction triggers a door cue',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes("audioCue('door')"));});
+test('probe interaction triggers a probe cue',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes("audioCue('probe')"));});
+test('M9 introduces no PNG/MP3 original assets',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(!/res\/screens|res\/sound|\.png|\.mp3/i.test(s));});
+test('M9 UI helper introduces no external asset URLs',()=>{const s=fs.readFileSync(new URL('../src/js/ui-shell.js',import.meta.url),'utf8');assert.ok(!/https?:\/\//i.test(s));});
+test('core modules are byte-identical to M8',()=>{for(const f of ['thermal-model.js','runtime.js','gameplay-state.js','game-session.js']){const a=fs.readFileSync(new URL(`../src/js/${f}`,import.meta.url));const b=fs.readFileSync(new URL(`../../turkey-cooking-simulator-m8/src/js/${f}`,import.meta.url));assert.equal(crypto.createHash('sha256').update(a).digest('hex'),crypto.createHash('sha256').update(b).digest('hex'));}});
+test('M9 presentation source passes basic syntax expectations',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('function audioCue'));assert.ok(s.includes('function drawMarketCard'));});
+console.log(`M9: ${passed}/16 PASS`);

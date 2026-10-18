@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { dayNightState, cookingVisualState, ovenGlow } from '../src/js/ui-shell.js';
+let passed=0;function test(name,fn){fn();passed++;console.log(`PASS M8-${String(passed).padStart(2,'0')} ${name}`);}
+test('day cycle starts in daytime',()=>assert.equal(dayNightState(0,14).phase,'day'));
+test('five game hours move 14:00 to evening',()=>assert.equal(dayNightState(5*3600,14).phase,'evening'));
+test('ten game hours reach night',()=>assert.equal(dayNightState(10*3600,14).phase,'night'));
+test('day-night helper is deterministic',()=>assert.deepEqual(dayNightState(12345,14),dayNightState(12345,14)));
+test('raw turkey has no smoke or fire',()=>{const v=cookingVisualState('raw');assert.equal(v.smoke,0);assert.equal(v.fire,0);});
+test('cooked turkey provides steam feedback',()=>assert.ok(cookingVisualState('cooked').steam>0));
+test('burnt turkey provides smoke feedback',()=>assert.ok(cookingVisualState('burnt').smoke>.5));
+test('fire state exposes flame feedback',()=>assert.equal(cookingVisualState('fire').fire,1));
+test('oven glow is zero near room temperature',()=>assert.equal(ovenGlow(20),0));
+test('oven glow increases at hot temperature',()=>assert.ok(ovenGlow(220)>ovenGlow(100)));
+test('oven glow clamps to one',()=>assert.equal(ovenGlow(1000),1));
+test('app draws a procedural kitchen backdrop',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('drawKitchenBackdrop'));assert.ok(s.includes('createLinearGradient'));});
+test('app exposes oven light interaction',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(s.includes('toggleOvenLight'));assert.ok(s.includes('ovenLightOn'));});
+test('M8 continues to reference no PNG/MP3 original assets',()=>{const s=fs.readFileSync(new URL('../src/js/app.js',import.meta.url),'utf8');assert.ok(!/res\/screens|res\/sound|\.png|\.mp3/i.test(s));});
+test('core files remain presentation-independent',()=>{for(const f of ['thermal-model.js','runtime.js','gameplay-state.js','game-session.js']){const s=fs.readFileSync(new URL(`../src/js/${f}`,import.meta.url),'utf8');assert.ok(!s.includes('dayNightState'));assert.ok(!s.includes('cookingVisualState'));}});
+console.log(`M8: ${passed}/15 PASS`);

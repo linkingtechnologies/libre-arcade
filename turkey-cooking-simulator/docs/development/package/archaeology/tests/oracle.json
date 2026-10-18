@@ -1,0 +1,583 @@
+{
+  "baselineCommit": "56bcde6458af8957f8e439d98df8361a43d2f6e5",
+  "generatedBy": "tests/legacy-reference.js",
+  "tests": {
+    "T01": {
+      "input": {
+        "id": "T01",
+        "weightLb": 10,
+        "ovenF": 325,
+        "seconds": 1800,
+        "note": "10 lb / 325 F / 30 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 39.631011724959706,
+          "waterLost": 358.31201926644536,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 20.39668028692043,
+          "waterLost": 2.147366365555663,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 20.001322059236827,
+          "waterLost": 0.0033614711924525587,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 162.67270994338406,
+          "steadyTempC": 162.67270994338406,
+          "globalTime": 1160,
+          "steadyTimer": 1160
+        }
+      }
+    },
+    "T02": {
+      "input": {
+        "id": "T02",
+        "weightLb": 10,
+        "ovenF": 350,
+        "seconds": 3600,
+        "note": "10 lb / 350 F / 60 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 68.37994919267612,
+          "waterLost": 3801.8375168893654,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 29.704539448616003,
+          "waterLost": 238.15427168706174,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 21.87901212132377,
+          "waterLost": 25.255720226219005,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 176.6665818277863,
+          "steadyTempC": 176.6665818277863,
+          "globalTime": 2960,
+          "steadyTimer": 2960
+        }
+      }
+    },
+    "T03": {
+      "input": {
+        "id": "T03",
+        "weightLb": 10,
+        "ovenF": 425,
+        "seconds": 7200,
+        "note": "10 lb / 425 F / 120 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 121.27845624683944,
+          "waterLost": 42707.92969607822,
+          "condition": [
+            "Cooked",
+            0.20471953130718815,
+            "cooked"
+          ]
+        },
+        "body": {
+          "tempC": 71.80060439226955,
+          "waterLost": 6044.27324945859,
+          "condition": [
+            "Undercooked",
+            0.08702277078821581,
+            "undercooked"
+          ]
+        },
+        "core": {
+          "tempC": 52.152880210517935,
+          "waterLost": 2138.3154623026135,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 218.3333333332751,
+          "steadyTempC": 218.3333333332751,
+          "globalTime": 6480,
+          "steadyTimer": 6480
+        }
+      }
+    },
+    "T04": {
+      "input": {
+        "id": "T04",
+        "weightLb": 15,
+        "ovenF": 325,
+        "seconds": 1800,
+        "note": "15 lb / 325 F / 30 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 36.20411858261994,
+          "waterLost": 265.76504383836226,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 20.112064883369015,
+          "waterLost": 0.5118634345250314,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 20.00004173315085,
+          "waterLost": 0.0001246268763344105,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 162.67270994338406,
+          "steadyTempC": 162.67270994338406,
+          "globalTime": 1160,
+          "steadyTimer": 1160
+        }
+      }
+    },
+    "T05": {
+      "input": {
+        "id": "T05",
+        "weightLb": 15,
+        "ovenF": 350,
+        "seconds": 3600,
+        "note": "15 lb / 350 F / 60 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 63.0566418052551,
+          "waterLost": 3030.2264658019253,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 25.386318505160318,
+          "waterLost": 112.24367831997684,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 20.49023811606361,
+          "waterLost": 5.341775857964553,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 176.6665818277863,
+          "steadyTempC": 176.6665818277863,
+          "globalTime": 2960,
+          "steadyTimer": 2960
+        }
+      }
+    },
+    "T06": {
+      "input": {
+        "id": "T06",
+        "weightLb": 15,
+        "ovenF": 425,
+        "seconds": 7200,
+        "note": "15 lb / 425 F / 120 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 112.79908094727281,
+          "waterLost": 33237.15503044622,
+          "condition": [
+            "Cooked",
+            0.14158103353630813,
+            "cooked"
+          ]
+        },
+        "body": {
+          "tempC": 57.234736211968396,
+          "waterLost": 3320.6116666508383,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 37.76356882684075,
+          "waterLost": 862.9464571062819,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 218.3333333332751,
+          "steadyTempC": 218.3333333332751,
+          "globalTime": 6480,
+          "steadyTimer": 6480
+        }
+      }
+    },
+    "T07": {
+      "input": {
+        "id": "T07",
+        "weightLb": 20,
+        "ovenF": 325,
+        "seconds": 1800,
+        "note": "20 lb / 325 F / 30 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 33.90611145543792,
+          "waterLost": 211.54451608890452,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 20.03751593424812,
+          "waterLost": 0.1508199228615098,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 20.00000044376648,
+          "waterLost": -0.000023296226002500475,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 162.67270994338406,
+          "steadyTempC": 162.67270994338406,
+          "globalTime": 1160,
+          "steadyTimer": 1160
+        }
+      }
+    },
+    "T08": {
+      "input": {
+        "id": "T08",
+        "weightLb": 20,
+        "ovenF": 350,
+        "seconds": 3600,
+        "note": "20 lb / 350 F / 60 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 59.35018664898632,
+          "waterLost": 2559.2695906656104,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 23.272569503905856,
+          "waterLost": 60.82210848239587,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 20.14719689758155,
+          "waterLost": 1.3799841231653718,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 176.6665818277863,
+          "steadyTempC": 176.6665818277863,
+          "globalTime": 2960,
+          "steadyTimer": 2960
+        }
+      }
+    },
+    "T09": {
+      "input": {
+        "id": "T09",
+        "weightLb": 20,
+        "ovenF": 425,
+        "seconds": 7200,
+        "note": "20 lb / 425 F / 120 min"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 106.97940048360462,
+          "waterLost": 27817.58050699629,
+          "condition": [
+            "Cooked",
+            0.10545053671330862,
+            "cooked"
+          ]
+        },
+        "body": {
+          "tempC": 48.27742562292573,
+          "waterLost": 2123.605560634429,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 30.405083377390127,
+          "waterLost": 416.0127111665048,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 218.3333333332751,
+          "steadyTempC": 218.3333333332751,
+          "globalTime": 6480,
+          "steadyTimer": 6480
+        }
+      }
+    },
+    "T10": {
+      "input": {
+        "id": "T10",
+        "weightLb": 15,
+        "ovenF": 350,
+        "seconds": 1200,
+        "note": "single casual skip-time = 1200 exact thermal ticks"
+      },
+      "expected": {
+        "skin": {
+          "tempC": 26.555220972042406,
+          "waterLost": 38.48215915769576,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 20.00040729893118,
+          "waterLost": 0.000553778314050235,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 20.00000041185882,
+          "waterLost": 0.00003948715071144804,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 175.38969073541386,
+          "steadyTempC": 175.38969073541386,
+          "globalTime": 560,
+          "steadyTimer": 560
+        }
+      }
+    },
+    "T11": {
+      "input": {
+        "weightLb": 15,
+        "phases": [
+          {
+            "ovenF": 350,
+            "seconds": 1800
+          },
+          {
+            "ovenF": 425,
+            "seconds": 900
+          }
+        ]
+      },
+      "beforeChange": {
+        "skin": {
+          "tempC": 37.78039470933396,
+          "waterLost": 296.4320095013067,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 20.122966136615048,
+          "waterLost": 0.5617051534519591,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 20.000045792795845,
+          "waterLost": 0.00013674998781643133,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 176.55137822581477,
+          "steadyTempC": 176.55137822581477,
+          "globalTime": 1160,
+          "steadyTimer": 1160
+        }
+      },
+      "expected": {
+        "skin": {
+          "tempC": 45.75099239608548,
+          "waterLost": 979.886106562979,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "body": {
+          "tempC": 20.123696271889656,
+          "waterLost": 3.7537142335682496,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "core": {
+          "tempC": 20.000046239369425,
+          "waterLost": 0.001362376594602921,
+          "condition": [
+            "Raw",
+            1,
+            "raw"
+          ]
+        },
+        "oven": {
+          "rawTempC": 217.19990689330487,
+          "steadyTempC": 217.19990689330487,
+          "globalTime": 579,
+          "steadyTimer": 579
+        }
+      },
+      "note": "temperature change exercises 80-tick re-anchor/reset behavior"
+    },
+    "T12": {
+      "input": {
+        "weightLb": 15,
+        "ovenF": 350,
+        "callbackDiffMs": [
+          1001,
+          5000,
+          1001
+        ]
+      },
+      "expected": {
+        "thermalState": {
+          "skin": {
+            "tempC": 20,
+            "waterLost": 0,
+            "condition": [
+              "Raw",
+              1,
+              "raw"
+            ]
+          },
+          "body": {
+            "tempC": 20,
+            "waterLost": 0,
+            "condition": [
+              "Raw",
+              1,
+              "raw"
+            ]
+          },
+          "core": {
+            "tempC": 20,
+            "waterLost": 0,
+            "condition": [
+              "Raw",
+              1,
+              "raw"
+            ]
+          },
+          "oven": {
+            "rawTempC": 21.872490026666664,
+            "steadyTempC": 20,
+            "globalTime": 3,
+            "steadyTimer": 3
+          }
+        },
+        "thermalTicks": 3,
+        "gameClockAdvanceMs": 7002
+      },
+      "note": "documents historical browser-stall desynchronization"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# The original's files and the restoration package's own documents and tests are kept byte for byte (the oracle checks the hash of the
+# original's model.js, some package tests hash files), so no line-ending normalisation and no text conversion whatever core.autocrlf says.
+reference/original/** -text
+docs/development/package/** -text
+
+*.png binary
+
+# The page's files are hashed by test/reference.test.mjs (they are the package's, byte for byte, apart from index.html), so LF on every checkout.
+public/** text eol=lf
+test/fixtures/*.json text eol=lf
+*.mp3 binary
