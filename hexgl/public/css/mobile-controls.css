@@ -1,0 +1,52 @@
+html,
+body,
+canvas {
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+#mobile-gesture-layer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#mobile-gesture-layer.is-visible {
+  display: block;
+  pointer-events: auto;
+}
+
+#gesture-hint {
+  position: absolute;
+  left: 50%;
+  bottom: calc(26px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  max-width: calc(100vw - 40px);
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.9);
+  font: 14px Arial, sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+#mobile-gesture-layer.has-input #gesture-hint {
+  opacity: 0;
+}
+
+@media (orientation: portrait) {
+  #gesture-hint {
+    white-space: normal;
+    font-size: 15px;
+  }
+}

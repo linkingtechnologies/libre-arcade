@@ -1,0 +1,23 @@
+{
+  "name": "elemental-one",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test --test-concurrency=1",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test",
+    "bundle": "node tools/bundle.mjs",
+    "manifest": "node tools/manifest.mjs",
+    "parity": "node tools/parity.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "acorn": "8.15.0",
+    "eslint": "9.39.4"
+  },
+  "license": "MIT"
+}

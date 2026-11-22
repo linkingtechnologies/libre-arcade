@@ -1,0 +1,96 @@
+{
+ "base": "http://127.0.0.1:8765/index.html",
+ "runs": {
+  "desktop-1024x768": {
+   "browser": "158.0.8127.36",
+   "console": [],
+   "pageErrors": [],
+   "failedRequests": [],
+   "external": [
+    "200 http://fonts.googleapis.com/css?family=Ubuntu",
+    "200 http://fonts.googleapis.com/css?family=Boogaloo",
+    "200 http://fonts.googleapis.com/css?family=Jolly+Lodger",
+    "307 http://www.google-analytics.com/analytics.js",
+    "307 http://fonts.gstatic.com/s/jollylodger/v21/BXRsvFTAh_bGkA1uQ48dlB3lXuDS.woff2",
+    "307 http://fonts.gstatic.com/s/boogaloo/v25/kmK-Zq45GAvOdnaW6y1C9ys.woff2",
+    "200 https://fonts.gstatic.com/s/boogaloo/v25/kmK-Zq45GAvOdnaW6y1C9ys.woff2",
+    "200 https://fonts.gstatic.com/s/jollylodger/v21/BXRsvFTAh_bGkA1uQ48dlB3lXuDS.woff2",
+    "200 https://www.google-analytics.com/analytics.js"
+   ],
+   "raf": 61,
+   "canvas": {
+    "w": 1024,
+    "h": 763,
+    "qw": 1024,
+    "qh": 763,
+    "audio": "WebAudio",
+    "touchDevice": false,
+    "fonts": [
+     "Boogaloo",
+     "Jolly Lodger"
+    ]
+   },
+   "afterEnter": "levelSelect",
+   "afterControls": "level1",
+   "start": {
+    "x": 280,
+    "y": 650,
+    "vx": 0,
+    "vy": 0,
+    "lives": 3
+   },
+   "after1sRight": {
+    "x": 604.72,
+    "y": 691.901968888889,
+    "vx": 330,
+    "vy": 272.44000000000005,
+    "lives": 3
+   },
+   "realtimePxPerSec": 324.72,
+   "jump": {
+    "x": 632.44,
+    "y": 798.3815822222222,
+    "vx": 0,
+    "vy": 525.2800000000002,
+    "lives": 3
+   },
+   "gun": {
+    "hasGun": true,
+    "bullets": 3
+   },
+   "afterSpace": {
+    "bullets": 2,
+    "bulletSprites": 1
+   },
+   "paused": true
+  },
+  "mobile-touch-812x375": {
+   "browser": "158.0.8127.36",
+   "console": [],
+   "pageErrors": [],
+   "failedRequests": [],
+   "external": [
+    "200 http://fonts.googleapis.com/css?family=Jolly+Lodger",
+    "200 http://fonts.googleapis.com/css?family=Ubuntu",
+    "200 http://fonts.googleapis.com/css?family=Boogaloo",
+    "307 http://www.google-analytics.com/analytics.js",
+    "307 http://fonts.gstatic.com/s/jollylodger/v21/BXRsvFTAh_bGkA1uQ48dlB3lXuDS.woff2",
+    "307 http://fonts.gstatic.com/s/boogaloo/v25/kmK-Zq45GAvOdnaW6y1C9ys.woff2",
+    "200 https://fonts.gstatic.com/s/boogaloo/v25/kmK-Zq45GAvOdnaW6y1C9ys.woff2",
+    "200 https://fonts.gstatic.com/s/jollylodger/v21/BXRsvFTAh_bGkA1uQ48dlB3lXuDS.woff2",
+    "200 https://www.google-analytics.com/analytics.js"
+   ],
+   "touch": {
+    "touchDevice": true,
+    "qw": 812,
+    "qh": 375
+   },
+   "afterTap": "start",
+   "touchControls": {
+    "joypad": true,
+    "touchEnabled": true,
+    "keys": []
+   }
+  }
+ }
+}

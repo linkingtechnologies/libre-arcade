@@ -1,0 +1,51 @@
+{
+ "restored": "http://127.0.0.1:8768/",
+ "baseline": "http://127.0.0.1:8765/index.html",
+ "load": {
+  "console": [],
+  "pageErrors": [],
+  "failed": [],
+  "nonLocal": [],
+  "requests": 38,
+  "screen": "start",
+  "audio": {
+   "zombieMode": 24,
+   "playerBg": 32,
+   "zombieNotice": 0.9,
+   "gunShot": 0.24,
+   "collected": 0.29,
+   "playerHit": 0.43,
+   "humanCreated": 0.32
+  },
+  "canvas": {
+   "w": 1024,
+   "h": 763
+  },
+  "fonts": [
+   "Boogaloo",
+   "Jolly Lodger"
+  ],
+  "gaStub": "function"
+ },
+ "parity": {
+  "levels": "IDENTICAL",
+  "movement": "IDENTICAL",
+  "heal_and_reinfect": "IDENTICAL",
+  "zombie_contact_damage_and_zombie_mode": "IDENTICAL",
+  "zombie_ai_sight": "IDENTICAL",
+  "random_variants": "IDENTICAL",
+  "stars_formula_and_progress": "IDENTICAL"
+ },
+ "env": {
+  "baseline": {
+   "qwidth": 1024,
+   "qheight": 763,
+   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36"
+  },
+  "restored": {
+   "qwidth": 1024,
+   "qheight": 763,
+   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36"
+  }
+ }
+}

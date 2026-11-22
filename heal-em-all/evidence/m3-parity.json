@@ -1,0 +1,682 @@
+{
+ "viewports": {
+  "1024x768": {
+   "qsize": [
+    1024,
+    763
+   ],
+   "result": {
+    "P4_bullet_range": "IDENTICAL",
+    "P9_stars_and_progress": "IDENTICAL",
+    "P10_fall_and_out_of_map": "IDENTICAL",
+    "P11_key_door_completion": "IDENTICAL",
+    "P12_zombie_mode_controls": "IDENTICAL"
+   },
+   "original": {
+    "P4_bullet_range": {
+     "qwidth": 1024,
+     "half": 512,
+     "travelled": 513.333,
+     "frames": 44,
+     "spawnedAtDxFromPlayer": 15,
+     "bulletsWasted": 1
+    },
+    "P9_stars_and_progress": [
+     {
+      "level": 1,
+      "healed": 0,
+      "available": 4,
+      "stars": 1,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 2,
+      "available": 4,
+      "stars": 1,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 3,
+      "available": 4,
+      "stars": 2,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 1,
+      "available": 4,
+      "stars": 2,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 2,
+      "healed": 9,
+      "available": 10,
+      "stars": 3,
+      "availableLevel": 3,
+      "stored": "3",
+      "screen": "levelSummary for level2",
+      "scoreImgs": 3
+     },
+     {
+      "level": 3,
+      "healed": 4,
+      "available": 4,
+      "stars": 3,
+      "availableLevel": 4,
+      "stored": "4",
+      "screen": "levelSummary for level3",
+      "scoreImgs": 3
+     },
+     {
+      "level": 6,
+      "healed": 24,
+      "available": 24,
+      "stars": 3,
+      "availableLevel": 7,
+      "stored": "7",
+      "screen": "levelSummary for level6",
+      "scoreImgs": 3
+     }
+    ],
+    "P10_fall_and_out_of_map": [
+     [
+      "vy1200 flagged",
+      true,
+      "lives",
+      3
+     ],
+     [
+      "after landing",
+      "lives",
+      2,
+      "willBeDead",
+      false
+     ],
+     [
+      "out of map",
+      "lives",
+      2,
+      "->",
+      1,
+      "restoredToSaved",
+      false,
+      "savedBefore",
+      {
+       "x": 1750,
+       "y": 1015
+      }
+     ]
+    ],
+    "P11_key_door_completion": [
+     [
+      "door without key",
+      "opened",
+      false,
+      "label",
+      "I need the key",
+      "screen",
+      "level1"
+     ],
+     [
+      "up on closed door",
+      "level1"
+     ],
+     [
+      "key",
+      "hasKey",
+      true,
+      "keysLeft",
+      0
+     ],
+     [
+      "door with key",
+      "opened",
+      true,
+      "hasKey",
+      false,
+      "label",
+      "Nice! Now I need to 'jump' inside the door",
+      "sheet",
+      "door_open"
+     ],
+     [
+      "up on open door",
+      "levelSummary for level1",
+      "playerDestroyed",
+      true,
+      "summary",
+      {
+       "zombies": {
+        "healed": 0,
+        "available": 1
+       },
+       "health": {
+        "collected": 0,
+        "available": 1
+       },
+       "bullets": {
+        "waisted": 0,
+        "available": 0
+       },
+       "zombieModeFound": false
+      }
+     ]
+    ],
+    "P12_zombie_mode_controls": [
+     [
+      "zombie player",
+      true,
+      "label",
+      "I was bitten. I'm turning. Nooo!"
+     ],
+     [
+      "after intro",
+      "componentsOwnKeys",
+      [
+       "platformerControls"
+      ],
+      "playerHud",
+      true
+     ],
+     [
+      "moves right 30 frames",
+      "dx",
+      67.667,
+      "px/s",
+      135.333,
+      "speed",
+      140
+     ],
+     [
+      "jump vy",
+      -500,
+      "jumpSpeed",
+      -500,
+      "y0",
+      650
+     ],
+     [
+      "human touched by zombie player",
+      "humans",
+      0,
+      "zombies",
+      1,
+      "wasHuman",
+      [
+       false
+      ],
+      "humanDestroyed",
+      true
+     ]
+    ]
+   }
+  },
+  "1280x720": {
+   "qsize": [
+    1280,
+    715
+   ],
+   "result": {
+    "P4_bullet_range": "IDENTICAL",
+    "P9_stars_and_progress": "IDENTICAL",
+    "P10_fall_and_out_of_map": "IDENTICAL",
+    "P11_key_door_completion": "IDENTICAL",
+    "P12_zombie_mode_controls": "IDENTICAL"
+   },
+   "original": {
+    "P4_bullet_range": {
+     "qwidth": 1280,
+     "half": 640,
+     "travelled": 641.667,
+     "frames": 55,
+     "spawnedAtDxFromPlayer": 15,
+     "bulletsWasted": 1
+    },
+    "P9_stars_and_progress": [
+     {
+      "level": 1,
+      "healed": 0,
+      "available": 4,
+      "stars": 1,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 2,
+      "available": 4,
+      "stars": 1,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 3,
+      "available": 4,
+      "stars": 2,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 1,
+      "available": 4,
+      "stars": 2,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 2,
+      "healed": 9,
+      "available": 10,
+      "stars": 3,
+      "availableLevel": 3,
+      "stored": "3",
+      "screen": "levelSummary for level2",
+      "scoreImgs": 3
+     },
+     {
+      "level": 3,
+      "healed": 4,
+      "available": 4,
+      "stars": 3,
+      "availableLevel": 4,
+      "stored": "4",
+      "screen": "levelSummary for level3",
+      "scoreImgs": 3
+     },
+     {
+      "level": 6,
+      "healed": 24,
+      "available": 24,
+      "stars": 3,
+      "availableLevel": 7,
+      "stored": "7",
+      "screen": "levelSummary for level6",
+      "scoreImgs": 3
+     }
+    ],
+    "P10_fall_and_out_of_map": [
+     [
+      "vy1200 flagged",
+      true,
+      "lives",
+      3
+     ],
+     [
+      "after landing",
+      "lives",
+      2,
+      "willBeDead",
+      false
+     ],
+     [
+      "out of map",
+      "lives",
+      2,
+      "->",
+      1,
+      "restoredToSaved",
+      false,
+      "savedBefore",
+      {
+       "x": 1750,
+       "y": 1015
+      }
+     ]
+    ],
+    "P11_key_door_completion": [
+     [
+      "door without key",
+      "opened",
+      false,
+      "label",
+      "I need the key",
+      "screen",
+      "level1"
+     ],
+     [
+      "up on closed door",
+      "level1"
+     ],
+     [
+      "key",
+      "hasKey",
+      true,
+      "keysLeft",
+      0
+     ],
+     [
+      "door with key",
+      "opened",
+      true,
+      "hasKey",
+      false,
+      "label",
+      "Nice! Now I need to 'jump' inside the door",
+      "sheet",
+      "door_open"
+     ],
+     [
+      "up on open door",
+      "levelSummary for level1",
+      "playerDestroyed",
+      true,
+      "summary",
+      {
+       "zombies": {
+        "healed": 0,
+        "available": 1
+       },
+       "health": {
+        "collected": 0,
+        "available": 1
+       },
+       "bullets": {
+        "waisted": 0,
+        "available": 0
+       },
+       "zombieModeFound": false
+      }
+     ]
+    ],
+    "P12_zombie_mode_controls": [
+     [
+      "zombie player",
+      true,
+      "label",
+      "I was bitten. I'm turning. Nooo!"
+     ],
+     [
+      "after intro",
+      "componentsOwnKeys",
+      [
+       "platformerControls"
+      ],
+      "playerHud",
+      true
+     ],
+     [
+      "moves right 30 frames",
+      "dx",
+      67.667,
+      "px/s",
+      135.333,
+      "speed",
+      140
+     ],
+     [
+      "jump vy",
+      -500,
+      "jumpSpeed",
+      -500,
+      "y0",
+      650
+     ],
+     [
+      "human touched by zombie player",
+      "humans",
+      0,
+      "zombies",
+      1,
+      "wasHuman",
+      [
+       false
+      ],
+      "humanDestroyed",
+      true
+     ]
+    ]
+   }
+  },
+  "800x600": {
+   "qsize": [
+    800,
+    595
+   ],
+   "result": {
+    "P4_bullet_range": "IDENTICAL",
+    "P9_stars_and_progress": "IDENTICAL",
+    "P10_fall_and_out_of_map": "IDENTICAL",
+    "P11_key_door_completion": "IDENTICAL",
+    "P12_zombie_mode_controls": "IDENTICAL"
+   },
+   "original": {
+    "P4_bullet_range": {
+     "qwidth": 800,
+     "half": 400,
+     "travelled": 408.333,
+     "frames": 35,
+     "spawnedAtDxFromPlayer": 15,
+     "bulletsWasted": 1
+    },
+    "P9_stars_and_progress": [
+     {
+      "level": 1,
+      "healed": 0,
+      "available": 4,
+      "stars": 1,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 2,
+      "available": 4,
+      "stars": 1,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 3,
+      "available": 4,
+      "stars": 2,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 1,
+      "healed": 1,
+      "available": 4,
+      "stars": 2,
+      "availableLevel": 2,
+      "stored": "2",
+      "screen": "levelSummary for level1",
+      "scoreImgs": 3
+     },
+     {
+      "level": 2,
+      "healed": 9,
+      "available": 10,
+      "stars": 3,
+      "availableLevel": 3,
+      "stored": "3",
+      "screen": "levelSummary for level2",
+      "scoreImgs": 3
+     },
+     {
+      "level": 3,
+      "healed": 4,
+      "available": 4,
+      "stars": 3,
+      "availableLevel": 4,
+      "stored": "4",
+      "screen": "levelSummary for level3",
+      "scoreImgs": 3
+     },
+     {
+      "level": 6,
+      "healed": 24,
+      "available": 24,
+      "stars": 3,
+      "availableLevel": 7,
+      "stored": "7",
+      "screen": "levelSummary for level6",
+      "scoreImgs": 3
+     }
+    ],
+    "P10_fall_and_out_of_map": [
+     [
+      "vy1200 flagged",
+      true,
+      "lives",
+      3
+     ],
+     [
+      "after landing",
+      "lives",
+      2,
+      "willBeDead",
+      false
+     ],
+     [
+      "out of map",
+      "lives",
+      2,
+      "->",
+      1,
+      "restoredToSaved",
+      false,
+      "savedBefore",
+      {
+       "x": 1750,
+       "y": 1015
+      }
+     ]
+    ],
+    "P11_key_door_completion": [
+     [
+      "door without key",
+      "opened",
+      false,
+      "label",
+      "I need the key",
+      "screen",
+      "level1"
+     ],
+     [
+      "up on closed door",
+      "level1"
+     ],
+     [
+      "key",
+      "hasKey",
+      true,
+      "keysLeft",
+      0
+     ],
+     [
+      "door with key",
+      "opened",
+      true,
+      "hasKey",
+      false,
+      "label",
+      "Nice! Now I need to 'jump' inside the door",
+      "sheet",
+      "door_open"
+     ],
+     [
+      "up on open door",
+      "levelSummary for level1",
+      "playerDestroyed",
+      true,
+      "summary",
+      {
+       "zombies": {
+        "healed": 0,
+        "available": 1
+       },
+       "health": {
+        "collected": 0,
+        "available": 1
+       },
+       "bullets": {
+        "waisted": 0,
+        "available": 0
+       },
+       "zombieModeFound": false
+      }
+     ]
+    ],
+    "P12_zombie_mode_controls": [
+     [
+      "zombie player",
+      true,
+      "label",
+      "I was bitten. I'm turning. Nooo!"
+     ],
+     [
+      "after intro",
+      "componentsOwnKeys",
+      [
+       "platformerControls"
+      ],
+      "playerHud",
+      true
+     ],
+     [
+      "moves right 30 frames",
+      "dx",
+      67.667,
+      "px/s",
+      135.333,
+      "speed",
+      140
+     ],
+     [
+      "jump vy",
+      -500,
+      "jumpSpeed",
+      -500,
+      "y0",
+      650
+     ],
+     [
+      "human touched by zombie player",
+      "humans",
+      0,
+      "zombies",
+      1,
+      "wasHuman",
+      [
+       false
+      ],
+      "humanDestroyed",
+      true
+     ]
+    ]
+   }
+  }
+ }
+}

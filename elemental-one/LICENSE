@@ -1,0 +1,57 @@
+Elemental One (restored for Libre Arcade)
+
+This folder contains material under several licences. The MIT licence below
+covers the game code and Phaser; art, sounds and the font keep the licences
+named in CREDITS.md. Nothing here relicenses anything else.
+
+-------------------------------------------------------------------------------
+The MIT License (MIT)
+
+Applies to:
+  - Elemental One game code and level data (js/game.js, assets/tilemaps/*)
+      Copyright (c) 2014 Zaven Muradyan
+  - Phaser 1.1.3 (js/phaser.js)
+      Copyright (c) 2013 Photon Storm Ltd. (Richard Davey)
+  - Pixi.js 1.x code bundled inside Phaser 1.1.3
+      Copyright (c) 2013 Mat Groves
+  - PolyK, bundled inside Phaser 1.1.3 (see its header in js/phaser.js)
+      Copyright (c) 2012 Ivan Kuckir
+  - The Libre Arcade integration layer (index.html, css/arcade.css,
+    js/arcade.js, js/i18n.js)
+      Copyright (c) 2026 Libre Arcade contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-------------------------------------------------------------------------------
+Other licences that apply to files in this folder (full texts are linked, and
+the font's is included as fonts/OFL.txt):
+
+  - Jersey 10 font (fonts/Jersey10-Regular.ttf): SIL Open Font License 1.1,
+    see fonts/OFL.txt.
+  - Kenney sprites and tiles (assets/sprites/*, assets/tilesets/*,
+    assets/images/*): CC0 1.0, https://creativecommons.org/publicdomain/zero/1.0/
+  - assets/sounds/happy.mp3, happy.ogg: CC BY 3.0 (rezoner),
+    https://creativecommons.org/licenses/by/3.0/
+  - assets/sounds/water.wav (kurt), earth.wav (qubodup): CC BY 3.0
+  - assets/sounds/air.wav (remaxim): CC0 1.0
+  - assets/sounds/fire.wav, pickup.wav (p0ss): offered upstream as CC BY-SA 3.0,
+    GPL 3.0 or GPL 2.0; used here under CC BY-SA 3.0 / GPL 3.0,
+    https://creativecommons.org/licenses/by-sa/3.0/
+  - assets/sounds/jump.wav: synthesized for this restoration (tools/make-jump.mjs),
+    GPL-3.0-or-later, same as the Libre Arcade collection.

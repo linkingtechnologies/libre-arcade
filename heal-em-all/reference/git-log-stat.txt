@@ -1,0 +1,1135 @@
+--- 66950cd 2019-07-24 Clarify licensing and add GPL license (#1)
+
+ LICENSE   | 674 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ README.md |  20 +-
+ 2 files changed, 685 insertions(+), 9 deletions(-)
+--- e148bc5 2013-12-02 typo + google analytics
+
+ app/index.html                               | 23 +++++++++++------------
+ app/scripts/game.js                          |  2 +-
+ app/scripts/game/scenes/level_summary.coffee |  2 +-
+ 3 files changed, 13 insertions(+), 14 deletions(-)
+--- 2f8629d 2013-12-01 deploy
+
+ images/bg-blured.jpg                           | Bin 0 -> 97734 bytes
+ index.html                                     |  16 ++++++++--------
+ scripts/{a9a44f46.main.js => 28f9db37.main.js} |   4 ++--
+ 3 files changed, 10 insertions(+), 10 deletions(-)
+--- 0a49135 2013-12-01 fix typo
+
+ app/scripts/game.js                     | 4 ++--
+ app/scripts/game/scenes/controls.coffee | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+--- b08f690 2013-12-01 fix typo
+
+ app/scripts/game.js                            | 2 +-
+ app/scripts/game/sprites/hud/info_label.coffee | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+--- 1408cbd 2013-11-30 change domain from github to mine
+
+ app/images/bg-blured.jpg | Bin 0 -> 94164 bytes
+ app/index.html           |  14 +++++++-------
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+--- cce8bab 2013-11-30 deploy
+
+ images/bg-blured.jpg                            | Bin 97734 -> 0 bytes
+ images/bg.gif                                   | Bin 0 -> 44365 bytes
+ images/bg.png                                   | Bin 38445 -> 0 bytes
+ index.html                                      |   6 +++---
+ scripts/{75515a6c.main.js => a9a44f46.main.js}  |   2 +-
+ styles/{fc230a99.main.css => ae2f2a90.main.css} |   2 +-
+ 6 files changed, 5 insertions(+), 5 deletions(-)
+--- d0c2c41 2013-11-30 new bg
+
+ app/images/bg-blured.jpg     | Bin 94164 -> 0 bytes
+ app/images/bg.gif            | Bin 0 -> 44365 bytes
+ app/images/bg.png            | Bin 77135 -> 0 bytes
+ app/index.html               |   2 +-
+ app/scripts/game.js          |   3 +--
+ app/scripts/game/init.coffee |   1 -
+ app/styles/main.scss         |   2 +-
+ 7 files changed, 3 insertions(+), 5 deletions(-)
+--- 862bd74 2013-11-30 latest build
+
+ index.html                                     | 8 ++++----
+ scripts/{73192a0a.main.js => 75515a6c.main.js} | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+--- 4852f86 2013-11-30 add animation turning player to zombie
+
+ app/scripts/game.js                                | 23 +++++++++++++++-------
+ app/scripts/game/sprites/characters/player.coffee  |  3 +--
+ .../game/sprites/characters/zombie_player.coffee   | 21 ++++++++++++++------
+ 3 files changed, 32 insertions(+), 15 deletions(-)
+--- 58a621f 2013-11-30 fix typo
+
+ README.md                            | 2 +-
+ app/index.html                       | 6 +++---
+ app/scripts/game.js                  | 2 +-
+ app/scripts/game/scenes/start.coffee | 2 +-
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+--- 2636523 2013-11-30 change img src for promo
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+--- 3898ef5 2013-11-30 latest build
+
+ data/characters.json                           |  38 ++++++++++++-------------
+ data/others.json                               |   6 ++--
+ images/bg-blured.jpg                           | Bin 0 -> 97734 bytes
+ images/characters.png                          | Bin 41715 -> 35983 bytes
+ images/gradient.png                            | Bin 261731 -> 0 bytes
+ images/others.png                              | Bin 12583 -> 12769 bytes
+ images/promo.png                               | Bin 0 -> 255841 bytes
+ images/promo2.png                              | Bin 0 -> 169620 bytes
+ index.html                                     |   2 +-
+ scripts/{4c658ad5.main.js => 73192a0a.main.js} |   6 ++--
+ 10 files changed, 26 insertions(+), 26 deletions(-)
+--- 28b6324 2013-11-30 add images to readme
+
+ README.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+--- 3c7dd7f 2013-11-30 faster dead zombie animation
+
+ app/scripts/game.js                                    | 2 +-
+ app/scripts/game/sprites/characters/dead_zombie.coffee | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+--- e0e25d3 2013-11-30 new characters sprite, dead zombie animation
+
+ app/data/characters.json                           |  38 +++++-----
+ app/images/bg-blured.jpg                           | Bin 0 -> 94164 bytes
+ app/images/characters.png                          | Bin 118237 -> 103599 bytes
+ app/images/promo.png                               | Bin 0 -> 555547 bytes
+ app/images/promo2.png                              | Bin 0 -> 347885 bytes
+ app/scripts/game.js                                |  84 ++++++++++++++++-----
+ app/scripts/game/init.coffee                       |   4 +-
+ .../game/sprites/characters/dead_zombie.coffee     |  31 ++++++++
+ app/scripts/game/sprites/characters/player.coffee  |  16 ++--
+ app/scripts/game/sprites/characters/zombie.coffee  |  13 ++--
+ .../game/sprites/characters/zombie_player.coffee   |  10 ++-
+ 11 files changed, 138 insertions(+), 58 deletions(-)
+--- 38f611d 2013-11-30 finish with anaytics
+
+ app/scripts/game.js                            | 41 ++++++++++++++++----------
+ app/scripts/game/init.coffee                   | 39 ++++++++++++++++++++----
+ app/scripts/game/scenes/end.coffee             |  3 --
+ app/scripts/game/scenes/game_over.coffee       |  3 --
+ app/scripts/game/sprites/ui/menu_button.coffee |  2 +-
+ 5 files changed, 60 insertions(+), 28 deletions(-)
+--- c95073b 2013-11-30 fix stars sprite
+
+ app/data/others.json         |   6 +++---
+ app/images/gradient.png      | Bin 279831 -> 0 bytes
+ app/images/others.png        | Bin 26248 -> 26264 bytes
+ app/scripts/game/init.coffee |   2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+--- 8e24bc3 2013-11-30 track game events and stats
+
+ app/scripts/game.js                             | 52 +++++++++++++++++--------
+ app/scripts/game/init.coffee                    | 24 ++++++++++--
+ app/scripts/game/scenes/end.coffee              |  4 +-
+ app/scripts/game/scenes/game_over.coffee        |  3 ++
+ app/scripts/game/scenes/level_summary.coffee    | 10 +++++
+ app/scripts/game/sprites/ui/audio_button.coffee |  4 ++
+ app/scripts/game/sprites/ui/level_button.coffee |  3 ++
+ app/scripts/game/sprites/ui/menu_button.coffee  |  2 +
+ app/scripts/game/sprites/ui/pause_button.coffee |  4 ++
+ 9 files changed, 83 insertions(+), 23 deletions(-)
+--- d848ca3 2013-11-30 latest build
+
+ data/bullet.json                               |  10 +++++++++
+ data/others.json                               |  22 +++++++++++++++++---
+ images/bullet.png                              | Bin 0 -> 589 bytes
+ images/characters.png                          | Bin 34931 -> 41715 bytes
+ images/gradient-top.png                        | Bin 0 -> 3630 bytes
+ index.html                                     |  27 ++++++++++++++++---------
+ scripts/{fc3c6318.main.js => 4c658ad5.main.js} |   6 +++---
+ styles/01c13188.main.css                       |   1 -
+ styles/fc230a99.main.css                       |   1 +
+ 9 files changed, 51 insertions(+), 16 deletions(-)
+--- ee26799 2013-11-30 display stars on select level screen
+
+ app/data/others.json                               |  4 +-
+ app/scripts/game.js                                | 44 +++++++++++++++++++---
+ app/scripts/game/scenes/level_select.coffee        | 30 +++++++++++++--
+ .../game/sprites/ui/level_score_img_small.coffee   |  8 ++++
+ 4 files changed, 76 insertions(+), 10 deletions(-)
+--- 2b15aff 2013-11-30 display stars in level summary and save to localStorage
+
+ app/data/others.json                               | 20 +++++-
+ app/scripts/game.js                                | 79 +++++++++++++++++++---
+ app/scripts/game/init.coffee                       |  6 +-
+ app/scripts/game/scenes/level_summary.coffee       | 60 ++++++++++++++--
+ app/scripts/game/sprites/ui/level_score_img.coffee | 12 ++++
+ 5 files changed, 156 insertions(+), 21 deletions(-)
+--- dae8d09 2013-11-30 Characters update
+
+ app/images/characters.png | Bin 98377 -> 118237 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+--- 7d1438a 2013-11-29 better gradient
+
+ app/images/gradient-top.png                         | Bin 39763 -> 10506 bytes
+ app/scripts/game.js                                 |  13 +++++++++----
+ app/scripts/game/sprites/hud/linear_gradient.coffee |  12 ++++++++----
+ 3 files changed, 17 insertions(+), 8 deletions(-)
+--- 803daca 2013-11-29 add linear gradient as bg for hud
+
+ .../{zombie-radial-top.png => gradient-top.png}    | Bin
+ app/scripts/game.js                                |  35 +++++++++++++++++++--
+ app/scripts/game/init.coffee                       |   2 ++
+ app/scripts/game/scenes/hud.coffee                 |  12 +++++--
+ .../game/sprites/hud/linear_gradient.coffee        |  11 +++++++
+ 5 files changed, 56 insertions(+), 4 deletions(-)
+--- a2f61fa 2013-11-29 add authors and some met tags
+
+ app/images/zombie-radial-top.png            | Bin 0 -> 39763 bytes
+ app/index.html                              |  11 +++++++---
+ app/scripts/game.js                         |  30 ++++++++++++++++++++++++----
+ app/scripts/game/scenes/level_select.coffee |   9 ++++++---
+ app/scripts/game/scenes/start.coffee        |   3 +++
+ app/scripts/game/sprites/ui/authors.coffee  |  13 ++++++++++++
+ 6 files changed, 56 insertions(+), 10 deletions(-)
+--- 5a3fb40 2013-11-29 zombie player changes humans to zombies too
+
+ app/scripts/game.js                                      | 12 +++++++++---
+ app/scripts/game/sprites/characters/human.coffee         |  7 ++++++-
+ app/scripts/game/sprites/characters/zombie_player.coffee |  2 +-
+ 3 files changed, 16 insertions(+), 5 deletions(-)
+--- d44b8e6 2013-11-29 add bullet animation
+
+ app/data/bullet.json                         | 10 ++++++++++
+ app/scripts/game.js                          | 26 ++++++++++++++++++--------
+ app/scripts/game/init.coffee                 |  3 +++
+ app/scripts/game/load.coffee                 |  1 +
+ app/scripts/game/sprites/items/bullet.coffee | 21 +++++++++++++--------
+ 5 files changed, 45 insertions(+), 16 deletions(-)
+--- 10d8250 2013-11-29 some design for loader
+
+ app/images/bullet.png | Bin 0 -> 597 bytes
+ app/index.html        |  12 ++++++----
+ app/styles/main.scss  |  60 +++++++++++++++++++++++++++++++++++++++++++++-----
+ 3 files changed, 62 insertions(+), 10 deletions(-)
+--- 07ac8d1 2013-11-29 latest version
+
+ data/hud.json                                  |  78 +++++++++++++++++++------
+ data/others.json                               |  50 ++++++++++++++++
+ images/gradient.png                            | Bin 0 -> 261731 bytes
+ images/hud.png                                 | Bin 6402 -> 8601 bytes
+ images/others.png                              | Bin 0 -> 12583 bytes
+ index.html                                     |   2 +-
+ scripts/{14a4b438.main.js => fc3c6318.main.js} |   6 +-
+ 7 files changed, 115 insertions(+), 21 deletions(-)
+--- c535a5b 2013-11-29 you die in 2nd zombie mode
+
+ app/scripts/game.js                                | 56 ++++++++++++++++++++++
+ app/scripts/game/init.coffee                       |  4 ++
+ app/scripts/game/scenes/game_over.coffee           | 45 +++++++++++++++++
+ app/scripts/game/sprites/characters/player.coffee  |  8 ++--
+ .../game/sprites/characters/zombie_player.coffee   |  2 +
+ 5 files changed, 112 insertions(+), 3 deletions(-)
+--- 4eb9054 2013-11-29 readme updated
+
+ README.md | 7 +++++++
+ 1 file changed, 7 insertions(+)
+--- c09bf95 2013-11-29 adjust position of counters in hud
+
+ app/scripts/game.js                                 | 4 ++--
+ app/scripts/game/sprites/hud/bullets_counter.coffee | 2 +-
+ app/scripts/game/sprites/hud/health_counter.coffee  | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+--- e63df4d 2013-11-29 change hud in zombie mode
+
+ app/scripts/game.js                                      | 16 ++++++++++++++--
+ app/scripts/game/scenes/hud.coffee                       |  4 ++--
+ app/scripts/game/sprites/characters/zombie_player.coffee |  3 +++
+ app/scripts/game/sprites/hud/health_img.coffee           |  3 +++
+ app/scripts/game/sprites/hud/player_avatar.coffee        |  6 ++++++
+ 5 files changed, 28 insertions(+), 4 deletions(-)
+--- 764a8d3 2013-11-29 use new hud sprite
+
+ app/data/hud.json                              |  74 +++++++++++++++++--------
+ app/images/hud-sprite.png                      | Bin 20499 -> 0 bytes
+ app/images/hud.png                             | Bin 38001 -> 20577 bytes
+ app/scripts/game.js                            |   2 +-
+ app/scripts/game/sprites/ui/menu_button.coffee |   2 +-
+ 5 files changed, 53 insertions(+), 25 deletions(-)
+--- 4b8905c 2013-11-29 add new sprite for other elements
+
+ app/data/hud.json            |  48 -----------------------------------------
+ app/data/others.json         |  50 +++++++++++++++++++++++++++++++++++++++++++
+ app/images/hud-sprite.png    | Bin 0 -> 20499 bytes
+ app/images/others.png        | Bin 0 -> 26248 bytes
+ app/scripts/game.js          |   5 +++++
+ app/scripts/game/init.coffee |   3 +++
+ app/scripts/game/load.coffee |   1 +
+ 7 files changed, 59 insertions(+), 48 deletions(-)
+--- 68e3f0a 2013-11-29 fix showing end screen
+
+ app/scripts/game.js                          | 9 +++++----
+ app/scripts/game/init.coffee                 | 7 +------
+ app/scripts/game/scenes/level_summary.coffee | 5 +++++
+ 3 files changed, 11 insertions(+), 10 deletions(-)
+--- 1af3f76 2013-11-29 level summary and end screen
+
+ app/scripts/game.js                          | 127 +++++++++++++++++----------
+ app/scripts/game/scenes/end.coffee           |  33 ++++---
+ app/scripts/game/scenes/level_summary.coffee | 101 +++++++++++++--------
+ 3 files changed, 164 insertions(+), 97 deletions(-)
+--- 9cc6b17 2013-11-29 add controls screen
+
+ README.md                                       |  15 ++-
+ app/data/hud.json                               |  24 +++++
+ app/images/gradient.png                         | Bin 0 -> 279831 bytes
+ app/images/hud.png                              | Bin 26516 -> 38001 bytes
+ app/scripts/game.js                             | 130 +++++++++++++++++++++++-
+ app/scripts/game/init.coffee                    |   4 +
+ app/scripts/game/scenes/controls.coffee         | 127 +++++++++++++++++++++++
+ app/scripts/game/sprites/ui/level_button.coffee |   5 +-
+ 8 files changed, 301 insertions(+), 4 deletions(-)
+--- cbba397 2013-11-29 add design for level select screen
+
+ app/data/hud.json                               |  40 +++++++++++++++++++
+ app/images/hud.png                              | Bin 13558 -> 26516 bytes
+ app/scripts/game.js                             |  49 ++++++++++++++----------
+ app/scripts/game/init.coffee                    |   4 +-
+ app/scripts/game/scenes/level_select.coffee     |  19 ++++-----
+ app/scripts/game/sprites/ui/audio_button.coffee |  16 ++++----
+ app/scripts/game/sprites/ui/level_button.coffee |  13 ++++++-
+ 7 files changed, 101 insertions(+), 40 deletions(-)
+--- 4a87b47 2013-11-28 shorter audio files
+
+ audio/player_bg.mp3 | Bin 1327855 -> 616070 bytes
+ audio/player_bg.ogg | Bin 1132945 -> 552292 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+--- 8c9041a 2013-11-28 lower music file
+
+ app/audio/player_bg.mp3 | Bin 1327855 -> 616070 bytes
+ app/audio/player_bg.ogg | Bin 1132945 -> 552292 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+--- e7d7d6c 2013-11-28 fix css fonts
+
+ index.html | 5 +++++
+ 1 file changed, 5 insertions(+)
+--- d54f0b0 2013-11-28 do not build css with fonts
+
+ app/index.html | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+--- 001a72a 2013-11-28 latest version
+
+ data/hud.json                                  |  66 +++++
+ data/items.json                                |  46 ++--
+ data/level1.tmx                                |  49 ++--
+ data/level2.tmx                                |  40 +--
+ data/level3.tmx                                | 113 ++++----
+ data/level4.tmx                                | 354 ++++++++++++-------------
+ data/level5.tmx                                | 354 ++++++++++++-------------
+ data/level6.tmx                                | 354 ++++++++++++-------------
+ images/hud.png                                 | Bin 0 -> 6402 bytes
+ images/human.png                               | Bin 7882 -> 0 bytes
+ images/items.png                               | Bin 4323 -> 5174 bytes
+ images/map_tiles.png                           | Bin 6758 -> 7851 bytes
+ images/player.png                              | Bin 4615 -> 0 bytes
+ images/zombie.png                              | Bin 4473 -> 0 bytes
+ index.html                                     |   4 +-
+ scripts/{83ac076f.main.js => 14a4b438.main.js} |   7 +-
+ 16 files changed, 726 insertions(+), 661 deletions(-)
+--- d705fa4 2013-11-28 design for start screen
+
+ app/scripts/game.js                  | 51 +++++++++++++++++++---------------
+ app/scripts/game/scenes/start.coffee | 54 +++++++++++++++++++-----------------
+ app/scripts/lib/quintus-all.js       |  2 +-
+ 3 files changed, 59 insertions(+), 48 deletions(-)
+--- c8fa4b2 2013-11-28 add pause and settings buttons
+
+ app/data/hud.json                               | 25 ++++---
+ app/scripts/game.js                             | 95 +++++++++++++++++++------
+ app/scripts/game/audio_manager.coffee           | 20 ++++--
+ app/scripts/game/init.coffee                    |  5 +-
+ app/scripts/game/scenes/hud.coffee              | 11 +--
+ app/scripts/game/scenes/level_select.coffee     |  5 ++
+ app/scripts/game/sprites/ui/menu_button.coffee  | 14 ++++
+ app/scripts/game/sprites/ui/pause_button.coffee | 28 +++++---
+ app/scripts/lib/quintus-all.js                  |  8 ++-
+ 9 files changed, 149 insertions(+), 62 deletions(-)
+--- 3fef9eb 2013-11-28 add key inventory to hid
+
+ app/data/hud.json                                 | 22 +++++++-------
+ app/scripts/game.js                               | 36 +++++++++++++++++++++--
+ app/scripts/game/init.coffee                      |  2 ++
+ app/scripts/game/scenes/hud.coffee                | 10 ++++++-
+ app/scripts/game/sprites/hud/inventory_key.coffee | 16 ++++++++++
+ 5 files changed, 72 insertions(+), 14 deletions(-)
+--- c37e507 2013-11-28 add hud, part 1
+
+ app/data/hud.json                                  |  67 ++++++
+ app/images/hud.png                                 | Bin 0 -> 13558 bytes
+ app/scripts/game.js                                | 233 ++++++++++++++++-----
+ app/scripts/game/init.coffee                       |   5 +-
+ app/scripts/game/load.coffee                       |   1 +
+ app/scripts/game/scenes/hud.coffee                 |  71 +++++--
+ .../game/sprites/hud/bullets_counter.coffee        |  15 +-
+ app/scripts/game/sprites/hud/bullets_img.coffee    |   9 +
+ app/scripts/game/sprites/hud/enemies_avatar.coffee |  12 ++
+ .../game/sprites/hud/enemies_counter.coffee        |  13 +-
+ app/scripts/game/sprites/hud/health_counter.coffee |  18 ++
+ app/scripts/game/sprites/hud/health_img.coffee     |   8 +
+ app/scripts/game/sprites/hud/info_label.coffee     |  30 ++-
+ app/scripts/game/sprites/hud/lives_counter.coffee  |  16 --
+ app/scripts/game/sprites/hud/player_avatar.coffee  |  12 ++
+ 15 files changed, 395 insertions(+), 115 deletions(-)
+--- a7cbf3a 2013-11-28 add radial gradient but not good performance
+
+ app/index.html                                     |   2 +
+ app/scripts/game.js                                | 290 +++++++++++----------
+ app/scripts/game/scenes/hud.coffee                 |   4 +
+ .../sprites/{ui => hud}/bullets_counter.coffee     |   0
+ .../sprites/{ui => hud}/enemies_counter.coffee     |   0
+ .../game/sprites/{ui => hud}/info_label.coffee     |   0
+ .../game/sprites/{ui => hud}/lives_counter.coffee  |   0
+ .../game/sprites/hud/radial_gradient.coffee        |  21 ++
+ 8 files changed, 186 insertions(+), 131 deletions(-)
+--- 76ecf4a 2013-11-28 fix maps for few levels
+
+ app/data/level2.tmx |  40 +++---
+ app/data/level3.tmx | 113 +++++++++--------
+ app/data/level4.tmx | 350 ++++++++++++++++++++++++++--------------------------
+ 3 files changed, 250 insertions(+), 253 deletions(-)
+--- f4d5ff7 2013-11-28 new helth item desin
+
+ README.md                            |   9 +++++++--
+ app/data/items.json                  |   8 ++++----
+ app/images/items.png                 | Bin 9772 -> 8986 bytes
+ app/images/map_tiles.png             | Bin 14105 -> 14147 bytes
+ app/index.html                       |   2 +-
+ app/scripts/game.js                  |   5 +++--
+ app/scripts/game/scenes/start.coffee |   3 ++-
+ 7 files changed, 17 insertions(+), 10 deletions(-)
+--- 01617f5 2013-11-26 disable touch controls outside of level scenes
+
+ app/scripts/game.js          | 5 +++--
+ app/scripts/game/init.coffee | 5 +++--
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+--- b83572d 2013-11-26 add end screen, when last level finished
+
+ app/scripts/game.js                          | 146 ++++++++++++++++++---------
+ app/scripts/game/init.coffee                 |  12 ++-
+ app/scripts/game/scenes/end.coffee           |  44 ++------
+ app/scripts/game/scenes/level_summary.coffee |  73 ++++++++++++++
+ 4 files changed, 188 insertions(+), 87 deletions(-)
+--- 6bd6c72 2013-11-26 add gun on the first level
+
+ app/scripts/game.js                                | 123 +++++++++++----------
+ app/scripts/game/scenes/level1.coffee              |   2 +-
+ app/scripts/game/sprites/{ => items}/bullet.coffee |   0
+ app/scripts/game/sprites/items/gun.coffee          |   2 +
+ app/scripts/game/sprites/items/heart.coffee        |   2 +
+ app/scripts/game/sprites/items/key.coffee          |  16 +++
+ 6 files changed, 87 insertions(+), 58 deletions(-)
+--- 3ed46a9 2013-11-26 fix exit sign position
+
+ app/scripts/game.js                             | 3 ++-
+ app/scripts/game/sprites/items/exit_sign.coffee | 2 ++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+--- fc60382 2013-11-26 new items sprite
+
+ app/data/items.json                        |  46 ++++++------
+ app/images/human.png                       | Bin 27229 -> 0 bytes
+ app/images/items.png                       | Bin 10453 -> 9772 bytes
+ app/images/player.png                      | Bin 14112 -> 0 bytes
+ app/images/sprite-items.png                | Bin 14864 -> 0 bytes
+ app/images/zombie.png                      | Bin 10406 -> 0 bytes
+ app/scripts/game.js                        | 111 ++++++++++++++---------------
+ app/scripts/game/scenes/level2.coffee      |   1 -
+ app/scripts/game/scenes/level3.coffee      |   6 +-
+ app/scripts/game/scenes/level4.coffee      |  40 +++++------
+ app/scripts/game/scenes/level5.coffee      |  40 +++++------
+ app/scripts/game/scenes/level6.coffee      |  40 +++++------
+ app/scripts/game/sprites/items/door.coffee |   2 +
+ 13 files changed, 142 insertions(+), 144 deletions(-)
+--- eb0bab7 2013-11-26 add start screen, add new signs to tiles and few levels
+
+ app/data/level1.tmx                                |  49 +--
+ app/data/level4.tmx                                |   4 +-
+ app/data/level5.tmx                                | 354 ++++++++++-----------
+ app/data/level6.tmx                                | 354 ++++++++++-----------
+ app/images/map_tiles.png                           | Bin 14742 -> 14105 bytes
+ app/images/sprite-items.png                        | Bin 0 -> 14864 bytes
+ app/scripts/game.js                                | 118 +++----
+ app/scripts/game/init.coffee                       |   4 +-
+ app/scripts/game/load.coffee                       |   2 +-
+ .../game/scenes/{stats.coffee => hud.coffee}       |   2 +-
+ app/scripts/game/scenes/level1.coffee              |   1 -
+ app/scripts/game/scenes/start.coffee               |  57 ++--
+ 12 files changed, 478 insertions(+), 467 deletions(-)
+--- 286aece 2013-11-25 latest version
+
+ index.html                                     | 2 +-
+ scripts/{550977b2.main.js => 83ac076f.main.js} | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+--- 6bf2697 2013-11-25 improve number of bullets, set different number per level
+
+ app/scripts/game.js                       | 87 ++++++++++++++++++++++++-------
+ app/scripts/game/components/gun.coffee    | 17 +++---
+ app/scripts/game/init.coffee              |  4 +-
+ app/scripts/game/scenes/level2.coffee     |  2 +-
+ app/scripts/game/scenes/level3.coffee     |  2 +-
+ app/scripts/game/scenes/level4.coffee     |  9 ++--
+ app/scripts/game/scenes/level5.coffee     |  9 ++--
+ app/scripts/game/scenes/level6.coffee     |  9 ++--
+ app/scripts/game/sprites/items/gun.coffee |  6 +++
+ 9 files changed, 103 insertions(+), 42 deletions(-)
+--- 9f41abc 2013-11-25 add real level summary numbers
+
+ app/scripts/game.js                                | 74 ++++++++++++++--------
+ app/scripts/game/init.coffee                       | 28 ++++----
+ app/scripts/game/scenes/level1.coffee              |  4 ++
+ app/scripts/game/scenes/level2.coffee              |  4 ++
+ app/scripts/game/scenes/level3.coffee              |  3 +
+ app/scripts/game/scenes/level4.coffee              |  3 +
+ app/scripts/game/scenes/level5.coffee              |  3 +
+ app/scripts/game/scenes/level6.coffee              |  3 +
+ app/scripts/game/sprites/bullet.coffee             | 13 +++-
+ .../game/sprites/characters/zombie_player.coffee   |  2 +-
+ app/scripts/game/sprites/items/door.coffee         |  4 ++
+ app/scripts/game/sprites/items/heart.coffee        |  2 +
+ 12 files changed, 100 insertions(+), 43 deletions(-)
+--- 3712658 2013-11-25 prepare place for level summary, fake data so far
+
+ app/scripts/game.js                | 85 +++++++++++++++++++++++++++++++-------
+ app/scripts/game/init.coffee       | 14 ++++++-
+ app/scripts/game/scenes/end.coffee | 78 +++++++++++++++++++++++++---------
+ 3 files changed, 141 insertions(+), 36 deletions(-)
+--- 0ee621b 2013-11-25 adjust bullet start position to latest graphics
+
+ app/scripts/game.js                    | 10 +++++-----
+ app/scripts/game/components/gun.coffee |  6 +++---
+ app/scripts/game/sprites/bullet.coffee |  4 ++--
+ 3 files changed, 10 insertions(+), 10 deletions(-)
+--- a527a78 2013-11-25 latest version
+
+ data/characters.json     |   42 +
+ data/human.json          |   10 -
+ data/level1.tmx          | 8155 +---------------------------------------
+ data/level2.tmx          | 8197 +---------------------------------------
+ data/level3.tmx          | 3178 ++++++++++++++++
+ data/level4.tmx          | 9304 +++++++++++++++++++++++++++++++++++++++++++++
+ data/level5.tmx          | 9324 +++++++++++++++++++++++++++++++++++++++++++++
+ data/level6.tmx          | 9364 ++++++++++++++++++++++++++++++++++++++++++++++
+ data/player.json         |   10 -
+ data/zombie.json         |   10 -
+ images/characters.png    |  Bin 0 -> 34931 bytes
+ images/map_tiles.png     |  Bin 6393 -> 6758 bytes
+ index.html               |    2 +-
+ scripts/550977b2.main.js |    3 +
+ scripts/8835d49a.main.js |    3 -
+ 15 files changed, 31373 insertions(+), 16229 deletions(-)
+--- 38c3fc5 2013-11-25 save progress to local storage
+
+ app/scripts/game.js                        | 19 ++++++++++++-------
+ app/scripts/game/init.coffee               | 10 ++++++++--
+ app/scripts/game/scenes/end.coffee         |  6 +++---
+ app/scripts/game/sprites/items/door.coffee |  5 +----
+ 4 files changed, 24 insertions(+), 16 deletions(-)
+--- fa7a0fc 2013-11-25 store progress in game, enable next level when previous is finished
+
+ app/scripts/game.js                             | 40 +++++++++++++++++--------
+ app/scripts/game/init.coffee                    | 17 +++++++----
+ app/scripts/game/scenes/end.coffee              |  7 ++++-
+ app/scripts/game/scenes/level_select.coffee     |  3 ++
+ app/scripts/game/sprites/items/door.coffee      |  4 ++-
+ app/scripts/game/sprites/ui/level_button.coffee |  8 +++--
+ 6 files changed, 57 insertions(+), 22 deletions(-)
+--- 610e914 2013-11-25 add zombie attack animation when audio plays, fix taking gun animation when jumping
+
+ app/scripts/game.js                          | 2 ++
+ app/scripts/game/components/gun.coffee       | 1 +
+ app/scripts/game/components/zombie_ai.coffee | 1 +
+ 3 files changed, 4 insertions(+)
+--- 61fcb1d 2013-11-25 improve animations a bit
+
+ app/scripts/game.js                              | 4 ++--
+ app/scripts/game/sprites/characters/human.coffee | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+--- 8f7bb6d 2013-11-25 new animations
+
+ app/data/characters.json                           |  42 ++++++
+ app/data/human.json                                |  10 --
+ app/data/player.json                               |  10 --
+ app/data/zombie.json                               |  10 --
+ app/images/characters.png                          | Bin 0 -> 98377 bytes
+ app/scripts/game.js                                | 159 ++++++++++++---------
+ app/scripts/game/components/gun.coffee             |   4 +
+ app/scripts/game/components/zombie_ai.coffee       |   7 +-
+ app/scripts/game/init.coffee                       |  12 +-
+ app/scripts/game/load.coffee                       |   5 +-
+ app/scripts/game/sprites/characters/human.coffee   |  43 +++---
+ app/scripts/game/sprites/characters/player.coffee  |  51 +++++--
+ app/scripts/game/sprites/characters/zombie.coffee  |  29 ++--
+ .../game/sprites/characters/zombie_player.coffee   |  14 +-
+ 14 files changed, 232 insertions(+), 164 deletions(-)
+--- e06f567 2013-11-24 fix level 3
+
+ app/data/level3.tmx                   | 74 +++++++++++++++++------------------
+ app/scripts/game.js                   |  7 ++--
+ app/scripts/game/scenes/end.coffee    |  1 +
+ app/scripts/game/scenes/level3.coffee | 10 ++---
+ 4 files changed, 47 insertions(+), 45 deletions(-)
+--- 51f9a38 2013-11-24 add level 6
+
+ app/scripts/game.js                   | 38 ++++++++++++++++++++++++++++-------
+ app/scripts/game/scenes/level6.coffee | 32 ++++++++++++++++++++---------
+ 2 files changed, 53 insertions(+), 17 deletions(-)
+--- 672c1ca 2013-11-24 finish level 4 and 5
+
+ app/scripts/game.js                   | 188 ++++++++++++++++++++++++++++++++--
+ app/scripts/game/scenes/level4.coffee |  32 +++---
+ app/scripts/game/scenes/level5.coffee | 119 +++++++++++++++++++++
+ app/scripts/game/scenes/level6.coffee | 115 +++++++++++++++++++++
+ 4 files changed, 427 insertions(+), 27 deletions(-)
+--- 3c08295 2013-11-24 add level 3
+
+ app/scripts/game.js                         | 62 ++++++++++++++++++++++-
+ app/scripts/game/scenes/level3.coffee       | 77 +++++++++++++++++++++++++++++
+ app/scripts/game/scenes/level_select.coffee |  2 +-
+ 3 files changed, 139 insertions(+), 2 deletions(-)
+--- b7b3110 2013-11-24 fix bug with dying zombie + add randomnez to level2
+
+ app/scripts/game.js                               | 28 +++++++++++++++--------
+ app/scripts/game/components/zombie_ai.coffee      |  3 ---
+ app/scripts/game/scenes/level2.coffee             | 14 ++++++++++--
+ app/scripts/game/sprites/characters/zombie.coffee |  6 ++---
+ 4 files changed, 34 insertions(+), 17 deletions(-)
+--- e7d38aa 2013-11-24 more or less finish two first levels
+
+ app/data/level1.tmx                         | 8155 +----------------------
+ app/data/level2.tmx                         | 8197 +----------------------
+ app/data/level3.tmx                         | 3178 +++++++++
+ app/data/level4.tmx                         | 9304 ++++++++++++++++++++++++++
+ app/data/level5.tmx                         | 9324 ++++++++++++++++++++++++++
+ app/data/level6.tmx                         | 9364 +++++++++++++++++++++++++++
+ app/images/map_tiles.png                    |  Bin 13943 -> 14742 bytes
+ app/scripts/game.js                         |  132 +-
+ app/scripts/game/audio_manager.coffee       |    2 +-
+ app/scripts/game/init.coffee                |   15 +
+ app/scripts/game/load.coffee                |    2 +-
+ app/scripts/game/scenes/end.coffee          |    2 +-
+ app/scripts/game/scenes/level1.coffee       |   79 +-
+ app/scripts/game/scenes/level2.coffee       |   81 +-
+ app/scripts/game/scenes/level4.coffee       |  115 +
+ app/scripts/game/scenes/level_select.coffee |    3 +
+ app/scripts/game/sprites/items/door.coffee  |    2 +-
+ 17 files changed, 31554 insertions(+), 16401 deletions(-)
+--- 69bba87 2013-11-24 fix quintus touch keys area
+
+ app/scripts/lib/quintus-all.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+--- bf280ca 2013-11-24 add level select screen
+
+ app/scripts/game.js                             | 86 +++++++++++++++++++++++--
+ app/scripts/game/audio_manager.coffee           |  2 +-
+ app/scripts/game/init.coffee                    | 14 ++--
+ app/scripts/game/load.coffee                    |  5 +-
+ app/scripts/game/scenes/level_select.coffee     | 55 ++++++++++++++++
+ app/scripts/game/sprites/ui/level_button.coffee | 12 ++++
+ app/scripts/lib/quintus-all.js                  |  2 +-
+ 7 files changed, 160 insertions(+), 16 deletions(-)
+--- 058f11e 2013-11-23 fix bug when player dies by falling out of map
+
+ app/scripts/game.js                               | 28 +++++++++++++++++------
+ app/scripts/game/sprites/characters/player.coffee | 24 +++++++++++++------
+ 2 files changed, 38 insertions(+), 14 deletions(-)
+--- 2a158e1 2013-11-23 use Q.state to store info about collected items: key and gun
+
+ app/scripts/game.js                                | 25 +++++++++++++---------
+ app/scripts/game/components/gun.coffee             |  3 +--
+ app/scripts/game/init.coffee                       |  6 ++++--
+ app/scripts/game/sprites/characters/player.coffee  |  9 ++++----
+ .../game/sprites/characters/zombie_player.coffee   |  2 ++
+ app/scripts/game/sprites/items/door.coffee         |  4 ++--
+ app/scripts/game/sprites/items/gun.coffee          |  1 +
+ app/scripts/game/sprites/items/key.coffee          |  2 +-
+ 8 files changed, 31 insertions(+), 21 deletions(-)
+--- 2bf704c 2013-11-23 fix mute, disable all sounds
+
+ app/scripts/game.js                             | 157 +++++++++++++++---------
+ app/scripts/game/audio_manager.coffee           |  12 +-
+ app/scripts/game/scenes/stats.coffee            |  64 +---------
+ app/scripts/game/sprites/ui/audio_button.coffee |  27 ++++
+ app/scripts/game/sprites/ui/pause_button.coffee |  41 +++++++
+ app/scripts/lib/quintus-all.js                  |   6 +-
+ 6 files changed, 187 insertions(+), 120 deletions(-)
+--- cfd30c2 2013-11-23 latest version with audio
+
+ audio/collected.mp3                            | Bin 0 -> 25004 bytes
+ audio/collected.ogg                            | Bin 0 -> 21876 bytes
+ audio/gun_shot.mp3                             | Bin 0 -> 38921 bytes
+ audio/gun_shot.ogg                             | Bin 0 -> 37322 bytes
+ audio/human_created.mp3                        | Bin 0 -> 50635 bytes
+ audio/human_created.ogg                        | Bin 0 -> 40352 bytes
+ audio/missing_audio.txt                        |  12 ++++++++++++
+ audio/player_bg.mp3                            | Bin 0 -> 1327855 bytes
+ audio/player_bg.ogg                            | Bin 0 -> 1132945 bytes
+ audio/player_hit.mp3                           | Bin 0 -> 13539 bytes
+ audio/player_hit.ogg                           | Bin 0 -> 10493 bytes
+ audio/zombie_mode.mp3                          | Bin 0 -> 312960 bytes
+ audio/zombie_mode.ogg                          | Bin 0 -> 189430 bytes
+ audio/zombie_notice.mp3                        | Bin 0 -> 25494 bytes
+ audio/zombie_notice.ogg                        | Bin 0 -> 28784 bytes
+ images/bg.png                                  | Bin 38014 -> 38445 bytes
+ images/human.png                               | Bin 7599 -> 7882 bytes
+ images/items.png                               | Bin 4375 -> 4323 bytes
+ images/map_tiles.png                           | Bin 6348 -> 6393 bytes
+ images/player.png                              | Bin 4179 -> 4615 bytes
+ images/zombie.png                              | Bin 4391 -> 4473 bytes
+ index.html                                     |  16 ++++++++--------
+ scripts/{9d368bbc.main.js => 8835d49a.main.js} |   6 +++---
+ 23 files changed, 23 insertions(+), 11 deletions(-)
+--- 8e98f70 2013-11-23 add basic analytics
+
+ Gruntfile.js   |  1 +
+ app/index.html | 14 +++++++-------
+ 2 files changed, 8 insertions(+), 7 deletions(-)
+--- 20cd3f6 2013-11-23 new audio for human created
+
+ app/audio/human_created.mp3 | Bin 53915 -> 50635 bytes
+ app/audio/human_created.ogg | Bin 61509 -> 40352 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+--- f4676dc 2013-11-23 add audio for player hit and human create
+
+ app/audio/human_created.mp3                       | Bin 0 -> 53915 bytes
+ app/audio/human_created.ogg                       | Bin 0 -> 61509 bytes
+ app/audio/missing_audio.txt                       |  10 ++++++----
+ app/audio/player_hit.mp3                          | Bin 0 -> 13539 bytes
+ app/audio/player_hit.ogg                          | Bin 0 -> 10493 bytes
+ app/scripts/game.js                               |   7 +++++--
+ app/scripts/game/init.coffee                      |   2 ++
+ app/scripts/game/sprites/characters/human.coffee  |   3 +++
+ app/scripts/game/sprites/characters/player.coffee |   2 +-
+ 9 files changed, 17 insertions(+), 7 deletions(-)
+--- 927536a 2013-11-23 add audio for gunshot and collectible
+
+ app/audio/collected.mp3                     | Bin 0 -> 25004 bytes
+ app/audio/collected.ogg                     | Bin 0 -> 21876 bytes
+ app/audio/gun_shot.mp3                      | Bin 0 -> 38921 bytes
+ app/audio/gun_shot.ogg                      | Bin 0 -> 37322 bytes
+ app/scripts/game.js                         |  11 ++++++++---
+ app/scripts/game/audio_manager.coffee       |   1 -
+ app/scripts/game/components/gun.coffee      |   2 ++
+ app/scripts/game/init.coffee                |   2 ++
+ app/scripts/game/sprites/bullet.coffee      |   2 +-
+ app/scripts/game/sprites/items/gun.coffee   |   2 ++
+ app/scripts/game/sprites/items/heart.coffee |   2 ++
+ app/scripts/game/sprites/items/key.coffee   |   2 ++
+ 12 files changed, 19 insertions(+), 5 deletions(-)
+--- 0e19938 2013-11-23 new sound for zombie notice
+
+ app/audio/zombie_notice.mp3 | Bin 18807 -> 25494 bytes
+ app/audio/zombie_notice.ogg | Bin 23070 -> 28784 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+--- b8ece39 2013-11-23 add audio manager, and resume sound works
+
+ app/scripts/game.js                                | 72 +++++++++++++++++-----
+ app/scripts/game/audio_manager.coffee              | 32 ++++++++++
+ app/scripts/game/components/zombie_ai.coffee       |  3 +-
+ app/scripts/game/scenes/stats.coffee               | 10 ++-
+ app/scripts/game/sprites/characters/player.coffee  |  2 +-
+ .../game/sprites/characters/zombie_player.coffee   |  6 +-
+ 6 files changed, 99 insertions(+), 26 deletions(-)
+--- 8a87f2e 2013-11-23 add zombie noticed player sound but it is quite annoying
+
+ README.md                                    |   2 ++
+ app/audio/missing_audio.txt                  |  10 ++++++++++
+ app/audio/zombie_notice.mp3                  | Bin 0 -> 18807 bytes
+ app/audio/zombie_notice.ogg                  | Bin 0 -> 23070 bytes
+ app/scripts/game.js                          |  20 ++++++++++++++++++--
+ app/scripts/game/components/zombie_ai.coffee |  18 ++++++++++++++++++
+ app/scripts/game/init.coffee                 |   1 +
+ 7 files changed, 49 insertions(+), 2 deletions(-)
+--- 7c07d16 2013-11-23 add player audio + sound off button, sound on doesnt work
+
+ app/audio/player_bg.mp3                            | Bin 0 -> 1327855 bytes
+ app/audio/player_bg.ogg                            | Bin 0 -> 1132945 bytes
+ app/scripts/game.js                                |  51 +++++++++++++++++----
+ app/scripts/game/init.coffee                       |   1 +
+ app/scripts/game/scenes/stats.coffee               |  43 ++++++++++++++---
+ app/scripts/game/sprites/characters/player.coffee  |   4 ++
+ .../game/sprites/characters/zombie_player.coffee   |   1 +
+ 7 files changed, 86 insertions(+), 14 deletions(-)
+--- f47c7e7 2013-11-23 enable audio, add audio for zombie mode
+
+ app/audio/zombie_mode.mp3                          | Bin 0 -> 312960 bytes
+ app/audio/zombie_mode.ogg                          | Bin 0 -> 189430 bytes
+ app/scripts/game.js                                |  23 +++++++++++++++------
+ app/scripts/game/init.coffee                       |  15 ++++++++++++--
+ .../game/sprites/characters/zombie_player.coffee   |   7 ++++++-
+ 5 files changed, 36 insertions(+), 9 deletions(-)
+--- c723d08 2013-11-22 zombie can turn to human only once, improve human behaviour
+
+ app/scripts/game.js                               | 42 +++++++++++++++--------
+ app/scripts/game/components/gun.coffee            |  5 ++-
+ app/scripts/game/components/zombie_ai.coffee      |  4 +--
+ app/scripts/game/scenes/level1.coffee             |  1 +
+ app/scripts/game/sprites/characters/human.coffee  | 20 +++++++----
+ app/scripts/game/sprites/characters/zombie.coffee |  7 ++--
+ 6 files changed, 52 insertions(+), 27 deletions(-)
+--- 803b6d0 2013-11-22 add web font for UI elements
+
+ app/index.html                                     | 1 +
+ app/scripts/game.js                                | 1 +
+ app/scripts/game/sprites/ui/bullets_counter.coffee | 1 +
+ 3 files changed, 3 insertions(+)
+--- 9716aeb 2013-11-22 add collision points for player
+
+ app/scripts/game.js                               | 1 +
+ app/scripts/game/sprites/characters/player.coffee | 7 +++++++
+ 2 files changed, 8 insertions(+)
+--- c94501b 2013-11-22 first commit
+
+ .gitignore               |    5 +
+ data/human.json          |   10 +
+ data/items.json          |   50 +
+ data/level1.tmx          | 9307 +++++++++++++++++++++++++++++++++++++++++++++
+ data/level2.tmx          | 9347 ++++++++++++++++++++++++++++++++++++++++++++++
+ data/player.json         |   10 +
+ data/zombie.json         |   10 +
+ favicon.ico              |  Bin 0 -> 4286 bytes
+ images/bg.png            |  Bin 0 -> 38014 bytes
+ images/human.png         |  Bin 0 -> 7599 bytes
+ images/items.png         |  Bin 0 -> 4375 bytes
+ images/map_tiles.png     |  Bin 0 -> 6348 bytes
+ images/player.png        |  Bin 0 -> 4179 bytes
+ images/zombie.png        |  Bin 0 -> 4391 bytes
+ index.html               |   44 +
+ robots.txt               |    3 +
+ scripts/9d368bbc.main.js |    3 +
+ styles/01c13188.main.css |    1 +
+ 18 files changed, 18790 insertions(+)
+--- 87db853 2013-11-22 use new graphics, improve gun logic, limit bullets
+
+ app/data/enemies.json                              |  42 ---
+ app/data/human.json                                |  10 +
+ app/data/player.json                               |   6 +-
+ app/data/zombie.json                               |   2 +-
+ app/images/enemies.png                             | Bin 145410 -> 0 bytes
+ app/images/human.png                               | Bin 0 -> 27229 bytes
+ app/images/player.png                              | Bin 27229 -> 14112 bytes
+ app/scripts/game.js                                | 375 ++++++++-------------
+ app/scripts/game/components/gun.coffee             |  35 +-
+ app/scripts/game/init.coffee                       |  20 +-
+ app/scripts/game/load.coffee                       |   4 +-
+ app/scripts/game/scenes/level1.coffee              |  28 +-
+ app/scripts/game/scenes/level2.coffee              |  28 +-
+ app/scripts/game/scenes/stats.coffee               |   4 +
+ app/scripts/game/sprites/bullet.coffee             |   6 +-
+ app/scripts/game/sprites/characters/enemy.coffee   |  74 ----
+ app/scripts/game/sprites/characters/human.coffee   |   9 +-
+ app/scripts/game/sprites/characters/player.coffee  |  17 +-
+ app/scripts/game/sprites/characters/zombie.coffee  |   2 +-
+ .../game/sprites/characters/zombie_player.coffee   |  19 +-
+ app/scripts/game/sprites/ui/bullets_counter.coffee |  16 +
+ app/scripts/game/sprites/ui/info_label.coffee      |   3 +
+ 22 files changed, 266 insertions(+), 434 deletions(-)
+--- 3340f9d 2013-11-21 add second level map and class
+
+ app/data/{map.tmx => level1.tmx}                   | 4728 +---------
+ app/data/level2.tmx                                | 9347 ++++++++++++++++++++
+ app/scripts/game.js                                |  143 +-
+ app/scripts/game/init.coffee                       |    5 +-
+ .../game/scenes/{level.coffee => level1.coffee}    |    8 +-
+ app/scripts/game/scenes/level2.coffee              |  115 +
+ 6 files changed, 9712 insertions(+), 4634 deletions(-)
+--- 629aef7 2013-11-21 fix zombie AI after getting back from zombie mode
+
+ app/scripts/game.js                                      | 2 +-
+ app/scripts/game/sprites/characters/zombie_player.coffee | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+--- 603439c 2013-11-21 use background in css and bg-size cover
+
+ app/scripts/game.js                        | 5 ++++-
+ app/scripts/game/scenes/level.coffee       | 2 +-
+ app/scripts/game/sprites/background.coffee | 6 ++++++
+ app/styles/main.scss                       | 3 ++-
+ 4 files changed, 13 insertions(+), 3 deletions(-)
+--- df84df0 2013-11-21 add new zombie sprite
+
+ app/data/zombie.json                              |  10 ++
+ app/images/zombie.png                             | Bin 0 -> 10406 bytes
+ app/scripts/game.js                               | 127 ++++++++++++++++++----
+ app/scripts/game/components/zombie_ai.coffee      |  16 ---
+ app/scripts/game/init.coffee                      |   3 +
+ app/scripts/game/load.coffee                      |   1 +
+ app/scripts/game/scenes/level.coffee              |   2 +-
+ app/scripts/game/sprites/characters/enemy.coffee  |  15 +++
+ app/scripts/game/sprites/characters/zombie.coffee |  81 ++++++++++++++
+ 9 files changed, 217 insertions(+), 38 deletions(-)
+--- b0e61d0 2013-11-19 fix enemy bug when entering zombie mode
+
+ app/scripts/game.js                          | 7 ++++++-
+ app/scripts/game/components/zombie_ai.coffee | 6 +++++-
+ 2 files changed, 11 insertions(+), 2 deletions(-)
+--- 214d3b0 2013-11-19 add zombie mode
+
+ app/scripts/game.js                                | 75 ++++++++++++----------
+ app/scripts/game/components/zombie_ai.coffee       |  4 +-
+ app/scripts/game/init.coffee                       |  9 +++
+ app/scripts/game/scenes/level.coffee               |  9 +--
+ app/scripts/game/sprites/characters/player.coffee  | 11 +---
+ .../game/sprites/characters/zombie_player.coffee   | 29 +++++----
+ app/scripts/game/sprites/ui/info_label.coffee      |  9 +++
+ app/scripts/game/sprites/ui/lives_counter.coffee   |  4 +-
+ 8 files changed, 81 insertions(+), 69 deletions(-)
+--- 7ae4525 2013-11-19 map update, background img and added zombie player sprite
+
+ app/data/map.tmx                                   | 116 +++---
+ app/images/bg.jpg                                  | Bin 289477 -> 0 bytes
+ app/images/bg.png                                  | Bin 0 -> 77135 bytes
+ app/images/bg_2.jpg                                | Bin 54818 -> 0 bytes
+ app/scripts/game.js                                | 389 +++++++++++++--------
+ app/scripts/game/init.coffee                       |   3 +-
+ .../game/sprites/{ => characters}/enemy.coffee     |   0
+ .../game/sprites/{ => characters}/human.coffee     |   0
+ .../game/sprites/{ => characters}/player.coffee    |  20 +-
+ .../game/sprites/characters/zombie_player.coffee   | 101 ++++++
+ 10 files changed, 431 insertions(+), 198 deletions(-)
+--- 0f45772 2013-11-18 remove console.log
+
+ app/scripts/game.js          | 1 -
+ app/scripts/game/load.coffee | 1 -
+ 2 files changed, 2 deletions(-)
+--- 80f3b7f 2013-11-18 use 70px tiles, add loader
+
+ app/images/bg.jpg                          | Bin 1666279 -> 289477 bytes
+ app/images/map_tiles.png                   | Bin 12967 -> 13943 bytes
+ app/index.html                             |   7 ++++++
+ app/scripts/game.js                        |  15 ++++++++++--
+ app/scripts/game/init.coffee               |   2 +-
+ app/scripts/game/load.coffee               |  38 +++++++++++++++++++----------
+ app/scripts/game/sprites/background.coffee |   2 ++
+ app/scripts/game/sprites/player.coffee     |   2 +-
+ app/styles/main.scss                       |  30 +++++++++++++++++++++++
+ 9 files changed, 79 insertions(+), 17 deletions(-)
+--- 356286a 2013-11-18 turn zombie to human
+
+ app/scripts/game.js                          | 118 +++++++++++++++------------
+ app/scripts/game/components/human_ai.coffee  |  36 --------
+ app/scripts/game/components/zombie_ai.coffee |   2 -
+ app/scripts/game/init.coffee                 |   1 +
+ app/scripts/game/sprites/enemy.coffee        |  14 ++--
+ app/scripts/game/sprites/human.coffee        |  53 ++++++++++++
+ 6 files changed, 127 insertions(+), 97 deletions(-)
+--- fe9df6b 2013-11-18 fix z indexes
+
+ app/scripts/game.js                             | 19 ++++++++++++++-----
+ app/scripts/game/components/human_ai.coffee     |  2 ++
+ app/scripts/game/scenes/level.coffee            |  4 +++-
+ app/scripts/game/sprites/enemy.coffee           |  2 +-
+ app/scripts/game/sprites/items/door.coffee      |  1 +
+ app/scripts/game/sprites/items/exit_sign.coffee |  1 +
+ app/scripts/game/sprites/items/gun.coffee       |  1 +
+ app/scripts/game/sprites/items/heart.coffee     |  2 +-
+ app/scripts/game/sprites/items/key.coffee       |  1 +
+ 9 files changed, 25 insertions(+), 8 deletions(-)
+--- 8fa3e8a 2013-11-18 add background image
+
+ app/images/bg_2.jpg                        | Bin 0 -> 54818 bytes
+ app/scripts/game.js                        |  37 ++++++++++++++++++++++++++++-
+ app/scripts/game/init.coffee               |   2 +-
+ app/scripts/game/scenes/level.coffee       |   3 +++
+ app/scripts/game/sprites/background.coffee |  33 +++++++++++++++++++++++++
+ 5 files changed, 73 insertions(+), 2 deletions(-)
+--- 80b1db8 2013-11-18 add items, remove switching players, new map design, new direction for the game
+
+ app/data/items.json                             |   50 +
+ app/data/{map_v3.tmx => map.tmx}                | 5051 ++++++++++++++++++++++-
+ app/images/bg.jpg                               |  Bin 0 -> 1666279 bytes
+ app/images/items.png                            |  Bin 0 -> 10453 bytes
+ app/images/map_tiles.png                        |  Bin 6600 -> 12967 bytes
+ app/scripts/game.js                             |  261 +-
+ app/scripts/game/init.coffee                    |    8 +-
+ app/scripts/game/load.coffee                    |    1 +
+ app/scripts/game/scenes/level.coffee            |   89 +-
+ app/scripts/game/sprites/items/door.coffee      |   33 +
+ app/scripts/game/sprites/items/exit_sign.coffee |   10 +
+ app/scripts/game/sprites/items/gun.coffee       |   21 +
+ app/scripts/game/sprites/items/heart.coffee     |   20 +
+ app/scripts/game/sprites/items/key.coffee       |   19 +
+ app/scripts/game/sprites/player.coffee          |   23 +-
+ app/scripts/game/sprites/ui/info_label.coffee   |   17 +-
+ 16 files changed, 5276 insertions(+), 327 deletions(-)
+--- 39fd364 2013-11-14 change player
+
+ app/scripts/game.js                          | 141 ++++++++++++++++++++++-----
+ app/scripts/game/components/gun.coffee       |   3 +
+ app/scripts/game/components/human_ai.coffee  |  34 +++++++
+ app/scripts/game/components/zombie_ai.coffee |  23 ++++-
+ app/scripts/game/init.coffee                 |   2 +-
+ app/scripts/game/scenes/level.coffee         |  47 +++++++++
+ app/scripts/game/sprites/enemy.coffee        |  26 ++---
+ 7 files changed, 234 insertions(+), 42 deletions(-)
+--- 38e2f2c 2013-11-12 move zombie AI to component
+
+ Gruntfile.js                                 |  12 +--
+ app/scripts/game.js                          | 117 +++++++++++++++++----------
+ app/scripts/game/components/zombie_ai.coffee |  67 +++++++++++++++
+ app/scripts/game/scenes/level.coffee         |  12 +--
+ app/scripts/game/sprites/enemy.coffee        |  57 ++-----------
+ 5 files changed, 157 insertions(+), 108 deletions(-)
+--- b3e61c3 2013-11-11 disable compass
+
+ Gruntfile.js                          | 12 ++++++------
+ app/scripts/game.js                   | 12 +++++++++---
+ app/scripts/game/sprites/enemy.coffee | 12 +++++++++---
+ 3 files changed, 24 insertions(+), 12 deletions(-)
+--- 9bd7618 2013-11-10 make use of Q.state to display number of zombies left and lives left
+
+ app/scripts/game.js                                | 137 ++++++++++++++-------
+ app/scripts/game/init.coffee                       |   4 +
+ app/scripts/game/scenes/stats.coffee               |  14 +--
+ app/scripts/game/sprites/bullet.coffee             |   2 +-
+ app/scripts/game/sprites/enemy.coffee              |   7 +-
+ app/scripts/game/sprites/player.coffee             |   5 +-
+ app/scripts/game/sprites/ui/enemies_counter.coffee |  16 +++
+ .../game/sprites/{ => ui}/info_label.coffee        |   0
+ app/scripts/game/sprites/ui/lives_counter.coffee   |  16 +++
+ 9 files changed, 146 insertions(+), 55 deletions(-)
+--- 5ab89fd 2013-11-10 change engine to quintus
+
+ README.md                                  |     2 +-
+ app/.htaccess                              |   543 +
+ app/data/enemies.json                      |    42 +
+ app/data/map.tmx                           |    46 -
+ app/data/map_v3.tmx                        |  9214 +++++++
+ app/data/player.json                       |    10 +
+ app/favicon.ico                            |   Bin 0 -> 4286 bytes
+ app/images/bullet.png                      |   Bin 1604 -> 0 bytes
+ app/images/enemies.png                     |   Bin 0 -> 145410 bytes
+ app/images/map_tiles.png                   |   Bin 0 -> 6600 bytes
+ app/images/player.png                      |   Bin 7236 -> 27229 bytes
+ app/images/tiles.png                       |   Bin 6417 -> 0 bytes
+ app/index.html                             |    82 +-
+ app/robots.txt                             |     3 +
+ app/scripts/Boot.js                        |    50 -
+ app/scripts/Game.js                        |    78 -
+ app/scripts/MainMenu.js                    |    42 -
+ app/scripts/Preloader.js                   |    61 -
+ app/scripts/SpritesManager.js              |    15 -
+ app/scripts/game.js                        |   674 +
+ app/scripts/game/components/gun.coffee     |    13 +
+ app/scripts/game/init.coffee               |    99 +
+ app/scripts/game/load.coffee               |    14 +
+ app/scripts/game/scenes/end.coffee         |    27 +
+ app/scripts/game/scenes/level.coffee       |    63 +
+ app/scripts/game/scenes/start.coffee       |    35 +
+ app/scripts/game/scenes/stats.coffee       |    56 +
+ app/scripts/game/sprites/bullet.coffee     |    42 +
+ app/scripts/game/sprites/enemy.coffee      |   109 +
+ app/scripts/game/sprites/info_label.coffee |    24 +
+ app/scripts/game/sprites/player.coffee     |   134 +
+ app/scripts/lib/quintus-all.js             |  5091 ++++
+ app/scripts/lib/stats.min.js               |     6 +
+ app/scripts/phaser.js                      | 35615 ---------------------------
+ app/scripts/sprites/Bullet.js              |    49 -
+ app/scripts/sprites/Player.js              |    37 -
+ app/styles/main.scss                       |    16 +
+ 37 files changed, 16257 insertions(+), 36035 deletions(-)
+--- 4664257 2013-11-09 add bullet
+
+ app/images/bullet.png               | Bin 0 -> 1604 bytes
+ app/index.html                      |  49 ++++++++++++++++++------------------
+ app/scripts/Game.js                 |   6 ++++-
+ app/scripts/Preloader.js            |   2 +-
+ app/scripts/sprites/Bullet.js       |  49 ++++++++++++++++++++++++++++++++++++
+ app/scripts/{ => sprites}/Player.js |   0
+ 6 files changed, 80 insertions(+), 26 deletions(-)
+--- 0c53a75 2013-11-09 add basic platformer player
+
+ app/images/background1.jpg | Bin 131072 -> 0 bytes
+ app/images/ball.png        | Bin 4409 -> 0 bytes
+ app/images/player.png      | Bin 0 -> 7236 bytes
+ app/images/rocket.png      | Bin 5809 -> 0 bytes
+ app/scripts/Game.js        | 118 +++++++--------------------------------------
+ app/scripts/Player.js      |  36 ++++++++------
+ app/scripts/Preloader.js   |   6 +--
+ 7 files changed, 42 insertions(+), 118 deletions(-)
+--- 0b61bb9 2013-11-08 add basic readme
+
+ README.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+--- 759e8c3 2013-11-08 add basic readme
+
+ README.md | 52 ++++++++--------------------------------------------
+ 1 file changed, 8 insertions(+), 44 deletions(-)
+--- c9fb162 2013-11-08 experiments with phaser
+
+ .gitignore                    |     5 +
+ Gruntfile.js                  |   355 +
+ app/data/map.tmx              |    46 +
+ app/images/background1.jpg    |   Bin 0 -> 131072 bytes
+ app/images/ball.png           |   Bin 0 -> 4409 bytes
+ app/images/rocket.png         |   Bin 0 -> 5809 bytes
+ app/images/tiles.png          |   Bin 0 -> 6417 bytes
+ app/index.html                |    42 +
+ app/scripts/Boot.js           |    50 +
+ app/scripts/Game.js           |   156 +
+ app/scripts/MainMenu.js       |    42 +
+ app/scripts/Player.js         |    29 +
+ app/scripts/Preloader.js      |    63 +
+ app/scripts/SpritesManager.js |    15 +
+ app/scripts/phaser.js         | 35615 ++++++++++++++++++++++++++++++++++++++++
+ package.json                  |    31 +
+ 16 files changed, 36449 insertions(+)
+--- 9e976fc 2013-10-30 Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+--- c70f162 2013-10-30 Update @manak's bio
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+--- ae687d7 2013-10-30 Update @github URL
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+--- fdd1e41 2013-10-30 :punch: typo
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+--- 32552f9 2013-10-30 Remove introductory line
+
+ README.md | 3 ---
+ 1 file changed, 3 deletions(-)
+--- 71b8772 2013-10-30 Sync with :octocat: master
+
+ README.md | 51 ++++++++++++++++++++++++++++++---------------------
+ 1 file changed, 30 insertions(+), 21 deletions(-)
+--- 4961666 2013-10-23 Add challenge details
+
+ README.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+--- 6b1dc59 2013-10-23 Update README.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+--- 3e7437e 2013-10-23 Add @kyross as a judge :metal:
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+--- 8bb9930 2013-10-23 Add :iphone: prizes
+
+ README.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+--- 3adeab5 2013-10-17 Add Aleissia Laidacker as a judge :hammer:
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+--- 8a81abb 2013-10-14 Add Adam :bomb: Saltsman as a judge
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+--- 0be2339 2013-10-14 Update README.md
+
+ README.md | 36 ++++++++++++++++++++++++++++++++++--
+ 1 file changed, 34 insertions(+), 2 deletions(-)
+--- 28ffc32 2013-10-14 Initial commit
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)

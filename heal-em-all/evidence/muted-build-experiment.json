@@ -1,0 +1,38 @@
+{
+ "console": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "pageErrors": [
+  "Error Loading: zombie_mode.mp3",
+  "Error Loading: player_bg.mp3",
+  "Error Loading: zombie_notice.mp3",
+  "EncodingError: Unable to decode audio data",
+  "EncodingError: Unable to decode audio data",
+  "EncodingError: Unable to decode audio data",
+  "Error Loading: gun_shot.mp3",
+  "Error Loading: collected.mp3",
+  "Error Loading: player_hit.mp3",
+  "Error Loading: human_created.mp3",
+  "EncodingError: Unable to decode audio data",
+  "EncodingError: Unable to decode audio data",
+  "EncodingError: Unable to decode audio data",
+  "EncodingError: Unable to decode audio data"
+ ],
+ "failed": [
+  "404 http://127.0.0.1:8766/audio/zombie_mode.ogg?_t=1795380555697",
+  "404 http://127.0.0.1:8766/audio/player_bg.ogg?_t=1795380555697",
+  "404 http://127.0.0.1:8766/audio/zombie_notice.ogg?_t=1795380555698",
+  "404 http://127.0.0.1:8766/audio/gun_shot.ogg?_t=1795380555699",
+  "404 http://127.0.0.1:8766/audio/collected.ogg?_t=1795380555699",
+  "404 http://127.0.0.1:8766/audio/player_hit.ogg?_t=1795380555700",
+  "404 http://127.0.0.1:8766/audio/human_created.ogg?_t=1795380555700"
+ ],
+ "loadingDivStillThere": true,
+ "progressWidth": "44%"
+}

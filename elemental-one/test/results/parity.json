@@ -1,0 +1,332 @@
+[
+  {
+    "level": "level1",
+    "frames": 614,
+    "identical": true,
+    "firstDiff": -1,
+    "diffDetail": null,
+    "playerRange": {
+      "x": [
+        150,
+        1991
+      ],
+      "y": [
+        450,
+        792.5
+      ]
+    },
+    "checks": [
+      {
+        "desc": "level1: water powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 143
+      },
+      {
+        "desc": "level1: water blocks removed by water element",
+        "restored": true,
+        "original": true,
+        "frame": 504
+      },
+      {
+        "desc": "level1: exit star leads to level2",
+        "restored": true,
+        "original": true,
+        "frame": 709
+      }
+    ],
+    "errors": [
+      "DataCloneError: Cannot decode detached ArrayBuffer"
+    ],
+    "failed": []
+  },
+  {
+    "level": "level2",
+    "frames": 1681,
+    "identical": true,
+    "firstDiff": -1,
+    "diffDetail": null,
+    "playerRange": {
+      "x": [
+        150,
+        1991
+      ],
+      "y": [
+        300,
+        1772.5
+      ]
+    },
+    "checks": [
+      {
+        "desc": "level2: water powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 143
+      },
+      {
+        "desc": "level2: wrong element does not remove earth blocks",
+        "restored": true,
+        "original": true,
+        "frame": 504
+      },
+      {
+        "desc": "level2: water blocks removed by water element",
+        "restored": true,
+        "original": true,
+        "frame": 865
+      },
+      {
+        "desc": "level2: earth powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 1210
+      },
+      {
+        "desc": "level2: earth blocks removed by earth element",
+        "restored": true,
+        "original": true,
+        "frame": 1571
+      },
+      {
+        "desc": "level2: exit star leads to level3",
+        "restored": true,
+        "original": true,
+        "frame": 1776
+      }
+    ],
+    "errors": [
+      "DataCloneError: Cannot decode detached ArrayBuffer"
+    ],
+    "failed": []
+  },
+  {
+    "level": "level3",
+    "frames": 2026,
+    "identical": true,
+    "firstDiff": -1,
+    "diffDetail": null,
+    "playerRange": {
+      "x": [
+        150,
+        3815
+      ],
+      "y": [
+        420,
+        2962.5
+      ]
+    },
+    "checks": [
+      {
+        "desc": "level3: water powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 143
+      },
+      {
+        "desc": "level3: water blocks removed by water element",
+        "restored": true,
+        "original": true,
+        "frame": 504
+      },
+      {
+        "desc": "level3: earth powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 849
+      },
+      {
+        "desc": "level3: earth blocks removed by earth element",
+        "restored": true,
+        "original": true,
+        "frame": 1210
+      },
+      {
+        "desc": "level3: fire powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 1555
+      },
+      {
+        "desc": "level3: fire blocks removed by fire element",
+        "restored": true,
+        "original": true,
+        "frame": 1916
+      },
+      {
+        "desc": "level3: exit star leads to level4",
+        "restored": true,
+        "original": true,
+        "frame": 2121
+      }
+    ],
+    "errors": [
+      "DataCloneError: Cannot decode detached ArrayBuffer"
+    ],
+    "failed": []
+  },
+  {
+    "level": "level4",
+    "frames": 3132,
+    "identical": true,
+    "firstDiff": -1,
+    "diffDetail": null,
+    "playerRange": {
+      "x": [
+        65,
+        2515
+      ],
+      "y": [
+        450,
+        2902.667
+      ]
+    },
+    "checks": [
+      {
+        "desc": "level4: water powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 143
+      },
+      {
+        "desc": "level4: water blocks removed by water element",
+        "restored": true,
+        "original": true,
+        "frame": 504
+      },
+      {
+        "desc": "level4: earth powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 849
+      },
+      {
+        "desc": "level4: earth blocks removed by earth element",
+        "restored": true,
+        "original": true,
+        "frame": 1210
+      },
+      {
+        "desc": "level4: fire powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 1555
+      },
+      {
+        "desc": "level4: fire blocks removed by fire element",
+        "restored": true,
+        "original": true,
+        "frame": 1916
+      },
+      {
+        "desc": "level4: air powergem acquired with Z",
+        "restored": true,
+        "original": true,
+        "frame": 2261
+      },
+      {
+        "desc": "level4: air blocks removed by air element",
+        "restored": true,
+        "original": true,
+        "frame": 2622
+      },
+      {
+        "desc": "level4: exit star shows the YOU WIN! end screen",
+        "restored": true,
+        "original": true,
+        "frame": 3127
+      }
+    ],
+    "errors": [
+      "DataCloneError: Cannot decode detached ArrayBuffer"
+    ],
+    "failed": []
+  },
+  {
+    "level": "fuzz-level1",
+    "frames": 1502,
+    "identical": true,
+    "firstDiff": -1,
+    "diffDetail": null,
+    "playerRange": {
+      "x": [
+        15,
+        744.5
+      ],
+      "y": [
+        390.833,
+        582.5
+      ]
+    },
+    "checks": [],
+    "errors": [
+      "DataCloneError: Cannot decode detached ArrayBuffer"
+    ],
+    "failed": []
+  },
+  {
+    "level": "fuzz-level2",
+    "frames": 1502,
+    "identical": true,
+    "firstDiff": -1,
+    "diffDetail": null,
+    "playerRange": {
+      "x": [
+        15,
+        297
+      ],
+      "y": [
+        688.333,
+        792.5
+      ]
+    },
+    "checks": [],
+    "errors": [
+      "DataCloneError: Cannot decode detached ArrayBuffer"
+    ],
+    "failed": []
+  },
+  {
+    "level": "fuzz-level3",
+    "frames": 1502,
+    "identical": true,
+    "firstDiff": -1,
+    "diffDetail": null,
+    "playerRange": {
+      "x": [
+        15,
+        802.5
+      ],
+      "y": [
+        1668.333,
+        1982.5
+      ]
+    },
+    "checks": [],
+    "errors": [
+      "DataCloneError: Cannot decode detached ArrayBuffer"
+    ],
+    "failed": []
+  },
+  {
+    "level": "fuzz-level4",
+    "frames": 1502,
+    "identical": true,
+    "firstDiff": -1,
+    "diffDetail": null,
+    "playerRange": {
+      "x": [
+        15,
+        827
+      ],
+      "y": [
+        2788.333,
+        2962.5
+      ]
+    },
+    "checks": [],
+    "errors": [
+      "DataCloneError: Cannot decode detached ArrayBuffer"
+    ],
+    "failed": []
+  }
+]

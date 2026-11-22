@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Generated build output (npm run build)
+/game/
+
+# Local Claude Code session/runtime metadata
+.claude/
+
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db
+
+# QUARANTINED: the original 2013 audio (no recoverable licence) and every archive that contains it must never be committed.
+# They stay on the curator's disk only; SOURCE-MANIFEST.json keeps their hashes.
+/reference/game-off-2013.bundle
+/reference/*.tar
+/reference/upstream-master/app/audio/
+/reference/upstream-gh-pages/audio/
+# Local scratch
+/screenshots/*.tmp

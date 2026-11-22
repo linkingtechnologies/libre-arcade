@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Heal'em All. There's a cure for zombies. HTML5 game.</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
+
+        <meta content="Imagine, what if the cure exists? What if zombies plague can be stoped? Explore old, abandoned graveyard, heal as many zombies as you can, and find your way out. But be careful not to become one of them!" name="description">
+        <meta content="Krzysztof Urbas, Pawel Madeja" name="author">
+
+        <!-- Restoration notes (see specs/design.md):
+             removed: IE conditional comments, the three remote Google Fonts <link>s, the Google Analytics snippet, the og:url/og:image tags
+             that pointed at the original author's hosting. Fonts, sounds and every other runtime file are local. -->
+
+        <!-- no favicon.ico: the original one has no stated origin or licence (COMPATIBILITY-ISSUES.md C14) -->
+        <link rel="icon" href="data:,">
+        <link rel="stylesheet" href="styles/fonts.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <style>
+            /* Link back to the arcade: a thin strip at the very top centre, above the game's own HUD (which starts at about 20 px). */
+            #arcade-link { position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 200; padding: 1px 10px; font: 11px/14px Arial, sans-serif;
+                           color: #c4da4a; background: rgba(35, 35, 34, 0.55); border-radius: 0 0 6px 6px; text-decoration: none; opacity: 0.7; }
+            #arcade-link:hover, #arcade-link:focus { opacity: 1; text-decoration: underline; }
+        </style>
+    </head>
+    <body>
+        <a id="arcade-link" href="https://linkingtechnologies.github.io/libre-arcade/">Libre Arcade</a>
+        <div id="loading">
+            <div class="loading-title">
+                <h1>Heal'em All</h1>
+                <h2>There's a cure for zombies</h2>
+            </div>
+            <div id="loading-container">
+                <div class="loading-text">Loading...</div>
+                <div id="loading-progress"></div>
+            </div>
+        </div>
+
+        <script src="scripts/lib/quintus-all.js"></script>
+        <script src="scripts/lib/stats.min.js"></script>
+        <script src="i18n.js"></script>
+        <!-- compat.js defines the ga() stub, then loads scripts/game.js once the window has a size -->
+        <script src="compat.js"></script>
+        <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    </body>
+</html>

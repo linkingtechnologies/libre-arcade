@@ -1,0 +1,438 @@
+{
+  "project": "Elemental One",
+  "upstream": {
+    "repository": "https://github.com/voithos/elemental-one",
+    "commit": "609636d84f8abb20e49fdf00ab42428f4805d27b",
+    "author": "Zaven Muradyan",
+    "license": "MIT"
+  },
+  "acquisition": {
+    "archive": "https://codeload.github.com/voithos/elemental-one/zip/609636d84f8abb20e49fdf00ab42428f4805d27b",
+    "archiveSha256": "aa64f706f30f4d4686c340040080b99fe66bb1f3bda188f3052f1a7843c76ce7",
+    "archiveBytes": 12142335,
+    "acquiredOn": "2026-11-22",
+    "note": "reference/elemental-one-609636d is that archive extracted, minus the withheld files listed below."
+  },
+  "referenceFiles": {
+    ".gitignore": {
+      "sha256": "25a2ed64feaaf466db23b3aa28e43316e6d33da57be343ca7ee68ad7bd2534f0",
+      "bytes": 19
+    },
+    "assets/images/menubackground.png": {
+      "sha256": "aceca4ce8b28db559296fbc91439d4e06af24fbd40c1968905eb33f087526738",
+      "bytes": 18407
+    },
+    "assets/images/occluder.png": {
+      "sha256": "a9136809cccbd3bbd83049530d7f5ca3a0fa08920e110ac622c9ab088ff5c4eb",
+      "bytes": 1012
+    },
+    "assets/images/preloadbar.png": {
+      "sha256": "99e943ac3701b197c784d11d1c496508bbd02c369752b8b801e05411601a5418",
+      "bytes": 1833
+    },
+    "assets/sounds/air.wav": {
+      "sha256": "0b2203f0020d24c51b3270b4459788536648ad40b6b06f7698108d43a6c2de95",
+      "bytes": 225732
+    },
+    "assets/sounds/earth.wav": {
+      "sha256": "a53ca116ebe63155955b820749d68b99546e6a519a49eee543150df7bd810979",
+      "bytes": 272324
+    },
+    "assets/sounds/fire.wav": {
+      "sha256": "c8071063d3e972a4e34e8d2e30513c4660c306300275982030bb033469e7e264",
+      "bytes": 436282
+    },
+    "assets/sounds/happy.mp3": {
+      "sha256": "81d32e575a0a8ae7e361fd83e19231ab7c84e6ff8b823aee50700087ba0bce23",
+      "bytes": 3628910
+    },
+    "assets/sounds/happy.ogg": {
+      "sha256": "edef7395105eb1994d1a1124a7032d0bf146e80bcddcf896bb0ecb4481311a08",
+      "bytes": 2880812
+    },
+    "assets/sounds/pickup.wav": {
+      "sha256": "257c5bc2f152a2fed8015539fc7658175243d01ac25c181ae71883d76ddc7c52",
+      "bytes": 605282
+    },
+    "assets/sounds/water.wav": {
+      "sha256": "3d0c77d1604c0c9aa78f45e489185494a7c9240e74f6d7b64f2264b10d344ea7",
+      "bytes": 4727176
+    },
+    "assets/sprites/enemies_spritesheet.png": {
+      "sha256": "2e259a7f62e5e02f470157c262ec7ae5bfd69d51c2eb159a3a378adf05ec55f0",
+      "bytes": 15008
+    },
+    "assets/sprites/hud_spritesheet.png": {
+      "sha256": "744e28ccc97777fb3ac53fbb62d0f411d007c0097759592d3bd20b65f6965ea0",
+      "bytes": 25613
+    },
+    "assets/sprites/hud_spritesheet.xml": {
+      "sha256": "3babe763b39d2ee6c9cf97f36a260de68cdcc07a02a5bd26c420654f69797a07",
+      "bytes": 2514
+    },
+    "assets/sprites/items_spritesheet.png": {
+      "sha256": "d179f434372e8a4da3e44ae2db506adc0607d6bc9c6ffe0565dd3bcffc09f630",
+      "bytes": 44178
+    },
+    "assets/sprites/items_spritesheet.xml": {
+      "sha256": "703f06921fb876e708641fc0ec149f6ba95361150ce91772106a11f908b6a9b2",
+      "bytes": 4494
+    },
+    "assets/sprites/p1_spritesheet.json": {
+      "sha256": "d38eb6ba7e0e44be4958af5560c9fb43b35a2bbf646f0a13c60401ae7ee4dcc7",
+      "bytes": 3597
+    },
+    "assets/sprites/p1_spritesheet.png": {
+      "sha256": "7d5cd69baf7f1836c8402a6b128d70bae3ab29975a1b9ce9bafba43511b3ad4c",
+      "bytes": 42689
+    },
+    "assets/sprites/p2_spritesheet.png": {
+      "sha256": "dd9b0944ac903beab2021a25b32a6fd31a4eb6255e8a2e2db0e378d057f213b6",
+      "bytes": 31947
+    },
+    "assets/sprites/p3_spritesheet.png": {
+      "sha256": "acecc56389b8fff32edf73e297b61d9439aac16b37860336e07dcf61476828e9",
+      "bytes": 34349
+    },
+    "assets/sprites/particles.png": {
+      "sha256": "319faf451c4be3766399a9385f760567e419ef4541917543398827db6dbe08cc",
+      "bytes": 3459
+    },
+    "assets/sprites/particles.xml": {
+      "sha256": "a5c9b89397172a46dce7deb0b1eec2912294304d0f1178766be84a1cc13d42d8",
+      "bytes": 326
+    },
+    "assets/tilemaps/level1.json": {
+      "sha256": "6b79df8af41d415273828d840966d58a767081a6522bb18857d7e16243c7f075",
+      "bytes": 6425
+    },
+    "assets/tilemaps/level1.tmx": {
+      "sha256": "3aae9c49ca33b79e5adf3c171e48eed54ba3ec2687f35eff1af50cebf60087ed",
+      "bytes": 1077
+    },
+    "assets/tilemaps/level2.json": {
+      "sha256": "67a51cc3e99a469c5fcd9d6f05580ffb5ca4bca5e28d6656e3df0bd07e8e7d77",
+      "bytes": 10329
+    },
+    "assets/tilemaps/level2.tmx": {
+      "sha256": "82ad9f6e80367a489504ab5364e8ab022694196ad7b7308dcf7b41e25c8b77e3",
+      "bytes": 1383
+    },
+    "assets/tilemaps/level3.json": {
+      "sha256": "b8d9c71e810a08403973333d00b30f391005a51fc645c1051eba65f6ed2bcd83",
+      "bytes": 17745
+    },
+    "assets/tilemaps/level3.tmx": {
+      "sha256": "09494f52d59f8fd22b23cba524f312a308ee9cfb91bf480ea5c50617f0e62591",
+      "bytes": 1369
+    },
+    "assets/tilemaps/level4.json": {
+      "sha256": "99cb92e6ebb679520c6fa21b49f5df23e2a28c21b148e9a387573dda9b140598",
+      "bytes": 16653
+    },
+    "assets/tilemaps/level4.tmx": {
+      "sha256": "c743ce3767e30ff7d5f9c4ce731f6319f98fcd4c9eb2bac5923fefc6b3623cba",
+      "bytes": 1141
+    },
+    "assets/tilesets/tiles_spritesheet.png": {
+      "sha256": "0e37e8ebfbf060e9b43dbff034931d436c36ef94e68c561399042b158dbb1da1",
+      "bytes": 159950
+    },
+    "ATTRIBUTION.md": {
+      "sha256": "6d191f29fc25314d6cc945037f5b23a17249345d90569192a319965e9e4236fe",
+      "bytes": 842
+    },
+    "build/all.js": {
+      "sha256": "f1f9c1609931ad6da79151845fa8624f70bfc3e3c94dd797e9dd29062de64973",
+      "bytes": 68617
+    },
+    "build/all.min.js": {
+      "sha256": "85536125ce4b3ad56d141e93d2a538435730fdd214c1fe703d94d4b72b893aad",
+      "bytes": 27471
+    },
+    "deps/phaser.js": {
+      "sha256": "62564b4b8590e7bf5effb138bf771de7d4c2bcd9ce975fcbb17ceaa5b7226632",
+      "bytes": 1160526
+    },
+    "deps/phaser.min.js": {
+      "sha256": "467123906869baae358b82083032c66fb05360ad306d2bec1cdbf3e7ab4d3ef2",
+      "bytes": 413035
+    },
+    "Gruntfile.js": {
+      "sha256": "7ec61b7cd00f16dfa79e25d5c92300e4e76132479bf8548846c9011b9dba32f9",
+      "bytes": 3221
+    },
+    "IDEAS.md": {
+      "sha256": "5733cb10c99b2e8898ff59a1ead48a31d3c572c3ab0628422164f26eadca83ca",
+      "bytes": 390
+    },
+    "index.dev.html": {
+      "sha256": "1773d110e1199a63fdd2a7df5ddee58a191a27368deb1a69d351607150abf6fd",
+      "bytes": 644
+    },
+    "index.html": {
+      "sha256": "ce47f02aeead5c685cd06afba45d06ed27b10de49e1da5e965bf250fc32a6e65",
+      "bytes": 820
+    },
+    "MIT-LICENSE.txt": {
+      "sha256": "06cccfa30d3a7d0b02bfd9be8db7f112771b2c26bbff8946a3e18365647965a9",
+      "bytes": 1081
+    },
+    "package.json": {
+      "sha256": "472202158d58f82df2bf1545255b77cf02d49767830e231faa4a5f63c5118bc4",
+      "bytes": 828
+    },
+    "README.md": {
+      "sha256": "a67023097c8af50ba6b257576807162bfabe9b6a1a449aa219fddd0998ad6d8b",
+      "bytes": 251
+    },
+    "src/config.js": {
+      "sha256": "93c7fb25188810f445d49c44266585546ed39e04cb749c7d3fb1ac5ff2a2b659",
+      "bytes": 1052
+    },
+    "src/data.js": {
+      "sha256": "71d1d8d2e65079761f4f1de1a5705365e3adc5d3a2235ffa8d7d1fdde1234c2e",
+      "bytes": 17177
+    },
+    "src/extensions.js": {
+      "sha256": "8467de92bf586512cb4dfcad05d12f12cbac7f0aec3ae7f490a7e2f128f57583",
+      "bytes": 2085
+    },
+    "src/main.js": {
+      "sha256": "b2491898fa0a918616661f415aa368931c6e1d43a0240245c799e089d03fd1b3",
+      "bytes": 23966
+    },
+    "src/overrides.js": {
+      "sha256": "521870c648b86444a430e21a88f0aac1d012cee9c3dc6deafd3ea8794cc2dc9d",
+      "bytes": 18715
+    },
+    "src/utils.js": {
+      "sha256": "a9d7218c9dcc06ae03107e4aa308f355121774a2febb52c45039fd0f5661e503",
+      "bytes": 466
+    },
+    "style.css": {
+      "sha256": "b9bea17b40c1f2e7bb55d6899e74488f5b997e727bbde3dbc122d3dcb52450bb",
+      "bytes": 831
+    }
+  },
+  "withheldFromReference": {
+    "assets/fonts/minecraftia-webfont.eot": {
+      "sha256": "92dfe12abfb0e10004070a18c6f4ae49fee7c32d8ee74fe541b3366ddef590c0",
+      "bytes": 11360,
+      "reason": "Minecraftia: 'Free for personal use' only; not redistributable (LICENSE-AUDIT.md)"
+    },
+    "assets/fonts/minecraftia-webfont.svg": {
+      "sha256": "6424add56fbbd58f024258e110722da2cfc1afd242fb250e9ab601659bfaa89e",
+      "bytes": 33086,
+      "reason": "Minecraftia: personal use only"
+    },
+    "assets/fonts/minecraftia-webfont.ttf": {
+      "sha256": "7859170ed73e0c748723d507ec9920d3100640635f8dea5280864a224fe8f876",
+      "bytes": 41148,
+      "reason": "Minecraftia: personal use only"
+    },
+    "assets/fonts/minecraftia-webfont.woff": {
+      "sha256": "f2f7b9d662afe0ffb7d8ccad51716b1cde60b3a706ff5849fdb4b6f64cd0a7d4",
+      "bytes": 12780,
+      "reason": "Minecraftia: personal use only"
+    },
+    "assets/sounds/jump.wav": {
+      "sha256": "3784202588dc336890c19cf2c152888c32cd149bbfe61db2994e6101683f7a74",
+      "bytes": 39670,
+      "reason": "No author or licence recorded anywhere upstream (absent from ATTRIBUTION.md); quarantined"
+    },
+    "assets/images/starring.png": {
+      "sha256": "44993957d1aade4fb688edd48e46c69c8f129f9fb7d5b994a288203bf3c65389",
+      "bytes": 847,
+      "reason": "Page-background pattern with no attribution upstream; quarantined, not needed for gameplay"
+    }
+  },
+  "shippedFiles": {
+    "assets/images/menubackground.png": {
+      "sha256": "aceca4ce8b28db559296fbc91439d4e06af24fbd40c1968905eb33f087526738",
+      "bytes": 18407,
+      "kind": "upstream-verbatim",
+      "reference": "assets/images/menubackground.png"
+    },
+    "assets/images/occluder.png": {
+      "sha256": "a9136809cccbd3bbd83049530d7f5ca3a0fa08920e110ac622c9ab088ff5c4eb",
+      "bytes": 1012,
+      "kind": "upstream-verbatim",
+      "reference": "assets/images/occluder.png"
+    },
+    "assets/images/preloadbar.png": {
+      "sha256": "99e943ac3701b197c784d11d1c496508bbd02c369752b8b801e05411601a5418",
+      "bytes": 1833,
+      "kind": "upstream-verbatim",
+      "reference": "assets/images/preloadbar.png"
+    },
+    "assets/sounds/air.wav": {
+      "sha256": "0b2203f0020d24c51b3270b4459788536648ad40b6b06f7698108d43a6c2de95",
+      "bytes": 225732,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sounds/air.wav"
+    },
+    "assets/sounds/earth.wav": {
+      "sha256": "a53ca116ebe63155955b820749d68b99546e6a519a49eee543150df7bd810979",
+      "bytes": 272324,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sounds/earth.wav"
+    },
+    "assets/sounds/fire.wav": {
+      "sha256": "c8071063d3e972a4e34e8d2e30513c4660c306300275982030bb033469e7e264",
+      "bytes": 436282,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sounds/fire.wav"
+    },
+    "assets/sounds/happy.mp3": {
+      "sha256": "81d32e575a0a8ae7e361fd83e19231ab7c84e6ff8b823aee50700087ba0bce23",
+      "bytes": 3628910,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sounds/happy.mp3"
+    },
+    "assets/sounds/happy.ogg": {
+      "sha256": "edef7395105eb1994d1a1124a7032d0bf146e80bcddcf896bb0ecb4481311a08",
+      "bytes": 2880812,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sounds/happy.ogg"
+    },
+    "assets/sounds/jump.wav": {
+      "sha256": "5f2885497d90b1491d8bc8d894b54afee0d36873169673665bc0e96d93061548",
+      "bytes": 7982,
+      "kind": "generated",
+      "how": "tools/make-jump.mjs (replaces quarantined upstream jump.wav)"
+    },
+    "assets/sounds/pickup.wav": {
+      "sha256": "257c5bc2f152a2fed8015539fc7658175243d01ac25c181ae71883d76ddc7c52",
+      "bytes": 605282,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sounds/pickup.wav"
+    },
+    "assets/sounds/water.wav": {
+      "sha256": "3d0c77d1604c0c9aa78f45e489185494a7c9240e74f6d7b64f2264b10d344ea7",
+      "bytes": 4727176,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sounds/water.wav"
+    },
+    "assets/sprites/items_spritesheet.png": {
+      "sha256": "d179f434372e8a4da3e44ae2db506adc0607d6bc9c6ffe0565dd3bcffc09f630",
+      "bytes": 44178,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sprites/items_spritesheet.png"
+    },
+    "assets/sprites/items_spritesheet.xml": {
+      "sha256": "703f06921fb876e708641fc0ec149f6ba95361150ce91772106a11f908b6a9b2",
+      "bytes": 4494,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sprites/items_spritesheet.xml"
+    },
+    "assets/sprites/p1_spritesheet.json": {
+      "sha256": "d38eb6ba7e0e44be4958af5560c9fb43b35a2bbf646f0a13c60401ae7ee4dcc7",
+      "bytes": 3597,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sprites/p1_spritesheet.json"
+    },
+    "assets/sprites/p1_spritesheet.png": {
+      "sha256": "7d5cd69baf7f1836c8402a6b128d70bae3ab29975a1b9ce9bafba43511b3ad4c",
+      "bytes": 42689,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sprites/p1_spritesheet.png"
+    },
+    "assets/sprites/particles.png": {
+      "sha256": "319faf451c4be3766399a9385f760567e419ef4541917543398827db6dbe08cc",
+      "bytes": 3459,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sprites/particles.png"
+    },
+    "assets/sprites/particles.xml": {
+      "sha256": "a5c9b89397172a46dce7deb0b1eec2912294304d0f1178766be84a1cc13d42d8",
+      "bytes": 326,
+      "kind": "upstream-verbatim",
+      "reference": "assets/sprites/particles.xml"
+    },
+    "assets/tilemaps/level1.json": {
+      "sha256": "6b79df8af41d415273828d840966d58a767081a6522bb18857d7e16243c7f075",
+      "bytes": 6425,
+      "kind": "upstream-verbatim",
+      "reference": "assets/tilemaps/level1.json"
+    },
+    "assets/tilemaps/level2.json": {
+      "sha256": "67a51cc3e99a469c5fcd9d6f05580ffb5ca4bca5e28d6656e3df0bd07e8e7d77",
+      "bytes": 10329,
+      "kind": "upstream-verbatim",
+      "reference": "assets/tilemaps/level2.json"
+    },
+    "assets/tilemaps/level3.json": {
+      "sha256": "b8d9c71e810a08403973333d00b30f391005a51fc645c1051eba65f6ed2bcd83",
+      "bytes": 17745,
+      "kind": "upstream-verbatim",
+      "reference": "assets/tilemaps/level3.json"
+    },
+    "assets/tilemaps/level4.json": {
+      "sha256": "99cb92e6ebb679520c6fa21b49f5df23e2a28c21b148e9a387573dda9b140598",
+      "bytes": 16653,
+      "kind": "upstream-verbatim",
+      "reference": "assets/tilemaps/level4.json"
+    },
+    "assets/tilesets/tiles_spritesheet.png": {
+      "sha256": "0e37e8ebfbf060e9b43dbff034931d436c36ef94e68c561399042b158dbb1da1",
+      "bytes": 159950,
+      "kind": "upstream-verbatim",
+      "reference": "assets/tilesets/tiles_spritesheet.png"
+    },
+    "CREDITS.md": {
+      "sha256": "3b4d9bfc223f751ccfa779e69f1447d3a70cc82761fcda4dcc2b444eab7203c9",
+      "bytes": 2312,
+      "kind": "integration-layer"
+    },
+    "css/arcade.css": {
+      "sha256": "7d51cc7e07d53f22384fdaf646799e4c3349415826170e9a7ce18b9d9265471d",
+      "bytes": 4936,
+      "kind": "integration-layer"
+    },
+    "fonts/Jersey10-Regular.ttf": {
+      "sha256": "db9cbd091617048a145d249daa2b815fe7083be6ab66ac26626e21a4e01c3e82",
+      "bytes": 77732,
+      "kind": "third-party-replacement",
+      "source": "google/fonts ofl/jersey10 (SIL OFL 1.1)"
+    },
+    "fonts/OFL.txt": {
+      "sha256": "436d5836064cec796c7ddde6fb4faeabdb6f2f17443a24a30d0c38b75d13f922",
+      "bytes": 4395,
+      "kind": "third-party-replacement",
+      "source": "google/fonts ofl/jersey10 (SIL OFL 1.1)"
+    },
+    "index.html": {
+      "sha256": "7c4203820de455e59bb9129b576b8d28ecd471c74637976d6174e91c14356f5e",
+      "bytes": 3820,
+      "kind": "integration-layer"
+    },
+    "js/arcade.js": {
+      "sha256": "67ec76891bb48677fd1ba50ad56ac67cde5252acb6bad0f28df4e8aa94bf1ed8",
+      "bytes": 9786,
+      "kind": "integration-layer"
+    },
+    "js/game.js": {
+      "sha256": "be97203729016b460f45f14f4992161223910c3972ce30d353ae862ae6ab2eff",
+      "bytes": 64831,
+      "kind": "generated",
+      "how": "tools/bundle.mjs wrapper around unmodified reference src/*.js"
+    },
+    "js/i18n.js": {
+      "sha256": "b2ef0a7c9f8a64f01d55dcfba104cd0de7c7bb46d0ef22f0bac5fd187f3f99b6",
+      "bytes": 7082,
+      "kind": "integration-layer"
+    },
+    "js/phaser.js": {
+      "sha256": "62564b4b8590e7bf5effb138bf771de7d4c2bcd9ce975fcbb17ceaa5b7226632",
+      "bytes": 1160526,
+      "kind": "upstream-verbatim",
+      "reference": "deps/phaser.js"
+    },
+    "LICENSE": {
+      "sha256": "c7d4a2e48d143a55fb0b8dc581d214b9205f82af21f67211632a5c436c9cff2b",
+      "bytes": 2956,
+      "kind": "integration-layer"
+    }
+  }
+}

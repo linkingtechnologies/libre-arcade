@@ -1,0 +1,10 @@
+# Reference snapshot and hashed fixtures must stay byte-exact (autocrlf off).
+/reference/** -text
+/public/js/** -text
+/public/assets/** -text
+/public/fonts/** -text
+*.png binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.ttf binary

@@ -1,0 +1,396 @@
+{
+ "env": {
+  "qwidth": 1278,
+  "qheight": 1040,
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/6.28899.6 Chrome/156.0.8078.100 Safari/537.36 MSIX"
+ },
+ "probes": {
+  "levels": {
+   "level1": {
+    "mapPx": [
+     2100,
+     1470
+    ],
+    "tiles": [
+     30,
+     21
+    ],
+    "player": [
+     280,
+     650
+    ],
+    "lives": 3,
+    "zombies": 1,
+    "hearts": 1,
+    "guns": 1,
+    "keys": 1,
+    "doors": 1,
+    "exitSigns": 0,
+    "bulletsOfGun": [
+     3
+    ],
+    "enemiesCounter": 1,
+    "summaryData": {
+     "zombies": {
+      "healed": 0,
+      "available": 1
+     },
+     "health": {
+      "collected": 0,
+      "available": 1
+     },
+     "bullets": {
+      "waisted": 0,
+      "available": 0
+     },
+     "zombieModeFound": false
+    }
+   },
+   "level2": {
+    "mapPx": [
+     2100,
+     1470
+    ],
+    "tiles": [
+     30,
+     21
+    ],
+    "player": [
+     210,
+     650
+    ],
+    "lives": 3,
+    "zombies": 4,
+    "hearts": 1,
+    "guns": 1,
+    "keys": 1,
+    "doors": 1,
+    "exitSigns": 0,
+    "bulletsOfGun": [
+     6
+    ],
+    "enemiesCounter": 4,
+    "summaryData": {
+     "zombies": {
+      "healed": 0,
+      "available": 4
+     },
+     "health": {
+      "collected": 0,
+      "available": 1
+     },
+     "bullets": {
+      "waisted": 0,
+      "available": 0
+     },
+     "zombieModeFound": false
+    }
+   },
+   "level3": {
+    "mapPx": [
+     3500,
+     2170
+    ],
+    "tiles": [
+     50,
+     31
+    ],
+    "player": [
+     1750,
+     1000
+    ],
+    "lives": 3,
+    "zombies": 8,
+    "hearts": 3,
+    "guns": 1,
+    "keys": 1,
+    "doors": 1,
+    "exitSigns": 1,
+    "bulletsOfGun": [
+     10
+    ],
+    "enemiesCounter": 8,
+    "summaryData": {
+     "zombies": {
+      "healed": 0,
+      "available": 8
+     },
+     "health": {
+      "collected": 0,
+      "available": 3
+     },
+     "bullets": {
+      "waisted": 0,
+      "available": 0
+     },
+     "zombieModeFound": false
+    }
+   },
+   "level4": {
+    "mapPx": [
+     7000,
+     3220
+    ],
+    "tiles": [
+     100,
+     46
+    ],
+    "player": [
+     3500,
+     1490
+    ],
+    "lives": 3,
+    "zombies": 12,
+    "hearts": 6,
+    "guns": 1,
+    "keys": 1,
+    "doors": 1,
+    "exitSigns": 1,
+    "bulletsOfGun": [
+     14
+    ],
+    "enemiesCounter": 12,
+    "summaryData": {
+     "zombies": {
+      "healed": 0,
+      "available": 12
+     },
+     "health": {
+      "collected": 0,
+      "available": 6
+     },
+     "bullets": {
+      "waisted": 0,
+      "available": 0
+     },
+     "zombieModeFound": false
+    }
+   },
+   "level5": {
+    "mapPx": [
+     7000,
+     3220
+    ],
+    "tiles": [
+     100,
+     46
+    ],
+    "player": [
+     3500,
+     1490
+    ],
+    "lives": 3,
+    "zombies": 16,
+    "hearts": 6,
+    "guns": 1,
+    "keys": 1,
+    "doors": 1,
+    "exitSigns": 1,
+    "bulletsOfGun": [
+     18
+    ],
+    "enemiesCounter": 16,
+    "summaryData": {
+     "zombies": {
+      "healed": 0,
+      "available": 16
+     },
+     "health": {
+      "collected": 0,
+      "available": 6
+     },
+     "bullets": {
+      "waisted": 0,
+      "available": 0
+     },
+     "zombieModeFound": false
+    }
+   },
+   "level6": {
+    "mapPx": [
+     7000,
+     3220
+    ],
+    "tiles": [
+     100,
+     46
+    ],
+    "player": [
+     3500,
+     1490
+    ],
+    "lives": 3,
+    "zombies": 24,
+    "hearts": 6,
+    "guns": 1,
+    "keys": 1,
+    "doors": 1,
+    "exitSigns": 1,
+    "bulletsOfGun": [
+     26
+    ],
+    "enemiesCounter": 24,
+    "summaryData": {
+     "zombies": {
+      "healed": 0,
+      "available": 24
+     },
+     "health": {
+      "collected": 0,
+      "available": 6
+     },
+     "bullets": {
+      "waisted": 0,
+      "available": 0
+     },
+     "zombieModeFound": false
+    }
+   }
+  },
+  "movement": {
+   "speedPxPerSec": 319,
+   "jumpVy": -660,
+   "jumpHeightPx": 216.778,
+   "hitbox": [
+    [
+     -25,
+     -50
+    ],
+    [
+     15,
+     -50
+    ],
+    [
+     15,
+     50
+    ],
+    [
+     -25,
+     50
+    ]
+   ]
+  },
+  "heal_and_reinfect": [
+   [
+    "before",
+    1,
+    0,
+    1
+   ],
+   [
+    "after-heal",
+    0,
+    1,
+    0,
+    "frame",
+    16
+   ],
+   [
+    "reinfect",
+    "zombies",
+    2,
+    "humans",
+    0,
+    "frame",
+    107,
+    "wasHuman",
+    [
+     false,
+     true
+    ]
+   ],
+   [
+    "shootReinfected",
+    "zombies",
+    0,
+    "humans",
+    0,
+    "deadZombies",
+    1
+   ]
+  ],
+  "zombie_contact_damage_and_zombie_mode": [
+   [
+    "livesTimeline",
+    [
+     [
+      0,
+      2
+     ],
+     [
+      70,
+      1
+     ]
+    ]
+   ],
+   [
+    "zombiePlayerPresent",
+    1,
+    "playerDestroyed",
+    true,
+    "label",
+    "I was bitten. I'm turning. Nooo!"
+   ],
+   [
+    "zombieModeReady",
+    "speed",
+    140,
+    "jumpSpeed",
+    -500,
+    "hasControls",
+    false,
+    "zombieModeFound",
+    true
+   ],
+   [
+    "afterZombieModeEnds",
+    "playerIsZombieFlag",
+    true,
+    "lives",
+    3,
+    "zombiePlayers",
+    0,
+    "label",
+    "Ok, back to business"
+   ],
+   [
+    "secondDeath",
+    "screen",
+    "gameOver"
+   ]
+  ],
+  "zombie_ai_sight": {
+   "lineOfSight": 350,
+   "log": [
+    [
+     "inRange340",
+     true
+    ],
+    [
+     "outRange360",
+     false
+    ],
+    [
+     "yOffset30",
+     false
+    ]
+   ],
+   "patrolSpeed": 60
+  },
+  "random_variants": {
+   "2": 2,
+   "3": 2,
+   "4": 4,
+   "5": 4,
+   "6": 4
+  },
+  "stars_formula_and_progress": {
+   "keys": {
+    "availableLevel": "zombieGame:availableLevel",
+    "levelProgress": "zombieGame:levelProgress"
+   },
+   "availableLevel": 1,
+   "ls": []
+  }
+ }
+}

@@ -1,0 +1,194 @@
+{
+ "ok": true,
+ "problems": [],
+ "report": {
+  "touch": {
+   "touchDevice": true,
+   "pad": {
+    "stages": 2,
+    "w": 812,
+    "h": 375
+   },
+   "jumpMinVy": -627.6600000000001,
+   "rightButtonDx": 299.31000000000006,
+   "errors": []
+  },
+  "resize": {
+   "start": {
+    "q": [
+     1024,
+     763
+    ],
+    "css": [
+     1024,
+     763
+    ],
+    "canvas": [
+     1024,
+     763
+    ],
+    "screen": "start",
+    "win": [
+     1024,
+     768
+    ]
+   },
+   "afterGrow": {
+    "q": [
+     1280,
+     715
+    ],
+    "css": [
+     1280,
+     715
+    ],
+    "canvas": [
+     1280,
+     715
+    ],
+    "screen": "start",
+    "win": [
+     1280,
+     720
+    ]
+   },
+   "afterSmall": {
+    "q": [
+     1200,
+     790
+    ],
+    "css": [
+     600,
+     395
+    ],
+    "canvas": [
+     1200,
+     790
+    ],
+    "screen": "start",
+    "win": [
+     600,
+     400
+    ]
+   },
+   "inLevel": {
+    "before": {
+     "x": 280,
+     "lives": 3
+    },
+    "after": {
+     "x": 280,
+     "lives": 3,
+     "screen": "level1",
+     "hudStages": 2,
+     "size": [
+      900,
+      595
+     ]
+    }
+   },
+   "errors": []
+  },
+  "en": {
+   "lang": [
+    "en",
+    "en",
+    "Heal'em All. There's a cure for zombies. HTML5 game."
+   ],
+   "start": [
+    "Heal'em All",
+    "There's a cure for zombies",
+    "created by @krzysu and @pawelmadeja, follow us for updates",
+    "Continue"
+   ],
+   "levelSelect": [
+    "Everything begins here!",
+    "created by @krzysu and @pawelmadeja, follow us for updates"
+   ],
+   "controls": [
+    "How to heal’em in three steps",
+    "1st",
+    "Move with arrows",
+    "2nd",
+    "Find Healing Gun",
+    "3rd",
+    "Use your Gun!",
+    "Give me some zombies"
+   ],
+   "level1": [
+    "That hurts!"
+   ],
+   "summary": [
+    "Well done!",
+    "Health collected: 1/2",
+    "Zombies healed: 3/4",
+    "Bullets wasted: 2/3",
+    "Zombie Mode: done",
+    "Play next",
+    "All levels"
+   ],
+   "gameOver": [
+    "Game Over",
+    "Looks like these zombies cannot hope for your help :/\nBe better next time!",
+    "All levels"
+   ],
+   "end": [
+    "The End",
+    "You did it!\nIf you like the game, follow us on twitter.\nAlso please give us some feedback.\nThanks for your time!",
+    "Back to all levels"
+   ],
+   "errors": []
+  },
+  "it": {
+   "lang": [
+    "it",
+    "it",
+    "Heal'em All. C'è una cura per gli zombie. Gioco HTML5."
+   ],
+   "start": [
+    "Heal'em All",
+    "C'è una cura per gli zombie",
+    "creato da @krzysu e @pawelmadeja, seguici per gli aggiornamenti",
+    "Continua"
+   ],
+   "levelSelect": [
+    "Tutto comincia qui!",
+    "creato da @krzysu e @pawelmadeja, seguici per gli aggiornamenti"
+   ],
+   "controls": [
+    "Come curarli in tre passi",
+    "1°",
+    "Usa le frecce",
+    "2°",
+    "Trova la pistola",
+    "3°",
+    "Usa la pistola!",
+    "Dammi degli zombie"
+   ],
+   "level1": [
+    "Ahi, che male!"
+   ],
+   "summary": [
+    "Ben fatto!",
+    "Salute raccolta: 1/2",
+    "Zombie curati: 3/4",
+    "Proiettili sprecati: 2/3",
+    "Modalità zombie: fatta",
+    "Avanti",
+    "Livelli"
+   ],
+   "gameOver": [
+    "Game over",
+    "Pare che questi zombie non possano sperare nel tuo aiuto :/\nFai meglio la prossima volta!",
+    "Livelli"
+   ],
+   "end": [
+    "Fine",
+    "Ce l'hai fatta!\nSe il gioco ti è piaciuto, seguici su Twitter.\nLasciaci anche un commento.\nGrazie per il tuo tempo!",
+    "Torna ai livelli"
+   ],
+   "errors": []
+  },
+  "untranslated": []
+ }
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Heal'em All. There's a cure for zombies. HTML5 game.</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <meta content="Imagine, what if the cure exists? What if zombies plague can be stoped? Explore old, abandoned graveyard, heal as many zombies as you can, and find your way out. But be careful not to become one of them!" name="description">
+        <meta content="@krzysu" name="author">
+
+        <meta content="http://games.myviews.pl/heal-em-all/" property="og:url">
+        <meta content="Heal'em All. There's a cure for zombies. HTML5 game." property="og:title">
+        <meta content="Imagine, what if the cure exists? What if zombies plague can be stoped? Explore old, abandoned graveyard, heal as many zombies as you can, and find your way out. But be careful not to become one of them!" property="og:description">
+        <meta content="https://dl.dropboxusercontent.com/u/8751332/promo.png" property="og:image">
+
+        <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Boogaloo' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
+
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-9904630-18', 'myviews.pl');
+            ga('send', 'pageview');
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="loading">
+            <div class="loading-title">
+                <h1>Heal'em All</h1>
+                <h2>There's a cure for zombies</h2>
+            </div>
+            <div id="loading-container">
+                <div class="loading-text">Loading...</div>
+                <div id="loading-progress"></div>
+            </div>
+        </div>
+
+        <!-- build:js({.tmp,app}) scripts/main.js -->
+        <script src="scripts/lib/quintus-all.js"></script>
+        <script src="scripts/lib/stats.min.js"></script>
+        <script src="scripts/game.js"></script>
+        <!-- endbuild -->
+
+</body>
+</html>

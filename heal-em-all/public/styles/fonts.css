@@ -1,0 +1,4 @@
+/* Local copies of the two fonts the original loaded from Google Fonts (SIL Open Font License 1.1, texts in ../fonts/).
+   Unmodified files from github.com/google/fonts (ofl/boogaloo, ofl/jollylodger). font-display: block avoids a fallback-font flash. */
+@font-face { font-family: "Boogaloo"; font-style: normal; font-weight: 400; font-display: block; src: url("../fonts/Boogaloo-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Jolly Lodger"; font-style: normal; font-weight: 400; font-display: block; src: url("../fonts/JollyLodger-Regular.ttf") format("truetype"); }

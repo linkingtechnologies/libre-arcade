@@ -1,0 +1,77 @@
+/* Elemental One restoration - integration layer (Libre Arcade). SPDX-License-Identifier: MIT */
+
+/* Upstream asks for the font family "minecraftiaregular" by name in its source.
+   The original Minecraftia is personal-use only, so that name now points at
+   Jersey 10 (SIL OFL 1.1). No game source changes. */
+@font-face {
+  font-family: 'minecraftiaregular';
+  src: url('../fonts/Jersey10-Regular.ttf') format('truetype');
+  /* Jersey 10 is narrower and smaller than Minecraftia at the same CSS size; size-adjust
+     compensates so the unchanged 18/25/45px text in the source occupies about the same room. */
+  size-adjust: 125%;
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --bg: #2c2c2c; --panel: #1f2a2e; --ink: #f2f6f4; --accent: #6fc4a9; --accent-ink: #12302a; --line: #4a5a5e;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); overflow: hidden;
+  font: 15px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+.font-warm { position: absolute; top: -100px; visibility: hidden; }
+a { color: var(--accent); }
+
+#app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; position: relative; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+
+#bar { flex: none; display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #1b1b1b; border-bottom: 1px solid #000; flex-wrap: wrap; }
+#bar .brand { font-size: 13px; text-decoration: none; }
+#bar .bar-title { font-weight: 700; letter-spacing: .06em; flex: 1; text-align: center; }
+.bar-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+button { font: inherit; color: var(--ink); background: #3a484c; border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; min-height: 34px; cursor: pointer; }
+button:hover { background: #4a5c61; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 700; }
+
+#play { flex: 1; min-height: 0; display: flex; align-items: stretch; }
+#screen { flex: 1; min-width: 0; min-height: 0; position: relative; order: 1; }
+#main { position: absolute; left: 50%; top: 50%; width: 800px; height: 600px; background: #000; border: 3px solid #2c2c2c; border-radius: 10px; overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--s, 1)); transform-origin: center center; }
+#main canvas { display: block; }
+#paused { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.45); font: 700 28px 'minecraftiaregular', monospace; pointer-events: none; }
+#paused[hidden], #modal[hidden] { display: none; }
+
+#pads { display: contents; }
+.pad { display: none; flex: none; gap: 8px; align-content: center; justify-content: center; padding: 8px; }
+.touch.is-playing .pad { display: flex; }
+.pad-left { order: 0; }
+.pad-right { order: 2; }
+.pbtn { min-width: 64px; min-height: 64px; font-size: 18px; border-radius: 14px; background: #3a484c; user-select: none; -webkit-user-select: none; touch-action: none; padding: 6px; }
+.pbtn.on { background: var(--accent); color: var(--accent-ink); }
+.pad-left, .pad-right { flex-wrap: wrap; width: 160px; }
+.pad .wide { min-width: 136px; }
+
+@media (orientation: portrait) {
+  #play { flex-direction: column; }
+  #pads { display: flex; flex: none; order: 2; justify-content: space-between; align-items: center; }
+  .pad-left, .pad-right { order: 0; width: auto; flex-wrap: wrap; }
+  .pad-left { width: 156px; } .pad-right { width: 156px; }
+  .pbtn { min-width: 60px; min-height: 52px; }
+  .pad .wide { min-width: 128px; }
+}
+@media (max-width: 560px) { #bar .bar-title { display: none; } #bar .brand { flex: 1; } }
+
+/* title + modal */
+.panel { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px; text-align: center;
+  background: radial-gradient(circle at 50% 35%, #2d4348, #172023); overflow: auto; }
+#title h1 { margin: 0; font: 700 clamp(34px, 9vw, 64px)/1 'minecraftiaregular', monospace; color: #cfe3e0; letter-spacing: .04em; }
+#title .sub { margin: 0; font-size: 18px; color: var(--accent); }
+#title .by { margin: 0; max-width: 34em; opacity: .85; }
+.title-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+.is-playing #title, .is-starting #title { display: none; }
+.is-title #bar .bar-actions #btn-pause, .is-title #btn-restart, .is-title #btn-menu { display: none; }
+#modal { z-index: 10; background: rgba(15, 22, 24, .96); }
+#modal-body { max-width: 40em; text-align: left; max-height: 70vh; overflow: auto; }
+#modal-body h2 { margin-top: 0; }
+#modal-body ul { padding-left: 1.2em; }

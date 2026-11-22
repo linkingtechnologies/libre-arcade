@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <title>Elemental One</title>
+  <meta name="description" content="Elemental One (2013) by Zaven Muradyan: a puzzle-platformer where you can only carry one element at a time. Restored for Libre Arcade." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/arcade.css" />
+</head>
+<body>
+  <!-- Original upstream hack: make the browser fetch the font before the canvas first draws text. -->
+  <span class="font-warm" style="font-family: minecraftiaregular;">.</span>
+
+  <div id="app" class="is-title">
+    <header id="bar">
+      <a class="brand" id="arcade-link" href="https://linkingtechnologies.github.io/libre-arcade/" data-i18n="ui.arcade">Libre Arcade</a>
+      <span class="bar-title">Elemental One</span>
+      <div class="bar-actions">
+        <button type="button" id="btn-pause" data-i18n="ui.pause">Pause</button>
+        <button type="button" id="btn-restart" data-i18n="ui.restart">Restart level</button>
+        <button type="button" id="btn-menu" data-i18n="ui.menu">Menu</button>
+        <button type="button" id="btn-mute" data-i18n="ui.mute" aria-pressed="false">Mute</button>
+        <button type="button" id="btn-info" data-i18n="ui.info">Info</button>
+        <button type="button" id="btn-lang" aria-label="Language">IT</button>
+      </div>
+    </header>
+
+    <main id="play">
+      <div id="screen">
+        <div id="main"></div>
+        <div id="paused" hidden><span data-i18n="ui.paused">Paused</span></div>
+      </div>
+      <div id="pads" aria-label="Touch controls">
+        <div class="pad pad-left">
+          <button type="button" class="pbtn" data-key="37" aria-label="Left">&#9664;</button>
+          <button type="button" class="pbtn" data-key="39" aria-label="Right">&#9654;</button>
+          <button type="button" class="pbtn" data-key="38" aria-label="Jump">&#9650;</button>
+          <button type="button" class="pbtn" data-key="40" aria-label="Duck">&#9660;</button>
+        </div>
+        <div class="pad pad-right">
+          <button type="button" class="pbtn" data-key="90" data-i18n="pad.grab">Z grab</button>
+          <button type="button" class="pbtn" data-key="88" data-i18n="pad.drop">X drop</button>
+          <button type="button" class="pbtn wide" data-key="32" data-i18n="pad.use">Space</button>
+          <button type="button" class="pbtn" data-key="13" data-i18n="pad.enter">Enter</button>
+        </div>
+      </div>
+    </main>
+
+    <section id="title" class="panel">
+      <h1>ELEMENTAL ONE</h1>
+      <p class="sub" data-i18n="title.sub">You only get one element.</p>
+      <p class="by" data-i18n="title.by">A game by Zaven Muradyan, 2013&ndash;2014. Restored for Libre Arcade.</p>
+      <div class="title-actions">
+        <button type="button" id="btn-play" class="primary" data-i18n="title.play">Play</button>
+        <button type="button" id="btn-how" data-i18n="title.how">How to play</button>
+        <button type="button" id="btn-credits" data-i18n="title.credits">Credits</button>
+        <button type="button" id="btn-lang2" aria-label="Language">IT</button>
+      </div>
+      <p class="by"><a href="https://linkingtechnologies.github.io/libre-arcade/" data-i18n="ui.arcade">Libre Arcade</a></p>
+    </section>
+
+    <section id="modal" class="panel" hidden role="dialog" aria-modal="true">
+      <div id="modal-body"></div>
+      <button type="button" id="modal-close" class="primary" data-i18n="ui.close">Close</button>
+    </section>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/arcade.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
