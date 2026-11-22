@@ -1,0 +1,203 @@
+/*
+ * game.css - Same Game Gravity
+ * Copyright (C) 2011 @greweb
+ * GPL v3 - https://github.com/gre/same-game-gravity
+ *
+ * Restored for Libre Arcade (2026): upstream's game.css (a compiled
+ * stylesheet) with the -moz-/-webkit-/-o-/-ms-/-khtml- duplicates dropped,
+ * the effective values kept, the removed screens' rules deleted, and the
+ * "RESTORATION" blocks added (responsive size, toolbar, pause, buttons).
+ */
+@font-face { src: url(Chewy.ttf); font-family: Chewy; font-display: swap; }
+
+html { background: black; color: white; height: 100%; overflow: hidden; overscroll-behavior: none; }
+
+/* RESTORATION: 30px at 600px of height or more (as upstream), smaller on short/phone screens */
+body { background: black; color: white; overflow: hidden; padding: 0; margin: 0; height: 100%; font-size: clamp(15px, 5vmin, 30px); font-family: Chewy, arial, serif; }
+
+p { margin: 4px 0; }
+
+h1, h2, h3, h4, h5 { text-align: center; text-shadow: 0px 2px 5px black; margin: 4px; }
+
+h1 { font-size: 1.8em; }
+
+h2 { font-size: 1.5em; }
+
+h3 { font-size: 1.2em; }
+
+a, canvas, * { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none; -webkit-user-select: none; }
+
+a { color: #ffffcc; text-decoration: none; text-shadow: 0px 2px 4px black; }
+a[href^=http] { text-decoration: underline; }
+a.button { text-shadow: none; }
+
+.actions a { text-shadow: none; }
+
+.center { text-align: center; }
+
+ul { margin: 0; }
+
+dd { margin: 0; padding: 0; }
+
+#main.enabletransition > section { transition-duration: 1s, 0s; }
+#main > section { background: black url(background.jpg) no-repeat 50% 0%; z-index: -1; position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; box-sizing: border-box; transition-delay: 0s, 1s; transition-property: transform, opacity; transform: translateY(-100%); clear: both; }
+#main > section .content { min-height: 74%; }
+#main > section.current { transition-delay: 0s, 0s; transform: translateY(0%); opacity: 1; z-index: 0; }
+#main > section.after { opacity: 0; transition-delay: 0s, 1s; transform: translateY(100%); }
+
+#main > section.current a.button, #main > section.current .actions a { z-index: 100; }
+
+a { transition-duration: 400ms; transition-property: color border-color text-shadow; }
+a:hover { text-shadow: 0px 0px 4px white; border-color: white; color: white; }
+a.button:hover { background-color: white; }
+
+.actions { margin: 0 10px; }
+.actions a:hover { background-color: white; }
+.actions a:first-child { float: left; }
+.actions a:first-child:last-child { float: none; }
+.actions a:last-child { float: right; }
+
+a.button, .actions a { background: #ffffcc; color: black; padding: 4px 16px; border-radius: 20px; }
+
+.gameVersion { font-size: 0.5em; vertical-align: top; color: #aaaaaa; }
+
+dl.menu { padding: 0; margin: 0; text-align: center; }
+
+#menu .actions { margin: 15px 30px; text-align: center; }
+#menu .difficulty a { font-size: 1.2em; background: black; margin: 15px 30px; display: block; border-radius: 20px; border: 4px solid; }
+#menu footer { text-align: center; clear: both; font-size: 20px; background: black; }
+#menu footer p { color: #aaaaaa; }
+
+.difficulty.hard { color: #ff9999; border-color: #ff9999; }
+.difficulty.hard a { color: #ff9999; border-color: #ff9999; }
+.difficulty.normal { color: #9999ff; border-color: #9999ff; }
+.difficulty.normal a { color: #9999ff; border-color: #9999ff; }
+.difficulty.easy { color: #99ff99; border-color: #99ff99; }
+.difficulty.easy a { color: #99ff99; border-color: #99ff99; }
+.difficulty a:hover { border-color: white; color: white; }
+
+#main > #game { background: black; touch-action: none; }
+
+#game .gameStatus { height: 40px; padding: 0 20px 0 6px; position: relative; z-index: 100; display: flex; align-items: flex-start; gap: 6px; }
+#game .gameStatus .timeline { display: inline-block; background: white; height: 30px; border-radius: 10px; position: absolute; right: 5px; top: 5px; transition-property: width; transition-timing-function: linear; }
+#game .gameStatus .timeline.reset { transition-duration: 0s; width: 99%; }
+#game .gameStatus .timeline.count-20s { transition-duration: 20s; width: 10%; }
+#game .gameStatus.warning .timeline { background: #dd0000; }
+#game .gameStatus .remainingSeconds { color: black; font-size: 20px; position: absolute; top: 3px; right: 5px; }
+#game .gameStatus.warning .remainingSeconds { color: white; }
+
+#gameContainer { position: relative; }
+
+#game .turnleft, #game .turnright { z-index: 100; position: absolute; top: calc(50% - 40px); background: url(rotate-right.png) black no-repeat; color: white; opacity: 0.5; height: 80px; width: 50px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border: 2px solid white; border-right: none; cursor: pointer; transition-duration: 0.5s, 0.2s; }
+#game .turnleft:hover, #game .turnright:hover { opacity: 1; }
+#game .turnleft { left: -15px; transform: scaleX(-1); transition-property: left, color; }
+#game .turnleft:hover { left: -10px; }
+#game .turnright { right: -15px; transition-property: right, color; }
+#game .turnright:hover { right: -10px; }
+
+#game canvas { padding: 0; position: absolute; top: 0; left: 0; transition-duration: 1s; transform-origin: 50% 50%; }
+#game canvas.main { z-index: 2; }
+#game canvas.highlight { z-index: 1; }
+
+#gameContainer .destroyNumber { z-index: 2; display: block; text-align: center; padding-top: 10px; font-size: 1.2em; opacity: 1; transform: translate(0, 0); pointer-events: none; }
+#gameContainer .destroyNumber.startTransition { opacity: 0; transition-delay: 1s, 0.1s; transition-duration: 1s, 1.5s; transition-property: opacity, all; transform: translate(0, 100px); }
+
+#game .main { z-index: 1; }
+
+#finish { padding: 10px; }
+#finish .scoreContainer { border-bottom: 2px dashed white; padding-bottom: 2px; }
+#finish .score { opacity: 0; transition-delay: 2s; transition-duration: 0s; transition-property: opacity; }
+#finish.current .score { opacity: 1; transition-delay: 1s; transition-duration: 1s; }
+#finish .bestDestroyed li { opacity: 0; transition-delay: 2s; transition-duration: 0s; transition-property: opacity; }
+#finish.current .bestDestroyed li { transition-duration: 1s; opacity: 1; }
+#finish.current .bestDestroyed li:nth-child(1) { transition-delay: 0.5s; }
+#finish.current .bestDestroyed li:nth-child(2) { transition-delay: 0.9s; }
+#finish.current .bestDestroyed li:nth-child(3) { transition-delay: 1.3s; }
+#finish.current .bestDestroyed li:nth-child(4) { transition-delay: 1.7s; }
+#finish.current .score.score1 { transition-delay: 0s; }
+#finish.current .score.score2 { transition-delay: 2s; }
+#finish.current .score.score3 { transition-delay: 2.5s; }
+#finish.current .score.score4 { transition-delay: 3s; }
+#finish .score.score1, #finish .score.score2, #finish .score.score3 { text-align: right; display: block; }
+#finish .actions { transform: translateY(300px); transition-delay: 2s; }
+#finish.current .actions { transform: translateY(0px); transition-delay: 3s; transition-duration: 1s; }
+#finish .remainingBlocksScoreDesc { padding-left: 10px; }
+#finish ul.bestDestroyed { font-size: 0.9em; padding-left: 5px; margin: 0; list-style: none; display: inline-block; }
+#finish ul.bestDestroyed li { list-style: none; display: inline-block; }
+#finish ul.bestDestroyed li .bull { background: white; padding: 8px; border-radius: 10px; display: inline-block; }
+#finish ul.bestDestroyed li:after { padding-right: 5px; content: " , "; color: white; }
+#finish ul.bestDestroyed li:last-child:after { content: ""; }
+
+.newRecord { font-size: 0.4em; color: red; vertical-align: top; }
+
+#main > .help .content { padding: 10px; }
+#main > .help .content p { margin: 4px; }
+
+#highscores .levelProgress { font-size: 0.7em; width: 96%; margin: 5px 2%; box-sizing: border-box; padding: 2px 10px; border: 2px solid white; border-radius: 10px; overflow: hidden; position: relative; }
+#highscores .levelProgress .levelContainer { float: left; color: white; }
+#highscores .levelProgress .totalScoreContainer { text-align: right; }
+#highscores .levelProgress .progress { position: absolute; top: 0; left: 0; height: 100%; background: red; z-index: -1; border-radius: 4px; }
+#highscores .difficulties { display: table; width: 100%; text-align: center; }
+#highscores .difficulties dt { font-size: 0.6em; }
+#highscores .difficulties dd { font-size: 0.8em; background: black; display: inline-block; padding: 2px 5px; border-radius: 10px; min-width: 60%; }
+#highscores .difficulties > dl { display: table-cell; margin: 1%; }
+
+/* ---------------------------------------------------------------- */
+/* RESTORATION: everything below is new in the Libre Arcade version  */
+/* ---------------------------------------------------------------- */
+
+#main > section { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+#main > #finish { padding: 10px max(10px, env(safe-area-inset-right)) 10px max(10px, env(safe-area-inset-left)); }
+#menu h1 img { height: 1em; vertical-align: middle; }
+.muted { color: #999999; }
+#main > .help .content p { text-align: center; }
+
+/* the game bar: Back, Pause, Sound */
+#game .gameStatus a.back, #game .gameStatus button { position: relative; z-index: 101; margin-top: 5px; height: 30px; box-sizing: border-box; padding: 0 12px; border: 0; border-radius: 20px; background: #000000; color: #ffffcc; font: 20px/30px Chewy, arial, serif; cursor: pointer; text-shadow: none; display: inline-flex; align-items: center; }
+#game .gameStatus a.back:hover, #game .gameStatus button:hover { background: #333333; color: #ffffff; }
+#game .gameStatus a.back { float: none; }
+
+.pauseButton span { display: inline-block; width: 14px; height: 14px; border-left: 4px solid #ffffcc; border-right: 4px solid #ffffcc; box-sizing: border-box; }
+.pauseButton[aria-pressed=true] span { width: 0; height: 0; border-right: 0; border-left: 13px solid #ffffcc; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+
+.speaker { display: inline-block; width: 22px; height: 20px; background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 20'%3E%3Cpath d='M2 7h4l5-4v14l-5-4H2z' fill='%23ffc'/%3E%3Cpath d='M14 7q3 3 0 6M16.500 4.500q5.500 5.500 0 11' stroke='%23ffc' fill='none' stroke-width='1.700' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.muteButton:not(.on) .speaker { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 20'%3E%3Cpath d='M2 7h4l5-4v14l-5-4H2z' fill='%23ffc'/%3E%3Cpath d='M14 7l6 6M20 7l-6 6' stroke='%23ffc' fill='none' stroke-width='1.700' stroke-linecap='round'/%3E%3C/svg%3E"); }
+
+/* language + sound, bottom centre, out of the game scene */
+#toolbar { position: fixed; left: 50%; bottom: calc(8px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 300; display: flex; gap: 6px; }
+body[data-scene="game"] #toolbar { display: none; }
+#toolbar button { height: 32px; min-width: 40px; padding: 0 10px; border: 2px solid #ffffcc; border-radius: 20px; background: #000000; color: #ffffcc; font: 16px/28px Chewy, arial, serif; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+#toolbar button:hover { border-color: #ffffff; color: #ffffff; }
+#toolbar button[aria-pressed=true].langButton { background: #ffffcc; color: #000000; }
+
+button:focus-visible, a:focus-visible, .turnleft:focus-visible, .turnright:focus-visible { outline: 3px solid #ffffff; outline-offset: 2px; }
+
+/* pause: covers the board (it must not be readable while the clock is stopped) */
+#pauseOverlay { position: absolute; left: 0; right: 0; top: 40px; bottom: 0; z-index: 90; background: rgba(0, 0, 0, 0.92); text-align: center; padding-top: 20vh; cursor: pointer; }
+#pauseOverlay[hidden] { display: none; }
+
+.keys { display: flex; justify-content: center; gap: 1.5em; flex-wrap: wrap; }
+kbd { display: inline-block; min-width: 1.6em; padding: 0 0.3em; border-radius: 6px; border: 2px solid #ffffcc; background: #222222; color: #ffffcc; font: inherit; text-align: center; }
+
+/* portrait: the rotate arrows go under the board, in the free strip, so they never hide a column */
+@media (orientation: portrait) {
+  #game .turnleft, #game .turnright { top: auto; bottom: calc(12px + env(safe-area-inset-bottom)); height: 64px; opacity: 0.8; }
+}
+
+/* short screens (phones in landscape): same content, tighter */
+@media (max-height: 520px) {
+  #menu h1 { font-size: 1.4em; }
+  #menu .actions { margin: 6px 30px; }
+  #menu dl.menu { display: flex; flex-wrap: wrap; justify-content: center; }
+  #menu dl.menu dt { flex-basis: 100%; }
+  #menu dl.menu dd.difficulty { flex: 1 1 28%; }
+  #menu .difficulty a { margin: 6px 10px; }
+  #menu footer { font-size: 14px; }
+  #main > section .content { min-height: 0; }
+  #finish .actions, #finish.current .actions { transform: none; }
+  #pauseOverlay { padding-top: 6vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main.enabletransition > section { transition-duration: 0.01s, 0s; }
+}

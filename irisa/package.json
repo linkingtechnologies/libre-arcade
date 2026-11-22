@@ -1,0 +1,26 @@
+{
+  "name": "irisa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Irisa (Global Game Jam 2017), restored for Libre Arcade: upstream's game logic as native ES modules, no framework.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs public 8080",
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && node scripts/serve.mjs game 8080",
+    "test": "node --test test/*.test.mjs",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test",
+    "manifest": "node scripts/manifest.mjs",
+    "zip": "node scripts/manifest.mjs && node scripts/package-zip.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.4",
+    "eslint": "9.39.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "GPL-3.0-only",
+  "displayName": "Irisa"
+}

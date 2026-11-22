@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="author" content="Matthew Miner">
+  <meta name="description" content="Irisa, a puzzle game by Matthew Miner (Global Game Jam 2017), restored for Libre Arcade.">
+  <meta name="theme-color" content="#3498db">
+  <title>Irisa · Libre Arcade</title>
+  <link rel="icon" href="assets/img/player.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="screen-title">
+
+  <header class="topbar">
+    <div class="tools">
+      <button type="button" class="tool" id="pauseBtn" data-i18n-label="pause" aria-label="Pause">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+      </button>
+      <button type="button" class="tool" id="restartBtn" data-i18n-label="restart" aria-label="Restart level">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+      </button>
+      <button type="button" class="tool" id="soundBtn" aria-pressed="false" aria-label="Sound on">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="waves" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path class="mutecross" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button type="button" class="tool lang" id="langBtn" data-i18n-label="language" aria-label="Language">EN</button>
+    </div>
+  </header>
+
+  <div class="stage" id="stage">
+    <div id="app" class="playing">
+      <nav id="levels" data-i18n-label="levels" aria-label="Levels"></nav>
+      <main id="board" data-i18n-label="board" aria-label="Game board"></main>
+      <footer><span data-i18n="footerBy">bits and bytes by</span> <a href="http://matthewminer.com" rel="noopener">Matthew Miner</a> <span aria-hidden="true">·</span> <a href="../../index.html" data-i18n="backToArcade">Libre Arcade</a></footer>
+    </div>
+  </div>
+
+  <div class="dpad" id="dpad" role="group" data-i18n-label="controls" aria-label="Touch controls">
+    <button type="button" class="pad up" data-dir="up" data-i18n-label="up" aria-label="Move up"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l7 9H5z"/></svg></button>
+    <button type="button" class="pad left" data-dir="left" data-i18n-label="left" aria-label="Move left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12l9-7v14z"/></svg></button>
+    <button type="button" class="pad right" data-dir="right" data-i18n-label="right" aria-label="Move right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 12l-9-7v14z"/></svg></button>
+    <button type="button" class="pad down" data-dir="down" data-i18n-label="down" aria-label="Move down"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18l-7-9h14z"/></svg></button>
+  </div>
+
+  <div id="live" class="sr-only" aria-live="polite"></div>
+
+  <section class="overlay open" id="titleScreen" role="dialog" aria-modal="true" aria-labelledby="titleHeading">
+    <div class="card">
+      <img class="logo" src="assets/img/player.svg" alt="" width="64" height="64">
+      <h1 id="titleHeading">Irisa</h1>
+      <p class="tagline" data-i18n="tagline"></p>
+      <button type="button" class="primary" id="playBtn" data-i18n="play">Play</button>
+      <h2 data-i18n="howTitle"></h2>
+      <ul class="how" id="howList"></ul>
+      <ul class="legend" aria-hidden="true">
+        <li><img src="assets/img/player.svg" alt=""></li>
+        <li><img src="assets/img/door.svg" alt=""></li>
+        <li><img src="assets/img/enemy.svg" alt=""></li>
+        <li><img src="assets/img/wall.svg" alt=""></li>
+        <li><img src="assets/img/teleporter.svg" alt=""></li>
+        <li><img src="assets/img/freezetime3.svg" alt=""></li>
+        <li><img src="assets/img/reverse.svg" alt=""></li>
+      </ul>
+      <h2 data-i18n="creditsTitle"></h2>
+      <p class="credits" id="credits"></p>
+    </div>
+  </section>
+
+  <section class="overlay" id="pauseScreen" role="dialog" aria-modal="true" aria-labelledby="pauseHeading">
+    <div class="card small">
+      <h1 id="pauseHeading" data-i18n="paused">Paused</h1>
+      <button type="button" class="primary" id="resumeBtn" data-i18n="resume">Resume</button>
+      <button type="button" class="secondary" id="pauseRestartBtn" data-i18n="restart">Restart level</button>
+      <button type="button" class="secondary" id="menuBtn" data-i18n="menu">Main menu</button>
+    </div>
+  </section>
+
+  <section class="overlay" id="completeScreen" role="dialog" aria-modal="true" aria-labelledby="completeHeading">
+    <div class="card small">
+      <img class="logo" src="assets/img/door.svg" alt="" width="64" height="64">
+      <h1 id="completeHeading" data-i18n="completeTitle"></h1>
+      <p class="tagline" data-i18n="completeText"></p>
+      <button type="button" class="primary" id="againBtn" data-i18n="playAgain">Play again</button>
+      <button type="button" class="secondary" id="completeMenuBtn" data-i18n="menu">Main menu</button>
+    </div>
+  </section>
+
+  <script type="module" src="js/app.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

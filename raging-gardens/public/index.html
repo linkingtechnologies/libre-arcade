@@ -1,0 +1,105 @@
+<!doctype html>
+<!-- SPDX-FileCopyrightText: 2026 Umberto Bresciani -->
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; connect-src 'self' https://grugnetto.goatcounter.com; img-src 'self' data: blob:; media-src 'self' blob:; style-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Raging Gardens</title>
+<meta name="description" content="Raging Gardens: a hungry ninja rabbit pulls carrots for three minutes while rival rabbits close in. A restoration of the 2012 HTML5 game.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud" hidden>
+    <div class="stat"><span data-i18n="time">Time</span> <b id="timer">03:00</b></div>
+    <div class="stat"><span data-i18n="carrots">Carrots</span> <b id="carrots">0</b></div>
+    <div class="spacer"></div>
+    <button id="btn-music" class="icon" type="button" aria-pressed="true" title="Music">♪</button>
+    <button id="btn-sfx" class="icon" type="button" aria-pressed="true" title="Sound effects">🔊</button>
+    <button id="btn-pause" class="icon" type="button" title="Pause">❚❚</button>
+    <button id="btn-restart" class="icon" type="button" title="Restart">↻</button>
+  </header>
+
+  <main id="field">
+    <canvas id="canvas" width="1024" height="768" aria-label="Raging Gardens field"></canvas>
+    <div id="message" aria-live="polite"></div>
+
+    <section id="screen-menu" class="screen">
+      <h1 data-i18n="title">Raging Gardens</h1>
+      <p class="sub" data-i18n="subtitle"></p>
+      <button id="menu-play" class="big" type="button" data-i18n="play">Play game</button>
+      <button id="menu-howto" type="button" data-i18n="howto">How to play</button>
+      <button id="menu-credits" type="button" data-i18n="credits">Credits</button>
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="it">Italiano</button>
+      </div>
+      <p id="best-menu" class="small"></p>
+    </section>
+
+    <section id="screen-howto" class="screen scroll" hidden>
+      <h2 data-i18n="storyTitle"></h2>
+      <p data-i18n="story"></p>
+      <h2 data-i18n="controlsTitle"></h2>
+      <p data-i18n="goal"></p>
+      <ul class="keys">
+        <li><kbd data-i18n="keyMove"></kbd> <span data-i18n="keyMoveText"></span></li>
+        <li><kbd data-i18n="keyPull"></kbd> <span data-i18n="keyPullText"></span></li>
+        <li><kbd data-i18n="keyPush"></kbd> <span data-i18n="keyPushText"></span></li>
+        <li><kbd data-i18n="keyFork"></kbd> <span data-i18n="keyForkText"></span></li>
+        <li><span data-i18n="keyPauseText"></span></li>
+      </ul>
+      <h2 data-i18n="touchTitle"></h2>
+      <p data-i18n="touchText"></p>
+      <button type="button" data-back data-i18n="back">Back</button>
+    </section>
+
+    <section id="screen-credits" class="screen scroll" hidden>
+      <h2 data-i18n="credits"></h2>
+      <h3 data-i18n="creditsGame"></h3><p data-i18n="creditsGameText"></p>
+      <h3 data-i18n="creditsArt"></h3><p data-i18n="creditsArtText"></p>
+      <h3 data-i18n="creditsSound"></h3><p data-i18n="creditsSoundText"></p>
+      <h3 data-i18n="creditsLibs"></h3><p data-i18n="creditsLibsText"></p>
+      <h3 data-i18n="creditsArcade"></h3><p data-i18n="creditsArcadeText"></p>
+      <p><span data-i18n="creditsRepo"></span> <a href="https://github.com/linkingtechnologies/libre-arcade" target="_blank" rel="noopener noreferrer">github.com/linkingtechnologies/libre-arcade</a></p>
+      <button type="button" data-back data-i18n="back">Back</button>
+    </section>
+
+    <section id="screen-pause" class="screen" hidden>
+      <h2 data-i18n="paused">Paused</h2>
+      <button id="pause-resume" class="big" type="button" data-i18n="resume">Resume</button>
+      <button id="pause-restart" type="button" data-i18n="restart">Restart</button>
+      <button id="pause-menu" type="button" data-i18n="menu">Main menu</button>
+    </section>
+
+    <section id="screen-over" class="screen" hidden>
+      <h2 data-i18n="gameOver">Time is up!</h2>
+      <p class="score"><span data-i18n="score">Score</span> <b id="over-score">0</b></p>
+      <p id="over-text"></p>
+      <p id="over-best" class="small"></p>
+      <button id="over-again" class="big" type="button" data-i18n="playAgain">Play again</button>
+      <button id="over-menu" type="button" data-i18n="menu">Main menu</button>
+    </section>
+  </main>
+
+  <footer id="touch" hidden>
+    <div class="dpad">
+      <button type="button" data-key="38" class="up" aria-label="Up">▲</button>
+      <button type="button" data-key="37" class="left" aria-label="Left">◀</button>
+      <button type="button" data-key="39" class="right" aria-label="Right">▶</button>
+      <button type="button" data-key="40" class="down" aria-label="Down">▼</button>
+    </div>
+    <div class="actions">
+      <button type="button" data-key="81" id="t-push" data-i18n="btnPush">Push</button>
+      <button type="button" data-key="87" id="t-fork" data-i18n="btnFork">Totem</button>
+      <button type="button" data-key="90" id="t-pull" class="pull" data-i18n="btnPull">Pull</button>
+    </div>
+  </footer>
+</div>
+<script type="module" src="src/main.js"></script>
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

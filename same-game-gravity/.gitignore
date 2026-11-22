@@ -33,3 +33,4 @@ Desktop.ini
 
 # Local Claude Code session/runtime metadata
 .claude/
+/dist/

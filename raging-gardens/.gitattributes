@@ -1,0 +1,7 @@
+# The upstream snapshot and the oracle fingerprints are compared by SHA-256: keep them byte for byte,
+# whatever core.autocrlf says.
+reference/** -text
+tests/golden/** -text
+public/assets/PROVENANCE.json -text
+*.ogg binary
+*.jpg binary

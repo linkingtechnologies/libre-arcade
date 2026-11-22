@@ -1,0 +1,523 @@
+/* SPDX-License-Identifier: MIT AND GPL-3.0-only
+ *
+ * The board, level dots and entity rules are upstream's src/style.css
+ * (MIT, Copyright (c) 2018 Matthew Miner), with the cssnext syntax already
+ * compiled away and vmin sizes expressed through --stage so the whole thing
+ * can shrink to leave room for the top bar and the touch pad.
+ * Everything from "Page" down is Libre Arcade's own.
+ */
+
+:root {
+  --blue: #3498db;
+  --blue-dark: #2574a9;
+  --gray: #7F8C8D;
+  --green: #2ECC71;
+  --ink: #2c3e50;
+  --bar-h: 52px;
+}
+
+@keyframes pulsate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Set up font sizes so that 1rem = 10px. */
+html {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* ---- Page ------------------------------------------------------------ */
+
+body {
+  background-color: white;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.6rem;
+  height: 100%;
+  height: 100dvh;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.topbar {
+  align-items: center;
+  display: flex;
+  flex: none;
+  height: var(--bar-h);
+  justify-content: flex-end;
+  padding: 0 12px;
+}
+
+.tools {
+  display: flex;
+  gap: 6px;
+}
+
+.tool {
+  align-items: center;
+  background: white;
+  border: 2px solid var(--gray);
+  border-radius: 50%;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: 700;
+  height: 40px;
+  justify-content: center;
+  padding: 0;
+  width: 40px;
+}
+
+.tool:hover {
+  border-color: var(--blue);
+  color: var(--blue-dark);
+}
+
+.tool svg {
+  fill: currentColor;
+  height: 22px;
+  width: 22px;
+}
+
+.tool .mutecross {
+  display: none;
+}
+
+.tool.is-muted .mutecross {
+  display: inline;
+}
+
+.tool.is-muted .waves {
+  display: none;
+}
+
+/* Pause and restart only make sense while a level is on screen. */
+body:not(.screen-playing) #pauseBtn,
+body:not(.screen-playing) #restartBtn {
+  visibility: hidden;
+}
+
+/* ---- Board (upstream) ------------------------------------------------ */
+
+.stage {
+  container-type: size;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  touch-action: none;
+}
+
+#app {
+  --stage: min(100cqw, 100cqh);
+
+  background-color: var(--blue);
+  border-radius: 5%;
+  height: calc(var(--stage) * 0.84);
+  margin: auto;
+  padding: calc(var(--stage) * 0.04);
+  position: relative;
+  transition: filter 0.5s;
+  width: calc(var(--stage) * 0.84);
+}
+
+#app.lost {
+  filter: blur(0.3rem) grayscale(100%);
+}
+
+#app.won {
+  filter: blur(0.3rem);
+}
+
+nav {
+  bottom: 100%;
+  left: 0;
+}
+
+nav button {
+  background-color: var(--gray);
+  border: none;
+  border-radius: 50%;
+  cursor: default;
+  font-size: 0;
+  height: max(7px, calc(var(--stage) * 0.02));
+  margin: 0 calc(var(--stage) * 0.008);
+  padding: 0;
+  position: relative;
+  transition: all 0.1s;
+  vertical-align: middle;
+  width: max(7px, calc(var(--stage) * 0.02));
+}
+
+/* A larger invisible target than the dot, for fingers. */
+nav button::after {
+  content: "";
+  inset: -14px -3px;
+  position: absolute;
+}
+
+nav button.complete {
+  background-color: #2ECC71;
+}
+
+nav button.current {
+  background-color: var(--blue);
+}
+
+nav button.complete,
+nav button.current {
+  cursor: pointer;
+}
+
+nav button.complete:hover,
+nav button.current:hover {
+  transform: scale(1.2);
+}
+
+main {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+/* Wider than the board so "bits and bytes by ... · Libre Arcade" stays on one line. */
+footer {
+  color: var(--gray);
+  font-size: clamp(1.1rem, calc(var(--stage) * 0.035), 1.4rem);
+  left: -9.5%;
+  top: 100%;
+  white-space: nowrap;
+  width: 119%;
+}
+
+footer a {
+  border-bottom: 0.2rem solid transparent;
+  color: var(--blue-dark);
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-bottom-color 0.1s;
+}
+
+footer a:hover {
+  border-bottom-color: var(--blue-dark);
+}
+
+footer,
+nav {
+  height: calc(var(--stage) * 0.08);
+  line-height: calc(var(--stage) * 0.08);
+  position: absolute;
+  text-align: center;
+}
+
+nav {
+  width: 100%;
+}
+
+.entity {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  position: absolute;
+}
+
+.entity.disabled {
+  opacity: 0;
+}
+
+.door {
+  animation: pulsate 2s infinite;
+  background-image: url(../assets/img/door.svg);
+}
+
+.enemy {
+  animation: spin 3s infinite linear;
+  background-image: url(../assets/img/enemy.svg);
+  transition: all 0.6s ease-out;
+  z-index: 2;
+}
+
+.freeze-time {
+  transition: all 0.2s;
+}
+
+.freeze-time.for-1-turns { background-image: url(../assets/img/freezetime1.svg); }
+.freeze-time.for-2-turns { background-image: url(../assets/img/freezetime2.svg); }
+.freeze-time.for-3-turns { background-image: url(../assets/img/freezetime3.svg); }
+.freeze-time.for-4-turns { background-image: url(../assets/img/freezetime4.svg); }
+
+.player {
+  background-image: url(../assets/img/player.svg);
+  transition: all 0.2s ease-out;
+  z-index: 1;
+}
+
+.reverse {
+  background-image: url(../assets/img/reverse.svg);
+}
+
+.teleporter {
+  animation: spin 10s infinite linear reverse;
+  background-image: url(../assets/img/teleporter.svg);
+}
+
+.wall {
+  background-image: url(../assets/img/wall.svg);
+  transition: all 0.6s;
+}
+
+body.screen-paused #app *,
+body.screen-title #app * {
+  animation-play-state: paused;
+}
+
+/* ---- Touch pad ------------------------------------------------------- */
+
+.dpad {
+  --pad: clamp(48px, 15vmin, 64px);
+
+  display: none;
+  flex: none;
+  gap: 6px;
+  grid-template-areas:
+    ". up ."
+    "left . right"
+    ". down .";
+  grid-template-columns: repeat(3, var(--pad));
+  grid-template-rows: repeat(3, var(--pad));
+  justify-content: center;
+  padding: 6px 0 12px;
+  touch-action: none;
+}
+
+body.touch .dpad {
+  display: grid;
+}
+
+.pad {
+  align-items: center;
+  background: var(--blue);
+  border: 0;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.pad:active {
+  background: var(--blue-dark);
+}
+
+.pad svg {
+  fill: currentColor;
+  height: 55%;
+  width: 55%;
+}
+
+.pad.up { grid-area: up; }
+.pad.left { grid-area: left; }
+.pad.right { grid-area: right; }
+.pad.down { grid-area: down; }
+
+/* Wide screens: the pad sits in the free space beside the board. */
+@media (min-aspect-ratio: 13/10) {
+  .dpad {
+    --pad: min(64px, max(40px, calc(((100vw - 100dvh + var(--bar-h)) / 2 - 24px) / 3)));
+
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    left: calc(12px + env(safe-area-inset-left));
+    padding: 0;
+    position: fixed;
+  }
+}
+
+/* ---- Screens --------------------------------------------------------- */
+
+.overlay {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.96);
+  display: none;
+  inset: 0;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 16px;
+  position: fixed;
+  z-index: 10;
+}
+
+.overlay.open {
+  display: flex;
+}
+
+#titleScreen {
+  background: white;
+}
+
+.card {
+  margin: auto;
+  max-width: 520px;
+  text-align: center;
+  width: 100%;
+}
+
+.card.small {
+  max-width: 340px;
+}
+
+.card h1 {
+  color: var(--blue-dark);
+  font-size: 4.8rem;
+  letter-spacing: 0.02em;
+  margin: 4px 0 8px;
+}
+
+.card.small h1 {
+  font-size: 3.4rem;
+}
+
+.card h2 {
+  color: var(--ink);
+  font-size: 1.8rem;
+  margin: 28px 0 8px;
+}
+
+.logo {
+  animation: pulsate 2s infinite;
+}
+
+.tagline {
+  line-height: 1.4;
+  margin: 0 0 20px;
+}
+
+.primary,
+.secondary {
+  border-radius: 28px;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 10px auto 0;
+  max-width: 260px;
+  min-height: 52px;
+  padding: 0 28px;
+  width: 100%;
+}
+
+.primary {
+  background: var(--blue-dark);
+  border: 0;
+  color: white;
+}
+
+.primary:hover {
+  background: #1d5f8a;
+}
+
+.secondary {
+  background: white;
+  border: 2px solid var(--blue-dark);
+  color: var(--blue-dark);
+}
+
+.secondary:hover {
+  background: #eaf4fb;
+}
+
+.how {
+  line-height: 1.45;
+  margin: 0;
+  padding-left: 22px;
+  text-align: left;
+}
+
+.how li {
+  margin: 0 0 6px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 10px;
+  background: var(--blue);
+  border-radius: 12px;
+}
+
+.legend img {
+  display: block;
+  height: 34px;
+  width: 34px;
+}
+
+.credits {
+  color: #566573;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.credits span {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.credits a {
+  color: var(--blue-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .door,
+  .enemy,
+  .teleporter {
+    animation: none;
+  }
+}

@@ -46,7 +46,7 @@ export const STRINGS = {
     creditsTitle: 'Credits',
     creditsGame: 'Irisa by <a href="http://matthewminer.com" rel="noopener">Matthew Miner</a>, made for the Global Game Jam 2017 (MIT license).',
     creditsSound: 'Sound effects from Kenney\'s <a href="https://kenney.nl/assets/digital-audio" rel="noopener">Digital Audio</a> pack (CC0).',
-    creditsArcade: 'Restored for <a href="../../index.html">Libre Arcade</a>. <a href="CREDITS.md">Full credits and licenses</a>.',
+    creditsArcade: 'Restored for <a href="../../index.html">Libre Arcade</a>. <a href="https://github.com/linkingtechnologies/libre-arcade/blob/main/irisa/public/CREDITS.md" rel="noopener">Full credits and licenses</a>.',
     footerBy: 'bits and bytes by',
   },
   it: {
@@ -90,7 +90,7 @@ export const STRINGS = {
     creditsTitle: 'Crediti',
     creditsGame: 'Irisa di <a href="http://matthewminer.com" rel="noopener">Matthew Miner</a>, realizzato per la Global Game Jam 2017 (licenza MIT).',
     creditsSound: 'Effetti sonori dal pacchetto <a href="https://kenney.nl/assets/digital-audio" rel="noopener">Digital Audio</a> di Kenney (CC0).',
-    creditsArcade: 'Restaurato per <a href="../../index.html">Libre Arcade</a>. <a href="CREDITS.md">Crediti e licenze completi</a>.',
+    creditsArcade: 'Restaurato per <a href="../../index.html">Libre Arcade</a>. <a href="https://github.com/linkingtechnologies/libre-arcade/blob/main/irisa/public/CREDITS.md" rel="noopener">Crediti e licenze completi</a>.',
     footerBy: 'bit e byte di',
   },
 };

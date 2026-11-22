@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- SPDX-FileCopyrightText: 2026 Umberto Bresciani -->
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Raging Gardens oracle</title>
+</head>
+<body>
+<div id="stage"></div>
+<pre id="status">loading</pre>
+<script>
+// Everything that makes the original deterministic is installed BEFORE any
+// original code runs: a virtual clock, a no-op requestAnimationFrame (frames
+// are stepped by hand, 50 per virtual second like Crafty's fixed step), and,
+// later, a seeded Math.random.
+window.__clock = 1700000000000;
+Date.now = function () { return window.__clock; };
+window.requestAnimationFrame = function () { return 0; };
+window.cancelAnimationFrame = function () {};
+window.Modernizr = { touch: false };
+
+window.__loadOriginal = function (src) {
+  return new Promise(function (ok, fail) {
+    var s = document.createElement("script");
+    s.src = "/orig/" + src;
+    s.onload = ok;
+    s.onerror = function () { fail(new Error("cannot load " + src)); };
+    document.head.appendChild(s);
+  });
+};
+
+var libs = ["lib/jquery.191.min.js", "lib/crafty-063-min.js", "lib/underscore-min.js", "lib/backbone-min.js", "lib/graph.js", "lib/astar.js"];
+var chain = Promise.resolve();
+libs.forEach(function (src) { chain = chain.then(function () { return window.__loadOriginal(src); }); });
+chain.then(function () { return import("./harness.mjs"); }).catch(function (e) {
+  document.getElementById("status").textContent = "ERROR " + e.message;
+  fetch("/result/error", { method: "POST", body: String((e && e.stack) || e) });
+});
+</script>
+</body>
+</html>

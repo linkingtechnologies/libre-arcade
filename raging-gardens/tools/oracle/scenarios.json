@@ -1,0 +1,103 @@
+[
+  {
+    "name": "idle-1",
+    "mode": "idle",
+    "seed": 1
+  },
+  {
+    "name": "greedy-1",
+    "mode": "greedy",
+    "seed": 1
+  },
+  {
+    "name": "greedy-2",
+    "mode": "greedy",
+    "seed": 2
+  },
+  {
+    "name": "mash-3",
+    "mode": "mash",
+    "seed": 3
+  },
+  {
+    "name": "greedy-4",
+    "mode": "greedy",
+    "seed": 4
+  },
+  {
+    "name": "mash-5",
+    "mode": "mash",
+    "seed": 5
+  },
+  {
+    "name": "greedy-6",
+    "mode": "greedy",
+    "seed": 6
+  },
+  {
+    "name": "greedy-7",
+    "mode": "greedy",
+    "seed": 7
+  },
+  {
+    "name": "greedy-8",
+    "mode": "greedy",
+    "seed": 8
+  },
+  {
+    "name": "greedy-9",
+    "mode": "greedy",
+    "seed": 9
+  },
+  {
+    "name": "brawl-10",
+    "mode": "brawl",
+    "seed": 10
+  },
+  {
+    "name": "brawl-11",
+    "mode": "brawl",
+    "seed": 11
+  },
+  {
+    "name": "brawl-12",
+    "mode": "brawl",
+    "seed": 12
+  },
+  {
+    "name": "hunter-13",
+    "mode": "hunter",
+    "seed": 13,
+    "carrots": 40
+  },
+  {
+    "name": "hunter-14",
+    "mode": "hunter",
+    "seed": 14,
+    "carrots": 40
+  },
+  {
+    "name": "hunter-15",
+    "mode": "hunter",
+    "seed": 15,
+    "carrots": 40
+  },
+  {
+    "name": "hunter-16",
+    "mode": "hunter",
+    "seed": 16,
+    "carrots": 40
+  },
+  {
+    "name": "brawl-17",
+    "mode": "brawl",
+    "seed": 17,
+    "carrots": 40
+  },
+  {
+    "name": "brawl-18",
+    "mode": "brawl",
+    "seed": 18,
+    "carrots": 40
+  }
+]

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="game-version" content="1.1" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>Same Game Gravity</title>
+  <link href="game.css" rel="stylesheet" />
+</head>
+
+<body data-scene="menu">
+  <noscript>Same Game Gravity needs JavaScript. / Same Game Gravity richiede JavaScript.</noscript>
+
+  <div id="main" style="display: none;">
+    <section id="menu">
+      <span class="gameVersion" style="float: right;">1.1</span>
+      <h1><img src="logo.png" alt="" /> SAME Game Gravity</h1>
+      <div class="actions continueGame">
+        <a class="button i18n-continue_game" href="#!/game/continue">Continue game</a>
+      </div>
+      <dl class="menu newGame">
+        <dt><span class="i18n-new_game">New game</span> :</dt>
+        <dd class="difficulty easy"><a class="i18n-easy" href="#!/game/new/easy">Easy</a></dd>
+        <dd class="difficulty normal"><a class="i18n-normal" href="#!/game/new/normal">Normal</a></dd>
+        <dd class="difficulty hard"><a class="i18n-hard" href="#!/game/new/hard">Hard</a></dd>
+      </dl>
+      <div class="actions center">
+        <a class="i18n-help" href="#!/help">Help</a>
+        <a class="i18n-scores" href="#!/highscores">Scores</a>
+      </div>
+
+      <footer>
+        <p><a class="i18n-credits" href="#!/credits">Credits</a></p>
+      </footer>
+    </section>
+
+    <section id="highscores">
+      <div class="content">
+        <h3 class="i18n-totalscore">Total score</h3>
+        <div class="levelProgress">
+          <div class="levelContainer"><span class="i18n-level">Level</span>: <span class="level">?</span></div>
+          <div class="totalScoreContainer"><span class="totalScore">?</span></div>
+          <span class="progress" style="width: 50%;"></span>
+        </div>
+
+        <h3 class="i18n-highscores">Highscores</h3>
+        <div class="difficulties">
+          <dl class="difficulty easy"><dt class="i18n-easy label">Easy</dt> <dd class="easyScore"></dd></dl>
+          <dl class="difficulty normal"><dt class="i18n-normal label">Normal</dt> <dd class="normalScore"></dd></dl>
+          <dl class="difficulty hard"><dt class="i18n-hard label">Hard</dt> <dd class="hardScore"></dd></dl>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="i18n-back back" href="#!/">Back</a>
+        <a class="i18n-reset resetHighscores" href="#" role="button">Reset</a>
+      </div>
+    </section>
+
+    <section id="help-1" class="help">
+      <div class="content">
+        <h2 class="i18n-gamegoal"></h2>
+        <p class="i18n-gamegoal_1"></p>
+        <p class="i18n-gamegoal_2"></p>
+        <p class="i18n-gamegoal_3"></p>
+        <p class="i18n-time_explanation"></p>
+      </div>
+      <div class="actions">
+        <a class="i18n-back back" href="#!/">Back</a>
+        <a class="i18n-next next" href="#!/help/2">Next</a>
+      </div>
+    </section>
+
+    <section id="help-2" class="help">
+      <div class="content">
+        <h2 class="i18n-thegravity"></h2>
+        <p class="i18n-press_arrow_explanation"></p>
+        <p class="i18n-tap_arrows_explanation"></p>
+        <p class="keys">
+          <span class="key"><kbd>&larr;</kbd> <span class="i18n-rotate_left"></span></span>
+          <span class="key"><span class="i18n-rotate_right"></span> <kbd>&rarr;</kbd></span>
+        </p>
+      </div>
+      <div class="actions">
+        <a class="i18n-back back" href="#!/help/1">Back</a>
+        <a class="i18n-menu next" href="#!/">Menu</a>
+      </div>
+    </section>
+
+    <section id="credits" class="help">
+      <div class="content">
+        <h2 class="i18n-credits"></h2>
+        <p class="muted">Same Game Gravity <span class="gameVersion">1.1</span></p>
+        <p class="i18n-credit_original"></p>
+        <p class="i18n-credit_history"></p>
+        <p class="i18n-credit_restored"></p>
+        <p class="i18n-credit_assets"></p>
+        <p><a href="https://github.com/gre/same-game-gravity" target="_blank" rel="noopener"><span class="i18n-source_code">Source code</span>: github.com/gre/same-game-gravity</a></p>
+        <p><a href="https://github.com/linkingtechnologies/libre-arcade" target="_blank" rel="noopener">Libre Arcade: github.com/linkingtechnologies/libre-arcade</a></p>
+      </div>
+      <div class="actions">
+        <a class="i18n-back back" href="#!/">Back</a>
+      </div>
+    </section>
+
+    <section id="game">
+      <div class="turnleft" role="button" tabindex="0" data-i18n-aria="rotate_left"></div>
+      <div class="turnright" role="button" tabindex="0" data-i18n-aria="rotate_right"></div>
+      <div class="gameStatus">
+        <a class="i18n-back back" href="#!/">Back</a>
+        <button type="button" class="pauseButton" aria-pressed="false" data-i18n-aria="pause" data-i18n-title="pause"><span aria-hidden="true"></span></button>
+        <button type="button" class="muteButton on" aria-pressed="false" data-i18n-aria="mute" data-i18n-title="mute"><span class="speaker" aria-hidden="true"></span></button>
+        <span class="timeline">
+          <span class="remainingSeconds"><span class="remainingSecondsTime"></span> s</span>
+        </span>
+      </div>
+      <div id="gameContainer">
+        <canvas class="highlight" width="400" height="300"></canvas>
+        <canvas class="main" width="400" height="300"></canvas>
+      </div>
+      <div id="pauseOverlay" hidden>
+        <h2 class="i18n-paused">Paused</h2>
+        <p class="i18n-tap_to_resume">Tap or press P to resume</p>
+      </div>
+    </section>
+
+    <section id="finish">
+      <h2 class="i18n-gameover gameover">Game over.</h2>
+      <h2 class="i18n-congratulations congratulations">Congratulations!</h2>
+      <div class="scoreContainer">
+        <span class="remainingBlocksScoreTitle"></span><br/>
+        <span class="remainingBlocksScoreDesc score score1">+ <span class="remainingBlocksScore"></span> <span class="i18n-points">points</span></span>
+      </div>
+      <div class="scoreContainer"><span class="i18n-best_blocks">Best blocks</span>:<br/>
+        <ul class="bestDestroyed"></ul><br/>
+        <span class=" score2 score">+ <span class="destructionScore"></span> <span class="i18n-points">points</span></span>
+      </div>
+      <div class="scoreContainer"><span class="i18n-time_bonus">Time bonus</span>:<br/>
+        <span class="timeScoreDesc score score3">+ <span class="timeScore"></span> <span class="i18n-points">points</span></span>
+      </div>
+      <h2 class="score score4"><span class="i18n-total">Total</span>: <span class="totalScore"></span><span class="newRecord i18n-record">record</span></h2>
+      <div class="actions">
+        <a class="i18n-menu back" href="#!/">Menu</a>
+        <a class="i18n-playAgain again" href="#" role="button">Play again</a>
+      </div>
+    </section>
+  </div>
+
+  <div id="toolbar">
+    <button type="button" class="langButton" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" class="langButton" data-lang="it" aria-pressed="false">IT</button>
+    <button type="button" class="langButton" data-lang="fr" aria-pressed="false">FR</button>
+    <button type="button" class="muteButton on" aria-pressed="false" data-i18n-aria="mute" data-i18n-title="mute"><span class="speaker" aria-hidden="true"></span></button>
+  </div>
+
+  <script src="game.js"></script>
+  <script src="game.desktop.js"></script>
+  <script src="i18n.js"></script>
+  <script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-// SPDX-License-Identifier: MIT
-// Dev tooling only — does not apply to the vendored game in public/, which
-// keeps its own license (see public/LICENSE* and public/CREDITS.md).
+// SPDX-License-Identifier: GPL-3.0-only
+// Dev tooling only: packages public/ (the whole game, no bundler needed) into game/.
 
 // There is no bundler here on purpose: the game already runs as plain
 // HTML/CSS/JS. "Building" only packages public/ into game/ so it can be
