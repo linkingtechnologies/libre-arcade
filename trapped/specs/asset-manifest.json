@@ -1,0 +1,126 @@
+{
+  "game": "Trapped",
+  "files": [
+    {
+      "path": "public/CREDITS.md",
+      "sha256": "9ceb8a16caf991a587ee476e7dda6482e1070fa10092b08c9874a610de48deff",
+      "category": "Documentation",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/LICENSE-MIT-ANDY-WANG.txt",
+      "sha256": "18ff3f2711063bb31e222542c431656981096b83282d8c2322640db84708b96f",
+      "category": "License text",
+      "author": "Andy Wang",
+      "source": "https://github.com/Rysm/html-minigames (LICENSE)",
+      "license": "MIT",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "26ca4fa5caaeff488269887ab856d8707646a5bba0ab54ba72aa9abd5825723a",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/i18n.js",
+      "sha256": "8be1d3c423d22108759e75a0f222d688992460e7e7ee430a9dddea9a105db0b9",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "a78e0e7861c6d7787efaa5ed03524e77cc5318744129c3b8a28b78a7f44817ef",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/shared/arcade.css",
+      "sha256": "b11680d3af1127b92a4ca48fd0fabc1b4f2b7aa59dccee1c5502b01e744989b4",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/shared/arcade.js",
+      "sha256": "a425bd65646faaa3023e6bea6b37a76ef428ad6cb9c7d29c7cfaa6e95c53c60d",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/story/enhance.js",
+      "sha256": "9cfed51acc136188d9ebaa1138064bbb65843246166e24e9bf33da432c9157f0",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/story/theme.css",
+      "sha256": "13ec6d6d051f0a5bc970abe5ec0f0aebc35300e8201ac33aabb2d5a009ecc94e",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok",
+      "replaced": "no",
+      "note": ""
+    },
+    {
+      "path": "public/story/trapped.en.html",
+      "sha256": "308e2cbba4ed93e9242b4734c2f19c6de971b6eeca8c0652d6afe503fa048e5a",
+      "category": "Historical original (story + engine), two tags injected",
+      "author": "Andy Wang and Roberto Ortiz (story); Twine 1.4.2 / Sugarcane engine: Chris Klimas et al., based on TiddlyWiki 1.2.39 (Osmosoft)",
+      "source": "https://github.com/Rysm/html-minigames (twine_horror_game/Trapped.html, commit 1197d28)",
+      "license": "Story: MIT (repository licence, Andy Wang). Engine: BSD 3-clause (Osmosoft), notice kept in the file header",
+      "status": "ok-with-note",
+      "replaced": "no",
+      "note": "Roberto Ortiz is credited as co-author (StoryAuthor) but the repository's MIT notice names only Andy Wang; his consent is not independently verified. Owner decision needed before wide promotion. Also: the embedded community macro passage cyclinglink has no stated author or licence."
+    },
+    {
+      "path": "public/story/trapped.it.html",
+      "sha256": "c083f2474a4abcf28e2b6ee0dda5d22dd7b77d000fcca05d5932c7a0f9283e70",
+      "category": "Historical original + Italian translation layer",
+      "author": "As trapped.en.html; Italian text: Libre Arcade contributors",
+      "source": "built by scripts/build-story.mjs from source/Trapped.original.html and translations/it.json",
+      "license": "As trapped.en.html for the English-derived parts; Italian text GPL-3.0-only",
+      "status": "ok-with-note",
+      "replaced": "no",
+      "note": "Same open point on Roberto Ortiz as trapped.en.html. Also: the embedded community macro passage cyclinglink has no stated author or licence."
+    }
+  ]
+}

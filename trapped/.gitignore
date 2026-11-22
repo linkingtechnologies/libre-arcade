@@ -1,0 +1,15 @@
+/node_modules/
+/game/
+/.cache/
+.eslintcache
+.env
+.env.*
+*.log
+/.idea/
+/.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+.claude/

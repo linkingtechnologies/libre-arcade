@@ -1,0 +1,40 @@
+/* SPDX-License-Identifier: GPL-3.0-only
+   Presentation layer for the unmodified Twine 1.4.2 story: readable type, dark
+   atmosphere, visible focus. Overrides only the defaultCSS shipped in the story file. */
+html { background: #0b0d10; }
+body {
+  background: #0b0d10;
+  color: #d9d4c7;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 100%;
+  margin: 0;
+  padding: 1.25rem 1rem 3rem;
+}
+#passages { border-left: 0; padding: 0; max-width: 38rem; margin: 0 auto; }
+.passage { font-size: 1.2rem; line-height: 1.75; margin-bottom: 2rem; }
+.passage a {
+  color: #e0a458;
+  font-weight: normal;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 2px 1px;
+}
+.passage a:hover { color: #ffd08a; }
+.passage a:focus-visible { outline: 2px solid #7cc4ff; outline-offset: 2px; }
+.passage a.cyclingLink { color: #9fc4a2; }
+.passage a[data-key]::before {
+  content: attr(data-key);
+  display: inline-block; min-width: 1.4em; margin-right: .35em; text-align: center;
+  font: .72em/1.4 system-ui, sans-serif; color: #0b0d10; background: #e0a458; border-radius: 4px;
+  text-decoration: none; vertical-align: .1em;
+}
+.cyclingLinkEnd { color: #8b8678; }
+@media (max-width: 640px) {
+  body { margin: 0; padding: 1rem .9rem 3rem; }
+  .passage { font-size: 1.1rem; }
+  .passage a { display: inline-block; padding: .3rem .15rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+#sidebar { display: none !important; }

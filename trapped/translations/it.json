@@ -1,0 +1,253 @@
+{
+  "_note": "Italian translation layer for Trapped. Each entry replaces an exact English substring of a passage by its Italian text. Passage titles, macros, variables and link targets are never changed; links become [[italiano|English title]]. English source: ../source/Trapped.original.html (unmodified).",
+  "rooms": {
+    "living room": "nel soggiorno",
+    "bathroom": "nel bagno",
+    "garage": "nel garage",
+    "kitchen": "nella cucina",
+    "hallway": "nel corridoio",
+    "master bedroom": "nella camera da letto principale",
+    "first bedroom down the hall": "nella prima camera in fondo al corridoio",
+    "second bedroom down the hall": "nella seconda camera in fondo al corridoio",
+    "storage room": "nel ripostiglio"
+  },
+  "passages": {
+    "Put newspaper down": [
+      ["“... I…I…I…I am… in...in… hisssss… house...\"", "“... Io…io…io…io sono… in...in… suaaaa… casa...\""],
+      ["I hear heavy footsteps thundering towards me.", "Sento dei passi pesanti che rimbombano verso di me."],
+      ["OH SHIT! It's him, he's coming after me!! I got distracted reading the newspaper!", "CAZZO! È lui, mi sta venendo dietro!! Mi sono distratto a leggere il giornale!"],
+      ["[[Run to the main door]]", "[[Corro alla porta principale|Run to the main door]]"],
+      ["[[Run to the kitchen]]", "[[Corro in cucina|Run to the kitchen]]"]
+    ],
+    "Start": [
+      ["It’s so dark and cold out here, I can hear animals in the wild… but where am I?", "Qui fuori è così buio e freddo, sento animali selvatici… ma dove sono?"],
+      ["[[Look around and stand up]]", "[[Mi guardo intorno e mi alzo|Look around and stand up]]"]
+    ],
+    "Try the front door": [
+      ["[[I jam the key and turn it.]]", "[[Infilo la chiave e la giro.|I jam the key and turn it.]]"],
+      ["The front door is locked... I need to find a key for it, if it's even in here.", "La porta d'ingresso è chiusa a chiave... Devo trovarne la chiave, sempre che sia qui dentro."]
+    ],
+    "Look among the dolls": [
+      ["I get down on my knees and inspect the dolls. There's something over here.", "Mi metto in ginocchio e ispeziono le bambole. C'è qualcosa qui."],
+      ["Wait a minute... I think I've found a key! I wonder where this goes though...", "Aspetta un attimo... Credo di aver trovato una chiave! Chissà a cosa serve però..."],
+      ["[[I grip the key.|first_bedroom]]", "[[Stringo la chiave.|first_bedroom]]"]
+    ],
+    "I jam the key and turn it.": [
+      ["The lock clicks, and the front door opens.", "La serratura scatta e la porta d'ingresso si apre."],
+      ["I slam the door behind me and run will all my might.", "Sbatto la porta dietro di me e corro con tutte le mie forze."],
+      ["I don't look behind as I continue sprinting through the woods.", "Non mi volto indietro mentre continuo a correre nel bosco."],
+      ["My foot catches onto something, and suddenly I feel myself falling forward.", "Il piede si impiglia in qualcosa e all'improvviso sento che cado in avanti."],
+      ["My hit my head against a rock.", "Sbatto la testa contro un sasso."],
+      ["[[Everything goes black.|Start]]", "[[Tutto diventa nero.|Start]]"]
+    ],
+    "death": [
+      ["A hand from grabs me from behind.", "Una mano mi afferra da dietro."],
+      ["I scream as it lifts me upwards.", "Urlo mentre mi solleva da terra."],
+      ["The last thing I feel is cold metal's death kiss.", "L'ultima cosa che sento è il bacio mortale del metallo freddo."],
+      ["[[Is it really the end? I find myself in the middle of nowhere standing before a house.|Walk towards the light]]", "[[È davvero la fine? Mi ritrovo in mezzo al nulla, davanti a una casa.|Walk towards the light]]"]
+    ],
+    "hide": [
+      ["Heavy footsteps slowly approach my room.", "Dei passi pesanti si avvicinano lentamente alla mia stanza."],
+      ["I dive into the pile of junk.", "Mi tuffo nel mucchio di cianfrusaglie."],
+      ["I run into the closet.", "Corro nell'armadio.", 2],
+      ["I dive into the pile of boxes.", "Mi tuffo nel mucchio di scatoloni."],
+      ["I quickly hide and hold my breath.", "Mi nascondo in fretta e trattengo il respiro."],
+      ["After a few seconds, the footsteps move on elsewhere.", "Dopo qualche secondo, i passi si allontanano altrove."]
+    ],
+    "Walk towards the light": [
+      ["I arrive in front of a house.", "Arrivo davanti a una casa."],
+      ["Yes! It's a house. Perhaps there could be someone here who can tell me where I am.", "Sì! È una casa. Forse c'è qualcuno che può dirmi dove mi trovo."],
+      ["Or provide some food.", "O darmi qualcosa da mangiare."],
+      ["Approach the front door.", "Mi avvicino alla porta d'ingresso."],
+      ["Try to doorknob.", "Provo la maniglia."],
+      ["It won't budge. That's weird. I knock, and wait. No one answers the door. Strange.", "Non si muove. Che strano. Busso e aspetto. Nessuno risponde. Strano."],
+      ["I think I’ll have to break in somehow...", "Credo che dovrò entrare in qualche modo..."],
+      ["[[Check out the left side]]", "[[Controllo il lato sinistro|Check out the left side]]"],
+      ["[[Check out the right side]]", "[[Controllo il lato destro|Check out the right side]]"]
+    ],
+    "master_bedroom": [
+      ["I'm inside the master bedroom.The stairs are behind me to my right.", "Sono nella camera da letto principale. Le scale sono dietro di me, alla mia destra."],
+      ["Look under the bed.", "Guardo sotto il letto."],
+      ["There's another key under here! I grab it. This must be for the front door.", "C'è un'altra chiave qui sotto! La prendo. Dev'essere quella della porta d'ingresso."],
+      ["Inspect the desk.", "Ispeziono la scrivania."],
+      ["There's only one drawer here.", "Qui c'è un solo cassetto."],
+      ["There's nothing inside the desk drawer.", "Non c'è niente nel cassetto della scrivania."],
+      ["Inspect the wall.", "Ispeziono la parete."],
+      ["Nothing to see here. Just a wall.", "Niente da vedere qui. Solo una parete."],
+      ["I vaguely see myself my staring back at myself at a wall. It's entirely a mirror.", "Vedo vagamente me stesso che mi fissa su una parete. È tutta uno specchio."],
+      ["I get creeped out the longer look at myself. I turn away from the mirror wall.", "Più mi guardo e più mi vengono i brividi. Mi giro dall'altra parte, lontano dalla parete a specchio."],
+      ["The door to the room is locked. I will need a key.", "La porta della stanza è chiusa a chiave. Mi serve una chiave."],
+      ["I hear heavy footsteps in the <<print either($roomList)>>.", "Sento dei passi pesanti <<print either($roomList)>>."],
+      ["[[Go back into the hallway|hallway]]", "[[Torno nel corridoio|hallway]]"]
+    ],
+    "Run to the kitchen": [
+      ["\"Yum! There's fresh toast!\"", "\"Mmm! C'è del pane tostato fresco!\""],
+      ["[[You grab a bite right before your imminent death.|Start]]", "[[Dai un morso un attimo prima della tua morte imminente.|Start]]"]
+    ],
+    "kitchen": [
+      ["I'm in the kitchen on the first floor. The living room is behind me. I smell the stench of food gone bad.", "Sono nella cucina al piano terra. Il soggiorno è dietro di me. Sento la puzza di cibo andato a male."],
+      ["I think I'll look in the cupboards.", "Credo che guarderò nelle credenze."],
+      ["There's nothing.", "Non c'è niente."],
+      ["Anything in the sink?", "C'è qualcosa nel lavandino?"],
+      ["Nope.", "No."],
+      ["I wonder if there's anything under the table.", "Chissà se c'è qualcosa sotto il tavolo."],
+      ["Nothing on the floor...", "Niente sul pavimento..."],
+      ["Look up.", "Guarda in alto."],
+      ["I see the word (AGAIN) etched on the underside of the table.", "Vedo la parola (ANCORA) incisa sotto il tavolo."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["[[Return to the living room|livingRoom]]", "[[Torno nel soggiorno|livingRoom]]"]
+    ],
+    "Check out the right side": [
+      ["There's nothing interesting here.", "Qui non c'è niente di interessante."],
+      ["[[Go to the back of the house]]", "[[Vado sul retro della casa|Go to the back of the house]]"],
+      ["[[Go to the front of the house|Walk towards the light]]", "[[Torno sul davanti della casa|Walk towards the light]]"]
+    ],
+    "Go to the back of the house": [
+      ["Hmmm...  There are some barrels stacked up nicely.", "Mmm...  Ci sono dei barili impilati con cura."],
+      ["I think I can climb these barrels to get on top of the house...", "Credo di poter salire su questi barili per arrivare sul tetto della casa..."],
+      ["Maybe I can get inside through the windows.", "Forse posso entrare dalle finestre."],
+      ["[[Climb up the barrels]]", "[[Salgo sui barili|Climb up the barrels]]"],
+      ["[[Check out the left side]]", "[[Controllo il lato sinistro|Check out the left side]]"],
+      ["[[Check out the right side]]", "[[Controllo il lato destro|Check out the right side]]"]
+    ],
+    "hallway": [
+      ["I'm standing in the hallway.", "Sono in piedi nel corridoio."],
+      ["I can see the stairs leading down to the first floor.", "Vedo le scale che scendono al piano terra."],
+      ["I can see two bedrooms down the hall.", "Vedo due camere da letto in fondo al corridoio."],
+      ["I can see the master bedroom.", "Vedo la camera da letto principale."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["[[Go down to the first floor|first floor]]", "[[Scendo al piano terra|first floor]]"],
+      ["[[Move towards the Master Bedroom|master_bedroom]]", "[[Vado verso la camera da letto principale|master_bedroom]]"],
+      ["[[Enter the bathroom|sec_bathroom]]", "[[Entro nel bagno|sec_bathroom]]"],
+      ["[[Enter the first bedroom|first_bedroom]]", "[[Entro nella prima camera|first_bedroom]]"],
+      ["[[Enter the second bedroom|sec_bedroom]]", "[[Entro nella seconda camera|sec_bedroom]]"],
+      ["[[Enter the storage room|storage_room]]", "[[Entro nel ripostiglio|storage_room]]"]
+    ],
+    "livingRoom": [
+      ["I'm in the living room. I can see the main door from here.", "Sono nel soggiorno. Da qui vedo la porta principale."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["[[Walk to the table]]", "[[Vado verso il tavolo|Walk to the table]]"],
+      ["[[Try the front door]]", "[[Provo la porta d'ingresso|Try the front door]]"],
+      ["[[Go to the bathroom|first_bathroom]]", "[[Vado in bagno|first_bathroom]]"],
+      ["[[Move towards the kitchen|kitchen]]", "[[Vado verso la cucina|kitchen]]"],
+      ["[[Enter the garage|garage]]", "[[Entro nel garage|garage]]"],
+      ["[[Climb up the stairs|second floor]]", "[[Salgo le scale|second floor]]"]
+    ],
+    "sec_bedroom": [
+      ["This is very similar to the girl’s bedroom but except this room looks like it was from a boy since its colors are dark blue. Both have the same bed, same lamp, and the same big closet. That reminds me of when I used to hide in the closet from my mother when she hear that I had another fight in school... better be moving though.", "È molto simile alla camera della bambina, ma questa sembra quella di un maschio perché i colori sono blu scuro. Entrambe hanno lo stesso letto, la stessa lampada e lo stesso grande armadio. Mi ricorda di quando mi nascondevo nell'armadio da mia madre quando veniva a sapere che avevo fatto un'altra rissa a scuola... meglio andare avanti, però."],
+      ["Inspect the picture.", "Ispeziono la foto."],
+      ["Looks like it's a picture of the house owner's family. Hm, one of them looks like me when I was younger.", "Sembra una foto della famiglia del proprietario. Hm, uno di loro assomiglia a me da giovane."],
+      ["There are some dolls here.", "Qui ci sono delle bambole."],
+      ["They look familiar, but I can't grasp why.", "Mi sembrano familiari, ma non capisco perché."],
+      ["There's a radio beside the lamp.", "C'è una radio accanto alla lampada."],
+      ["There appear to be multiple fingerprints on the radio that were left recently. It's unsettling. I step back.", "Sulla radio ci sono diverse impronte digitali lasciate da poco. È inquietante. Faccio un passo indietro."],
+      ["I try to open the closet.", "Provo ad aprire l'armadio."],
+      ["There's just an empty closet.", "C'è solo un armadio vuoto."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["[[Go back into the hallway|hallway]]", "[[Torno nel corridoio|hallway]]"]
+    ],
+    "Walk to the table": [
+      ["What is this? An old newspaper.", "Che cos'è? Un vecchio giornale."],
+      ["I hear heavy footsteps in the <<print either($roomList)>>.", "Sento dei passi pesanti <<print either($roomList)>>."],
+      ["[[Read newspaper]]", "[[Leggo il giornale|Read newspaper]]"]
+    ],
+    "Run to the main door": [
+      ["*Tries to open door*", "*Prova ad aprire la porta*"],
+      ["... F*ck!… I can’t get to open the door! its welded! thats why it was locked…! ”", "... Cazzo!… Non riesco ad aprire la porta! È saldata! Ecco perché era chiusa…! ”"],
+      ["A hand grabs my head from behind and lifts me up.", "Una mano mi afferra la testa da dietro e mi solleva."],
+      ["[[RIP|Start]]", "[[RIP|Start]]"]
+    ],
+    "storage_room": [
+      ["I'm the storage room. The stairs are behind me to the left.", "Sono nel ripostiglio. Le scale sono dietro di me, a sinistra."],
+      ["What is this room? There are many useless things. Looks like the previous owners collected junk. But I don’t think that there could possibly be a spare tire here. I guess I'll have to go downstairs to the garage.", "Che stanza è questa? Ci sono tante cose inutili. Sembra che i vecchi proprietari raccogliessero cianfrusaglie. Ma non credo che qui possa esserci una ruota di scorta. Credo che dovrò scendere nel garage."],
+      ["Look through the junk.", "Frugo tra le cianfrusaglie."],
+      ["One man's trash is still trash, it seems. Nothing useful here.", "La spazzatura di un uomo resta spazzatura, a quanto pare. Niente di utile qui."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["[[Exit the storage room|hallway]]", "[[Esco dal ripostiglio|hallway]]"]
+    ],
+    "Read newspaper": [
+      ["“After Senator Jamie Krane was diagnosed with brain cancer he became insane and started a series of events where he kidnapped, murdered and then ate members of his committee including his family. The remainders of the victims were found inside his vacation house near the road from Turlock and Hickman, California. Krane successfully escaped and the police locked the house to avoid Krane coming back.\"", "“Dopo che al senatore Jamie Krane è stato diagnosticato un tumore al cervello, egli è impazzito e ha dato il via a una serie di eventi in cui ha rapito, ucciso e poi mangiato membri del suo comitato, compresa la sua famiglia. I resti delle vittime sono stati trovati nella sua casa per le vacanze vicino alla strada tra Turlock e Hickman, in California. Krane è riuscito a fuggire e la polizia ha chiuso a chiave la casa per evitare che Krane tornasse.\""],
+      ["[[Put newspaper down]]", "[[Poso il giornale|Put newspaper down]]"]
+    ],
+    "Look around and stand up": [
+      ["How long was I asleep for?!", "Per quanto tempo ho dormito?!"],
+      ["Why did I sleep here?!", "Perché ho dormito qui?!"],
+      ["I need to get back home and soon!”", "Devo tornare a casa, e in fretta!”"],
+      ["[[Walk]]", "[[Cammino|Walk]]"]
+    ],
+    "first_bedroom": [
+      ["*cough…cough*", "*tosse…tosse*"],
+      ["I'm in the first bedroom. The stairs are to my left.", "Sono nella prima camera. Le scale sono alla mia sinistra."],
+      ["This is a pretty room, its pink like if the owners had a daughter. It still has dolls around the room. Everything is perfectly organized, looks like they did not leave in a hurry.", "È una bella stanza, è rosa, come se i proprietari avessero una figlia. Ci sono ancora delle bambole in giro. È tutto perfettamente in ordine, sembra che non se ne siano andati di fretta."],
+      ["I inspect the bookshelf.", "Ispeziono la libreria."],
+      ["There's nothing but old chemistry textbooks here.", "Qui ci sono solo vecchi libri di testo di chimica."],
+      ["I inspect the window.", "Ispeziono la finestra."],
+      ["Looks like I can't open the window from the inside. It was purposefully tampered with.", "Sembra che non si possa aprire la finestra dall'interno. È stata manomessa di proposito."],
+      ["[[Look among the dolls]]", "[[Guardo tra le bambole|Look among the dolls]]"],
+      ["I try to open the closet.", "Provo ad aprire l'armadio."],
+      ["There's just an empty closet.", "C'è solo un armadio vuoto."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["[[Go back into the hallway|hallway]]", "[[Torno nel corridoio|hallway]]"]
+    ],
+    "first floor": [
+      ["I'm on the first floor.", "Sono al piano terra."]
+    ],
+    "sec_bathroom": [
+      ["I'm in the bathroom. The stairs are to my right.", "Sono nel bagno. Le scale sono alla mia destra."],
+      ["Flush the toilet.", "Tiro lo sciacquone."],
+      ["I am not flushing the toilet if I don't know who else is in this house with me.", "Non tiro lo sciacquone se non so chi altro c'è in questa casa con me."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["[[Go back into the hallway|hallway]]", "[[Torno nel corridoio|hallway]]"]
+    ],
+    "first_bathroom": [
+      ["I'm the bathroom on the first floor. The stairs are to my left.", "Sono nel bagno al piano terra. Le scale sono alla mia sinistra."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["Look in the sink.", "Guardo nel lavandino."],
+      ["There is nothing in the sink.", "Non c'è niente nel lavandino."],
+      ["Look in the bathtub.", "Guardo nella vasca da bagno."],
+      ["The water looks different. Should I lean in?", "L'acqua sembra diversa. Mi sporgo?"],
+      ["I realize there's blood in the bathtub.", "Mi rendo conto che nella vasca c'è del sangue."],
+      ["[[Go back to the living room|livingRoom]]", "[[Torno nel soggiorno|livingRoom]]"]
+    ],
+    "Walk": [
+      ["It seems like there’s light coming from over there!", "Sembra che da laggiù arrivi una luce!"],
+      ["[[Walk towards the light]]", "[[Cammino verso la luce|Walk towards the light]]"]
+    ],
+    "Climb up the barrels": [
+      ["Whew! I'm on the roof now.", "Uff! Ora sono sul tetto."],
+      ["The roof has <<print $loopz>> collapsed section over there.", "Sul tetto c'è <<print $loopz>> sezione crollata laggiù."],
+      ["The roof has <<print $loopz>> collapsed sections over there.", "Sul tetto ci sono <<print $loopz>> sezioni crollate laggiù."],
+      ["I can probably jump in from there.", "Probabilmente posso saltare dentro da lì."],
+      ["[[Move towards the collapsed section]]", "[[Vado verso la sezione crollata|Move towards the collapsed section]]"]
+    ],
+    "garage": [
+      ["I'm in the garage. There are tons of cardboard boxes laying around. A car without tires sits in the middle of the room.", "Sono nel garage. Ci sono un sacco di scatole di cartone sparse. Un'auto senza ruote è ferma in mezzo alla stanza."],
+      ["Look through the cardboard boxes.", "Guardo tra le scatole di cartone."],
+      ["These boxes are all empty.", "Queste scatole sono tutte vuote."],
+      ["Get in the car.", "Salgo in macchina."],
+      ["I see a car key over there.", "Vedo una chiave della macchina là."],
+      ["I reach over and take the car key. I wonder what I can use it for.", "Mi allungo e prendo la chiave della macchina. Chissà a cosa può servire."],
+      ["I hear heavy footsteps in the <<print $killerRoom>>.", "Sento dei passi pesanti <<print $killerRoom>>."],
+      ["[[Return to the living room|livingRoom]]", "[[Torno nel soggiorno|livingRoom]]"]
+    ],
+    "Move towards the collapsed section": [
+      ["*crack*", "*crac*"],
+      ["Uh oh...", "Oh no..."],
+      ["*craaaaackkkk*", "*craaaaackkkk*"],
+      ["The section below me gives in, and I fall.", "La sezione sotto di me cede e io cado."],
+      ["I land and land admist a cloud of dust and roof pieces.", "Atterro in mezzo a una nuvola di polvere e pezzi di tetto."],
+      ["[[I should gather my surroundings.|storage_room]]", "[[Devo capire dove mi trovo.|storage_room]]"]
+    ],
+    "second floor": [
+      ["I'm on the second floor.", "Sono al secondo piano."]
+    ],
+    "Check out the left side": [
+      ["There’s hole on wall on this side of the house.", "C'è un buco nel muro su questo lato della casa."],
+      ["I think I can fit through here.", "Credo di riuscire a passare da qui."],
+      ["I might as well try squeezing myself through the hole.", "Tanto vale provare a infilarmi nel buco."],
+      ["Who am I kidding? I can't through that small crack.", "Chi voglio prendere in giro? Non riesco a passare da quella piccola fessura."],
+      ["[[Go to the back of the house]]", "[[Vado sul retro della casa|Go to the back of the house]]"],
+      ["[[Go to the front of the house|Walk towards the light]]", "[[Torno sul davanti della casa|Walk towards the light]]"]
+    ]
+  }
+}

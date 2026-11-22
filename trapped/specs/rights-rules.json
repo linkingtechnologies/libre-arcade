@@ -1,0 +1,55 @@
+{
+  "game": "Trapped",
+  "rules": [
+    {
+      "match": "^public/story/trapped\\.en\\.html$",
+      "category": "Historical original (story + engine), two tags injected",
+      "author": "Andy Wang and Roberto Ortiz (story); Twine 1.4.2 / Sugarcane engine: Chris Klimas et al., based on TiddlyWiki 1.2.39 (Osmosoft)",
+      "source": "https://github.com/Rysm/html-minigames (twine_horror_game/Trapped.html, commit 1197d28)",
+      "license": "Story: MIT (repository licence, Andy Wang). Engine: BSD 3-clause (Osmosoft), notice kept in the file header",
+      "status": "ok-with-note",
+      "note": "Roberto Ortiz is credited as co-author (StoryAuthor) but the repository's MIT notice names only Andy Wang; his consent is not independently verified. Owner decision needed before wide promotion. Also: the embedded community macro passage cyclinglink has no stated author or licence."
+    },
+    {
+      "match": "^public/story/trapped\\.it\\.html$",
+      "category": "Historical original + Italian translation layer",
+      "author": "As trapped.en.html; Italian text: Libre Arcade contributors",
+      "source": "built by scripts/build-story.mjs from source/Trapped.original.html and translations/it.json",
+      "license": "As trapped.en.html for the English-derived parts; Italian text GPL-3.0-only",
+      "status": "ok-with-note",
+      "note": "Same open point on Roberto Ortiz as trapped.en.html. Also: the embedded community macro passage cyclinglink has no stated author or licence."
+    },
+    {
+      "match": "^public/story/(theme\\.css|enhance\\.js)$",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok"
+    },
+    {
+      "match": "^public/(app|i18n)\\.js$|^public/index\\.html$|^public/shared/",
+      "category": "New Libre Arcade code",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok"
+    },
+    {
+      "match": "^public/LICENSE-MIT-ANDY-WANG\\.txt$",
+      "category": "License text",
+      "author": "Andy Wang",
+      "source": "https://github.com/Rysm/html-minigames (LICENSE)",
+      "license": "MIT",
+      "status": "ok"
+    },
+    {
+      "match": "^public/CREDITS.md$",
+      "category": "Documentation",
+      "author": "Libre Arcade contributors",
+      "source": "this repository",
+      "license": "GPL-3.0-only",
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trapped</title>
+<link rel="stylesheet" href="shared/arcade.css">
+<style>
+  #stage { padding: 0; align-items: stretch; }
+  #story { flex: 1 1 auto; width: 100%; border: 0; background: #0b0d10; }
+  .bar .mature { color: var(--mute); font-size: .8rem; white-space: nowrap; }
+  @media (max-width: 560px) { .bar .mature { display: none; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <h1 data-i18n="title">Trapped</h1>
+  <span class="mature" data-i18n="mature"></span>
+  <button id="btn-restart" type="button" data-i18n="restart">Restart story</button>
+  <select id="lang" data-i18n-attr="aria-label:language"><option value="en">EN</option><option value="it">IT</option></select>
+  <button id="btn-credits" type="button" data-i18n="credits">Credits</button>
+</header>
+<main id="stage"><iframe id="story" title="Trapped"></iframe></main>
+<p class="hint" data-i18n="hint"></p>
+<dialog id="credits" class="dlg"><div data-i18n-html="creditsHtml"></div><button id="credits-close" type="button" data-i18n="close">Close</button></dialog>
+<script type="module" src="app.js"></script>
+<script data-goatcounter="https://grugnetto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
