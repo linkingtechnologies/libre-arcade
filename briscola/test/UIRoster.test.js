@@ -3,8 +3,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-const main = readFileSync("src/main.js", "utf8");
-const ui = readFileSync("src/ui/WebUI.js", "utf8");
+const main = readFileSync("public/src/main.js", "utf8");
+const ui = readFileSync("public/src/ui/WebUI.js", "utf8");
 
 test("restored UI keeps archaeology engines from v1.7", () => {
   for (const token of [

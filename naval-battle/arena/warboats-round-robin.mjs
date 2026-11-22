@@ -1,10 +1,10 @@
-import { SeededRng } from '../src/core/prng.js';
-import { createRandomBoard } from '../src/core/fleet.js';
-import { CLASSIC_FLEET } from '../src/core/rules.js';
-import { Game } from '../src/core/game.js';
-import { RandomPlayer } from '../src/players/random.js';
-import { Os4ReconstructedPlayer } from '../src/players/os4-2009-reconstructed.js';
-import { HistoricalAiStallError, Warboats2009Player } from '../src/players/warboats-2009.js';
+import { SeededRng } from '../public/src/core/prng.js';
+import { createRandomBoard } from '../public/src/core/fleet.js';
+import { CLASSIC_FLEET } from '../public/src/core/rules.js';
+import { Game } from '../public/src/core/game.js';
+import { RandomPlayer } from '../public/src/players/random.js';
+import { Os4ReconstructedPlayer } from '../public/src/players/os4-2009-reconstructed.js';
+import { HistoricalAiStallError, Warboats2009Player } from '../public/src/players/warboats-2009.js';
 
 const factories = [
   ['Random', rng => new RandomPlayer(rng, 'Random')],

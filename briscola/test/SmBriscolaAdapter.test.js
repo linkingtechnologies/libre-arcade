@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { BriscolaGame } from "../src/core/BriscolaGame.js";
-import { SmBriscolaEmpirico1Adapter } from "../src/players/smbriscola/SmBriscolaEmpirico1Adapter.js";
-import { SmBriscolaEmpirico2Adapter } from "../src/players/smbriscola/SmBriscolaEmpirico2Adapter.js";
+import { BriscolaGame } from "../public/src/core/BriscolaGame.js";
+import { SmBriscolaEmpirico1Adapter } from "../public/src/players/smbriscola/SmBriscolaEmpirico1Adapter.js";
+import { SmBriscolaEmpirico2Adapter } from "../public/src/players/smbriscola/SmBriscolaEmpirico2Adapter.js";
 
 if (typeof globalThis.CustomEvent === "undefined") {
   globalThis.CustomEvent = class CustomEvent extends Event {

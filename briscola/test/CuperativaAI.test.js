@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { CuperativaAI } from "../src/players/cuperativa/CuperativaAI.js";
+import { CuperativaAI } from "../public/src/players/cuperativa/CuperativaAI.js";
 import {
   cuperativaCardInfo,
   fromCuperativaLabel,
   toCuperativaLabel
-} from "../src/players/cuperativa/CuperativaCard.js";
+} from "../public/src/players/cuperativa/CuperativaCard.js";
 
 function choose(state) {
   const ai = new CuperativaAI();

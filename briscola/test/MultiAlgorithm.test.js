@@ -1,22 +1,22 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { BriscolaGame } from "../src/core/BriscolaGame.js";
-import { CuperativaAdapter } from "../src/players/cuperativa/CuperativaAdapter.js";
-import { QBriscolaAdapter } from "../src/players/qbriscola/QBriscolaAdapter.js";
-import { SmBriscolaEmpirico1Adapter } from "../src/players/smbriscola/SmBriscolaEmpirico1Adapter.js";
-import { SmBriscolaEmpirico2Adapter } from "../src/players/smbriscola/SmBriscolaEmpirico2Adapter.js";
-import { JBriscolaAdapter } from "../src/players/jbriscola/JBriscolaAdapter.js";
-import { PryscolaAdapter } from "../src/players/pryscola/PryscolaAdapter.js";
-import { BriscolaBotAdapter } from "../src/players/briscolabot/BriscolaBotAdapter.js";
-import { BriscolaBotDeterministicRuntime } from "../src/players/briscolabot/BriscolaBotDeterministicRuntime.js";
-import { RandomAdapter } from "../src/players/random/RandomAdapter.js";
-import { PiGAdapter, PiHAdapter, PiCAdapter } from "../src/players/giacomelli/GiacomelliAdapter.js";
+import { BriscolaGame } from "../public/src/core/BriscolaGame.js";
+import { CuperativaAdapter } from "../public/src/players/cuperativa/CuperativaAdapter.js";
+import { QBriscolaAdapter } from "../public/src/players/qbriscola/QBriscolaAdapter.js";
+import { SmBriscolaEmpirico1Adapter } from "../public/src/players/smbriscola/SmBriscolaEmpirico1Adapter.js";
+import { SmBriscolaEmpirico2Adapter } from "../public/src/players/smbriscola/SmBriscolaEmpirico2Adapter.js";
+import { JBriscolaAdapter } from "../public/src/players/jbriscola/JBriscolaAdapter.js";
+import { PryscolaAdapter } from "../public/src/players/pryscola/PryscolaAdapter.js";
+import { BriscolaBotAdapter } from "../public/src/players/briscolabot/BriscolaBotAdapter.js";
+import { BriscolaBotDeterministicRuntime } from "../public/src/players/briscolabot/BriscolaBotDeterministicRuntime.js";
+import { RandomAdapter } from "../public/src/players/random/RandomAdapter.js";
+import { PiGAdapter, PiHAdapter, PiCAdapter } from "../public/src/players/giacomelli/GiacomelliAdapter.js";
 import {
   CardFrameworkCpu0Adapter,
   CardFrameworkCpu1Adapter,
   CardFrameworkCpu2Adapter
-} from "../src/players/cardframework/CardFrameworkAdapter.js";
+} from "../public/src/players/cardframework/CardFrameworkAdapter.js";
 
 if (typeof globalThis.CustomEvent === "undefined") {
   globalThis.CustomEvent = class CustomEvent extends Event {

@@ -2,7 +2,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { JBriscolaAI } from "../src/players/jbriscola/JBriscolaAI.js";
+import { JBriscolaAI } from "../public/src/players/jbriscola/JBriscolaAI.js";
 import {
   JBRISCOLA_COMPARISON,
   compareJBriscolaCards,
@@ -10,8 +10,8 @@ import {
   getJBriscolaPoints,
   sortJBriscolaHand,
   toJBriscolaNumber
-} from "../src/players/jbriscola/JBriscolaCard.js";
-import { JavaRandom } from "../src/players/jbriscola/JavaRandom.js";
+} from "../public/src/players/jbriscola/JBriscolaCard.js";
+import { JavaRandom } from "../public/src/players/jbriscola/JavaRandom.js";
 
 const card = (suit, rank) => ({ id: `${suit}-${rank}`, suit, rank });
 

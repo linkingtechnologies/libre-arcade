@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { createDeck, trickWinner, trickPoints } from "../src/core/BriscolaRules.js";
+import { createDeck, trickWinner, trickPoints } from "../public/src/core/BriscolaRules.js";
 
 function c(suit, rank) {
   return createDeck().find((card) => card.suit === suit && card.rank === rank);

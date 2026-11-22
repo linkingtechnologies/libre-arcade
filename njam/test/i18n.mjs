@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
-import { I18N, MENU_INFO_IT } from '../src/i18n.js';
-import { MENU_SCRIPT } from '../src/menu-script.js';
+import { I18N, MENU_INFO_IT } from '../public/src/i18n.js';
+import { MENU_SCRIPT } from '../public/src/menu-script.js';
 
 assert.deepEqual(Object.keys(I18N.it).sort(),Object.keys(I18N.en).sort(),'IT/EN dictionaries must expose the same keys');
 assert.equal(I18N.it.menu.length,6);assert.equal(I18N.en.menu.length,6);

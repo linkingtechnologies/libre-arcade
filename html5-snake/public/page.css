@@ -1,3 +1,5 @@
+/* SPDX-FileCopyrightText: 2026 Umberto Bresciani
+   SPDX-License-Identifier: MIT */
 /* Local modification (this whole file — see specs/html5-snake/design.md): every originally-bare
    selector ("body"/"h1"/"p"/"canvas") is now scoped under "#app", this game's own exclusive
    mount root in both the standalone page (games/html5-snake/index.html) and the Camila-hosted

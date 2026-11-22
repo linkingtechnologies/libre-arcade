@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { PoianaRuntime } from "../src/players/poiana/PoianaRuntime.js";
+import { PoianaRuntime } from "../public/src/players/poiana/PoianaRuntime.js";
 
 class FakeTensor {
   constructor(type, data, dims) {

@@ -1,0 +1,32 @@
+[
+  {
+    "game": "comet",
+    "table_height_in_radii": 104,
+    "gravity_radii_per_s2": 88.6,
+    "fall_time_s": 1.53,
+    "flipper_len_in_radii": 8.1,
+    "flipper_omega_rad_s": 50,
+    "tip_speed_over_vH": 3.01,
+    "timestep": "1/60 (frame time)"
+  },
+  {
+    "game": "mech_night",
+    "table_height_in_radii": 91,
+    "gravity_radii_per_s2": 38.9,
+    "fall_time_s": 2.17,
+    "flipper_len_in_radii": 4.5,
+    "flipper_omega_rad_s": 25,
+    "tip_speed_over_vH": 1.33,
+    "timestep": "1/60, 4 substeps"
+  },
+  {
+    "game": "nova",
+    "table_height_in_radii": 63,
+    "gravity_radii_per_s2": 51.2,
+    "fall_time_s": 1.57,
+    "flipper_len_in_radii": 7.9,
+    "flipper_omega_rad_s": 13.5,
+    "tip_speed_over_vH": 1.33,
+    "timestep": "1/240"
+  }
+]

@@ -1,0 +1,108 @@
+#!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Umberto Bresciani
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+// One-off maintainer tool: walks fresh clones of the two upstream repositories
+// and writes reference/SOURCES.json, the machine-readable record of every
+// upstream file (git blob id, SHA-256, size, kind, licence evidence, and
+// whether the file is kept in this repository, fetched on demand, or excluded).
+//
+//   node tools/make-reference-manifest.mjs <orig-clone> <facebook-clone>
+//
+// The classification below is the licence audit in executable form; the prose
+// version is docs/ASSET_LICENSE_INVENTORY.md.
+
+import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
+import { readFileSync, writeFileSync } from "node:fs";
+import { join, extname } from "node:path";
+
+const [origDir, fbDir] = process.argv.slice(2);
+if (!origDir || !fbDir) {
+  console.error("usage: make-reference-manifest.mjs <orig-clone> <facebook-clone>");
+  process.exit(2);
+}
+
+const git = (dir, ...args) => execFileSync("git", ["-C", dir, ...args], { encoding: "utf8" }).trim();
+const sha256 = (buf) => createHash("sha256").update(buf).digest("hex");
+
+const MIT_PP = "MIT, (c) 2012 Petar Petrov (header in file)";
+const MIT_DVUBUZ = "MIT, (c) 2013 Dvubuz Games (header in file; same code as the 2012 original, header changed)";
+
+function classify(repo, path) {
+  const ext = extname(path).toLowerCase();
+  const top = path.split("/")[0];
+  // ---- game code
+  if (top === "src" && ext === ".js") {
+    if (path === "src/hiscore.js" || path === "src/hiscore-fb.js" || path === "src/fb.js") {
+      return { kind: "code-online-services", license: repo === "orig" ? MIT_PP : MIT_DVUBUZ, keep: "source", note: "Leaderboard / Facebook glue. Not gameplay; not ported." };
+    }
+    return { kind: "code-gameplay", license: repo === "orig" ? MIT_PP : MIT_DVUBUZ, keep: "source" };
+  }
+  if (path.endsWith(".gitkeep")) return { kind: "project-file", license: "n/a (empty)", keep: "fetch" };
+  if (path === "LICENSE") return { kind: "licence-text", license: "MIT", keep: "source" };
+  if (path === "art/LICENSE") return { kind: "licence-text", license: "n/a: says only \"All images are (c) Stremena Tuzsuzova\"", keep: "source", note: "Added 2015-11-28 (commit e6db3cf). No permission is granted by it." };
+  if (["README.md", "HISTORY", "manifest.json", "build.sh", "urchin", "index.html", "index.php", "tests.html", "channel.php", ".htaccess", ".gitignore", "css/style.css"].includes(path)) {
+    return { kind: "project-file", license: repo === "orig" ? MIT_PP : MIT_DVUBUZ, keep: path === "urchin" || path === "tests.html" || path === ".htaccess" || path === ".gitignore" ? "fetch" : "source" };
+  }
+  // ---- libraries
+  if (path === "lib/crafty-063-min.js") return { kind: "library", license: "MIT or GPL (dual), (c) 2014 Louis Stowasser (header in file)", keep: "source", version: "0.6.3" };
+  if (path === "lib/crafty-0.5.3.js" || path === "lib/crafty-0.5.3-full.js") return { kind: "library", license: "MIT or GPL (dual), Louis Stowasser", keep: "fetch", version: "0.5.3" };
+  if (path === "lib/underscore-min.js") return { kind: "library", license: "MIT, (c) 2009-2012 Jeremy Ashkenas, DocumentCloud (header in file)", keep: "source", version: "1.4.2" };
+  if (path === "lib/backbone-min.js") return { kind: "library", license: "MIT, (c) 2010-2012 Jeremy Ashkenas, DocumentCloud (header in file)", keep: "source", version: "0.9.2" };
+  if (path === "lib/astar.js" || path === "lib/graph.js") return { kind: "library", license: "MIT (javascript-astar, Brian Grinstead); binary heap by Marijn Haverbeke, (c) Marijn Haverbeke, CC BY 3.0 per eloquentjavascript.net (read 2026-11-22)", keep: "source" };
+  if (path === "lib/jquery.191.min.js" || path === "lib/qunit/jquery-latest.js") return { kind: "library", license: "MIT, jQuery Foundation (header in file)", keep: "fetch" };
+  if (path === "lib/jquery-ui.192.min.js") return { kind: "library", license: "MIT, jQuery Foundation", keep: "fetch" };
+  if (path === "lib/modernizr.custom.js" || path === "lib/modernizr.custom.47915.js") return { kind: "library", license: "MIT and BSD (header in file)", keep: "fetch" };
+  if (path === "lib/require.js") return { kind: "library", license: "MIT or new BSD, (c) 2010-2012 The Dojo Foundation (header in file)", keep: "fetch" };
+  if (path === "lib/gj-js-api-min.js") return { kind: "library-online-service", license: "unknown: Game Jolt API client carrying the original author's game id and key", keep: "fetch", note: "EXCLUDED: contains credentials, no licence found, online service." };
+  if (path.startsWith("lib/qunit/")) return { kind: "test-library", license: "MIT (QUnit)", keep: "fetch" };
+  if (path === "lib/crafty-debug-bar-release.js") return { kind: "library", license: "unknown (not read)", keep: "fetch" };
+  if (path.startsWith("css/le-frog/")) return { kind: "ui-theme", license: "MIT (jQuery UI theme generated by ThemeRoller)", keep: "fetch" };
+  if (path === "yuicompressor-2.4.8pre.jar") return { kind: "build-tool", license: "BSD (YUI Compressor)", keep: "fetch" };
+  // ---- art
+  if (path === "favicon.ico" || path.startsWith("art/") || path.startsWith("promo/")) {
+    return { kind: "artwork", license: "(c) Stremena Tuzsuzova, all rights reserved. Not covered by the MIT licence (README). No redistribution grant found.", keep: "excluded", status: "blocked" };
+  }
+  // ---- audio
+  if (path === "sfx/trouble_in_the_garden_lowq.ogg") {
+    return { kind: "music", license: "Derived (low-quality transcode) from \"Trouble in the Garden\" by Augmentality (Brandon Morris), OpenGameArt, dual OGA-BY 3.0 / CC0", keep: "excluded", status: "replaced-by-source", note: "The shipped game uses the CC0 original downloaded from OpenGameArt instead." };
+  }
+  if (path.startsWith("sfx/")) {
+    return { kind: "sound-effect", license: "UNVERIFIED: edited derivative of one of nine Freesound clips (two CC BY-NC, one deleted, others CC BY / CC0); the file-to-clip mapping is not recorded anywhere", keep: "excluded", status: "blocked" };
+  }
+  return { kind: "other", license: "unknown", keep: "fetch" };
+}
+
+function describe(id, url, dir) {
+  const commit = git(dir, "rev-parse", "HEAD");
+  const date = git(dir, "log", "-1", "--format=%aI");
+  const subject = git(dir, "log", "-1", "--format=%s");
+  const blobs = new Map();
+  for (const line of git(dir, "ls-tree", "-r", "HEAD").split("\n")) {
+    const m = line.match(/^\d+ blob ([0-9a-f]+)\t(.+)$/);
+    if (m) blobs.set(m[2], m[1]);
+  }
+  const files = [];
+  for (const [path, blob] of [...blobs].sort((a, b) => a[0].localeCompare(b[0]))) {
+    const buf = readFileSync(join(dir, path));
+    files.push({ repo: id, path, bytes: buf.length, sha256: sha256(buf), gitBlob: blob, ...classify(id, path) });
+  }
+  return { repo: { id, url, commit, date, subject }, files };
+}
+
+const orig = describe("orig", "https://github.com/petarov/game-off-2012", origDir);
+const fb = describe("facebook", "https://github.com/alunix/RagingGardensFB", fbDir);
+
+const out = {
+  schema: 1,
+  generated: "2026-11-22",
+  note: "Machine-readable record of every upstream file. keep=source: a verbatim copy is committed under reference/. keep=fetch: reproducible with scripts/fetch-original.mjs, not committed. keep=excluded: never committed and never shipped (licence not demonstrated); the hash is kept so the file can be recognised.",
+  repositories: [orig.repo, fb.repo],
+  files: [...orig.files, ...fb.files],
+};
+writeFileSync(new URL("../reference/SOURCES.json", import.meta.url), JSON.stringify(out, null, 2) + "\n");
+
+const tally = {};
+for (const f of out.files) tally[`${f.repo}:${f.keep}`] = (tally[`${f.repo}:${f.keep}`] || 0) + 1;
+console.log(tally);

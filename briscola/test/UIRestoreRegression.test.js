@@ -3,10 +3,10 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 
-const ui = readFileSync("src/ui/WebUI.js", "utf8");
-const css = readFileSync("styles.css", "utf8");
-const deckIndex = JSON.parse(readFileSync("assets/decks/index.json", "utf8"));
-const main = readFileSync("src/main.js", "utf8");
+const ui = readFileSync("public/src/ui/WebUI.js", "utf8");
+const css = readFileSync("public/styles.css", "utf8");
+const deckIndex = JSON.parse(readFileSync("public/assets/decks/index.json", "utf8"));
+const main = readFileSync("public/src/main.js", "utf8");
 
 test("restored laboratory and in-game controls stay present", () => {
   for (const marker of [
@@ -31,8 +31,8 @@ test("both restored historical decks remain indexed and bundled", () => {
   const manifests = deckIndex.decks.map((item) => item.manifest);
   assert.ok(manifests.some((item) => item.includes("viterbesi-murari-1900")));
   assert.ok(manifests.some((item) => item.includes("napoletane-pignalosa-1882")));
-  assert.ok(existsSync("assets/decks/viterbesi-murari-1900/back.png"));
-  assert.ok(existsSync("assets/decks/napoletane-pignalosa-1882/back.png"));
+  assert.ok(existsSync("public/assets/decks/viterbesi-murari-1900/back.png"));
+  assert.ok(existsSync("public/assets/decks/napoletane-pignalosa-1882/back.png"));
 });
 
 test("v1.7 archaeology engines stay wired into the application", () => {

@@ -5,7 +5,7 @@ import {
   fromBriscolaBotCardIndex,
   toBriscolaBotCardIndex,
   vectorizeBriscolaBotObservation
-} from "../src/players/briscolabot/BriscolaBotVectorizer.js";
+} from "../public/src/players/briscolabot/BriscolaBotVectorizer.js";
 
 const card = (suit, rank) => ({ id: `${suit}-${rank}`, suit, rank });
 

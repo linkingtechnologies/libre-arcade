@@ -1,0 +1,4 @@
+# Byte-exact: upstream snapshot and its audio/images are hashed by tests.
+reference/** -text
+public/assets/** -text
+test/fixtures/** -text

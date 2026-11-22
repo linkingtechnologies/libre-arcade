@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Derive version
+        id: ver
+        run: |
+          if [[ "$GITHUB_REF_NAME" == v*.*.* ]]; then
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=0.0.0-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build .deb
+        run: |
+          python3 packaging/linux/build_deb.py \
+            --source . \
+            --output dist \
+            --version ${{ steps.ver.outputs.version }}
+
+      - name: Compute checksum
+        run: cd dist && sha256sum libre-arcade_${{ steps.ver.outputs.version }}_all.deb > SHA256SUMS
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: libre-arcade-deb
+          path: |
+            dist/libre-arcade_${{ steps.ver.outputs.version }}_all.deb
+            dist/SHA256SUMS
+          retention-days: 30
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: libre-arcade-deb
+          path: dist
+
+      - name: Create GitHub Release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*

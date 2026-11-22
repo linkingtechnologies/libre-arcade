@@ -2,7 +2,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, statSync } from "node:fs";
-import { POIANA_MODELS, POIANA_MODELS_BY_WIN_RATE } from "../src/players/poiana/PoianaModels.js";
+import { POIANA_MODELS, POIANA_MODELS_BY_WIN_RATE } from "../public/src/players/poiana/PoianaModels.js";
 
 test("PoIAna catalog exposes all 23 upstream agents", () => {
   assert.equal(POIANA_MODELS.length, 23);
@@ -18,8 +18,8 @@ test("PoIAna catalog exposes all 23 upstream agents", () => {
 
 test("every PoIAna identity ships both original ONNX and deterministic policy tensors", () => {
   for (const model of POIANA_MODELS) {
-    const onnx = `assets/models/poiana/${model.name}.onnx`;
-    const policy = `assets/models/poiana/${model.name}-policy.bin`;
+    const onnx = `public/assets/models/poiana/${model.name}.onnx`;
+    const policy = `public/assets/models/poiana/${model.name}-policy.bin`;
     assert.ok(existsSync(onnx), onnx);
     assert.ok(existsSync(policy), policy);
     assert.ok(statSync(onnx).size > 100_000, onnx);

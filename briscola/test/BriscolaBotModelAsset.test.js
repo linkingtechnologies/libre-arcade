@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 
 const modelUrl = new URL(
-  "../assets/models/briscolabot/briscola-bot-v3.onnx",
+  "../public/assets/models/briscolabot/briscola-bot-v3.onnx",
   import.meta.url
 );
 
@@ -23,11 +23,11 @@ test("bundled BriscolaBot v3 model matches the supplied upstream binary", async 
 
 test("derived deterministic BriscolaBot assets have the recorded hashes", async () => {
   const logitsUrl = new URL(
-    "../assets/models/briscolabot/briscola-bot-v3-logits.onnx",
+    "../public/assets/models/briscolabot/briscola-bot-v3-logits.onnx",
     import.meta.url
   );
   const weightsUrl = new URL(
-    "../assets/models/briscolabot/briscola-bot-v3-policy.bin",
+    "../public/assets/models/briscolabot/briscola-bot-v3-policy.bin",
     import.meta.url
   );
   const [logits, weights] = await Promise.all([readFile(logitsUrl), readFile(weightsUrl)]);

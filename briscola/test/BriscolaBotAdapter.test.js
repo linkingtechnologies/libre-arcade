@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { BriscolaBotAdapter, chooseFromOutputs } from "../src/players/briscolabot/BriscolaBotAdapter.js";
-import { SeededRandom } from "../src/core/SeededRandom.js";
+import { BriscolaBotAdapter, chooseFromOutputs } from "../public/src/players/briscolabot/BriscolaBotAdapter.js";
+import { SeededRandom } from "../public/src/core/SeededRandom.js";
 
 const card = (suit, rank) => ({ id: `${suit}-${rank}`, suit, rank });
 

@@ -2,10 +2,10 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { NjamGame, LevelSet, TILE, MODE, MAPW, MAPH, MAPSIZE, MAXDELAY } from '../src/game.js';
-import { HighScores } from '../src/highscores.js';
-import { NjamEditor } from '../src/editor.js';
-import { NJAM_NET_PORT, CID_SIZE, MAP_PACKET_SIZE, CLIENT_PACKET_SIZE, HOST_PACKET_SIZE, encodeCID, decodeCID, encodeHostFrame, decodeHostFrame, encodeClientFrame, decodeClientFrame, encodeRuntimeMap, decodeRuntimeMap } from '../src/network-protocol.js';
+import { NjamGame, LevelSet, TILE, MODE, MAPW, MAPH, MAPSIZE, MAXDELAY } from '../public/src/game.js';
+import { HighScores } from '../public/src/highscores.js';
+import { NjamEditor } from '../public/src/editor.js';
+import { NJAM_NET_PORT, CID_SIZE, MAP_PACKET_SIZE, CLIENT_PACKET_SIZE, HOST_PACKET_SIZE, encodeCID, decodeCID, encodeHostFrame, decodeHostFrame, encodeClientFrame, decodeClientFrame, encodeRuntimeMap, decodeRuntimeMap } from '../public/src/network-protocol.js';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(here,'..');

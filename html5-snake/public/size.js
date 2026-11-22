@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Umberto Bresciani
+// SPDX-License-Identifier: MIT
 // Local addition, not upstream (see specs/html5-snake/design.md's "Local modifications") — sizes
 // #the-game's canvas from the actual viewport instead of upstream's own hardcoded 320x240.
 //

@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
-import { SeededRng } from '../src/core/prng.js';
-import { CLASSIC_FLEET } from '../src/core/rules.js';
-import { createRandomBoard } from '../src/core/fleet.js';
-import { Board } from '../src/core/board.js';
-import { Game } from '../src/core/game.js';
-import { RandomPlayer } from '../src/players/random.js';
+import { SeededRng } from '../public/src/core/prng.js';
+import { CLASSIC_FLEET } from '../public/src/core/rules.js';
+import { createRandomBoard } from '../public/src/core/fleet.js';
+import { Board } from '../public/src/core/board.js';
+import { Game } from '../public/src/core/game.js';
+import { RandomPlayer } from '../public/src/players/random.js';
 
 assert.deepEqual(CLASSIC_FLEET, [5,4,3,3,2]);
 assert.equal(CLASSIC_FLEET.reduce((a,b) => a+b, 0), 17);
@@ -44,8 +44,8 @@ assert.deepEqual(g1.history, g2.history);
 console.log('Naval Battle tests: OK');
 
 // Warboats 0.51 source-port tests.
-const { WARBOATS_FLEET } = await import('../src/core/rules.js');
-const { Warboats2009Player } = await import('../src/players/warboats-2009.js');
+const { WARBOATS_FLEET } = await import('../public/src/core/rules.js');
+const { Warboats2009Player } = await import('../public/src/players/warboats-2009.js');
 assert.deepEqual(WARBOATS_FLEET, [5,4,3,3,2]);
 assert.equal(WARBOATS_FLEET.reduce((a,b) => a+b, 0), 17);
 assert.equal(Warboats2009Player.archaeologyStatus.upstreamLicense, 'GPL-2.0-or-later');
@@ -80,7 +80,7 @@ for (let skill = 1; skill <= 4; skill += 1) {
 
 // Historical regression: skill 2 can stall when endpoint memory collapses
 // around already-known cells (e.g. after cross-hitting an adjacent ship).
-const { HistoricalAiStallError } = await import('../src/players/warboats-2009.js');
+const { HistoricalAiStallError } = await import('../public/src/players/warboats-2009.js');
 {
   const wb = new Warboats2009Player(new SeededRng(123), 2, 'Warboats-L2');
   wb.memory[0].state = 'HIT';

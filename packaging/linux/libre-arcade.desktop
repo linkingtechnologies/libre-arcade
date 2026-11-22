@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Libre Arcade
+Name[it]=Libre Arcade
+Comment=Offline collection of restored open-source browser games
+Comment[it]=Raccolta offline di giochi open-source restaurati
+Exec=libre-arcade
+Icon=libre-arcade
+Terminal=false
+Categories=Game;
+Keywords=arcade;games;retro;browser;
+StartupWMClass=libre-arcade

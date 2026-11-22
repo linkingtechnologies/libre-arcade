@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { BriscolaGame } from "../src/core/BriscolaGame.js";
-import { QBriscolaAdapter } from "../src/players/qbriscola/QBriscolaAdapter.js";
+import { BriscolaGame } from "../public/src/core/BriscolaGame.js";
+import { QBriscolaAdapter } from "../public/src/players/qbriscola/QBriscolaAdapter.js";
 
 if (typeof globalThis.CustomEvent === "undefined") {
   globalThis.CustomEvent = class CustomEvent extends Event {

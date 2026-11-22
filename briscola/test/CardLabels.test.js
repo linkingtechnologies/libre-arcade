@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { cardLabel } from "../src/ui/CardRenderer.js";
+import { cardLabel } from "../public/src/ui/CardRenderer.js";
 
 test("card labels use complete Italian names without emoji", () => {
   assert.equal(cardLabel({ rank: 1, suit: "spade" }), "Asso di spade");

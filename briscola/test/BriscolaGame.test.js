@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { BriscolaGame } from "../src/core/BriscolaGame.js";
+import { BriscolaGame } from "../public/src/core/BriscolaGame.js";
 
 // Node does not expose CustomEvent in every supported release.
 if (typeof globalThis.CustomEvent === "undefined") {

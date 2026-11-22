@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { QBriscolaAI } from "../src/players/qbriscola/QBriscolaAI.js";
-import { qCarta } from "../src/players/qbriscola/QBriscolaCard.js";
+import { QBriscolaAI } from "../public/src/players/qbriscola/QBriscolaAI.js";
+import { qCarta } from "../public/src/players/qbriscola/QBriscolaCard.js";
 
 const ai = () => new QBriscolaAI();
 

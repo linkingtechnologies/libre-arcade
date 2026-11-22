@@ -3,8 +3,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-const source = readFileSync("src/ui/WebUI.js", "utf8");
-const css = readFileSync("styles.css", "utf8");
+const source = readFileSync("public/src/ui/WebUI.js", "utf8");
+const css = readFileSync("public/styles.css", "utf8");
 
 test("WebUI starts on the full pre-game setup screen", () => {
   assert.match(source, /this\.screen = "setup"/);

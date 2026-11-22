@@ -5,7 +5,7 @@ import {
   BriscolaBotRuntime,
   DEFAULT_BRISCOLABOT_MODEL_URL,
   concatenateModelInput
-} from "../src/players/briscolabot/BriscolaBotRuntime.js";
+} from "../public/src/players/briscolabot/BriscolaBotRuntime.js";
 
 class FakeTensor {
   constructor(type, data, dims) {

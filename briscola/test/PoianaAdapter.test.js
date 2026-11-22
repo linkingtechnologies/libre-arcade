@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { PoianaAdapter, actionIndexFromPoianaOutputs, clampPoianaActionIndex } from "../src/players/poiana/PoianaAdapter.js";
-import { getPoianaModel } from "../src/players/poiana/PoianaModels.js";
+import { PoianaAdapter, actionIndexFromPoianaOutputs, clampPoianaActionIndex } from "../public/src/players/poiana/PoianaAdapter.js";
+import { getPoianaModel } from "../public/src/players/poiana/PoianaModels.js";
 
 const card = (suit, rank, points) => ({ id: `${suit}-${rank}`, suit, rank, points, strength: 1 });
 const trump = card("denari", 1, 11);

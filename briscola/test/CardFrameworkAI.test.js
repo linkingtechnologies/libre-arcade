@@ -6,12 +6,12 @@ import {
   appendAndBubbleRefill,
   cardFrameworkCompareTo,
   insertInitialCard
-} from "../src/players/cardframework/CardFrameworkAI.js";
+} from "../public/src/players/cardframework/CardFrameworkAI.js";
 import {
   CardFrameworkCpu0Adapter,
   CardFrameworkCpu1Adapter,
   CardFrameworkCpu2Adapter
-} from "../src/players/cardframework/CardFrameworkAdapter.js";
+} from "../public/src/players/cardframework/CardFrameworkAdapter.js";
 
 const POINTS = { 1: 11, 3: 10, 8: 2, 9: 3, 10: 4 };
 const c = (suit, rank) => ({

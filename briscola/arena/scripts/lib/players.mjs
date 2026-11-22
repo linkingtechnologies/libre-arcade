@@ -1,19 +1,19 @@
 // SPDX-License-Identifier: GPL-3.0-only
-import { QBriscolaAdapter } from "../../../src/players/qbriscola/QBriscolaAdapter.js";
-import { CuperativaAdapter } from "../../../src/players/cuperativa/CuperativaAdapter.js";
-import { SmBriscolaEmpirico1Adapter } from "../../../src/players/smbriscola/SmBriscolaEmpirico1Adapter.js";
-import { SmBriscolaEmpirico2Adapter } from "../../../src/players/smbriscola/SmBriscolaEmpirico2Adapter.js";
-import { JBriscolaAdapter } from "../../../src/players/jbriscola/JBriscolaAdapter.js";
-import { PryscolaAdapter } from "../../../src/players/pryscola/PryscolaAdapter.js";
-import { BriscolaBotAdapter } from "../../../src/players/briscolabot/BriscolaBotAdapter.js";
-import { BriscolaBotDeterministicRuntime } from "../../../src/players/briscolabot/BriscolaBotDeterministicRuntime.js";
-import { RandomAdapter } from "../../../src/players/random/RandomAdapter.js";
-import { PiGAdapter, PiHAdapter, PiCAdapter } from "../../../src/players/giacomelli/GiacomelliAdapter.js";
-import { CardFrameworkCpu0Adapter, CardFrameworkCpu1Adapter, CardFrameworkCpu2Adapter } from "../../../src/players/cardframework/CardFrameworkAdapter.js";
-import { BriscolaJsS0Adapter, BriscolaJsS1Adapter } from "../../../src/players/briscolajs/BriscolaJsAdapter.js";
-import { PoianaAdapter } from "../../../src/players/poiana/PoianaAdapter.js";
-import { PoianaDeterministicRuntime } from "../../../src/players/poiana/PoianaDeterministicRuntime.js";
-import { POIANA_MODELS_BY_WIN_RATE } from "../../../src/players/poiana/PoianaModels.js";
+import { QBriscolaAdapter } from "../../../public/src/players/qbriscola/QBriscolaAdapter.js";
+import { CuperativaAdapter } from "../../../public/src/players/cuperativa/CuperativaAdapter.js";
+import { SmBriscolaEmpirico1Adapter } from "../../../public/src/players/smbriscola/SmBriscolaEmpirico1Adapter.js";
+import { SmBriscolaEmpirico2Adapter } from "../../../public/src/players/smbriscola/SmBriscolaEmpirico2Adapter.js";
+import { JBriscolaAdapter } from "../../../public/src/players/jbriscola/JBriscolaAdapter.js";
+import { PryscolaAdapter } from "../../../public/src/players/pryscola/PryscolaAdapter.js";
+import { BriscolaBotAdapter } from "../../../public/src/players/briscolabot/BriscolaBotAdapter.js";
+import { BriscolaBotDeterministicRuntime } from "../../../public/src/players/briscolabot/BriscolaBotDeterministicRuntime.js";
+import { RandomAdapter } from "../../../public/src/players/random/RandomAdapter.js";
+import { PiGAdapter, PiHAdapter, PiCAdapter } from "../../../public/src/players/giacomelli/GiacomelliAdapter.js";
+import { CardFrameworkCpu0Adapter, CardFrameworkCpu1Adapter, CardFrameworkCpu2Adapter } from "../../../public/src/players/cardframework/CardFrameworkAdapter.js";
+import { BriscolaJsS0Adapter, BriscolaJsS1Adapter } from "../../../public/src/players/briscolajs/BriscolaJsAdapter.js";
+import { PoianaAdapter } from "../../../public/src/players/poiana/PoianaAdapter.js";
+import { PoianaDeterministicRuntime } from "../../../public/src/players/poiana/PoianaDeterministicRuntime.js";
+import { POIANA_MODELS_BY_WIN_RATE } from "../../../public/src/players/poiana/PoianaModels.js";
 
 /** Historical/core benchmark set, including Giacomelli 2026 policies. */
 export const arenaPlayers = Object.freeze([

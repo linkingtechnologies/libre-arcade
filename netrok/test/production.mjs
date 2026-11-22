@@ -12,12 +12,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(here, '..');
+const root = path.resolve(here, '../public');
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const exists = (p) => fs.existsSync(path.join(root, p));
 
 const required = [
-  'index.html', 'favicon.svg', 'LICENSE', 'README.md', 'THIRD_PARTY_NOTICES.md',
+  'index.html', 'favicon.svg', 'LICENSE', 'THIRD_PARTY_NOTICES.md',
   'src/game.js', 'src/i18n.js', 'src/levels.js', 'src/netrok-core.js',
   'src/sfont.js', 'src/sfont-data.js', 'src/ui.js', 'src/style.css',
   'editor/index.html', 'editor/editor.js', 'editor/editor.css',

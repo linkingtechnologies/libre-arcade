@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { RandomAdapter } from "../src/players/random/RandomAdapter.js";
+import { RandomAdapter } from "../public/src/players/random/RandomAdapter.js";
 
 const observation = {
   isMyTurn: true,

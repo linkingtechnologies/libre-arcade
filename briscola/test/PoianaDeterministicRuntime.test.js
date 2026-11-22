@@ -6,7 +6,7 @@ import {
   evaluatePoianaPolicy,
   poianaPolicyWeightsUrl,
   splitPoianaPolicyWeights
-} from "../src/players/poiana/PoianaDeterministicRuntime.js";
+} from "../public/src/players/poiana/PoianaDeterministicRuntime.js";
 
 async function policy(name, architecture) {
   const bytes = await readFile(poianaPolicyWeightsUrl(name));

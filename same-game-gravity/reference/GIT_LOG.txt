@@ -1,0 +1,6 @@
+8fc4b57a2204f2a3e06b945214603d16b9675a9b 2011-07-10 12:09:20 +0200 Gaëtan RENAUDEAU <renaudeau.gaetan@gmail.com> clean html
+ea059fae93ed155faaa75e211fb05d65452af8e7 2011-07-09 20:09:31 +0200 Gaëtan RENAUDEAU <renaudeau.gaetan@gmail.com> update ipad and iphone link + clean
+bcd8987e1029fe91420c4ffbce7920442bbf76ec 2011-07-04 21:34:49 +0200 Gaëtan RENAUDEAU <renaudeau.gaetan@gmail.com> Improve desktop version
+35085e9572ca29f21e0c04617e633329c063ceb9 2011-06-24 19:46:39 +0200 Gaetan Renaudeau <gre@zenexity.com> Release Same Game Gravity Desktop version source code in GPL 3 :)
+origin	https://github.com/gre/same-game-gravity.git (fetch)
+origin	https://github.com/gre/same-game-gravity.git (push)

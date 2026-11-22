@@ -5,12 +5,13 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
-const root=path.resolve(here,'..');
+const root=path.resolve(here,'../public');
+const refRoot=path.resolve(here,'..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const exists=p=>fs.existsSync(path.join(root,p));
 
 const required=[
-  'index.html','style.css','LICENSE','README.md','THIRD_PARTY_NOTICES.md',
+  'index.html','style.css','LICENSE','THIRD_PARTY_NOTICES.md',
   'src/main.js','src/game.js','src/editor.js','src/highscores.js','src/levels-data.js','src/i18n.js',
   'assets/mainmenu.jpg','assets/options.jpg','assets/sprites.png','assets/font-yellow.png','assets/font-blue.png',
   'assets/music/satisfy.ogg','assets/music/ritam.ogg','assets/music/dali.ogg'
@@ -30,9 +31,9 @@ for(const file of ['index.html','style.css',...fs.readdirSync(path.join(root,'sr
   }
 }
 
-const sums=read('reference/archives/SHA256SUMS').trim().split(/\r?\n/);
+const sums=fs.readFileSync(path.join(refRoot,'reference/archives/SHA256SUMS'),'utf8').trim().split(/\r?\n/);
 for(const line of sums){
-  const [want,name]=line.trim().split(/\s+/,2);const buf=fs.readFileSync(path.join(root,'reference/archives',name));
+  const [want,name]=line.trim().split(/\s+/,2);const buf=fs.readFileSync(path.join(refRoot,'reference/archives',name));
   const got=crypto.createHash('sha256').update(buf).digest('hex');assert.equal(got,want,`archive checksum mismatch: ${name}`);
 }
 

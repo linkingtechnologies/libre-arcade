@@ -7,7 +7,7 @@ import {
   getDifficultyForPlayer,
   getDifficultyForWinRate,
   pickOpponentForDifficulty
-} from "../src/ui/DifficultyRegistry.js";
+} from "../public/src/ui/DifficultyRegistry.js";
 
 test("the final global benchmark contains all 39 integrated players", () => {
   assert.equal(Object.keys(BENCHMARK_WIN_RATES).length, 39);

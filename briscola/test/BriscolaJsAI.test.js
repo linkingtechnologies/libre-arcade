@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { createDeck } from "../src/core/BriscolaRules.js";
-import { BriscolaJsAI, chooseS0Card, chooseAlphaBetaEndgameCard } from "../src/players/briscolajs/BriscolaJsAI.js";
-import { BriscolaJsS0Adapter, BriscolaJsS1Adapter } from "../src/players/briscolajs/BriscolaJsAdapter.js";
+import { createDeck } from "../public/src/core/BriscolaRules.js";
+import { BriscolaJsAI, chooseS0Card, chooseAlphaBetaEndgameCard } from "../public/src/players/briscolajs/BriscolaJsAI.js";
+import { BriscolaJsS0Adapter, BriscolaJsS1Adapter } from "../public/src/players/briscolajs/BriscolaJsAdapter.js";
 
 const deck = createDeck();
 const card = (id) => deck.find((item) => item.id === id);

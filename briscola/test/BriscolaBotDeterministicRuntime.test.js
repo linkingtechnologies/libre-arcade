@@ -7,7 +7,7 @@ import {
   BriscolaBotDeterministicRuntime,
   evaluateBriscolaBotPolicy,
   splitPolicyWeights
-} from "../src/players/briscolabot/BriscolaBotDeterministicRuntime.js";
+} from "../public/src/players/briscolabot/BriscolaBotDeterministicRuntime.js";
 
 test("BriscolaBot deterministic policy contains the exact 117,800 actor parameters", async () => {
   const bytes = await readFile(DEFAULT_BRISCOLABOT_POLICY_WEIGHTS_URL);

@@ -6,7 +6,7 @@ import {
   poianaCardVector,
   poianaTurn,
   vectorizePoianaObservation
-} from "../src/players/poiana/PoianaVectorizer.js";
+} from "../public/src/players/poiana/PoianaVectorizer.js";
 
 const trump = { id: "denari-1", suit: "denari", rank: 1, points: 11, strength: 10 };
 const card = (suit, rank, points) => ({ id: `${suit}-${rank}`, suit, rank, points, strength: 1 });

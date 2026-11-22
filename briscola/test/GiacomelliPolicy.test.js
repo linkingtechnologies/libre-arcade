@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { GiacomelliPolicy } from "../src/players/giacomelli/GiacomelliPolicy.js";
-import { PiGAdapter, PiHAdapter, PiCAdapter } from "../src/players/giacomelli/GiacomelliAdapter.js";
+import { GiacomelliPolicy } from "../public/src/players/giacomelli/GiacomelliPolicy.js";
+import { PiGAdapter, PiHAdapter, PiCAdapter } from "../public/src/players/giacomelli/GiacomelliAdapter.js";
 
 const c = (suit, rank, points, strength) => ({ id: `${suit}-${rank}`, suit, rank, points, strength });
 

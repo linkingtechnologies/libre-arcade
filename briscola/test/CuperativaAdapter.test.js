@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { BriscolaGame } from "../src/core/BriscolaGame.js";
-import { CuperativaAdapter } from "../src/players/cuperativa/CuperativaAdapter.js";
+import { BriscolaGame } from "../public/src/core/BriscolaGame.js";
+import { CuperativaAdapter } from "../public/src/players/cuperativa/CuperativaAdapter.js";
 
 if (typeof globalThis.CustomEvent === "undefined") {
   globalThis.CustomEvent = class CustomEvent extends Event {

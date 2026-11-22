@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Umberto Bresciani
+// SPDX-License-Identifier: MIT
 // Local addition, not upstream (see specs/html5-breakout/design.md's "Local modifications") —
 // fits #game-canvas within the viewport instead of letting it run at whatever size game.js's own
 // init() already picked.

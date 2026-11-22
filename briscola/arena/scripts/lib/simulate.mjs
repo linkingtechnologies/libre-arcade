@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-only
-import { BriscolaGame } from "../../../src/core/BriscolaGame.js";
+import { BriscolaGame } from "../../../public/src/core/BriscolaGame.js";
 
 if (typeof globalThis.CustomEvent === "undefined") {
   globalThis.CustomEvent = class CustomEvent extends Event {

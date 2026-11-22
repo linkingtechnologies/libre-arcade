@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import assert from "node:assert/strict";
 import test from "node:test";
-import { freshGameSeed, nextSeriesScore, nextStartingPlayer } from "../src/ui/WebUI.js";
+import { freshGameSeed, nextSeriesScore, nextStartingPlayer } from "../public/src/ui/WebUI.js";
 
 test("a new game gets the current timestamp when it differs from the previous seed", () => {
   assert.equal(freshGameSeed(100, 200), 200);

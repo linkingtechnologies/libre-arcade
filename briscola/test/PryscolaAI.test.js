@@ -2,12 +2,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { PryscolaAI } from "../src/players/pryscola/PryscolaAI.js";
+import { PryscolaAI } from "../public/src/players/pryscola/PryscolaAI.js";
 import {
   pryscolaCard,
   pryscolaBeats,
   toPryscolaCard
-} from "../src/players/pryscola/PryscolaCard.js";
+} from "../public/src/players/pryscola/PryscolaCard.js";
 
 const c = (seed, value) => pryscolaCard(seed, value);
 

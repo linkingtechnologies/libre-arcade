@@ -2,8 +2,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { BriscolaGame } from "../src/core/BriscolaGame.js";
-import { JBriscolaAdapter } from "../src/players/jbriscola/JBriscolaAdapter.js";
+import { BriscolaGame } from "../public/src/core/BriscolaGame.js";
+import { JBriscolaAdapter } from "../public/src/players/jbriscola/JBriscolaAdapter.js";
 
 if (typeof globalThis.CustomEvent === "undefined") {
   globalThis.CustomEvent = class CustomEvent extends Event {

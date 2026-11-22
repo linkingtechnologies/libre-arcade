@@ -7,8 +7,8 @@ import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
-const uiSource = fs.readFileSync(path.join(root, "src/ui/WebUI.js"), "utf8");
-const cssSource = fs.readFileSync(path.join(root, "styles.css"), "utf8");
+const uiSource = fs.readFileSync(path.join(root, "public/src/ui/WebUI.js"), "utf8");
+const cssSource = fs.readFileSync(path.join(root, "public/styles.css"), "utf8");
 
 test("game UI keeps resolved tricks visible and animates CPU/human plays", () => {
   assert.match(uiSource, /addEventListener\("cardplayed"/);

@@ -1,0 +1,74 @@
+[
+  {
+    "v_over_vH": 1,
+    "comet_60Hz": "1.8 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "759 px/s ok",
+    "nova_with_clamp": "1202 px/s ok",
+    "nova_no_clamp": "ok"
+  },
+  {
+    "v_over_vH": 2,
+    "comet_60Hz": "3.7 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "1517 px/s ok",
+    "nova_with_clamp": "2404 px/s ok",
+    "nova_no_clamp": "ok"
+  },
+  {
+    "v_over_vH": 3,
+    "comet_60Hz": "5.5 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "2276 px/s ok",
+    "nova_with_clamp": "3607 px/s ok",
+    "nova_no_clamp": "ok"
+  },
+  {
+    "v_over_vH": 5,
+    "comet_60Hz": "9.1 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "3793 px/s ok",
+    "nova_with_clamp": "6011 px/s ok",
+    "nova_no_clamp": "TUNNELS"
+  },
+  {
+    "v_over_vH": 8,
+    "comet_60Hz": "14.6 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "6068 px/s ok",
+    "nova_with_clamp": "9618 px/s ok",
+    "nova_no_clamp": "TUNNELS"
+  },
+  {
+    "v_over_vH": 12,
+    "comet_60Hz": "22.0 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "9103 px/s ok",
+    "nova_with_clamp": "14427 px/s ok",
+    "nova_no_clamp": "TUNNELS"
+  },
+  {
+    "v_over_vH": 20,
+    "comet_60Hz": "36.6 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "15171 px/s ok",
+    "nova_with_clamp": "24045 px/s ok",
+    "nova_no_clamp": "TUNNELS"
+  },
+  {
+    "v_over_vH": 40,
+    "comet_60Hz": "73.2 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "30342 px/s ok",
+    "nova_with_clamp": "48090 px/s ok",
+    "nova_no_clamp": "TUNNELS"
+  },
+  {
+    "v_over_vH": 80,
+    "comet_60Hz": "146.4 m/s ok",
+    "comet_240Hz": "ok",
+    "mech_night": "60684 px/s ok",
+    "nova_with_clamp": "96179 px/s ok",
+    "nova_no_clamp": "TUNNELS"
+  }
+]

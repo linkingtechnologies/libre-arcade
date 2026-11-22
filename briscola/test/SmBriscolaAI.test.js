@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import test from "node:test";
 import assert from "node:assert/strict";
-import { SmBriscolaEmpirico1AI } from "../src/players/smbriscola/SmBriscolaEmpirico1AI.js";
-import { SmBriscolaEmpirico2AI } from "../src/players/smbriscola/SmBriscolaEmpirico2AI.js";
-import { smCarta } from "../src/players/smbriscola/SmBriscolaCard.js";
+import { SmBriscolaEmpirico1AI } from "../public/src/players/smbriscola/SmBriscolaEmpirico1AI.js";
+import { SmBriscolaEmpirico2AI } from "../public/src/players/smbriscola/SmBriscolaEmpirico2AI.js";
+import { smCarta } from "../public/src/players/smbriscola/SmBriscolaCard.js";
 
 function state({ hand, trump, played = null }) {
   return {

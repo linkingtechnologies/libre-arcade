@@ -9,10 +9,10 @@ import {
   getDeckBackUrl,
   parseDeckManifest,
   preloadDeckImages
-} from "../src/ui/DeckRegistry.js";
+} from "../public/src/ui/DeckRegistry.js";
 
 async function loadDeck(folder) {
-  const manifestPath = fileURLToPath(new URL(`../assets/decks/${folder}/briscolab_manifest.json`, import.meta.url));
+  const manifestPath = fileURLToPath(new URL(`../public/assets/decks/${folder}/briscolab_manifest.json`, import.meta.url));
   const manifestUrl = pathToFileURL(manifestPath);
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
   return { manifest, deck: parseDeckManifest(manifest, { manifestUrl }) };
@@ -51,7 +51,7 @@ test("deck geometry trusts width/height over rounded aspectRatio", async () => {
 });
 
 test("deck index preserves both bundled historical decks", async () => {
-  const index = JSON.parse(await readFile(new URL("../assets/decks/index.json", import.meta.url), "utf8"));
+  const index = JSON.parse(await readFile(new URL("../public/assets/decks/index.json", import.meta.url), "utf8"));
   const manifests = index.decks.map((item) => item.manifest).sort();
   assert.deepEqual(manifests, [
     "./napoletane-pignalosa-1882/briscolab_manifest.json",
